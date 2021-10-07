@@ -1,0 +1,54 @@
+﻿<ticket>
+	<number>3819926059</number>
+	<status>issued</status>
+	<locator>381B3CE4</locator>
+	<type>Ticket</type>
+	<booked_at>2021-08-28T16:34:43+03:00</booked_at>
+	<last_transaction_at>2021-08-28T16:36:07+03:00</last_transaction_at>
+	<total_price>
+		<amount>2792.54</amount>
+		<currency>UAH</currency>
+	</total_price>
+	<fare>
+		<amount>2154.32</amount>
+		<currency>UAH</currency>
+	</fare>
+	<taxes>
+		<amount>638.22</amount>
+		<currency>UAH</currency>
+	</taxes>
+	<commission>0.0</commission>
+	<commission_equivalent>0.0</commission_equivalent>
+	<originator>
+		<id>YMHMOK</id>
+		<name>Armen hovhannesian</name>
+	</originator>
+	<company>
+		<id>0WBQPR</id>
+		<name>Одесса филиал</name>
+	</company>
+	<channel>Bees</channel>
+	<passenger>
+		<first_name>KARINE</first_name>
+		<last_name>KHACHATRYAN</last_name>
+		<type>ADT</type>
+	</passenger>
+	<segments>
+		<segment>
+			<validating_carrier>7B</validating_carrier>
+			<carrier>7B</carrier>
+			<flight_number>303</flight_number>
+			<departure_airport_code>ODS</departure_airport_code>
+			<departure_airport_name>Одесса</departure_airport_name>
+			<arrival_airport_code>EVN</arrival_airport_code>
+			<arrival_airport_name>Звартноц</arrival_airport_name>
+			<departured_at>2021-09-06T08:20:00</departured_at>
+			<arrived_at>2021-09-06T11:30:00</arrived_at>
+			<duration>02:10</duration>
+			<baggage>1PC</baggage>
+			<flight_class>Economy</flight_class>
+			<booking_class>M1</booking_class>
+			<fare_basis>Smart</fare_basis>
+		</segment>
+	</segments>
+</ticket>

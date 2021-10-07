@@ -1,0 +1,64 @@
+﻿<div class="block documents">
+	<div class="header">
+		<div class="title" data-bind="text: title"></div>
+		<div class="actions">&nbsp;</div>
+	</div>
+	<div class="content" data-bind="with: documents">
+		<!-- ko if: showDocuments() -->
+		<ul class="section">
+			<!-- ko if: UnprocessedDocuments !== 0 || UnpaidDocuments !== 0 -->
+			<li>
+				<a href="#" data-bind="click: openUnprocessedDocuments, text: 'Необработанные документы (' + UnprocessedDocuments + ')', css: { red: UnprocessedDocuments !== 0, pale: UnprocessedDocuments === 0 }"></a>,
+				<a href="#" data-bind="click: openUnpaidDocuments, text: 'неоплаченные (' + UnpaidDocuments + ')', css: { red: UnpaidDocuments !== 0, pale: UnpaidDocuments === 0 }"></a>
+			</li>
+			<!-- /ko -->
+			<!-- ko if: DocumentsWithoutOwners !== 0 -->
+			<li>
+				<a href="#" data-bind="click: openDocumentsWithoutOwners, text: 'Документы без владельца (' + DocumentsWithoutOwners + ')', css: { red: DocumentsWithoutOwners !== 0, pale: DocumentsWithoutOwners === 0 }"></a>,
+			</li>
+			<!-- /ko -->
+			<!-- ko if: showPassportRequirements() -->
+			<li>
+				<a href="#" data-bind="click: openPassportRequirements, text: 'Требуются паспорта (' + PassportRequirements.length + ')', css: { pale: PassportRequirements.length === 0 }"></a>,
+				<a href="#" data-bind="click: openUrgentPassportRequirements, text: 'срочно (' + UrgentPassportRequirements.length + ')', css: { red: UrgentPassportRequirements.length !== 0, pale: UrgentPassportRequirements.length === 0 }"></a>,
+				<a href="#" data-bind="click: openIncorrectPassports, text: 'некорректных (' + IncorrectPassports.length + ')', css: { red: IncorrectPassports.length !== 0, pale: IncorrectPassports.length === 0 }"></a>
+			</li>
+			<!-- /ko -->
+		</ul>
+		<!-- /ko -->
+		<!-- ko if: OrdersToPay !== 0 || OrdersToExecute !== 0 || OrdersWithDebt !== 0 -->
+		<ul class="section">
+			<!-- ko if: OrdersToPay !== 0 -->
+			<li><a href="#" class="orange" data-bind="click: openOrdersToPay, text: 'Заказы к оплате (' + OrdersToPay + ')'"></a></li>
+			<!-- /ko -->
+			<!-- ko if: OrdersToExecute !== 0 -->
+			<li><a href="#" class="green" data-bind="click: openOrdersToExecute, text: 'Заказы к исполнению (' + OrdersToExecute + ')'"></a></li>
+			<!-- /ko -->
+			<!-- ko if: OrdersWithDebt !== 0 -->
+			<li><a href="#" class="red" data-bind="click: openOrdersWithDebt, text: 'Заказы с долгами (' + OrdersWithDebt + ')'"></a></li>
+			<!-- /ko -->
+		</ul>
+		<!-- /ko -->
+		<!-- ko if: DayStats.length !== 0 -->
+		<table class="section agent-reports">
+			<thead><tr><th>Выпуск документов</th><th>К обработке</th><th>Всего</th></tr></thead>
+			<tbody data-bind="foreach: DayStats"><tr>
+				<td>
+					<!-- ko if: ReportUrl -->
+					<a data-bind="attr: { href: ReportUrl }, text: (DateText ? DateText + ' - ' : '') + Date.format('d.m.Y')" target="_blank"></a>
+					<!-- /ko -->
+					<!-- ko ifnot: ReportUrl -->
+					<span data-bind="text: (DateText ? DateText + ' - ' : '') + Date.format('d.m.Y')"></span>
+					<!-- /ko -->
+				</td>
+				<td><a href="#" data-bind="click: $parent.openUnprocessedDayDocuments, text: Unprocessed, css: { red: Unprocessed !== 0, pale: Unprocessed === 0 }"></a></td>
+				<td>
+					<a href="#" data-bind="click: $parent.openAllDayDocuments">
+						<span data-bind="text: Total, css: { pale: Total === 0 }"></span> <span data-bind="text: '(' + Void + ')'" class="pale"></span>
+					</a>
+				</td>
+			</tr></tbody>
+		</table>
+		<!-- /ko -->
+	</div>
+</div>

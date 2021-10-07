@@ -1,0 +1,356 @@
+2015-10-29 10:29:28.1068|ERROR|WebApi|Npgsql.NpgsqlException:
+ошибка синтаксиса (примерное положение: "as")
+Severity: ОШИБКА
+Code: 42601
+   at Npgsql.NpgsqlState.<ProcessBackendResponses>d__0.MoveNext()
+   at Npgsql.ForwardsOnlyDataReader.GetNextResponseObject(Boolean cleanup)
+   at Npgsql.ForwardsOnlyDataReader.GetNextRowDescription()
+   at Npgsql.ForwardsOnlyDataReader.NextResultInternal()
+   at Npgsql.ForwardsOnlyDataReader..ctor(IEnumerable`1 dataEnumeration, CommandBehavior behavior, NpgsqlCommand command, NotificationThreadBlock threadBlock, Boolean preparedStatement, NpgsqlRowDescription rowDescription)
+   at Npgsql.NpgsqlCommand.GetReader(CommandBehavior cb)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior cb)
+   at System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext,TResult](TTarget target, Func`3 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   at System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.Reader(DbCommand command, DbCommandInterceptionContext interceptionContext)
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteStoreQueryInternal[TElement](String commandText, String entitySetName, ExecutionOptions executionOptions, Object[] parameters)
+   at System.Data.Entity.Core.Objects.ObjectContext.<>c__DisplayClass65`1.<ExecuteStoreQueryReliably>b__64()
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectContext.<>c__DisplayClass65`1.<ExecuteStoreQueryReliably>b__63()
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteStoreQueryReliably[TElement](String commandText, String entitySetName, ExecutionOptions executionOptions, Object[] parameters)
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteStoreQuery[TElement](String commandText, ExecutionOptions executionOptions, Object[] parameters)
+   at System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at Luxena.Travel.Domain.OrderBalanceReportQuery.Get() in D:\data\git\Luxena.Travel\src.15\Domain\Entities\Analysis\OrderBalanceReport.cs:line 52
+   at Luxena.Domain.Web.DbQueryODataController`4.Get(ODataQueryOptions`1 options) in D:\data\git\Luxena.Travel\src.15\Luxena.Libs.15\Luxena.Domain.Web\OData\DbQueryODataController.cs:line 49
+   at lambda_method(Closure , Object , Object[] )
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Dispatcher.HttpControllerDispatcher.<SendAsync>d__1.MoveNext()
+2015-10-29 10:29:28.2551|ERROR|WebApi|
+select 
+	a.*,
+	o.number_ as OrderNumber
+from 
+	(
+		select
+			t.order_ as OrderId, 
+			coalesce(sum(delivered) as Delivered, 
+			coalesce(sum(paid), 0) as Paid,
+			coalesce(sum(paid), 0) - coalesce(sum(delivered), 0) as Balance
+		from 
+			(
+				select
+					order_, 
+					sum(case when isrefund then -grandtotal_amount else grandtotal_amount end) delivered, 0 paid
+				from
+					lt_product
+				where
+					 customer = (('006382cbfb92403ca8613fbde34da5da')) and issuedate >= (('-infinity')::timestamp) and not isreservation and not isvoid
+				group by
+					order_
+
+				union all
+
+				select
+					order_, 0, sum(amount_amount)
+				from
+					lt_payment
+				where
+					payer = (('006382cbfb92403ca8613fbde34da5da')) and postedon >= (('-infinity')::timestamp) and not isvoid
+				group by
+					order_
+
+				union all
+
+				select
+					fromorder, 0, -sum(amount)
+				from
+					lt_internal_transfer
+				where
+					fromparty = (('006382cbfb92403ca8613fbde34da5da')) and date_ >= (('-infinity')::timestamp) -- and not isvoid
+				group by
+					fromorder
+
+				union all
+
+				select
+					toorder, 0, sum(amount)
+				from
+					lt_internal_transfer
+				where
+					toparty = (('006382cbfb92403ca8613fbde34da5da')) and date_ >= (('-infinity')::timestamp) -- and not isvoid
+				group by
+					toorder
+			) t			
+		group by
+			OrderId
+	) a
+	left outer join lt_order o on o.id = a.OrderId
+where
+	Balance <> 0 and (OrderId is null or not o.isvoid)
+
+order by
+	Balance nulls first
+
+2015-10-29 10:30:18.7736|ERROR|WebApi|Microsoft.OData.Core.ODataException: The property 'OrderId[Nullable=False]' of type 'Edm.String' has a null value, which is not allowed.
+   at Microsoft.OData.Core.WriterValidationUtils.ValidateNullPropertyValue(IEdmTypeReference expectedPropertyTypeReference, String propertyName, ODataWriterBehavior writerBehavior, IEdmModel model, Boolean bypassValidation)
+   at Microsoft.OData.Core.JsonLight.ODataJsonLightPropertySerializer.WriteProperty(ODataProperty property, IEdmStructuredType owningType, Boolean isTopLevel, Boolean allowStreamProperty, DuplicatePropertyNamesChecker duplicatePropertyNamesChecker, ProjectedPropertiesAnnotation projectedProperties)
+   at Microsoft.OData.Core.JsonLight.ODataJsonLightPropertySerializer.WriteProperties(IEdmStructuredType owningType, IEnumerable`1 properties, Boolean isComplexValue, DuplicatePropertyNamesChecker duplicatePropertyNamesChecker, ProjectedPropertiesAnnotation projectedProperties)
+   at Microsoft.OData.Core.JsonLight.ODataJsonLightWriter.StartEntry(ODataEntry entry)
+   at Microsoft.OData.Core.ODataWriterCore.InterceptException(Action action)
+   at Microsoft.OData.Core.ODataWriterCore.WriteStartEntryImplementation(ODataEntry entry)
+   at System.Web.OData.Formatter.Serialization.ODataEntityTypeSerializer.WriteEntry(Object graph, ODataWriter writer, ODataSerializerContext writeContext)
+   at System.Web.OData.Formatter.Serialization.ODataFeedSerializer.WriteFeed(IEnumerable enumerable, IEdmTypeReference feedType, ODataWriter writer, ODataSerializerContext writeContext)
+   at System.Web.OData.Formatter.ODataMediaTypeFormatter.WriteToStream(Type type, Object value, Stream writeStream, HttpContent content, HttpContentHeaders contentHeaders)
+   at System.Web.OData.Formatter.ODataMediaTypeFormatter.WriteToStreamAsync(Type type, Object value, Stream writeStream, HttpContent content, TransportContext transportContext, CancellationToken cancellationToken)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.WebHost.HttpControllerHandler.<WriteBufferedResponseContentAsync>d__1b.MoveNext()
+2015-10-29 10:33:00.1763|ERROR|WebApi|System.ArgumentOutOfRangeException: The UTC time represented when the offset is applied must be between year 0 and 10,000.
+Parameter name: offset
+   at System.DateTimeOffset.ValidateDate(DateTime dateTime, TimeSpan offset)
+   at System.DateTimeOffset..ctor(DateTime dateTime)
+   at System.DateTimeOffset.op_Implicit(DateTime dateTime)
+   at Luxena.Travel.Domain.OrderBalanceReportQuery.Get() in D:\data\git\Luxena.Travel\src.15\Domain\Entities\Analysis\OrderBalanceReport.cs:line 51
+   at Luxena.Domain.Web.DbQueryODataController`4.Get(ODataQueryOptions`1 options) in D:\data\git\Luxena.Travel\src.15\Luxena.Libs.15\Luxena.Domain.Web\OData\DbQueryODataController.cs:line 49
+   at lambda_method(Closure , Object , Object[] )
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Dispatcher.HttpControllerDispatcher.<SendAsync>d__1.MoveNext()
+2015-10-29 11:19:43.4729|ERROR|WebApi|Npgsql.NpgsqlException:
+колонка o.grandtotal_currency не существует
+Severity: ОШИБКА
+Code: 42703
+   at Npgsql.NpgsqlState.<ProcessBackendResponses>d__0.MoveNext()
+   at Npgsql.ForwardsOnlyDataReader.GetNextResponseObject(Boolean cleanup)
+   at Npgsql.ForwardsOnlyDataReader.GetNextRowDescription()
+   at Npgsql.ForwardsOnlyDataReader.NextResultInternal()
+   at Npgsql.ForwardsOnlyDataReader..ctor(IEnumerable`1 dataEnumeration, CommandBehavior behavior, NpgsqlCommand command, NotificationThreadBlock threadBlock, Boolean preparedStatement, NpgsqlRowDescription rowDescription)
+   at Npgsql.NpgsqlCommand.GetReader(CommandBehavior cb)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior cb)
+   at System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext,TResult](TTarget target, Func`3 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   at System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.Reader(DbCommand command, DbCommandInterceptionContext interceptionContext)
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteStoreQueryInternal[TElement](String commandText, String entitySetName, ExecutionOptions executionOptions, Object[] parameters)
+   at System.Data.Entity.Core.Objects.ObjectContext.<>c__DisplayClass65`1.<ExecuteStoreQueryReliably>b__64()
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectContext.<>c__DisplayClass65`1.<ExecuteStoreQueryReliably>b__63()
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteStoreQueryReliably[TElement](String commandText, String entitySetName, ExecutionOptions executionOptions, Object[] parameters)
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteStoreQuery[TElement](String commandText, ExecutionOptions executionOptions, Object[] parameters)
+   at System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at Luxena.Travel.Domain.OrderBalanceReportQuery.Get() in D:\data\git\Luxena.Travel\src.15\Domain\Entities\Analysis\OrderBalanceReport.cs:line 51
+   at Luxena.Domain.Web.DbQueryODataController`4.Get(ODataQueryOptions`1 options) in D:\data\git\Luxena.Travel\src.15\Luxena.Libs.15\Luxena.Domain.Web\OData\DbQueryODataController.cs:line 49
+   at lambda_method(Closure , Object , Object[] )
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Dispatcher.HttpControllerDispatcher.<SendAsync>d__1.MoveNext()
+2015-10-29 11:19:43.5047|ERROR|WebApi|
+select 
+	a.*,
+	o.grandtotal_currency as Currency,
+	o.number_ as OrderNumber
+from 
+	(
+		select
+			coalesce(t.order_, '') as OrderId, 
+			coalesce(sum(delivered), 0) as Delivered, 
+			coalesce(sum(paid), 0) as Paid,
+			coalesce(sum(paid), 0) - coalesce(sum(delivered), 0) as Balance
+		from 
+			(
+				select
+					order_, 
+					sum(case when isrefund then -grandtotal_amount else grandtotal_amount end) as delivered, 
+					0 as paid
+				from
+					lt_product
+				where
+					 customer = (('006382cbfb92403ca8613fbde34da5da')) and issuedate >= (('-infinity')) and not isreservation and not isvoid
+				group by
+					order_
+
+				union all
+
+				select
+					order_, 0, sum(amount_amount)
+				from
+					lt_payment
+				where
+					payer = (('006382cbfb92403ca8613fbde34da5da')) and postedon >= (('-infinity')) and not isvoid
+				group by
+					order_
+
+				union all
+
+				select
+					fromorder, 0, -sum(amount)
+				from
+					lt_internal_transfer
+				where
+					fromparty = (('006382cbfb92403ca8613fbde34da5da')) and date_ >= (('-infinity')) -- and not isvoid
+				group by
+					fromorder
+
+				union all
+
+				select
+					toorder, 0, sum(amount)
+				from
+					lt_internal_transfer
+				where
+					toparty = (('006382cbfb92403ca8613fbde34da5da')) and date_ >= (('-infinity')) -- and not isvoid
+				group by
+					toorder
+			) t			
+		group by
+			OrderId
+	) a
+	left outer join lt_order o on o.id = a.OrderId
+where
+	Balance <> 0 and (OrderId is null or not o.isvoid)
+
+order by
+	Balance desc nulls first
+
+2015-10-29 11:20:06.6780|ERROR|WebApi|Npgsql.NpgsqlException:
+колонка o.grandtotal_currency не существует
+Severity: ОШИБКА
+Code: 42703
+   at Npgsql.NpgsqlState.<ProcessBackendResponses>d__0.MoveNext()
+   at Npgsql.ForwardsOnlyDataReader.GetNextResponseObject(Boolean cleanup)
+   at Npgsql.ForwardsOnlyDataReader.GetNextRowDescription()
+   at Npgsql.ForwardsOnlyDataReader.NextResultInternal()
+   at Npgsql.ForwardsOnlyDataReader..ctor(IEnumerable`1 dataEnumeration, CommandBehavior behavior, NpgsqlCommand command, NotificationThreadBlock threadBlock, Boolean preparedStatement, NpgsqlRowDescription rowDescription)
+   at Npgsql.NpgsqlCommand.GetReader(CommandBehavior cb)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior cb)
+   at System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext,TResult](TTarget target, Func`3 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   at System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.Reader(DbCommand command, DbCommandInterceptionContext interceptionContext)
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteStoreQueryInternal[TElement](String commandText, String entitySetName, ExecutionOptions executionOptions, Object[] parameters)
+   at System.Data.Entity.Core.Objects.ObjectContext.<>c__DisplayClass65`1.<ExecuteStoreQueryReliably>b__64()
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectContext.<>c__DisplayClass65`1.<ExecuteStoreQueryReliably>b__63()
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteStoreQueryReliably[TElement](String commandText, String entitySetName, ExecutionOptions executionOptions, Object[] parameters)
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteStoreQuery[TElement](String commandText, ExecutionOptions executionOptions, Object[] parameters)
+   at System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at Luxena.Travel.Domain.OrderBalanceReportQuery.Get() in D:\data\git\Luxena.Travel\src.15\Domain\Entities\Analysis\OrderBalanceReport.cs:line 51
+   at Luxena.Domain.Web.DbQueryODataController`4.Get(ODataQueryOptions`1 options) in D:\data\git\Luxena.Travel\src.15\Luxena.Libs.15\Luxena.Domain.Web\OData\DbQueryODataController.cs:line 49
+   at lambda_method(Closure , Object , Object[] )
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Dispatcher.HttpControllerDispatcher.<SendAsync>d__1.MoveNext()
+2015-10-29 11:20:06.6780|ERROR|WebApi|
+select 
+	a.*,
+	o.grandtotal_currency as Currency,
+	o.number_ as OrderNumber
+from 
+	(
+		select
+			coalesce(t.order_, '') as OrderId, 
+			coalesce(sum(delivered), 0) as Delivered, 
+			coalesce(sum(paid), 0) as Paid,
+			coalesce(sum(paid), 0) - coalesce(sum(delivered), 0) as Balance
+		from 
+			(
+				select
+					order_, 
+					sum(case when isrefund then -grandtotal_amount else grandtotal_amount end) as delivered, 
+					0 as paid
+				from
+					lt_product
+				where
+					 customer = (('006382cbfb92403ca8613fbde34da5da')) and issuedate >= (('-infinity')) and not isreservation and not isvoid
+				group by
+					order_
+
+				union all
+
+				select
+					order_, 0, sum(amount_amount)
+				from
+					lt_payment
+				where
+					payer = (('006382cbfb92403ca8613fbde34da5da')) and postedon >= (('-infinity')) and not isvoid
+				group by
+					order_
+
+				union all
+
+				select
+					fromorder, 0, -sum(amount)
+				from
+					lt_internal_transfer
+				where
+					fromparty = (('006382cbfb92403ca8613fbde34da5da')) and date_ >= (('-infinity')) -- and not isvoid
+				group by
+					fromorder
+
+				union all
+
+				select
+					toorder, 0, sum(amount)
+				from
+					lt_internal_transfer
+				where
+					toparty = (('006382cbfb92403ca8613fbde34da5da')) and date_ >= (('-infinity')) -- and not isvoid
+				group by
+					toorder
+			) t			
+		group by
+			OrderId
+	) a
+	left outer join lt_order o on o.id = a.OrderId
+where
+	Balance <> 0 and (OrderId is null or not o.isvoid)
+
+order by
+	Balance desc nulls first
+

@@ -1,0 +1,837 @@
+﻿{
+	"version": "15.2.4",
+	"date": "1/26/2016",
+	"themeId": "1",
+	"hue": null,
+	"highlightColor": "#f57c00",
+	"items": [
+		{
+			"key": "@GENERIC_SELECTED_STATE_TEXT_COLOR",
+			"value": "#ffffff"
+		},
+		{
+			"key": "@GENERIC_LIST_FOCUSED_SELECTED_BACKGROUND_COLOR",
+			"value": "rgba(245,124,0,0.7)"
+		},
+		{
+			"key": "@GENERIC_LIST_FOCUSED_BACKGROUND_COLOR",
+			"value": "#f57c00"
+		},
+		{
+			"key": "@BASE_BACKGROUND_COLOR",
+			"value": "rgba(255, 255, 255, 1)"
+		},
+		{
+			"key": "@BASE_HANDLE_NORMAL_COLOR",
+			"value": "rgb(96, 96, 96)"
+		},
+		{
+			"key": "@BASE_HANDLE_LIGHT_COLOR",
+			"value": "#9f9f9f"
+		},
+		{
+			"key": "@BASE_HANDLE_ACTIVE_COLOR",
+			"value": "#3d3d3d"
+		},
+		{
+			"key": "@GENERIC_FONT_FAMILY",
+			"value": "Helvetica Neue', 'Segoe UI', Helvetica, Verdana, sans-serif"
+		},
+		{
+			"key": "@BASE_TEXT_COLOR",
+			"value": "#232323"
+		},
+		{
+			"key": "@GENERIC_LABEL_COLOR",
+			"value": "rgba(118, 118, 118, 1)"
+		},
+		{
+			"key": "@GENERIC_LINK_COLOR",
+			"value": "rgb(96, 96, 96)"
+		},
+		{
+			"key": "@BASE_ICON_COLOR",
+			"value": "rgba(118, 118, 118, 1)"
+		},
+		{
+			"key": "@GENERIC_BADGE_BACKGROUNG",
+			"value": "#31afe3"
+		},
+		{
+			"key": "@GENERIC_BADGE_TEXT_COLOR",
+			"value": "#ffffff"
+		},
+		{
+			"key": "@GENERIC_TEXTEDITOR_BORDER_COLOR",
+			"value": "#d3d3d3"
+		},
+		{
+			"key": "@GENERIC_TEXTEDITOR_BACKGROUND",
+			"value": "#fafafa"
+		},
+		{
+			"key": "@GENERIC_TEXTEDITOR_FOCUS_BORDER_COLOR",
+			"value": "#f57c00"
+		},
+		{
+			"key": "@GENERIC_TEXTEDITOR_HOVER_BORDER_COLOR",
+			"value": "rgba(96, 96, 96, 0.4)"
+		},
+		{
+			"key": "@GENERIC_TEXTEDITOR_COLOR",
+			"value": "#232323"
+		},
+		{
+			"key": "@GENERIC_TEXTEDITOR_PLACEHOLDER_COLOR",
+			"value": "#a8a8a8"
+		},
+		{
+			"key": "@GENERIC_BASE_INVALID_COLOR",
+			"value": "#EA4444"
+		},
+		{
+			"key": "@GENERIC_BASE_FADED_INVALID_COLOR",
+			"value": "rgba(234,68,68,0.4)"
+		},
+		{
+			"key": "@GENERIC_RADIOGROUP_CHECK_BACKGROUND_COLOR",
+			"value": "#f57c00"
+		},
+		{
+			"key": "@GENERIC_RADIOGROUP_BORDER_COLOR",
+			"value": "#d3d3d3"
+		},
+		{
+			"key": "@GENERIC_RADIOGROUP_BACKGROUND_COLOR",
+			"value": "#fafafa"
+		},
+		{
+			"key": "@GENERIC_RADIOGROUP_ACTIVE_BACKGROUND_COLOR",
+			"value": "rgba(96, 96, 96, 0.2)"
+		},
+		{
+			"key": "@GENERIC_RADIOGROUP_HOVER_BORDER_COLOR",
+			"value": "#f57c00"
+		},
+		{
+			"key": "@GENERIC_RADIOBUTTON_FOCUSED_BORDER_COLOR",
+			"value": "#f57c00"
+		},
+		{
+			"key": "@GENERIC_CHECKBOX_BORDER_COLOR",
+			"value": "#d3d3d3"
+		},
+		{
+			"key": "@GENERIC_CHECKBOX_FOCUSED_BORDER_COLOR",
+			"value": "#f57c00"
+		},
+		{
+			"key": "@GENERIC_CHECKBOX_BACKGROUND",
+			"value": "#fafafa"
+		},
+		{
+			"key": "@GENERIC_CHECKBOX_HOVER_BORDER_COLOR",
+			"value": "#f57c00"
+		},
+		{
+			"key": "@GENERIC_CHECKBOX_ACTIVE_BACKGROUND_COLOR",
+			"value": "rgba(96, 96, 96, 0.2)"
+		},
+		{
+			"key": "@GENERIC_SWITCH_BORDER_COLOR",
+			"value": "#d3d3d3"
+		},
+		{
+			"key": "@GENERIC_SWITCH_ON_COLOR",
+			"value": "#f57c00"
+		},
+		{
+			"key": "@GENERIC_SWITCH_HANDLE_ACTIVE_STATE_BACKGROUND_COLOR",
+			"value": "rgba(61, 61, 61, 1)"
+		},
+		{
+			"key": "@GENERIC_SWITCH_HOVER_STATE_BORDER_COLOR",
+			"value": "#f57c00"
+		},
+		{
+			"key": "@GENERIC_SWITCH_FOCUS_STATE_BORDER_COLOR",
+			"value": "#f57c00"
+		},
+		{
+			"key": "@GENERIC_SWITCH_ACTIVE_STATE_BACKGROUND_COLOR",
+			"value": "rgba(245, 124, 0, 1)"
+		},
+		{
+			"key": "@GENERIC_SWITCH_ACTIVE_STATE_BORDER_COLOR",
+			"value": "#f57c00"
+		},
+		{
+			"key": "@GENERIC_SWITCH_OFF_TEXT_COLOR",
+			"value": "rgba(245, 124, 0, 1)"
+		},
+		{
+			"key": "@GENERIC_CALENDAR_TEXT_COLOR",
+			"value": "#232323"
+		},
+		{
+			"key": "@GENERIC_CALENDAR_HEADER_TEXT_COLOR",
+			"value": "#a8a8a8"
+		},
+		{
+			"key": "@GENERIC_CALENDAR_OTHER_VIEW_TEXT_COLOR",
+			"value": "#9f9f9f"
+		},
+		{
+			"key": "@GENERIC_CALENDAR_BACKGROUND_COLOR",
+			"value": "#ffffff"
+		},
+		{
+			"key": "@GENERIC_CALENDAR_HOVER_BACKGROUND",
+			"value": "rgba(245,124,0,0.15)"
+		},
+		{
+			"key": "@GENERIC_CALENDAR_SELECTED_BACKGROUND_COLOR",
+			"value": "#f57c00"
+		},
+		{
+			"key": "@GENERIC_CALENDAR_ACTIVE_BACKGROUND_COLOR",
+			"value": "rgba(96, 96, 96, .2)"
+		},
+		{
+			"key": "@GENERIC_CALENDAR_BORDER_COLOR",
+			"value": "#d3d3d3"
+		},
+		{
+			"key": "@GENERIC_CALENDAR_NAVIGATOR_BORDER_COLOR",
+			"value": "#e0e0e0"
+		},
+		{
+			"key": "@GENERIC_CALENDAR_NAVIGATOR_HOVER_BORDER_COLOR",
+			"value": "#b7b7b7"
+		},
+		{
+			"key": "@GENERIC_COLOR_VIEW_OVERLAY_BACKGROUND_COLOR",
+			"value": "#ffffff"
+		},
+		{
+			"key": "@GENERIC_NUMBERBOX_SPIN_ACTIVE_COLOR",
+			"value": "rgba(96, 96, 96, .2)"
+		},
+		{
+			"key": "@GENERIC_NUMBERBOX_SPIN_HOVER_STATE_BORDER_COLOR",
+			"value": "rgba(211,211,211,0.6)"
+		},
+		{
+			"key": "@GENERIC_DROPDOWNEDITOR_BUTTON_HOVER_STATE_BACKGROUND_COLOR",
+			"value": "#fafafa"
+		},
+		{
+			"key": "@GENERIC_DROPDOWNEDITOR_BUTTON_ACTIVE_STATE_BACKGROUND_COLOR",
+			"value": "rgba(96, 96, 96, .2)"
+		},
+		{
+			"key": "@GENERIC_SELECTBOX_BACKGROUND",
+			"value": "#ffffff"
+		},
+		{
+			"key": "@GENERIC_TAGBOX_TAG_ITEM_BACKGROUND_COLOR",
+			"value": "rgba(245,124,0,0.3)"
+		},
+		{
+			"key": "@GENERIC_TAGBOX_TAG_ITEM_TEXT_COLOR",
+			"value": "#232323"
+		},
+		{
+			"key": "@GENERIC_TAGBOX_TAG_ITEM_CLOSE_BUTTON_COLOR",
+			"value": "#f57c00"
+		},
+		{
+			"key": "@GENERIC_FILEUPLOADER_FILENAME_TEXT_COLOR",
+			"value": "#232323"
+		},
+		{
+			"key": "@GENERIC_FILEUPLOADER_STATUS_TEXT_COLOR",
+			"value": "#a8a8a8"
+		},
+		{
+			"key": "@GENERIC_FILEUPLOADER_BORDER_COLOR",
+			"value": "#d3d3d3"
+		},
+		{
+			"key": "@GENERIC_FORM_LABEL_COLOR",
+			"value": "rgba(118, 118, 118, 1)"
+		},
+		{
+			"key": "@GENERIC_FORM_GROUP_BORDER_COLOR",
+			"value": "rgba(211, 211, 211, 1)"
+		},
+		{
+			"key": "@GENERIC_DEFAULT_BUTTON_BACKGROUND_COLOR",
+			"value": "rgba(240, 251, 252, 1)"
+		},
+		{
+			"key": "@GENERIC_DEFAULT_BUTTON_TEXT_COLOR",
+			"value": "rgba(35, 35, 35, 1)"
+		},
+		{
+			"key": "@GENERIC_DEFAULT_BUTTON_BORDER_COLOR",
+			"value": "rgba(200, 222, 227, 1)"
+		},
+		{
+			"key": "@GENERIC_DEFAULT_BUTTON_HOVERED_STATE_BACKGROUND_COLOR",
+			"value": "rgba(240, 251, 252, 1)"
+		},
+		{
+			"key": "@GENERIC_DEFAULT_BUTTON_HOVERED_STATE_BORDER_COLOR",
+			"value": "rgba(173, 192, 196, 1)"
+		},
+		{
+			"key": "@GENERIC_DEFAULT_BUTTON_FOCUSED_STATE_BACKGROUND_COLOR",
+			"value": "rgba(240, 251, 252, 1)"
+		},
+		{
+			"key": "@GENERIC_DEFAULT_BUTTON_FOCUSED_STATE_BORDER_COLOR",
+			"value": "rgba(173, 192, 196, 1)"
+		},
+		{
+			"key": "@GENERIC_DEFAULT_BUTTON_ACTIVE_STATE_BACKGROUND_COLOR",
+			"value": "rgba(200, 222, 227, 1)"
+		},
+		{
+			"key": "@GENERIC_DEFAULT_BUTTON_ACTIVE_STATE_BORDER_COLOR",
+			"value": "rgba(173, 192, 196, 1)"
+		},
+		{
+			"key": "@GENERIC_NORMAL_BUTTON_BACKGROUD_COLOR",
+			"value": "#F5F5F5"
+		},
+		{
+			"key": "@GENERIC_NORMAL_BUTTON_TEXT_COLOR",
+			"value": "#232323"
+		},
+		{
+			"key": "@GENERIC_NORMAL_BUTTON_BORDER_COLOR",
+			"value": "rgba(0,0,0,0.12)"
+		},
+		{
+			"key": "@GENERIC_NORMAL_BUTTON_HOVERED_STATE_BACKGROUD_COLOR",
+			"value": "#F5F5F5"
+		},
+		{
+			"key": "@GENERIC_NORMAL_BUTTON_HOVERED_STATE_BORDER_COLOR",
+			"value": "rgba(96,96,96,0.4)"
+		},
+		{
+			"key": "@GENERIC_NORMAL_BUTTON_FOCUSED_STATE_BACKGROUD_COLOR",
+			"value": "#F5F5F5"
+		},
+		{
+			"key": "@GENERIC_NORMAL_BUTTON_FOCUSED_STATE_BORDER_COLOR",
+			"value": "rgba(96,96,96,0.4)"
+		},
+		{
+			"key": "@GENERIC_NORMAL_BUTTON_ACTIVE_STATE_BACKGROUD_COLOR",
+			"value": "rgba(96, 96, 96, .2)"
+		},
+		{
+			"key": "@GENERIC_NORMAL_BUTTON_ACTIVE_STATE_BORDER_COLOR",
+			"value": "transparent"
+		},
+		{
+			"key": "@GENERIC_SUCCESS_BUTTON_BACKGROUND_COLOR",
+			"value": "rgba(240, 252, 240, 1)"
+		},
+		{
+			"key": "@GENERIC_SUCCESS_BUTTON_TEXT_COLOR",
+			"value": "rgba(35, 35, 35, 1)"
+		},
+		{
+			"key": "@GENERIC_SUCCESS_BUTTON_BORDER_COLOR",
+			"value": "rgba(205, 217, 184, 1)"
+		},
+		{
+			"key": "@GENERIC_SUCCESS_BUTTON_HOVERED_STATE_BACKGROUND_COLOR",
+			"value": "rgba(240, 252, 240, 1)"
+		},
+		{
+			"key": "@GENERIC_SUCCESS_BUTTON_HOVERED_STATE_BORDER_COLOR",
+			"value": "rgba(174, 184, 156, 1)"
+		},
+		{
+			"key": "@GENERIC_SUCCESS_BUTTON_FOCUSED_STATE_BACKGROUND_COLOR",
+			"value": "rgba(240, 252, 240, 1)"
+		},
+		{
+			"key": "@GENERIC_SUCCESS_BUTTON_FOCUSED_STATE_BORDER_COLOR",
+			"value": "rgba(174, 184, 156, 1)"
+		},
+		{
+			"key": "@GENERIC_SUCCESS_BUTTON_ACTIVE_STATE_BACKGROUND_COLOR",
+			"value": "rgba(205, 217, 184, 1)"
+		},
+		{
+			"key": "@GENERIC_SUCCESS_BUTTON_ACTIVE_STATE_BORDER_COLOR",
+			"value": "rgba(174, 184, 156, 1)"
+		},
+		{
+			"key": "@GENERIC_DANGER_BUTTON_BACKGROUND_COLOR",
+			"value": "rgba(252, 240, 240, 1)"
+		},
+		{
+			"key": "@GENERIC_DANGER_BUTTON_TEXT_COLOR",
+			"value": "rgba(35, 35, 35, 1)"
+		},
+		{
+			"key": "@GENERIC_DANGER_BUTTON_BORDER_COLOR",
+			"value": "rgba(227, 195, 196, 1)"
+		},
+		{
+			"key": "@GENERIC_DANGER_BUTTON_HOVERED_STATE_BACKGROUND_COLOR",
+			"value": "rgba(252, 240, 240, 1)"
+		},
+		{
+			"key": "@GENERIC_DANGER_BUTTON_HOVERED_STATE_BORDER_COLOR",
+			"value": "rgba(204, 171, 173, 1)"
+		},
+		{
+			"key": "@GENERIC_DANGER_BUTTON_FOCUSED_STATE_BACKGROUND_COLOR",
+			"value": "rgba(252, 240, 240, 1)"
+		},
+		{
+			"key": "@GENERIC_DANGER_BUTTON_FOCUSED_STATE_BORDER_COLOR",
+			"value": "rgba(204, 171, 173, 1)"
+		},
+		{
+			"key": "@GENERIC_DANGER_BUTTON_ACTIVE_STATE_BACKGROUND_COLOR",
+			"value": "rgba(227, 195, 196, 1)"
+		},
+		{
+			"key": "@GENERIC_DANGER_BUTTON_ACTIVE_STATE_BORDER_COLOR",
+			"value": "rgba(204, 171, 173, 1)"
+		},
+		{
+			"key": "@GENERIC_OVERLAY_CONTENT_BACKGROUND",
+			"value": "#ffffff"
+		},
+		{
+			"key": "@GENERIC_OVERLAY_SHADER_COLOR",
+			"value": "rgba(0,0,0,0.75)"
+		},
+		{
+			"key": "@GENERIC_OVERLAY_FOCUS_BORDER_COLOR",
+			"value": "rgb(96, 96, 96)"
+		},
+		{
+			"key": "@GENERIC_POPUP_HEADER_COLOR",
+			"value": "rgba(96, 96, 96, .1)"
+		},
+		{
+			"key": "@GENERIC_LOADINDICATOR_BACKGROUND",
+			"value": "rgb(96, 96, 96)"
+		},
+		{
+			"key": "@GENERIC_LOADPANEL_BACKGROUND_COLOR",
+			"value": "rgba(255,255,255,0.9)"
+		},
+		{
+			"key": "@GENERIC_TOOLTIP_COLOR",
+			"value": "#232323"
+		},
+		{
+			"key": "@GENERIC_TOOLTIP_BACKGROUND_COLOR",
+			"value": "#ffffff"
+		},
+		{
+			"key": "@GENERIC_TOOLTIP_BORDER_COLOR",
+			"value": "#d3d3d3"
+		},
+		{
+			"key": "@GENERIC_TOAST_COLOR",
+			"value": "#ffffff"
+		},
+		{
+			"key": "@GENERIC_TOAST_INFO_BACKGROUND_COLOR",
+			"value": "#80b9e4"
+		},
+		{
+			"key": "@GENERIC_TOAST_WARNING_BACKGROUND_COLOR",
+			"value": "#ffb277"
+		},
+		{
+			"key": "@GENERIC_TOAST_ERROR_BACKGROUND_COLOR",
+			"value": "#ff7777"
+		},
+		{
+			"key": "@GENERIC_TOAST_SUCCESS_BACKGROUND_COLOR",
+			"value": "#6ec881"
+		},
+		{
+			"key": "@GENERIC_GALLERY_INDICATOR_BACKGROUND",
+			"value": "#f57c00"
+		},
+		{
+			"key": "@GENERIC_GALLERY_INDICATOR_FOCUSED_BACKGROUND",
+			"value": null
+		},
+		{
+			"key": "@GENERIC_GALLERY_HOVER_NAVBUTTON_COLOR",
+			"value": "rgba(96,96,96,0.5)"
+		},
+		{
+			"key": "@GENERIC_GALLERY_ACTIVE_NAVBUTTON_COLOR",
+			"value": "rgba(96,96,96,0.7)"
+		},
+		{
+			"key": "@GENERIC_LIST_BORDER_COLOR",
+			"value": "#d3d3d3"
+		},
+		{
+			"key": "@GENERIC_LIST_HEADER_BACKGROUND",
+			"value": "rgba(96,96,96,0.05)"
+		},
+		{
+			"key": "@GENERIC_LIST_NORMAL_TEXT_COLOR",
+			"value": "#232323"
+		},
+		{
+			"key": "@GENERIC_LIST_GROUP_TEXT_COLOR",
+			"value": "#232323"
+		},
+		{
+			"key": "@GENERIC_LIST_ITEM_HOVER_COLOR",
+			"value": "rgba(245,124,0,0.15)"
+		},
+		{
+			"key": "@GENERIC_LIST_ITEM_SELECTED_BACKGROUND",
+			"value": "rgba(245,124,0,0.25)"
+		},
+		{
+			"key": "@GENERIC_LIST_ITEM_ACTIVE_BACKGROUND_COLOR",
+			"value": "#f57c00"
+		},
+		{
+			"key": "@GENERIC_TAB_BACKGROUND_COLOR",
+			"value": "rgba(96, 96, 96, .1)"
+		},
+		{
+			"key": "@GENERIC_TABS_SELECTED_BACKGROUND",
+			"value": "#ffffff"
+		},
+		{
+			"key": "@GENERIC_TABS_BORDER_COLOR",
+			"value": "rgba(211, 211, 211, 0)"
+		},
+		{
+			"key": "@GENERIC_TAB_FOCUS_BORDER_COLOR",
+			"value": "rgba(211, 211, 211, 0)"
+		},
+		{
+			"key": "@GENERIC_TAB_HOVER_BACKGROUND",
+			"value": "rgba(245, 124, 0, 0.15)"
+		},
+		{
+			"key": "@GENERIC_NAVBAR_TAB_SELECTED_BACKGROUND",
+			"value": "#ffffff"
+		},
+		{
+			"key": "@GENERIC_NAVBAR_TAB_FOCUSED_BORDER_COLOR",
+			"value": "#f57c00"
+		},
+		{
+			"key": "@GENERIC_TOOLBAR_BACKGROUND",
+			"value": "rgba(0, 0, 0, 0)"
+		},
+		{
+			"key": "@GENERIC_TOOLBAR_SHADOW_COLOR",
+			"value": "rgba(0, 0, 0, 0)"
+		},
+		{
+			"key": "@GENERIC_MENU_POPUP_BACKGROUND",
+			"value": "rgba(96, 125, 139, 1)"
+		},
+		{
+			"key": "@GENERIC_MENU_ITEM_HOVERED_BACKGROUND",
+			"value": "rgba(245,124,0,0.15)"
+		},
+		{
+			"key": "@GENERIC_MENU_ITEM_HOVERED_COLOR",
+			"value": "rgba(255, 255, 255, 1)"
+		},
+		{
+			"key": "@GENERIC_MENU_ITEM_SELECTED_BACKGROUND",
+			"value": "#f57c00"
+		},
+		{
+			"key": "@GENERIC_MENU_POPUP_BORDER_COLOR",
+			"value": "rgba(236, 239, 241, 1)"
+		},
+		{
+			"key": "@GENERIC_MENU_TEXT_COLOR",
+			"value": "rgba(255, 255, 255, 1)"
+		},
+		{
+			"key": "@GENERIC_SEPARATOP_COLOR",
+			"value": "rgba(232, 234, 246, 1)"
+		},
+		{
+			"key": "@GENERIC_TREE_VIEW_FOCUSED_BACKGROUND",
+			"value": "#f57c00"
+		},
+		{
+			"key": "@GENERIC_TREE_VIEW_HOVERED_STATE_BACKGROUND",
+			"value": "rgba(245,124,0,0.15)"
+		},
+		{
+			"key": "@GENERIC_TREE_VIEW_BORDER_COLOR",
+			"value": "#d3d3d3"
+		},
+		{
+			"key": "@GENERIC_TREE_VIEW_SELECTED_ITEM_TEXT_COLOR",
+			"value": "#232323"
+		},
+		{
+			"key": "@GENERIC_ACCORDION_ACTIVE_ITEM_TITLE_BACKGROUND",
+			"value": "transparent"
+		},
+		{
+			"key": "@GENERIC_ACCORDION_ITEM_BORDER_COLOR",
+			"value": "rgba(0, 0, 0, 0)"
+		},
+		{
+			"key": "@GENERIC_ACCORDION_FOCUSED_ITEM_BORDER_COLOR",
+			"value": "rgba(0, 0, 0, 0)"
+		},
+		{
+			"key": "@GENERIC_ACCORDION_TEXT",
+			"value": "#232323"
+		},
+		{
+			"key": "@GENERIC_ACCORDION_ITEM_TITLE_TEXT",
+			"value": "rgba(35, 35, 35, 1)"
+		},
+		{
+			"key": "@GENERIC_ACCORDION_ITEM_ACTIVE_STATE_TITLE_TEXT",
+			"value": "#232323"
+		},
+		{
+			"key": "@GENERIC_ACCORDION_ITEM_ACTIVE_STATE_BACKGROUND",
+			"value": "rgba(96, 96, 96, .2)"
+		},
+		{
+			"key": "@GENERIC_ACCORDION_ITEM_HOVER_STATE_BACKGROUND",
+			"value": "rgba(96, 96, 96, .1)"
+		},
+		{
+			"key": "@GENERIC_ACCORDION_ICON_ACTIVE_STATE_COLOR",
+			"value": "#232323"
+		},
+		{
+			"key": "@GENERIC_DESKTOP_LAYOUT_MENU_MAJOR_COLOR",
+			"value": "#efefef"
+		},
+		{
+			"key": "@GENERIC_DESKTOP_LAYOUT_MENU_ITEM_HOVER_COLOR",
+			"value": "#696969"
+		},
+		{
+			"key": "@GENERIC_DESKTOP_LAYOUT_TOOLBAR_BORDER_COLOR",
+			"value": "#d6d6d7"
+		},
+		{
+			"key": "@GENERIC_DESKTOP_LAYOUT_COPYRIGHT_TEXT_COLOR",
+			"value": "#818181"
+		},
+		{
+			"key": "@GENERIC_SPLIT_LAYOUT_MASTER_PANE_BORDER_COLOR",
+			"value": "#d6d6d7"
+		},
+		{
+			"key": "@GENERIC_SCROLLABLE_SCROLL_BACKGROUND",
+			"value": "rgba(96,96,96,0.7)"
+		},
+		{
+			"key": "@GENERIC_SCROLLABLE_SCROLLBAR_ACTIVE_BACKGROUND",
+			"value": "rgba(96,96,96,0.2)"
+		},
+		{
+			"key": "@GENERIC_SLIDER_BAR_BACKGROUND",
+			"value": "#d3d3d3"
+		},
+		{
+			"key": "@GENERIC_SLIDER_RANGE_BACKGROUND",
+			"value": "#f57c00"
+		},
+		{
+			"key": "@GENERIC_TILE_TEXT_COLOR",
+			"value": "#232323"
+		},
+		{
+			"key": "@GENERIC_PAGER_SELECTION_BACKGROUND",
+			"value": "#f57c00"
+		},
+		{
+			"key": "@DATAGRID_BASE_COLOR",
+			"value": "#232323"
+		},
+		{
+			"key": "@DATAGRID_BASE_BACKGROUND_COLOR",
+			"value": "#ffffff"
+		},
+		{
+			"key": "@DATAGRID_BORDER_COLOR",
+			"value": "#d3d3d3"
+		},
+		{
+			"key": "@GENERIC_DATAGRID_HEADERS_COLOR",
+			"value": "#767676"
+		},
+		{
+			"key": "@GENERIC_DATAGRID_DRAG_HEADER_BORDER_COLOR",
+			"value": "rgba(96,96,96,0.5)"
+		},
+		{
+			"key": "@GENERIC_DATAGRID_SELECTION_BACKGROUND",
+			"value": "#f57c00"
+		},
+		{
+			"key": "@GENERIC_DATAGRID_HOVER_BACKGROUND",
+			"value": "rgba(245,124,0,0.15)"
+		},
+		{
+			"key": "@GENERIC_DATAGRID_HOVERED_STATE_TEXT_COLOR",
+			"value": "#232323"
+		},
+		{
+			"key": "@GENERIC_DATAGRID_CONTEXT_MENU_ICONS_COLOR",
+			"value": "#898989"
+		},
+		{
+			"key": "@GENERIC_DATAGRID_DATA_MODIFIED_COLOR",
+			"value": "rgb(184, 232, 161)"
+		},
+		{
+			"key": "@GENERIC_DATAGRID_DATA_INVALID_COLOR",
+			"value": "#EA4444"
+		},
+		{
+			"key": "@GENERIC_DATAGRID_DATA_FADED_INVALID_COLOR",
+			"value": "rgba(234,68,68,0.4)"
+		},
+		{
+			"key": "@GENERIC_DATAGRID_REVERT_BUTTON_ACTIVE_STATE_COLOR",
+			"value": "#AA2222"
+		},
+		{
+			"key": "@GENERIC_DATAGRID_NODATA_COLOR",
+			"value": "#a8a8a8"
+		},
+		{
+			"key": "@GENERIC_DATAGRID_GROUP_ROW_COLOR",
+			"value": "#767676"
+		},
+		{
+			"key": "@GENERIC_DATAGRID_GROUP_ROW_BACKGROUND_COLOR",
+			"value": "#ececec"
+		},
+		{
+			"key": "@GENERIC_DATAGRID_SEARCH_TEXT_COLOR",
+			"value": "#ffffff"
+		},
+		{
+			"key": "@GENERIC_DATAGRID_SEARCH_TEXT_BACKGROUND",
+			"value": "#f57c00"
+		},
+		{
+			"key": "@GENERIC_DATAGRID_ERROR_ROW_TEXT_COLOR",
+			"value": "#ffffff"
+		},
+		{
+			"key": "@GENERIC_DATAGRID_ERROR_ROW_BACKGROUND_COLOR",
+			"value": "rgba(234,68,68,0.6)"
+		},
+		{
+			"key": "@GENERIC_DATAGRID_LINK_COLOR",
+			"value": "rgba(96, 96, 96, 1)"
+		},
+		{
+			"key": "@GENERIC_DATAGRID_FOCUS_COLOR",
+			"value": "#f57c00"
+		},
+		{
+			"key": "@GENERIC_DATAGRID_EDITOR_BACKGROUND",
+			"value": "#ffffff"
+		},
+		{
+			"key": "@GENERIC_DATAGRID_COLUMN_CHOOSER_BACKGROUND_COLOR",
+			"value": "#fafafa"
+		},
+		{
+			"key": "@GENERIC_DATAGRID_ROW_ALTERNATION_COLOR",
+			"value": "rgba(211,211,211,0.2)"
+		},
+		{
+			"key": "@GENERIC_DATAGRID_SUMMARY_COLOR",
+			"value": "rgba(35,35,35,0.7)"
+		},
+		{
+			"key": "@PIVOTGRID_BORDER_COLOR",
+			"value": "#d3d3d3"
+		},
+		{
+			"key": "@PIVOTGRID_AREA_COLOR",
+			"value": "#767676"
+		},
+		{
+			"key": "@PIVOTGRID_DATA_AREA_COLOR",
+			"value": "#232323"
+		},
+		{
+			"key": "@PIVOTGRID_TOTALCOLOR",
+			"value": "rgba(211,211,211,0.2)"
+		},
+		{
+			"key": "@PIVOTGRID_GRANDTOTALCOLOR",
+			"value": "rgba(211,211,211,0.4)"
+		},
+		{
+			"key": "@GENERIC_PROGRESSBAR_CONTAINER_COLOR",
+			"value": "#ffffff"
+		},
+		{
+			"key": "@GENERIC_PROGRESSBAR_RANGE_COLOR",
+			"value": "#f57c00"
+		},
+		{
+			"key": "@SCHEDULER_BASE_BORDER_COLOR",
+			"value": "rgba(211,211,211,0.6)"
+		},
+		{
+			"key": "@SCHEDULER_HOVERED_CELL_BACKGROUND_COLOR",
+			"value": "rgba(245,124,0,0.5)"
+		},
+		{
+			"key": "@SCHEDULER_ACCENT_BORDER_COLOR",
+			"value": "#bababa"
+		},
+		{
+			"key": "@SCHEDULER_APPOINTMENT_BASE_COLOR",
+			"value": "#65bccd"
+		},
+		{
+			"key": "@SCHEDULER_APPOINTMENT_TEXT_COLOR",
+			"value": "#ffffff"
+		},
+		{
+			"key": "@SCHEDULER_APPOINTMENT_START_COLOR",
+			"value": "rgba(0,0,0,0.3)"
+		},
+		{
+			"key": "@SCHEDULER_WORKSPACE_FOCUSED_CELL_COLOR",
+			"value": "#a9d9e2"
+		},
+		{
+			"key": "@SCHEDULER_PANEL_TEXT_COLOR",
+			"value": "rgba(35, 35, 35, 1)"
+		}
+	]
+}

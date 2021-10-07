@@ -1,0 +1,276 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+	Microsoft ResX Schema 
+	
+	Version 2.0
+	
+	The primary goals of this format is to allow a simple XML format 
+	that is mostly human readable. The generation and parsing of the 
+	various data types are done through the TypeConverter classes 
+	associated with the data types.
+	
+	Example:
+	
+	... ado.net/XML headers & schema ...
+	<resheader name="resmimetype">text/microsoft-resx</resheader>
+	<resheader name="version">2.0</resheader>
+	<resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+	<resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+	<data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+	<data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+	<data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+		<value>[base64 mime encoded serialized .NET Framework object]</value>
+	</data>
+	<data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+		<comment>This is a comment</comment>
+	</data>
+				
+	There are any number of "resheader" rows that contain simple 
+	name/value pairs.
+	
+	Each data row contains a name, and value. The row also contains a 
+	type or mimetype. Type corresponds to a .NET class that support 
+	text/value conversion through the TypeConverter architecture. 
+	Classes that don't support this are serialized and stored with the 
+	mimetype set.
+	
+	The mimetype is used for serialized objects, and tells the 
+	ResXResourceReader how to depersist the object. This is currently not 
+	extensible. For a given mimetype the value must be set accordingly:
+	
+	Note - application/x-microsoft.net.object.binary.base64 is the format 
+	that the ResXResourceWriter will generate, however the reader can 
+	read any of the formats listed below.
+	
+	mimetype: application/x-microsoft.net.object.binary.base64
+	value   : The object must be serialized with 
+			: System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+			: and then encoded with base64 encoding.
+	
+	mimetype: application/x-microsoft.net.object.soap.base64
+	value   : The object must be serialized with 
+			: System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+			: and then encoded with base64 encoding.
+
+	mimetype: application/x-microsoft.net.object.bytearray.base64
+	value   : The object must be serialized into a byte array 
+			: using a System.ComponentModel.TypeConverter
+			: and then encoded with base64 encoding.
+	-->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+	<xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+	<xsd:element name="root" msdata:IsDataSet="true">
+	  <xsd:complexType>
+		<xsd:choice maxOccurs="unbounded">
+		  <xsd:element name="metadata">
+			<xsd:complexType>
+			  <xsd:sequence>
+				<xsd:element name="value" type="xsd:string" minOccurs="0" />
+			  </xsd:sequence>
+			  <xsd:attribute name="name" use="required" type="xsd:string" />
+			  <xsd:attribute name="type" type="xsd:string" />
+			  <xsd:attribute name="mimetype" type="xsd:string" />
+			  <xsd:attribute ref="xml:space" />
+			</xsd:complexType>
+		  </xsd:element>
+		  <xsd:element name="assembly">
+			<xsd:complexType>
+			  <xsd:attribute name="alias" type="xsd:string" />
+			  <xsd:attribute name="name" type="xsd:string" />
+			</xsd:complexType>
+		  </xsd:element>
+		  <xsd:element name="data">
+			<xsd:complexType>
+			  <xsd:sequence>
+				<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+				<xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+			  </xsd:sequence>
+			  <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+			  <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+			  <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+			  <xsd:attribute ref="xml:space" />
+			</xsd:complexType>
+		  </xsd:element>
+		  <xsd:element name="resheader">
+			<xsd:complexType>
+			  <xsd:sequence>
+				<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+			  </xsd:sequence>
+			  <xsd:attribute name="name" type="xsd:string" use="required" />
+			</xsd:complexType>
+		  </xsd:element>
+		</xsd:choice>
+	  </xsd:complexType>
+	</xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+	<value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+	<value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+	<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+	<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AviaDocumentAccessDenied_Msg" xml:space="preserve">
+	<value>У вас недостаточно прав для доступа к документу {0}</value>
+  </data>
+  <data name="AviaDocumentList_CreatePayment_NotValidData" xml:space="preserve">
+	<value>Невозможно оформить платеж, так как есть необработанные документы.</value>
+  </data>
+  <data name="AviaDocument_Handle_NotFull" xml:space="preserve">
+	<value>В документе недостаточно данных для его обработки. Открыть документ для редактирования?</value>
+  </data>
+  <data name="DifferentCustomer_Error" xml:space="preserve">
+	<value>Авиа документ добавлен в заказ {0}. Заказчики в авиа документе и заказе должны совпадать.</value>
+  </data>
+  <data name="DocumentAlreadyInOrder" xml:space="preserve">
+	<value>Документ {0} уже добавлен в заказ {1}</value>
+  </data>
+  <data name="Document_Closed" xml:space="preserve">
+	<value>Документ находится в закрытом периоде</value>
+  </data>
+  <data name="FileMaximumLengthExceeded" xml:space="preserve">
+	<value>Превышен максимальный размер файла - 2 мегабайта</value>
+  </data>
+  <data name="ImportGdsFile_DocumentAlreadyExists" xml:space="preserve">
+	<value>Документ с номером {0} уже существует.</value>
+  </data>
+  <data name="ImportGdsFile_DocumentToVoidNotSpecified" xml:space="preserve">
+	<value>Невозможно аннулировать документ. Документ не указан</value>
+  </data>
+  <data name="ImportGdsFile_NotFoundDocumentToVoid" xml:space="preserve">
+	<value>Невозможно аннулировать документ. Документ {0} не найден.</value>
+  </data>
+  <data name="ImportGdsFile_TwoDocumentsToVoid" xml:space="preserve">
+	<value>Невозможно аннулировать документ. С номером {0} найдены билет и MCO.</value>
+  </data>
+  <data name="ImportGdsFile_UnexpectedError" xml:space="preserve">
+	<value>Произошла непредвиденная ошибка. Обратитесь в службу поддержки.</value>
+  </data>
+  <data name="InvoiceNotInOrder_Error" xml:space="preserve">
+	<value>Невозможно сохранить платеж. Заказ не содержит указанный счет/квитанцию.</value>
+  </data>
+  <data name="NoRowById_Error" xml:space="preserve">
+	<value>No row with the given identifier exists</value>
+  </data>
+  <data name="NoRowById_Translation" xml:space="preserve">
+	<value>Объект не найден. Возможно объект был удален.</value>
+  </data>
+  <data name="ObjectsNotFound_Error" xml:space="preserve">
+	<value>Некоторые объекты не найдены. Возможно они были удалены.</value>
+  </data>
+  <data name="Order_CannotRestoreOrder_Msg" xml:space="preserve">
+	<value>Невозможно восстановить заказ {0}:</value>
+  </data>
+  <data name="Order_CloseUnpaidOrder_Error" xml:space="preserve">
+	<value>Невозможно закрыть заказ {0}. Заказ должен быть оплачен.</value>
+  </data>
+  <data name="Order_Deletepaid_Error" xml:space="preserve">
+	<value>Невозможно удалить заказ, по которому были выпущены документы или проведены оплаты. Вы можете только аннулировать заказ.</value>
+  </data>
+  <data name="Order_IsNotOpen_Error" xml:space="preserve">
+	<value>Невозможно выполнить операцию. Заказ закрыт или аннулирован.</value>
+  </data>
+  <data name="Person_lt_party_name_key" xml:space="preserve">
+	<value>Персона с таким именем уже существует</value>
+  </data>
+  <data name="RequestParameterMissing_Error" xml:space="preserve">
+	<value>Required request parameter is missing</value>
+  </data>
+  <data name="RequestParameterMissing_Translation" xml:space="preserve">
+	<value>В адресе страницы отсутствуют обязательные параметры. Пожалуйста, проверьте адресную строку браузера</value>
+  </data>
+  <data name="RowAlreadyModifiedByUser_Error" xml:space="preserve">
+	<value>Object has been modified by another user</value>
+  </data>
+  <data name="RowAlreadyModified_Error" xml:space="preserve">
+	<value>Row was updated or deleted by another transaction</value>
+  </data>
+  <data name="RowAlreadyModified_Translation" xml:space="preserve">
+	<value>Объект не может быть сохранен потому что он был сохранен или удален другим пользователем во время вашего редактирования.</value>
+  </data>
+  <data name="UnexpectedErrorDefaultTranslation" xml:space="preserve">
+	<value>Невозможно выполнить операцию. Обратитесь в службу поддержки.</value>
+  </data>
+  <data name="DeleteConstrainedFailed_Msg" xml:space="preserve">
+	<value>Документ не может быть удален, так как имеются связанные с ним данные.</value>
+  </data>
+  <data name="Airport_lt_airport_code_key" xml:space="preserve">
+	<value>Аэропорт с таким кодом уже существует</value>
+  </data>
+  <data name="AviaMco_lt_avia_document_number__type_airlineprefixcode_key" xml:space="preserve">
+	<value>MCO с таким номером уже существует</value>
+  </data>
+  <data name="AviaRefund_lt_avia_document_number__type_airlineprefixcode_key" xml:space="preserve">
+	<value>Возврат с таким номером уже существует</value>
+  </data>
+  <data name="AviaTicket_lt_avia_document_number__type_airlineprefixcode_key" xml:space="preserve">
+	<value>Билет с таким номером уже существует</value>
+  </data>
+	<data name="Product_lt_product_number_key" xml:space="preserve">
+	<value> с таким номером уже существует</value>
+  </data>
+	<data name="Product_lt_product_number_passenger_key" xml:space="preserve">
+	<value> с таким номером и пассажиром уже существует</value>
+  </data>
+	<data name="CashInOrderPayment_lt_payment_documentuniquecode_key" xml:space="preserve">
+	<value>ПКО с таким номером уже существует</value>
+  </data>
+	<data name="CashOutOrderPayment_lt_payment_documentuniquecode_key" xml:space="preserve">
+	<value>РКО с таким номером уже существует</value>
+  </data>
+	<data name="DocumentOwner_lt_document_owner_owner_key" xml:space="preserve">
+	<value>Такой владелец документов уже существует</value>
+  </data>
+  <data name="Order_lt_order_number__key" xml:space="preserve">
+	<value>Заказ с таким номером уже существует</value>
+  </data>
+  <data name="Organization_lt_organization_code_key" xml:space="preserve">
+	<value>Организация с таким кодом предприятия уже существует</value>
+  </data>
+  <data name="Organization_lt_party_name_key" xml:space="preserve">
+	<value>Организация с таким названием уже существует</value>
+  </data>
+  <data name="Passport_lt_passport_number__issuedby_key" xml:space="preserve">
+	<value>Паспорт с таким номером уже существует</value>
+  </data>
+  <data name="PartyFileUpload_FileNameOrContentMissing" xml:space="preserve">
+	<value>Не указано имя файла или файл пустой.</value>
+  </data>
+  <data name="Cannot_Update_Customer1" xml:space="preserve">
+	<value>Недостаточно прав для изменения заказчика в документе {0}</value>
+  </data>
+  <data name="Cannot_Update_Customer2" xml:space="preserve">
+	<value>В документе {0} заказчик не может быть изменен. {1}</value>
+  </data>
+  <data name="Consignment_lt_consignment_number__key" xml:space="preserve">
+	<value>Накладная с таким номером уже существует</value>
+  </data>
+  <data name="AccessDenied" xml:space="preserve">
+	<value>Недостаточно прав</value>
+  </data>
+  <data name="CannotUpdateDocument" xml:space="preserve">
+	<value>Документ {0} не может быть изменен. {1}</value>
+  </data>
+  <data name="DateIsClosed" xml:space="preserve">
+	<value>Нельзя изменить дату документа, так как указанная дата находится в закрытом периоде</value>
+  </data>
+  <data name="OrderIsClosed" xml:space="preserve">
+	<value>Нельзя добавить документ {0} к заказу {1}, так как заказ находится в закрытом периоде</value>
+  </data>
+  <data name="Airline_lt_airline_iatacode_key" xml:space="preserve">
+	<value>Авиакомпания с таким IATA кодом уже существует</value>
+  </data>
+  <data name="Airline_lt_airline_name_key" xml:space="preserve">
+	<value>Авиакомпания с таким названием уже существует</value>
+  </data>
+  <data name="Airline_lt_airline_prefixcode_key" xml:space="preserve">
+	<value>Авиакомпания с таким prefix кодом уже существует</value>
+  </data>
+</root>

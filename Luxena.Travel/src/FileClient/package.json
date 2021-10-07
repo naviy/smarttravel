@@ -1,0 +1,12 @@
+{
+	"name": "luxena-file-client",
+	"description": "Luxena.Travel File Client",
+	"version": "1.2.3",
+	"dependencies": {
+		"async": "",
+		"dateFormat": "",
+		"log4js": "",
+		"mkdirp": "",
+		"socket.io-client": ""
+	}
+}

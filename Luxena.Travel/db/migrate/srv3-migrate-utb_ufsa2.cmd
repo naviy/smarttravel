@@ -1,0 +1,1 @@
+_migrate-srv3_OLAP.cmd utb_ufsa %*

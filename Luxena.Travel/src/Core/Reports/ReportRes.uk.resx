@@ -1,0 +1,759 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AviaMco" xml:space="preserve">
+    <value>Авіадокумент</value>
+  </data>
+  <data name="Common_AllTime" xml:space="preserve">
+    <value>за весь період часу</value>
+  </data>
+  <data name="Common_From" xml:space="preserve">
+    <value>за період після {0}</value>
+  </data>
+  <data name="Common_FromTo" xml:space="preserve">
+    <value>за період з {0} до {1}</value>
+  </data>
+  <data name="Common_Grn" xml:space="preserve">
+    <value>грн</value>
+  </data>
+  <data name="Common_PageNumberTemplate" xml:space="preserve">
+    <value>стр. {0} з </value>
+  </data>
+  <data name="Common_Passenger" xml:space="preserve">
+    <value>Пасажир</value>
+  </data>
+  <data name="Common_PassengerName" xml:space="preserve">
+    <value>Пасажир</value>
+  </data>
+  <data name="Common_PaymentType" xml:space="preserve">
+    <value>Тип оплати</value>
+  </data>
+  <data name="Common_Total" xml:space="preserve">
+    <value>Разом</value>
+  </data>
+  <data name="ConsignmentPrinter_Acquired" xml:space="preserve">
+    <value>Одержав   _________________</value>
+  </data>
+  <data name="ConsignmentPrinter_AviaMcoFive" xml:space="preserve">
+    <value>Авіадокументів</value>
+  </data>
+  <data name="ConsignmentPrinter_AviaMcoMany" xml:space="preserve">
+    <value>Авіадокументи</value>
+  </data>
+  <data name="ConsignmentPrinter_AviaMcoOne" xml:space="preserve">
+    <value>Авіадокумент</value>
+  </data>
+  <data name="ConsignmentPrinter_AviaMcoTwo" xml:space="preserve">
+    <value>Авіадокумента</value>
+  </data>
+  <data name="ConsignmentPrinter_AviaRefund" xml:space="preserve">
+    <value>Повернення</value>
+  </data>
+  <data name="ConsignmentPrinter_AviaTicketFive" xml:space="preserve">
+    <value>Авіаквитків</value>
+  </data>
+  <data name="ConsignmentPrinter_AviaTicketMany" xml:space="preserve">
+    <value>Авіаквитки</value>
+  </data>
+  <data name="ConsignmentPrinter_PasteboardOne" xml:space="preserve">
+    <value>Залізничний квиток</value>
+  </data>
+  <data name="ConsignmentPrinter_PasteboardTwo" xml:space="preserve">
+    <value>Залізничних квитка</value>
+  </data>
+  <data name="ConsignmentPrinter_PasteboardFive" xml:space="preserve">
+    <value>Залізничних квитків</value>
+  </data>
+  <data name="ConsignmentPrinter_PasteboardRefundOne" xml:space="preserve">
+    <value>Повернення залізничного квитка</value>
+  </data>
+  <data name="ConsignmentPrinter_PasteboardRefundTwo" xml:space="preserve">
+    <value>Повернення залізничних квитків</value>
+  </data>
+  <data name="ConsignmentPrinter_PasteboardRefundFive" xml:space="preserve">
+    <value>Повернень залізничних квитків</value>
+  </data>
+  <data name="ConsignmentPrinter_SimCardOne" xml:space="preserve">
+    <value>SIM-карта</value>
+  </data>
+  <data name="ConsignmentPrinter_SimCardTwo" xml:space="preserve">
+    <value>SIM-карти</value>
+  </data>
+  <data name="ConsignmentPrinter_SimCardFive" xml:space="preserve">
+    <value>SIM-карт</value>
+  </data>
+  <data name="ConsignmentPrinter_IsicOne" xml:space="preserve">
+    <value>ISIC</value>
+  </data>
+  <data name="ConsignmentPrinter_IsicTwo" xml:space="preserve">
+    <value>ISIC</value>
+  </data>
+  <data name="ConsignmentPrinter_IsicFive" xml:space="preserve">
+    <value>ISIC</value>
+  </data>
+  <data name="ConsignmentPrinter_ExcursionOne" xml:space="preserve">
+    <value>Екскурсія</value>
+  </data>
+  <data name="ConsignmentPrinter_ExcursionTwo" xml:space="preserve">
+    <value>Экскурсії</value>
+  </data>
+  <data name="ConsignmentPrinter_ExcursionFive" xml:space="preserve">
+    <value>Экскурсій</value>
+  </data>
+  <data name="ConsignmentPrinter_TourOne" xml:space="preserve">
+    <value>Тур</value>
+  </data>
+  <data name="ConsignmentPrinter_TourTwo" xml:space="preserve">
+    <value>Тура</value>
+  </data>
+  <data name="ConsignmentPrinter_TourFive" xml:space="preserve">
+    <value>Турів</value>
+  </data>
+  <data name="ConsignmentPrinter_AccommodationOne" xml:space="preserve">
+    <value>Проживання</value>
+  </data>
+  <data name="ConsignmentPrinter_AccommodationTwo" xml:space="preserve">
+    <value>Проживання</value>
+  </data>
+  <data name="ConsignmentPrinter_AccommodationFive" xml:space="preserve">
+    <value>Проживань</value>
+  </data>
+  <data name="ConsignmentPrinter_TransferOne" xml:space="preserve">
+    <value>Трансфер</value>
+  </data>
+  <data name="ConsignmentPrinter_TransferTwo" xml:space="preserve">
+    <value>Трансфера</value>
+  </data>
+  <data name="ConsignmentPrinter_TransferFive" xml:space="preserve">
+    <value>Трансферів</value>
+  </data>
+  <data name="ConsignmentPrinter_InsuranceOne" xml:space="preserve">
+    <value>Страховка</value>
+  </data>
+  <data name="ConsignmentPrinter_InsuranceTwo" xml:space="preserve">
+    <value>Страховки</value>
+  </data>
+  <data name="ConsignmentPrinter_InsuranceFive" xml:space="preserve">
+    <value>Страховок</value>
+  </data>
+  <data name="ConsignmentPrinter_InsuranceRefundOne" xml:space="preserve">
+    <value>Повернення страховки</value>
+  </data>
+  <data name="ConsignmentPrinter_InsuranceRefundTwo" xml:space="preserve">
+    <value>Повернення страховок</value>
+  </data>
+  <data name="ConsignmentPrinter_InsuranceRefundFive" xml:space="preserve">
+    <value>Повернень страховок</value>
+  </data>
+  <data name="ConsignmentPrinter_CarRentalOne" xml:space="preserve">
+    <value>Оренда авто</value>
+  </data>
+  <data name="ConsignmentPrinter_CarRentalTwo" xml:space="preserve">
+    <value>Оренди авто</value>
+  </data>
+  <data name="ConsignmentPrinter_CarRentalFive" xml:space="preserve">
+    <value>Оренд авто</value>
+  </data>
+  <data name="ConsignmentPrinter_GenericProductOne" xml:space="preserve">
+    <value>Дод.послуга</value>
+  </data>
+  <data name="ConsignmentPrinter_GenericProductTwo" xml:space="preserve">
+    <value>Дод.послуги</value>
+  </data>
+  <data name="ConsignmentPrinter_GenericProductFive" xml:space="preserve">
+    <value>Дод.послуг</value>
+  </data>
+  <data name="ConsignmentPrinter_AviaTicketOne" xml:space="preserve">
+    <value>Авіаквиток</value>
+  </data>
+  <data name="ConsignmentPrinter_AviaTicketTwo" xml:space="preserve">
+    <value>Авіаквитка</value>
+  </data>
+  <data name="ConsignmentPrinter_Discount" xml:space="preserve">
+    <value>Знижка без ПДВ</value>
+  </data>
+  <data name="ConsignmentPrinter_Head" xml:space="preserve">
+    <value>Керівник  ____________</value>
+  </data>
+  <data name="ConsignmentPrinter_IncludingVat" xml:space="preserve">
+    <value>в т.ч. ПДВ {0}</value>
+  </data>
+  <data name="ConsignmentPrinter_Item_Name" xml:space="preserve">
+    <value>Найменування</value>
+  </data>
+  <data name="ConsignmentPrinter_Item_Price" xml:space="preserve">
+    <value>Ціна без ПДВ</value>
+  </data>
+  <data name="ConsignmentPrinter_Item_Quantity" xml:space="preserve">
+    <value>К-сть</value>
+  </data>
+  <data name="ConsignmentPrinter_Item_Total" xml:space="preserve">
+    <value>Сума  без ПДВ</value>
+  </data>
+  <data name="ConsignmentPrinter_OnSum" xml:space="preserve">
+    <value>на суму</value>
+  </data>
+  <data name="ConsignmentPrinter_ServiceFee" xml:space="preserve">
+    <value>Сервісний збір</value>
+  </data>
+  <data name="ConsignmentPrinter_ServiceFee_Mco" xml:space="preserve">
+    <value>Послуги по оформленню авіадокумента (Сервісний збір)</value>
+  </data>
+  <data name="ConsignmentPrinter_ServiceFee_Refund" xml:space="preserve">
+    <value>Послуги по оформленню повернення (Сервісний збір)</value>
+  </data>
+  <data name="ConsignmentPrinter_ServiceFee_Ticket" xml:space="preserve">
+    <value>Послуги по оформленню авіаквитка (Сервісний збір)</value>
+  </data>
+  <data name="ConsignmentPrinter_Supplied" xml:space="preserve">
+    <value>Відпустив ____________</value>
+  </data>
+  <data name="ConsignmentPrinter_TotalSupplied" xml:space="preserve">
+    <value>Всього відпущено:</value>
+  </data>
+  <data name="ConsignmentPrinter_TotalWithoutVat" xml:space="preserve">
+    <value>Всього без ПДВ</value>
+  </data>
+  <data name="ConsignmentPrinter_TotalWithVat" xml:space="preserve">
+    <value>Загальна сума з ПДВ</value>
+  </data>
+  <data name="ConsignmentPrinter_Vat" xml:space="preserve">
+    <value>ПДВ</value>
+  </data>
+  <data name="ConsignmentReport_Acquirer" xml:space="preserve">
+    <value>Отримано:</value>
+  </data>
+  <data name="ConsignmentReport_Consignment" xml:space="preserve">
+    <value>Н А К Л А Д Н А      №</value>
+  </data>
+  <data name="ConsignmentReport_HeaderDate" xml:space="preserve">
+    <value>{0} р.</value>
+  </data>
+  <data name="ConsignmentReport_Supplier" xml:space="preserve">
+    <value>Відпущено:</value>
+  </data>
+  <data name="InvoicePrinter_Customer" xml:space="preserve">
+    <value>Замовник</value>
+  </data>
+  <data name="CreditCashOrderPrinter_AnalizedAccountCode" xml:space="preserve">
+    <value>Код аналітичного рахунку</value>
+  </data>
+  <data name="CreditCashOrderPrinter_Caption" xml:space="preserve">
+    <value>Прибутковий касовий ордер № {0}</value>
+  </data>
+  <data name="CreditCashOrderPrinter_Cashier" xml:space="preserve">
+    <value>Одержав касир</value>
+  </data>
+  <data name="CreditCashOrderPrinter_Cashier_Short" xml:space="preserve">
+    <value>Касир</value>
+  </data>
+  <data name="CreditCashOrderPrinter_Code" xml:space="preserve">
+    <value>Код цільового призначення</value>
+  </data>
+  <data name="CreditCashOrderPrinter_CorrespondingAccount" xml:space="preserve">
+    <value>Кореспондуючий рахунок, субрахунок</value>
+  </data>
+  <data name="CreditCashOrderPrinter_Form" xml:space="preserve">
+    <value>Типова форма № КО-1</value>
+  </data>
+  <data name="CreditCashOrderPrinter_From" xml:space="preserve">
+    <value>від {0} р.</value>
+  </data>
+  <data name="CreditCashOrderPrinter_Header" xml:space="preserve">
+    <value>Додаток 2
+до Положення про ведення касових
+операцій у національній валюті в Україні</value>
+  </data>
+  <data name="CreditCashOrderPrinter_IdCode" xml:space="preserve">
+    <value>Ідентифікаційний код ЄДРПОУ</value>
+  </data>
+  <data name="CreditCashOrderPrinter_MainAccountant" xml:space="preserve">
+    <value>Головний бухгалтер</value>
+  </data>
+  <data name="CreditCashOrderPrinter_NoProvided" xml:space="preserve">
+    <value>не передбачений</value>
+  </data>
+  <data name="CreditCashOrderPrinter_Notes" xml:space="preserve">
+    <value>Додатки:</value>
+  </data>
+  <data name="CreditCashOrderPrinter_Reason" xml:space="preserve">
+    <value>Підстава</value>
+  </data>
+  <data name="CreditCashOrderPrinter_Receipt_Caption1" xml:space="preserve">
+    <value>до прибуткового касового
+ордеру № {0}
+від {1} p.</value>
+  </data>
+  <data name="CreditCashOrderPrinter_ReceivedFrom" xml:space="preserve">
+    <value>Прийнято від</value>
+  </data>
+  <data name="CreditCashOrderPrinter_Total" xml:space="preserve">
+    <value>Сума цифрами</value>
+  </data>
+  <data name="CreditCashOrderPrinter_TotalInWords" xml:space="preserve">
+    <value>Сума</value>
+  </data>
+  <data name="CreditCashOrderPrinter_Vat" xml:space="preserve">
+    <value>в тому числі ПДВ</value>
+  </data>
+  <data name="CreditCashOrderPrinter_Vat_Short" xml:space="preserve">
+    <value>в т. ч. ПДВ:</value>
+  </data>
+  <data name="CustomerInternalReport_Title" xml:space="preserve">
+    <value>Звіт по клієнту "{0}"</value>
+  </data>
+  <data name="CustomerReport_CustomerNameWithoutDepartment" xml:space="preserve">
+    <value>"{0}" без зазначення відділу</value>
+  </data>
+  <data name="CustomerReport_CustomerTotalWithoutDepartment" xml:space="preserve">
+    <value>Разом по "{0}" без  зазначення відділу - {1} од.</value>
+  </data>
+  <data name="CustomerReport_DepartmentName" xml:space="preserve">
+    <value>відділ "{0}"</value>
+  </data>
+  <data name="CustomerReport_DepartmentTotal" xml:space="preserve">
+    <value>Разом по відділу "{0}" - {1} од.</value>
+  </data>
+  <data name="CustomerReport_DocumentCount" xml:space="preserve">
+    <value>{0} од.</value>
+  </data>
+  <data name="CustomerReport_GrandTotal" xml:space="preserve">
+    <value>До сплати, грн.</value>
+  </data>
+  <data name="CustomerReport_McoCost" xml:space="preserve">
+    <value>Вартість, грн.</value>
+  </data>
+  <data name="CustomerReport_McoSection" xml:space="preserve">
+    <value>секція MCO</value>
+  </data>
+  <data name="CustomerReport_McoTotal" xml:space="preserve">
+    <value>Разом по MCO</value>
+  </data>
+  <data name="CustomerReport_RefundSection" xml:space="preserve">
+    <value>секція повернень</value>
+  </data>
+  <data name="CustomerReport_RefundTotal" xml:space="preserve">
+    <value>Разом по поверненням</value>
+  </data>
+  <data name="CustomerReport_ServicreFee" xml:space="preserve">
+    <value>Сервісний збір, грн.</value>
+  </data>
+  <data name="CustomerReport_TicketCost" xml:space="preserve">
+    <value>Вартість квитка, грн.</value>
+  </data>
+  <data name="CustomerReport_TicketSection" xml:space="preserve">
+    <value>секція квитків</value>
+  </data>
+  <data name="CustomerReport_TicketTotal" xml:space="preserve">
+    <value>Разом по квиткам</value>
+  </data>
+  <data name="CustomerReport_Total" xml:space="preserve">
+    <value>Разом по "{0}"</value>
+  </data>
+  <data name="CustomerReport_VatTotal" xml:space="preserve">
+    <value>В т.ч. ПДВ</value>
+  </data>
+  <data name="DefaultTicketPrinter_ArrivalPlace" xml:space="preserve">
+    <value>Приліт/Arrival</value>
+  </data>
+  <data name="DefaultTicketPrinter_ArrivelTime" xml:space="preserve">
+    <value>Прибуття/
+Arrival</value>
+  </data>
+  <data name="DefaultTicketPrinter_BookingCode" xml:space="preserve">
+    <value>Код бронювання / Booking code</value>
+  </data>
+  <data name="DefaultTicketPrinter_Calculation" xml:space="preserve">
+    <value>Розрахунок вартості / Calculation, грн.</value>
+  </data>
+  <data name="DefaultTicketPrinter_Carrier" xml:space="preserve">
+    <value>Перевізник / Carrier</value>
+  </data>
+  <data name="DefaultTicketPrinter_CheckIn" xml:space="preserve">
+    <value>Реєстрація/Last check-in</value>
+  </data>
+  <data name="DefaultTicketPrinter_DeparturePlace" xml:space="preserve">
+    <value>Відліт/Departure</value>
+  </data>
+  <data name="DefaultTicketPrinter_DepartureTime" xml:space="preserve">
+    <value>Відправлення/Departure</value>
+  </data>
+  <data name="DefaultTicketPrinter_ElectronicTicket" xml:space="preserve">
+    <value>ЕЛЕКТРОННИЙ КВИТОК / ELECTRONIC TICKET</value>
+  </data>
+  <data name="DefaultTicketPrinter_FlightDate" xml:space="preserve">
+    <value>Дата  відльоту / Flight date</value>
+  </data>
+  <data name="DefaultTicketPrinter_FlightTime" xml:space="preserve">
+    <value>Час у польоті/
+Flight time</value>
+  </data>
+  <data name="DefaultTicketPrinter_Meal" xml:space="preserve">
+    <value>Харчування /
+Meals</value>
+  </data>
+  <data name="DefaultTicketPrinter_Passenger" xml:space="preserve">
+    <value>Пасажир / Passenger</value>
+  </data>
+  <data name="DefaultTicketPrinter_Seat" xml:space="preserve">
+    <value>Багаж /
+Luggage
+Місце / Seat</value>
+  </data>
+  <data name="DefaultTicketPrinter_ServiceFee" xml:space="preserve">
+    <value>Сервісний збір</value>
+  </data>
+  <data name="DefaultTicketPrinter_Taxes" xml:space="preserve">
+    <value>Аеропортові збори</value>
+  </data>
+  <data name="DefaultTicketPrinter_TicketNumber" xml:space="preserve">
+    <value>Номер квитка / Ticket number</value>
+  </data>
+  <data name="DefaultTicketPrinter_TicketPrice" xml:space="preserve">
+    <value>Ціна авіаквитка</value>
+  </data>
+  <data name="DefaultTicketPrinter_Total" xml:space="preserve">
+    <value>Разом</value>
+  </data>
+  <data name="DefaultTicketPrinter_Vat" xml:space="preserve">
+    <value>в т.ч. ПДВ</value>
+  </data>
+  <data name="InvoicePrinter_Address" xml:space="preserve">
+    <value>Адреса: {0}</value>
+  </data>
+  <data name="InvoicePrinter_Agreement" xml:space="preserve">
+    <value>Замовлення</value>
+  </data>
+  <data name="InvoicePrinter_AviaTicket" xml:space="preserve">
+    <value>Авіаквиток</value>
+  </data>
+  <data name="InvoicePrinter_AviaTickets" xml:space="preserve">
+    <value>Авіаквитки</value>
+  </data>
+  <data name="InvoicePrinter_BillTo" xml:space="preserve">
+    <value>Платник</value>
+  </data>
+  <data name="InvoicePrinter_DaysTillExpiration" xml:space="preserve">
+    <value>Рахунок дійсний протягом 1-го банківського дня</value>
+  </data>
+  <data name="InvoicePrinter_Discount" xml:space="preserve">
+    <value>Знижка:</value>
+  </data>
+  <data name="InvoicePrinter_Invoice" xml:space="preserve">
+    <value>Рахунок-фактура № {0}</value>
+  </data>
+  <data name="InvoicePrinter_CompletionCertificate" xml:space="preserve">
+    <value>Акт виконаних робіт № {0}</value>
+  </data>
+  <data name="InvoicePrinter_InvoiceTotal" xml:space="preserve">
+    <value>Всього на суму:</value>
+  </data>
+  <data name="InvoicePrinter_InvoiceTotalWithVat" xml:space="preserve">
+    <value>Всього:</value>
+  </data>
+  <data name="InvoicePrinter_IssueDate" xml:space="preserve">
+    <value>від {0:d MMMM yyyy} р.</value>
+  </data>
+  <data name="InvoicePrinter_ItemName" xml:space="preserve">
+    <value>Назва</value>
+  </data>
+  <data name="InvoicePrinter_ItemTotal" xml:space="preserve">
+    <value>Сума</value>
+  </data>
+  <data name="InvoicePrinter_Paid" xml:space="preserve">
+    <value>Отримано оплат:</value>
+  </data>
+  <data name="InvoicePrinter_Price" xml:space="preserve">
+    <value>Ціна</value>
+  </data>
+  <data name="InvoicePrinter_Quantity" xml:space="preserve">
+    <value>Кількість</value>
+  </data>
+  <data name="InvoicePrinter_Same" xml:space="preserve">
+    <value>той самий</value>
+  </data>
+  <data name="InvoicePrinter_ServiceFee" xml:space="preserve">
+    <value>Сервісний збір</value>
+  </data>
+  <data name="InvoicePrinter_ShipTo" xml:space="preserve">
+    <value>Одержувач</value>
+  </data>
+  <data name="InvoicePrinter_SignedBy" xml:space="preserve">
+    <value>Виписав(ла):  ________________  {0}</value>
+  </data>
+  <data name="InvoicePrinter_SellerBy" xml:space="preserve">
+    <value>Вiд Виконавця:  ________________  {0}</value>
+  </data>
+  <data name="InvoicePrinter_CustomerBy" xml:space="preserve">
+    <value>Вiд Замовника:  ________________  {0}</value>
+  </data>
+  <data name="InvoicePrinter_Supplier" xml:space="preserve">
+    <value>Постачальник</value>
+  </data>
+  <data name="InvoicePrinter_TotalDue" xml:space="preserve">
+    <value>До сплати:</value>
+  </data>
+  <data name="InvoicePrinter_Units" xml:space="preserve">
+    <value>Од.</value>
+  </data>
+  <data name="InvoicePrinter_Vat" xml:space="preserve">
+    <value>В т.ч. ПДВ:</value>
+  </data>
+  <data name="InvoicePrinter_VatLawChanged" xml:space="preserve">
+    <value>УВАГА! Змінився порядок стягування ПДВ згідно Ст. 207 Розділу ПДВ Податкового Кодексу України</value>
+  </data>
+  <data name="InvoicePrinter_WithoutAgreement" xml:space="preserve">
+    <value>Без замовлення</value>
+  </data>
+  <data name="ReceiptPrinter_Address" xml:space="preserve">
+    <value>Адреса: {0}</value>
+  </data>
+  <data name="ReceiptPrinter_Client" xml:space="preserve">
+    <value>Клієнт</value>
+  </data>
+  <data name="ReceiptPrinter_Discount" xml:space="preserve">
+    <value>Знижка:</value>
+  </data>
+  <data name="ReceiptPrinter_ItemName" xml:space="preserve">
+    <value>Назва</value>
+  </data>
+  <data name="ReceiptPrinter_ItemTotal" xml:space="preserve">
+    <value>Сума</value>
+  </data>
+  <data name="ReceiptPrinter_Order" xml:space="preserve">
+    <value>Замовлення</value>
+  </data>
+  <data name="ReceiptPrinter_OrderTotal" xml:space="preserve">
+    <value>Всього:</value>
+  </data>
+  <data name="ReceiptPrinter_Paid" xml:space="preserve">
+    <value>Отримано оплат:</value>
+  </data>
+  <data name="ReceiptPrinter_Payer" xml:space="preserve">
+    <value>Платник</value>
+  </data>
+  <data name="ReceiptPrinter_Price" xml:space="preserve">
+    <value>Ціна</value>
+  </data>
+  <data name="ReceiptPrinter_Quantity" xml:space="preserve">
+    <value>Кіл-сть</value>
+  </data>
+  <data name="ReceiptPrinter_Receipt" xml:space="preserve">
+    <value>Квитанція № {0} від {1:d}</value>
+  </data>
+  <data name="ReceiptPrinter_SignedBy" xml:space="preserve">
+    <value>Виписав(ла)</value>
+  </data>
+  <data name="ReceiptPrinter_Total" xml:space="preserve">
+    <value>До сплати у касу</value>
+  </data>
+  <data name="ReceiptPrinter_TotalDue" xml:space="preserve">
+    <value>До сплати:</value>
+  </data>
+  <data name="ReceiptPrinter_Vat" xml:space="preserve">
+    <value>В т.ч. ПДВ:</value>
+  </data>
+  <data name="Receipt_Cashier" xml:space="preserve">
+    <value>Касир</value>
+  </data>
+  <data name="TicketPrinter_ChangesNotAllowed" xml:space="preserve">
+    <value>Заборонено / DENIED</value>
+  </data>
+  <data name="TicketPrinter_NoCharge" xml:space="preserve">
+    <value>Без штрафу / NO CHARGE</value>
+  </data>
+  <data name="TicketPrinter_RefundNoCharge" xml:space="preserve">
+    <value>Без штрафу / FULL REF</value>
+  </data>
+  <data name="TicketPrinter_RefundNotAllowed" xml:space="preserve">
+    <value>Не повертається / NON REF</value>
+  </data>
+  <data name="TicketPrinter_SegmentCaption" xml:space="preserve">
+    <value>ВИЛІТ:</value>
+  </data>
+  <data name="TicketPrinter_Terminal" xml:space="preserve">
+    <value>Термінал</value>
+  </data>
+  <data name="YearAbbr" xml:space="preserve">
+    <value>р.</value>
+  </data>
+  <data name="ConsignmentPrinter_BusTicketOne" xml:space="preserve">
+    <value>Автобусний квиток</value>
+  </data>
+  <data name="ConsignmentPrinter_BusTicketTwo" xml:space="preserve">
+    <value>Автобусних квитка</value>
+  </data>
+  <data name="ConsignmentPrinter_BusTicketFive" xml:space="preserve">
+    <value>Автобусних квитків</value>
+  </data>
+  <data name="ConsignmentPrinter_BusTicketRefundOne" xml:space="preserve">
+    <value>Повернення автобусного квитка</value>
+  </data>
+  <data name="ConsignmentPrinter_BusTicketRefundTwo" xml:space="preserve">
+    <value>Повернення автобусних квитків</value>
+  </data>
+  <data name="ConsignmentPrinter_BusTicketRefundFive" xml:space="preserve">
+    <value>Повернень автобусних квитків</value>
+  </data>
+  <data name="CustomerReport_PasteboardSection" xml:space="preserve">
+    <value>секція залізничних квитків</value>
+  </data>
+  <data name="CustomerReport_PasteboardRefundSection" xml:space="preserve">
+    <value>секція повернень залізничних квитків</value>
+  </data>
+  <data name="CustomerReport_SimCardSection" xml:space="preserve">
+    <value>секція SIM-карт</value>
+  </data>
+  <data name="CustomerReport_IsicSection" xml:space="preserve">
+    <value>секція студентських квитків Isic</value>
+  </data>
+  <data name="CustomerReport_ExcursionSection" xml:space="preserve">
+    <value>секція екскурсій</value>
+  </data>
+  <data name="CustomerReport_TourSection" xml:space="preserve">
+    <value>секція турів (готових)</value>
+  </data>
+  <data name="CustomerReport_AccommodationSection" xml:space="preserve">
+    <value>секція проживань</value>
+  </data>
+  <data name="CustomerReport_TransferSection" xml:space="preserve">
+    <value>секція трансферів</value>
+  </data>
+  <data name="CustomerReport_InsuranceSection" xml:space="preserve">
+    <value>секція страховок</value>
+  </data>
+  <data name="CustomerReport_InsuranceRefundSection" xml:space="preserve">
+    <value>секція повернень страховок</value>
+  </data>
+  <data name="CustomerReport_CarRentalSection" xml:space="preserve">
+    <value>секція оренд автомобілів</value>
+  </data>
+  <data name="CustomerReport_GenericProductSection" xml:space="preserve">
+    <value>секція додаткових послуг</value>
+  </data>
+  <data name="CustomerReport_BusTicketSection" xml:space="preserve">
+    <value>секція автобусних квитків</value>
+  </data>
+  <data name="CustomerReport_BusTicketRefundSection" xml:space="preserve">
+    <value>секція повернень автобусних квитків</value>
+  </data>
+  <data name="ConsignmentPrinter_BookingFee" xml:space="preserve">
+    <value>Збір системи бронювання</value>
+  </data>
+</root>

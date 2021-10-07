@@ -1,0 +1,32 @@
+﻿    @inherits EntityViewPage
+@{
+    Layout = "~/App/Layouts/ViewFormLayout.cshtml";
+    Name = "organization";
+
+    var v = new ViewDomain().Organization;
+    ui.ViewEntity = v;
+}
+
+
+@section Name
+{
+    @ui.Form.Display(v.Name)
+}
+
+@section Column1
+{
+    @ui.Form.Display(v.ReportsTo)
+    @ui.Form.DisplayLine(v.Code)
+    <br/>
+    @using (ui.Form.DisplayBegin(v.Contacts))
+    {
+        <party-contact-list entities="r.@v.Contacts" />
+    }
+    <br/>
+    @ui.Form.DisplayLines(v.ActualAddress, v.LegalAddress)
+}
+
+@section Column2
+{
+    @ui.Form.Display(v.Note)
+}

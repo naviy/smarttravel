@@ -1,0 +1,109 @@
+﻿/*.view-grid-filter-info {
+
+	position: absolute;
+	top: $header-size;
+	left: 5%;
+	width: 90%;
+	text-align: center;
+
+	padding-bottom: 10px;
+	overflow-y: hidden;
+
+	> div {
+		@extend .z-depth-1;
+		display: inline-block;
+		background: white;		
+		padding: 0 20px 10px 20px;
+		border-radius: 0 0 5px 5px;
+
+		color: $header-text-color !important;
+		font-size: 16px;
+	}
+	
+}*/
+
+
+.view-grid-card {
+	//@extend .card;
+	background: white;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	/*left: 20px;
+	right: 20px;
+	top: 15px;*/
+	bottom: 0;
+	padding: 20px 20px 0 20px;
+}
+
+/*.dx-datagrid-table .field-row > span {
+	display: block;
+
+	&:before {
+		content: none !important;
+	}
+}*/
+
+.dx-datagrid-header-panel {
+	.dx-button:not(:hover) {
+		border-color: transparent;
+		background: transparent;
+		box-shadow: none;
+	}
+
+	.dx-button-success:not(:hover) {
+		.dx-button-text {
+			color: rgb(35,35,35);
+		}
+
+		.dx-icon {
+			color: rgb(118,118,118);
+		}
+	}
+}
+
+.dx-data-row {
+	b {
+		font-weight: 600;
+	}
+}
+
+.dx-datagrid .dx-link {
+	color: inherit;
+}
+
+.dx-selection.dx-row, .cell-state-disabled, .cell-state-error, .cell-state-success, .cell-state-warning {
+	.fa {
+		color: inherit;
+	}
+}
+
+.cell-state-disabled {
+	color: color('grey', 'base');
+}
+
+.cell-state-error {
+	background: rgba(color('pink', 'lighten-5'), 0.3);
+	color: #BA4D51;
+}
+
+.cell-state-success {
+	background: rgba(color('green', 'lighten-5'), 0.3);
+	color: #859666;
+}
+
+.cell-state-warning {
+	background: rgba(color('amber', 'lighten-5'), 0.3);
+}
+
+
+/*.dx-multiview-item-content .dx-datagrid {
+	margin: 0 10px;
+}*/
+
+.cell-boolset {
+	padding: 7px 0 0 0 !important;
+	font-size: 18px;
+	line-height: 18px;
+}

@@ -1,0 +1,39 @@
+// LxnTravel.js
+
+Ext.BLANK_IMAGE_URL = Ext.isIE6 || Ext.isIE7 || Ext.isAir ?
+						'ext/resources/images/default/s.gif' :
+						'data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==',
+
+ss.CultureInfo.InvariantCulture = new ss.CultureInfo('ru-RU',
+	{
+		naNSymbol: 'NaN',
+		negativeSign: '-',
+		positiveSign: '+',
+		negativeInfinityText: '-Infinity',
+		positiveInfinityText: 'Infinity',
+		
+		percentSymbol: '%',
+		percentGroupSizes: [3],
+		percentDecimalDigits: 2,
+		percentDecimalSeparator: ',',
+		percentGroupSeparator: ' ',
+		percentPositivePattern: '{0} %',
+		percentNegativePattern: '-{0} %',
+
+		currencySymbol:'',
+		currencyGroupSizes: [3],
+		currencyDecimalDigits: 2,
+		currencyDecimalSeparator: ',',
+		currencyGroupSeparator: ' ',
+		currencyNegativePattern: '-{0}',
+		currencyPositivePattern: '{0}',
+
+		numberGroupSizes: [3],
+		numberDecimalDigits: 2,
+		numberDecimalSeparator: ',',
+		numberGroupSeparator: ' '
+	}, null);
+
+LxnBase.UI.pathToImages = 'static/style/travel/img/';
+
+#include[as-is] "%code%"

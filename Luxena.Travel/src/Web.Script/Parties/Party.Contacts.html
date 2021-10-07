@@ -1,0 +1,33 @@
+<h1>Contacts</h1>
+<!-- ko if: Phone1 || Phone2 -->
+<p class="phone"><span data-bind="text: Phone1" /><!-- ko if: Phone2 --><br/><span data-bind="text: Phone2" /><!-- /ko --></p>
+<!-- /ko -->
+<!-- ko if: Fax -->
+<p class="fax" data-bind="text: Fax" />
+<!-- /ko -->
+<!-- ko if: Email1 || Email2 -->
+<p class="email"><a data-bind="email: Email1" target="_blank" /><!-- ko if: Email2 --><br/><a data-bind="email: Email2" target="_blank" /><!-- /ko --></p>
+<!-- /ko -->
+<!-- ko if: WebAddress -->
+<p class="http"><a data-bind="link: WebAddress" target="_blank" /></p>
+<!-- /ko -->
+<!-- ko if: ActualAddress -->
+<div class="address">
+	<div class="label" data-bind="res: 'party_ActualAddress'" />
+	<span class="address-text" data-bind="text: ActualAddress" />&nbsp;
+	<span class="links">
+		<a class="yandex" data-bind="attr: { href: 'http://maps.yandex.ru/?text=' + encodeURI(ActualAddress()) }" target="_blank" title="Yandex Maps"></a>
+		<a class="google" data-bind="attr: { href: 'http://maps.google.com/maps?q=' + encodeURI(ActualAddress()) }" target="_blank" title="Google Maps"></a>
+	</span>
+</div>
+<!-- /ko -->
+<!-- ko if: LegalAddress -->
+<div class="address">
+	<div class="label" data-bind="res: 'party_LegalAddress'" />
+	<span class="address-text" data-bind="text: LegalAddress" />&nbsp;
+	<span class="links">
+		<a class="yandex" data-bind="attr: { href: 'http://maps.yandex.ru/?text=' + encodeURI(LegalAddress()) }" target="_blank" title="Yandex Maps"></a>
+		<a class="google" data-bind="attr: { href: 'http://maps.google.com/maps?q=' + encodeURI(LegalAddress()) }" target="_blank" title="Google Maps"></a>
+	</span>
+</div>
+<!-- /ko -->

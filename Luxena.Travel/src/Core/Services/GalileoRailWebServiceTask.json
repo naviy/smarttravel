@@ -1,0 +1,1619 @@
+﻿{
+	"Data": [
+		{
+			"counterparty": null,
+			"electronic": true,
+			"kind": "full",
+			"order_comment": null,
+			"ordernumber": "R34182",
+			"pax": {
+				"firstname": "АЛЕКСЕЙ",
+				"lastname": "ГЕРАСИМЧУК",
+				"place": "016",
+				"privelege_number": null,
+				"privelege_serial": null
+			},
+			"payer": null,
+			"price": {
+				"agencyFee": 30.00,
+				"apiFee": 7.00,
+				"currency": "UAH",
+				"detailed": {
+					"carrier": 527.20,
+					"commission": 18.33,
+					"fee": 0.00,
+					"fee_vat": 0.00,
+					"insurance": 0.50,
+					"reserved_seat": 320.64,
+					"service": null,
+					"ticket": 99.94,
+					"vat": 87.79
+				},
+				"excessFee": 0,
+				"finalPrice": 564.20,
+				"paymentFee": 0.00,
+				"ticketTotalPrice": 527.20
+			},
+			"site_user": {
+				"email": "igor@bsv.com.ua",
+				"guid": "140a986a-acd3-4b30-ac3b-fceb56bc2947",
+				"id": 1159,
+				"name": "Ігор Шверненко",
+				"phone": "+38 0677887976"
+			},
+			"sysdate": "/Date(1550160535000+0200)/",
+			"ted_id": 206499,
+			"train": {
+				"arrival": "/Date(1550678400000+0200)/",
+				"departure": "/Date(1550661300000+0200)/",
+				"model": 1,
+				"number": "723О",
+				"station_from": 2204001,
+				"station_from_ru": "Харьков-Пассажирский",
+				"station_to": 2200001,
+				"station_to_ru": "Киев-Пассажирский"
+			},
+			"type": "travel",
+			"uid": "000B3F50-7B7BFC06-0001",
+			"uz_ordernumber": "ББП-Т1-1526939-1402",
+			"wagon": {
+				"class": "1",
+				"number": "02",
+				"type": "С"
+			}
+		},
+		{
+			"counterparty": null,
+			"electronic": true,
+			"kind": "full",
+			"order_comment": null,
+			"ordernumber": "R34181",
+			"pax": {
+				"firstname": "АЛЕКСЕЙ",
+				"lastname": "ГЕРАСИМЧУК",
+				"place": "011",
+				"privelege_number": null,
+				"privelege_serial": null
+			},
+			"payer": null,
+			"price": {
+				"agencyFee": 30.00,
+				"apiFee": 7.00,
+				"currency": "UAH",
+				"detailed": {
+					"carrier": 499.14,
+					"commission": 18.33,
+					"fee": 0.00,
+					"fee_vat": 0.00,
+					"insurance": 0.47,
+					"reserved_seat": 302.83,
+					"service": null,
+					"ticket": 94.39,
+					"vat": 83.12
+				},
+				"excessFee": 0,
+				"finalPrice": 536.14,
+				"paymentFee": 0.00,
+				"ticketTotalPrice": 499.14
+			},
+			"site_user": {
+				"email": "igor@bsv.com.ua",
+				"guid": "140a986a-acd3-4b30-ac3b-fceb56bc2947",
+				"id": 1159,
+				"name": "Ігор Шверненко",
+				"phone": "+38 0677887976"
+			},
+			"sysdate": "/Date(1550160426000+0200)/",
+			"ted_id": 206497,
+			"train": {
+				"arrival": "/Date(1550611620000+0200)/",
+				"departure": "/Date(1550594280000+0200)/",
+				"model": 1,
+				"number": "721О",
+				"station_from": 2204001,
+				"station_from_ru": "Харьков-Пассажирский",
+				"station_to": 2200001,
+				"station_to_ru": "Киев-Пассажирский"
+			},
+			"type": "travel",
+			"uid": "000B3F50-0D7BFB58-0001",
+			"uz_ordernumber": "81У-Т1-1525475-1402",
+			"wagon": {
+				"class": "1",
+				"number": "02",
+				"type": "С"
+			}
+		},
+		{
+			"counterparty": null,
+			"electronic": true,
+			"kind": "full",
+			"order_comment": null,
+			"ordernumber": "R34180",
+			"pax": {
+				"firstname": "АЛЕКСЕЙ",
+				"lastname": "ГЕРАСИМЧУК",
+				"place": "037",
+				"privelege_number": null,
+				"privelege_serial": null
+			},
+			"payer": null,
+			"price": {
+				"agencyFee": 30.00,
+				"apiFee": 7.00,
+				"currency": "UAH",
+				"detailed": {
+					"carrier": 583.34,
+					"commission": 18.33,
+					"fee": 0.00,
+					"fee_vat": 0.00,
+					"insurance": 0.56,
+					"reserved_seat": 356.27,
+					"service": null,
+					"ticket": 111.05,
+					"vat": 97.13
+				},
+				"excessFee": 0,
+				"finalPrice": 620.34,
+				"paymentFee": 0.00,
+				"ticketTotalPrice": 583.34
+			},
+			"site_user": {
+				"email": "igor@bsv.com.ua",
+				"guid": "140a986a-acd3-4b30-ac3b-fceb56bc2947",
+				"id": 1159,
+				"name": "Ігор Шверненко",
+				"phone": "+38 0677887976"
+			},
+			"sysdate": "/Date(1550160026000+0200)/",
+			"ted_id": 206495,
+			"train": {
+				"arrival": "/Date(1550506380000+0200)/",
+				"departure": "/Date(1550489280000+0200)/",
+				"model": 1,
+				"number": "724К",
+				"station_from": 2200001,
+				"station_from_ru": "Киев-Пассажирский",
+				"station_to": 2204001,
+				"station_to_ru": "Харьков-Пассажирский"
+			},
+			"type": "travel",
+			"uid": "000B3F50-FD7BF811-0001",
+			"uz_ordernumber": "ИБ7-Т1-1519590-1402",
+			"wagon": {
+				"class": "1",
+				"number": "02",
+				"type": "С"
+			}
+		},
+		{
+			"counterparty": null,
+			"electronic": true,
+			"kind": "full",
+			"order_comment": null,
+			"ordernumber": "R34179",
+			"pax": {
+				"firstname": "ДМИТРО",
+				"lastname": "МОСКАЛЕНКО",
+				"place": "016",
+				"privelege_number": null,
+				"privelege_serial": null
+			},
+			"payer": null,
+			"price": {
+				"agencyFee": 30.00,
+				"apiFee": 7.00,
+				"currency": "UAH",
+				"detailed": {
+					"carrier": 559.42,
+					"commission": 18.33,
+					"fee": 0.00,
+					"fee_vat": 0.00,
+					"insurance": 0.54,
+					"reserved_seat": 339.40,
+					"service": null,
+					"ticket": 108.00,
+					"vat": 93.15
+				},
+				"excessFee": 0,
+				"finalPrice": 596.42,
+				"paymentFee": 0.00,
+				"ticketTotalPrice": 559.42
+			},
+			"site_user": {
+				"email": "valentyna@bsv.com.ua",
+				"guid": "0f02bea3-80a0-4a15-9ee1-7324e731e00f",
+				"id": 5,
+				"name": "Valentyna",
+				"phone": "+38 0975155841"
+			},
+			"sysdate": "/Date(1550147577000+0200)/",
+			"ted_id": 206493,
+			"train": {
+				"arrival": "/Date(1550695980000+0200)/",
+				"departure": "/Date(1550675220000+0200)/",
+				"model": 1,
+				"number": "732П",
+				"station_from": 2210700,
+				"station_from_ru": "Днепр-Главный",
+				"station_to": 2200001,
+				"station_to_ru": "Киев-Пассажирский"
+			},
+			"type": "travel",
+			"uid": "000B3F50-6BFB8DBF-0001",
+			"uz_ordernumber": "Л2Ц-Т1-1322849-1402",
+			"wagon": {
+				"class": "1",
+				"number": "02",
+				"type": "С"
+			}
+		},
+		{
+			"counterparty": null,
+			"electronic": true,
+			"kind": "full",
+			"order_comment": null,
+			"ordernumber": "R34179",
+			"pax": {
+				"firstname": "ІГОР",
+				"lastname": "МОЛОДЬКО",
+				"place": "015",
+				"privelege_number": null,
+				"privelege_serial": null
+			},
+			"payer": null,
+			"price": {
+				"agencyFee": 30.00,
+				"apiFee": 7.00,
+				"currency": "UAH",
+				"detailed": {
+					"carrier": 559.42,
+					"commission": 18.33,
+					"fee": 0.00,
+					"fee_vat": 0.00,
+					"insurance": 0.54,
+					"reserved_seat": 339.40,
+					"service": null,
+					"ticket": 108.00,
+					"vat": 93.15
+				},
+				"excessFee": 0,
+				"finalPrice": 596.42,
+				"paymentFee": 0.00,
+				"ticketTotalPrice": 559.42
+			},
+			"site_user": {
+				"email": "valentyna@bsv.com.ua",
+				"guid": "0f02bea3-80a0-4a15-9ee1-7324e731e00f",
+				"id": 5,
+				"name": "Valentyna",
+				"phone": "+38 0975155841"
+			},
+			"sysdate": "/Date(1550147576000+0200)/",
+			"ted_id": 206492,
+			"train": {
+				"arrival": "/Date(1550695980000+0200)/",
+				"departure": "/Date(1550675220000+0200)/",
+				"model": 1,
+				"number": "732П",
+				"station_from": 2210700,
+				"station_from_ru": "Днепр-Главный",
+				"station_to": 2200001,
+				"station_to_ru": "Киев-Пассажирский"
+			},
+			"type": "travel",
+			"uid": "000B3F50-4B7B8DBD-0001",
+			"uz_ordernumber": "785-Т1-1322834-1402",
+			"wagon": {
+				"class": "1",
+				"number": "02",
+				"type": "С"
+			}
+		},
+		{
+			"counterparty": null,
+			"electronic": true,
+			"kind": "full",
+			"order_comment": null,
+			"ordernumber": "R34178",
+			"pax": {
+				"firstname": "ДМИТРО",
+				"lastname": "МОСКАЛЕНКО",
+				"place": "031",
+				"privelege_number": null,
+				"privelege_serial": null
+			},
+			"payer": null,
+			"price": {
+				"agencyFee": 30.00,
+				"apiFee": 7.00,
+				"currency": "UAH",
+				"detailed": {
+					"carrier": 468.18,
+					"commission": 18.33,
+					"fee": 0.00,
+					"fee_vat": 0.00,
+					"insurance": 0.56,
+					"reserved_seat": 252.53,
+					"service": 41.67,
+					"ticket": 77.15,
+					"vat": 77.94
+				},
+				"excessFee": 0,
+				"finalPrice": 505.18,
+				"paymentFee": 0.00,
+				"ticketTotalPrice": 468.18
+			},
+			"site_user": {
+				"email": "valentyna@bsv.com.ua",
+				"guid": "0f02bea3-80a0-4a15-9ee1-7324e731e00f",
+				"id": 5,
+				"name": "Valentyna",
+				"phone": "+38 0975155841"
+			},
+			"sysdate": "/Date(1550147450000+0200)/",
+			"ted_id": 206489,
+			"train": {
+				"arrival": "/Date(1550638020000+0200)/",
+				"departure": "/Date(1550611080000+0200)/",
+				"model": 0,
+				"number": "080К",
+				"station_from": 2200001,
+				"station_from_ru": "Киев-Пассажирский",
+				"station_to": 2210700,
+				"station_to_ru": "Днепр-Главный"
+			},
+			"type": "travel",
+			"uid": "000B3F50-1DFB8C67-0001",
+			"uz_ordernumber": "ЖБУ-Н1-1320577-1402",
+			"wagon": {
+				"class": null,
+				"number": "17",
+				"type": "К"
+			}
+		},
+		{
+			"counterparty": null,
+			"electronic": true,
+			"kind": "full",
+			"order_comment": null,
+			"ordernumber": "R34178",
+			"pax": {
+				"firstname": "ІГОР",
+				"lastname": "МОЛОДЬКО",
+				"place": "029",
+				"privelege_number": null,
+				"privelege_serial": null
+			},
+			"payer": null,
+			"price": {
+				"agencyFee": 30.00,
+				"apiFee": 7.00,
+				"currency": "UAH",
+				"detailed": {
+					"carrier": 468.18,
+					"commission": 18.33,
+					"fee": 0.00,
+					"fee_vat": 0.00,
+					"insurance": 0.56,
+					"reserved_seat": 252.53,
+					"service": 41.67,
+					"ticket": 77.15,
+					"vat": 77.94
+				},
+				"excessFee": 0,
+				"finalPrice": 505.18,
+				"paymentFee": 0.00,
+				"ticketTotalPrice": 468.18
+			},
+			"site_user": {
+				"email": "valentyna@bsv.com.ua",
+				"guid": "0f02bea3-80a0-4a15-9ee1-7324e731e00f",
+				"id": 5,
+				"name": "Valentyna",
+				"phone": "+38 0975155841"
+			},
+			"sysdate": "/Date(1550147449000+0200)/",
+			"ted_id": 206488,
+			"train": {
+				"arrival": "/Date(1550638020000+0200)/",
+				"departure": "/Date(1550611080000+0200)/",
+				"model": 0,
+				"number": "080К",
+				"station_from": 2200001,
+				"station_from_ru": "Киев-Пассажирский",
+				"station_to": 2210700,
+				"station_to_ru": "Днепр-Главный"
+			},
+			"type": "travel",
+			"uid": "000B3F50-3D7B8C62-0001",
+			"uz_ordernumber": "857-Н1-1320556-1402",
+			"wagon": {
+				"class": null,
+				"number": "17",
+				"type": "К"
+			}
+		},
+		{
+			"counterparty": null,
+			"electronic": true,
+			"kind": "full",
+			"order_comment": null,
+			"ordernumber": "R34177",
+			"pax": {
+				"firstname": "АЛЕКСАНДР",
+				"lastname": "БЕЗУГЛЫЙ",
+				"place": "033",
+				"privelege_number": null,
+				"privelege_serial": null
+			},
+			"payer": null,
+			"price": {
+				"agencyFee": 30.00,
+				"apiFee": 7.00,
+				"currency": "UAH",
+				"detailed": {
+					"carrier": 591.76,
+					"commission": 18.33,
+					"fee": 0.00,
+					"fee_vat": 0.00,
+					"insurance": 0.57,
+					"reserved_seat": 357.89,
+					"service": null,
+					"ticket": 116.43,
+					"vat": 98.54
+				},
+				"excessFee": 0,
+				"finalPrice": 628.76,
+				"paymentFee": 0.00,
+				"ticketTotalPrice": 591.76
+			},
+			"site_user": {
+				"email": "svetlana@bsv.com.ua",
+				"guid": "4cf103d6-907e-4bfc-a859-f71aa0cbca78",
+				"id": 70,
+				"name": "Светлана Лысенко",
+				"phone": "+38 0973087719"
+			},
+			"sysdate": "/Date(1550143469000+0200)/",
+			"ted_id": 206485,
+			"train": {
+				"arrival": "/Date(1550699580000+0200)/",
+				"departure": "/Date(1550681160000+0200)/",
+				"model": 1,
+				"number": "705Л",
+				"station_from": 2218000,
+				"station_from_ru": "Львов",
+				"station_to": 2200001,
+				"station_to_ru": "Киев-Пассажирский"
+			},
+			"type": "travel",
+			"uid": "000B3F50-3FFB698F-0001",
+			"uz_ordernumber": "451-Т1-1255070-1402",
+			"wagon": {
+				"class": "1",
+				"number": "08",
+				"type": "С"
+			}
+		},
+		{
+			"counterparty": null,
+			"electronic": true,
+			"kind": "full",
+			"order_comment": null,
+			"ordernumber": "R34176",
+			"pax": {
+				"firstname": "АЛЕКСАНДР",
+				"lastname": "БЕЗУГЛЫЙ",
+				"place": "023",
+				"privelege_number": null,
+				"privelege_serial": null
+			},
+			"payer": null,
+			"price": {
+				"agencyFee": 30.00,
+				"apiFee": 7.00,
+				"currency": "UAH",
+				"detailed": {
+					"carrier": 629.19,
+					"commission": 18.33,
+					"fee": 0.00,
+					"fee_vat": 0.00,
+					"insurance": 0.79,
+					"reserved_seat": 348.16,
+					"service": 41.67,
+					"ticket": 115.51,
+					"vat": 104.73
+				},
+				"excessFee": 0,
+				"finalPrice": 666.19,
+				"paymentFee": 0.00,
+				"ticketTotalPrice": 629.19
+			},
+			"site_user": {
+				"email": "svetlana@bsv.com.ua",
+				"guid": "4cf103d6-907e-4bfc-a859-f71aa0cbca78",
+				"id": 70,
+				"name": "Светлана Лысенко",
+				"phone": "+38 0973087719"
+			},
+			"sysdate": "/Date(1550143394000+0200)/",
+			"ted_id": 206483,
+			"train": {
+				"arrival": "/Date(1550554500000+0200)/",
+				"departure": "/Date(1550521320000+0200)/",
+				"model": 0,
+				"number": "007К",
+				"station_from": 2200001,
+				"station_from_ru": "Киев-Пассажирский",
+				"station_to": 2218200,
+				"station_to_ru": "Ивано-Франковск"
+			},
+			"type": "travel",
+			"uid": "000B3F50-897B68DC-0001",
+			"uz_ordernumber": "Ц48-Н1-1253872-1402",
+			"wagon": {
+				"class": null,
+				"number": "02",
+				"type": "К"
+			}
+		},
+		{
+			"counterparty": null,
+			"electronic": true,
+			"kind": "full",
+			"order_comment": null,
+			"ordernumber": "R34173",
+			"pax": {
+				"firstname": "ОЛЕКСАНДР",
+				"lastname": "МЕЛЬНІЧЕНКО",
+				"place": "019",
+				"privelege_number": null,
+				"privelege_serial": null
+			},
+			"payer": null,
+			"price": {
+				"agencyFee": 30.00,
+				"apiFee": 7.00,
+				"currency": "UAH",
+				"detailed": {
+					"carrier": 468.18,
+					"commission": 18.33,
+					"fee": 0.00,
+					"fee_vat": 0.00,
+					"insurance": 0.56,
+					"reserved_seat": 252.53,
+					"service": 41.67,
+					"ticket": 77.15,
+					"vat": 77.94
+				},
+				"excessFee": 0,
+				"finalPrice": 505.18,
+				"paymentFee": 0.00,
+				"ticketTotalPrice": 468.18
+			},
+			"site_user": {
+				"email": "igor@bsv.com.ua",
+				"guid": "140a986a-acd3-4b30-ac3b-fceb56bc2947",
+				"id": 1159,
+				"name": "Ігор Шверненко",
+				"phone": "+38 0677887976"
+			},
+			"sysdate": "/Date(1550139420000+0200)/",
+			"ted_id": 206477,
+			"train": {
+				"arrival": "/Date(1550725980000+0200)/",
+				"departure": "/Date(1550699280000+0200)/",
+				"model": 0,
+				"number": "079П",
+				"station_from": 2210700,
+				"station_from_ru": "Днепр-Главный",
+				"station_to": 2200001,
+				"station_to_ru": "Киев-Пассажирский"
+			},
+			"type": "travel",
+			"uid": "000B3F50-4BFB48BC-0001",
+			"uz_ordernumber": "4Л6-Н1-1193636-1402",
+			"wagon": {
+				"class": null,
+				"number": "18",
+				"type": "К"
+			}
+		},
+		{
+			"counterparty": null,
+			"electronic": true,
+			"kind": "full",
+			"order_comment": null,
+			"ordernumber": "R34173",
+			"pax": {
+				"firstname": "ОЛЕКСАНДР",
+				"lastname": "МЕЛЬНІЧЕНКО",
+				"place": "025",
+				"privelege_number": null,
+				"privelege_serial": null
+			},
+			"payer": null,
+			"price": {
+				"agencyFee": 30.00,
+				"apiFee": 7.00,
+				"currency": "UAH",
+				"detailed": {
+					"carrier": 468.18,
+					"commission": 18.33,
+					"fee": 0.00,
+					"fee_vat": 0.00,
+					"insurance": 0.56,
+					"reserved_seat": 252.53,
+					"service": 41.67,
+					"ticket": 77.15,
+					"vat": 77.94
+				},
+				"excessFee": 0,
+				"finalPrice": 505.18,
+				"paymentFee": 0.00,
+				"ticketTotalPrice": 468.18
+			},
+			"site_user": {
+				"email": "igor@bsv.com.ua",
+				"guid": "140a986a-acd3-4b30-ac3b-fceb56bc2947",
+				"id": 1159,
+				"name": "Ігор Шверненко",
+				"phone": "+38 0677887976"
+			},
+			"sysdate": "/Date(1550139419000+0200)/",
+			"ted_id": 206476,
+			"train": {
+				"arrival": "/Date(1550638020000+0200)/",
+				"departure": "/Date(1550611080000+0200)/",
+				"model": 0,
+				"number": "080К",
+				"station_from": 2200001,
+				"station_from_ru": "Киев-Пассажирский",
+				"station_to": 2210700,
+				"station_to_ru": "Днепр-Главный"
+			},
+			"type": "travel",
+			"uid": "000B3F50-FF7B48BA-0001",
+			"uz_ordernumber": "Б77-Н1-1193624-1402",
+			"wagon": {
+				"class": null,
+				"number": "18",
+				"type": "К"
+			}
+		},
+		{
+			"counterparty": null,
+			"electronic": true,
+			"kind": "full",
+			"order_comment": null,
+			"ordernumber": "R34172",
+			"pax": {
+				"firstname": "РОМАН",
+				"lastname": "ВЫБРАНОВСКИЙ",
+				"place": "012",
+				"privelege_number": null,
+				"privelege_serial": null
+			},
+			"payer": null,
+			"price": {
+				"agencyFee": 30.00,
+				"apiFee": 7.00,
+				"currency": "UAH",
+				"detailed": {
+					"carrier": 678.84,
+					"commission": 18.33,
+					"fee": 0.00,
+					"fee_vat": 0.00,
+					"insurance": 0.66,
+					"reserved_seat": 414.82,
+					"service": null,
+					"ticket": 132.00,
+					"vat": 113.03
+				},
+				"excessFee": 0,
+				"finalPrice": 715.84,
+				"paymentFee": 0.00,
+				"ticketTotalPrice": 678.84
+			},
+			"site_user": {
+				"email": "tour@bsv.com.ua",
+				"guid": "80bcfb95-c8e2-4272-93ef-7f154422fe85",
+				"id": 72,
+				"name": "Анна Конончук",
+				"phone": "+38 0955102212"
+			},
+			"sysdate": "/Date(1550138877000+0200)/",
+			"ted_id": 206473,
+			"train": {
+				"arrival": "/Date(1550746080000+0200)/",
+				"departure": "/Date(1550725380000+0200)/",
+				"model": 1,
+				"number": "733Ш",
+				"station_from": 2210700,
+				"station_from_ru": "Днепр-Главный",
+				"station_to": 2200001,
+				"station_to_ru": "Киев-Пассажирский"
+			},
+			"type": "travel",
+			"uid": "000B3F50-CD7B442B-0001",
+			"uz_ordernumber": "2Ж4-Т1-1185199-1402",
+			"wagon": {
+				"class": "1",
+				"number": "05",
+				"type": "С"
+			}
+		},
+		{
+			"counterparty": null,
+			"electronic": true,
+			"kind": "full",
+			"order_comment": null,
+			"ordernumber": "R34172",
+			"pax": {
+				"firstname": "МАКСИМ",
+				"lastname": "КЛЮЧАР",
+				"place": "008",
+				"privelege_number": null,
+				"privelege_serial": null
+			},
+			"payer": null,
+			"price": {
+				"agencyFee": 30.00,
+				"apiFee": 7.00,
+				"currency": "UAH",
+				"detailed": {
+					"carrier": 678.84,
+					"commission": 18.33,
+					"fee": 0.00,
+					"fee_vat": 0.00,
+					"insurance": 0.66,
+					"reserved_seat": 414.82,
+					"service": null,
+					"ticket": 132.00,
+					"vat": 113.03
+				},
+				"excessFee": 0,
+				"finalPrice": 715.84,
+				"paymentFee": 0.00,
+				"ticketTotalPrice": 678.84
+			},
+			"site_user": {
+				"email": "tour@bsv.com.ua",
+				"guid": "80bcfb95-c8e2-4272-93ef-7f154422fe85",
+				"id": 72,
+				"name": "Анна Конончук",
+				"phone": "+38 0955102212"
+			},
+			"sysdate": "/Date(1550138877000+0200)/",
+			"ted_id": 206472,
+			"train": {
+				"arrival": "/Date(1550746080000+0200)/",
+				"departure": "/Date(1550725380000+0200)/",
+				"model": 1,
+				"number": "733Ш",
+				"station_from": 2210700,
+				"station_from_ru": "Днепр-Главный",
+				"station_to": 2200001,
+				"station_to_ru": "Киев-Пассажирский"
+			},
+			"type": "travel",
+			"uid": "000B3F50-F9FB4429-0001",
+			"uz_ordernumber": "ФУ5-Т1-1185187-1402",
+			"wagon": {
+				"class": "1",
+				"number": "05",
+				"type": "С"
+			}
+		},
+		{
+			"counterparty": null,
+			"electronic": true,
+			"kind": "full",
+			"order_comment": null,
+			"ordernumber": "R34172",
+			"pax": {
+				"firstname": "РОБЕРТ",
+				"lastname": "СИВЕРС",
+				"place": "011",
+				"privelege_number": null,
+				"privelege_serial": null
+			},
+			"payer": null,
+			"price": {
+				"agencyFee": 30.00,
+				"apiFee": 7.00,
+				"currency": "UAH",
+				"detailed": {
+					"carrier": 678.84,
+					"commission": 18.33,
+					"fee": 0.00,
+					"fee_vat": 0.00,
+					"insurance": 0.66,
+					"reserved_seat": 414.82,
+					"service": null,
+					"ticket": 132.00,
+					"vat": 113.03
+				},
+				"excessFee": 0,
+				"finalPrice": 715.84,
+				"paymentFee": 0.00,
+				"ticketTotalPrice": 678.84
+			},
+			"site_user": {
+				"email": "tour@bsv.com.ua",
+				"guid": "80bcfb95-c8e2-4272-93ef-7f154422fe85",
+				"id": 72,
+				"name": "Анна Конончук",
+				"phone": "+38 0955102212"
+			},
+			"sysdate": "/Date(1550138876000+0200)/",
+			"ted_id": 206471,
+			"train": {
+				"arrival": "/Date(1550746080000+0200)/",
+				"departure": "/Date(1550725380000+0200)/",
+				"model": 1,
+				"number": "733Ш",
+				"station_from": 2210700,
+				"station_from_ru": "Днепр-Главный",
+				"station_to": 2200001,
+				"station_to_ru": "Киев-Пассажирский"
+			},
+			"type": "travel",
+			"uid": "000B3F50-5BFB4427-0001",
+			"uz_ordernumber": "2ЦЦ-Т1-1185174-1402",
+			"wagon": {
+				"class": "1",
+				"number": "05",
+				"type": "С"
+			}
+		},
+		{
+			"counterparty": null,
+			"electronic": true,
+			"kind": "full",
+			"order_comment": null,
+			"ordernumber": "R34171",
+			"pax": {
+				"firstname": "РОМАН",
+				"lastname": "ВЫБРАНОВСКИЙ",
+				"place": "018",
+				"privelege_number": null,
+				"privelege_serial": null
+			},
+			"payer": null,
+			"price": {
+				"agencyFee": 30.00,
+				"apiFee": 7.00,
+				"currency": "UAH",
+				"detailed": {
+					"carrier": 166.16,
+					"commission": 18.33,
+					"fee": 0.00,
+					"fee_vat": 0.00,
+					"insurance": 0.14,
+					"reserved_seat": 34.23,
+					"service": 41.67,
+					"ticket": 44.12,
+					"vat": 27.67
+				},
+				"excessFee": 0,
+				"finalPrice": 203.16,
+				"paymentFee": 0.00,
+				"ticketTotalPrice": 166.16
+			},
+			"site_user": {
+				"email": "tour@bsv.com.ua",
+				"guid": "80bcfb95-c8e2-4272-93ef-7f154422fe85",
+				"id": 72,
+				"name": "Анна Конончук",
+				"phone": "+38 0955102212"
+			},
+			"sysdate": "/Date(1550138767000+0200)/",
+			"ted_id": 206467,
+			"train": {
+				"arrival": "/Date(1550564880000+0200)/",
+				"departure": "/Date(1550547420000+0200)/",
+				"model": 0,
+				"number": "140Д",
+				"station_from": 2204001,
+				"station_from_ru": "Харьков-Пассажирский",
+				"station_to": 2210700,
+				"station_to_ru": "Днепр-Главный"
+			},
+			"type": "travel",
+			"uid": "000B3F50-8FFB433B-0001",
+			"uz_ordernumber": "Я44-Е1-1183374-1402",
+			"wagon": {
+				"class": null,
+				"number": "02",
+				"type": "К"
+			}
+		},
+		{
+			"counterparty": null,
+			"electronic": true,
+			"kind": "full",
+			"order_comment": null,
+			"ordernumber": "R34171",
+			"pax": {
+				"firstname": "МАКСИМ",
+				"lastname": "КЛЮЧАР",
+				"place": "019",
+				"privelege_number": null,
+				"privelege_serial": null
+			},
+			"payer": null,
+			"price": {
+				"agencyFee": 30.00,
+				"apiFee": 7.00,
+				"currency": "UAH",
+				"detailed": {
+					"carrier": 166.16,
+					"commission": 18.33,
+					"fee": 0.00,
+					"fee_vat": 0.00,
+					"insurance": 0.14,
+					"reserved_seat": 34.23,
+					"service": 41.67,
+					"ticket": 44.12,
+					"vat": 27.67
+				},
+				"excessFee": 0,
+				"finalPrice": 203.16,
+				"paymentFee": 0.00,
+				"ticketTotalPrice": 166.16
+			},
+			"site_user": {
+				"email": "tour@bsv.com.ua",
+				"guid": "80bcfb95-c8e2-4272-93ef-7f154422fe85",
+				"id": 72,
+				"name": "Анна Конончук",
+				"phone": "+38 0955102212"
+			},
+			"sysdate": "/Date(1550138766000+0200)/",
+			"ted_id": 206466,
+			"train": {
+				"arrival": "/Date(1550564880000+0200)/",
+				"departure": "/Date(1550547420000+0200)/",
+				"model": 0,
+				"number": "140Д",
+				"station_from": 2204001,
+				"station_from_ru": "Харьков-Пассажирский",
+				"station_to": 2210700,
+				"station_to_ru": "Днепр-Главный"
+			},
+			"type": "travel",
+			"uid": "000B3F50-FBFB4336-0001",
+			"uz_ordernumber": "195-Е1-1183347-1402",
+			"wagon": {
+				"class": null,
+				"number": "02",
+				"type": "К"
+			}
+		},
+		{
+			"counterparty": null,
+			"electronic": true,
+			"kind": "full",
+			"order_comment": null,
+			"ordernumber": "R34171",
+			"pax": {
+				"firstname": "РОБЕРТ",
+				"lastname": "СИВЕРС",
+				"place": "017",
+				"privelege_number": null,
+				"privelege_serial": null
+			},
+			"payer": null,
+			"price": {
+				"agencyFee": 30.00,
+				"apiFee": 7.00,
+				"currency": "UAH",
+				"detailed": {
+					"carrier": 166.16,
+					"commission": 18.33,
+					"fee": 0.00,
+					"fee_vat": 0.00,
+					"insurance": 0.14,
+					"reserved_seat": 34.23,
+					"service": 41.67,
+					"ticket": 44.12,
+					"vat": 27.67
+				},
+				"excessFee": 0,
+				"finalPrice": 203.16,
+				"paymentFee": 0.00,
+				"ticketTotalPrice": 166.16
+			},
+			"site_user": {
+				"email": "tour@bsv.com.ua",
+				"guid": "80bcfb95-c8e2-4272-93ef-7f154422fe85",
+				"id": 72,
+				"name": "Анна Конончук",
+				"phone": "+38 0955102212"
+			},
+			"sysdate": "/Date(1550138765000+0200)/",
+			"ted_id": 206465,
+			"train": {
+				"arrival": "/Date(1550564880000+0200)/",
+				"departure": "/Date(1550547420000+0200)/",
+				"model": 0,
+				"number": "140Д",
+				"station_from": 2204001,
+				"station_from_ru": "Харьков-Пассажирский",
+				"station_to": 2210700,
+				"station_to_ru": "Днепр-Главный"
+			},
+			"type": "travel",
+			"uid": "000B3F50-DFFB4333-0001",
+			"uz_ordernumber": "76Ц-Е1-1183320-1402",
+			"wagon": {
+				"class": null,
+				"number": "02",
+				"type": "К"
+			}
+		},
+		{
+			"counterparty": null,
+			"electronic": true,
+			"kind": "full",
+			"order_comment": null,
+			"ordernumber": "R34170",
+			"pax": {
+				"firstname": "РОМАН",
+				"lastname": "ВЫБРАНОВСКИЙ",
+				"place": "013",
+				"privelege_number": null,
+				"privelege_serial": null
+			},
+			"payer": null,
+			"price": {
+				"agencyFee": 30.00,
+				"apiFee": 7.00,
+				"currency": "UAH",
+				"detailed": {
+					"carrier": 686.55,
+					"commission": 18.33,
+					"fee": 0.00,
+					"fee_vat": 0.00,
+					"insurance": 0.67,
+					"reserved_seat": 431.08,
+					"service": null,
+					"ticket": 122.15,
+					"vat": 114.32
+				},
+				"excessFee": 0,
+				"finalPrice": 723.55,
+				"paymentFee": 0.00,
+				"ticketTotalPrice": 686.55
+			},
+			"site_user": {
+				"email": "tour@bsv.com.ua",
+				"guid": "80bcfb95-c8e2-4272-93ef-7f154422fe85",
+				"id": 72,
+				"name": "Анна Конончук",
+				"phone": "+38 0955102212"
+			},
+			"sysdate": "/Date(1550138620000+0200)/",
+			"ted_id": 206461,
+			"train": {
+				"arrival": "/Date(1550419980000+0200)/",
+				"departure": "/Date(1550402880000+0200)/",
+				"model": 1,
+				"number": "724К",
+				"station_from": 2200001,
+				"station_from_ru": "Киев-Пассажирский",
+				"station_to": 2204001,
+				"station_to_ru": "Харьков-Пассажирский"
+			},
+			"type": "travel",
+			"uid": "000B3F50-8BFB41D2-0001",
+			"uz_ordernumber": "5Ф7-Т1-1180893-1402",
+			"wagon": {
+				"class": "1",
+				"number": "08",
+				"type": "С"
+			}
+		},
+		{
+			"counterparty": null,
+			"electronic": true,
+			"kind": "full",
+			"order_comment": null,
+			"ordernumber": "R34170",
+			"pax": {
+				"firstname": "МАКСИМ",
+				"lastname": "КЛЮЧАР",
+				"place": "014",
+				"privelege_number": null,
+				"privelege_serial": null
+			},
+			"payer": null,
+			"price": {
+				"agencyFee": 30.00,
+				"apiFee": 7.00,
+				"currency": "UAH",
+				"detailed": {
+					"carrier": 686.55,
+					"commission": 18.33,
+					"fee": 0.00,
+					"fee_vat": 0.00,
+					"insurance": 0.67,
+					"reserved_seat": 431.08,
+					"service": null,
+					"ticket": 122.15,
+					"vat": 114.32
+				},
+				"excessFee": 0,
+				"finalPrice": 723.55,
+				"paymentFee": 0.00,
+				"ticketTotalPrice": 686.55
+			},
+			"site_user": {
+				"email": "tour@bsv.com.ua",
+				"guid": "80bcfb95-c8e2-4272-93ef-7f154422fe85",
+				"id": 72,
+				"name": "Анна Конончук",
+				"phone": "+38 0955102212"
+			},
+			"sysdate": "/Date(1550138619000+0200)/",
+			"ted_id": 206460,
+			"train": {
+				"arrival": "/Date(1550419980000+0200)/",
+				"departure": "/Date(1550402880000+0200)/",
+				"model": 1,
+				"number": "724К",
+				"station_from": 2200001,
+				"station_from_ru": "Киев-Пассажирский",
+				"station_to": 2204001,
+				"station_to_ru": "Харьков-Пассажирский"
+			},
+			"type": "travel",
+			"uid": "000B3F50-9F7B41CE-0001",
+			"uz_ordernumber": "Я82-Т1-1180869-1402",
+			"wagon": {
+				"class": "1",
+				"number": "08",
+				"type": "С"
+			}
+		},
+		{
+			"counterparty": null,
+			"electronic": true,
+			"kind": "full",
+			"order_comment": null,
+			"ordernumber": "R34170",
+			"pax": {
+				"firstname": "РОБЕРТ",
+				"lastname": "СИВЕРС",
+				"place": "010",
+				"privelege_number": null,
+				"privelege_serial": null
+			},
+			"payer": null,
+			"price": {
+				"agencyFee": 30.00,
+				"apiFee": 7.00,
+				"currency": "UAH",
+				"detailed": {
+					"carrier": 686.55,
+					"commission": 18.33,
+					"fee": 0.00,
+					"fee_vat": 0.00,
+					"insurance": 0.67,
+					"reserved_seat": 431.08,
+					"service": null,
+					"ticket": 122.15,
+					"vat": 114.32
+				},
+				"excessFee": 0,
+				"finalPrice": 723.55,
+				"paymentFee": 0.00,
+				"ticketTotalPrice": 686.55
+			},
+			"site_user": {
+				"email": "tour@bsv.com.ua",
+				"guid": "80bcfb95-c8e2-4272-93ef-7f154422fe85",
+				"id": 72,
+				"name": "Анна Конончук",
+				"phone": "+38 0955102212"
+			},
+			"sysdate": "/Date(1550138618000+0200)/",
+			"ted_id": 206459,
+			"train": {
+				"arrival": "/Date(1550419980000+0200)/",
+				"departure": "/Date(1550402880000+0200)/",
+				"model": 1,
+				"number": "724К",
+				"station_from": 2200001,
+				"station_from_ru": "Киев-Пассажирский",
+				"station_to": 2204001,
+				"station_to_ru": "Харьков-Пассажирский"
+			},
+			"type": "travel",
+			"uid": "000B3F50-C97B41CD-0001",
+			"uz_ordernumber": "ШУУ-Т1-1180856-1402",
+			"wagon": {
+				"class": "1",
+				"number": "08",
+				"type": "С"
+			}
+		},
+		{
+			"counterparty": null,
+			"electronic": true,
+			"kind": "full",
+			"order_comment": null,
+			"ordernumber": "R34169",
+			"pax": {
+				"firstname": "ОЛЕНА",
+				"lastname": "ГІМБИЦЬКА",
+				"place": "017",
+				"privelege_number": null,
+				"privelege_serial": null
+			},
+			"payer": null,
+			"price": {
+				"agencyFee": 30.00,
+				"apiFee": 7.00,
+				"currency": "UAH",
+				"detailed": {
+					"carrier": 634.87,
+					"commission": 18.33,
+					"fee": 0.00,
+					"fee_vat": 0.00,
+					"insurance": 0.61,
+					"reserved_seat": 378.97,
+					"service": null,
+					"ticket": 131.25,
+					"vat": 105.71
+				},
+				"excessFee": 0,
+				"finalPrice": 671.87,
+				"paymentFee": 0.00,
+				"ticketTotalPrice": 634.87
+			},
+			"site_user": {
+				"email": "valentyna@bsv.com.ua",
+				"guid": "0f02bea3-80a0-4a15-9ee1-7324e731e00f",
+				"id": 5,
+				"name": "Valentyna",
+				"phone": "+38 0975155841"
+			},
+			"sysdate": "/Date(1550138156000+0200)/",
+			"ted_id": 206455,
+			"train": {
+				"arrival": "/Date(1552598820000+0200)/",
+				"departure": "/Date(1552581480000+0200)/",
+				"model": 1,
+				"number": "721О",
+				"station_from": 2204001,
+				"station_from_ru": "Харьков-Пассажирский",
+				"station_to": 2200001,
+				"station_to_ru": "Киев-Пассажирский"
+			},
+			"type": "travel",
+			"uid": "000B3F50-59FB3E0E-0001",
+			"uz_ordernumber": "ПЖЯ-Т1-1173637-1402",
+			"wagon": {
+				"class": "1",
+				"number": "05",
+				"type": "С"
+			}
+		},
+		{
+			"counterparty": null,
+			"electronic": true,
+			"kind": "full",
+			"order_comment": null,
+			"ordernumber": "R34166",
+			"pax": {
+				"firstname": "ОЛЕНА",
+				"lastname": "ГІМБИЦЬКА",
+				"place": "025",
+				"privelege_number": null,
+				"privelege_serial": null
+			},
+			"payer": null,
+			"price": {
+				"agencyFee": 30.00,
+				"apiFee": 7.00,
+				"currency": "UAH",
+				"detailed": {
+					"carrier": 602.15,
+					"commission": 18.33,
+					"fee": 0.00,
+					"fee_vat": 0.00,
+					"insurance": 0.58,
+					"reserved_seat": 363.66,
+					"service": null,
+					"ticket": 119.32,
+					"vat": 100.26
+				},
+				"excessFee": 0,
+				"finalPrice": 639.15,
+				"paymentFee": 0.00,
+				"ticketTotalPrice": 602.15
+			},
+			"site_user": {
+				"email": "valentyna@bsv.com.ua",
+				"guid": "0f02bea3-80a0-4a15-9ee1-7324e731e00f",
+				"id": 5,
+				"name": "Valentyna",
+				"phone": "+38 0975155841"
+			},
+			"sysdate": "/Date(1550138026000+0200)/",
+			"ted_id": 206453,
+			"train": {
+				"arrival": "/Date(1551715980000+0200)/",
+				"departure": "/Date(1551698880000+0200)/",
+				"model": 1,
+				"number": "724К",
+				"station_from": 2200001,
+				"station_from_ru": "Киев-Пассажирский",
+				"station_to": 2204001,
+				"station_to_ru": "Харьков-Пассажирский"
+			},
+			"type": "travel",
+			"uid": "000B3F50-89FB3CF3-0001",
+			"uz_ordernumber": "1Ж7-Т1-1171711-1402",
+			"wagon": {
+				"class": "1",
+				"number": "02",
+				"type": "С"
+			}
+		},
+		{
+			"counterparty": null,
+			"electronic": true,
+			"kind": "full",
+			"order_comment": null,
+			"ordernumber": "R34168",
+			"pax": {
+				"firstname": "ВЛАДА",
+				"lastname": "ПАТЛАТЮК",
+				"place": "004",
+				"privelege_number": null,
+				"privelege_serial": null
+			},
+			"payer": null,
+			"price": {
+				"agencyFee": 30.00,
+				"apiFee": 7.00,
+				"currency": "UAH",
+				"detailed": {
+					"carrier": 481.92,
+					"commission": 18.33,
+					"fee": 0.00,
+					"fee_vat": 0.00,
+					"insurance": 0.58,
+					"reserved_seat": 258.78,
+					"service": 41.67,
+					"ticket": 82.33,
+					"vat": 80.23
+				},
+				"excessFee": 0,
+				"finalPrice": 518.92,
+				"paymentFee": 0.00,
+				"ticketTotalPrice": 481.92
+			},
+			"site_user": {
+				"email": "tour@bsv.com.ua",
+				"guid": "80bcfb95-c8e2-4272-93ef-7f154422fe85",
+				"id": 72,
+				"name": "Анна Конончук",
+				"phone": "+38 0955102212"
+			},
+			"sysdate": "/Date(1550137853000+0200)/",
+			"ted_id": 206451,
+			"train": {
+				"arrival": "/Date(1550975880000+0200)/",
+				"departure": "/Date(1550945520000+0200)/",
+				"model": 0,
+				"number": "049К",
+				"station_from": 2200001,
+				"station_from_ru": "Киев-Пассажирский",
+				"station_to": 2218000,
+				"station_to_ru": "Львов"
+			},
+			"type": "travel",
+			"uid": "000B3F50-CBFB3B55-0001",
+			"uz_ordernumber": "Б9Ю-Н1-1169082-1402",
+			"wagon": {
+				"class": null,
+				"number": "10",
+				"type": "К"
+			}
+		},
+		{
+			"counterparty": null,
+			"electronic": true,
+			"kind": "full",
+			"order_comment": null,
+			"ordernumber": "R34167",
+			"pax": {
+				"firstname": "ВЛАДА",
+				"lastname": "ПАТЛАТЮК",
+				"place": "003",
+				"privelege_number": null,
+				"privelege_serial": null
+			},
+			"payer": null,
+			"price": {
+				"agencyFee": 30.00,
+				"apiFee": 7.00,
+				"currency": "UAH",
+				"detailed": {
+					"carrier": 295.38,
+					"commission": 18.33,
+					"fee": 0.00,
+					"fee_vat": 0.00,
+					"insurance": 0.27,
+					"reserved_seat": 174.46,
+					"service": null,
+					"ticket": 53.13,
+					"vat": 49.19
+				},
+				"excessFee": 0,
+				"finalPrice": 332.38,
+				"paymentFee": 0.00,
+				"ticketTotalPrice": 295.38
+			},
+			"site_user": {
+				"email": "tour@bsv.com.ua",
+				"guid": "80bcfb95-c8e2-4272-93ef-7f154422fe85",
+				"id": 72,
+				"name": "Анна Конончук",
+				"phone": "+38 0955102212"
+			},
+			"sysdate": "/Date(1550132213000+0200)/",
+			"ted_id": 206449,
+			"train": {
+				"arrival": "/Date(1550914980000+0200)/",
+				"departure": "/Date(1550894700000+0200)/",
+				"model": 3,
+				"number": "744Ш",
+				"station_from": 2218000,
+				"station_from_ru": "Львов",
+				"station_to": 2200007,
+				"station_to_ru": "Дарница"
+			},
+			"type": "travel",
+			"uid": "000B3F50-FB7B09AC-0001",
+			"uz_ordernumber": "97У-Т1-1075876-1402",
+			"wagon": {
+				"class": "2",
+				"number": "04",
+				"type": "С"
+			}
+		},
+		{
+			"counterparty": null,
+			"electronic": true,
+			"kind": "full",
+			"order_comment": null,
+			"ordernumber": "R34165",
+			"pax": {
+				"firstname": "ВІТАЛІЙ",
+				"lastname": "БУЦ",
+				"place": "026",
+				"privelege_number": null,
+				"privelege_serial": null
+			},
+			"payer": null,
+			"price": {
+				"agencyFee": 30.00,
+				"apiFee": 7.00,
+				"currency": "UAH",
+				"detailed": {
+					"carrier": 468.18,
+					"commission": 18.33,
+					"fee": 0.00,
+					"fee_vat": 0.00,
+					"insurance": 0.56,
+					"reserved_seat": 252.53,
+					"service": 41.67,
+					"ticket": 77.15,
+					"vat": 77.94
+				},
+				"excessFee": 0,
+				"finalPrice": 505.18,
+				"paymentFee": 0.00,
+				"ticketTotalPrice": 468.18
+			},
+			"site_user": {
+				"email": "valentyna@bsv.com.ua",
+				"guid": "0f02bea3-80a0-4a15-9ee1-7324e731e00f",
+				"id": 5,
+				"name": "Valentyna",
+				"phone": "+38 0975155841"
+			},
+			"sysdate": "/Date(1550129460000+0200)/",
+			"ted_id": 206443,
+			"train": {
+				"arrival": "/Date(1550638020000+0200)/",
+				"departure": "/Date(1550611080000+0200)/",
+				"model": 0,
+				"number": "080К",
+				"station_from": 2200001,
+				"station_from_ru": "Киев-Пассажирский",
+				"station_to": 2210700,
+				"station_to_ru": "Днепр-Главный"
+			},
+			"type": "travel",
+			"uid": "000B3F50-3FFAF578-0001",
+			"uz_ordernumber": "ШЛЮ-Н1-1035606-1402",
+			"wagon": {
+				"class": null,
+				"number": "13",
+				"type": "К"
+			}
+		},
+		{
+			"counterparty": null,
+			"electronic": true,
+			"kind": "full",
+			"order_comment": null,
+			"ordernumber": "R34165",
+			"pax": {
+				"firstname": "ОЛЕКСАНДР",
+				"lastname": "ІЛЬЧЕНКО",
+				"place": "025",
+				"privelege_number": null,
+				"privelege_serial": null
+			},
+			"payer": null,
+			"price": {
+				"agencyFee": 30.00,
+				"apiFee": 7.00,
+				"currency": "UAH",
+				"detailed": {
+					"carrier": 468.18,
+					"commission": 18.33,
+					"fee": 0.00,
+					"fee_vat": 0.00,
+					"insurance": 0.56,
+					"reserved_seat": 252.53,
+					"service": 41.67,
+					"ticket": 77.15,
+					"vat": 77.94
+				},
+				"excessFee": 0,
+				"finalPrice": 505.18,
+				"paymentFee": 0.00,
+				"ticketTotalPrice": 468.18
+			},
+			"site_user": {
+				"email": "valentyna@bsv.com.ua",
+				"guid": "0f02bea3-80a0-4a15-9ee1-7324e731e00f",
+				"id": 5,
+				"name": "Valentyna",
+				"phone": "+38 0975155841"
+			},
+			"sysdate": "/Date(1550129460000+0200)/",
+			"ted_id": 206442,
+			"train": {
+				"arrival": "/Date(1550638020000+0200)/",
+				"departure": "/Date(1550611080000+0200)/",
+				"model": 0,
+				"number": "080К",
+				"station_from": 2200001,
+				"station_from_ru": "Киев-Пассажирский",
+				"station_to": 2210700,
+				"station_to_ru": "Днепр-Главный"
+			},
+			"type": "travel",
+			"uid": "000B3F50-1FFAF577-0001",
+			"uz_ordernumber": "6Ю9-Н1-1035598-1402",
+			"wagon": {
+				"class": null,
+				"number": "13",
+				"type": "К"
+			}
+		}
+	],
+	"Error": null,
+	"Status": "OK",
+	"StatusCode": 200
+}

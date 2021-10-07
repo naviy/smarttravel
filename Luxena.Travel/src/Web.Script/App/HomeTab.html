@@ -1,0 +1,109 @@
+﻿<div onclick="Luxena.Travel.Header.globalSearch.focus()">
+	<div class="settings">
+		<a href="#" class="no-decoration icon-settings" data-bind="click: editSettings"></a>
+	</div>
+	<div class="wrapper">
+		<div class="row">
+			<div class="block tasks">
+				<div class="header">
+					<div class="title">Мои задачи</div>
+					<div class="actions">
+						<a href="#" data-bind="click: openAllMyTasks">&gt;&gt;&gt;</a>
+					</div>
+				</div>
+				<div class="content">
+					<!-- ko ifnot: model.MyTasksTotal -->
+					<div class="no-tasks">
+						Нет активных задач
+					</div>
+					<!-- /ko -->
+					<!-- ko if: model.MyTasksTotal -->
+					<ul data-bind="foreach: model.MyTasks">
+						<li class="task" data-bind="css: { red: Overdue }">
+							<div class="checkbox">
+								<input type="checkbox" data-bind="click: $root.closeTask" />
+							</div>
+							<div class="subject">
+								<!-- ko if: DueDate -->
+								<div class="due-date" data-bind="text: DueDate.format('d.m.Y')" />
+								<!-- /ko -->
+								<a data-bind="view: $data, text: Subject" />
+							</div>
+							<div class="related-to">
+								<a data-bind="view: $data" />
+								<!-- ko if: Order -->
+								| <a data-bind="view: Order" />
+								<!-- /ko -->
+								<!-- ko if: RelatedTo -->
+								| <a data-bind="view: RelatedTo" />
+								<!-- /ko -->
+							</div>
+						</li>
+					</ul>
+					<!-- ko if: showMyTasksTotal -->
+					<div class="total">
+						<a href="#" data-bind="click: openMyActiveTasks, text: 'все активные (' + model.MyTasksTotal + ')'"></a>
+					</div>
+					<!-- /ko -->
+					<!-- /ko -->
+				</div>
+			</div>
+
+			<!-- ko template: { name: "HomeTab.Documents", data: { title: 'Мои документы', documents: model.MyDocuments } } --><!-- /ko -->
+		</div>
+
+		<!-- ko if: model.ShowOfficeBlocks -->
+		<div class="row">
+			<div class="block tasks">
+				<div class="header">
+					<div class="title">Задачи по офису</div>
+					<div class="actions">
+						<a href="#" data-bind="click: openAllTasks">&gt;&gt;&gt;</a>
+					</div>
+				</div>
+				<div class="content">
+					<!-- ko ifnot: model.OfficeTasksTotal -->
+					<div class="no-tasks">
+						Нет активных задач
+					</div>
+					<!-- /ko -->
+					<!-- ko if: model.OfficeTasksTotal -->
+					<ul data-bind="foreach: model.OfficeTasks">
+						<li class="task" data-bind="css: { red: Overdue }">
+							<div class="checkbox">
+								<input type="checkbox" data-bind="click: $root.closeTask" />
+							</div>
+							<div class="subject">
+								<!-- ko if: DueDate -->
+								<div class="due-date" data-bind="text: DueDate.format('d.m.Y')" />
+								<!-- /ko -->
+								<a data-bind="view: $data, text: Subject" />
+							</div>
+							<div class="related-to">
+								<!-- ko if: Order -->
+								<a data-bind="view: Order" />
+								<!-- ko if: RelatedTo -->|<!-- /ko -->
+								<!-- /ko -->
+								<!-- ko if: RelatedTo -->
+								<a data-bind="view: RelatedTo" />
+								<!-- /ko -->
+							</div>
+							<div class="assignment">
+								<a data-bind="view: $data" /><!-- ko if: AssignedTo --> (<a data-bind="view: AssignedTo" />)<!-- /ko -->
+							</div>
+						</li>
+					</ul>
+					<!-- ko if: showOfficeTasksTotal -->
+					<div class="total">
+						<a href="#" data-bind="click: openActiveTasks, text: 'все активные (' + model.OfficeTasksTotal + ')'"></a>
+					</div>
+					<!-- /ko -->
+					<!-- /ko -->
+				</div>
+			</div>
+
+			<!-- ko template: { name: "HomeTab.Documents", data: { title: 'Документы по офису', documents: model.OfficeDocuments } } --><!-- /ko -->
+		</div>
+		<!-- /ko -->
+	</div>
+</div>

@@ -1,0 +1,71 @@
+﻿@inherits EntityViewPage
+@{
+    Layout = "~/App/Layouts/EditFormLayout.cshtml";
+    Name = "organizationEdit";
+
+    var v = new ViewDomain().Organization;
+    ui.ViewEntity = v;
+}
+
+@using (var f = ui.Form.BeginHForm(v))
+{
+    <div class="panel panel-default">
+
+        @using (ui.Form.Section(v.Main))
+        {
+            @ui.Form.TextBox(f, v.Name)
+            @ui.Form.TextArea(f, v.LegalName)
+
+            @ui.Form.Row(f, v.Code, items: g => g(
+                bs.Col(6, html: ui.Form.TextBox(v.Code))
+            ))
+
+            @ui.Form.TextBox(f, v.ReportsTo)
+
+            @ui.Form.CheckBox(f, v.IsCustomer)
+            @ui.Form.CheckBox(f, v.IsSupplier)
+        }
+
+        @using (ui.Form.Section(v.Contacts))
+        {
+            @ui.Form.Row(f, v.Phones, items: g => g(
+                bs.Col(6, html: ui.Form.TextBox(v.Phone1)),
+                bs.Col(6, html: ui.Form.TextBox(v.Phone2))
+            ))
+            @ui.Form.Row(f, v.Emails, items: g => g(
+                bs.Col(6, html: ui.Form.TextBox(v.Email1)),
+                bs.Col(6, html: ui.Form.TextBox(v.Email2))
+            ))
+            @ui.Form.TextBox(f, v.Fax)
+            @ui.Form.TextBox(f, v.WebAddress)
+        }
+
+        @using (ui.Form.Section(v.Addresses))
+        {
+            @ui.Form.TextArea(f, v.ActualAddress, t => t.Rows(3))
+            @ui.Form.TextArea(f, v.LegalAddress, t => t.Rows(3))
+        }
+
+        @using (ui.Form.Section(v.Additionals))
+        {
+            @ui.Form.TextArea(f, v.Note, t => t.Rows(20))
+        }
+
+        @using (ui.Form.Section(v.Departments))
+        {
+            <view-pane view-page="viewPage.parts.@(v.Departments).last" />
+        }
+
+        @using (ui.Form.Section(v.Employees))
+        {
+            <view-pane view-page="viewPage.parts.@(v.Employees).last" />
+        }
+
+    </div>
+}
+
+<br />
+<br />
+<blockquote>
+    <small>{{r}}</small>
+</blockquote>

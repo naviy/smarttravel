@@ -1,0 +1,53 @@
+<Payment xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+	<Id>6b2b88f6f8824b39aef316bc5343d169</Id>
+	<Amount>
+		<Amount>9183.00</Amount>
+		<Currency>UAH</Currency>
+	</Amount>
+	<AssignedTo>
+		<Id>770934f3c36d4e1cba09f13c37dbcd78</Id>
+		<Text>Мустафаева Юлия</Text>
+		<Type>Person</Type>
+		<BonusCardNumber i:nil="true" />
+		<Code i:nil="true" />
+	</AssignedTo>
+	<Date>2019-07-24T00:00:00Z</Date>
+	<DocumentNumber i:nil="true" />
+	<Invoice i:nil="true" />
+	<IsVoid>false</IsVoid>
+	<Note i:nil="true" />
+	<Number>P.19-05892</Number>
+	<Order>
+		<Id>eec1cca323214c7ebc11ad06313fe522</Id>
+		<Text>O.19-04925</Text>
+		<Type>Order</Type>
+	</Order>
+	<Owner>
+		<Id>c815b4b3f7954f679f79c19e036c0271</Id>
+		<Text>Авиаотдел ОДС</Text>
+		<Type>Department</Type>
+		<BonusCardNumber i:nil="true" />
+		<Code i:nil="true" />
+	</Owner>
+	<Payer>
+		<Id>12e739d17f6b4237908f6cdd1e5fe67a</Id>
+		<Text>Malinovskii Iurii</Text>
+		<Type>Person</Type>
+		<BonusCardNumber i:nil="true" />
+		<Code i:nil="true" />
+	</Payer>
+	<PaymentForm>Electronic</PaymentForm>
+	<PostedOn>2019-07-24T00:00:00Z</PostedOn>
+	<ReceivedFrom i:nil="true" />
+	<RegisteredBy>
+		<Id>770934f3c36d4e1cba09f13c37dbcd78</Id>
+		<Text>Мустафаева Юлия</Text>
+		<Type>Person</Type>
+		<BonusCardNumber i:nil="true" />
+		<Code i:nil="true" />
+	</RegisteredBy>
+	<Vat>
+		<Amount>0.00</Amount>
+		<Currency>UAH</Currency>
+	</Vat>
+</Payment>

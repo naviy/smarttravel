@@ -1,0 +1,2458 @@
+﻿.luxena {
+	font-family: arial;
+}
+
+#app-loading {
+	font-size: 16pt;
+	font-weight: bold;
+	margin: 40px 0 0 40px;
+	padding-bottom: 30px;
+	background: url(img/loading-app.gif) no-repeat bottom left;
+}
+
+.float-left {
+	float: left;
+}
+
+#header {
+	height: 30px;
+	background: #dfe8f6 none repeat scroll 0 0;
+}
+
+#header .x-toolbar {
+	background: transparent;
+	border: none;
+	padding: 2px 2px 0px 2px;
+}
+
+#header .x-panel-body {
+	display: none;
+}
+
+#content .x-tab-panel-header {
+	border: none;
+}
+
+.luxena .number {
+	text-align: right;
+}
+
+.luxena .center-align {
+	text-align: center;
+}
+
+.luxena .right-align {
+	text-align: right;
+}
+
+.luxena .x-btn button {
+	font-family: tahoma,verdana,helvetica;
+	font-size: 12px;
+	padding-bottom: 2px;
+	padding-left: 1px;
+	padding-right: 1px;
+}
+
+.luxena .x-menu-item-text {
+	font-family: tahoma,arial,sans-serif;
+}
+
+.luxena .message {
+	margin: 5px;
+	font: normal 11px tahoma,verdana,helvetica;
+}
+
+.luxena .message .messageIcon {
+	width:25px;
+	height:16px;
+	float:left;
+}
+
+.luxena .message .error {
+	background: url(img/message-error.gif) no-repeat;
+}
+
+.luxena .message .warn {
+	background: url(img/message-warn.gif) no-repeat;
+}
+
+.luxena .message .info {
+	background: url(img/message-info.gif) no-repeat;
+}
+
+.luxena .message .messageTimestamp {
+	float:left;
+	padding: 2px 5px 0px 0px;
+}
+
+.luxena .message .messageCaption {
+	font-weight: bold;
+	padding: 2px 0px 4px 0px;
+}
+
+.luxena .message .messageDetails {
+	padding-left: 72px;
+}
+
+#msg-div {
+	position: absolute;
+	left: 60%;
+	top: 10px;
+	width: 250px;
+	z-index: 20000;
+}
+
+.msg .x-box-mc {
+	font-size: 14px;
+}
+
+.msg .x-box-mc h3 {
+	margin: 0;
+	padding: 0 0 4px 0;
+}
+
+.msg .x-box-mc .details {
+	font-size: 11px;
+}
+
+.luxena .radiogroup .x-panel-body {
+	background: transparent none repeat scroll 0 0;
+}
+
+.luxena .x-toolbar .x-btn button {
+	color: #15428B;
+}
+
+.luxena .x-tab-strip span.x-tab-strip-text {
+	font-size: small;
+}
+
+.luxena .lxnForm {
+	padding: 50px 0 0;
+}
+
+.luxena .center {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.luxena a {
+	text-decoration: none;
+}
+
+.luxena a:hover {
+	text-decoration: underline;
+}
+
+.luxena a, .luxena a:active, .luxena a:visited {
+	color: #0047B3;
+}
+
+.luxena a.x-menu-item {
+	color: #222222
+}
+
+.luxena .x-date-inner a {
+	color: #000000;
+}
+
+.luxena td.filterCls {
+	font-weight: bold;
+}
+
+.luxena .filterEditor {
+	margin-left: 8px;
+}
+
+.luxena .filterMenu .x-menu-item div.x-form-field-wrap {
+	display: inline;
+}
+
+.luxena .filterInfoIcon {
+	background-image: url(img/info_point.gif);
+}
+
+.luxena div.checkBoxDisabled {
+	background-image: url(img/row-check-sprite-disabled.gif);
+	background-repeat:no-repeat;
+	background-color:transparent;
+	width:16px;
+	height:14px;
+}
+
+.luxena div.notChecked {
+	background-position:2px -1px;
+}
+
+.luxena div.checked {
+	background-position:-23px -1px;
+}
+
+.luxena .menuComboBox {
+	z-index: 100000;
+}
+
+div.suggest-item {
+	border: solid 1px white;
+}
+
+.luxena .organizationEdit-field-center {
+	margin-left: 100px;
+}
+
+.luxena .autoView {
+	vertical-align: top;
+	font-family: tahoma,arial,helvetica,sans-serif;
+	font-size: 12px;
+}
+
+.luxena .autoView {
+	vertical-align: top;
+	font-family: tahoma,arial,helvetica,sans-serif;
+	font-size: 12px;
+}
+
+.luxena .autoView .view-body {
+	padding: 50px;
+}
+
+.luxena .autoView .viewItem {
+	padding-bottom: 6px;
+	overflow: auto;
+}
+
+.luxena .autoView .itemCaption {
+	text-align: right;
+	width: 50%;
+	float: left;
+	padding-right: 6px;
+}
+
+.luxena .autoView .itemValue {
+	font-weight: bold;
+	float: left;
+	max-width: 49%;
+}
+
+.autoView .files-panel {
+	padding-top: 30px;
+	width: 950px;
+	clear: both;
+}
+
+.autoView .files-panel .caption {
+	font-size: 14px;
+}
+
+.autoView .files-panel table {
+	padding-top: 5px;
+}
+
+.autoView .files-panel .caption table {
+	padding-left: 40px;
+}
+
+.luxena .autoList .x-panel-tl {
+	border-bottom: none;
+}
+
+.luxena .user-edit {
+	width: 450px;
+}
+
+.luxena .user-edit .x-form {
+	padding-left: 50px;
+}
+
+.luxena .user-edit .roles-top {
+	padding-top: 15px;
+}
+
+input.selector {
+	color: #0047B3;
+	border-right: 0px;
+}
+
+img.x-form-trigger.selector-trigger {
+	background-image: url("img/trigger.gif");
+	width: 18px
+}
+
+.x-form-field-wrap .x-form-trigger-over.selector-trigger {
+	background-position: -18px 0;
+}
+
+.x-form-field-wrap .x-form-trigger-click.selector-trigger {
+	background-position: -36px 0;
+}
+
+.x-trigger-wrap-focus .x-form-trigger.selector-trigger {
+	background-position: -54px 0;
+}
+
+.x-trigger-wrap-focus .x-form-trigger-over.selector-trigger {
+	background-position: -72px 0;
+}
+
+.x-trigger-wrap-focus .x-form-trigger-click.selector-trigger {
+	background-position: -90px 0;
+}
+
+.tigger-disabled {
+	background: url("img/trigger.gif") no-repeat scroll 0 0 transparent;
+	width: 18px;
+	height: 21px;
+	display: inline;
+	position: absolute;
+	background-position: -126px 0;
+	cursor: default;
+	border-bottom: 1px solid;
+	border-bottom-color: #B5B8C8;
+}
+
+.x-toolbar .tigger-disabled {
+	height: 18px;
+}
+
+.x-trigger-wrap-focus .tigger-disabled {
+	background-position: -144px 0;
+	border-bottom-color: #7EADD9;
+}
+
+input.x-form-field.selector.x-form-empty-field {
+	color: gray;
+}
+
+.x-combo-list-item.combo-list-action {
+	border: 1px solid #F0F0F0;
+	background: #F0F0F0;
+	color: Gray;
+}
+
+.x-combo-list-item.combo-list-action.x-combo-selected {
+	background:#DFE8F6;
+}
+
+.x-combo-list-item.combo-list-action.first {
+	border-top: 1px solid #D0D0D0;
+}
+
+.x-combo-list-item.combo-list-caption {
+	cursor: default;
+	color: Gray;
+}
+
+div.selectorEdit {
+	background:	#dfe8f6 url(img/edit.png) no-repeat -27px -11px;
+	height: 22px;
+	width: 17px;
+	display: inline;
+	margin-left: 17px;
+	position: absolute;
+	cursor: pointer;
+}
+
+div.selectorEditDisabled {
+	cursor: default;
+	background: #dfe8f6 url(img/edit-disabled.png) no-repeat -27px -11px;
+}
+
+/*div.combobox-with-edit {
+	margin-right: 20px;
+}*/
+
+.gsdFileViewCaption {
+	white-space: nowrap;
+	padding: 0 5px 5px 0;
+}
+
+.gsdFileViewValue {
+	padding: 0 0 10px 0;
+}
+
+.autoList .x-toolbar.autoGridToolbar {
+	border-bottom: 0 none;
+}
+
+.autoListItemContent .gdsFileContentPanel .x-panel-body {
+	border-top: none;
+	border-bottom: none;
+	border-left: none;
+	padding: 10px;
+	white-space: pre;
+	font-family: courier new,courier;
+}
+
+.autoList .filter, .icon-filter {
+	background: url(img/search.png) no-repeat;
+	width: 18px;
+	height: 18px;
+	padding-right: 2px;
+}
+
+.autoList .export {
+	background: url(img/xls_ico.gif) no-repeat;
+	width: 18px !important;
+	height: 18px !important;
+	padding-right: 20px !important;
+}
+
+.x-form-element .text {
+	padding: 3px 0px 0px 5px;
+	white-space: nowrap;
+}
+
+.x-form-element .text div.amount {
+	display: inline;
+	width: 78px;
+	padding-right: 10px;
+	text-align: right;
+	float: left;
+}
+
+.x-form-element .text div.currency {
+	width: 27px;
+	display: inline;
+	float: left;
+}
+
+.x-form input.amount {
+	width: 80px;
+	text-align: right;
+}
+
+.x-form input.currency {
+	width: 35px;
+	margin-left: 5px;
+}
+
+.window-edit .x-form {
+	padding: 15px 20px 15px 15px;
+}
+
+.window-edit .x-form-item {
+	margin-bottom: 7px;
+}
+
+.window-edit .x-form-item-label {
+	width: 110px;
+}
+
+.window-edit .x-form-element {
+	padding-left: 115px;
+}
+
+.window-edit .errors {
+	max-height: 200px;
+}
+
+.window-edit .errors .x-panel-body {
+	padding: 10px 0 12px 8px;
+}
+
+.window-edit .errors .x-panel-body li {
+	padding-bottom: 4px;
+}
+
+.window-edit .errors .x-panel-body li a {
+	color: #cc3333;
+}
+
+.window-edit .status-bar .x-toolbar {
+	border: none;
+	background: none;
+}
+
+.window-edit .status-bar .error-icon {
+	background: url(img/exclamation.gif) no-repeat scroll 3px 3px;
+	padding-left: 25px;
+	cursor: pointer;
+	color: #CC3333;
+}
+
+.process-document {
+	width: 500px;
+}
+
+.process-document label.x-form-item-label {
+	width: 160px;
+}
+
+.process-document .passport-error-label {
+	font-size: 11px;
+	color: Red;
+	margin-top: -7px;
+	padding-left: 5px;
+}
+
+.process-document .passport-warn-label {
+	font-size: 11px;
+	color: gray;
+	margin-top: -7px;
+	padding-left: 5px;
+}
+
+.process-document .copy-passport-button .link-button {
+	margin-bottom: 7px;
+	padding-left: 165px;
+}
+
+.process-document .copy-passport-button .x-panel-body {
+	margin-top: -4px;
+}
+
+.process-document .x-form-element {
+	padding-left: 165px;
+}
+
+.process-document .passenger-name {
+	padding-top: 4px;
+}
+
+.process-document .passport {
+	margin-bottom: 2px;
+}
+
+.process-document .passport-description {
+	font-size: 11px;
+	font-style: italic;
+}
+
+.process-document div.commission {
+	color: gray;
+}
+
+.process-document .total {
+	margin-top: 20px;
+}
+
+.process-document .x-panel label.fare {
+	color: Gray;
+	float: left;
+	font-size: 12px;
+	padding-top: 3px;
+}
+
+.process-document .documents {
+	padding: 15px 0 0 10px;
+}
+
+.process-document .documents .applyDataCheckbox {
+	padding-top: 10px;
+}
+
+.process-document .documents-container .document-list {
+	max-height: 120px;
+	overflow: auto;
+	padding-bottom: 5px;
+}
+
+.process-document .documents-container .x-form-check-wrap {
+	float: left;
+	padding-top: 5px;
+}
+
+.process-document .documents-container .totals {
+	clear: right;
+	text-align: right;
+	padding: 7px 10px 3px;
+}
+
+.process-document .documents-container {
+	padding-left: 30px;
+}
+
+.process-document .documents-container .finance {
+	clear: both;
+	padding-left: 17px;
+	color: gray;
+}
+
+.process-document .edit-penalties {
+	padding-left: 165px;
+}
+
+.penalize-operation {
+	width: 440px;
+}
+
+.penalize-operation .penalties-caption {
+	font-size: 12px;
+	font-weight: bold;
+	text-align: center;
+	padding-top: 3px;
+	padding-bottom: 10px;
+}
+
+.penalize-operation .afterDeparture-panel {
+	padding-top: 10px;
+}
+
+.penalize-operation .description {
+	margin-left: 5px;
+}
+
+.simple-menu {
+	background-image: none;
+}
+
+.simple-menu img {
+	display: none;
+}
+
+.simple-menu.x-menu a.x-menu-item {
+	padding-left: 10px;
+}
+
+.textColor-red, .textColor-red a, .textColor-red a:active, .textColor-red a:visited {
+	color: red;
+}
+
+.textColor-gray, .textColor-gray a, .textColor-gray a:active, .textColor-gray a:visited {
+	color: #999999;
+}
+
+.rowColor-red.x-grid3-row {
+	color: red;
+}
+
+.rowColor-red.x-grid3-row a.object-link {
+	color: red;
+}
+
+.rowColor-green.x-grid3-row {
+	color: green;
+}
+
+.rowColor-green.x-grid3-row a.object-link {
+	color: green;
+}
+
+.rowColor-orange.x-grid3-row {
+	color: #e76c0c;
+}
+
+.rowColor-orange.x-grid3-row a.object-link {
+	color: #e76c0c;
+}
+
+.aviaDocumentView {
+	font-family: arial;
+	font-size: 12px;
+}
+
+.aviaDocumentView .title {
+	margin: auto;
+	width: 950px;
+	padding: 40px 10px 0px 10px;
+}
+
+.aviaDocumentView .title label {
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.aviaDocumentView .title .link-button {
+	float: right;
+}
+
+.aviaDocumentView .title .label-separator {
+	float: right;
+	color: Blue;
+	font-weight: normal;
+	font-size: 12px;
+	padding: 0 3px 0 3px;
+}
+
+.print-ticket-message-box .x-window-body {
+	padding-bottom: 10px;
+}
+
+.aviaDocumentView .content {
+	margin: auto;
+	width: 1100px;
+	padding: 5px 10px 40px 10px;
+}
+
+.aviaDocumentView .unprocessed {
+	color: Red;
+}
+
+.aviaDocumentView .processed {
+}
+
+.aviaDocumentView .voided {
+	color: #999999;
+}
+
+.aviaDocumentView h1 {
+	font-size: 16px;
+	padding-bottom: 10px;
+}
+
+.aviaDocumentView .commonData {
+	padding: 25px 50px 0 20px;
+	float: left;
+	max-width: 545px;
+}
+
+.aviaDocumentView .financeData {
+	width: 280px;
+	padding: 25px 30px 10px 25px;
+	background-color: #E5E5E5;
+	float: right;
+	border-radius: 5px; -khtml-border-radius: 5px; -webkit-border-radius: 5px;
+}
+
+.aviaDocumentView .financeData .showFeesBtn {
+	width: 15px;
+	height: 15px;
+	cursor: pointer;
+}
+
+.aviaDocumentView .financeData .feesClosed {
+	background: transparent url(img/tools-sprites-trans.gif) no-repeat scroll 0px -75px;
+}
+
+.aviaDocumentView .financeData .feesOpened {
+	background: transparent url(img/tools-sprites-trans.gif) no-repeat scroll 0px -60px;
+}
+
+.aviaDocumentView .commonData td {
+	padding-bottom: 15px;
+	vertical-align: top;
+}
+
+.aviaDocumentView .commonData td  {
+	padding-bottom: 15px;
+	vertical-align: top;
+}
+
+.aviaDocumentView .commonData {
+	padding-bottom: 0px !important;
+}
+
+.aviaDocumentView .commonData .gdsPassportStatus-error {
+	color: Red;
+	font-style: italic;
+	font-weight: normal;
+}
+
+.aviaDocumentView .commonData .passengerPassport-warn {
+	color: gray;
+	font-style: italic;
+	font-weight: normal;
+}
+
+.aviaDocumentView .commonData .passengerPassport-error {
+	color: Red;
+	font-style: italic;
+	font-weight: normal;
+}
+
+.aviaDocumentView .financeData td {
+	padding-bottom: 10px;
+	white-space: nowrap;
+}
+
+.aviaDocumentView .financeData td.amount {
+	width: 100px;
+	padding-right: 2px;
+}
+
+.aviaDocumentView .fieldLabel {
+	text-align: right;
+}
+
+.aviaDocumentView .fieldValue {
+	text-align: left;
+	font-weight : bold;
+}
+
+.aviaDocumentView .gdsPassport {
+	text-align: left;
+	font-family: Century;
+	font-size: 9px;
+	color: Gray;
+}
+
+.aviaDocumentView .note {
+	clear: both;
+	padding-top: 15px;
+}
+
+.aviaDocumentView .note pre {
+	font-family: Arial;
+	padding-top: 10px;
+	padding-left: 15px;
+}
+
+.aviaDocumentView .rightAlign {
+	text-align: right;
+}
+
+.aviaDocumentView .financeData .gray {
+	color: #7F7F7F;
+}
+
+.aviaDocumentView .financeData .total {
+	font-size: 16px;
+}
+
+.aviaDocumentView .financeData .feeRow .fieldValue {
+	font-size: 11px;
+	font-weight: normal;
+}
+
+.aviaDocumentView .segments {
+	clear: both;
+	padding-top: 10px;
+}
+
+.aviaDocumentView .error {
+	color: Red;
+}
+.aviaDocumentView h2 {
+	font-size: 14px;
+	color: #999999;
+}
+
+.aviaDocumentView .segments table {
+	border-collapse: collapse;
+	margin-left: 1px;
+	width: 949px;
+}
+
+.aviaDocumentView .segments tr.alternate {
+	background-color: #FAFAFA;
+}
+
+.aviaDocumentView .segments tr {
+	border: solid 1px #E5E5E5;
+}
+
+.aviaDocumentView .segments th {
+	font-weight: bold;
+	text-align: center;
+	padding: 2px;
+}
+
+.aviaDocumentView .segments td {
+	white-space: nowrap;
+	padding: 2px;
+}
+
+.aviaDocumentView .segments .ticketed-segment {
+	background: url(img/flag_green.png) no-repeat;
+	width: 20px;
+	height: 20px;
+}
+
+.aviaDocumentView .segments .unticketed-segment {
+	background: url(img/flag_red.png) no-repeat;
+	width: 20px;
+	height: 20px;
+}
+
+.aviaDocumentView .penalizeOperations {
+	padding-top: 15px;
+	clear: both;
+}
+
+.aviaDocumentView .penalizeOperations table {
+	border-collapse: collapse;
+}
+
+.aviaDocumentView .penalizeOperations tr {
+	border: solid 1px #E5E5E5;
+}
+
+.aviaDocumentView .penalizeOperations tr.header {
+	background-color: #FAFAFA;
+}
+
+.aviaDocumentView .penalizeOperations th {
+	border: none;
+	font-weight: bold;
+	text-align: center;
+	width: 265px;
+	padding: 5px;
+}
+
+.aviaDocumentView .penalizeOperations td {
+	text-align: center;
+	padding: 5px;
+}
+
+.aviaDocumentView .penalizeOperations td.caption {
+	width: 97px;
+	font-weight: bold;
+	border: solid 1px #E5E5E5;
+	padding-right: 20px;
+	background-color: #FAFAFA;
+}
+
+
+.aviaDocumentView .Segments {
+	width: 950px;
+	margin: auto;
+}
+
+/*
+.window-edit.segment-edit-form {
+	width: 760px;
+}*/
+.upbtn {
+	background-image: url(img/tools-sprites-trans.gif);
+	background-position: 0 -210px;
+	width:15px;
+}
+
+.downbtn {
+	background-image: url(img/tools-sprites-trans.gif);
+	background-position: 0 -195px;
+	width:15px;
+}
+/*
+.segment-edit-form .x-fieldset {
+	background:#FFFFFF;
+}
+
+.segment-edit-form .x-fieldset-body {
+	overflow:auto;
+}
+
+.segment-edit-form .right .x-form-item label.x-form-item-label {
+	width: 137px;
+}
+
+.segment-edit-form .right .x-form-element {
+	padding-left:150px;
+}
+
+.segment-edit-form .left .x-form-element {
+	padding-left:118px;
+}
+
+.segment-edit-form .float-left {
+	padding-top:2px;
+	padding-right:5px;
+}
+*/
+
+
+.link-button .x-btn-tl, .link-button .x-btn-tr, .link-button .x-btn-tc, .link-button .x-btn-ml, .link-button .x-btn-mr, .link-button .x-btn-mc, .link-button .x-btn-bl, .link-button .x-btn-br, .link-button .x-btn-bc{
+	padding: 0;
+	background: transparent;
+}
+
+.link-button button {
+	background: transparent;
+	font-family: tahoma,verdana,helvetica;
+	border: none;
+	padding-left: 2px;
+}
+
+.link-button.x-btn-over .x-btn-center {
+	background: transparent;
+}
+
+.link-button .x-btn-text {
+	text-align: center;
+	color: #0047B3;
+}
+
+.customer-report {
+	width: 420px;
+}
+
+.customer-report .include-departments {
+	padding-top: 15px;
+}
+
+.customer-report .total-count {
+	padding: 15px 0 0 90px;
+	font-weight: bold;
+}
+
+.partyView_file_ico {
+	vertical-align: middle;
+}
+
+.partyView_file_delete_ico {
+	vertical-align: middle;
+	padding-bottom: 4px;
+}
+
+.party-edit {
+	width: 810px;
+}
+
+.party-edit .main-data {
+	width: 390px !important;
+	float: left;
+}
+
+.party-edit .extra-data {
+	width: 360px;
+	float: right;
+}
+
+.party-edit .note-data {
+	width: 725px;
+	float: left;
+
+}
+
+.party-edit .main-data .customer-block {
+	padding-bottom: 7px;
+}
+
+.party-edit .main-data .customer-block .x-form-item {
+	padding-right: 5px;
+}
+
+.party-edit .main-data .phones .x-form-item {
+	padding-right: 5px;
+}
+
+.party-edit .main-data .emails .x-form-item {
+	padding-right: 5px;
+}
+
+.party-edit .main-data .note {
+	padding-top: 5px;
+}
+
+.party-edit .main-data .x-form-item-label {
+
+}
+
+.party-edit .miles-card-grid {
+	width: 331px;
+	padding-left: 20px;
+}
+
+.party-edit .passport-grid {
+	width: 755px;
+}
+
+.party-edit .miles-card-grid .x-toolbar, .party-edit .passport-grid .x-toolbar {
+	border: none;
+	background: none;
+}
+.party-edit .miles-card-grid .x-toolbar .x-btn button, .party-edit .passport-grid .x-toolbar .x-btn button {
+	color: #0047B3;
+}
+
+.party-edit .miles-card-grid .x-panel-body, .party-edit .passport-grid .x-panel-body {
+	border: 1px solid #d7d7d7;
+}
+
+.money-control {
+	width: 150px;
+}
+
+.money-control input.money-amount {
+	text-align: right;
+	width: 80px;
+	padding: 2px 2px 0 2px;
+}
+
+.money-control .x-form-field-trigger-wrap {
+	margin-left: 5px;
+}
+
+.money-control input.money-currency {
+	width: 30px;
+	padding-top: 2px;
+	padding-bottom: 0;
+}
+
+.money-control label.money-currency {
+	padding-top: 3px;
+	padding-left: 7px;
+}
+
+.window-edit .tabbed .x-form {
+	padding:0px 0px 0px 0px;
+}
+
+.aviaDocument-edit {
+	width: 890px;
+}
+
+.aviaDocument-edit .main-data .float-left {
+	padding-right: 5px;
+}
+
+.aviaDocument-edit .tabbed .x-tab-panel-body {
+	background-color: transparent;
+	padding: 10px 10px 5px 10px;
+}
+
+.aviaDocument-edit .box-label {
+	padding-top: 3px;
+}
+
+.aviaDocument-edit .main-data {
+	width: 540px !important;
+}
+
+.aviaDocument-edit .main-data .x-form-item-label {
+	width: 182px;
+}
+
+.aviaDocument-edit .main-data .x-form-element {
+	padding-left: 185px;
+}
+
+.aviaDocument-edit .main-data .x-form-display-field {
+	/*width: 200px;*/
+	white-space: nowrap;
+}
+
+.aviaDocument-edit .finance-data {
+	width: 320px;
+}
+
+.aviaDocument-edit .finance-data .x-form-item-label {
+	width: 140px;
+}
+
+.aviaDocument-edit .finance-data .necessary .x-form-item-label {
+	width: 140px;
+	font-weight:bold;
+}
+
+.aviaDocument-edit .finance-data .x-form-element {
+	padding-left: 145px;
+}
+
+.aviaDocument-edit .commentLabel  {
+	width:645px;
+	margin-left:30px;
+}
+
+.aviaDocument-edit .commentField {
+	padding-top:7px;
+}
+
+.aviaDocument-edit.tabbed .commentField label {
+	width:177px !important;
+	padding-left:15px !important;
+}
+
+
+.apply-to-documents {
+	width: 350px;
+}
+
+.apply-to-documents .box-label {
+	padding-bottom: 10px;
+	text-align: center;
+}
+
+.apply-to-documents .total-count {
+	font-weight: bold;
+	padding-top: 28px;
+	text-align: center;
+}
+
+.profile-view {
+	width: 400px;
+}
+
+.profile-view .viewItem {
+	overflow:auto;
+	padding-bottom:6px;
+}
+
+.profile-view .viewItem .itemCaption {
+	float:left;
+	padding-right:6px;
+	text-align:right;
+	width:40%;
+}
+
+.profile-view .viewItem .itemValue {
+	float:left;
+	font-weight:bold;
+}
+
+.profile-view .noData {
+	color: #898989;
+	padding-top: 10px;
+	padding-left: 20px;
+}
+
+.profile-view .gds-panel {
+	text-align: center;
+}
+
+.profile-view .gds-panel table {
+	padding:3px 15px;
+	border-collapse: collapse;
+	border-color: #B5C7DE;
+	width: 40%;
+	margin: 0 auto;
+}
+
+.profile-view .gds-panel th {
+	border:1px solid #B5C7DE;
+	padding:3px 15px;
+	text-align:center;
+}
+
+.profile-view .gds-panel td {
+	border: 1px solid #B5C7DE;
+	padding: 3px 15px;
+	color: #797979;
+}
+
+.profile-view .gdsAgentsCaption {
+	text-align: left;
+	width: 40%;
+	font-size: 20px;
+	margin: 0 auto 8px auto;
+	padding-top: 30px;
+}
+
+.password-edit-form {
+	width: 350px;
+}
+
+.registry-report {
+	width: 320px;
+}
+
+.unbalanced-report {
+	width: 360px;
+}
+
+.x-layout-collapsed .message-count {
+	display: inline;
+	font-size: 11px;
+	font-family: tahoma,verdana,helvetica;
+	color: #15428B;
+	padding-left: 5px;
+}
+
+.x-window-dlg .undeletable {
+	text-align: left;
+	padding-left: 50px;
+}
+
+.x-window-dlg .undeletable div {
+	font-weight: bold;
+	padding-bottom: 3px;
+}
+
+.replace-form {
+	width: 400px;
+}
+
+.replace-form .delete-message {
+	padding-bottom: 10px;
+}
+
+.replace-form .x-form-item label.x-form-item-label {
+	width: 140px;
+}
+
+.replace-form .x-form-element {
+	padding-left: 145px;
+}
+
+.invoce-records pre {
+	font-family: arial,tahoma,helvetica,sans-serif;
+}
+
+.invoce-records .x-panel-body {
+	border: 1px solid #B5B8C8;
+}
+
+.invoce-records .x-toolbar {
+	border: none !important;
+	background: none;
+}
+
+.gdsAgent-edit .x-form-display-field {
+	padding: 3px;
+}
+
+.property-list-control .item-list .fieldLabel {
+	text-align: right;
+	white-space: nowrap;
+	vertical-align: top;
+}
+
+.property-list-control .item-list .fieldValue {
+	text-align: left;
+	font-weight : bold;
+	white-space: pre-wrap;
+	vertical-align: top;
+	padding-left: 2px;
+}
+
+.property-list-control .item-list td {
+	padding-bottom: 15px;
+}
+
+.common-finances.property-list-control .item-list {
+	background-color: #E5E5E5;
+	padding: 25px 30px 10px 25px;
+	border-radius: 5px; -khtml-border-radius: 5px; -webkit-border-radius: 5px;
+}
+
+.common-finances.property-list-control .item-list .fieldValue {
+	text-align: right;
+	font-weight: bold;
+	width: 100px;
+}
+
+.property-grid-control .grid-title {
+	color: #999999;
+	font-size: 14px;
+	font-weight: bold;
+	padding-bottom: 5px;
+}
+
+.property-grid-control .item-list table {
+	border-collapse: collapse;
+}
+
+.property-grid-control .item-list tr {
+	border: 1px solid #E5E5E5;
+}
+
+.property-grid-control .item-list tr.alternate {
+	background-color: #FAFAFA;
+}
+
+.property-grid-control .item-list th {
+	font-weight: bold;
+	padding: 2px;
+	text-align: center;
+}
+
+.property-grid-control .item-list td {
+	padding: 2px;
+}
+
+.property-grid-control .item-list td.rightAlign {
+	text-align: right;
+}
+
+.property-grid-control .item-list td.centerAlign {
+	text-align: center;
+}
+
+.payment-view {
+	font-family: arial;
+	font-size: 12px;
+}
+
+.payment-view label.title {
+	font-size: 16px;
+	font-weight: bold;
+	display: block;
+}
+
+.payment-view .content-panel {
+	width: 950px;
+	margin: auto;
+	padding: 40px 10px 40px 10px;
+}
+
+.payment-view .payment-properties {
+	float: left;
+	padding-top: 25px;
+	max-width: 680px;
+}
+
+.payment-view .payment-properties .fieldLabel {
+	vertical-align: top;
+}
+
+.payment-view .payment-properties .cashorder-link {
+	color: #0047B3;
+	background: url(img/xls_ico.gif) no-repeat;
+	height: 18px;
+}
+
+.payment-view .payment-properties .cashorder-link span {
+	cursor: pointer;
+	padding-left: 22px;
+}
+
+.payment-view .payment-properties .cashorder-link span:hover {
+	text-decoration: underline;
+}
+
+.payment-view .payment-amount {
+	float: right;
+}
+
+.payment-view .payment-amount.property-list-control .item-list {
+	background-color: #E5E5E5;
+	padding: 25px 30px 10px 25px;
+}
+
+.payment-view .payment-amount.property-list-control .item-list .fieldLabel {
+	padding-bottom: 10px;
+}
+
+.payment-view .payment-amount.property-list-control .item-list .fieldValue {
+	padding-left: 10px;
+	padding-bottom: 10px;
+}
+
+.payment-view .payment-amount.property-list-control .item-list .amount-value.fieldValue {
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.payment-view .finance-obligation-list {
+	clear: both;
+	padding-top: 15px;
+}
+
+.payment-view .finance-obligation-list table {
+	width: 950px;
+}
+
+.payment-view .title.voided {
+	color: #999999;
+}
+
+.payment-view .title.nonposted {
+	color: Red;
+}
+
+.payment-edit  {
+	width: 410px;
+}
+
+.payment-edit .note {
+	height: 45px !important;
+}
+
+.payment-edit .obligation-list .x-grid3 {
+	height: 112px !important;
+}
+
+.payment-edit .obligation-list .x-panel-body {
+	height: 112px !important;
+	border: solid 1px #B5B8C8;
+}
+
+.payment-edit .obligation-list .x-toolbar {
+	border-style: none;
+	background: none;
+}
+
+.payment-void {
+	width: 690px;
+}
+
+.cashPaymentForm {
+	width: 400px;
+}
+
+.cashPaymentForm .source-grid .x-grid3 {
+	height: 112px !important;
+}
+
+.cashPaymentForm .source-grid .x-panel-body {
+	height: 112px !important;
+	border: solid 1px #B5B8C8;
+}
+
+.cashPaymentForm .source-grid .x-toolbar {
+	border-style: none;
+	background: none;
+}
+
+.file-form {
+	width: 304px;
+}
+
+.closedperiod-edit {
+	width: 346px;
+}
+
+.field-action {
+	width: 12px;
+	height: 12px;
+	background: url(img/light-bulb.png) no-repeat;
+	position: absolute;
+	cursor: pointer;
+}
+
+.passport-list {
+	width: 460px;
+}
+
+.passport-list .passport {
+	margin-top: 10px;
+	font: 12px tahoma,arial,helvetica,sans-serif;
+}
+
+.passport-list .passport.first-item {
+	margin-top: 0px;
+}
+
+.passport-list .passport .passport-data {
+	margin-bottom: 8px;
+}
+
+.passport-list .passport .passport-data .caption {
+	width: 110px;
+}
+
+.passport-list .passport .passport-data .td {
+	padding-bottom: 3px;
+}
+
+.passport-list .passport .passport-data div {
+	margin-bottom: 3px;
+}
+
+.passport-compare {
+	width: 518px;
+}
+
+.passport-compare .x-panel {
+	font: 12px tahoma,arial,helvetica,sans-serif;
+}
+
+.passport-compare .passports {
+	margin-left: 40px;
+}
+
+.passport-compare .passports .main-caption {
+	padding-bottom: 10px;
+	font-weight: bold;
+	width: 150px;
+}
+
+.passport-compare .passports .caption {
+	text-align: right;
+	padding: 0 20px 7px 0;
+}
+
+.passport-compare .passports .value {
+	padding-bottom: 5px;
+}
+
+.passport-compare .passports .different {
+	color: red;
+}
+
+.order-edit {
+	width: 780px;
+}
+
+.order-edit .attributes {
+	width: 360px;
+}
+
+.order-edit .items {
+	padding-bottom:7px;
+}
+
+.order-edit .totals .x-panel-body {
+
+	float: right;
+}
+
+.order-edit .header2 {
+	width: 350px;
+	margin: 0px auto;
+}
+
+.order-edit .x-form-item.text {
+	padding-top: 3px;
+}
+
+.order-edit .x-form-item.vat .x-form-element .text div.amount {
+	width:69px;
+}
+
+.order-edit .x-form-display-field {
+	padding-top: 3px;
+	width: 250px;
+}
+
+.orderitem-edit {
+	width: 382px;
+}
+
+.orderitem-edit .add-product-text-button .x-panel-body {
+	padding-left: 105px;
+	padding-bottom: 28px;
+}
+
+
+.order-view {
+	font-family: arial;
+	font-size: 12px;
+}
+
+.order-view .content-panel {
+	width: 950px;
+	margin: auto;
+	padding: 40px 10px 40px 10px;
+}
+
+.order-view label.title {
+	font-size: 16px;
+	font-weight: bold;
+	display: block;
+}
+
+.order-view label.open-unpaid {
+	color: red;
+}
+
+.order-view label.open-paid {
+	color: #1D8C3F;
+}
+
+.order-view label.voided {
+	color: #999999;
+}
+
+.order-view .order-properties {
+	float: left;
+	padding-top: 25px;
+	max-width: 680px;
+}
+
+.order-view .common-finances {
+	float: right;
+}
+
+.order-view .common-finances .unpaid-amount {
+	color: Red;
+}
+
+.order-view .common-finances .overpay {
+	color : red;
+}
+
+.order-view .order-items {
+	clear: both;
+	padding-top: 5px;
+	width: 950px;
+}
+
+.order-view .order-items .grid-title {
+	color: #999999;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.order-view .order-items td {
+	padding: 5px 4px;
+}
+
+.order-view .payments {
+	margin-top: 15px;
+	width: 950px;
+}
+
+.order-view .payments .grid-title {
+	color: #999999;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.order-view .payments td {
+	padding: 5px 4px;
+}
+
+.order-view .payments .cashorder-link {
+	color: #0047B3;
+	background: url(img/xls_ico.gif) no-repeat;
+	height: 17px;
+}
+
+.order-view .payments .textColor-red .cashorder-link {
+	color: Red;
+}
+.order-view .payments .textColor-gray .cashorder-link {
+	color: #999999;
+}
+
+.order-view .payments .voidedDocument .cashorder-link {
+	color: #999999;
+}
+
+.order-view .payments .unposted .cashorder-link {
+	color: red;
+}
+
+.order-view .payments .cashorder-link span {
+	cursor: pointer;
+	padding-left: 22px;
+}
+
+.order-view .payments .cashorder-link span:hover {
+	text-decoration: underline;
+}
+
+.order-view .issued-invoice {
+	margin-bottom: 5px;
+	font-weight: normal;
+	background: url(img/xls_ico.gif) no-repeat;
+}
+
+.order-view .issued-invoice .invoice-link {
+	padding-left: 22px;
+	cursor: pointer;
+	color: #0047B3;
+}
+
+.order-view .issued-invoice .invoice-link:hover {
+	text-decoration: underline;
+}
+
+.order-view .issued-invoice .invoice-details {
+	font-style: italic;
+	color: gray;
+	margin-left: 22px;
+}
+
+.order-view .issued-invoice .issued-by {
+	margin-left: 12px;
+}
+
+div.invoice-reissue-action {
+	background-color: #F0F0F0;
+	border: 1px solid #F0F0F0;
+	color: gray;
+}
+
+input.auto-text {
+	font-style: italic;
+	color: gray;
+}
+
+
+.consignment-title {
+	text-align: center;
+	font-size: 16px;
+	font-weight: bold;
+	padding-bottom: 10px;
+}
+
+.consignment-items {
+	width: 30%;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 20px;
+}
+
+.consignment-finance {
+	padding-top: 15px;
+	float: right;
+}
+
+.quick-receipt form.x-panel-body {
+	height: 220px;
+	margin-top: 13px;
+}
+
+.banded {
+	background: #f0f0f0;
+	font-family: "Trebuchet MS", Arial, Helvetica, Sans-Serif;
+}
+
+.band-wrap {
+	width: 1004px;
+	margin: 50px auto;
+	border: 1px #e0e0e0 solid;
+	border-radius: 10px; -webkit-border-radius: 10px; -moz-border-radius: 10px;
+}
+
+.band-table {
+	width: 100%;
+	height: 800px;
+	border-collapse: collapse;
+}
+
+.band-table td {
+	vertical-align: top;
+	padding: 20px 30px 30px;
+}
+
+.band-left {
+	background: white;
+	border-top-left-radius: 10px; border-bottom-left-radius: 10px; -webkit-border-top-left-radius: 10px; -webkit-border-bottom-left-radius: 10px; -moz-border-radius-topleft: 10px; -moz-border-radius-bottomleft: 10px;
+	border-right: 1px #e0e0e0 solid;
+}
+
+.band-right {
+	width: 250px;
+	background: #f0f6f9;
+	-webkit-border-top-right-radius: 10px; -webkit-border-bottom-right-radius: 10px; -moz-border-radius-topright: 10px; -moz-border-radius-bottomright: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px;
+	word-break: break-all;
+}
+
+.party p {
+	margin: 10px 0 0 0;
+}
+
+.party-header {
+	height: auto;
+	background: none;
+	margin-bottom: 20px;
+}
+
+.party-name {
+	color: #15428b;
+	margin: 0;
+	font-size: 28px;
+}
+
+.party-legalname {
+	color: #a0a0a0;
+	font-style: italic;
+	font-size: 18px;
+}
+
+.party-roles {
+	margin-top: 5px;
+	font-size: 14px;
+}
+
+.party-roles span {
+	color: #404040;
+	background-color: #e8e8e8;
+	padding: 0 7px 2px 7px;
+	margin-left: 10px;
+	border-radius: 5px; -khtml-border-radius: 5px; -webkit-border-radius: 5px;
+}
+
+.person-employment {
+	font-size: 18px;
+	color: #404040;
+	margin-top: 20px;
+}
+
+.party-reportsto {
+	margin-top: 20px;
+}
+
+.party-note {
+	margin-top: 20px;
+	background-color: #f8f8f8;
+	padding: 15px;
+	border-radius: 5px; -khtml-border-radius: 5px; -webkit-border-radius: 5px;
+	white-space: pre-line;
+}
+
+.party .positive {
+	color: #009D90;
+}
+
+.party .negative {
+	color: #FF6666;
+}
+
+.tabs-menu li.negative {
+	color: #FF6666;
+}
+
+.tabs-menu li.negative:hover {
+	color: #FF3232;
+}
+
+.tabs-menu li.negative.active, .tabs-menu li.negative.active:hover {
+	color: red;
+}
+
+.party-balance {
+	margin-top: 30px;
+}
+
+.quite {
+	color: gray;
+}
+
+.quite .negative, .quite.negative {
+	color: gray;
+}
+
+a.quite, .quite a {
+	color: #597CB2;
+}
+
+.party-balance .opening {
+	margin: 0 0 20px 30px;
+	font-size: 14px;
+}
+
+.party-balance .overall {
+	margin-left: 30px;
+	font-size: 18px;
+	color: gray;
+}
+
+.party-balance table.by-orders {
+	border-collapse: collapse;
+	margin: 30px 0 10px 30px;
+}
+
+.party-balance table.by-orders th {
+	padding: 5px;
+	text-align: right;
+	font-size: 14px;
+	color: gray;
+	font-weight: bold;
+}
+
+.party-balance table.by-orders tbody tr:nth-child(odd) {
+	background-color: #f0f0f0;
+}
+
+.party-balance table.by-orders td {
+	padding: 5px;
+	text-align: right;
+	width: 110px;
+}
+
+.party-balance table.by-orders td:first-child {
+	text-align: left;
+	width: 110px;
+}
+
+.party-files {
+	margin-top: 20px;
+}
+
+.party-files .delete-action {
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	background: url(img/trash-icon.gif) no-repeat left top;
+}
+
+.issued-invoice .delete-action {
+	margin-left: 5px;
+}
+
+.party-files .file {
+	margin-top: 5px;
+}
+
+.party .file > div, .party .file > div a {
+	color: gray;
+	font-size: 14px;
+}
+
+.party .band-right p {
+	min-height: 24px;
+	padding-left: 35px;
+}
+
+.party-info-prompt {
+	font-size: 14px;
+	word-break: normal;
+}
+
+.party p.phone {
+	background: url(img/phone-icon.png) no-repeat left top;
+}
+
+.party.person p.birthday {
+	background: url(img/birthday-icon.png) no-repeat left top;
+}
+
+.party p.fax {
+	background: url(img/fax-icon.png) no-repeat left top;
+}
+
+.party p.email {
+	background: url(img/email-icon.png) no-repeat left top;
+}
+
+.party p.http {
+	background: url(img/www-icon.png) no-repeat left top;
+}
+
+.party .address {
+	margin-top: 20px;
+}
+
+.party .address .address-text {
+	white-space: pre-line;
+}
+
+.party .band-right .label {
+	font-size: 14px;
+	color: #A0A0A0;
+}
+
+.party .address .links {
+	white-space: nowrap;
+}
+
+.organization-code {
+	margin-top: 20px;
+}
+
+.party .address .links a {
+	display: inline-block;
+	height: 16px;
+	width: 16px;
+}
+
+.party .address .google {
+	background: url(img/google-maps.ico) no-repeat left center;
+}
+
+.party .address .yandex {
+	background: url(img/yandex-maps.ico) no-repeat left center;
+}
+
+.person .miles-cards {
+	margin: 30px 0 0 0;
+	font-size: 14px;
+}
+
+.person .miles-cards > div {
+	display: inline-block;
+	margin-top: 10px;
+	padding-left: 40px;
+	background: url(img/miles-card.png) no-repeat left 3px;
+	min-height: 26px;
+}
+
+.person .miles-cards > div div:first-child {
+	font-weight: bold;
+}
+
+.person .miles-cards > div div:last-child {
+	color: gray;
+}
+
+.person-passports > div {
+	margin-top: 20px;
+	padding-left: 35px;
+	background: url(img/passport.jpg) no-repeat left 3px;
+	vertical-align: top;
+	min-height: 38px;
+	font-size: 14px;
+}
+
+.person-passports > div:first-child {
+	margin-top: 30px;
+}
+
+.person-passports .pass-number {
+	font-weight: bold;
+}
+
+.person-passports .pass-details {
+	margin-top: 5px;
+	color: gray;
+}
+
+.person-passports .pass-copy {
+	position: relative;
+	margin-top: 5px;
+	font-size: 14px;
+}
+
+.person-passports .pass-copy a {
+	padding-left: 18px;
+	background: url(img/copy-icon.png) no-repeat left center;
+	margin-right: 10px;
+}
+
+.person-passports .pass-copy input {
+	display: none;
+	position: absolute;
+	top: 20px;
+	left: 0;
+	padding: 5px;
+	width: 205px;
+	border-width: 1px;
+	border-radius: 5px; -khtml-border-radius: 5px; -webkit-border-radius: 5px;
+}
+
+.person-passports .pass-validate {
+
+	color: gray;
+	background: white;
+	
+	margin: 12px 0 0 -12px;
+	padding: 8px 12px;
+	
+	border-radius: 4px;
+
+	word-break: normal;
+
+}
+
+
+.text-warning { color: #ff9800; }
+.text-error { color: #f44336; }
+
+.cb {
+	clear: both;
+}
+
+.party-organization {
+	margin-top: 40px;
+}
+
+.band-right .block-header {
+	padding-bottom: 5px;
+	margin-bottom: 20px;
+	font-weight: bold;
+	text-align: left;
+	font-size: 14px;
+	border-bottom: 1px dotted gray;
+	color: gray;
+}
+
+.tabs-menu {
+	margin: 40px 0 20px;
+	font-size: 14px;
+	font-weight: bold;
+	border-bottom: 1px solid #A0A0A0;
+}
+
+.tabs-menu li {
+	float: left;
+	height: auto;
+	padding: 5px 10px;
+	color: #A0A0A0;
+}
+
+.tabs-menu li:hover {
+	cursor: pointer;
+	color: #606060;
+	border-bottom: 3px solid #E0E0E0;
+}
+
+.tabs-menu li.active, .tabs-menu li.active:hover {
+	border-bottom: 3px solid #A0A0A0;
+	color: #404040;
+	cursor: text;
+}
+
+.tabs-menu div {
+	clear: both;
+}
+
+div.tabs-content > div {
+	display: none;
+}
+
+.organization .department {
+	font-size: 18px;
+	margin-top: 10px;
+	padding-left: 40px;
+	background: url(img/department-icon.png) no-repeat left top;
+	min-height: 26px;
+}
+
+.organization .employee {
+	font-size: 18px;
+	margin-top: 10px;
+	padding-left: 40px;
+	background: url(img/employee-icon.gif) no-repeat left top;
+	min-height: 26px;
+}
+
+.organization .employee-title {
+	color: #404040;
+	font-size: 16px;
+}
+
+.organization .list .detail {
+	margin-top: 3px;
+	font-size: 16px
+}
+
+.organization .list .detail span {
+	color: gray;
+	margin-right: 10px;
+}
+
+.organization .list .detail a {
+	color: gray;
+}
+
+.party .actions {
+	margin: 20px 0;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.party .actions a {
+	background: #e8e8e8;
+	padding: 2px 5px;
+	border-radius: 3px; -khtml-border-radius: 3px; -webkit-border-radius: 3px;
+	border: 1px solid #b0b0b0;
+	color: #404040;
+}
+
+.party .actions a:hover {
+	text-decoration: none;
+	border: 1px solid gray;
+}
+
+.x-grid3-row.deleted {
+	background: url(img/gray-pix.png) repeat-x center;
+	opacity: 0.4;
+}
+
+.x-grid3-row td,
+.x-grid3-summary-row td,
+.x-grid3-cell-text,
+.x-grid3-hd-text,
+.x-grid3-hd,
+.x-grid3-row {
+	-moz-user-select: inherit;
+	-khtml-user-select: text;
+}
+
+
+/* New styles */
+
+a.no-decoration, a.no-decoration:hover {
+	text-decoration: none;
+}
+
+.home {
+	font-family: "Trebuchet MS", Arial, Helvetica, Sans-Serif;
+}
+
+.home .settings {
+	position: absolute;
+	top: 5px;
+	right: 5px;
+}
+
+.home .wrapper {
+	width: 940px;
+	margin: 20px auto;
+	display: table;
+}
+
+.home .row {
+	display: table-row;
+}
+
+.home .block {
+	width: 400px;
+	padding: 0 50px 50px 0;
+	font-size: 16px;
+	display: table-cell;
+}
+
+.home .block .header {
+	margin-bottom: 15px;
+	padding-bottom: 3px;
+	border-bottom: 1px solid #86A6CF;
+	display: table;
+	width: 100%;
+}
+
+.home .block .header .title {
+	font-size: 18px;
+	display: table-cell;
+}
+
+.home .block .header .actions {
+	font-size: 14px;
+	display: table-cell;
+	text-align: right;
+}
+
+.home .red, .home a.red, .home .red a { color: red; }
+.home .orange, .home a.orange, .home .orange a { color: #e76c0c; }
+.home .green, .home a.green, .home .green a { color: green; }
+.home .pale, .home a.pale, .home .pale a { color: #8aaadc; }
+
+.home .tasks {
+	margin: 0 0 10px 20px;
+}
+
+.home .tasks .content {
+	margin-left: 20px;
+}
+
+.home .no-tasks {
+	color: gray;
+}
+
+.home .task {
+	margin-top: 10px;
+}
+
+.home .task .checkbox {
+	margin: 1px 0 0 -20px;
+	float: left;
+}
+
+.home .task .due-date {
+	float: right;
+}
+
+.home .task .related-to {
+	font-size: 14px;
+	font-style: normal;
+	color: gray;
+}
+
+.home .task .related-to a {
+	color: gray;
+}
+
+.home .task .assignment {
+	font-style: italic;
+	font-size: 12px;
+	color: gray;
+}
+
+.home .task .assignment a {
+	color: gray;
+}
+
+.home .tasks .total {
+	text-align: right;
+}
+
+.home .documents {
+	line-height: 20px;
+}
+
+
+.home .documents .content {
+	margin-left: 10px;
+}
+
+.home .documents .content .section {
+	margin-bottom: 20px;
+}
+
+.home .agent-reports {
+	border-collapse: collapse;
+}
+
+.home .agent-reports tr {
+	height: 28px;
+}
+
+.home .agent-reports th {
+	text-align: center;
+	font-size: 14px;
+	color: gray;
+	width: 100px;
+}
+
+.home .agent-reports th:first-child {
+	width: 200px;
+}
+
+.home .agent-reports tbody tr:nth-child(odd) {
+	background-color: #F6F7F8;
+}
+
+.home .agent-reports td {
+	text-align: center;
+}
+
+.home .agent-reports td:first-child {
+	text-align: right;
+}
+
+
+
+.order-tasks {
+	white-space: normal;
+}
+
+.order-tasks > div {
+	margin-bottom: 5px;
+}
+
+.order-tasks div.checkbox {
+	float: left;
+	margin-top: 1px;
+}
+
+.order-tasks div.main {
+	margin-left: 20px;
+	color: gray;
+}
+
+.order-tasks div.details {
+	margin-left: 20px;
+	font-weight: normal;
+	font-style: italic;
+	color: gray;
+}
+
+.order-tasks div.details a {
+	color: gray;
+}
+
+.order-tasks div.closed div.main {
+	text-decoration: line-through;
+	color: gray;
+}
+
+.order-tasks div.closed div.main a {
+	color: gray;
+}
+
+.order-tasks div.overdue div.main {
+	color: red;
+}
+
+.order-tasks div.overdue div.main a {
+	color: red;
+}
+
+.order-tasks .related-to {
+	font-weight: normal;
+	font-style: italic;
+}
+
+.icon-settings {
+	background: url(img/settings.png) no-repeat top left;
+	display: inline-block;
+	width: 14px;
+	height: 14px;
+	line-height: 14px;
+	vertical-align: text-top;
+}
+
+.home-settings-form {
+	width: 410px;
+}
+
+.avia-console-parser {
+	width: 800px;
+	height: 720px;
+}
+
+/*.editform .main-data {
+	width: 540px;
+}*/
+
+.editform .main-data .float-left {
+	padding-right: 5px;
+}
+
+.segment-edit .main-data {
+	width: 500px;
+}

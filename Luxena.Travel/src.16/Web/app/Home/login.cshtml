@@ -1,0 +1,91 @@
+﻿@model LoginModel
+<!doctype html>
+<html>
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Luxena Travel 15</title>
+	@Styles.Render("~/Styles/Libs", "~/Styles/App")
+
+	<link href="~/Content/theme03.css" rel="stylesheet" />
+	<link href="~/app/_support/layouts/Agent/AgentLayout.css" rel="stylesheet" />
+
+	<script type="text/javascript">
+		function onBodyLoad()
+		{
+			var f = document.forms[0].elements;
+
+			f.ReturnHash.value = window.location.hash;
+
+			var el = f.UserName;
+
+			if (el.value) {
+				el = f.Password;
+			}
+
+			el.focus();
+			el.select();
+		}
+	</script>
+</head>
+<body onload="onBodyLoad()" class="dx-theme-generic-typography wrap-bg-color main-layout form-panel">
+
+	<div style="width: 500px; margin: 10% auto 0 auto">
+
+		<div class="card card-fieldset">
+
+			<div class="form-header-simple">
+				<h1>Luxena Travel 15</h1>
+			</div>
+			<hr />
+			@{ Html.BeginForm(); }
+
+			<input name="ReturnHash" type="hidden"/>
+
+			<div class="dx-fieldset" style="margin: 0 20px">
+
+				<div class="dx-field">
+					<div class="dx-field-label">Логин:</div>
+
+					<div class="dx-field-value">
+						<div class="dx-texteditor dx-widget dx-textbox" title="Логин">
+							<div class="dx-texteditor-container">
+								<input id="UserName" name="UserName" type="text" class="dx-texteditor-input" autocomplete="off" spellcheck="false" role="textbox">
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="dx-field">
+					<div class="dx-field-label">Пароль:</div>
+					<div class="dx-field-value">
+						<div class="dx-texteditor dx-texteditor-empty dx-widget dx-textbox" title="Новый пароль">
+							<div class="dx-texteditor-container">
+								<input id="Password" name="Password" type="password" class="dx-texteditor-input" autocomplete="off" spellcheck="false" maxlength="20" role="textbox">
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				<div class="dx-field">
+					<div class="dx-field-label"></div>
+					<div class="dx-field-value-static">
+						<label>@Html.CheckBoxFor(m => m.RememberMe)</label>запомнить меня
+					</div>
+				</div>
+
+				<div style="color: crimson; text-align: center">
+					@Html.ValidationMessage("")
+				</div>
+				<div style="width: 200px; margin: 0 auto">
+					<input id="submit" type="submit" value="Войти" class="dx-widget dx-button-has-icon dx-button-has-text dx-button dx-button-default" style="color: rgb(35, 35, 35); width: 100%"/>
+				</div>
+
+			</div>
+
+			@{ Html.EndForm(); }
+		</div>
+	</div>
+
+</body>
+</html>

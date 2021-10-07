@@ -1,0 +1,263 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ assembly name="System.ComponentModel.DataAnnotations, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="D:\data\git\Luxena.Travel\src\Core\bin\Debug\Luxena.Base.dll" #>
+<#@ assembly name="D:\data\git\Luxena.Travel\src\Core\bin\Debug\Luxena.Support.dll" #>
+<#@ assembly name="D:\data\git\Luxena.Travel\src\Core\bin\Debug\Luxena.Domain.dll" #>
+<#@ assembly name="D:\data\git\Luxena.Travel\src\Core\bin\Debug\Luxena.Travel.dll" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="Luxena" #>
+<#@ import namespace="Luxena.Domain" #>
+<#@ import namespace="Luxena.Travel.Domain" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Reflection" #>
+<#@ output extension=".cs" #>
+// ReSharper disable RedundantUsingDirective, RedundantExplicitArrayCreation, RedundantArgumentDefaultValue, NotAccessedField.Local
+using System.Runtime.CompilerServices;
+
+using LxnBase.UI;
+
+<#
+	var baseEntityTypes = new[] { typeof(Entity), typeof(Entity2), typeof(Entity3), typeof(Entity3D), };
+	var entityTypes = new[]
+	{
+		typeof(Passport), typeof(BankAccount), typeof(MilesCard),
+		typeof(Party), typeof(Organization), typeof(Person), typeof(Department),
+		typeof(AccommodationProvider), typeof(BusTicketProvider), typeof(PasteboardProvider),
+		typeof(TransferProvider), typeof(GenericProductProvider), typeof(CarRentalProvider),
+		typeof(TourProvider), //typeof(InsuranceProvider),
+		typeof(RoamingOperator), typeof(InsuranceCompany), typeof(Airline),
+		typeof(Customer),
+		typeof(Order),
+		typeof(CurrencyDailyRate), typeof(CateringType), typeof(AccommodationType), typeof(GenericProductType),
+		typeof(ProductPassenger),
+		typeof(BusTicket), typeof(Excursion), typeof(Isic), typeof(Pasteboard), typeof(Transfer),
+		typeof(GenericProduct), typeof(CarRental), typeof(Tour), typeof(Accommodation), typeof(SimCard),
+		typeof(Insurance), typeof(AviaDocument), typeof(Product), typeof(AviaTicket), typeof(AviaMco), typeof(AviaRefund),
+		typeof(Country), typeof(AirlineServiceClass), typeof(AirlineMonthCommission), typeof(Airport), typeof(PaymentSystem), typeof(Currency),
+		typeof(Identity), typeof(User), typeof(UserVisit), typeof(SystemConfiguration), typeof(AirlineCommissionPercents),
+		typeof(DocumentOwner), typeof(DocumentAccess), typeof(ClosedPeriod), typeof(OpeningBalance),
+		typeof(InternalTransfer), typeof(GdsAgent), typeof(GdsFile),
+		typeof(Invoice), typeof(Receipt), typeof(Task),
+		typeof(Payment), //typeof(CashInOrderPayment), typeof(CashOutOrderPayment), typeof(CheckPayment), typeof(ElectronicPayment), typeof(WireTransfer),
+		typeof(Contract),
+		typeof(Modification),
+		typeof(FlightSegment), typeof(AirplaneModel),
+	};
+
+	var lng = new DefaultLocalizationTypesSource(typeof(RUAttribute), typeof(UAAttribute), typeof(ENAttribute));
+#>
+
+namespace Luxena.Travel
+{
+<#
+foreach (var entityType in baseEntityTypes.Concat(entityTypes))
+{
+	var entity = entityType.Name;
+	var baseType = entityType.Attribute<ExtendsAttribute>().As(a => a.BaseType) ?? entityType.BaseType;
+	var baseTypeName = baseType == typeof(object) ? "SemanticEntity" : baseType.Name + "Semantic";
+
+	var entityProps = entityType
+		.GetProperties(BindingFlags.Public | BindingFlags.Instance | BindingFlags.DeclaredOnly)
+		.Where(a =>
+		{
+			// Пропуск override-свойств
+			var getMethod = a.GetGetMethod(false);
+			return getMethod.GetBaseDefinition() == getMethod;
+		})
+		.ToArray();
+#>
+
+	#region <#= entity #>
+
+<#
+	var entityTitle = entityType.Localization(lng).Default;
+	if (entityTitle.Yes())
+	{
+#>
+	/// <summary><#= entityTitle #></summary>
+<#
+	}
+#>
+	public partial class <#= entity #>Semantic : <#= baseTypeName #>
+	{
+
+		public <#= entity #>Semantic()
+		{
+<#
+	var etags = new List<string>();
+
+	etags.Add("_name = \"" + entity + "\";");
+	etags.Add("_className = \"" + (entityType.Attribute<ExtendsAttribute>().As(a => a.BaseType.Name) ?? entity) + "\";");
+	etags.Add("_isAbstract = " + entityType.IsAbstract.ToString().ToLower() + ";");
+
+	if (entityType.IsAbstract)
+	{
+		etags.Add("_getDerivedEntities = delegate (SemanticDomain dsm)");
+		etags.Add("{");
+
+		etags.Add("\treturn new SemanticEntity[] { " + string.Join(", ", entityTypes.Where(a => a.IsSubclassOf(entityType)).Select(a => "dsm." + a.Name)) + " };");
+
+		etags.Add("};");
+	}
+	else
+		etags.Add("_getDerivedEntities = null;");
+
+	var nameProp =
+		entityType.PropertyWithAttribute<EntityName2Attribute>() ??
+		entityType.PropertyWithAttribute<EntityNameAttribute>() ??
+		baseType.PropertyWithAttribute<EntityName2Attribute>() ??
+		baseType.PropertyWithAttribute<EntityNameAttribute>();
+	if (nameProp == null)
+	{
+		if (!baseEntityTypes.Contains(entityType))
+			etags.Add("_nameFieldName = null;");
+	}
+	else if (nameProp.Name != "Name")
+		etags.Add("_nameFieldName = \"" + nameProp.Name + "\";");
+
+
+	entityType.Localization(lng).Do(loc =>
+	{
+		if (loc.Default.Yes())
+			etags.Add("_title =\"" + loc.Default + "\";");
+		if (loc.Defaults.Yes())
+			etags.Add("_titles = \"" + loc.Defaults + "\";");
+	});
+
+	etags.RemoveAll(a => a.No());
+#>
+			<#= string.Join("\r\n\t\t\t", etags) #>
+<#
+	var bag = SemanticSetupAttribute.Invoke(entityType);
+
+	if (bag != null)
+	{
+		foreach (var propBag in bag.Properties)
+		{
+			foreach (var prop in propBag.Properties)
+			{
+				etags = SemanticCodeGeneration.GetCodeForScriptSharp(propBag, prop, lng);
+#>
+
+			<#= prop.Name #>
+				<#= string.Join("\r\n\t\t\t\t", etags) #>;
+<#
+
+			}
+		}
+	}
+
+#>
+		}
+
+<#
+	foreach (var prop in entityProps)
+	{
+		var tags = SemanticCodeGeneration.GetCodeForScriptSharp(prop, lng);
+
+		var title = prop.Localization(lng).Default;
+		if (title.Yes())
+		{
+#>
+		/// <summary><#= title #></summary>
+<#
+		}
+#>
+		[PreserveCase]
+		public SemanticMember <#= prop.Name #> = Member
+			<#= string.Join("\r\n\t\t\t", tags) #>;
+
+<#
+	}
+#>
+	}
+
+	/*
+<#
+	foreach (var prop in entityProps)
+	{
+#>
+				se.<#= prop.Name #>,
+<#
+	}
+#>
+	*/
+
+<#
+	var baseTypeName2 = new[] { typeof(object), typeof(Entity), typeof(Entity2) }.Contains(entityType.BaseType) ? "Entity" : entityType.BaseType.Name;
+
+	if (!entityType.IsAbstract && entityType.BaseType != typeof(object))
+	{
+		if (entityType.Semantic<SingletonAttribute>() == null)
+		{
+#>
+	public partial class <#= entity #>ListTab : <#= baseTypeName2 #>ListTab
+	{
+
+		static <#= entity #>ListTab()
+		{
+			RegisterList("<#= entity #>", typeof(<#= entity #>ListTab));
+		}
+
+		public <#= entity #>ListTab(string tabId, ListArgs args): base(tabId, args) { }
+
+		protected override void PreInitialize()
+		{
+			base.PreInitialize();
+			Entity = se = dsm.<#= entity #>;
+		}
+
+		private <#= entity #>Semantic se;
+
+	}
+
+<#
+		}
+
+		if (entityType != typeof(Order))
+		{
+			#>
+
+	public partial class <#= entity #>EditForm : <#= baseTypeName2 #>EditForm
+	{
+
+		static <#= entity #>EditForm()
+		{
+			RegisterEdit("<#= entity #>", typeof(<#= entity #>EditForm));
+		}
+
+		protected override void PreInitialize()
+		{
+			base.PreInitialize();
+			Entity = se = dsm.<#= entity #>;
+		}
+
+		private <#= entity #>Semantic se;
+
+	}
+<#
+		}
+	}
+#>
+
+	#endregion
+
+<#
+}
+#>
+
+	partial class SemanticDomain
+	{
+<#
+foreach (var entityType in entityTypes)
+{
+	var entity = entityType.Name;
+#>
+		[PreserveCase] public <#= entity #>Semantic <#= entity #> = new <#= entity #>Semantic();
+<#
+}
+#>
+	}
+
+}

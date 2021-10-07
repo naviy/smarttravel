@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:xsd1="http://service" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:tns="http://46.4.91.251" xmlns:soapbind="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12bind="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd2="http://46.4.91.251" name="ImportServiceXML" targetNamespace="http://46.4.91.251" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xs:schema xmlns:tns="http://service" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://service" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="service">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" name="consist" type="tns:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="string">
+        <xs:sequence>
+          <xs:element name="marker" type="xs:string" />
+          <xs:element name="object" type="xs:string" />
+          <xs:element name="information" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema xmlns:xs2="http://46.4.91.251" xmlns:xs1="http://service" elementFormDefault="qualified" targetNamespace="http://46.4.91.251" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://service" />
+      <xs:element name="Import">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="office_id" type="xs:string" />
+            <xs:element name="startdate" type="xs:date" />
+            <xs:element name="enddate" type="xs:date" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ImportResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </types>
+  <message name="ImportRequestMessage">
+    <part name="parameters" element="xsd2:Import" />
+  </message>
+  <message name="ImportResponseMessage">
+    <part name="parameters" element="xsd2:ImportResponse" />
+  </message>
+  <portType name="ImportServiceXMLPortType">
+    <operation name="Import">
+      <input message="xsd2:ImportRequestMessage" />
+      <output message="xsd2:ImportResponseMessage" />
+    </operation>
+  </portType>
+  <binding name="ImportServiceXMLSoapBinding" type="xsd2:ImportServiceXMLPortType">
+    <soapbind:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="Import">
+      <soapbind:operation soapAction="http://46.4.91.251#ImportServiceXML:Import" style="document" />
+      <input>
+        <soapbind:body use="literal" />
+      </input>
+      <output>
+        <soapbind:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <binding name="ImportServiceXMLSoap12Binding" type="xsd2:ImportServiceXMLPortType">
+    <soap12bind:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="Import">
+      <soap12bind:operation soapAction="http://46.4.91.251#ImportServiceXML:Import" style="document" />
+      <input>
+        <soap12bind:body use="literal" />
+      </input>
+      <output>
+        <soap12bind:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="ImportServiceXML">
+    <port name="ImportServiceXMLSoap" binding="xsd2:ImportServiceXMLSoapBinding">
+      <documentation>
+        <wsi:Claim xmlns:wsi="http://ws-i.org/schemas/conformanceClaim/" conformsTo="http://ws-i.org/profiles/basic/1.1" />
+      </documentation>
+      <soapbind:address location="http://46.4.91.251/TC/ws/ImportServiceXML.1cws" />
+    </port>
+    <port name="ImportServiceXMLSoap12" binding="xsd2:ImportServiceXMLSoap12Binding">
+      <soap12bind:address location="http://46.4.91.251/TC/ws/ImportServiceXML.1cws" />
+    </port>
+  </service>
+</definitions>

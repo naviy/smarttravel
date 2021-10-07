@@ -1,0 +1,44 @@
+﻿@{
+    Layout = null;
+    //var bs = Html.Bootstrap();
+    //var v = new ViewDomain();
+}
+
+<!DOCTYPE html>
+
+<html data-ng-app="app">
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Luxena.Travel v3</title>
+    @Styles.Render("~/Styles/Libs", "~/app/Home/styles.css", "~/app/Home/ui-theme1.css")
+</head>
+<body>
+
+    <div data-ng-controller="App.ViewportCtrl" style="height: 100%">
+        <tabset id="mainTabset">
+            <tab data-ng-repeat="viewPage in viewPages" active="viewPage.active" select="viewPage.activate()">
+                <tab-heading>
+                    <div class="nowrap">
+                        <span ng-bind-html-unsafe="viewPage.title()" class="nowrap" 
+                            style="max-width: 200px; height: 20px; margin-bottom: -4px; display: inline-block; overflow-x: hidden; overflow-y: visible; text-overflow: ellipsis"
+                            tooltip-html-unsafe="{{viewPage.tooltip()}}" tooltip-placement="bottom">
+                        </span>
+                        <a class="tab-close-btn" href="javascript:" ng-click="viewPage.close()" ng-show="viewPage.closable"><i class="fa fa-times"></i></a>
+                    </div>
+                </tab-heading>
+                <view-pane view-page="viewPage" />
+            </tab>
+        </tabset>
+    </div>
+
+    @Scripts.Render(
+        "~/Scripts/Libs",
+        "~/Scripts/App"
+    )
+
+
+    @Html.Partial("MainPage")
+    @Html.Partial("EntityViews")
+
+</body>
+</html>

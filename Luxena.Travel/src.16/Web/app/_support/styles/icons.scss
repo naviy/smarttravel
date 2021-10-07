@@ -1,0 +1,18 @@
+﻿@mixin image-icon-16()
+{
+	display: inline-block;
+	height: 16px;
+	width: 16px;
+	margin: -1px 0;
+	background-repeat: no-repeat;
+	background-position: left bottom;
+}
+
+.icon-google-map {
+	background: url("/Content/images/google-maps.ico");
+	@include image-icon-16;
+}
+.icon-yandex-map {
+	background: url("/Content/images/yandex-maps.ico");
+	@include image-icon-16;
+}

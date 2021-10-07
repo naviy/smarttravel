@@ -1,0 +1,458 @@
+//! #= ScriptFile ##
+//
+
+////////////////////////////////////////////////////////////////////////////////
+
+Ext.ns('LxnBase.Data');
+
+LxnBase.Data.WebServiceProxy = function (service, method) {
+	LxnBase.Data.WebServiceProxy.superclass.constructor.call(this);
+	this._service = service;
+	this._method = method;
+};
+
+Ext.extend(LxnBase.Data.WebServiceProxy, Ext.data.DataProxy,
+{
+	useGet: false,
+	wrapper: null,
+	arguments: null,
+
+	setResponse: function (response) {
+		this._response = response;
+	},
+
+	load: function (params, reader, callback, scope, arg) {
+		if (arg && params && !arg.params)
+			arg.params = params;
+
+		if (this.fireEvent("beforeload", this, params) === false) {
+			callback.call(scope || this, null, arg, false);
+			return;
+		}
+
+		var handleResponse = ss.Delegate.create(this, function (response) {
+			if (typeof response.Start == 'number')
+				arg.params.start = response.Start;
+
+			if (response.Sort)
+				arg.params.sort = response.Sort;
+
+			if (response.Dir)
+				arg.params.dir = response.Dir;
+
+			var records;
+			try {
+				records = reader.readRecords(response);
+			} catch (e) {
+				this.fireEvent("loadexception", this, response, arg, e);
+				callback.call(scope, null, arg, false);
+				return;
+			}
+			this.fireEvent("load", this, response, arg);
+			callback.call(scope || window, records, arg, true);
+		});
+
+		if (this._response) {
+			handleResponse(this._response);
+			this._response = null;
+
+			return;
+		}
+
+		Ext.apply(arg, this.arguments);
+
+		this._service.invoke(this._method, arg, this.useGet, this.wrapper,
+
+			handleResponse,
+
+			ss.Delegate.create(this, function(error) {
+				this.fireEvent("loadexception", this, null, arg);
+				callback.call(scope || window, null, arg, false);
+			})
+		);
+	},
+
+	_request: null,
+	_method: null,
+	_response: null
+});
+
+LxnBase.Data.RangeReader = function(meta, recordType){
+	meta = meta || {};
+	LxnBase.Data.RangeReader.superclass.constructor.call(this, meta, recordType || meta.fields);
+};
+
+LxnBase.Data.RangeReader = Ext.extend(Ext.data.JsonReader, {
+	readRecords: function(o) {
+		var sid = this.meta.id;
+		var root = this.createAccessor(this.meta.root)(o);
+
+		var records = [];
+		var totalRecords;
+
+		if (this.meta.totalProperty) {
+			totalRecords = this.createAccessor(this.meta.totalProperty)(o);
+			if (isNaN(totalRecords)) {
+				throw 'Invalid total records value';
+			}
+		}
+
+		for (var i = 0; i < root.length; i++) {
+			var n = root[i];
+			var id = ((sid || sid === 0) && n[sid] !== undefined && n[sid] !== "" ? n[sid] : null);
+			var record = new this.recordType(this.readData(n), id);
+			record.json = n;
+			records[records.length] = record;
+		}
+
+		return {
+			records: records,
+			totalRecords: totalRecords === null ? records.length : totalRecords
+		};
+	},
+
+	readData: function(n) {
+		var fields = this.recordType.prototype.fields;
+		var data = {};
+		for (var j = 0, jlen = fields.length; j < jlen; j++) {
+			var field = fields.items[j];
+			var pos = field.mapping !== undefined && field.mapping !== null ? field.mapping : j;
+			data[field.name] = n[pos] !== undefined ? field.convert(n[pos], n) : field.defaultValue;
+		}
+		return data;
+	}
+});
+
+LxnBase.Data.GenericStore = function(config) {
+	if (config && config.baseParams)
+		this.baseParams = config.baseParams;
+	else {
+		this.baseParams = {
+			start: null,
+			limit: null,
+			sort: null,
+			dir: null,
+			searchMode: null,
+			query: null,
+			conditions: null
+		};
+	}
+
+	LxnBase.Data.GenericStore.superclass.constructor.call(this, config);
+}
+
+Ext.extend(LxnBase.Data.GenericStore, Ext.data.Store, {
+	get_start: function() { return this.baseParams.start; },
+	set_start: function(value) { this.baseParams.start = value; },
+
+	get_limit: function() { return this.baseParams.limit; },
+	set_limit: function(value) { this.baseParams.limit = value; },
+
+	get_sortField: function() { return this.baseParams.sort; },
+	set_sortField: function(value) { this.baseParams.sort = value; },
+
+	get_sortDirection: function() { return this.baseParams.dir; },
+	set_sortDirection: function(value) { this.baseParams.dir = value; },
+
+	get_searchMode: function() { return this.baseParams.searchMode; },
+	set_searchMode: function(value) { this.baseParams.searchMode = value; },
+
+	get_suggestionQuery: function() { return this.baseParams.query; },
+	set_suggestionQuery: function(value) { this.baseParams.query = value; },
+
+	get_filter: function() { return this.baseParams.filter; },
+	set_filter: function(value) { this.baseParams.filter = value; },
+
+	load: function(options) {
+		options = options || {};
+		if(this.fireEvent("beforeload", this, options) !== false) {
+				this.storeOptions(options);
+
+				var p = this.baseParams || {};
+				for (var paramName in options.params)
+					p[paramName] = options.params[paramName];
+				options.params = p;
+
+				if(this.sortInfo && this.remoteSort) {
+					var pn = this.paramNames;
+					p[pn["sort"]] = this.sortInfo.field;
+					p[pn["dir"]] = this.sortInfo.direction;
+				}
+
+				this.proxy.load(p, this.reader, this.loadRecords, this, options);
+				return true;
+		} else {
+			return false;
+		}
+	}
+});
+
+////////////////////////////////////////////////////////////////////////////////
+
+Ext.ns('LxnBase.UI.Controls.ColumnFilters');
+
+LxnBase.UI.pathToImages = "img/";
+
+LxnBase.UI.Controls.ColumnFilters.FilterMenuItem = function(cfg) {
+	LxnBase.UI.Controls.ColumnFilters.FilterMenuItem.superclass.constructor.call(this, cfg);
+
+	if (cfg && cfg.menuIcon)
+		this.menuIcon = cfg.menuIcon;
+
+	if (cfg && cfg.editor)
+		this.editor = cfg.editor;
+
+	if (cfg && cfg.editorEvents)
+		this.editorEvents = cfg.editorEvents;
+}
+
+LxnBase.UI.Controls.ColumnFilters.FilterMenuItem = Ext.extend(Ext.menu.BaseItem, {
+	itemCls: "x-menu-item",
+	hideOnClick: false,
+
+	initComponent: function() {
+		if (!this.menuIcon)
+			this.menuIcon = LxnBase.UI.pathToImages + "find.png";
+
+		LxnBase.UI.Controls.ColumnFilters.FilterMenuItem.superclass.initComponent.call(this);
+
+		this.addEvents("keyup");
+		this.addEvents("keydown");
+		this.addEvents("change");
+
+		this.editor = this.editor || new Ext.form.TextField();
+
+		if (this.text) {
+			this.editor.setValue(this.text);
+		}
+	},
+
+	onRender: function(container) {
+		var s = container.createChild({
+			cls: this.itemCls,
+			html: '<img src="' + this.menuIcon + '" style="margin: 3px 0px 0px 2px; vertical-align: top;" />'
+		});
+
+		Ext.apply(this.config, {width: 125});
+
+		this.editor.render(s);
+
+		if (this.editorEvents) {
+			for (var i = 0; i < this.editorEvents.length; i++)
+				this.editor.on(this.editorEvents[i], this._onChange, this);
+		}
+
+		this.editor.on("keydown", this._onKeyDown, this);
+		this.editor.on("keyup", this._onKeyUp, this);
+
+		this.el = s;
+		this.relayEvents(this.editor.el, ["keyup"]);
+		this.relayEvents(this.editor.el, ["keydown"]);
+
+		if (Ext.isGecko) {
+			s.setStyle('overflow', 'auto');
+		}
+
+		LxnBase.UI.Controls.ColumnFilters.FilterMenuItem.superclass.onRender.call(this, container);
+	},
+
+	getValue: function() {
+		return this.editor.getValue();
+	},
+
+	setValue: function(value) {
+		this.editor.setValue(value);
+	},
+
+	isValid: function(preventMark) {
+		return this.editor.isValid(preventMark);
+	},
+
+	_onChange: function() {
+		this.fireEvent("change", this);
+	},
+
+	_onKeyUp: function(field, e) {
+		var key = e.getKey();
+
+		this.fireEvent("keyup", this);
+
+		if (e == e.ENTER) {
+			e.stopEvent();
+			e.preventDefault();
+
+			this._onChange();
+		}
+	},
+
+	_onKeyDown: function(field, e) {
+		this.fireEvent("keydown", this);
+	}
+});
+
+
+////////////////////////////////////////////////////////////////////////////////
+
+Ext.ns('Ext.ux.layout');
+
+Ext.ux.layout.CenterLayout = Ext.extend(Ext.layout.FitLayout, {
+	// private
+	setItemSize: function(item, size){
+		this.container.addClass('ux-layout-center');
+		item.addClass('ux-layout-center-item');
+		if(item && size.height > 0){
+			if(item.width){
+				size.width = item.width;
+			}
+			item.setSize(size);
+		}
+	}
+});
+Ext.Container.LAYOUTS['ux.center'] = Ext.ux.layout.CenterLayout;
+
+Ext.ux.layout.RowLayout = Ext.extend(Ext.layout.ContainerLayout, {
+	// private
+	monitorResize:true,
+
+	// private
+	isValidParent: function(c, target){
+		return c.getEl().dom.parentNode == this.innerCt.dom;
+	},
+
+	// private
+	onLayout: function(ct, target){
+		var rs = ct.items.items, len = rs.length, r, i;
+
+		if(!this.innerCt){
+			target.addClass('ux-row-layout-ct');
+			this.innerCt = target.createChild({cls:'x-row-inner'});
+		}
+		this.renderAll(ct, this.innerCt);
+
+		var size = target.getViewSize();
+
+		if(size.width < 1 && size.height < 1){ // display none?
+			return;
+		}
+
+		var h = size.height - target.getPadding('tb'),
+				ph = h;
+
+		this.innerCt.setSize({height:h});
+
+		// some rows can be percentages while others are fixed
+		// so we need to make 2 passes
+
+		for(i = 0; i < len; i++){
+			r = rs[i];
+			if(!r.rowHeight){
+				ph -= (r.getSize().height + r.getEl().getMargins('tb'));
+			}
+		}
+
+		ph = ph < 0 ? 0 : ph;
+
+		for(i = 0; i < len; i++){
+			r = rs[i];
+			if(r.rowHeight){
+				r.setSize({height: Math.floor(r.rowHeight*ph) - r.getEl().getMargins('tb')});
+			}
+		}
+	}
+});
+Ext.Container.LAYOUTS['ux.row'] = Ext.ux.layout.RowLayout;
+
+
+////////////////////////////////////////////////////////////////////////////////
+
+if (this.JSON && !this.JSON.hasMsFix) {
+	var reIsoDate = /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2}(?:\.\d*)?)Z$/;
+	var reParseMsDate = /\/Date\((-?[0-9]+)([\+\-][0-9]+)?\)\//;
+	var reFixMsDate = /(^|[^\\])\"(\/Date\(-?[0-9]+([\+\-][0-9]+)?\))\/\"/g;
+	
+	var parse = JSON.parse;
+	var stringify = JSON.stringify;
+	
+	var hasStringifyIssue = parse(stringify({ a: 1 }, function (key, value) { if (key == 'a') return 2; return value; })).a == 1;
+
+	JSON.parse = function(json) {
+		try {
+			var res = parse(json,
+				function(key, value) {
+					if (typeof value === 'string') {
+						if (reIsoDate.exec(value)) {
+							return new Date(value);
+						}
+						var groups = reParseMsDate.exec(value);
+						if (groups) {
+							if (groups[2]) {
+								return new Date((+groups[1]) + (+groups[2])*60000);
+							}
+							var d = new Date(+groups[1]);
+							return new Date(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate(), d.getUTCHours(), d.getUTCMinutes(), d.getUTCSeconds(), d.getUTCMilliseconds());
+						}
+					}
+					return value;
+				});
+			return res;
+		} catch (e) {
+			throw new Error("JSON content could not be parsed");
+			return null;
+		}
+	};
+
+	JSON.stringify = function(json) {
+		if (json === undefined) {
+			return json;
+		}
+
+		if (hasStringifyIssue) {
+			json = parse(stringify(json));
+		}
+
+		return stringify(json, function(key, value) {
+			if (typeof value == "string" && reIsoDate.exec(value)) {
+				var d = new Date(value);
+
+				var s = '/Date(' + Date.UTC(d.getFullYear(), d.getMonth(), d.getDate(), d.getHours(), d.getMinutes(), d.getSeconds()) + ')/';
+
+				if (hasStringifyIssue) {
+					this[key] = s;
+				}
+
+				return s;
+			}
+			return value;
+		}).replace(reFixMsDate, '$1"\\$2\\/"');
+	};
+
+	JSON.hasMsFix = true;
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+
+(function($) {
+#include[as-is] "%code%"
+})(jQuery);
+
+LxnBase.ObjectUtility = {
+	merge: function (target, obj) {
+		for (var key in obj) {
+			if (obj.hasOwnProperty(key)) {
+				var copy = obj[key];
+				if (target.hasOwnProperty(key)) {
+					var src = target[key];
+					if (typeof(src) === 'object' && typeof(copy) === 'object') {
+						LxnBase.ObjectUtility.merge(src, copy);
+						continue;
+					}
+				}
+				target[key] = copy;
+			}
+		}
+		return target;
+	}
+};
+
+//! This script was generated using Script# v#= CompilerVersion ##

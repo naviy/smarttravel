@@ -1,0 +1,22 @@
+<Person xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+	<ActualAddress i:nil="true" />
+	<BonusAmount i:nil="true" />
+	<BonusCardNumber i:nil="true" />
+	<Email1 i:nil="true" />
+	<Email2 i:nil="true" />
+	<Fax i:nil="true" />
+	<Id>fafe8ecd15844b4aa5ee30cd9d360a65</Id>
+	<IsCustomer>true</IsCustomer>
+	<IsSupplier>false</IsSupplier>
+	<LegalAddress i:nil="true" />
+	<LegalName i:nil="true" />
+	<Name>Кузьменко Ирина</Name>
+	<Note i:nil="true" />
+	<Phone1 i:nil="true" />
+	<Phone2 i:nil="true" />
+	<Type>Person</Type>
+	<WebAddress i:nil="true" />
+	<Birthday i:nil="true" />
+	<Organization i:nil="true" />
+	<Title i:nil="true" />
+</Person>

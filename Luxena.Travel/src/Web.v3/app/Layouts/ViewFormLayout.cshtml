@@ -1,0 +1,78 @@
+﻿@{
+    Layout = "ViewLayout.cshtml";
+    DomainUiHelper<dynamic> ui = ViewBag.ui;
+    //var v = ui.ViewEntity;
+}
+
+
+<div class="view-toolbar">
+    
+    <div class="pull-left">
+        @ui.Form.RefreshButton()
+    </div>
+
+    <div class="pull-right">
+        @ui.Form.CloseButton()
+    </div>
+    
+    <div class="pull-right">
+        @ui.Form.DeleteButton()
+        
+        @ui.Form.EditButton()
+    </div>
+</div>
+
+
+<div class="viewform-container">
+    <div class="row">
+        <dl class="dl-horizontal col-lg-offset-1 col-lg-10 btn-details" ng-click="openEdit()">
+            <br/>
+            @RenderSection("Name")
+        </dl>
+        <dl class="dl-horizontal col-lg-offset-1 col-lg-4">
+            @RenderSection("Column1")
+        </dl>
+        <dl class="dl-horizontal col-lg-5">
+            @RenderSection("Column2")
+        </dl>
+    </div>
+    @RenderBody()
+    @*<br />*@
+    @*<br />*@
+    @*<blockquote>*@
+    @*    <small>{{r}}</small>*@
+    @*</blockquote>*@
+</div>
+
+
+@if (IsSectionDefined("Controller"))
+{
+    @section Controller { @RenderSection("Controller") }    
+}
+else
+{
+    @section Controller { Domain.@((ViewBag.ViewName as string).As(a => a.Substring(0, 1).ToUpper() + a.Substring(1)))ViewCtrl }
+}
+    
+@if (IsSectionDefined("Scripts"))
+{
+    @section Scripts { @RenderSection("Scripts") }    
+}
+
+@*@if (IsSectionDefined("Title"))
+{
+    @section Title { @RenderSection("Title") }
+}
+else if (v != null)
+{
+    @section Title { r ? '@v.title.Short "' + (@if (IsSectionDefined("Title1")) { RenderSection("Title1"); } else { <text>r.Name</text> }) + '"' : '@v.title.Short' }
+}
+
+@if (IsSectionDefined("Icon"))
+{
+    @section Icon { @RenderSection("Icon") }
+}
+else if (v != null && v.icon.Yes())
+{
+    @section Icon { '@v.icon' }
+}*@

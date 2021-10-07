@@ -1,0 +1,407 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AfterDepature_eng" xml:space="preserve">
+    <value>After departure</value>
+  </data>
+  <data name="AfterDepature_ua" xml:space="preserve">
+    <value>Після відльоту</value>
+  </data>
+  <data name="AgencyOffice_eng" xml:space="preserve">
+    <value>Agency office:</value>
+  </data>
+  <data name="AgencyOffice_ua" xml:space="preserve">
+    <value>Офіс агентства:</value>
+  </data>
+  <data name="Agreement_eng" xml:space="preserve">
+    <value>AGREEMENT</value>
+  </data>
+  <data name="Agreement_ua" xml:space="preserve">
+    <value>ПОГОДЖЕННЯ</value>
+  </data>
+  <data name="Airline_eng" xml:space="preserve">
+    <value>Issuing airline:</value>
+  </data>
+  <data name="Airline_ua" xml:space="preserve">
+    <value>Авіакомпанія-власник квитка:</value>
+  </data>
+  <data name="BeforeDeparture_eng" xml:space="preserve">
+    <value>Before departure</value>
+  </data>
+  <data name="BeforeDeparture_ua" xml:space="preserve">
+    <value>До відльоту</value>
+  </data>
+  <data name="BookingNumber_eng" xml:space="preserve">
+    <value>Booking reference:</value>
+  </data>
+  <data name="BookingNumber_ua" xml:space="preserve">
+    <value>Номер бронювання:</value>
+  </data>
+  <data name="Calculation_eng" xml:space="preserve">
+    <value>CALCULATION</value>
+  </data>
+  <data name="Calculation_ua" xml:space="preserve">
+    <value>РОЗРАХУНОК ВАРТОСТІ </value>
+  </data>
+  <data name="CarRental_eng" xml:space="preserve">
+    <value>Car rental</value>
+  </data>
+  <data name="CarRental_ua" xml:space="preserve">
+    <value>Прокат авто</value>
+  </data>
+  <data name="DateChange_eng" xml:space="preserve">
+    <value>Date change</value>
+  </data>
+  <data name="DateChange_ua" xml:space="preserve">
+    <value>Зміна дати</value>
+  </data>
+  <data name="Data_eng" xml:space="preserve">
+    <value>Date:</value>
+  </data>
+  <data name="Date_ua" xml:space="preserve">
+    <value>Дата:</value>
+  </data>
+  <data name="ElectronicTicket_eng" xml:space="preserve">
+    <value>ELECTRONIC TICKET</value>
+  </data>
+  <data name="ElectronicTicket_ua" xml:space="preserve">
+    <value>ЕЛЕКТРОНИЙ КВИТОК</value>
+  </data>
+  <data name="Endorsement" xml:space="preserve">
+    <value>Endorsement</value>
+  </data>
+  <data name="Familiarize_Msg1_eng" xml:space="preserve">
+    <value>Familiarized with main terms of transportation, notices, fare rules</value>
+  </data>
+  <data name="Familiarize_Msg1_ua" xml:space="preserve">
+    <value>З істотними умовами перевезення, нотатками, правилами тарифу</value>
+  </data>
+  <data name="Fare_eng" xml:space="preserve">
+    <value>Equiv. fare:</value>
+  </data>
+  <data name="Fare_ua" xml:space="preserve">
+    <value>Тариф:</value>
+  </data>
+  <data name="HotelsReservation_eng" xml:space="preserve">
+    <value>Hotels reservation</value>
+  </data>
+  <data name="HotelsReservation_ua" xml:space="preserve">
+    <value>Бронювання готелів</value>
+  </data>
+  <data name="IataNumber" xml:space="preserve">
+    <value>IATA №</value>
+  </data>
+  <data name="Insurance_eng" xml:space="preserve">
+    <value>Insurance of travelers</value>
+  </data>
+  <data name="Insurance_ua" xml:space="preserve">
+    <value>Страхування подорожуючих</value>
+  </data>
+  <data name="Itinerary_eng" xml:space="preserve">
+    <value>ITINERARY</value>
+  </data>
+  <data name="Itinerary_ua" xml:space="preserve">
+    <value>МАРШРУТ</value>
+  </data>
+  <data name="NoShow_eng" xml:space="preserve">
+    <value>No-show</value>
+  </data>
+  <data name="NoShow_ua" xml:space="preserve">
+    <value>Неявка на реєстрацію</value>
+  </data>
+  <data name="Noties_eng" xml:space="preserve">
+    <value>NOTICES</value>
+  </data>
+  <data name="Noties_Msg_eng" xml:space="preserve">
+    <value>CARRIAGE AND OTHER SERVICES PROVIDED BY THE CARRIER ARE SUBJECT TO CONDITIONS OF CARRIAGE, WHICH ARE HEREBY INCORPORATED BY REFERENCE. THESE CONDITIONS MAY BE OBTAINED FROM THE ISSUING CARRIER.   THE ITINERARY/RECEIPT CONSTITUTES THE 'PASSENGER TICKET' FOR THE PURPOSES OF ARTICLE 3 OF THE WARSAW CONVENTION, EXCEPT WHERE THE CARRIER DELIVERS TO THE PASSENGER ANOTHER DOCUMENT COMPLYING WITH THE REQUIREMENTS OF ARTICLE 3.    IF THE PASSENGER'S JOURNEY INVOLVES AN ULTIMATE DESTINATION OR STOP IN A COUNTRY OTHER THAN THE COUNTRY OF DEPARTURE THE WARSAW CONVENTION MAY BE APPLICABLE AND THE CONVENTION GOVERNS AND IN MOST CASES LIMITS THE LIABILITY OF CARRIERS FOR DEATH OR PERSONAL INJURY AND IN RESPECT OF LOSS OF OR DAMAGE TO BAGGAGE. SEE ALSO NOTICES HEADED ADVICE TO INTERNATIONAL PASSENGERS ON LIMITATION OF LIABILITY' AND 'NOTICE OF BAGGAGE LIABILITY LIMITATIONS'.</value>
+  </data>
+  <data name="Noties_Msg_ua" xml:space="preserve">
+    <value>ПЕРЕВЕЗЕННЯ ТА ІНШІ ПОСЛУГИ НАДАНІ ПЕРЕВІЗНИКОМ РЕГУЛЮЮТЬСЯ УМОВАМИ ПЕРЕВЕЗЕННЯ, ЩО НАДАНІ ТУТ ДЛЯ ДОВІДКИ. ЦІ УМОВИ МОЖУТЬ БУТИ ОТРИМАНІ У ПЕРЕВІЗНИКА – ВЛАСНИКА КВИТКА.   МАРШРУТ/КВИТАНЦІЯ ЗАМІНЮЮТЬ СОБОЙ ПАСАЖИРСЬКИЙ КВИТОК ЗГІДНО СТАТТІ 3 ВАРШАВСЬКОЇ КОНВЕНЦІЇ, КРІМ ТИХ ВИПАДКІВ, КОЛИ ПЕРЕВІЗНИК НАДАЄ ПАСАЖИРАМ ІНШИЙ ДОКУМЕНТ ЩО ВІДПОВІДАЄ ВИМОГАМ СТАТТІ 3   ПАСАЖИРИ, ПЕРЕВЕЗЕННЯ ЯКИХ МАЄ ПУНКТ ПРИЗНАЧЕННЯ АБО ЗУПИНКИ НЕ В КРАЇНІ ВИЛЬОТУ, ПОВІДОМЛЯЮТЬСЯ ПРО ТЕ, ЩО ВАРШАВСЬКА КОНВЕНЦІЯ МОЖЕ БУТИ ЗАСТОСОВАНА ДЛЯ ВСЬОГО ПЕРЕВЕЗЕННЯ ТА ЦЯ КОНВЕНЦІЯ РЕГУЛЮЄ І У БІЛЬШОСТІ ВИПАДКІВ ОБМЕЖУЄ ВІДПОВІДАЛЬНІСТЬ ПЕРЕВІЗНИКА ЗА СПРИЧИНЕННЯ  СМЕРТІ АБО ТІЛЕСНИХ УШКОДЖЕНЬ А ТАКОЖ ЗА ВТРАТУ АБО ПОШКОДЖЕННЯ БАГАЖУ.</value>
+  </data>
+  <data name="Noties_ua" xml:space="preserve">
+    <value>НОТАТКИ</value>
+  </data>
+  <data name="Number_eng" xml:space="preserve">
+    <value>Ticket number:</value>
+  </data>
+  <data name="Number_ua" xml:space="preserve">
+    <value>Номер квитка:</value>
+  </data>
+  <data name="Options_eng" xml:space="preserve">
+    <value>OPTIONALLY FOR YOUR CONVENIENCE</value>
+  </data>
+  <data name="Options_ua" xml:space="preserve">
+    <value>ДОДАТКОВО ДЛЯ ВАШОЇ ЗРУЧНОСТІ</value>
+  </data>
+  <data name="Passenger_eng" xml:space="preserve">
+    <value>Passenger:</value>
+  </data>
+  <data name="Passenger_ua" xml:space="preserve">
+    <value>Пасажир:</value>
+  </data>
+  <data name="Payment" xml:space="preserve">
+    <value>Payment</value>
+  </data>
+  <data name="Penalties_eng" xml:space="preserve">
+    <value>PENALTIES</value>
+  </data>
+  <data name="Penalties_ua" xml:space="preserve">
+    <value>ШТРАФНІ САНКЦІЇ</value>
+  </data>
+	<data name="EmptyPenalty" xml:space="preserve">
+    <value>Даний тариф може мати певні обмеження. Fare restrictions may apply.</value>
+  </data>
+	<data name="Refund_eng" xml:space="preserve">
+    <value>Refund</value>
+  </data>
+  <data name="Refund_ua" xml:space="preserve">
+    <value>Повернення</value>
+  </data>
+  <data name="SaleCertificate" xml:space="preserve">
+    <value>Сертифікат на право продажу авіаційних перевезень  № АП0069    Air services sale certificate</value>
+  </data>
+  <data name="ServiceFee_Msg_eng" xml:space="preserve">
+    <value>Agency service fee is not subject for refund!</value>
+  </data>
+  <data name="ServiceFee_Msg_ua" xml:space="preserve">
+    <value>Сервісний збір агентства не підлягає поверненню!</value>
+  </data>
+  <data name="Signature_eng" xml:space="preserve">
+    <value>Signature:</value>
+  </data>
+  <data name="Signature_ua" xml:space="preserve">
+    <value>Підпис:</value>
+  </data>
+  <data name="Taxes_eng" xml:space="preserve">
+    <value>Taxes:</value>
+  </data>
+  <data name="Taxes_ua" xml:space="preserve">
+    <value>Аеропортові та інші збори:</value>
+  </data>
+  <data name="Total_eng" xml:space="preserve">
+    <value>Total:</value>
+  </data>
+  <data name="Total_ua" xml:space="preserve">
+    <value>Разом:</value>
+  </data>
+  <data name="TourCode" xml:space="preserve">
+    <value>Tour code</value>
+  </data>
+  <data name="Segment_ArrivalPlace" xml:space="preserve">
+    <value>Приліт/Arrival</value>
+  </data>
+  <data name="Segment_ArrivelTime" xml:space="preserve">
+    <value>Прибуття/
+Arrival</value>
+  </data>
+  <data name="Segment_CheckIn" xml:space="preserve">
+    <value>Реєстрація/Last check-in</value>
+  </data>
+  <data name="Segment_Date" xml:space="preserve">
+    <value>Дата/Date</value>
+  </data>
+  <data name="Segment_DeparturePlace" xml:space="preserve">
+    <value>Відліт/Departure</value>
+  </data>
+  <data name="Segment_DepartureTime" xml:space="preserve">
+    <value>Відправлення/Departure</value>
+  </data>
+  <data name="Segment_Flight" xml:space="preserve">
+    <value>Рейс/Flight</value>
+  </data>
+  <data name="Segment_FlightDate" xml:space="preserve">
+    <value>Дата  відльоту / Flight date</value>
+  </data>
+  <data name="Segment_FlightTime" xml:space="preserve">
+    <value>Час у польоті/
+Flight time</value>
+  </data>
+  <data name="Segment_LuxenaCopyright" xml:space="preserve">
+    <value>Luxena Software Company © 2001-{0}</value>
+  </data>
+  <data name="Segment_Meal" xml:space="preserve">
+    <value>Харчування/
+Meals</value>
+  </data>
+  <data name="Segment_Seat" xml:space="preserve">
+    <value>Багаж/
+Luggage
+Місце/Seat</value>
+  </data>
+  <data name="Segment_Terminal" xml:space="preserve">
+    <value>TERMINAL</value>
+  </data>
+  <data name="Familiarize_Msg2_eng" xml:space="preserve">
+    <value>and passport and visa regulations</value>
+  </data>
+  <data name="Familiarize_Msg2_ua" xml:space="preserve">
+    <value>та паспортно-візовим режимом ознайомлений (-а)</value>
+  </data>
+  <data name="ChangesNotAllowed" xml:space="preserve">
+    <value>Заборонено / DENIED</value>
+  </data>
+  <data name="Charge" xml:space="preserve">
+    <value>Штраф / CHARGE</value>
+  </data>
+  <data name="NoCharge" xml:space="preserve">
+    <value>Без штрафу / NO CHARGE</value>
+  </data>
+  <data name="RefundNotAllowed" xml:space="preserve">
+    <value>Не повертається / NON REF</value>
+  </data>
+  <data name="ServiceClass" xml:space="preserve">
+    <value>Класс/Class</value>
+  </data>
+  <data name="RefundNoCharge" xml:space="preserve">
+    <value>Без штрафу / FULL REF</value>
+  </data>
+  <data name="FQTV" xml:space="preserve">
+    <value>FQTV №:</value>
+  </data>
+  <data name="Passport_en" xml:space="preserve">
+    <value>Passport №:</value>
+  </data>
+  <data name="Passport_ua" xml:space="preserve">
+    <value>Паспорт №:</value>
+  </data>
+  <data name="Ticket_Not_Valid_en" xml:space="preserve">
+    <value>THE TICKET IS NOT VALID IF THE FIRST COUPON HAS NOT BEEN USED AND WILL NOT BE HONORED IF ALL THE COUPONS ARE NOT USED IN THE SEQUENCE PROVIDED IN THE TICKET</value>
+  </data>
+  <data name="Ticket_Not_Valid_ua" xml:space="preserve">
+    <value>КВИТОК НЕ Є ДІЙСНИМ У РАЗІ ПОРУШЕННЯ ПОСЛІДОВНОСТІ ВИКОРИСТАННЯ ПОЛЬОТНИХ КУПОНІВ</value>
+  </data>
+  <data name="PersonalDataConfirmation" xml:space="preserve">
+    <value>Оплачуючи даний авіаквиток, згідно закону України «Про захист персональних даних»,  даю згоду на включення в базу персональних даних та обробку своїх персональних даних в обсязі необхідному для отримання визначених послуг. Зі своїми правами, у зв’язку з включенням персональних даних до бази персональних даних, їх обробкою, мету збору та коло осіб, яким вони будуть передаватись ознайомлений(на).</value>
+  </data>
+  <data name="NoShowNotAllowed" xml:space="preserve">
+    <value>Штраф 100% / Penalty 100%</value>
+  </data>
+  <data name="FareReturnPolicy1_en" xml:space="preserve">
+    <value>Refund for airticket to passenger may be done only after relevant refund to Agent from Carrier</value>
+  </data>
+  <data name="FareReturnPolicy1_ua" xml:space="preserve">
+    <value>Кошти за авіаквиток можуть бути повернені пасажиру лише після відповідного отримання коштів Агентством від Авіаперевізника</value>
+  </data>
+  <data name="FareReturnPolicy2_en" xml:space="preserve">
+    <value>Refund may only be done at sales office</value>
+  </data>
+  <data name="FareReturnPolicy2_ua" xml:space="preserve">
+    <value>Повернення коштів може бути здійснено лише у місці продажу квитка</value>
+  </data>
+</root>

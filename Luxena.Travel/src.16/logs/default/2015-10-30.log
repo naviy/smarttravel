@@ -1,0 +1,15 @@
+2015-10-30 13:09:28.5061|ERROR|WebApi|Microsoft.OData.Core.ODataException: The property 'Id[Nullable=False]' of type 'Edm.String' has a null value, which is not allowed.
+   at Microsoft.OData.Core.WriterValidationUtils.ValidateNullPropertyValue(IEdmTypeReference expectedPropertyTypeReference, String propertyName, ODataWriterBehavior writerBehavior, IEdmModel model, Boolean bypassValidation)
+   at Microsoft.OData.Core.JsonLight.ODataJsonLightPropertySerializer.WriteProperty(ODataProperty property, IEdmStructuredType owningType, Boolean isTopLevel, Boolean allowStreamProperty, DuplicatePropertyNamesChecker duplicatePropertyNamesChecker, ProjectedPropertiesAnnotation projectedProperties)
+   at Microsoft.OData.Core.JsonLight.ODataJsonLightPropertySerializer.WriteProperties(IEdmStructuredType owningType, IEnumerable`1 properties, Boolean isComplexValue, DuplicatePropertyNamesChecker duplicatePropertyNamesChecker, ProjectedPropertiesAnnotation projectedProperties)
+   at Microsoft.OData.Core.JsonLight.ODataJsonLightWriter.StartEntry(ODataEntry entry)
+   at Microsoft.OData.Core.ODataWriterCore.InterceptException(Action action)
+   at Microsoft.OData.Core.ODataWriterCore.WriteStartEntryImplementation(ODataEntry entry)
+   at System.Web.OData.Formatter.Serialization.ODataEntityTypeSerializer.WriteEntry(Object graph, ODataWriter writer, ODataSerializerContext writeContext)
+   at System.Web.OData.Formatter.Serialization.ODataFeedSerializer.WriteFeed(IEnumerable enumerable, IEdmTypeReference feedType, ODataWriter writer, ODataSerializerContext writeContext)
+   at System.Web.OData.Formatter.ODataMediaTypeFormatter.WriteToStream(Type type, Object value, Stream writeStream, HttpContent content, HttpContentHeaders contentHeaders)
+   at System.Web.OData.Formatter.ODataMediaTypeFormatter.WriteToStreamAsync(Type type, Object value, Stream writeStream, HttpContent content, TransportContext transportContext, CancellationToken cancellationToken)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.WebHost.HttpControllerHandler.<WriteBufferedResponseContentAsync>d__1b.MoveNext()

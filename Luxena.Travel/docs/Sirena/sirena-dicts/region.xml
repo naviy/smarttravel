@@ -1,0 +1,2295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sirena>
+  <answer pult="ГРФ365">
+    <describe data="region">
+      <data>
+        <code xml:lang="ru">АЗНЧ</code>
+        <code xml:lang="en">АЗНЧ</code>
+        <name xml:lang="ru">НАХИЧЕВАНСКАЯ АВТ РЕСП   </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">АЗ</country>
+        <country xml:lang="en">AZ</country>
+      </data>
+      <data>
+        <code xml:lang="ru">КГИК</code>
+        <code xml:lang="en">КГИК</code>
+        <name xml:lang="ru">ИССЫК КУЛЬСКАЯ ОБЛАСТЬ   </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">КГ</country>
+        <country xml:lang="en">KG</country>
+      </data>
+      <data>
+        <code xml:lang="ru">КГДК</code>
+        <code xml:lang="en">КГДК</code>
+        <name xml:lang="ru">ДЖАЛАЛ АБАДСКАЯ ОБЛАСТЬ  </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">КГ</country>
+        <country xml:lang="en">KG</country>
+      </data>
+      <data>
+        <code xml:lang="ru">КГНЫ</code>
+        <code xml:lang="en">КГНЫ</code>
+        <name xml:lang="ru">НАРЫНСКАЯ  ОБЛАСТЬ       </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">КГ</country>
+        <country xml:lang="en">KG</country>
+      </data>
+      <data>
+        <code xml:lang="ru">РФИН</code>
+        <code xml:lang="en">РФИН</code>
+        <name xml:lang="ru">РЕСПУБЛИКА ИНГУШЕТИЯ     </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">РФ</country>
+        <country xml:lang="en">RU</country>
+      </data>
+      <data>
+        <code xml:lang="ru">РФЫФ</code>
+        <code xml:lang="en">РФЫФ</code>
+        <name xml:lang="ru">РЕСПУБЛИКА АДЫГЕЯ        </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">РФ</country>
+        <country xml:lang="en">RU</country>
+      </data>
+      <data>
+        <code xml:lang="ru">РФАЙ</code>
+        <code xml:lang="en">РФАЙ</code>
+        <name xml:lang="ru">РЕСПУБЛИКА АЛТАЙ         </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">РФ</country>
+        <country xml:lang="en">RU</country>
+      </data>
+      <data>
+        <code xml:lang="ru">РФКЫ</code>
+        <code xml:lang="en">РФКЫ</code>
+        <name xml:lang="ru">КАРАЧАЕВО ЧЕРКЕССКАЯ РЕСП</name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">РФ</country>
+        <country xml:lang="en">RU</country>
+      </data>
+      <data>
+        <code xml:lang="ru">РФХЯ</code>
+        <code xml:lang="en">РФХЯ</code>
+        <name xml:lang="ru">РЕСПУБЛИКА ХАКАСИЯ       </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">РФ</country>
+        <country xml:lang="en">RU</country>
+      </data>
+      <data>
+        <code xml:lang="ru">КГОШ</code>
+        <code xml:lang="en">КГОШ</code>
+        <name xml:lang="ru">ОШСКАЯ ОБЛАСТЬ           </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">КГ</country>
+        <country xml:lang="en">KG</country>
+      </data>
+      <data>
+        <code xml:lang="ru">КГТЩ</code>
+        <code xml:lang="en">КГТЩ</code>
+        <name xml:lang="ru">ТАЛАССКАЯ ОБЛАСТЬ        </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">КГ</country>
+        <country xml:lang="en">KG</country>
+      </data>
+      <data>
+        <code xml:lang="ru">КГЧС</code>
+        <code xml:lang="en">КГЧС</code>
+        <name xml:lang="ru">ЧУЙСКАЯ  БЛАСТЬ          </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">КГ</country>
+        <country xml:lang="en">KG</country>
+      </data>
+      <data>
+        <code xml:lang="ru">ТДЛН</code>
+        <code xml:lang="en">ТДЛН</code>
+        <name xml:lang="ru">ЛЕНИНАБАДСКАЯ ОБЛАСТЬ    </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">ТД</country>
+        <country xml:lang="en">TJ</country>
+      </data>
+      <data>
+        <code xml:lang="ru">ТДХЛ</code>
+        <code xml:lang="en">ТДХЛ</code>
+        <name xml:lang="ru">ХАТЛОНСКАЯ  ОБЛАСТЬ      </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">ТД</country>
+        <country xml:lang="en">TJ</country>
+      </data>
+      <data>
+        <code xml:lang="ru">ТДГА</code>
+        <code xml:lang="en">ТДГА</code>
+        <name xml:lang="ru">ГОРНО БАДАХШАНСКАЯ АВТ ОБ</name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">ТД</country>
+        <country xml:lang="en">TJ</country>
+      </data>
+      <data>
+        <code xml:lang="ru">ТМАД</code>
+        <code xml:lang="en">ТМАД</code>
+        <name xml:lang="ru">АХАЛСКАЯ ОБЛАСТЬ         </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">ТМ</country>
+        <country xml:lang="en">TM</country>
+      </data>
+      <data>
+        <code xml:lang="ru">ТМБК</code>
+        <code xml:lang="en">ТМБК</code>
+        <name xml:lang="ru">БАЛКАНСКАЯ ОБЛАСТЬ       </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">ТМ</country>
+        <country xml:lang="en">TM</country>
+      </data>
+      <data>
+        <code xml:lang="ru">ТМДС</code>
+        <code xml:lang="en">ТМДС</code>
+        <name xml:lang="ru">ДАШХОВУЗСКАЯ ОБЛАСТЬ     </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">ТМ</country>
+        <country xml:lang="en">TM</country>
+      </data>
+      <data>
+        <code xml:lang="ru">ТММЙ</code>
+        <code xml:lang="en">ТММЙ</code>
+        <name xml:lang="ru">МАРЫЙСКАЯ ОБЛАСТЬ        </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">ТМ</country>
+        <country xml:lang="en">TM</country>
+      </data>
+      <data>
+        <code xml:lang="ru">ТМЛА</code>
+        <code xml:lang="en">ТМЛА</code>
+        <name xml:lang="ru">ЛЕБАПСКАЯ ОБЛАСТЬ        </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">ТМ</country>
+        <country xml:lang="en">TM</country>
+      </data>
+      <data>
+        <code xml:lang="ru">КЗУК</code>
+        <code xml:lang="en">КЗУК</code>
+        <name xml:lang="ru">УСТЬ КАМЕНОГОРСКАЯ ОБЛ   </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">КЗ</country>
+        <country xml:lang="en">KZ</country>
+      </data>
+      <data>
+        <code xml:lang="ru">КЗУО</code>
+        <code xml:lang="en">КЗУО</code>
+        <name xml:lang="ru">УРАЛЬСКАЯ ОБЛАСТЬ        </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">КЗ</country>
+        <country xml:lang="en">KZ</country>
+      </data>
+      <data>
+        <code xml:lang="ru">КЗПТ</code>
+        <code xml:lang="en">КЗПТ</code>
+        <name xml:lang="ru">ПЕТРОПАВЛОВСКАЯ ОБЛАСТЬ  </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">КЗ</country>
+        <country xml:lang="en">KZ</country>
+      </data>
+      <data>
+        <code xml:lang="ru">КЗШМ</code>
+        <code xml:lang="en">КЗШМ</code>
+        <name xml:lang="ru">ШЫМКЕНТСКАЯ ОБЛАСТЬ      </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">КЗ</country>
+        <country xml:lang="en">KZ</country>
+      </data>
+      <data>
+        <code xml:lang="ru">РФНЕ</code>
+        <code xml:lang="en">РФНЕ</code>
+        <name xml:lang="ru">НЕНЕЦКИЙ АВТОНОМНЫЙ ОКРУГ</name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">РФ</country>
+        <country xml:lang="en">RU</country>
+      </data>
+      <data>
+        <code xml:lang="ru">РФК5</code>
+        <code xml:lang="en">РФК5</code>
+        <name xml:lang="ru">КЕМЕРОВСКАЯ ОБЛАСТЬ      </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">РФ</country>
+        <country xml:lang="en">RU</country>
+      </data>
+      <data>
+        <code xml:lang="ru">РФЧБ</code>
+        <code xml:lang="en">РФЧБ</code>
+        <name xml:lang="ru">ЧЕБОКСАРСКАЯ ОБЛАСТЬ     </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">РФ</country>
+        <country xml:lang="en">RU</country>
+      </data>
+      <data>
+        <code xml:lang="ru">РФКЭ</code>
+        <code xml:lang="en">РФКЭ</code>
+        <name xml:lang="ru">КУРГАНСКАЯ  ОБЛАСТЬ      </name>
+        <name xml:lang="en">KYGANSCY REGION          </name>
+        <country xml:lang="ru">РФ</country>
+        <country xml:lang="en">RU</country>
+      </data>
+      <data>
+        <code xml:lang="ru">РФАЫ</code>
+        <code xml:lang="en">РФАЫ</code>
+        <name xml:lang="ru">РЕСП АДЫГЕЯ              </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">РФ</country>
+        <country xml:lang="en">RU</country>
+      </data>
+      <data>
+        <code xml:lang="ru">РФКЗ</code>
+        <code xml:lang="en">РФКЗ</code>
+        <name xml:lang="ru">КЕМЕРОВСКАЯ ОБЛАСТЬ      </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">РФ</country>
+        <country xml:lang="en">RU</country>
+      </data>
+      <data>
+        <code xml:lang="ru">РФЭО</code>
+        <code xml:lang="en">РФЭО</code>
+        <name xml:lang="ru">ЭВЕНИЙСКИЙ АВТОН ОКРУГ   </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">РФ</country>
+        <country xml:lang="en">RU</country>
+      </data>
+      <data>
+        <code xml:lang="ru">УАКШ</code>
+        <code xml:lang="en">УАКШ</code>
+        <name xml:lang="ru">КИРОВОГРАДСКАЯ ОБЛАСТЬ   </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">УА</country>
+        <country xml:lang="en">UA</country>
+      </data>
+      <data>
+        <code xml:lang="ru">АЗНЯ</code>
+        <code xml:lang="en">АЗНЯ</code>
+        <name xml:lang="ru">НАГОРНО КАРАБАХ АВТ РЕСП </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">АЗ</country>
+        <country xml:lang="en">AZ</country>
+      </data>
+      <data>
+        <code xml:lang="ru">USHI</code>
+        <code xml:lang="en">USHI</code>
+        <name xml:lang="ru">HAWAII</name>
+        <name xml:lang="en">HAWAII</name>
+        <country xml:lang="ru">ЮС</country>
+        <country xml:lang="en">US</country>
+      </data>
+      <data>
+        <code xml:lang="ru">USID</code>
+        <code xml:lang="en">USID</code>
+        <name xml:lang="ru">IDAHO</name>
+        <name xml:lang="en">IDAHO</name>
+        <country xml:lang="ru">ЮС</country>
+        <country xml:lang="en">US</country>
+      </data>
+      <data>
+        <code xml:lang="ru">USIL</code>
+        <code xml:lang="en">USIL</code>
+        <name xml:lang="ru">ILLINOIS</name>
+        <name xml:lang="en">ILLINOIS</name>
+        <country xml:lang="ru">ЮС</country>
+        <country xml:lang="en">US</country>
+      </data>
+      <data>
+        <code xml:lang="ru">USIN</code>
+        <code xml:lang="en">USIN</code>
+        <name xml:lang="ru">INDIANA</name>
+        <name xml:lang="en">INDIANA</name>
+        <country xml:lang="ru">ЮС</country>
+        <country xml:lang="en">US</country>
+      </data>
+      <data>
+        <code xml:lang="ru">USIA</code>
+        <code xml:lang="en">USIA</code>
+        <name xml:lang="ru">IOWA</name>
+        <name xml:lang="en">IOWA</name>
+        <country xml:lang="ru">ЮС</country>
+        <country xml:lang="en">US</country>
+      </data>
+      <data>
+        <code xml:lang="ru">USKS</code>
+        <code xml:lang="en">USKS</code>
+        <name xml:lang="ru">KANSAS</name>
+        <name xml:lang="en">KANSAS</name>
+        <country xml:lang="ru">ЮС</country>
+        <country xml:lang="en">US</country>
+      </data>
+      <data>
+        <code xml:lang="ru">USKY</code>
+        <code xml:lang="en">USKY</code>
+        <name xml:lang="ru">KENTUCKY</name>
+        <name xml:lang="en">KENTUCKY</name>
+        <country xml:lang="ru">ЮС</country>
+        <country xml:lang="en">US</country>
+      </data>
+      <data>
+        <code xml:lang="ru">USLA</code>
+        <code xml:lang="en">USLA</code>
+        <name xml:lang="ru">LOUISIANA</name>
+        <name xml:lang="en">LOUISIANA</name>
+        <country xml:lang="ru">ЮС</country>
+        <country xml:lang="en">US</country>
+      </data>
+      <data>
+        <code xml:lang="ru">USME</code>
+        <code xml:lang="en">USME</code>
+        <name xml:lang="ru">MAINE</name>
+        <name xml:lang="en">MAINE</name>
+        <country xml:lang="ru">ЮС</country>
+        <country xml:lang="en">US</country>
+      </data>
+      <data>
+        <code xml:lang="ru">USMN</code>
+        <code xml:lang="en">USMN</code>
+        <name xml:lang="ru">MINNESOTA</name>
+        <name xml:lang="en">MINNESOTA</name>
+        <country xml:lang="ru">ЮС</country>
+        <country xml:lang="en">US</country>
+      </data>
+      <data>
+        <code xml:lang="ru">USMO</code>
+        <code xml:lang="en">USMO</code>
+        <name xml:lang="ru">MISSOURI</name>
+        <name xml:lang="en">MISSOURI</name>
+        <country xml:lang="ru">ЮС</country>
+        <country xml:lang="en">US</country>
+      </data>
+      <data>
+        <code xml:lang="ru">USNV</code>
+        <code xml:lang="en">USNV</code>
+        <name xml:lang="ru">NEVADA</name>
+        <name xml:lang="en">NEVADA</name>
+        <country xml:lang="ru">ЮС</country>
+        <country xml:lang="en">US</country>
+      </data>
+      <data>
+        <code xml:lang="ru">USNH</code>
+        <code xml:lang="en">USNH</code>
+        <name xml:lang="ru">NEW HAMPSHIRE</name>
+        <name xml:lang="en">NEW HAMPSHIRE</name>
+        <country xml:lang="ru">ЮС</country>
+        <country xml:lang="en">US</country>
+      </data>
+      <data>
+        <code xml:lang="ru">USNJ</code>
+        <code xml:lang="en">USNJ</code>
+        <name xml:lang="ru">NEW JERSEY</name>
+        <name xml:lang="en">NEW JERSEY</name>
+        <country xml:lang="ru">ЮС</country>
+        <country xml:lang="en">US</country>
+      </data>
+      <data>
+        <code xml:lang="ru">USNM</code>
+        <code xml:lang="en">USNM</code>
+        <name xml:lang="ru">NEW MEXICO</name>
+        <name xml:lang="en">NEW MEXICO</name>
+        <country xml:lang="ru">ЮС</country>
+        <country xml:lang="en">US</country>
+      </data>
+      <data>
+        <code xml:lang="ru">USNY</code>
+        <code xml:lang="en">USNY</code>
+        <name xml:lang="ru">NEW YORK</name>
+        <name xml:lang="en">NEW YORK</name>
+        <country xml:lang="ru">ЮС</country>
+        <country xml:lang="en">US</country>
+      </data>
+      <data>
+        <code xml:lang="ru">USNC</code>
+        <code xml:lang="en">USNC</code>
+        <name xml:lang="ru">NORTH CAROLINA</name>
+        <name xml:lang="en">NORTH CAROLINA</name>
+        <country xml:lang="ru">ЮС</country>
+        <country xml:lang="en">US</country>
+      </data>
+      <data>
+        <code xml:lang="ru">USND</code>
+        <code xml:lang="en">USND</code>
+        <name xml:lang="ru">NORTH DAKOTA</name>
+        <name xml:lang="en">NORTH DAKOTA</name>
+        <country xml:lang="ru">ЮС</country>
+        <country xml:lang="en">US</country>
+      </data>
+      <data>
+        <code xml:lang="ru">USOH</code>
+        <code xml:lang="en">USOH</code>
+        <name xml:lang="ru">OHIO</name>
+        <name xml:lang="en">OHIO</name>
+        <country xml:lang="ru">ЮС</country>
+        <country xml:lang="en">US</country>
+      </data>
+      <data>
+        <code xml:lang="ru">USOK</code>
+        <code xml:lang="en">USOK</code>
+        <name xml:lang="ru">OKLAHOMA</name>
+        <name xml:lang="en">OKLAHOMA</name>
+        <country xml:lang="ru">ЮС</country>
+        <country xml:lang="en">US</country>
+      </data>
+      <data>
+        <code xml:lang="ru">USOR</code>
+        <code xml:lang="en">USOR</code>
+        <name xml:lang="ru">OREGON</name>
+        <name xml:lang="en">OREGON</name>
+        <country xml:lang="ru">ЮС</country>
+        <country xml:lang="en">US</country>
+      </data>
+      <data>
+        <code xml:lang="ru">USRI</code>
+        <code xml:lang="en">USRI</code>
+        <name xml:lang="ru">RHODE ISLAND</name>
+        <name xml:lang="en">RHODE ISLAND</name>
+        <country xml:lang="ru">ЮС</country>
+        <country xml:lang="en">US</country>
+      </data>
+      <data>
+        <code xml:lang="ru">USSD</code>
+        <code xml:lang="en">USSD</code>
+        <name xml:lang="ru">SOUTH DAKOTA</name>
+        <name xml:lang="en">SOUTH DAKOTA</name>
+        <country xml:lang="ru">ЮС</country>
+        <country xml:lang="en">US</country>
+      </data>
+      <data>
+        <code xml:lang="ru">USTN</code>
+        <code xml:lang="en">USTN</code>
+        <name xml:lang="ru">TENNESSEE</name>
+        <name xml:lang="en">TENNESSEE</name>
+        <country xml:lang="ru">ЮС</country>
+        <country xml:lang="en">US</country>
+      </data>
+      <data>
+        <code xml:lang="ru">USTX</code>
+        <code xml:lang="en">USTX</code>
+        <name xml:lang="ru">TEXAS</name>
+        <name xml:lang="en">TEXAS</name>
+        <country xml:lang="ru">ЮС</country>
+        <country xml:lang="en">US</country>
+      </data>
+      <data>
+        <code xml:lang="ru">USUT</code>
+        <code xml:lang="en">USUT</code>
+        <name xml:lang="ru">UTAH</name>
+        <name xml:lang="en">UTAH</name>
+        <country xml:lang="ru">ЮС</country>
+        <country xml:lang="en">US</country>
+      </data>
+      <data>
+        <code xml:lang="ru">USVT</code>
+        <code xml:lang="en">USVT</code>
+        <name xml:lang="ru">VERMONT</name>
+        <name xml:lang="en">VERMONT</name>
+        <country xml:lang="ru">ЮС</country>
+        <country xml:lang="en">US</country>
+      </data>
+      <data>
+        <code xml:lang="ru">USVA</code>
+        <code xml:lang="en">USVA</code>
+        <name xml:lang="ru">VIRGINIA</name>
+        <name xml:lang="en">VIRGINIA</name>
+        <country xml:lang="ru">ЮС</country>
+        <country xml:lang="en">US</country>
+      </data>
+      <data>
+        <code xml:lang="ru">USWV</code>
+        <code xml:lang="en">USWV</code>
+        <name xml:lang="ru">WEST VIRGINIA</name>
+        <name xml:lang="en">WEST VIRGINIA</name>
+        <country xml:lang="ru">ЮС</country>
+        <country xml:lang="en">US</country>
+      </data>
+      <data>
+        <code xml:lang="ru">USWI</code>
+        <code xml:lang="en">USWI</code>
+        <name xml:lang="ru">WISCONSIN</name>
+        <name xml:lang="en">WISCONSIN</name>
+        <country xml:lang="ru">ЮС</country>
+        <country xml:lang="en">US</country>
+      </data>
+      <data>
+        <code xml:lang="ru">USWY</code>
+        <code xml:lang="en">USWY</code>
+        <name xml:lang="ru">WYOMING</name>
+        <name xml:lang="en">WYOMING</name>
+        <country xml:lang="ru">ЮС</country>
+        <country xml:lang="en">US</country>
+      </data>
+      <data>
+        <code xml:lang="ru">USSC</code>
+        <code xml:lang="en">USSC</code>
+        <name xml:lang="ru">SOUTH CAROLINA           </name>
+        <name xml:lang="en">SOUTH CAROLINA           </name>
+        <country xml:lang="ru">ЮС</country>
+        <country xml:lang="en">US</country>
+      </data>
+      <data>
+        <code xml:lang="ru">USMI</code>
+        <code xml:lang="en">USMI</code>
+        <name xml:lang="ru">MICHIGAN                 </name>
+        <name xml:lang="en">MICHIGAN                 </name>
+        <country xml:lang="ru">ЮС</country>
+        <country xml:lang="en">US</country>
+      </data>
+      <data>
+        <code xml:lang="ru">CANS</code>
+        <code xml:lang="en">CANS</code>
+        <name xml:lang="ru">НОВАЯ ШОТЛАНДИЯ          </name>
+        <name xml:lang="en">NOVA SCOTIA              </name>
+        <country xml:lang="ru">ЦА</country>
+        <country xml:lang="en">CA</country>
+      </data>
+      <data>
+        <code xml:lang="ru">USMA</code>
+        <code xml:lang="en">USMA</code>
+        <name xml:lang="ru">МАССАЧУСЕТС              </name>
+        <name xml:lang="en">MASSACHUSETTS            </name>
+        <country xml:lang="ru">ЮС</country>
+        <country xml:lang="en">US</country>
+      </data>
+      <data>
+        <code xml:lang="ru">CAQC</code>
+        <code xml:lang="en">CAQC</code>
+        <name xml:lang="ru">КВИБЕК                   </name>
+        <name xml:lang="en">QUEBEC                   </name>
+        <country xml:lang="ru">ЦА</country>
+        <country xml:lang="en">CA</country>
+      </data>
+      <data>
+        <code xml:lang="ru">РФМВ</code>
+        <code xml:lang="en">РФМВ</code>
+        <name xml:lang="ru">МОСКВА СУБЬЕКТ РФ        </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">РФ</country>
+        <country xml:lang="en">RU</country>
+      </data>
+      <data>
+        <code xml:lang="ru">РФСТ</code>
+        <code xml:lang="en">РФСТ</code>
+        <name xml:lang="ru">САНКТПЕТЕРБУРГ СУБЬЕКТ РФ</name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">РФ</country>
+        <country xml:lang="en">RU</country>
+      </data>
+      <data>
+        <code xml:lang="ru">USMT</code>
+        <code xml:lang="en">USMT</code>
+        <name xml:lang="ru">МОНТАНА                  </name>
+        <name xml:lang="en">MONTANA                  </name>
+        <country xml:lang="ru">ЮС</country>
+        <country xml:lang="en">US</country>
+      </data>
+      <data>
+        <code xml:lang="ru">USWA</code>
+        <code xml:lang="en">USWA</code>
+        <name xml:lang="ru">ВАШИНГТОН                </name>
+        <name xml:lang="en">WASHINGTON               </name>
+        <country xml:lang="ru">ЮС</country>
+        <country xml:lang="en">US</country>
+      </data>
+      <data>
+        <code xml:lang="ru">USAL</code>
+        <code xml:lang="en">USAL</code>
+        <name xml:lang="ru">АЛАБАМА                  </name>
+        <name xml:lang="en">ALABAMA                  </name>
+        <country xml:lang="ru">ЮС</country>
+        <country xml:lang="en">US</country>
+      </data>
+      <data>
+        <code xml:lang="ru">USPA</code>
+        <code xml:lang="en">USPA</code>
+        <name xml:lang="ru">ПЕНСИЛЬВАНИЯ             </name>
+        <name xml:lang="en">PENNSYLVANIA             </name>
+        <country xml:lang="ru">ЮС</country>
+        <country xml:lang="en">US</country>
+      </data>
+      <data>
+        <code xml:lang="ru">USMD</code>
+        <code xml:lang="en">USMD</code>
+        <name xml:lang="ru">МЭРИЛЕНД                 </name>
+        <name xml:lang="en">MARYLAND                 </name>
+        <country xml:lang="ru">ЮС</country>
+        <country xml:lang="en">US</country>
+      </data>
+      <data>
+        <code xml:lang="ru">USMS</code>
+        <code xml:lang="en">USMS</code>
+        <name xml:lang="ru">МИССИСИПИ                </name>
+        <name xml:lang="en">MISSISSIPPI              </name>
+        <country xml:lang="ru">ЮС</country>
+        <country xml:lang="en">US</country>
+      </data>
+      <data>
+        <code xml:lang="ru">USNE</code>
+        <code xml:lang="en">USNE</code>
+        <name xml:lang="ru">НЕБРАСКА                 </name>
+        <name xml:lang="en">NEBRASKA                 </name>
+        <country xml:lang="ru">ЮС</country>
+        <country xml:lang="en">US</country>
+      </data>
+      <data>
+        <code xml:lang="ru">CANT</code>
+        <code xml:lang="en">CANT</code>
+        <name xml:lang="ru">NORTHWEST TERRITORIES    </name>
+        <name xml:lang="en">NORTHWEST TERRITORIES    </name>
+        <country xml:lang="ru">ЦА</country>
+        <country xml:lang="en">CA</country>
+      </data>
+      <data>
+        <code xml:lang="ru">USCA</code>
+        <code xml:lang="en">USCA</code>
+        <name xml:lang="ru">CALIFORNIA               </name>
+        <name xml:lang="en">CALIFORNIA               </name>
+        <country xml:lang="ru">ЮС</country>
+        <country xml:lang="en">US</country>
+      </data>
+      <data>
+        <code xml:lang="ru">CAPE</code>
+        <code xml:lang="en">CAPE</code>
+        <name xml:lang="ru">ОСТРОВ ПРИНЦА ЭДУАРДА    </name>
+        <name xml:lang="en">PRINCE EDWARD ISLAND     </name>
+        <country xml:lang="ru">ЦА</country>
+        <country xml:lang="en">CA</country>
+      </data>
+      <data>
+        <code xml:lang="ru">ARBA</code>
+        <code xml:lang="en">ARBA</code>
+        <name xml:lang="ru">BUENOS AIRES</name>
+        <name xml:lang="en">BUENOS AIRES</name>
+        <country xml:lang="ru">АР</country>
+        <country xml:lang="en">AR</country>
+      </data>
+      <data>
+        <code xml:lang="ru">ARCA</code>
+        <code xml:lang="en">ARCA</code>
+        <name xml:lang="ru">CATAMARCA</name>
+        <name xml:lang="en">CATAMARCA</name>
+        <country xml:lang="ru">АР</country>
+        <country xml:lang="en">AR</country>
+      </data>
+      <data>
+        <code xml:lang="ru">ARCH</code>
+        <code xml:lang="en">ARCH</code>
+        <name xml:lang="ru">CHACO</name>
+        <name xml:lang="en">CHACO</name>
+        <country xml:lang="ru">АР</country>
+        <country xml:lang="en">AR</country>
+      </data>
+      <data>
+        <code xml:lang="ru">ARCB</code>
+        <code xml:lang="en">ARCB</code>
+        <name xml:lang="ru">CHUBUT</name>
+        <name xml:lang="en">CHUBUT</name>
+        <country xml:lang="ru">АР</country>
+        <country xml:lang="en">AR</country>
+      </data>
+      <data>
+        <code xml:lang="ru">ARCD</code>
+        <code xml:lang="en">ARCD</code>
+        <name xml:lang="ru">CORDOBA</name>
+        <name xml:lang="en">CORDOBA</name>
+        <country xml:lang="ru">АР</country>
+        <country xml:lang="en">AR</country>
+      </data>
+      <data>
+        <code xml:lang="ru">ARCR</code>
+        <code xml:lang="en">ARCR</code>
+        <name xml:lang="ru">CORRIENTES</name>
+        <name xml:lang="en">CORRIENTES</name>
+        <country xml:lang="ru">АР</country>
+        <country xml:lang="en">AR</country>
+      </data>
+      <data>
+        <code xml:lang="ru">ARER</code>
+        <code xml:lang="en">ARER</code>
+        <name xml:lang="ru">ENTRE RIOS</name>
+        <name xml:lang="en">ENTRE RIOS</name>
+        <country xml:lang="ru">АР</country>
+        <country xml:lang="en">AR</country>
+      </data>
+      <data>
+        <code xml:lang="ru">ARFO</code>
+        <code xml:lang="en">ARFO</code>
+        <name xml:lang="ru">FORMOSA</name>
+        <name xml:lang="en">FORMOSA</name>
+        <country xml:lang="ru">АР</country>
+        <country xml:lang="en">AR</country>
+      </data>
+      <data>
+        <code xml:lang="ru">ARLP</code>
+        <code xml:lang="en">ARLP</code>
+        <name xml:lang="ru">LA PAMPA</name>
+        <name xml:lang="en">LA PAMPA</name>
+        <country xml:lang="ru">АР</country>
+        <country xml:lang="en">AR</country>
+      </data>
+      <data>
+        <code xml:lang="ru">ARLR</code>
+        <code xml:lang="en">ARLR</code>
+        <name xml:lang="ru">LA RIOJA</name>
+        <name xml:lang="en">LA RIOJA</name>
+        <country xml:lang="ru">АР</country>
+        <country xml:lang="en">AR</country>
+      </data>
+      <data>
+        <code xml:lang="ru">ARMD</code>
+        <code xml:lang="en">ARMD</code>
+        <name xml:lang="ru">MENDOZA</name>
+        <name xml:lang="en">MENDOZA</name>
+        <country xml:lang="ru">АР</country>
+        <country xml:lang="en">AR</country>
+      </data>
+      <data>
+        <code xml:lang="ru">ARMI</code>
+        <code xml:lang="en">ARMI</code>
+        <name xml:lang="ru">MISIONES</name>
+        <name xml:lang="en">MISIONES</name>
+        <country xml:lang="ru">АР</country>
+        <country xml:lang="en">AR</country>
+      </data>
+      <data>
+        <code xml:lang="ru">ARNE</code>
+        <code xml:lang="en">ARNE</code>
+        <name xml:lang="ru">NEUQUEN</name>
+        <name xml:lang="en">NEUQUEN</name>
+        <country xml:lang="ru">АР</country>
+        <country xml:lang="en">AR</country>
+      </data>
+      <data>
+        <code xml:lang="ru">ARPJ</code>
+        <code xml:lang="en">ARPJ</code>
+        <name xml:lang="ru">PROVINCIA JUJUY</name>
+        <name xml:lang="en">PROVINCIA JUJUY</name>
+        <country xml:lang="ru">АР</country>
+        <country xml:lang="en">AR</country>
+      </data>
+      <data>
+        <code xml:lang="ru">ARRN</code>
+        <code xml:lang="en">ARRN</code>
+        <name xml:lang="ru">RIO NEGRO</name>
+        <name xml:lang="en">RIO NEGRO</name>
+        <country xml:lang="ru">АР</country>
+        <country xml:lang="en">AR</country>
+      </data>
+      <data>
+        <code xml:lang="ru">ARSA</code>
+        <code xml:lang="en">ARSA</code>
+        <name xml:lang="ru">SALTA</name>
+        <name xml:lang="en">SALTA</name>
+        <country xml:lang="ru">АР</country>
+        <country xml:lang="en">AR</country>
+      </data>
+      <data>
+        <code xml:lang="ru">ARSJ</code>
+        <code xml:lang="en">ARSJ</code>
+        <name xml:lang="ru">SAN JUAN</name>
+        <name xml:lang="en">SAN JUAN</name>
+        <country xml:lang="ru">АР</country>
+        <country xml:lang="en">AR</country>
+      </data>
+      <data>
+        <code xml:lang="ru">ARSL</code>
+        <code xml:lang="en">ARSL</code>
+        <name xml:lang="ru">SAN LUIS</name>
+        <name xml:lang="en">SAN LUIS</name>
+        <country xml:lang="ru">АР</country>
+        <country xml:lang="en">AR</country>
+      </data>
+      <data>
+        <code xml:lang="ru">ARSC</code>
+        <code xml:lang="en">ARSC</code>
+        <name xml:lang="ru">SANTA CRUZ</name>
+        <name xml:lang="en">SANTA CRUZ</name>
+        <country xml:lang="ru">АР</country>
+        <country xml:lang="en">AR</country>
+      </data>
+      <data>
+        <code xml:lang="ru">ARSF</code>
+        <code xml:lang="en">ARSF</code>
+        <name xml:lang="ru">SANTA FE</name>
+        <name xml:lang="en">SANTA FE</name>
+        <country xml:lang="ru">АР</country>
+        <country xml:lang="en">AR</country>
+      </data>
+      <data>
+        <code xml:lang="ru">ARSE</code>
+        <code xml:lang="en">ARSE</code>
+        <name xml:lang="ru">SANTIAGO DEL ESTERO</name>
+        <name xml:lang="en">SANTIAGO DEL ESTERO</name>
+        <country xml:lang="ru">АР</country>
+        <country xml:lang="en">AR</country>
+      </data>
+      <data>
+        <code xml:lang="ru">ARTF</code>
+        <code xml:lang="en">ARTF</code>
+        <name xml:lang="ru">TIERRA DEL FUEGO</name>
+        <name xml:lang="en">TIERRA DEL FUEGO</name>
+        <country xml:lang="ru">АР</country>
+        <country xml:lang="en">AR</country>
+      </data>
+      <data>
+        <code xml:lang="ru">ARTU</code>
+        <code xml:lang="en">ARTU</code>
+        <name xml:lang="ru">TUCUMAN</name>
+        <name xml:lang="en">TUCUMAN</name>
+        <country xml:lang="ru">АР</country>
+        <country xml:lang="en">AR</country>
+      </data>
+      <data>
+        <code xml:lang="ru">AUAC</code>
+        <code xml:lang="en">AUAC</code>
+        <name xml:lang="ru">AUSTRALIAN CAPITAL TERRIT</name>
+        <name xml:lang="en">AUSTRALIAN CAPITAL TERRIT</name>
+        <country xml:lang="ru">АУ</country>
+        <country xml:lang="en">AU</country>
+      </data>
+      <data>
+        <code xml:lang="ru">AUNS</code>
+        <code xml:lang="en">AUNS</code>
+        <name xml:lang="ru">NEW SOUTH WALES</name>
+        <name xml:lang="en">NEW SOUTH WALES</name>
+        <country xml:lang="ru">АУ</country>
+        <country xml:lang="en">AU</country>
+      </data>
+      <data>
+        <code xml:lang="ru">AUNT</code>
+        <code xml:lang="en">AUNT</code>
+        <name xml:lang="ru">NORTHERN TERRITORY</name>
+        <name xml:lang="en">NORTHERN TERRITORY</name>
+        <country xml:lang="ru">АУ</country>
+        <country xml:lang="en">AU</country>
+      </data>
+      <data>
+        <code xml:lang="ru">AUQL</code>
+        <code xml:lang="en">AUQL</code>
+        <name xml:lang="ru">QUEENSLAND</name>
+        <name xml:lang="en">QUEENSLAND</name>
+        <country xml:lang="ru">АУ</country>
+        <country xml:lang="en">AU</country>
+      </data>
+      <data>
+        <code xml:lang="ru">AUTS</code>
+        <code xml:lang="en">AUTS</code>
+        <name xml:lang="ru">TASMANIA</name>
+        <name xml:lang="en">TASMANIA</name>
+        <country xml:lang="ru">АУ</country>
+        <country xml:lang="en">AU</country>
+      </data>
+      <data>
+        <code xml:lang="ru">AUVI</code>
+        <code xml:lang="en">AUVI</code>
+        <name xml:lang="ru">VICTORIA</name>
+        <name xml:lang="en">VICTORIA</name>
+        <country xml:lang="ru">АУ</country>
+        <country xml:lang="en">AU</country>
+      </data>
+      <data>
+        <code xml:lang="ru">AUWA</code>
+        <code xml:lang="en">AUWA</code>
+        <name xml:lang="ru">WESTERN AUSTRALIA</name>
+        <name xml:lang="en">WESTERN AUSTRALIA</name>
+        <country xml:lang="ru">АУ</country>
+        <country xml:lang="en">AU</country>
+      </data>
+      <data>
+        <code xml:lang="ru">BRAL</code>
+        <code xml:lang="en">BRAL</code>
+        <name xml:lang="ru">ALAGOAS</name>
+        <name xml:lang="en">ALAGOAS</name>
+        <country xml:lang="ru">БР</country>
+        <country xml:lang="en">BR</country>
+      </data>
+      <data>
+        <code xml:lang="ru">BRAP</code>
+        <code xml:lang="en">BRAP</code>
+        <name xml:lang="ru">AMAPA</name>
+        <name xml:lang="en">AMAPA</name>
+        <country xml:lang="ru">БР</country>
+        <country xml:lang="en">BR</country>
+      </data>
+      <data>
+        <code xml:lang="ru">BRAM</code>
+        <code xml:lang="en">BRAM</code>
+        <name xml:lang="ru">AMAZONAS</name>
+        <name xml:lang="en">AMAZONAS</name>
+        <country xml:lang="ru">БР</country>
+        <country xml:lang="en">BR</country>
+      </data>
+      <data>
+        <code xml:lang="ru">BRCE</code>
+        <code xml:lang="en">BRCE</code>
+        <name xml:lang="ru">CEARA</name>
+        <name xml:lang="en">CEARA</name>
+        <country xml:lang="ru">БР</country>
+        <country xml:lang="en">BR</country>
+      </data>
+      <data>
+        <code xml:lang="ru">BRDF</code>
+        <code xml:lang="en">BRDF</code>
+        <name xml:lang="ru">DISTRITO FEDERAL</name>
+        <name xml:lang="en">DISTRITO FEDERAL</name>
+        <country xml:lang="ru">БР</country>
+        <country xml:lang="en">BR</country>
+      </data>
+      <data>
+        <code xml:lang="ru">BRES</code>
+        <code xml:lang="en">BRES</code>
+        <name xml:lang="ru">ESPIRITO SANTO</name>
+        <name xml:lang="en">ESPIRITO SANTO</name>
+        <country xml:lang="ru">БР</country>
+        <country xml:lang="en">BR</country>
+      </data>
+      <data>
+        <code xml:lang="ru">BRFN</code>
+        <code xml:lang="en">BRFN</code>
+        <name xml:lang="ru">FERNANDO DE NORONHA</name>
+        <name xml:lang="en">FERNANDO DE NORONHA</name>
+        <country xml:lang="ru">БР</country>
+        <country xml:lang="en">BR</country>
+      </data>
+      <data>
+        <code xml:lang="ru">BRGO</code>
+        <code xml:lang="en">BRGO</code>
+        <name xml:lang="ru">GOIAS</name>
+        <name xml:lang="en">GOIAS</name>
+        <country xml:lang="ru">БР</country>
+        <country xml:lang="en">BR</country>
+      </data>
+      <data>
+        <code xml:lang="ru">BRMA</code>
+        <code xml:lang="en">BRMA</code>
+        <name xml:lang="ru">MARANHAO</name>
+        <name xml:lang="en">MARANHAO</name>
+        <country xml:lang="ru">БР</country>
+        <country xml:lang="en">BR</country>
+      </data>
+      <data>
+        <code xml:lang="ru">BRMT</code>
+        <code xml:lang="en">BRMT</code>
+        <name xml:lang="ru">MATO GROSSO</name>
+        <name xml:lang="en">MATO GROSSO</name>
+        <country xml:lang="ru">БР</country>
+        <country xml:lang="en">BR</country>
+      </data>
+      <data>
+        <code xml:lang="ru">BRMG</code>
+        <code xml:lang="en">BRMG</code>
+        <name xml:lang="ru">MINAS GERAIS</name>
+        <name xml:lang="en">MINAS GERAIS</name>
+        <country xml:lang="ru">БР</country>
+        <country xml:lang="en">BR</country>
+      </data>
+      <data>
+        <code xml:lang="ru">BRPB</code>
+        <code xml:lang="en">BRPB</code>
+        <name xml:lang="ru">PARAIBA</name>
+        <name xml:lang="en">PARAIBA</name>
+        <country xml:lang="ru">БР</country>
+        <country xml:lang="en">BR</country>
+      </data>
+      <data>
+        <code xml:lang="ru">BRPA</code>
+        <code xml:lang="en">BRPA</code>
+        <name xml:lang="ru">PARA</name>
+        <name xml:lang="en">PARA</name>
+        <country xml:lang="ru">БР</country>
+        <country xml:lang="en">BR</country>
+      </data>
+      <data>
+        <code xml:lang="ru">BRPR</code>
+        <code xml:lang="en">BRPR</code>
+        <name xml:lang="ru">PARANA</name>
+        <name xml:lang="en">PARANA</name>
+        <country xml:lang="ru">БР</country>
+        <country xml:lang="en">BR</country>
+      </data>
+      <data>
+        <code xml:lang="ru">BRPE</code>
+        <code xml:lang="en">BRPE</code>
+        <name xml:lang="ru">PERNAMBUCO</name>
+        <name xml:lang="en">PERNAMBUCO</name>
+        <country xml:lang="ru">БР</country>
+        <country xml:lang="en">BR</country>
+      </data>
+      <data>
+        <code xml:lang="ru">BRPI</code>
+        <code xml:lang="en">BRPI</code>
+        <name xml:lang="ru">PIAUI</name>
+        <name xml:lang="en">PIAUI</name>
+        <country xml:lang="ru">БР</country>
+        <country xml:lang="en">BR</country>
+      </data>
+      <data>
+        <code xml:lang="ru">BRRJ</code>
+        <code xml:lang="en">BRRJ</code>
+        <name xml:lang="ru">RIO DE JANEIRO</name>
+        <name xml:lang="en">RIO DE JANEIRO</name>
+        <country xml:lang="ru">БР</country>
+        <country xml:lang="en">BR</country>
+      </data>
+      <data>
+        <code xml:lang="ru">BRRS</code>
+        <code xml:lang="en">BRRS</code>
+        <name xml:lang="ru">RIO GRANDE DO SUL</name>
+        <name xml:lang="en">RIO GRANDE DO SUL</name>
+        <country xml:lang="ru">БР</country>
+        <country xml:lang="en">BR</country>
+      </data>
+      <data>
+        <code xml:lang="ru">BRRO</code>
+        <code xml:lang="en">BRRO</code>
+        <name xml:lang="ru">RONDONIA</name>
+        <name xml:lang="en">RONDONIA</name>
+        <country xml:lang="ru">БР</country>
+        <country xml:lang="en">BR</country>
+      </data>
+      <data>
+        <code xml:lang="ru">BRRR</code>
+        <code xml:lang="en">BRRR</code>
+        <name xml:lang="ru">RORAIMA</name>
+        <name xml:lang="en">RORAIMA</name>
+        <country xml:lang="ru">БР</country>
+        <country xml:lang="en">BR</country>
+      </data>
+      <data>
+        <code xml:lang="ru">CAAB</code>
+        <code xml:lang="en">CAAB</code>
+        <name xml:lang="ru">ALBERTA</name>
+        <name xml:lang="en">ALBERTA</name>
+        <country xml:lang="ru">ЦА</country>
+        <country xml:lang="en">CA</country>
+      </data>
+      <data>
+        <code xml:lang="ru">CABC</code>
+        <code xml:lang="en">CABC</code>
+        <name xml:lang="ru">BRITISH COLUMBIA</name>
+        <name xml:lang="en">BRITISH COLUMBIA</name>
+        <country xml:lang="ru">ЦА</country>
+        <country xml:lang="en">CA</country>
+      </data>
+      <data>
+        <code xml:lang="ru">CAMB</code>
+        <code xml:lang="en">CAMB</code>
+        <name xml:lang="ru">MANITOBA</name>
+        <name xml:lang="en">MANITOBA</name>
+        <country xml:lang="ru">ЦА</country>
+        <country xml:lang="en">CA</country>
+      </data>
+      <data>
+        <code xml:lang="ru">CANB</code>
+        <code xml:lang="en">CANB</code>
+        <name xml:lang="ru">NEW BRUNSWICK</name>
+        <name xml:lang="en">NEW BRUNSWICK</name>
+        <country xml:lang="ru">ЦА</country>
+        <country xml:lang="en">CA</country>
+      </data>
+      <data>
+        <code xml:lang="ru">CANF</code>
+        <code xml:lang="en">CANF</code>
+        <name xml:lang="ru">NEWFOUNDLAND</name>
+        <name xml:lang="en">NEWFOUNDLAND</name>
+        <country xml:lang="ru">ЦА</country>
+        <country xml:lang="en">CA</country>
+      </data>
+      <data>
+        <code xml:lang="ru">CANU</code>
+        <code xml:lang="en">CANU</code>
+        <name xml:lang="ru">NUNAVUT</name>
+        <name xml:lang="en">NUNAVUT</name>
+        <country xml:lang="ru">ЦА</country>
+        <country xml:lang="en">CA</country>
+      </data>
+      <data>
+        <code xml:lang="ru">CAON</code>
+        <code xml:lang="en">CAON</code>
+        <name xml:lang="ru">ONTARIO</name>
+        <name xml:lang="en">ONTARIO</name>
+        <country xml:lang="ru">ЦА</country>
+        <country xml:lang="en">CA</country>
+      </data>
+      <data>
+        <code xml:lang="ru">CAPQ</code>
+        <code xml:lang="en">CAPQ</code>
+        <name xml:lang="ru">QUEBEC</name>
+        <name xml:lang="en">QUEBEC</name>
+        <country xml:lang="ru">ЦА</country>
+        <country xml:lang="en">CA</country>
+      </data>
+      <data>
+        <code xml:lang="ru">CASK</code>
+        <code xml:lang="en">CASK</code>
+        <name xml:lang="ru">SASKATCHEWAN</name>
+        <name xml:lang="en">SASKATCHEWAN</name>
+        <country xml:lang="ru">ЦА</country>
+        <country xml:lang="en">CA</country>
+      </data>
+      <data>
+        <code xml:lang="ru">CAYT</code>
+        <code xml:lang="en">CAYT</code>
+        <name xml:lang="ru">YUKON TERRITORY</name>
+        <name xml:lang="en">YUKON TERRITORY</name>
+        <country xml:lang="ru">ЦА</country>
+        <country xml:lang="en">CA</country>
+      </data>
+      <data>
+        <code xml:lang="ru">USAK</code>
+        <code xml:lang="en">USAK</code>
+        <name xml:lang="ru">ALASKA</name>
+        <name xml:lang="en">ALASKA</name>
+        <country xml:lang="ru">ЮС</country>
+        <country xml:lang="en">US</country>
+      </data>
+      <data>
+        <code xml:lang="ru">USAZ</code>
+        <code xml:lang="en">USAZ</code>
+        <name xml:lang="ru">ARIZONA</name>
+        <name xml:lang="en">ARIZONA</name>
+        <country xml:lang="ru">ЮС</country>
+        <country xml:lang="en">US</country>
+      </data>
+      <data>
+        <code xml:lang="ru">USAR</code>
+        <code xml:lang="en">USAR</code>
+        <name xml:lang="ru">ARKANSAS</name>
+        <name xml:lang="en">ARKANSAS</name>
+        <country xml:lang="ru">ЮС</country>
+        <country xml:lang="en">US</country>
+      </data>
+      <data>
+        <code xml:lang="ru">USCO</code>
+        <code xml:lang="en">USCO</code>
+        <name xml:lang="ru">COLORADO</name>
+        <name xml:lang="en">COLORADO</name>
+        <country xml:lang="ru">ЮС</country>
+        <country xml:lang="en">US</country>
+      </data>
+      <data>
+        <code xml:lang="ru">USCT</code>
+        <code xml:lang="en">USCT</code>
+        <name xml:lang="ru">CONNECTICUT</name>
+        <name xml:lang="en">CONNECTICUT</name>
+        <country xml:lang="ru">ЮС</country>
+        <country xml:lang="en">US</country>
+      </data>
+      <data>
+        <code xml:lang="ru">USDE</code>
+        <code xml:lang="en">USDE</code>
+        <name xml:lang="ru">DELAWARE</name>
+        <name xml:lang="en">DELAWARE</name>
+        <country xml:lang="ru">ЮС</country>
+        <country xml:lang="en">US</country>
+      </data>
+      <data>
+        <code xml:lang="ru">USDC</code>
+        <code xml:lang="en">USDC</code>
+        <name xml:lang="ru">DISTRICT OF COLUMBIA</name>
+        <name xml:lang="en">DISTRICT OF COLUMBIA</name>
+        <country xml:lang="ru">ЮС</country>
+        <country xml:lang="en">US</country>
+      </data>
+      <data>
+        <code xml:lang="ru">USFL</code>
+        <code xml:lang="en">USFL</code>
+        <name xml:lang="ru">FLORIDA</name>
+        <name xml:lang="en">FLORIDA</name>
+        <country xml:lang="ru">ЮС</country>
+        <country xml:lang="en">US</country>
+      </data>
+      <data>
+        <code xml:lang="ru">USGA</code>
+        <code xml:lang="en">USGA</code>
+        <name xml:lang="ru">GEORGIA</name>
+        <name xml:lang="en">GEORGIA</name>
+        <country xml:lang="ru">ЮС</country>
+        <country xml:lang="en">US</country>
+      </data>
+      <data>
+        <code xml:lang="ru">РФМС</code>
+        <code xml:lang="en">RUMS</code>
+        <name xml:lang="ru">МОСКОВСКАЯ ОБЛАСТЬ       </name>
+        <name xml:lang="en">MOSCOW REGION            </name>
+        <country xml:lang="ru">РФ</country>
+        <country xml:lang="en">RU</country>
+      </data>
+      <data>
+        <code xml:lang="ru">РФЧЛ</code>
+        <code xml:lang="en">РФЧЛ</code>
+        <name xml:lang="ru">ЧЕЛЯБИНСКАЯ ОБЛАСТЬ      </name>
+        <name xml:lang="en">CHELYABINSK REGION       </name>
+        <country xml:lang="ru">РФ</country>
+        <country xml:lang="en">RU</country>
+      </data>
+      <data>
+        <code xml:lang="ru">РФЕИ</code>
+        <code xml:lang="en">РФЕИ</code>
+        <name xml:lang="ru">ЕВРЕЙСКАЯ АВТОНОМН ОБЛ   </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">РФ</country>
+        <country xml:lang="en">RU</country>
+      </data>
+      <data>
+        <code xml:lang="ru">РФХБ</code>
+        <code xml:lang="en">РФХБ</code>
+        <name xml:lang="ru">ХАБАРОВСКИЙ КРАЙ         </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">РФ</country>
+        <country xml:lang="en">RU</country>
+      </data>
+      <data>
+        <code xml:lang="ru">РФТЮ</code>
+        <code xml:lang="en">RUТU</code>
+        <name xml:lang="ru">ТЮМЕНСКАЯ ОБЛАСТЬ        </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">РФ</country>
+        <country xml:lang="en">RU</country>
+      </data>
+      <data>
+        <code xml:lang="ru">РФКЯ</code>
+        <code xml:lang="en">РФКЯ</code>
+        <name xml:lang="ru">КРАСНОЯРСКИЙ КРАЙ        </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">РФ</country>
+        <country xml:lang="en">RU</country>
+      </data>
+      <data>
+        <code xml:lang="ru">РФСД</code>
+        <code xml:lang="en">РФСД</code>
+        <name xml:lang="ru">СВЕРДЛОВСКАЯ ОБЛАСТЬ     </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">РФ</country>
+        <country xml:lang="en">RU</country>
+      </data>
+      <data>
+        <code xml:lang="ru">РФБШ</code>
+        <code xml:lang="en">РФБШ</code>
+        <name xml:lang="ru">РЕСПУБЛИКА БАШКОРТОСТАН  </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">РФ</country>
+        <country xml:lang="en">RU</country>
+      </data>
+      <data>
+        <code xml:lang="ru">РФКИ</code>
+        <code xml:lang="en">РФКИ</code>
+        <name xml:lang="ru">РЕСПУБЛИКА КОМИ          </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">РФ</country>
+        <country xml:lang="en">RU</country>
+      </data>
+      <data>
+        <code xml:lang="ru">УЗАЖ</code>
+        <code xml:lang="en">УЗАЖ</code>
+        <name xml:lang="ru">АНДИЖАНСКАЯ ОБЛАСТЬ      </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">УЗ</country>
+        <country xml:lang="en">UZ</country>
+      </data>
+      <data>
+        <code xml:lang="ru">УЗСЦ</code>
+        <code xml:lang="en">УЗСЦ</code>
+        <name xml:lang="ru">СУРХАНДАРЬИНСКАЯ ОБЛАСТЬ </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">УЗ</country>
+        <country xml:lang="en">UZ</country>
+      </data>
+      <data>
+        <code xml:lang="ru">УЗСЖ</code>
+        <code xml:lang="en">УЗСЖ</code>
+        <name xml:lang="ru">САМАРКАНДСКАЯ ОБЛАСТЬ    </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">УЗ</country>
+        <country xml:lang="en">UZ</country>
+      </data>
+      <data>
+        <code xml:lang="ru">УЗРП</code>
+        <code xml:lang="en">УЗРП</code>
+        <name xml:lang="ru">РЕСПУБЛИКА КАРАКАЛПАКСТАН</name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">УЗ</country>
+        <country xml:lang="en">UZ</country>
+      </data>
+      <data>
+        <code xml:lang="ru">УЗНЙ</code>
+        <code xml:lang="en">УЗНЙ</code>
+        <name xml:lang="ru">НАВОИЙСКАЯ ОБЛАСТЬ       </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">УЗ</country>
+        <country xml:lang="en">UZ</country>
+      </data>
+      <data>
+        <code xml:lang="ru">УЗНД</code>
+        <code xml:lang="en">УЗНД</code>
+        <name xml:lang="ru">НАМАНГАНСКАЯ ОБЛАСТЬ     </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">УЗ</country>
+        <country xml:lang="en">UZ</country>
+      </data>
+      <data>
+        <code xml:lang="ru">УЗКЬ</code>
+        <code xml:lang="en">УЗКЬ</code>
+        <name xml:lang="ru">КАШКАДАРЬИНСКАЯ ОБЛАСТЬ  </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">УЗ</country>
+        <country xml:lang="en">UZ</country>
+      </data>
+      <data>
+        <code xml:lang="ru">УЗДА</code>
+        <code xml:lang="en">УЗДА</code>
+        <name xml:lang="ru">ДЖИЗАКСКАЯ ОБЛАСТЬ       </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">УЗ</country>
+        <country xml:lang="en">UZ</country>
+      </data>
+      <data>
+        <code xml:lang="ru">УЗБА</code>
+        <code xml:lang="en">УЗБА</code>
+        <name xml:lang="ru">БУХАРСКАЯ ОБЛАСТЬ        </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">УЗ</country>
+        <country xml:lang="en">UZ</country>
+      </data>
+      <data>
+        <code xml:lang="ru">УЗХЗ</code>
+        <code xml:lang="en">УЗХЗ</code>
+        <name xml:lang="ru">ХОРЕЗМСКАЯ ОБЛАСТЬ       </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">УЗ</country>
+        <country xml:lang="en">UZ</country>
+      </data>
+      <data>
+        <code xml:lang="ru">УЗФА</code>
+        <code xml:lang="en">УЗФА</code>
+        <name xml:lang="ru">ФЕРГАНСКАЯ ОБЛАСТЬ       </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">УЗ</country>
+        <country xml:lang="en">UZ</country>
+      </data>
+      <data>
+        <code xml:lang="ru">УЗТШ</code>
+        <code xml:lang="en">УЗТШ</code>
+        <name xml:lang="ru">ТАШКЕНТСКАЯ ОБЛАСТЬ      </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">УЗ</country>
+        <country xml:lang="en">UZ</country>
+      </data>
+      <data>
+        <code xml:lang="ru">УЗСЬ</code>
+        <code xml:lang="en">УЗСЬ</code>
+        <name xml:lang="ru">СЫРДАРЬИНСКАЯ ОБЛАСТЬ    </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">УЗ</country>
+        <country xml:lang="en">UZ</country>
+      </data>
+      <data>
+        <code xml:lang="ru">РФЧА</code>
+        <code xml:lang="en">РФЧА</code>
+        <name xml:lang="ru">ЧУКОТСКИЙ АВТ ОКРУГ      </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">РФ</country>
+        <country xml:lang="en">RU</country>
+      </data>
+      <data>
+        <code xml:lang="ru">РФСГ</code>
+        <code xml:lang="en">РФСГ</code>
+        <name xml:lang="ru">САРАТОВСКАЯ ОБЛАСТЬ      </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">РФ</country>
+        <country xml:lang="en">RU</country>
+      </data>
+      <data>
+        <code xml:lang="ru">РФМГ</code>
+        <code xml:lang="en">РФМГ</code>
+        <name xml:lang="ru">МАГАДАНСКАЯ ОБЛАСТЬ      </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">РФ</country>
+        <country xml:lang="en">RU</country>
+      </data>
+      <data>
+        <code xml:lang="ru">РФБР</code>
+        <code xml:lang="en">РФБР</code>
+        <name xml:lang="ru">РЕСПУБЛИКА БУРЯТИЯ       </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">РФ</country>
+        <country xml:lang="en">RU</country>
+      </data>
+      <data>
+        <code xml:lang="ru">РФАЛ</code>
+        <code xml:lang="en">РФАЛ</code>
+        <name xml:lang="ru">АЛТАЙСКИЙ КРАЙ           </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">РФ</country>
+        <country xml:lang="en">RU</country>
+      </data>
+      <data>
+        <code xml:lang="ru">РФАУ</code>
+        <code xml:lang="en">РФАУ</code>
+        <name xml:lang="ru">АМУРСКАЯ ОБЛАСТЬ         </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">РФ</country>
+        <country xml:lang="en">RU</country>
+      </data>
+      <data>
+        <code xml:lang="ru">РФАГ</code>
+        <code xml:lang="en">РФАГ</code>
+        <name xml:lang="ru">АРХАНГЕЛЬСКАЯ ОБЛАСТЬ    </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">РФ</country>
+        <country xml:lang="en">RU</country>
+      </data>
+      <data>
+        <code xml:lang="ru">РФАБ</code>
+        <code xml:lang="en">РФАБ</code>
+        <name xml:lang="ru">АСТРАХАНСКАЯ  ОБЛАСТЬ    </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">РФ</country>
+        <country xml:lang="en">RU</country>
+      </data>
+      <data>
+        <code xml:lang="ru">РФБГ</code>
+        <code xml:lang="en">РФБГ</code>
+        <name xml:lang="ru">БЕЛГОРОДСКАЯ ОБЛАСТЬ     </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">РФ</country>
+        <country xml:lang="en">RU</country>
+      </data>
+      <data>
+        <code xml:lang="ru">РФБН</code>
+        <code xml:lang="en">РФБН</code>
+        <name xml:lang="ru">БРЯНСКАЯ ОБЛАСТЬ         </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">РФ</country>
+        <country xml:lang="en">RU</country>
+      </data>
+      <data>
+        <code xml:lang="ru">РФВЛ</code>
+        <code xml:lang="en">РФВЛ</code>
+        <name xml:lang="ru">ВЛАДИМИРСКАЯ ОБЛАСТЬ     </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">РФ</country>
+        <country xml:lang="en">RU</country>
+      </data>
+      <data>
+        <code xml:lang="ru">РФВГ</code>
+        <code xml:lang="en">РФВГ</code>
+        <name xml:lang="ru">ВОЛГОГРАДСКАЯ ОБЛАСТЬ    </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">РФ</country>
+        <country xml:lang="en">RU</country>
+      </data>
+      <data>
+        <code xml:lang="ru">РФВЯ</code>
+        <code xml:lang="en">РФВЯ</code>
+        <name xml:lang="ru">ВОЛОГОДСКАЯ ОБЛАСТЬ      </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">РФ</country>
+        <country xml:lang="en">RU</country>
+      </data>
+      <data>
+        <code xml:lang="ru">РФДГ</code>
+        <code xml:lang="en">РФДГ</code>
+        <name xml:lang="ru">РЕСПУБЛИКА ДАГЕСТАН      </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">РФ</country>
+        <country xml:lang="en">RU</country>
+      </data>
+      <data>
+        <code xml:lang="ru">РФИВ</code>
+        <code xml:lang="en">РФИВ</code>
+        <name xml:lang="ru">ИВАНОВСКАЯ ОБЛАСТЬ       </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">РФ</country>
+        <country xml:lang="en">RU</country>
+      </data>
+      <data>
+        <code xml:lang="ru">РФИР</code>
+        <code xml:lang="en">РФИР</code>
+        <name xml:lang="ru">ИРКУТСКАЯ ОБЛАСТЬ        </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">РФ</country>
+        <country xml:lang="en">RU</country>
+      </data>
+      <data>
+        <code xml:lang="ru">РФКБ</code>
+        <code xml:lang="en">РФКБ</code>
+        <name xml:lang="ru">КАБАРДИНО БАЛКАРСКАЯ РЕС </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">РФ</country>
+        <country xml:lang="en">RU</country>
+      </data>
+      <data>
+        <code xml:lang="ru">РФКГ</code>
+        <code xml:lang="en">РФКГ</code>
+        <name xml:lang="ru">КАЛИНИНГРАДСКАЯ ОБЛАСТЬ  </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">РФ</country>
+        <country xml:lang="en">RU</country>
+      </data>
+      <data>
+        <code xml:lang="ru">РФКЖ</code>
+        <code xml:lang="en">РФКЖ</code>
+        <name xml:lang="ru">КАЛУЖСКАЯ ОБЛАСТЬ        </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">РФ</country>
+        <country xml:lang="en">RU</country>
+      </data>
+      <data>
+        <code xml:lang="ru">РФКЦ</code>
+        <code xml:lang="en">РФКЦ</code>
+        <name xml:lang="ru">РЕСП КАЛМЫКИЯ ХАЛЬМГ ТАНГ</name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">РФ</country>
+        <country xml:lang="en">RU</country>
+      </data>
+      <data>
+        <code xml:lang="ru">РФКЧ</code>
+        <code xml:lang="en">РФКЧ</code>
+        <name xml:lang="ru">КАМЧАТСКАЯ ОБЛАСТЬ       </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">РФ</country>
+        <country xml:lang="en">RU</country>
+      </data>
+      <data>
+        <code xml:lang="ru">РФКЛ</code>
+        <code xml:lang="en">РФКЛ</code>
+        <name xml:lang="ru">РЕСПУБЛИКА КАРЕЛИЯ       </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">РФ</country>
+        <country xml:lang="en">RU</country>
+      </data>
+      <data>
+        <code xml:lang="ru">РФКП</code>
+        <code xml:lang="en">РФКП</code>
+        <name xml:lang="ru">КИРОВСКАЯ ОБЛАСТЬ        </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">РФ</country>
+        <country xml:lang="en">RU</country>
+      </data>
+      <data>
+        <code xml:lang="ru">РФКФ</code>
+        <code xml:lang="en">РФКФ</code>
+        <name xml:lang="ru">КОСТРОМСКАЯ ОБЛАСТЬ      </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">РФ</country>
+        <country xml:lang="en">RU</country>
+      </data>
+      <data>
+        <code xml:lang="ru">РФКД</code>
+        <code xml:lang="en">РФКД</code>
+        <name xml:lang="ru">КРАСНОДАРСКИЙ КРАЙ       </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">РФ</country>
+        <country xml:lang="en">RU</country>
+      </data>
+      <data>
+        <code xml:lang="ru">РФКУ</code>
+        <code xml:lang="en">РФКУ</code>
+        <name xml:lang="ru">КУРСКАЯ ОБЛАСТЬ          </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">РФ</country>
+        <country xml:lang="en">RU</country>
+      </data>
+      <data>
+        <code xml:lang="ru">РФЛЕ</code>
+        <code xml:lang="en">РФЛЕ</code>
+        <name xml:lang="ru">ЛЕНИНГРАДСКАЯ ОБЛАСТЬ    </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">РФ</country>
+        <country xml:lang="en">RU</country>
+      </data>
+      <data>
+        <code xml:lang="ru">РФЛП</code>
+        <code xml:lang="en">РФЛП</code>
+        <name xml:lang="ru">ЛИПЕЦКАЯ ОБЛАСТЬ         </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">РФ</country>
+        <country xml:lang="en">RU</country>
+      </data>
+      <data>
+        <code xml:lang="ru">РФМИ</code>
+        <code xml:lang="en">РФМИ</code>
+        <name xml:lang="ru">РЕСПУБЛИКА МАРИЙ ЭЛ      </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">РФ</country>
+        <country xml:lang="en">RU</country>
+      </data>
+      <data>
+        <code xml:lang="ru">РФМД</code>
+        <code xml:lang="en">РФМД</code>
+        <name xml:lang="ru">РЕСПУБЛИКА МОРДОВИЯ      </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">РФ</country>
+        <country xml:lang="en">RU</country>
+      </data>
+      <data>
+        <code xml:lang="ru">РФМУ</code>
+        <code xml:lang="en">РФМУ</code>
+        <name xml:lang="ru">МУРМАНСКАЯ ОБЛАСТЬ       </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">РФ</country>
+        <country xml:lang="en">RU</country>
+      </data>
+      <data>
+        <code xml:lang="ru">РФНЖ</code>
+        <code xml:lang="en">РФНЖ</code>
+        <name xml:lang="ru">НИЖЕГОРОДСКАЯ ОБЛАСТЬ    </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">РФ</country>
+        <country xml:lang="en">RU</country>
+      </data>
+      <data>
+        <code xml:lang="ru">РФНГ</code>
+        <code xml:lang="en">РФНГ</code>
+        <name xml:lang="ru">НОВГОРОДСКАЯ ОБЛАСТЬ     </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">РФ</country>
+        <country xml:lang="en">RU</country>
+      </data>
+      <data>
+        <code xml:lang="ru">РФНБ</code>
+        <code xml:lang="en">РФНБ</code>
+        <name xml:lang="ru">НОВОСИБИРСКАЯ ОБЛАСТЬ    </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">РФ</country>
+        <country xml:lang="en">RU</country>
+      </data>
+      <data>
+        <code xml:lang="ru">РФОЯ</code>
+        <code xml:lang="en">РФОЯ</code>
+        <name xml:lang="ru">ОМСКАЯ ОБЛАСТЬ           </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">РФ</country>
+        <country xml:lang="en">RU</country>
+      </data>
+      <data>
+        <code xml:lang="ru">РФОБ</code>
+        <code xml:lang="en">РФОБ</code>
+        <name xml:lang="ru">ОРЕНБУРГСКАЯ ОБЛАСТЬ     </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">РФ</country>
+        <country xml:lang="en">RU</country>
+      </data>
+      <data>
+        <code xml:lang="ru">РФОЛ</code>
+        <code xml:lang="en">РФОЛ</code>
+        <name xml:lang="ru">ОРЛОВСКАЯ ОБЛАСТЬ        </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">РФ</country>
+        <country xml:lang="en">RU</country>
+      </data>
+      <data>
+        <code xml:lang="ru">РФПЗ</code>
+        <code xml:lang="en">РФПЗ</code>
+        <name xml:lang="ru">ПЕНЗЕНСКАЯ ОБЛАСТЬ       </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">РФ</country>
+        <country xml:lang="en">RU</country>
+      </data>
+      <data>
+        <code xml:lang="ru">РФПМ</code>
+        <code xml:lang="en">РФПМ</code>
+        <name xml:lang="ru">ПЕРМСКАЯ ОБЛАСТЬ         </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">РФ</country>
+        <country xml:lang="en">RU</country>
+      </data>
+      <data>
+        <code xml:lang="ru">РФПР</code>
+        <code xml:lang="en">РФПР</code>
+        <name xml:lang="ru">ПРИМОРСКИЙ КРАЙ          </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">РФ</country>
+        <country xml:lang="en">RU</country>
+      </data>
+      <data>
+        <code xml:lang="ru">РФПС</code>
+        <code xml:lang="en">РФПС</code>
+        <name xml:lang="ru">ПСКОВСКАЯ ОБЛАСТЬ        </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">РФ</country>
+        <country xml:lang="en">RU</country>
+      </data>
+      <data>
+        <code xml:lang="ru">РФРД</code>
+        <code xml:lang="en">РФРД</code>
+        <name xml:lang="ru">РОСТОВСКАЯ ОБЛАСТЬ       </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">РФ</country>
+        <country xml:lang="en">RU</country>
+      </data>
+      <data>
+        <code xml:lang="ru">РФРЯ</code>
+        <code xml:lang="en">РФРЯ</code>
+        <name xml:lang="ru">РЯЗАНСКАЯ ОБЛАСТЬ        </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">РФ</country>
+        <country xml:lang="en">RU</country>
+      </data>
+      <data>
+        <code xml:lang="ru">РФСБ</code>
+        <code xml:lang="en">РФСБ</code>
+        <name xml:lang="ru">САМАРСКАЯ ОБЛАСТЬ        </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">РФ</country>
+        <country xml:lang="en">RU</country>
+      </data>
+      <data>
+        <code xml:lang="ru">РФСЯ</code>
+        <code xml:lang="en">РФСЯ</code>
+        <name xml:lang="ru">САХАЛИНСКАЯ ОБЛАСТЬ      </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">РФ</country>
+        <country xml:lang="en">RU</country>
+      </data>
+      <data>
+        <code xml:lang="ru">РФСИ</code>
+        <code xml:lang="en">РФСИ</code>
+        <name xml:lang="ru">РЕСП СЕВЕР ОСЕТИЯ АЛАНИЯ </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">РФ</country>
+        <country xml:lang="en">RU</country>
+      </data>
+      <data>
+        <code xml:lang="ru">РФСЛ</code>
+        <code xml:lang="en">РФСЛ</code>
+        <name xml:lang="ru">СМОЛЕНСКАЯ ОБЛАСТЬ       </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">РФ</country>
+        <country xml:lang="en">RU</country>
+      </data>
+      <data>
+        <code xml:lang="ru">РФСП</code>
+        <code xml:lang="en">РФСП</code>
+        <name xml:lang="ru">СТАВРОПОЛЬСКИЙ КРАЙ      </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">РФ</country>
+        <country xml:lang="en">RU</country>
+      </data>
+      <data>
+        <code xml:lang="ru">РФСФ</code>
+        <code xml:lang="en">РФСФ</code>
+        <name xml:lang="ru">РЕСПУБЛИКА САХА ЯКУТИЯ   </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">РФ</country>
+        <country xml:lang="en">RU</country>
+      </data>
+      <data>
+        <code xml:lang="ru">РФТБ</code>
+        <code xml:lang="en">РФТБ</code>
+        <name xml:lang="ru">ТАМБОВСКАЯ ОБЛАСТЬ       </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">РФ</country>
+        <country xml:lang="en">RU</country>
+      </data>
+      <data>
+        <code xml:lang="ru">РФТГ</code>
+        <code xml:lang="en">РФТГ</code>
+        <name xml:lang="ru">РЕСПУБЛИКА ТАТАРСТАН     </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">РФ</country>
+        <country xml:lang="en">RU</country>
+      </data>
+      <data>
+        <code xml:lang="ru">РФТИ</code>
+        <code xml:lang="en">РФТИ</code>
+        <name xml:lang="ru">ТВЕРСКАЯ ОБЛАСТЬ         </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">РФ</country>
+        <country xml:lang="en">RU</country>
+      </data>
+      <data>
+        <code xml:lang="ru">РФТЯ</code>
+        <code xml:lang="en">РФТЯ</code>
+        <name xml:lang="ru">ТОМСКАЯ  ОБЛАСТЬ         </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">РФ</country>
+        <country xml:lang="en">RU</country>
+      </data>
+      <data>
+        <code xml:lang="ru">РФТУ</code>
+        <code xml:lang="en">РФТУ</code>
+        <name xml:lang="ru">РЕСПУБЛИКА ТЫВА          </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">РФ</country>
+        <country xml:lang="en">RU</country>
+      </data>
+      <data>
+        <code xml:lang="ru">РФТЛ</code>
+        <code xml:lang="en">РФТЛ</code>
+        <name xml:lang="ru">ТУЛЬСКАЯ ОБЛАСТЬ         </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">РФ</country>
+        <country xml:lang="en">RU</country>
+      </data>
+      <data>
+        <code xml:lang="ru">РФУД</code>
+        <code xml:lang="en">РФУД</code>
+        <name xml:lang="ru">УДМУРТСКАЯ РЕСПУБЛИКА    </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">РФ</country>
+        <country xml:lang="en">RU</country>
+      </data>
+      <data>
+        <code xml:lang="ru">РФУЛ</code>
+        <code xml:lang="en">РФУЛ</code>
+        <name xml:lang="ru">УЛЬЯНОВСКАЯ ОБЛАСТЬ      </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">РФ</country>
+        <country xml:lang="en">RU</country>
+      </data>
+      <data>
+        <code xml:lang="ru">РФЧИ</code>
+        <code xml:lang="en">РФЧИ</code>
+        <name xml:lang="ru">ЧЕЧЕНСКАЯ РЕСПУБЛИКА     </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">РФ</country>
+        <country xml:lang="en">RU</country>
+      </data>
+      <data>
+        <code xml:lang="ru">РФЧТ</code>
+        <code xml:lang="en">РФЧТ</code>
+        <name xml:lang="ru">ЧИТИНСКАЯ ОБЛАСТЬ        </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">РФ</country>
+        <country xml:lang="en">RU</country>
+      </data>
+      <data>
+        <code xml:lang="ru">РФЧУ</code>
+        <code xml:lang="en">РФЧУ</code>
+        <name xml:lang="ru">ЧУВАШСКАЯ РЕСП ЧАВАШ РЕСП</name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">РФ</country>
+        <country xml:lang="en">RU</country>
+      </data>
+      <data>
+        <code xml:lang="ru">РФЯР</code>
+        <code xml:lang="en">РФЯР</code>
+        <name xml:lang="ru">ЯРОСЛАВСКАЯ ОБЛАСТЬ      </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">РФ</country>
+        <country xml:lang="en">RU</country>
+      </data>
+      <data>
+        <code xml:lang="ru">РФВЖ</code>
+        <code xml:lang="en">РФВЖ</code>
+        <name xml:lang="ru">ВОРОНЕЖСКАЯ ОБЛАСТЬ      </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">РФ</country>
+        <country xml:lang="en">RU</country>
+      </data>
+      <data>
+        <code xml:lang="ru">УАВИ</code>
+        <code xml:lang="en">УАВИ</code>
+        <name xml:lang="ru">ВИННИЦКАЯ ОБЛАСТЬ        </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">УА</country>
+        <country xml:lang="en">UA</country>
+      </data>
+      <data>
+        <code xml:lang="ru">УАВЫ</code>
+        <code xml:lang="en">УАВЫ</code>
+        <name xml:lang="ru">ВОЛЫНСКАЯ ОБЛАСТЬ        </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">УА</country>
+        <country xml:lang="en">UA</country>
+      </data>
+      <data>
+        <code xml:lang="ru">УАЛУ</code>
+        <code xml:lang="en">УАЛУ</code>
+        <name xml:lang="ru">ЛУГАНСКАЯ ОБЛАСТЬ        </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">УА</country>
+        <country xml:lang="en">UA</country>
+      </data>
+      <data>
+        <code xml:lang="ru">УАДН</code>
+        <code xml:lang="en">УАДН</code>
+        <name xml:lang="ru">ДНЕПРОПЕТРОВСКАЯ ОБЛАСТЬ </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">УА</country>
+        <country xml:lang="en">UA</country>
+      </data>
+      <data>
+        <code xml:lang="ru">УАДО</code>
+        <code xml:lang="en">УАДО</code>
+        <name xml:lang="ru">ДОНЕЦКАЯ ОБЛАСТЬ         </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">УА</country>
+        <country xml:lang="en">UA</country>
+      </data>
+      <data>
+        <code xml:lang="ru">УАЖИ</code>
+        <code xml:lang="en">УАЖИ</code>
+        <name xml:lang="ru">ЖИТОМИРСКАЯ ОБЛАСТЬ      </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">УА</country>
+        <country xml:lang="en">UA</country>
+      </data>
+      <data>
+        <code xml:lang="ru">УАЗК</code>
+        <code xml:lang="en">УАЗК</code>
+        <name xml:lang="ru">ЗАКАРПАТСКАЯ ОБЛАСТЬ     </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">УА</country>
+        <country xml:lang="en">UA</country>
+      </data>
+      <data>
+        <code xml:lang="ru">УАЗП</code>
+        <code xml:lang="en">УАЗП</code>
+        <name xml:lang="ru">ЗАПОРОЖСКАЯ ОБЛАСТЬ      </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">УА</country>
+        <country xml:lang="en">UA</country>
+      </data>
+      <data>
+        <code xml:lang="ru">УАИФ</code>
+        <code xml:lang="en">УАИФ</code>
+        <name xml:lang="ru">ИВАНО ФРАНКОВСКАЯ ОБЛАСТЬ</name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">УА</country>
+        <country xml:lang="en">UA</country>
+      </data>
+      <data>
+        <code xml:lang="ru">УАКЙ</code>
+        <code xml:lang="en">УАКЙ</code>
+        <name xml:lang="ru">КИЕВСКАЯ ОБЛАСТЬ         </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">УА</country>
+        <country xml:lang="en">UA</country>
+      </data>
+      <data>
+        <code xml:lang="ru">УАРЫ</code>
+        <code xml:lang="en">УАРЫ</code>
+        <name xml:lang="ru">РЕСПУБЛИКА КРЫМ          </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">УА</country>
+        <country xml:lang="en">UA</country>
+      </data>
+      <data>
+        <code xml:lang="ru">УАЛЬ</code>
+        <code xml:lang="en">УАЛЬ</code>
+        <name xml:lang="ru">ЛЬВОВСКАЯ ОБЛАСТЬ        </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">УА</country>
+        <country xml:lang="en">UA</country>
+      </data>
+      <data>
+        <code xml:lang="ru">УАНИ</code>
+        <code xml:lang="en">УАНИ</code>
+        <name xml:lang="ru">НИКОЛАЕВСКАЯ ОБЛАСТЬ     </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">УА</country>
+        <country xml:lang="en">UA</country>
+      </data>
+      <data>
+        <code xml:lang="ru">УАОД</code>
+        <code xml:lang="en">УАОД</code>
+        <name xml:lang="ru">ОДЕССКАЯ ОБЛАСТЬ         </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">УА</country>
+        <country xml:lang="en">UA</country>
+      </data>
+      <data>
+        <code xml:lang="ru">УАПО</code>
+        <code xml:lang="en">УАПО</code>
+        <name xml:lang="ru">ПОЛТАВСКАЯ ОБЛАСТЬ       </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">УА</country>
+        <country xml:lang="en">UA</country>
+      </data>
+      <data>
+        <code xml:lang="ru">УАРБ</code>
+        <code xml:lang="en">УАРБ</code>
+        <name xml:lang="ru">РОВЕНСКАЯ  ОБЛАСТЬ       </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">УА</country>
+        <country xml:lang="en">UA</country>
+      </data>
+      <data>
+        <code xml:lang="ru">УАСУ</code>
+        <code xml:lang="en">УАСУ</code>
+        <name xml:lang="ru">СУМСКАЯ    ОБЛАСТЬ       </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">УА</country>
+        <country xml:lang="en">UA</country>
+      </data>
+      <data>
+        <code xml:lang="ru">УАТП</code>
+        <code xml:lang="en">УАТП</code>
+        <name xml:lang="ru">ТЕРНОПОЛЬСКАЯ ОБЛАСТЬ    </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">УА</country>
+        <country xml:lang="en">UA</country>
+      </data>
+      <data>
+        <code xml:lang="ru">УАХЬ</code>
+        <code xml:lang="en">УАХЬ</code>
+        <name xml:lang="ru">ХАРЬКОВСКАЯ ОБЛАСТЬ      </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">УА</country>
+        <country xml:lang="en">UA</country>
+      </data>
+      <data>
+        <code xml:lang="ru">УАХГ</code>
+        <code xml:lang="en">УАХГ</code>
+        <name xml:lang="ru">ХЕРСОНСКАЯ ОБЛАСТЬ       </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">УА</country>
+        <country xml:lang="en">UA</country>
+      </data>
+      <data>
+        <code xml:lang="ru">УАХЦ</code>
+        <code xml:lang="en">УАХЦ</code>
+        <name xml:lang="ru">ХМЕЛЬНИЦКАЯ ОБЛАСТЬ      </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">УА</country>
+        <country xml:lang="en">UA</country>
+      </data>
+      <data>
+        <code xml:lang="ru">УАЧЕ</code>
+        <code xml:lang="en">УАЧЕ</code>
+        <name xml:lang="ru">ЧЕРКАССКАЯ ОБЛАСТЬ       </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">УА</country>
+        <country xml:lang="en">UA</country>
+      </data>
+      <data>
+        <code xml:lang="ru">УАЧГ</code>
+        <code xml:lang="en">УАЧГ</code>
+        <name xml:lang="ru">ЧЕРНИГОВСКАЯ ОБЛАСТЬ     </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">УА</country>
+        <country xml:lang="en">UA</country>
+      </data>
+      <data>
+        <code xml:lang="ru">УАЧЦ</code>
+        <code xml:lang="en">УАЧЦ</code>
+        <name xml:lang="ru">ЧЕРНОВИЦКАЯ ОБЛАСТЬ      </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">УА</country>
+        <country xml:lang="en">UA</country>
+      </data>
+      <data>
+        <code xml:lang="ru">БЛБС</code>
+        <code xml:lang="en">БЛБС</code>
+        <name xml:lang="ru">БРЕСТСКАЯ ОБЛАСТЬ        </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">БЛ</country>
+        <country xml:lang="en">BY</country>
+      </data>
+      <data>
+        <code xml:lang="ru">БЛВБ</code>
+        <code xml:lang="en">БЛВБ</code>
+        <name xml:lang="ru">ВИТЕБСКАЯ ОБЛАСТЬ        </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">БЛ</country>
+        <country xml:lang="en">BY</country>
+      </data>
+      <data>
+        <code xml:lang="ru">БЛГМ</code>
+        <code xml:lang="en">БЛГМ</code>
+        <name xml:lang="ru">ГОМЕЛЬСКАЯ ОБЛАСТЬ       </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">БЛ</country>
+        <country xml:lang="en">BY</country>
+      </data>
+      <data>
+        <code xml:lang="ru">БЛГН</code>
+        <code xml:lang="en">БЛГН</code>
+        <name xml:lang="ru">ГРОДНЕНСКАЯ ОБЛАСТЬ      </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">БЛ</country>
+        <country xml:lang="en">BY</country>
+      </data>
+      <data>
+        <code xml:lang="ru">БЛМБ</code>
+        <code xml:lang="en">БЛМБ</code>
+        <name xml:lang="ru">МИНСКАЯ ОБЛАСТЬ          </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">БЛ</country>
+        <country xml:lang="en">BY</country>
+      </data>
+      <data>
+        <code xml:lang="ru">БЛМЖ</code>
+        <code xml:lang="en">БЛМЖ</code>
+        <name xml:lang="ru">МОГИЛЕВСКАЯ ОБЛАСТЬ      </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">БЛ</country>
+        <country xml:lang="en">BY</country>
+      </data>
+      <data>
+        <code xml:lang="ru">КЗАЮ</code>
+        <code xml:lang="en">КЗАЮ</code>
+        <name xml:lang="ru">АКТЮБИНСКАЯ ОБЛАСТЬ      </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">КЗ</country>
+        <country xml:lang="en">KZ</country>
+      </data>
+      <data>
+        <code xml:lang="ru">КЗАИ</code>
+        <code xml:lang="en">КЗАИ</code>
+        <name xml:lang="ru">АЛМААТИНСКАЯ ОБЛАСТЬ     </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">КЗ</country>
+        <country xml:lang="en">KZ</country>
+      </data>
+      <data>
+        <code xml:lang="ru">КЗВЗ</code>
+        <code xml:lang="en">КЗВЗ</code>
+        <name xml:lang="ru">ВОСТОЧНО КАЗАХСТАНСКАЯ ОБ</name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">КЗ</country>
+        <country xml:lang="en">KZ</country>
+      </data>
+      <data>
+        <code xml:lang="ru">КЗАФ</code>
+        <code xml:lang="en">КЗАФ</code>
+        <name xml:lang="ru">АТЫРАУСКАЯ ОБЛАСТЬ       </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">КЗ</country>
+        <country xml:lang="en">KZ</country>
+      </data>
+      <data>
+        <code xml:lang="ru">КЗЖА</code>
+        <code xml:lang="en">КЗЖА</code>
+        <name xml:lang="ru">ЖАМБЫЛСКАЯ ОБЛАСТЬ       </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">КЗ</country>
+        <country xml:lang="en">KZ</country>
+      </data>
+      <data>
+        <code xml:lang="ru">КЗЖЕ</code>
+        <code xml:lang="en">КЗЖЕ</code>
+        <name xml:lang="ru">ЖЕЗКАЗГАНСКАЯ ОБЛАСТЬ    </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">КЗ</country>
+        <country xml:lang="en">KZ</country>
+      </data>
+      <data>
+        <code xml:lang="ru">КЗКЩ</code>
+        <code xml:lang="en">КЗКЩ</code>
+        <name xml:lang="ru">КАРАГАНДИНСКАЯ ОБЛАСТЬ   </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">КЗ</country>
+        <country xml:lang="en">KZ</country>
+      </data>
+      <data>
+        <code xml:lang="ru">КЗКЮ</code>
+        <code xml:lang="en">КЗКЮ</code>
+        <name xml:lang="ru">КЗЫЛ ОРДИНСКАЯ ОБЛАСТЬ   </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">КЗ</country>
+        <country xml:lang="en">KZ</country>
+      </data>
+      <data>
+        <code xml:lang="ru">КЗЙО</code>
+        <code xml:lang="en">КЗЙО</code>
+        <name xml:lang="ru">КОКЧЕТАВСКАЯ   ОБЛАСТЬ   </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">КЗ</country>
+        <country xml:lang="en">KZ</country>
+      </data>
+      <data>
+        <code xml:lang="ru">КЗЙК</code>
+        <code xml:lang="en">КЗЙК</code>
+        <name xml:lang="ru">КУСТАНАЙСКАЯ   ОБЛАСТЬ   </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">КЗ</country>
+        <country xml:lang="en">KZ</country>
+      </data>
+      <data>
+        <code xml:lang="ru">КЗМЯ</code>
+        <code xml:lang="en">КЗМЯ</code>
+        <name xml:lang="ru">МАНГИСТАУСКАЯ  ОБЛАСТЬ   </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">КЗ</country>
+        <country xml:lang="en">KZ</country>
+      </data>
+      <data>
+        <code xml:lang="ru">КЗПЛ</code>
+        <code xml:lang="en">КЗПЛ</code>
+        <name xml:lang="ru">ПАВЛОДАРСКАЯ ОБЛАСТЬ     </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">КЗ</country>
+        <country xml:lang="en">KZ</country>
+      </data>
+      <data>
+        <code xml:lang="ru">КЗСЗ</code>
+        <code xml:lang="en">КЗСЗ</code>
+        <name xml:lang="ru">СЕВЕРО КАЗАХСТАНСКАЯ ОБЛ </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">КЗ</country>
+        <country xml:lang="en">KZ</country>
+      </data>
+      <data>
+        <code xml:lang="ru">КЗСЧ</code>
+        <code xml:lang="en">КЗСЧ</code>
+        <name xml:lang="ru">СЕМИПАЛАТИНСКАЯ ОБЛАСТЬ  </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">КЗ</country>
+        <country xml:lang="en">KZ</country>
+      </data>
+      <data>
+        <code xml:lang="ru">КЗТД</code>
+        <code xml:lang="en">КЗТД</code>
+        <name xml:lang="ru">ТАЛДЫКУРГАНСКАЯ ОБЛАСТЬ  </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">КЗ</country>
+        <country xml:lang="en">KZ</country>
+      </data>
+      <data>
+        <code xml:lang="ru">КЗТЙ</code>
+        <code xml:lang="en">КЗТЙ</code>
+        <name xml:lang="ru">ТУРГАЙСКАЯ ОБЛАСТЬ       </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">КЗ</country>
+        <country xml:lang="en">KZ</country>
+      </data>
+      <data>
+        <code xml:lang="ru">КЗЗА</code>
+        <code xml:lang="en">КЗЗА</code>
+        <name xml:lang="ru">ЗАПАДНО КАЗАХСТАНСКАЯ ОБЛ</name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">КЗ</country>
+        <country xml:lang="en">KZ</country>
+      </data>
+      <data>
+        <code xml:lang="ru">КЗАЯ</code>
+        <code xml:lang="en">КЗАЯ</code>
+        <name xml:lang="ru">АКМОЛИНСКАЯ ОБЛАСТЬ      </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">КЗ</country>
+        <country xml:lang="en">KZ</country>
+      </data>
+      <data>
+        <code xml:lang="ru">КЗЮК</code>
+        <code xml:lang="en">КЗЮК</code>
+        <name xml:lang="ru">ЮЖНО КАЗАХСТАНСКАЯ ОБЛАСТ</name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">КЗ</country>
+        <country xml:lang="en">KZ</country>
+      </data>
+      <data>
+        <code xml:lang="ru">ГРАЦ</code>
+        <code xml:lang="en">ГРАЦ</code>
+        <name xml:lang="ru">АБХАЗИЯ                  </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">ГР</country>
+        <country xml:lang="en">GE</country>
+      </data>
+      <data>
+        <code xml:lang="ru">ГРАЧ</code>
+        <code xml:lang="en">ГРАЧ</code>
+        <name xml:lang="ru">АДЖАРИЯ                  </name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">ГР</country>
+        <country xml:lang="en">GE</country>
+      </data>
+      <data>
+        <code xml:lang="ru">ГРЮО</code>
+        <code xml:lang="en">ГРЮО</code>
+        <name xml:lang="ru">ЮГО ОСЕТИНСКАЯ АВТОНОМ ОБ</name>
+        <name xml:lang="en">                         </name>
+        <country xml:lang="ru">ГР</country>
+        <country xml:lang="en">GE</country>
+      </data>
+    </describe>
+  </answer>
+</sirena>

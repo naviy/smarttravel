@@ -1,0 +1,190 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="$(SolutionDir)Core\bin\Debug\Luxena.Base.dll" #>
+<#@ assembly name="$(SolutionDir)Core\bin\Debug\Luxena.Support.dll" #>
+<#@ assembly name="$(SolutionDir)Core\bin\Debug\Luxena.Domain.dll" #>
+<#@ assembly name="$(SolutionDir)Core\bin\Debug\Luxena.Travel.dll" #>
+<#@ import namespace="Luxena" #>
+<#@ import namespace="Luxena.Base.Data" #>
+<#@ import namespace="Luxena.Base.Domain" #>
+<#@ import namespace="Luxena.Base.Metamodel" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="Luxena.Travel.Domain" #>
+<#@ import namespace="System.Linq.Expressions" #>
+<#@ import namespace="System.Reflection" #>
+<#@ output extension=".cs" #>
+using System.Diagnostics;
+
+using Luxena.Base.Data;
+
+
+namespace Luxena.Travel.Domain
+{
+
+<#	foreach (var serviceType in typeof(Contracts).Assembly.DefinedTypes
+		.Where(a =>
+			!a.IsGenericType
+			&& a.IsSubclassOf(typeof(Luxena.Domain.Contracts.EntityContractService<Domain, Contracts>))
+	)
+	.OrderBy(a => a.FullName)
+	)
+{ 
+		var contractType = typeof(Domain).Assembly.GetType(serviceType.FullName.Replace("ContractService", "Dto"));
+		if (contractType == null) continue;
+		var contract = contractType.Name;
+		string entity = null;
+
+		Type entityType = null;
+		if (serviceType.BaseType.IsGenericType)
+		{
+			entityType = serviceType.BaseType.GetGenericArguments().By(0);
+			if (entityType != null && !entityType.IsSubclassOf(typeof (Entity)))
+				entityType = null;
+		}
+
+		if (entity == null)
+			entity = contract.TrimEnd("Dto", "Contract");
+
+		var _entity = "_" + contract.Substring(0, 1).ToLower() + contract.Substring(1);
+#>
+
+	#region <#=contract #>
+		
+	partial class Contracts
+	{
+		public <#=entity#>ContractService <#=entity #> { [DebuggerStepThrough] get { return ResolveService(ref <#=_entity#>); } }
+		private <#=entity#>ContractService <#=_entity#>;
+<# var canUpdateMethod = serviceType.GetMethod("CanUpdate", new[] { contractType });
+	if (canUpdateMethod != null) { #>
+
+		[DebuggerStepThrough]
+		public bool CanUpdate(<#=contract #> r)
+		{
+			return <#=entity#>.CanUpdate(r);
+		}
+<# } #>
+<# var updateMethod = serviceType.GetMethod("Update", new[] { contractType, typeof(RangeRequest) });
+	if (updateMethod != null) { #>
+
+		[DebuggerStepThrough]
+		public ItemResponse Update(<#=contract #> r, RangeRequest prms)
+		{
+			return <#=entity#>.Update(r, prms);
+		}
+<# } #>
+<# var updateMethod2 = serviceType.GetMethod("Update", new[] { contractType, typeof(string), typeof(RangeRequest) });
+	if (updateMethod2 != null) { #>
+
+		[DebuggerStepThrough]
+		public ItemResponse Update(<#=contract #> r, string typeName, RangeRequest prms)
+		{
+			return <#=entity#>.Update(r, typeName, prms);
+		}
+<# } #>
+	}
+<#	if (entityType != null) { #>
+
+	partial class <#=contract #>
+	{
+		/*
+<#
+	var entityProps = entityType.GetProperties(BindingFlags.Public | BindingFlags.Instance | BindingFlags.DeclaredOnly).ToArray();
+	foreach (var p in entityProps)
+	{
+		var propType = p.PropertyType;
+		var propTypeName = 
+			propType.IsEnum ? "int" :
+			propType.GetInterface("IEntity") != null ? p.PropertyType.Name + ".Reference" :
+			propType == typeof(bool) ? "bool" :
+			propType == typeof(bool?) ? "bool?" :
+			propType == typeof(DateTime?) ? "DateTime?" :
+			propType == typeof(int) ? "int" :
+			propType == typeof(int?) ? "int?" :
+			propType == typeof(string) ? "string" :
+
+			propType.Name;
+#>
+		public <#=propTypeName#> <#=p.Name#> { get; set; }
+
+<#		
+	}
+#>
+		*/
+	}
+
+	partial class <#=entity#>ContractService
+	{
+		/*
+		public <#=entity#>ContractService()
+		{
+			ContractFromEntity += (r, c) =>
+			{
+<#
+			var contractProps = contractType.GetProperties(BindingFlags.Public | BindingFlags.Instance | BindingFlags.DeclaredOnly).ToArray().Else(entityProps);
+			try
+			{
+				foreach (var p in contractProps)
+				{
+					var entityProp = entityType.GetProperty(p.Name);
+					var errorComment = 
+						entityProp == null ? " !!! unknown property" :
+						entityProp.GetMethod == null ? " !!! property is non-readable" :
+						!entityProp.GetMethod.IsPublic ? " !!! property is not public" :
+						p.PropertyType.IsArray ? " ??? is array" :
+						null;
+					var casting = entityProp != null && entityProp.PropertyType.IsEnum && p.PropertyType != entityProp.PropertyType
+						? p.PropertyType == typeof(int) ? "(int)" : "(" + p.PropertyType.Name + ")" 
+						: "";
+#>
+				<#= errorComment == null ? "" : "// " #>c.<#= p.Name #> = <#= casting #>r.<#= p.Name #>;<#= errorComment ?? "" #>
+<#
+				}
+			}
+			catch (Exception ex)
+			{
+#>
+EXCEPTION: <#= ex.Message #>
+<#		
+			}
+#>
+			};
+		
+			EntityFromContract += (r, c) =>
+			{
+<#
+			try
+			{
+				foreach (var p in contractProps)
+				{
+					var entityProp = entityType.GetProperty(p.Name);
+			
+					var errorComment = 
+						entityProp == null ? " !!! unknown property" :
+						entityProp.SetMethod == null ? " !!! property is non-writable" :
+						!entityProp.SetMethod.IsPublic ? " !!! property is not public" :
+						p.PropertyType.IsArray ? " ??? is array" :
+						"";
+
+					var cast = entityProp != null && entityProp.PropertyType.IsEnum ? "(" + entityProp.PropertyType.Name + ")" : "";
+#>
+				<#= errorComment == "" ? "" : "// " #>r.<#= p.Name #> = <#=cast#>c.<#= p.Name #> + db;<#= errorComment#>
+<#
+				}
+			}
+			catch (Exception ex)
+			{
+#>
+EXCEPTION: <#= ex.Message #>
+<#		
+			}
+#>
+			};
+		}
+		*/
+	}
+<# } #>
+
+	#endregion
+	
+<#	} #>
+}

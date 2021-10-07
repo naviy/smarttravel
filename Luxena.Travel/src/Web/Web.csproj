@@ -1,0 +1,778 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{DA4D7EF7-5A86-44B9-A479-AFCDC58CEC63}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Luxena.Travel.Web</RootNamespace>
+    <AssemblyName>Luxena.Travel.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>false</UseIISExpress>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <TargetFrameworkProfile />
+    <MvcProjectUpgradeChecked>true</MvcProjectUpgradeChecked>
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="..\CommonAssemblyInfo.cs">
+      <Link>Properties\CommonAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="Castle\ControllersInstaller.cs" />
+    <Compile Include="Castle\ServiceResolverProvider.cs" />
+    <Compile Include="Castle\WindsorControllerFactory.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\RepairController.cs" />
+    <Compile Include="Controllers\FilesController.cs" />
+    <Compile Include="Controllers\PrintController.cs" />
+    <Compile Include="Controllers\ExportController.cs" />
+    <Compile Include="Controllers\MimeTypes.cs" />
+    <Compile Include="Controllers\ReportsController.cs" />
+    <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\AppService.asmx.cs">
+      <DependentUpon>AppService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Services\AviaService.asmx.cs">
+      <DependentUpon>AviaService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Services\BaseWebService.cs" />
+    <Compile Include="Castle\Bootstrapper.cs" />
+    <Compile Include="Services\ClosedPeriodService.asmx.cs">
+      <DependentUpon>ClosedPeriodService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Services\ConsignmentService.asmx.cs">
+      <DependentUpon>ConsignmentService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Services\DomainService.cs">
+      <DependentUpon>DomainService.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Services\ProductService.asmx.cs">
+      <DependentUpon>ProductService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Services\GdsFileService.asmx.cs">
+      <DependentUpon>GdsFileService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Services\GenericService.asmx.cs">
+      <DependentUpon>GenericService.asmx</DependentUpon>
+    </Compile>
+    <Compile Include="Services\OrderService.asmx.cs">
+      <DependentUpon>OrderService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Services\PartyService.asmx.cs">
+      <DependentUpon>PartyService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Services\PaymentService.asmx.cs">
+      <DependentUpon>PaymentService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Services\PrintImportService.asmx.cs">
+      <DependentUpon>PrintImportService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Services\External\BonusService.asmx.cs">
+      <DependentUpon>BonusService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Services\ReportService.asmx.cs">
+      <DependentUpon>ReportService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Services\TaskService.asmx.cs">
+      <DependentUpon>TaskService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Services\UserService.asmx.cs">
+      <DependentUpon>UserService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <None Include="Views\Home\index.cshtml" />
+    <Content Include="Services\AppService.asmx" />
+    <Content Include="Services\AviaService.asmx" />
+    <Content Include="Services\ClosedPeriodService.asmx" />
+    <Content Include="Services\ConsignmentService.asmx" />
+    <Content Include="Services\DomainService.asmx" />
+    <Content Include="Services\ProductService.asmx" />
+    <Content Include="Services\GdsFileService.asmx" />
+    <Content Include="Services\GenericService.asmx" />
+    <Content Include="Services\OrderService.asmx" />
+    <Content Include="Services\PartyService.asmx" />
+    <Content Include="Services\PaymentService.asmx" />
+    <Content Include="Services\PrintImportService.asmx" />
+    <Content Include="Services\External\BonusService.asmx" />
+    <Content Include="Services\ReportService.asmx" />
+    <Content Include="Services\TaskService.asmx" />
+    <Content Include="Services\UserService.asmx" />
+    <Content Include="static\script\ext-all-debug.js" />
+    <Content Include="static\script\ext-all.js" />
+    <Content Include="static\script\ext-jquery-adapter-debug.js" />
+    <Content Include="static\script\ext-jquery-adapter.js" />
+    <Content Include="static\script\ext-lang-ru.js" />
+    <Content Include="static\script\ext-ux-all-debug.js" />
+    <Content Include="static\script\ext-ux-all.js" />
+    <Content Include="static\script\Ext.debug.js" />
+    <Content Include="static\script\Ext.js" />
+    <Content Include="static\script\jquery-1.7.2.debug.js" />
+    <Content Include="static\script\jquery-1.7.2.js" />
+    <Content Include="static\script\knockout-2.1.0.debug.js" />
+    <Content Include="static\script\knockout-2.1.0.js" />
+    <Content Include="static\script\knockout.mapping-2.2.3.debug.js" />
+    <Content Include="static\script\knockout.mapping-2.2.3.js" />
+    <Content Include="static\script\LxnBase.debug.js" />
+    <Content Include="static\script\LxnBase.js" />
+    <Content Include="static\script\LxnTravel.debug.js" />
+    <Content Include="static\script\LxnTravel.js" />
+    <Content Include="static\script\mscorlib.debug.js" />
+    <Content Include="static\script\mscorlib.fix.js" />
+    <Content Include="static\script\mscorlib.js" />
+    <Content Include="static\script\toastr-logger.js" />
+    <Content Include="static\script\toastr.js" />
+    <Content Include="static\script\toastr.min.js" />
+    <Content Include="static\style\ext\css\ext-all.css" />
+    <Content Include="static\style\ext\css\xtheme-gray.css" />
+    <Content Include="static\style\ext\images\default\box\corners-blue.gif" />
+    <Content Include="static\style\ext\images\default\box\corners.gif" />
+    <Content Include="static\style\ext\images\default\box\l-blue.gif" />
+    <Content Include="static\style\ext\images\default\box\l.gif" />
+    <Content Include="static\style\ext\images\default\box\r-blue.gif" />
+    <Content Include="static\style\ext\images\default\box\r.gif" />
+    <Content Include="static\style\ext\images\default\box\tb-blue.gif" />
+    <Content Include="static\style\ext\images\default\box\tb.gif" />
+    <Content Include="static\style\ext\images\default\button\arrow.gif" />
+    <Content Include="static\style\ext\images\default\button\btn-arrow.gif" />
+    <Content Include="static\style\ext\images\default\button\btn-sprite.gif" />
+    <Content Include="static\style\ext\images\default\button\btn.gif" />
+    <Content Include="static\style\ext\images\default\button\group-cs.gif" />
+    <Content Include="static\style\ext\images\default\button\group-lr.gif" />
+    <Content Include="static\style\ext\images\default\button\group-tb.gif" />
+    <Content Include="static\style\ext\images\default\button\s-arrow-b-noline.gif" />
+    <Content Include="static\style\ext\images\default\button\s-arrow-b.gif" />
+    <Content Include="static\style\ext\images\default\button\s-arrow-bo.gif" />
+    <Content Include="static\style\ext\images\default\button\s-arrow-noline.gif" />
+    <Content Include="static\style\ext\images\default\button\s-arrow-o.gif" />
+    <Content Include="static\style\ext\images\default\button\s-arrow.gif" />
+    <Content Include="static\style\ext\images\default\dd\drop-add.gif" />
+    <Content Include="static\style\ext\images\default\dd\drop-no.gif" />
+    <Content Include="static\style\ext\images\default\dd\drop-yes.gif" />
+    <Content Include="static\style\ext\images\default\editor\tb-sprite.gif" />
+    <Content Include="static\style\ext\images\default\form\checkbox.gif" />
+    <Content Include="static\style\ext\images\default\form\clear-trigger.gif" />
+    <Content Include="static\style\ext\images\default\form\date-trigger.gif" />
+    <Content Include="static\style\ext\images\default\form\error-tip-corners.gif" />
+    <Content Include="static\style\ext\images\default\form\exclamation.gif" />
+    <Content Include="static\style\ext\images\default\form\radio.gif" />
+    <Content Include="static\style\ext\images\default\form\search-trigger.gif" />
+    <Content Include="static\style\ext\images\default\form\text-bg.gif" />
+    <Content Include="static\style\ext\images\default\form\trigger-tpl.gif" />
+    <Content Include="static\style\ext\images\default\form\trigger.gif" />
+    <Content Include="static\style\ext\images\default\gradient-bg.gif" />
+    <Content Include="static\style\ext\images\default\grid\arrow-left-white.gif" />
+    <Content Include="static\style\ext\images\default\grid\arrow-right-white.gif" />
+    <Content Include="static\style\ext\images\default\grid\col-move-bottom.gif" />
+    <Content Include="static\style\ext\images\default\grid\col-move-top.gif" />
+    <Content Include="static\style\ext\images\default\grid\columns.gif" />
+    <Content Include="static\style\ext\images\default\grid\dirty.gif" />
+    <Content Include="static\style\ext\images\default\grid\done.gif" />
+    <Content Include="static\style\ext\images\default\grid\drop-no.gif" />
+    <Content Include="static\style\ext\images\default\grid\drop-yes.gif" />
+    <Content Include="static\style\ext\images\default\grid\footer-bg.gif" />
+    <Content Include="static\style\ext\images\default\grid\grid-blue-hd.gif" />
+    <Content Include="static\style\ext\images\default\grid\grid-blue-split.gif" />
+    <Content Include="static\style\ext\images\default\grid\grid-hrow.gif" />
+    <Content Include="static\style\ext\images\default\grid\grid-loading.gif" />
+    <Content Include="static\style\ext\images\default\grid\grid-split.gif" />
+    <Content Include="static\style\ext\images\default\grid\grid-vista-hd.gif" />
+    <Content Include="static\style\ext\images\default\grid\grid3-hd-btn.gif" />
+    <Content Include="static\style\ext\images\default\grid\grid3-hrow-over.gif" />
+    <Content Include="static\style\ext\images\default\grid\grid3-hrow.gif" />
+    <Content Include="static\style\ext\images\default\grid\grid3-special-col-bg.gif" />
+    <Content Include="static\style\ext\images\default\grid\grid3-special-col-sel-bg.gif" />
+    <Content Include="static\style\ext\images\default\grid\group-by.gif" />
+    <Content Include="static\style\ext\images\default\grid\group-collapse.gif" />
+    <Content Include="static\style\ext\images\default\grid\group-expand-sprite.gif" />
+    <Content Include="static\style\ext\images\default\grid\group-expand.gif" />
+    <Content Include="static\style\ext\images\default\grid\hd-pop.gif" />
+    <Content Include="static\style\ext\images\default\grid\hmenu-asc.gif" />
+    <Content Include="static\style\ext\images\default\grid\hmenu-desc.gif" />
+    <Content Include="static\style\ext\images\default\grid\hmenu-lock.gif" />
+    <Content Include="static\style\ext\images\default\grid\hmenu-lock.png" />
+    <Content Include="static\style\ext\images\default\grid\hmenu-unlock.gif" />
+    <Content Include="static\style\ext\images\default\grid\hmenu-unlock.png" />
+    <Content Include="static\style\ext\images\default\grid\invalid_line.gif" />
+    <Content Include="static\style\ext\images\default\grid\loading.gif" />
+    <Content Include="static\style\ext\images\default\grid\mso-hd.gif" />
+    <Content Include="static\style\ext\images\default\grid\nowait.gif" />
+    <Content Include="static\style\ext\images\default\grid\page-first-disabled.gif" />
+    <Content Include="static\style\ext\images\default\grid\page-first.gif" />
+    <Content Include="static\style\ext\images\default\grid\page-last-disabled.gif" />
+    <Content Include="static\style\ext\images\default\grid\page-last.gif" />
+    <Content Include="static\style\ext\images\default\grid\page-next-disabled.gif" />
+    <Content Include="static\style\ext\images\default\grid\page-next.gif" />
+    <Content Include="static\style\ext\images\default\grid\page-prev-disabled.gif" />
+    <Content Include="static\style\ext\images\default\grid\page-prev.gif" />
+    <Content Include="static\style\ext\images\default\grid\pick-button.gif" />
+    <Content Include="static\style\ext\images\default\grid\refresh-disabled.gif" />
+    <Content Include="static\style\ext\images\default\grid\refresh.gif" />
+    <Content Include="static\style\ext\images\default\grid\row-check-sprite.gif" />
+    <Content Include="static\style\ext\images\default\grid\row-expand-sprite.gif" />
+    <Content Include="static\style\ext\images\default\grid\row-over.gif" />
+    <Content Include="static\style\ext\images\default\grid\row-sel.gif" />
+    <Content Include="static\style\ext\images\default\grid\sort-hd.gif" />
+    <Content Include="static\style\ext\images\default\grid\sort_asc.gif" />
+    <Content Include="static\style\ext\images\default\grid\sort_desc.gif" />
+    <Content Include="static\style\ext\images\default\grid\wait.gif" />
+    <Content Include="static\style\ext\images\default\layout\collapse.gif" />
+    <Content Include="static\style\ext\images\default\layout\expand.gif" />
+    <Content Include="static\style\ext\images\default\layout\gradient-bg.gif" />
+    <Content Include="static\style\ext\images\default\layout\mini-bottom.gif" />
+    <Content Include="static\style\ext\images\default\layout\mini-left.gif" />
+    <Content Include="static\style\ext\images\default\layout\mini-right.gif" />
+    <Content Include="static\style\ext\images\default\layout\mini-top.gif" />
+    <Content Include="static\style\ext\images\default\layout\ns-collapse.gif" />
+    <Content Include="static\style\ext\images\default\layout\ns-expand.gif" />
+    <Content Include="static\style\ext\images\default\layout\panel-close.gif" />
+    <Content Include="static\style\ext\images\default\layout\panel-title-bg.gif" />
+    <Content Include="static\style\ext\images\default\layout\panel-title-light-bg.gif" />
+    <Content Include="static\style\ext\images\default\layout\stick.gif" />
+    <Content Include="static\style\ext\images\default\layout\stuck.gif" />
+    <Content Include="static\style\ext\images\default\layout\tab-close-on.gif" />
+    <Content Include="static\style\ext\images\default\layout\tab-close.gif" />
+    <Content Include="static\style\ext\images\default\menu\checked.gif" />
+    <Content Include="static\style\ext\images\default\menu\group-checked.gif" />
+    <Content Include="static\style\ext\images\default\menu\item-over.gif" />
+    <Content Include="static\style\ext\images\default\menu\menu-parent.gif" />
+    <Content Include="static\style\ext\images\default\menu\menu.gif" />
+    <Content Include="static\style\ext\images\default\menu\unchecked.gif" />
+    <Content Include="static\style\ext\images\default\panel\corners-sprite.gif" />
+    <Content Include="static\style\ext\images\default\panel\left-right.gif" />
+    <Content Include="static\style\ext\images\default\panel\light-hd.gif" />
+    <Content Include="static\style\ext\images\default\panel\tool-sprite-tpl.gif" />
+    <Content Include="static\style\ext\images\default\panel\tool-sprites.gif" />
+    <Content Include="static\style\ext\images\default\panel\tools-sprites-trans.gif" />
+    <Content Include="static\style\ext\images\default\panel\top-bottom.gif" />
+    <Content Include="static\style\ext\images\default\panel\top-bottom.png" />
+    <Content Include="static\style\ext\images\default\panel\white-corners-sprite.gif" />
+    <Content Include="static\style\ext\images\default\panel\white-left-right.gif" />
+    <Content Include="static\style\ext\images\default\panel\white-top-bottom.gif" />
+    <Content Include="static\style\ext\images\default\progress\progress-bg.gif" />
+    <Content Include="static\style\ext\images\default\qtip\bg.gif" />
+    <Content Include="static\style\ext\images\default\qtip\close.gif" />
+    <Content Include="static\style\ext\images\default\qtip\tip-anchor-sprite.gif" />
+    <Content Include="static\style\ext\images\default\qtip\tip-sprite.gif" />
+    <Content Include="static\style\ext\images\default\s.gif" />
+    <Content Include="static\style\ext\images\default\shadow-c.png" />
+    <Content Include="static\style\ext\images\default\shadow-lr.png" />
+    <Content Include="static\style\ext\images\default\shadow.png" />
+    <Content Include="static\style\ext\images\default\shared\blue-loading.gif" />
+    <Content Include="static\style\ext\images\default\shared\calendar.gif" />
+    <Content Include="static\style\ext\images\default\shared\glass-bg.gif" />
+    <Content Include="static\style\ext\images\default\shared\hd-sprite.gif" />
+    <Content Include="static\style\ext\images\default\shared\large-loading.gif" />
+    <Content Include="static\style\ext\images\default\shared\left-btn.gif" />
+    <Content Include="static\style\ext\images\default\shared\loading-balls.gif" />
+    <Content Include="static\style\ext\images\default\shared\right-btn.gif" />
+    <Content Include="static\style\ext\images\default\shared\warning.gif" />
+    <Content Include="static\style\ext\images\default\sizer\e-handle-dark.gif" />
+    <Content Include="static\style\ext\images\default\sizer\e-handle.gif" />
+    <Content Include="static\style\ext\images\default\sizer\ne-handle-dark.gif" />
+    <Content Include="static\style\ext\images\default\sizer\ne-handle.gif" />
+    <Content Include="static\style\ext\images\default\sizer\nw-handle-dark.gif" />
+    <Content Include="static\style\ext\images\default\sizer\nw-handle.gif" />
+    <Content Include="static\style\ext\images\default\sizer\s-handle-dark.gif" />
+    <Content Include="static\style\ext\images\default\sizer\s-handle.gif" />
+    <Content Include="static\style\ext\images\default\sizer\se-handle-dark.gif" />
+    <Content Include="static\style\ext\images\default\sizer\se-handle.gif" />
+    <Content Include="static\style\ext\images\default\sizer\square.gif" />
+    <Content Include="static\style\ext\images\default\sizer\sw-handle-dark.gif" />
+    <Content Include="static\style\ext\images\default\sizer\sw-handle.gif" />
+    <Content Include="static\style\ext\images\default\slider\slider-bg.png" />
+    <Content Include="static\style\ext\images\default\slider\slider-thumb.png" />
+    <Content Include="static\style\ext\images\default\slider\slider-v-bg.png" />
+    <Content Include="static\style\ext\images\default\slider\slider-v-thumb.png" />
+    <Content Include="static\style\ext\images\default\tabs\scroll-left.gif" />
+    <Content Include="static\style\ext\images\default\tabs\scroll-right.gif" />
+    <Content Include="static\style\ext\images\default\tabs\scroller-bg.gif" />
+    <Content Include="static\style\ext\images\default\tabs\tab-btm-inactive-left-bg.gif" />
+    <Content Include="static\style\ext\images\default\tabs\tab-btm-inactive-right-bg.gif" />
+    <Content Include="static\style\ext\images\default\tabs\tab-btm-left-bg.gif" />
+    <Content Include="static\style\ext\images\default\tabs\tab-btm-right-bg.gif" />
+    <Content Include="static\style\ext\images\default\tabs\tab-close.gif" />
+    <Content Include="static\style\ext\images\default\tabs\tab-strip-bg.gif" />
+    <Content Include="static\style\ext\images\default\tabs\tab-strip-bg.png" />
+    <Content Include="static\style\ext\images\default\tabs\tab-strip-btm-bg.gif" />
+    <Content Include="static\style\ext\images\default\tabs\tabs-sprite.gif" />
+    <Content Include="static\style\ext\images\default\toolbar\bg.gif" />
+    <Content Include="static\style\ext\images\default\toolbar\btn-arrow-light.gif" />
+    <Content Include="static\style\ext\images\default\toolbar\btn-arrow.gif" />
+    <Content Include="static\style\ext\images\default\toolbar\btn-over-bg.gif" />
+    <Content Include="static\style\ext\images\default\toolbar\gray-bg.gif" />
+    <Content Include="static\style\ext\images\default\toolbar\more.gif" />
+    <Content Include="static\style\ext\images\default\toolbar\tb-bg.gif" />
+    <Content Include="static\style\ext\images\default\toolbar\tb-btn-sprite.gif" />
+    <Content Include="static\style\ext\images\default\toolbar\tb-xl-btn-sprite.gif" />
+    <Content Include="static\style\ext\images\default\toolbar\tb-xl-sep.gif" />
+    <Content Include="static\style\ext\images\default\tree\arrows.gif" />
+    <Content Include="static\style\ext\images\default\tree\drop-add.gif" />
+    <Content Include="static\style\ext\images\default\tree\drop-between.gif" />
+    <Content Include="static\style\ext\images\default\tree\drop-no.gif" />
+    <Content Include="static\style\ext\images\default\tree\drop-over.gif" />
+    <Content Include="static\style\ext\images\default\tree\drop-under.gif" />
+    <Content Include="static\style\ext\images\default\tree\drop-yes.gif" />
+    <Content Include="static\style\ext\images\default\tree\elbow-end-minus-nl.gif" />
+    <Content Include="static\style\ext\images\default\tree\elbow-end-minus.gif" />
+    <Content Include="static\style\ext\images\default\tree\elbow-end-plus-nl.gif" />
+    <Content Include="static\style\ext\images\default\tree\elbow-end-plus.gif" />
+    <Content Include="static\style\ext\images\default\tree\elbow-end.gif" />
+    <Content Include="static\style\ext\images\default\tree\elbow-line.gif" />
+    <Content Include="static\style\ext\images\default\tree\elbow-minus-nl.gif" />
+    <Content Include="static\style\ext\images\default\tree\elbow-minus.gif" />
+    <Content Include="static\style\ext\images\default\tree\elbow-plus-nl.gif" />
+    <Content Include="static\style\ext\images\default\tree\elbow-plus.gif" />
+    <Content Include="static\style\ext\images\default\tree\elbow.gif" />
+    <Content Include="static\style\ext\images\default\tree\folder-open.gif" />
+    <Content Include="static\style\ext\images\default\tree\folder.gif" />
+    <Content Include="static\style\ext\images\default\tree\leaf.gif" />
+    <Content Include="static\style\ext\images\default\tree\loading.gif" />
+    <Content Include="static\style\ext\images\default\tree\s.gif" />
+    <Content Include="static\style\ext\images\default\window\icon-error.gif" />
+    <Content Include="static\style\ext\images\default\window\icon-info.gif" />
+    <Content Include="static\style\ext\images\default\window\icon-question.gif" />
+    <Content Include="static\style\ext\images\default\window\icon-warning.gif" />
+    <Content Include="static\style\ext\images\default\window\left-corners.png" />
+    <Content Include="static\style\ext\images\default\window\left-right.png" />
+    <Content Include="static\style\ext\images\default\window\right-corners.png" />
+    <Content Include="static\style\ext\images\default\window\top-bottom.png" />
+    <Content Include="static\style\ext\images\gray\button\btn-arrow.gif" />
+    <Content Include="static\style\ext\images\gray\button\btn-sprite.gif" />
+    <Content Include="static\style\ext\images\gray\button\btn.gif" />
+    <Content Include="static\style\ext\images\gray\button\group-cs.gif" />
+    <Content Include="static\style\ext\images\gray\button\group-lr.gif" />
+    <Content Include="static\style\ext\images\gray\button\group-tb.gif" />
+    <Content Include="static\style\ext\images\gray\gradient-bg.gif" />
+    <Content Include="static\style\ext\images\gray\panel\corners-sprite.gif" />
+    <Content Include="static\style\ext\images\gray\panel\left-right.gif" />
+    <Content Include="static\style\ext\images\gray\panel\light-hd.gif" />
+    <Content Include="static\style\ext\images\gray\panel\tool-sprite-tpl.gif" />
+    <Content Include="static\style\ext\images\gray\panel\tool-sprites.gif" />
+    <Content Include="static\style\ext\images\gray\panel\tools-sprites-trans.gif" />
+    <Content Include="static\style\ext\images\gray\panel\top-bottom.gif" />
+    <Content Include="static\style\ext\images\gray\panel\top-bottom.png" />
+    <Content Include="static\style\ext\images\gray\panel\white-corners-sprite.gif" />
+    <Content Include="static\style\ext\images\gray\panel\white-left-right.gif" />
+    <Content Include="static\style\ext\images\gray\panel\white-top-bottom.gif" />
+    <Content Include="static\style\ext\images\gray\qtip\bg.gif" />
+    <Content Include="static\style\ext\images\gray\qtip\close.gif" />
+    <Content Include="static\style\ext\images\gray\qtip\tip-sprite.gif" />
+    <Content Include="static\style\ext\images\gray\s.gif" />
+    <Content Include="static\style\ext\images\gray\tabs\scroll-left.gif" />
+    <Content Include="static\style\ext\images\gray\tabs\scroll-right.gif" />
+    <Content Include="static\style\ext\images\gray\tabs\scroller-bg.gif" />
+    <Content Include="static\style\ext\images\gray\tabs\tab-btm-inactive-left-bg.gif" />
+    <Content Include="static\style\ext\images\gray\tabs\tab-btm-inactive-right-bg.gif" />
+    <Content Include="static\style\ext\images\gray\tabs\tab-btm-left-bg.gif" />
+    <Content Include="static\style\ext\images\gray\tabs\tab-btm-right-bg.gif" />
+    <Content Include="static\style\ext\images\gray\tabs\tab-close.gif" />
+    <Content Include="static\style\ext\images\gray\tabs\tab-strip-bg.gif" />
+    <Content Include="static\style\ext\images\gray\tabs\tab-strip-bg.png" />
+    <Content Include="static\style\ext\images\gray\tabs\tab-strip-btm-bg.gif" />
+    <Content Include="static\style\ext\images\gray\tabs\tabs-sprite.gif" />
+    <Content Include="static\style\ext\images\gray\toolbar\bg.gif" />
+    <Content Include="static\style\ext\images\gray\toolbar\btn-arrow-light.gif" />
+    <Content Include="static\style\ext\images\gray\toolbar\btn-arrow.gif" />
+    <Content Include="static\style\ext\images\gray\toolbar\btn-over-bg.gif" />
+    <Content Include="static\style\ext\images\gray\toolbar\gray-bg.gif" />
+    <Content Include="static\style\ext\images\gray\toolbar\more.gif" />
+    <Content Include="static\style\ext\images\gray\toolbar\tb-bg.gif" />
+    <Content Include="static\style\ext\images\gray\toolbar\tb-btn-sprite.gif" />
+    <Content Include="static\style\ext\images\gray\window\icon-error.gif" />
+    <Content Include="static\style\ext\images\gray\window\icon-info.gif" />
+    <Content Include="static\style\ext\images\gray\window\icon-question.gif" />
+    <Content Include="static\style\ext\images\gray\window\icon-warning.gif" />
+    <Content Include="static\style\ext\images\gray\window\left-corners.png" />
+    <Content Include="static\style\ext\images\gray\window\left-right.png" />
+    <Content Include="static\style\ext\images\gray\window\right-corners.png" />
+    <Content Include="static\style\ext\images\gray\window\top-bottom.png" />
+    <Content Include="static\style\ext\images\vista\basic-dialog\bg-center.gif" />
+    <Content Include="static\style\ext\images\vista\basic-dialog\bg-left.gif" />
+    <Content Include="static\style\ext\images\vista\basic-dialog\bg-right.gif" />
+    <Content Include="static\style\ext\images\vista\basic-dialog\close.gif" />
+    <Content Include="static\style\ext\images\vista\basic-dialog\collapse.gif" />
+    <Content Include="static\style\ext\images\vista\basic-dialog\dlg-bg.gif" />
+    <Content Include="static\style\ext\images\vista\basic-dialog\e-handle.gif" />
+    <Content Include="static\style\ext\images\vista\basic-dialog\expand.gif" />
+    <Content Include="static\style\ext\images\vista\basic-dialog\hd-sprite.gif" />
+    <Content Include="static\style\ext\images\vista\basic-dialog\s-handle.gif" />
+    <Content Include="static\style\ext\images\vista\basic-dialog\se-handle.gif" />
+    <Content Include="static\style\ext\images\vista\basic-dialog\w-handle.gif" />
+    <Content Include="static\style\ext\images\vista\gradient-bg.gif" />
+    <Content Include="static\style\ext\images\vista\grid\grid-split.gif" />
+    <Content Include="static\style\ext\images\vista\grid\grid-vista-hd.gif" />
+    <Content Include="static\style\ext\images\vista\layout\collapse.gif" />
+    <Content Include="static\style\ext\images\vista\layout\expand.gif" />
+    <Content Include="static\style\ext\images\vista\layout\gradient-bg.gif" />
+    <Content Include="static\style\ext\images\vista\layout\ns-collapse.gif" />
+    <Content Include="static\style\ext\images\vista\layout\ns-expand.gif" />
+    <Content Include="static\style\ext\images\vista\layout\panel-close.gif" />
+    <Content Include="static\style\ext\images\vista\layout\panel-title-bg.gif" />
+    <Content Include="static\style\ext\images\vista\layout\panel-title-light-bg.gif" />
+    <Content Include="static\style\ext\images\vista\layout\stick.gif" />
+    <Content Include="static\style\ext\images\vista\layout\tab-close-on.gif" />
+    <Content Include="static\style\ext\images\vista\layout\tab-close.gif" />
+    <Content Include="static\style\ext\images\vista\qtip\bg.gif" />
+    <Content Include="static\style\ext\images\vista\qtip\tip-sprite.gif" />
+    <Content Include="static\style\ext\images\vista\s.gif" />
+    <Content Include="static\style\ext\images\vista\sizer\e-handle-dark.gif" />
+    <Content Include="static\style\ext\images\vista\sizer\e-handle.gif" />
+    <Content Include="static\style\ext\images\vista\sizer\ne-handle-dark.gif" />
+    <Content Include="static\style\ext\images\vista\sizer\ne-handle.gif" />
+    <Content Include="static\style\ext\images\vista\sizer\nw-handle-dark.gif" />
+    <Content Include="static\style\ext\images\vista\sizer\nw-handle.gif" />
+    <Content Include="static\style\ext\images\vista\sizer\s-handle-dark.gif" />
+    <Content Include="static\style\ext\images\vista\sizer\s-handle.gif" />
+    <Content Include="static\style\ext\images\vista\sizer\se-handle-dark.gif" />
+    <Content Include="static\style\ext\images\vista\sizer\se-handle.gif" />
+    <Content Include="static\style\ext\images\vista\sizer\sw-handle-dark.gif" />
+    <Content Include="static\style\ext\images\vista\sizer\sw-handle.gif" />
+    <Content Include="static\style\ext\images\vista\tabs\tab-btm-inactive-left-bg.gif" />
+    <Content Include="static\style\ext\images\vista\tabs\tab-btm-inactive-right-bg.gif" />
+    <Content Include="static\style\ext\images\vista\tabs\tab-btm-left-bg.gif" />
+    <Content Include="static\style\ext\images\vista\tabs\tab-btm-right-bg.gif" />
+    <Content Include="static\style\ext\images\vista\tabs\tab-sprite.gif" />
+    <Content Include="static\style\ext\images\vista\toolbar\gray-bg.gif" />
+    <Content Include="static\style\ext\images\vista\toolbar\tb-btn-sprite.gif" />
+    <Content Include="static\style\toastr.css" />
+    <Content Include="static\style\travel\img\accept.png" />
+    <Content Include="static\style\travel\img\birthday-icon.png" />
+    <Content Include="static\style\travel\img\copy-icon.png" />
+    <Content Include="static\style\travel\img\delete_file.png" />
+    <Content Include="static\style\travel\img\department-icon.png" />
+    <Content Include="static\style\travel\img\edit-disabled.png" />
+    <Content Include="static\style\travel\img\edit.png" />
+    <Content Include="static\style\travel\img\email-icon.jpg" />
+    <Content Include="static\style\travel\img\email-icon.png" />
+    <Content Include="static\style\travel\img\employee-icon.gif" />
+    <Content Include="static\style\travel\img\exclamation.gif" />
+    <Content Include="static\style\travel\img\fax-icon.png" />
+    <Content Include="static\style\travel\img\file_ico.gif" />
+    <Content Include="static\style\travel\img\find.png" />
+    <Content Include="static\style\travel\img\flag_green.png" />
+    <Content Include="static\style\travel\img\flag_red.png" />
+    <Content Include="static\style\travel\img\google-maps.ico" />
+    <Content Include="static\style\travel\img\gray-pix.png" />
+    <Content Include="static\style\travel\img\light-bulb.png" />
+    <Content Include="static\style\travel\img\loading-app.gif" />
+    <Content Include="static\style\travel\img\login.gif" />
+    <Content Include="static\style\travel\img\logo_.png" />
+    <Content Include="static\style\travel\img\map.png" />
+    <Content Include="static\style\travel\img\message-error.gif" />
+    <Content Include="static\style\travel\img\message-info.gif" />
+    <Content Include="static\style\travel\img\message-warn.gif" />
+    <Content Include="static\style\travel\img\miles-card.png" />
+    <Content Include="static\style\travel\img\passport.jpg" />
+    <Content Include="static\style\travel\img\payment.gif" />
+    <Content Include="static\style\travel\img\phone-icon.png" />
+    <Content Include="static\style\travel\img\row-check-sprite-disabled.gif" />
+    <Content Include="static\style\travel\img\search.png" />
+    <Content Include="static\style\travel\img\settings.png" />
+    <Content Include="static\style\travel\img\tools-sprites-trans.gif" />
+    <Content Include="static\style\travel\img\trash-icon.gif" />
+    <Content Include="static\style\travel\img\trigger.gif" />
+    <Content Include="static\style\travel\img\www-icon.png" />
+    <Content Include="static\style\travel\img\xls_ico.gif" />
+    <Content Include="static\style\travel\img\yandex-maps.ico" />
+    <Content Include="static\style\travel\login.css" />
+    <Content Include="static\style\travel\style.css" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Castle.Core, Version=2.5.1.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor, Version=2.5.1.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Castle.Windsor.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging, Version=2.3.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Common.Logging.2.3.1\lib\net40\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging.Log4Net1211, Version=2.3.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Common.Logging.Log4Net1211.2.3.1\lib\net40\Common.Logging.Log4Net1211.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections, Version=1.0.1.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Iesi.Collections.3.2.0.4000\lib\Net35\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.OData.Core">
+      <HintPath>..\packages\Microsoft.OData.Core.6.8.1\lib\portable-net40+sl5+wp8+win8+wpa\Microsoft.OData.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.OData.Edm">
+      <HintPath>..\packages\Microsoft.OData.Edm.6.8.1\lib\portable-net40+sl5+wp8+win8+wpa\Microsoft.OData.Edm.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Spatial">
+      <HintPath>..\packages\Microsoft.Spatial.6.8.1\lib\portable-net40+sl5+wp8+win8+wpa\Microsoft.Spatial.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate, Version=3.3.1.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\NHibernate.3.3.3.4001\lib\Net35\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.Caches.SysCache">
+      <HintPath>..\..\lib\NHibernate.Caches.SysCache.dll</HintPath>
+    </Reference>
+    <Reference Include="Npgsql, Version=2.1.1.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Npgsql.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.2\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.2\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.2\lib\net45\System.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.OData">
+      <HintPath>..\packages\Microsoft.AspNet.OData.5.3.1\lib\net45\System.Web.OData.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.2\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Login\Login.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="static\style\ext\images\vista\dd\" />
+    <Folder Include="static\style\ext\images\vista\tree\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Services\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Config\Config.csproj">
+      <Project>{99317FE0-52E6-4A22-9FB2-BF523BE20EB3}</Project>
+      <Name>Config</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Core\Core.csproj">
+      <Project>{E27BE899-79F5-46A8-99AB-C5F8EFDCB50E}</Project>
+      <Name>Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Luxena.Domain\_Luxena.Domain.csproj">
+      <Project>{D842C223-B8E6-43A9-AA5A-65E66FF2D071}</Project>
+      <Name>_Luxena.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Luxena.Libs\Luxena.Base.Data.NHibernate\Luxena.Base.Data.NHibernate.csproj">
+      <Project>{1AB4C1F7-8A2D-4A06-8F71-2ECBEA71AA78}</Project>
+      <Name>Luxena.Base.Data.NHibernate</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Luxena.Libs\Luxena.Base.Web\Luxena.Base.Web.csproj">
+      <Project>{02c6b300-d199-4e0c-9e72-89031c247db9}</Project>
+      <Name>Luxena.Base.Web</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Luxena.Libs\Luxena.Base\Luxena.Base.csproj">
+      <Project>{F3A3CE9A-AA9D-496D-8752-3B49E3BE4FE0}</Project>
+      <Name>Luxena.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Luxena.Libs\Luxena.Castle\Luxena.Castle.csproj">
+      <Project>{22D7BA41-5D9C-482B-AF2A-F4FE4C9685C6}</Project>
+      <Name>Luxena.Castle</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Luxena.Libs\Luxena.Core\Luxena.Core.csproj">
+      <Project>{65091BE4-DBC2-4D09-8B17-37F04EE95DAA}</Project>
+      <Name>Luxena.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Luxena.Support\_Luxena.Support.csproj">
+      <Project>{376d2f32-6120-4ad3-9266-94b793f58532}</Project>
+      <Name>_Luxena.Support</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="static\fonts\arial.ttf" />
+    <Content Include="static\fonts\arialbd.ttf" />
+    <Content Include="static\fonts\arialbi.ttf" />
+    <Content Include="static\fonts\ariali.ttf" />
+    <Content Include="static\fonts\ARIALN.TTF" />
+    <Content Include="static\fonts\ARIALNB.TTF" />
+    <Content Include="static\fonts\ARIALNBI.TTF" />
+    <Content Include="static\fonts\ARIALNI.TTF" />
+    <Content Include="static\fonts\ariblk.ttf" />
+    <Content Include="static\fonts\MyriadPro-Bold.otf" />
+    <Content Include="static\fonts\MyriadPro-BoldCond.otf" />
+    <Content Include="static\fonts\MyriadPro-Cond.otf" />
+    <Content Include="static\fonts\MyriadPro-Regular.otf" />
+    <Content Include="static\fonts\times.ttf" />
+    <Content Include="static\fonts\timesbd.ttf" />
+    <Content Include="static\fonts\timesbi.ttf" />
+    <Content Include="static\fonts\timesi.ttf" />
+    <Content Include="packages.config" />
+    <None Include="Properties\PublishProfiles\Release.pubxml" />
+    <Content Include="static\script\toastr.min.js.map" />
+    <Content Include="Services\DomainService.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>DomainService.cs</LastGenOutput>
+    </Content>
+    <Content Include="static\reports\InvoiceTemplate2.xlsx" />
+    <Content Include="static\reports\InvoiceTemplate1.xlsx" />
+    <Content Include="static\reports\CompletionCertificateTemplate2.xlsx" />
+    <Content Include="Services\External\Web.config" />
+    <None Include="static\style\ext\images\default\form\clear-trigger.psd" />
+    <None Include="static\style\ext\images\default\form\date-trigger.psd" />
+    <None Include="static\style\ext\images\default\form\search-trigger.psd" />
+    <None Include="static\style\ext\images\default\form\trigger.psd" />
+    <None Include="static\style\ext\images\default\window\left-corners.psd" />
+    <None Include="static\style\ext\images\default\window\left-right.psd" />
+    <None Include="static\style\ext\images\default\window\right-corners.psd" />
+    <None Include="static\style\ext\images\default\window\top-bottom.psd" />
+    <None Include="static\style\ext\images\gray\window\left-corners.pspimage" />
+    <Content Include="Views\Repair\AviaTicketDirections01.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>62759</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://travel</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+</Project>

@@ -1,0 +1,32 @@
+﻿@model Luxena.Travel.Web.Models.LoginModel
+<!doctype html>
+<html>
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" >
+		<title>SmartTravel</title>
+		<link href="@Url.Content("~/static/style/travel/login.css")" rel="stylesheet" type="text/css" />
+		<script type="text/javascript">
+			function onBodyLoad() {
+				var el = document.getElementById('UserName');
+
+				if (el.value) {
+					el = document.getElementById('Password');
+				}
+
+				el.focus();
+				el.select();
+			}
+		</script>
+	</head>
+	<body onload="onBodyLoad()">
+		<div id="content">
+			@{ Html.BeginForm(); }
+				<div><label>Учетная запись:</label>@Html.EditorFor(m => m.UserName)</div>
+				<div><label>Пароль:</label>@Html.PasswordFor(m => m.Password)</div>
+				<div><label>@Html.CheckBoxFor(m => m.RememberMe)</label>запомнить меня</div>
+				<input id="submit" type="submit" value="Войти" />
+				@Html.ValidationMessage("")
+			@{ Html.EndForm(); }
+		</div>
+	</body>
+</html>

@@ -1,0 +1,10 @@
+﻿[
+  {
+    "outputFile": "app/_support/layouts/layout.css",
+    "inputFile": "app/_support/layouts/layout.less"
+  },
+  {
+    "outputFile": "app/_support/themes/theme02.ext.css",
+    "inputFile": "app/_support/themes/theme02.ext.less"
+  }
+]

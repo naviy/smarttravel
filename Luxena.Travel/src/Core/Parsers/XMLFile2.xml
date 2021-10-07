@@ -1,0 +1,136 @@
+﻿
+<?xml version="1.0" encoding="UTF-8"?>
+<ReservationsList>
+	<ReservationsList ResellerCode="ARIOLA" Username="ievu23561.soa" Timestamp="2018-02-13T14:26:35+02:00">
+		<id>3969915</id>
+		<confirmationNumber>BD6HWA</confirmationNumber>
+		<service>lowcost</service>
+		<trainNumber>W61567</trainNumber>
+		<wagonNumber/>
+		<wagonType>К</wagonType>
+		<seats>, , </seats>
+		<withLinen/>
+		<departureDate>15.02.2018 13:50:00</departureDate>
+		<departureStation>Frederic Chopin airport</departureStation>
+		<departureStationCode>WAW</departureStationCode>
+		<arrivalDate>15.02.2018 16:20:00</arrivalDate>
+		<arrivalStation>Zhuliany</arrivalStation>
+		<arrivalStationCode>IEV</arrivalStationCode>
+		<serviceType>eticket</serviceType>
+		<addDate>13.02.2018</addDate>
+		<agentName>Oksana Sumischuk</agentName>
+		<officeId>ievu23561.soa</officeId>
+		<officeName>Ariola Group, Kyiv</officeName>
+		<numberOfDocuments>3</numberOfDocuments>
+		<source>contentrail</source>
+		<paymentGateway>credit</paymentGateway>
+		<documentType/>
+		<contentrailId>1519077</contentrailId>
+		<transporter>Wizz Air Hungary</transporter>
+		<bookingWasConfirmed>1</bookingWasConfirmed>
+		<businessModel>merchant</businessModel>
+		<resellerPaidWith>credit</resellerPaidWith>
+		<roundTrip>0</roundTrip>
+		<relatedServiceId/>
+		<type>booking</type>
+		<documentsPrice>7617.38</documentsPrice>
+		<fees>337.96</fees>
+		<purchasePrice>7955.34</purchasePrice>
+		<agentCommission>0</agentCommission>
+		<totalPrice>7955.34</totalPrice>
+		<currency>UAH</currency>
+		<status>OK</status>
+		<vatFromDocumentPrice>0</vatFromDocumentPrice>
+		<vatRateFromDocumentPrice/>
+		<remitCommission>69.32</remitCommission>
+		<vatFromRemitCommission>0</vatFromRemitCommission>
+		<vatRateFromRemitCommission/>
+		<markup>268.64</markup>
+		<vatFromMarkup>44.77</vatFromMarkup>
+		<vatRateFromMarkup>20</vatRateFromMarkup>
+		<vatFromCommission>44.77</vatFromCommission>
+		<vatFromAgentCommission>0</vatFromAgentCommission>
+		<vatRateFromAgentCommission>20</vatRateFromAgentCommission>
+		<passenger>
+			<firstName>Vadym</firstName>
+			<lastName>Stepanyshchenko</lastName>
+			<isChild>0</isChild>
+			<phone>00380675001991</phone>
+			<email>bsv@bsv.com.ua</email>
+			<ticketNumber/>
+			<birthday>1977-05-24</birthday>
+			<documentsPrice>2539.01</documentsPrice>
+			<fees>160.48</fees>
+			<purchasePrice>2699.49</purchasePrice>
+			<agentCommission>0</agentCommission>
+			<totalPrice>2699.49</totalPrice>
+			<vatFromDocumentPrice>0</vatFromDocumentPrice>
+			<vatRateFromDocumentPrice/>
+			<remitCommission>69.32</remitCommission>
+			<vatFromRemitCommission>0</vatFromRemitCommission>
+			<vatRateFromRemitCommission/>
+			<markup>91.16</markup>
+			<vatFromMarkup>15.19</vatFromMarkup>
+			<vatRateFromMarkup>20</vatRateFromMarkup>
+			<vatFromCommission>15.19</vatFromCommission>
+			<vatFromAgentCommission>0</vatFromAgentCommission>
+			<vatRateFromAgentCommission>20</vatRateFromAgentCommission>
+			<currency>UAH</currency>
+			<externalId/>
+		</passenger>
+		<passenger>
+			<firstName>Nataliia</firstName>
+			<lastName>Kryshtal</lastName>
+			<isChild>0</isChild>
+			<phone/>
+			<email/>
+			<ticketNumber/>
+			<birthday>1969-11-01</birthday>
+			<documentsPrice>2539.01</documentsPrice>
+			<fees>88.74</fees>
+			<purchasePrice>2627.75</purchasePrice>
+			<agentCommission>0</agentCommission>
+			<totalPrice>2627.75</totalPrice>
+			<vatFromDocumentPrice>0</vatFromDocumentPrice>
+			<vatRateFromDocumentPrice/>
+			<remitCommission>0</remitCommission>
+			<vatFromRemitCommission>0</vatFromRemitCommission>
+			<vatRateFromRemitCommission/>
+			<markup>88.74</markup>
+			<vatFromMarkup>14.79</vatFromMarkup>
+			<vatRateFromMarkup>20</vatRateFromMarkup>
+			<vatFromCommission>14.79</vatFromCommission>
+			<vatFromAgentCommission>0</vatFromAgentCommission>
+			<vatRateFromAgentCommission>20</vatRateFromAgentCommission>
+			<currency>UAH</currency>
+			<externalId/>
+		</passenger>
+		<passenger>
+			<firstName>Inna</firstName>
+			<lastName>Ilienko</lastName>
+			<isChild>0</isChild>
+			<phone/>
+			<email/>
+			<ticketNumber/>
+			<birthday>1976-11-01</birthday>
+			<documentsPrice>2539.36</documentsPrice>
+			<fees>88.74</fees>
+			<purchasePrice>2628.1</purchasePrice>
+			<agentCommission>0</agentCommission>
+			<totalPrice>2628.1</totalPrice>
+			<vatFromDocumentPrice>0</vatFromDocumentPrice>
+			<vatRateFromDocumentPrice/>
+			<remitCommission>0</remitCommission>
+			<vatFromRemitCommission>0</vatFromRemitCommission>
+			<vatRateFromRemitCommission/>
+			<markup>88.74</markup>
+			<vatFromMarkup>14.79</vatFromMarkup>
+			<vatRateFromMarkup>20</vatRateFromMarkup>
+			<vatFromCommission>14.79</vatFromCommission>
+			<vatFromAgentCommission>0</vatFromAgentCommission>
+			<vatRateFromAgentCommission>20</vatRateFromAgentCommission>
+			<currency>UAH</currency>
+			<externalId/>
+		</passenger>
+	</ReservationsList>
+</ReservationsList>

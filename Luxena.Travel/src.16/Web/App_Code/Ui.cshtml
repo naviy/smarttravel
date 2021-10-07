@@ -1,0 +1,695 @@
+﻿@using System.Linq.Expressions
+@using Luxena
+@* ReSharper disable once RedundantUsingDirective *@
+@using Luxena.Travel.Domain
+
+
+@functions
+{
+
+	static string GetGridName(Expression<Func<Domain, object>> getEntitySet)
+	{
+		var entity = Domain.GetEntityInfo(getEntitySet);
+		return entity.EntitySetName;
+	}
+
+	static string GetViewName(Type type)
+	{
+		return type.Name + "View";
+	}
+
+	static string GetViewName(Expression<Func<Domain, object>> getEntitySet)
+	{
+		var entity = Domain.GetEntityInfo(getEntitySet);
+		return entity.EntityName;
+	}
+
+	static string GetEditName(Type type)
+	{
+		return type.Name + "Edit";
+	}
+
+	static string GetEditName(Expression<Func<Domain, object>> getEntitySet)
+	{
+		var entity = Domain.GetEntityInfo(getEntitySet);
+		return entity.EntityName + "Edit";
+	}
+
+	static void CheckWidths(ref int width1, ref int width2)
+	{
+		if (width1 < 0 && width2 >= 0)
+			width1 = 12 - width2;
+		if (width1 >= 0 && width2 < 0)
+			width2 = 12 - width1;
+
+		if (width1 < 0) width1 = 6;
+		if (width2 < 0) width2 = 6;
+	}
+}
+
+
+
+@helper Grid(string viewName)
+{
+	<div data-options="dxView : { name: '@viewName' } ">
+		<div data-options="dxContent : { targetPlaceholder: 'content' }">
+			<div class="view-header">
+				<div data-bind="renderer: $root.containers.toolbar"></div>
+				@*<div class="view-grid-filter-info">
+					<div>Показаны все</div>
+				</div>*@
+			</div>
+
+			<div class="view-content">
+				<div class="view-grid-card">
+					<div data-bind="dxDataGrid: gridOptions" class="fill"></div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+}
+
+@helper Grid(Expression<Func<Domain, object>> getEntitySet)
+{
+	@Grid(GetGridName(getEntitySet))
+}
+
+
+@helper LeftFilter()
+{
+	<div class="filter-panel" style="position: absolute; top: 0; bottom: 0;" data-bind="style: { width: filterPanelWidth() + 'px' }">
+		<div class="fill" data-bind="dxScrollView: { showScrollbar: 'always' }">
+			<div class="filter-panel-header">
+				<div data-bind="dxButton: collapseButton" class="collapse"></div>
+				<div data-bind="dxButton: findButton"></div>
+			</div>
+			@FieldSet("filterFields")
+		</div>
+	</div>
+}
+
+
+@helper FilterPanelBegin(Expression<Func<Domain, object>> getEntitySet)
+{
+	var entity = Domain.GetEntityInfo(getEntitySet);
+
+	@:<div data-options="dxView : { name: '@entity.EntitySetName' } ">
+	@:<div data-options="dxContent : { targetPlaceholder: 'content' }">
+	@:<div class="grid-panel fill">
+	@LeftFilter()
+	@:<div style="position: absolute; top: 0; right: 0; bottom: 0;" data-bind="style: { left: (filterPanelWidth() + 15) + 'px' }">
+}
+
+@helper FilterPanelEnd()
+{
+	@:</div>
+	@:</div>
+	@:</div>
+	@:</div>
+}
+
+@helper FilterGrid(Expression<Func<Domain, object>> getEntitySet)
+{
+	@FilterPanelBegin(getEntitySet)
+	<div data-bind="dxDataGrid: gridOptions" class="fill"></div>
+	@FilterPanelEnd()
+}
+
+
+@helper ChartAndGrid()
+{
+	<div data-bind="dxTabPanel : { items: [{ title: 'График', template: 'chart' }, { title: 'Таблица', template: 'grid' }] }" class="fill">
+		<div data-options="dxTemplate : { name: 'chart' }">
+			<div data-bind="dxChart: $root.chartOptions" class="fill"></div>
+		</div>
+		<div data-options="dxTemplate : { name: 'grid' }">
+			<div data-bind="dxScrollView: { showScrollbar: 'always' }" class="fill">
+				<div data-bind="dxDataGrid: $root.gridOptions" class="fill"></div>
+			</div>
+		</div>
+	</div>
+}
+
+@helper FilterChartAndGrid(Expression<Func<Domain, object>> getEntitySet)
+{
+	@FilterPanelBegin(getEntitySet)
+	@ChartAndGrid()
+	@FilterPanelEnd()
+}
+
+@helper FilterChart(Expression<Func<Domain, object>> getEntitySet)
+{
+	@FilterPanelBegin(getEntitySet)
+	<div data-bind="dxChart: $root.chartOptions" class="fill"></div>
+	@FilterPanelEnd()
+}
+
+
+@helper FormBegin(string name, bool editMode = false)
+{
+	@:<div data-options="dxView : { name: '@name' }">
+	@:<div data-options="dxContent : { targetPlaceholder: 'content' }" class="fill">
+	<div class="view-header">
+		<div data-bind="renderer: $root.containers.toolbar"></div>
+		@*<div data-bind="dxToolbar: { items: viewToolbarItems() }"></div>*@
+	</div>
+	@:<div class="view-content">
+	@:<div class="fill" data-bind="dxScrollView: { showScrollbar: 'always' }">
+	@:<div class="view-form-panel form-panel">
+	@:<div class="@(editMode ? "edit-mode" : "")">
+	@:<div class="fill" data-bind="dxDeferRendering: deferRenderingOptions" style="min-height: 200px">
+	<div data-bind="dxLoadPanel: loadingOptions"></div>
+}
+
+@helper FormEnd()
+{
+	@:</div>
+	@:</div>
+	@:</div>
+	@:</div>
+	@:</div>
+	@:</div>
+	@:</div>
+}
+
+@helper Form6(string name, bool editMode = false)
+{
+	@FormBegin(name, editMode)
+		<div class="view-wrapper-6">
+			@Fields("fields")
+		</div>
+	@FormEnd()
+}
+
+@helper Form8(string name, bool editMode = false)
+{
+	@FormBegin(name, editMode)
+		<div class="view-wrapper-8">
+			@Fields("fields")
+		</div>
+	@FormEnd()
+}
+
+@helper Form12(string name, bool editMode = false)
+{
+	@FormBegin(name, editMode)
+	<div class="view-wrapper-12">
+		@Fields("fields")
+	</div>
+	@FormEnd()
+}
+
+
+
+@helper Form1(string name, bool editMode = false)
+{
+	@FormBegin(name, editMode)
+	<div class="row">
+		<div class="col s12 l6 offset-s0 offset-l3">
+			<div class="card">
+				@FieldSet("fields")
+			</div>
+		</div>
+	</div>
+	@FormEnd()
+}
+
+@helper Form1a(string name, int width1 = -1, int width2 = -1, IHtmlString[] addTabs = null, bool editMode = false)
+{
+	CheckWidths(ref width1, ref width2);
+	@FormBegin(name, editMode)
+
+	<div class="row">
+		<div class="col s12 l@(width1)">
+			<div class="card">
+				@FieldSet("fields")
+			</div>
+		</div>
+		<div class="col s12 l@(width2)">
+			@FormAccordion(addTabs: addTabs)
+		</div>
+	</div>
+
+	@FormEnd()
+}
+
+
+@helper Form2(string name, int width1 = -1, int width2 = -1, bool editMode = false)
+{
+	@FormBegin(name, editMode)
+	<div class="card card-fieldset">
+		@Columns2("fields", width1, width2)
+	</div>
+	@FormEnd()
+}
+
+@helper Form2a(string name, int width1 = -1, int width2 = -1, IHtmlString[] addTabs = null, bool editMode = false)
+{
+	@FormBegin(name, editMode)
+	<div class="card card-fieldset">
+		@Columns2("fields", width1, width2)
+	</div>
+	@FormAccordion(addTabs: addTabs)
+	@FormEnd()
+}
+
+@helper Form3(string name, int width1 = -1, int width2 = -1, bool editMode = false)
+{
+	@FormBegin(name, editMode)
+	<div class="card card-fieldset">
+		@Columns2("fields", width1, width2)
+	</div>
+	<div class="card card-fieldset">
+		@FieldSet("fields3")
+	</div>
+	@FormEnd()
+}
+
+@helper Form3a(string name, int width1 = -1, int width2 = -1, IHtmlString[] addTabs = null, bool editMode = false)
+{
+	@FormBegin(name, editMode)
+	<div class="card card-fieldset">
+		@Columns2("fields", width1, width2)
+	</div>
+	<div class="card card-fieldset">
+		@FieldSet("fields3")
+	</div>
+	@FormAccordion(addTabs: addTabs)
+	@FormEnd()
+}
+
+
+
+@helper ViewFormBegin(Expression<Func<Domain, object>> getEntitySet)
+{
+	@FormBegin(GetViewName(getEntitySet))
+}
+@helper ViewFormEnd()
+{
+	@FormEnd()
+}
+
+@helper ViewForm6(Type type)
+{
+	@Form6(GetViewName(type), editMode: true)
+}
+
+@helper ViewForm6(Expression<Func<Domain, object>> getEntitySet)
+{
+	@Form6(GetViewName(getEntitySet))
+}
+
+@helper ViewForm8(Type type)
+{
+	@Form6(GetViewName(type), editMode: true)
+}
+
+@helper ViewForm8(Expression<Func<Domain, object>> getEntitySet)
+{
+	@Form8(GetViewName(getEntitySet))
+}
+
+
+@helper ViewForm1(Expression<Func<Domain, object>> getEntitySet)
+{
+	@Form1(GetViewName(getEntitySet))
+}
+
+@helper ViewForm1a(Expression<Func<Domain, object>> getEntitySet, int width1 = -1, int width2 = -1, IHtmlString[] addTabs = null)
+{
+	@Form1a(GetViewName(getEntitySet), width1, width2, addTabs)
+}
+
+@helper ViewForm2(Expression<Func<Domain, object>> getEntitySet, int width1 = -1, int width2 = -1)
+{
+	@Form2(GetViewName(getEntitySet), width1, width2)
+}
+
+@helper ViewForm2a(Expression<Func<Domain, object>> getEntitySet, int width1 = -1, int width2 = -1, IHtmlString[] addTabs = null)
+{
+	@Form2a(GetViewName(getEntitySet), width1, width2, addTabs)
+}
+
+@helper ViewForm3(Expression<Func<Domain, object>> getEntitySet, int width1 = -1, int width2 = -1)
+{
+	@Form3(GetViewName(getEntitySet), width1, width2)
+}
+
+@helper ViewForm3a(Expression<Func<Domain, object>> getEntitySet, int width1 = -1, int width2 = -1, IHtmlString[] addTabs = null)
+{
+	@Form3a(GetViewName(getEntitySet), width1, width2, addTabs)
+}
+
+
+@helper EditFormBegin(Expression<Func<Domain, object>> getEntitySet)
+{
+	@FormBegin(GetEditName(getEntitySet), editMode: true)
+}
+@helper EditFormEnd()
+{
+	@FormEnd()
+}
+
+@helper EditForm6(Type type)
+{
+	@Form6(GetEditName(type), editMode: true)
+}
+
+@helper EditForm6(Expression<Func<Domain, object>> getEntitySet)
+{
+	@Form6(GetEditName(getEntitySet), editMode: true)
+}
+
+@helper EditForm8(Type type)
+{
+	@Form8(GetEditName(type), editMode: true)
+}
+
+@helper EditForm8(Expression<Func<Domain, object>> getEntitySet)
+{
+	@Form8(GetEditName(getEntitySet), editMode: true)
+}
+
+
+
+@helper EditForm1(Expression<Func<Domain, object>> getEntitySet)
+{
+	@Form1(GetEditName(getEntitySet), editMode: true)
+}
+
+@helper EditForm1a(Expression<Func<Domain, object>> getEntitySet, int width1 = -1, int width2 = -1, IHtmlString[] addTabs = null)
+{
+	@Form1a(GetEditName(getEntitySet), width1, width2, addTabs, editMode: true)
+}
+
+@helper EditForm2(Expression<Func<Domain, object>> getEntitySet, int width1 = -1, int width2 = -1)
+{
+	@Form2(GetEditName(getEntitySet), width1, width2, editMode: true)
+}
+
+@helper EditForm2a(Expression<Func<Domain, object>> getEntitySet, int width1 = -1, int width2 = -1, IHtmlString[] addTabs = null)
+{
+	@Form2a(GetEditName(getEntitySet), width1, width2, addTabs, editMode: true)
+}
+
+@helper EditForm3(Expression<Func<Domain, object>> getEntitySet, int width1 = -1, int width2 = -1)
+{
+	@Form3(GetEditName(getEntitySet), width1, width2, editMode: true)
+}
+
+@helper EditForm3a(Expression<Func<Domain, object>> getEntitySet, int width1 = -1, int width2 = -1, IHtmlString[] addTabs = null)
+{
+	@Form3a(GetEditName(getEntitySet), width1, width2, addTabs, editMode: true)
+}
+
+@helper GridView6Edit6(Expression<Func<Domain, object>> getEntitySet)
+{
+	@Grid(getEntitySet)
+	@ViewForm6(getEntitySet)
+	@EditForm6(getEntitySet)
+}
+
+@helper GridView8Edit6(Expression<Func<Domain, object>> getEntitySet)
+{
+	@Grid(getEntitySet)
+	@ViewForm8(getEntitySet)
+	@EditForm6(getEntitySet)
+}
+
+@helper GridView8Edit8(Expression<Func<Domain, object>> getEntitySet)
+{
+	@Grid(getEntitySet)
+	@ViewForm8(getEntitySet)
+	@EditForm8(getEntitySet)
+}
+
+@helper View6Edit6(Expression<Func<Domain, object>> getEntitySet)
+{
+	@ViewForm6(getEntitySet)
+	@EditForm6(getEntitySet)
+}
+
+@helper View8Edit6(Expression<Func<Domain, object>> getEntitySet)
+{
+	@ViewForm8(getEntitySet)
+	@EditForm6(getEntitySet)
+}
+
+@helper View8Edit8(Expression<Func<Domain, object>> getEntitySet)
+{
+	@ViewForm8(getEntitySet)
+	@EditForm8(getEntitySet)
+}
+
+
+
+@helper GridView1(Expression<Func<Domain, object>> getEntitySet)
+{
+	@Grid(getEntitySet)
+	@ViewForm1(getEntitySet)
+}
+
+@helper GridView2(Expression<Func<Domain, object>> getEntitySet)
+{
+	@Grid(getEntitySet)
+	@ViewForm2(getEntitySet)
+}
+
+@helper GridViewEdit1(Expression<Func<Domain, object>> getEntitySet)
+{
+	@Grid(getEntitySet)
+	@ViewForm1(getEntitySet)
+	@EditForm1(getEntitySet)
+}
+
+@helper GridViewEdit2(Expression<Func<Domain, object>> getEntitySet)
+{
+	@Grid(getEntitySet)
+	@ViewForm2(getEntitySet)
+	@EditForm2(getEntitySet)
+}
+
+
+@helper GridViewEdit2a(Expression<Func<Domain, object>> getEntitySet)
+{
+	@Grid(getEntitySet)
+	@ViewForm2a(getEntitySet)
+	@EditForm2(getEntitySet)
+}
+
+
+@helper ViewEdit1(Expression<Func<Domain, object>> getEntitySet)
+{
+	@ViewForm1(getEntitySet)
+	@EditForm1(getEntitySet)
+}
+
+@helper ViewEdit2(Expression<Func<Domain, object>> getEntitySet)
+{
+	@ViewForm2(getEntitySet)
+	@EditForm2(getEntitySet)
+}
+
+@helper ViewEdit2a(Expression<Func<Domain, object>> getEntitySet)
+{
+	@ViewForm2a(getEntitySet)
+	@EditForm2(getEntitySet)
+}
+
+@helper ViewEdit3(Expression<Func<Domain, object>> getEntitySet)
+{
+	@ViewForm3(getEntitySet)
+	@EditForm3(getEntitySet)
+}
+
+@helper ViewEdit3a(Expression<Func<Domain, object>> getEntitySet)
+{
+	@ViewForm3a(getEntitySet)
+	@EditForm3(getEntitySet)
+}
+
+
+@helper Fields(string id = "fields")
+{
+	<div data-bind="with: $root">
+		<div data-bind="renderer: $root.containers.@(id)"></div>
+	</div>
+}
+
+
+@helper FieldSet(string id = "fields")
+{
+	<div data-bind="with: $root">
+		<div class="dx-fieldset" data-bind="renderer: $root.containers.@(id)"></div>
+	</div>
+}
+
+@helper FieldCard(string id = "fields", string title = null)
+{
+	<div data-bind="with: $root" class="card card-fieldset">
+		<div class="dx-fieldset">
+			@if (title.Yes())
+			{
+				<div class="dx-fieldset-header">@title</div>
+			}
+			<div data-bind="renderer: $root.containers.@(id)"></div>
+		</div>
+	</div>
+}
+
+@helper FieldCardA(string id = "fields")
+{
+	<div data-bind="with: $root" class="card-accordion">
+		<div data-bind="renderer: $root.containers.@(id)"></div>
+	</div>
+}
+
+
+
+
+@helper FieldCard(string id, LocalizationAttribute title)
+{
+	@FieldCard(id, title.Russian)
+}
+
+
+
+@helper TabFieldSet(string id = "fields")
+{
+	<div data-options="dxTemplate: { name: '@id' }">
+		@FieldSet(id)
+	</div>
+}
+
+@helper FieldSets2(string id, string id1 = null, string id2 = null)
+{
+	@FieldSet(id1 ?? id + "1")
+	@FieldSet(id2 ?? id + "2")
+}
+
+@helper TabFieldSets2(string id, string id1 = null, string id2 = null)
+{
+	<div data-options="dxTemplate: { name: '@id' }">
+		@FieldSet(id1 ?? id + "1")
+		@FieldSet(id2 ?? id + "2")
+	</div>
+}
+
+
+
+@helper Columns2(string id1, string id2, int width1 = -1, int width2 = -1)
+{
+	CheckWidths(ref width1, ref width2);
+	<div class="row">
+		<div class="col s12 m12 l@(width1)">
+			@FieldSet(id1)
+		</div>
+		<div class="col s12 m12 l@(width2)">
+			@FieldSet(id2)
+		</div>
+	</div>
+}
+
+@helper ColumnCard2(string id1, string id2, int width1 = -1, int width2 = -1)
+{
+	CheckWidths(ref width1, ref width2);
+	<div class="row">
+		<div class="col s12 m12 l@(width1)">
+			@FieldCard(id1)
+		</div>
+		<div class="col s12 m12 l@(width2)">
+			@FieldCard(id2)
+		</div>
+	</div>
+}
+
+@helper Columns2(string id, int width1 = -1, int width2 = -1)
+{
+	@Columns2(id + "1", id + "2", width1, width2)
+}
+
+@helper ColumnCard2(string id, int width1 = -1, int width2 = -1)
+{
+	@ColumnCard2(id + "1", id + "2", width1, width2)
+}
+
+@helper TabColumns2(string id, string id1 = null, string id2 = null, int width1 = -1, int width2 = -1)
+{
+	<div data-options="dxTemplate: { name: '@id' }">
+		@Columns2(id1 ?? id + "1", id2 ?? id + "2", width1, width2)
+	</div>
+}
+
+
+@helper Columns3(string id1, string id2, string id3, int width1 = 4, int width2 = 4, int width3 = 4)
+{
+	<div data-bind="dxBox: { direction: 'row' }">
+		<div data-options="dxItem: { ratio: @width1 }">
+			@FieldSet(id1)
+		</div>
+		<div data-options="dxItem: { ratio: @width2 }">
+			@FieldSet(id2)
+		</div>
+		<div data-options="dxItem: { ratio: @width3 }">
+			@FieldSet(id3)
+		</div>
+	</div>
+}
+
+@helper Columns3(string id, int width1 = 4, int width2 = 4, int width3 = 4)
+{
+	@Columns3(id + "1", id + "2", id + "3", width1, width2, width3)
+}
+
+@helper TabColumns3(string id, string id1 = null, string id2 = null, string id3 = null, int width1 = 4, int width2 = 4, int width3 = 4)
+{
+	<div data-options="dxTemplate: { name: '@id' }">
+		@Columns3(id1 ?? id + "1", id2 ?? id + "2", id3 ?? id + "3", width1, width2, width3)
+	</div>
+}
+
+
+@functions
+{
+	public static int AccordionIndex = 0;
+}
+
+@helper FormAccordionBegin(string tabsFieldName = "tabs")
+{
+	var accordionId = "accordion" + (AccordionIndex++);
+
+	@:<div id="@accordionId" data-bind="dxAccordion: { items: @tabsFieldName, collapsible: true, multiple: true, selectedIndex: -1 }">
+
+	<div data-options="dxTemplate: { name: 'title' }">
+		<div data-bind="dxToolbar: Luxena.Layouts.getFormAccordionToolbarOptions($data)"></div>
+		@*<div class="tab-accordion-menu main-menu-root pull-right" data-bind="dxMenu: !$data.scope ? {} : Luxena.Layouts.getToolMenuOptions($data.scope.viewMenuItems)"></div>
+		<i data-bind="attr: { class: 'title fa fa-' + ($data.icon || ($data.entity ? $data.entity._icon : null) || '') + ' fa-2x' }"></i>
+		<h2 data-bind="text: $data.title || $data.entity && $data.entity._titles"></h2>		*@
+	</div>
+
+	<div data-options="dxTemplate: { name: 'grid' }">
+		<div data-bind="dxDataGrid: (function(scope) { scope.accordionId = '@accordionId'; return scope.gridOptions; })($data.scope)" style="padding: 0 10px 20px 10px"></div>
+	</div>
+}
+
+@helper FormAccordionEnd()
+{
+	@:</div>
+}
+
+@helper FormAccordionTabs(params IHtmlString[] tabs)
+{
+	if (tabs == null) { return; }
+	foreach (var tab in tabs)
+	{
+		@tab
+	}
+}
+
+@helper FormAccordion(string tabsFieldName = "tabs", params IHtmlString[] addTabs)
+{
+	@FormAccordionBegin(tabsFieldName)
+	@FormAccordionTabs(addTabs)
+	@FormAccordionEnd()
+}

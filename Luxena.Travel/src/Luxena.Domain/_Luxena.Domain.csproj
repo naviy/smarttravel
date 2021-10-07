@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D842C223-B8E6-43A9-AA5A-65E66FF2D071}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Luxena.Domain</RootNamespace>
+    <AssemblyName>Luxena.Domain</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate, Version=3.3.1.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\NHibernate.3.3.3.4001\lib\Net35\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Contracts\EntityContract.cs" />
+    <Compile Include="Contracts\Contracts.cs" />
+    <Compile Include="Contracts\EntityContractService.cs" />
+    <Compile Include="DataAnnotations\SemanticAttributes.cs" />
+    <Compile Include="DataAnnotations\SemanticSetup.cs" />
+    <Compile Include="DataAnnotations\SemanticExtentions.cs" />
+    <Compile Include="DataAnnotations\Localization.cs" />
+    <Compile Include="DataAnnotations\SemanticTypes.cs" />
+    <Compile Include="Entities\EntityEvents.cs" />
+    <Compile Include="Entities\EntityService.cs" />
+    <Compile Include="Entities\IEntityPermissions.cs" />
+    <Compile Include="NHibernate\DomainLinqRegistry.cs" />
+    <Compile Include="NHibernate\Formula.cs" />
+    <Compile Include="Contracts\RangeRequest.cs" />
+    <Compile Include="Entities\Domain.cs" />
+    <Compile Include="Entities\Entity.cs" />
+    <Compile Include="Entities\DomainService.cs" />
+    <Compile Include="NHibernate\IUnitOfWork.cs" />
+    <Compile Include="NHibernate\SessionManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Luxena.Libs\Luxena.Base.Data.NHibernate\Luxena.Base.Data.NHibernate.csproj">
+      <Project>{1AB4C1F7-8A2D-4A06-8F71-2ECBEA71AA78}</Project>
+      <Name>Luxena.Base.Data.NHibernate</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Luxena.Libs\Luxena.Base\Luxena.Base.csproj">
+      <Project>{F3A3CE9A-AA9D-496D-8752-3B49E3BE4FE0}</Project>
+      <Name>Luxena.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Luxena.Support\_Luxena.Support.csproj">
+      <Project>{376d2f32-6120-4ad3-9266-94b793f58532}</Project>
+      <Name>_Luxena.Support</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

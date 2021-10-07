@@ -1,0 +1,1903 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!--
+	Microsoft ResX Schema
+
+	Version 2.0
+
+	The primary goals of this format is to allow a simple XML format
+	that is mostly human readable. The generation and parsing of the
+	various data types are done through the TypeConverter classes
+	associated with the data types.
+
+	Example:
+
+	... ado.net/XML headers & schema ...
+	<resheader name="resmimetype">text/microsoft-resx</resheader>
+	<resheader name="version">2.0</resheader>
+	<resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+	<resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+	<data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+	<data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+	<data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+		<value>[base64 mime encoded serialized .NET Framework object]</value>
+	</data>
+	<data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+		<comment>This is a comment</comment>
+	</data>
+
+	There are any number of "resheader" rows that contain simple
+	name/value pairs.
+
+	Each data row contains a name, and value. The row also contains a
+	type or mimetype. Type corresponds to a .NET class that support
+	text/value conversion through the TypeConverter architecture.
+	Classes that don't support this are serialized and stored with the
+	mimetype set.
+
+	The mimetype is used for serialized objects, and tells the
+	ResXResourceReader how to depersist the object. This is currently not
+	extensible. For a given mimetype the value must be set accordingly:
+
+	Note - application/x-microsoft.net.object.binary.base64 is the format
+	that the ResXResourceWriter will generate, however the reader can
+	read any of the formats listed below.
+
+	mimetype: application/x-microsoft.net.object.binary.base64
+	value   : The object must be serialized with
+			: System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+			: and then encoded with base64 encoding.
+
+	mimetype: application/x-microsoft.net.object.soap.base64
+	value   : The object must be serialized with
+			: System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+			: and then encoded with base64 encoding.
+
+	mimetype: application/x-microsoft.net.object.bytearray.base64
+	value   : The object must be serialized into a byte array
+			: using a System.ComponentModel.TypeConverter
+			: and then encoded with base64 encoding.
+	-->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+	<xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+	<xsd:element name="root" msdata:IsDataSet="true">
+	  <xsd:complexType>
+		<xsd:choice maxOccurs="unbounded">
+		  <xsd:element name="metadata">
+			<xsd:complexType>
+			  <xsd:sequence>
+				<xsd:element name="value" type="xsd:string" minOccurs="0" />
+			  </xsd:sequence>
+			  <xsd:attribute name="name" use="required" type="xsd:string" />
+			  <xsd:attribute name="type" type="xsd:string" />
+			  <xsd:attribute name="mimetype" type="xsd:string" />
+			  <xsd:attribute ref="xml:space" />
+			</xsd:complexType>
+		  </xsd:element>
+		  <xsd:element name="assembly">
+			<xsd:complexType>
+			  <xsd:attribute name="alias" type="xsd:string" />
+			  <xsd:attribute name="name" type="xsd:string" />
+			</xsd:complexType>
+		  </xsd:element>
+		  <xsd:element name="data">
+			<xsd:complexType>
+			  <xsd:sequence>
+				<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+				<xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+			  </xsd:sequence>
+			  <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+			  <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+			  <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+			  <xsd:attribute ref="xml:space" />
+			</xsd:complexType>
+		  </xsd:element>
+		  <xsd:element name="resheader">
+			<xsd:complexType>
+			  <xsd:sequence>
+				<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+			  </xsd:sequence>
+			  <xsd:attribute name="name" type="xsd:string" use="required" />
+			</xsd:complexType>
+		  </xsd:element>
+		</xsd:choice>
+	  </xsd:complexType>
+	</xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+	<value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+	<value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+	<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+	<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Common_Amount" xml:space="preserve">
+	<value>Сумма</value>
+  </data>
+  <data name="Common_Code" xml:space="preserve">
+	<value>Код</value>
+  </data>
+  <data name="Common_Office" xml:space="preserve">
+	<value>Офис</value>
+  </data>
+  <data name="Common_Commission" xml:space="preserve">
+	<value>Комиссия</value>
+  </data>
+  <data name="Common_Commission_Short" xml:space="preserve">
+	<value>Ком.</value>
+  </data>
+  <data name="Common_Date" xml:space="preserve">
+	<value>Дата</value>
+  </data>
+  <data name="Common_Discount" xml:space="preserve">
+	<value>Скидка</value>
+  </data>
+  <data name="Common_Name" xml:space="preserve">
+	<value>Название</value>
+  </data>
+  <data name="Common_Note" xml:space="preserve">
+	<value>Примечание</value>
+  </data>
+  <data name="Common_Number" xml:space="preserve">
+	<value>Номер</value>
+  </data>
+  <data name="Common_Number1" xml:space="preserve">
+	<value>Номер 1</value>
+  </data>
+  <data name="Common_Number2" xml:space="preserve">
+	<value>Номер 2</value>
+  </data>
+  <data name="Common_CardType" xml:space="preserve">
+	<value>Тип карты</value>
+  </data>
+  <data name="Common_Remarks" xml:space="preserve">
+	<value>Замечания</value>
+  </data>
+  <data name="Common_Seller" xml:space="preserve">
+	<value>Продавец</value>
+  </data>
+  <data name="Common_Status" xml:space="preserve">
+	<value>Статус</value>
+  </data>
+  <data name="Common_Type" xml:space="preserve">
+	<value>Тип</value>
+  </data>
+  <data name="CopyOf" xml:space="preserve">
+	<value>Копия {0}</value>
+  </data>
+  <data name="Currency" xml:space="preserve">
+	<value>Валюта</value>
+  </data>
+  <data name="Currency_Caption_List" xml:space="preserve">
+	<value>Валюты</value>
+  </data>
+  <data name="Currency_Short" xml:space="preserve">
+	<value>Вал.</value>
+  </data>
+  <data name="Department" xml:space="preserve">
+	<value>Подразделение</value>
+  </data>
+  <data name="Department_Caption_List" xml:space="preserve">
+	<value>Подразделения</value>
+  </data>
+  <data name="Party_ReportsTo" xml:space="preserve">
+	<value>Подчиняется</value>
+  </data>
+  <data name="Organization" xml:space="preserve">
+	<value>Организация</value>
+  </data>
+  <data name="Organization_Caption_List" xml:space="preserve">
+	<value>Организации</value>
+  </data>
+  <data name="FlightSegment" xml:space="preserve">
+	<value>Сегмент</value>
+  </data>
+  <data name="FlightSegment_Caption_List" xml:space="preserve">
+	<value>Полётные сегменты</value>
+  </data>
+  <data name="Party" xml:space="preserve">
+	<value>Контрагент</value>
+  </data>
+  <data name="PaymentType" xml:space="preserve">
+	<value>Тип оплаты</value>
+  </data>
+  <data name="Person" xml:space="preserve">
+	<value>Персона</value>
+  </data>
+  <data name="Person_Caption_List" xml:space="preserve">
+	<value>Персоны</value>
+  </data>
+  <data name="Party_Caption_List" xml:space="preserve">
+	<value>Контрагенты</value>
+  </data>
+  <data name="Department_Format_ToString" xml:space="preserve">
+	<value>{0} в {1}</value>
+  </data>
+  <data name="Person_Format_ToString" xml:space="preserve">
+	<value>{0} ({1})</value>
+  </data>
+  <data name="Airport_Format_ToString" xml:space="preserve">
+	<value>{0} - {1}</value>
+  </data>
+  <data name="Airline" xml:space="preserve">
+	<value>Авиакомпания</value>
+  </data>
+  <data name="Airport" xml:space="preserve">
+	<value>Аэропорт</value>
+  </data>
+  <data name="Airline_Caption_List" xml:space="preserve">
+	<value>Авиакомпании</value>
+  </data>
+  <data name="Airport_Caption_List" xml:space="preserve">
+	<value>Аэропорты</value>
+  </data>
+  <data name="Common_Country" xml:space="preserve">
+	<value>Страна</value>
+  </data>
+  <data name="DomainTest_BoolTest" xml:space="preserve">
+	<value>BoolTest</value>
+  </data>
+  <data name="DomainTest_IntTest" xml:space="preserve">
+	<value>IntTest</value>
+  </data>
+  <data name="DomainTest_EnumTest" xml:space="preserve">
+	<value>EnumTest</value>
+  </data>
+  <data name="Common_IssueDate" xml:space="preserve">
+	<value>Дата выпуска</value>
+  </data>
+  <data name="Common_Fare" xml:space="preserve">
+	<value>Тариф</value>
+  </data>
+  <data name="Common_FeesTotal" xml:space="preserve">
+	<value>Таксы</value>
+  </data>
+  <data name="Common_ServiceFee" xml:space="preserve">
+	<value>Сервисный сбор</value>
+  </data>
+  <data name="Common_PassengerName" xml:space="preserve">
+	<value>Имя пассажира</value>
+  </data>
+  <data name="Common_Passenger" xml:space="preserve">
+	<value>Пассажир</value>
+  </data>
+  <data name="AviaDocument_PnrCode" xml:space="preserve">
+	<value>Бронировка</value>
+  </data>
+  <data name="AviaDocument_Booker" xml:space="preserve">
+	<value>Бронировщик</value>
+  </data>
+  <data name="AviaDocument_Ticketer" xml:space="preserve">
+	<value>Тикетер</value>
+  </data>
+  <data name="AviaDocument_TourCode" xml:space="preserve">
+	<value>Туркод</value>
+  </data>
+  <data name="FlightSegment_Carrier" xml:space="preserve">
+	<value>Перевозчик</value>
+  </data>
+  <data name="FlightSegment_DepartureTime" xml:space="preserve">
+	<value>Отправление</value>
+  </data>
+  <data name="FlightSegment_FareBasis" xml:space="preserve">
+	<value>База тарифа</value>
+  </data>
+  <data name="FlightSegment_FlightNumber" xml:space="preserve">
+	<value>Рейс</value>
+  </data>
+  <data name="FlightSegment_FromAirportName" xml:space="preserve">
+	<value>Из аэропорта</value>
+  </data>
+  <data name="FlightSegment_ToAirportName" xml:space="preserve">
+	<value>В аэропорт</value>
+  </data>
+  <data name="Product_Total" xml:space="preserve">
+	<value>Итого по АК</value>
+  </data>
+  <data name="Product_GrandTotal" xml:space="preserve">
+	<value>К оплате</value>
+  </data>
+  <data name="Common_Intermediary" xml:space="preserve">
+	<value>Посредник</value>
+  </data>
+  <data name="AviaDocument_ConjunctionNumbers" xml:space="preserve">
+	<value>Доп. номера</value>
+  </data>
+  <data name="FlightClass_Business" xml:space="preserve">
+	<value>Бизнес</value>
+  </data>
+  <data name="FlightClass_Economy" xml:space="preserve">
+	<value>Эконом</value>
+  </data>
+  <data name="FlightClass_First" xml:space="preserve">
+	<value>Первый</value>
+  </data>
+  <data name="FlightClass_PremiumEconomy" xml:space="preserve">
+	<value>Эконом-премиум</value>
+  </data>
+  <data name="Party_IsCustomer" xml:space="preserve">
+	<value>Заказчик</value>
+  </data>
+  <data name="Party_IsSupplier" xml:space="preserve">
+	<value>Поставщик</value>
+  </data>
+  <data name="Person_LegalName" xml:space="preserve">
+	<value>ФИО</value>
+  </data>
+  <data name="Party_LegalName" xml:space="preserve">
+	<value>Официальное название</value>
+  </data>
+  <data name="Airport_LocalCode" xml:space="preserve">
+	<value>Внутренний код</value>
+  </data>
+  <data name="Airport_Settlement" xml:space="preserve">
+	<value>Населенный пункт (англ.)</value>
+  </data>
+  <data name="AviaDocument_Caption_List" xml:space="preserve">
+	<value>Авиа документы</value>
+  </data>
+  <data name="Pasteboard_Caption_List" xml:space="preserve">
+	<value>Ж/д билеты</value>
+  </data>
+  <data name="Pasteboard" xml:space="preserve">
+	<value>Ж/д билет</value>
+  </data>
+  <data name="PasteboardRefund" xml:space="preserve">
+	<value>Возврат ж/д билета</value>
+  </data>
+  <data name="PasteboardRefund_Caption_List" xml:space="preserve">
+	<value>Возвраты ж/д билетов</value>
+  </data>
+  <data name="AviaDocument_CommissionPercent" xml:space="preserve">
+	<value>% комиссии</value>
+  </data>
+  <data name="AviaDocument_Origin" xml:space="preserve">
+	<value>Источник</value>
+  </data>
+  <data name="AviaDocument_Originator" xml:space="preserve">
+	<value>Система бронирования</value>
+  </data>
+  <data name="AviaDocument_AirlinePnrCode" xml:space="preserve">
+	<value>Код Pnr</value>
+  </data>
+  <data name="AviaDocument_OriginalDocument" xml:space="preserve">
+	<value>Оригинальный документ</value>
+  </data>
+  <data name="Organization_AirlineIataCode" xml:space="preserve">
+	<value>IATA код</value>
+  </data>
+  <data name="Organization_AirlinePrefixCode" xml:space="preserve">
+	<value>Prefix код</value>
+  </data>
+  <data name="User_Caption_List" xml:space="preserve">
+	<value>Пользователи</value>
+  </data>
+  <data name="User" xml:space="preserve">
+	<value>Пользователь</value>
+  </data>
+  <data name="User_Active" xml:space="preserve">
+	<value>Активный</value>
+  </data>
+  <data name="User_IsAdministrator" xml:space="preserve">
+	<value>Администратор</value>
+  </data>
+  <data name="User_IsAnalyst" xml:space="preserve">
+	<value>Аналитик</value>
+  </data>
+  <data name="User_IsCashier" xml:space="preserve">
+	<value>Кассир</value>
+  </data>
+  <data name="User_IsManager" xml:space="preserve">
+	<value>Менеджер подразделения</value>
+  </data>
+  <data name="User_IsSubAgent" xml:space="preserve">
+	<value>Субагент</value>
+  </data>
+  <data name="User_IsSupervisor" xml:space="preserve">
+	<value>Супервизор</value>
+  </data>
+  <data name="User_IsAgent" xml:space="preserve">
+	<value>Агент</value>
+  </data>
+  <data name="User_Name" xml:space="preserve">
+	<value>Логин</value>
+  </data>
+  <data name="User_Roles" xml:space="preserve">
+	<value>Роли</value>
+  </data>
+  <data name="UserVisit_Caption_List" xml:space="preserve">
+	<value>Заходы пользователей</value>
+  </data>
+  <data name="UserVisit" xml:space="preserve">
+	<value>Заход пользователя</value>
+  </data>
+  <data name="GdsFile_Caption_List" xml:space="preserve">
+	<value>Gds-файлы</value>
+  </data>
+  <data name="GdsFile_Content" xml:space="preserve">
+	<value>Содержимое</value>
+  </data>
+  <data name="GdsFile_ImportOutput" xml:space="preserve">
+	<value>Журнал</value>
+  </data>
+  <data name="GdsFile_ImportResult" xml:space="preserve">
+	<value>Результат импорта</value>
+  </data>
+  <data name="GdsFile_TimeStamp" xml:space="preserve">
+	<value>Дата импорта</value>
+  </data>
+  <data name="GdsFile" xml:space="preserve">
+	<value>Gds-файл</value>
+  </data>
+  <data name="AirFile" xml:space="preserve">
+	<value>Air-файл</value>
+  </data>
+  <data name="SabreFilFile" xml:space="preserve">
+	<value>SabreFil-файл</value>
+  </data>
+  <data name="ImportResult_Error" xml:space="preserve">
+	<value>Ошибка</value>
+  </data>
+  <data name="ImportResult_None" xml:space="preserve">
+	<value>Нет</value>
+  </data>
+  <data name="ImportResult_Success" xml:space="preserve">
+	<value>Импорт выполнен успешно</value>
+  </data>
+  <data name="ImportResult_Warn" xml:space="preserve">
+	<value>Предупреждение</value>
+  </data>
+  <data name="GdsFile_FileType" xml:space="preserve">
+	<value>Тип</value>
+  </data>
+  <data name="GdsAgent_Caption_List" xml:space="preserve">
+	<value>Gds-агенты</value>
+  </data>
+  <data name="GdsAgent" xml:space="preserve">
+	<value>Gds-агент</value>
+  </data>
+  <data name="GdsAgent_Agent" xml:space="preserve">
+	<value>Код агента</value>
+  </data>
+  <data name="GdsAgent_OfficeCode" xml:space="preserve">
+	<value>Код офиса</value>
+  </data>
+  <data name="GdsAgent_Origin" xml:space="preserve">
+	<value>Источник документов</value>
+  </data>
+  <data name="AviaDocument_AirlinePrefixCode" xml:space="preserve">
+	<value>Код АК</value>
+  </data>
+  <data name="AviaMco" xml:space="preserve">
+	<value>MCO</value>
+  </data>
+  <data name="AviaRefund" xml:space="preserve">
+	<value>Возврат авиабилета</value>
+  </data>
+  <data name="AviaTicket" xml:space="preserve">
+	<value>Авиабилет</value>
+  </data>
+  <data name="AviaDocument_BookerCode" xml:space="preserve">
+	<value>Код бронировщика</value>
+  </data>
+  <data name="AviaDocument_BookerOffice" xml:space="preserve">
+	<value>Офис бронировщика</value>
+  </data>
+  <data name="AviaDocument_TicketerCode" xml:space="preserve">
+	<value>Код тикетера</value>
+  </data>
+  <data name="AviaDocument_TicketerOffice" xml:space="preserve">
+	<value>Офис тикетера</value>
+  </data>
+  <data name="Common_Total" xml:space="preserve">
+	<value>Итого</value>
+  </data>
+  <data name="AviaTicket_FlightSegment" xml:space="preserve">
+	<value>Сегменты</value>
+  </data>
+  <data name="FlightSegment_ArrivalTerminal" xml:space="preserve">
+	<value>Терминал</value>
+  </data>
+  <data name="FlightSegment_ArrivalTime" xml:space="preserve">
+	<value>Прибытие</value>
+  </data>
+  <data name="FlightSegment_CheckInTerminal" xml:space="preserve">
+	<value>Терминал</value>
+  </data>
+  <data name="FlightSegment_CheckInTime" xml:space="preserve">
+	<value>Регистрация</value>
+  </data>
+  <data name="FlightSegment_Duration" xml:space="preserve">
+	<value>Перелет</value>
+  </data>
+  <data name="FlightSegment_Luggage" xml:space="preserve">
+	<value>Багаж</value>
+  </data>
+  <data name="FlightSegment_Meal" xml:space="preserve">
+	<value>Питание</value>
+  </data>
+  <data name="FlightSegment_NumberOfStops" xml:space="preserve">
+	<value>Остановки</value>
+  </data>
+  <data name="FlightSegment_Seat" xml:space="preserve">
+	<value>Место</value>
+  </data>
+  <data name="FlightSegment_ServiceClass" xml:space="preserve">
+	<value>Класс</value>
+  </data>
+  <data name="MealType_AlcoholicBeveragesForPurchase" xml:space="preserve">
+	<value>Платные алкогольные напитки</value>
+  </data>
+  <data name="MealType_AlcoholicComplimentaryBeverages" xml:space="preserve">
+	<value>Бесплатные алкогольные напитки</value>
+  </data>
+  <data name="MealType_Breakfast" xml:space="preserve">
+	<value>Завтрак</value>
+  </data>
+  <data name="MealType_ColdMeal" xml:space="preserve">
+	<value>Холодная еда</value>
+  </data>
+  <data name="MealType_ContinentalBreakfast" xml:space="preserve">
+	<value>Континентальный завтрак</value>
+  </data>
+  <data name="MealType_Dinner" xml:space="preserve">
+	<value>Обед</value>
+  </data>
+  <data name="MealType_DutyFree" xml:space="preserve">
+	<value>DutyFree</value>
+  </data>
+  <data name="MealType_FoodForPurchase" xml:space="preserve">
+	<value>Платная еда</value>
+  </data>
+  <data name="MealType_HotMeal" xml:space="preserve">
+	<value>Горячая еда</value>
+  </data>
+  <data name="MealType_Lunch" xml:space="preserve">
+	<value>Ланч</value>
+  </data>
+  <data name="MealType_Meal" xml:space="preserve">
+	<value>Еда</value>
+  </data>
+  <data name="MealType_Refreshment" xml:space="preserve">
+	<value>Напитки</value>
+  </data>
+  <data name="MealType_Snack" xml:space="preserve">
+	<value>Закуска</value>
+  </data>
+  <data name="ServiceClass_Business" xml:space="preserve">
+	<value>Бизнес</value>
+  </data>
+  <data name="ServiceClass_Economy" xml:space="preserve">
+	<value>Эконом</value>
+  </data>
+  <data name="ServiceClass_First" xml:space="preserve">
+	<value>Первый</value>
+  </data>
+  <data name="ServiceClass_PremiumEconomy" xml:space="preserve">
+	<value>Эконом-премиум</value>
+  </data>
+  <data name="Common_EqualFare" xml:space="preserve">
+	<value>Экв. тариф</value>
+  </data>
+  <data name="Common_CancelFee" xml:space="preserve">
+	<value>Штраф за отмену</value>
+  </data>
+  <data name="AviaRefund_RefundedDocument" xml:space="preserve">
+	<value>Исходный документ</value>
+  </data>
+  <data name="Common_RefundServiceFee" xml:space="preserve">
+	<value>Cбор за возврат</value>
+  </data>
+  <data name="Product_Refund" xml:space="preserve">
+	<value>Возврат</value>
+  </data>
+  <data name="Common_ServiceFeePenalty" xml:space="preserve">
+	<value>Штраф сервисного сбора</value>
+  </data>
+  <data name="Common_IsProcessed" xml:space="preserve">
+	<value>Обработан</value>
+  </data>
+  <data name="Common_IsVoid" xml:space="preserve">
+	<value>Аннулирован</value>
+  </data>
+  <data name="Common_RequiresProcessing" xml:space="preserve">
+	<value>К обработке</value>
+  </data>
+  <data name="Product_TotalToBeTransfered" xml:space="preserve">
+	<value>Сумма к перечислению в АК</value>
+  </data>
+  <data name="Common_Vat" xml:space="preserve">
+	<value>В т.ч. НДС</value>
+  </data>
+  <data name="Common_WithoutVat" xml:space="preserve">
+	<value>без НДС</value>
+  </data>
+  <data name="AviaDocument_Itinerary" xml:space="preserve">
+	<value>Маршрут</value>
+  </data>
+  <data name="AviaTicket_SegmentClasses" xml:space="preserve">
+	<value>Классы сегментов</value>
+  </data>
+  <data name="Common_Percent" xml:space="preserve">
+	<value>Процент</value>
+  </data>
+  <data name="Common_Subject" xml:space="preserve">
+	<value>Тема</value>
+  </data>
+  <data name="Task" xml:space="preserve">
+	<value>Задача</value>
+  </data>
+  <data name="TaskComment" xml:space="preserve">
+	<value>Комментарий</value>
+  </data>
+  <data name="Task_Caption_List" xml:space="preserve">
+	<value>Задачи</value>
+  </data>
+  <data name="Task_DueDate" xml:space="preserve">
+	<value>Выполнить до</value>
+  </data>
+  <data name="Task_RelatedTo" xml:space="preserve">
+	<value>Относительно</value>
+  </data>
+  <data name="Common_Description" xml:space="preserve">
+	<value>Описание</value>
+  </data>
+  <data name="Common_Addresses" xml:space="preserve">
+	<value>Адреса</value>
+  </data>
+  <data name="Party_ActualAddress" xml:space="preserve">
+	<value>Фактический адрес</value>
+  </data>
+  <data name="Common_Email" xml:space="preserve">
+	<value>E-mail</value>
+  </data>
+  <data name="Common_Emails" xml:space="preserve">
+	<value>E-mails</value>
+  </data>
+  <data name="Common_Email1" xml:space="preserve">
+	<value>E-mail 1</value>
+  </data>
+  <data name="Common_Email2" xml:space="preserve">
+	<value>E-mail 2</value>
+  </data>
+  <data name="Party_Fax" xml:space="preserve">
+	<value>Факс</value>
+  </data>
+  <data name="Party_LegalAddress" xml:space="preserve">
+	<value>Юридический адрес</value>
+  </data>
+  <data name="Common_Phone" xml:space="preserve">
+	<value>Телефон</value>
+  </data>
+  <data name="Common_Phones" xml:space="preserve">
+	<value>Телефоны</value>
+  </data>
+  <data name="Common_Phone1" xml:space="preserve">
+	<value>Телефон 1</value>
+  </data>
+  <data name="Common_Phone2" xml:space="preserve">
+	<value>Телефон 2</value>
+  </data>
+  <data name="MilesCard" xml:space="preserve">
+	<value>Мильная карточка</value>
+  </data>
+  <data name="MilesCard_Organization" xml:space="preserve">
+	<value>Организация</value>
+  </data>
+  <data name="Passport" xml:space="preserve">
+	<value>Паспорт</value>
+  </data>
+  <data name="Passport_Citizenship" xml:space="preserve">
+	<value>Гражданство</value>
+  </data>
+  <data name="Passport_ExpiredOn" xml:space="preserve">
+	<value>Действителен до</value>
+  </data>
+  <data name="Passport_FirstName" xml:space="preserve">
+	<value>Имя</value>
+  </data>
+  <data name="Passport_Gender" xml:space="preserve">
+	<value>Пол</value>
+  </data>
+  <data name="Passport_IssuedBy" xml:space="preserve">
+	<value>Выдавшая страна</value>
+  </data>
+  <data name="Passport_LastName" xml:space="preserve">
+	<value>Фамилия</value>
+  </data>
+  <data name="Passport_MiddleName" xml:space="preserve">
+	<value>Отчество</value>
+  </data>
+  <data name="MilesCard_Caption_List" xml:space="preserve">
+	<value>Мильные карточки</value>
+  </data>
+  <data name="Passport_Caption_List" xml:space="preserve">
+	<value>Паспорта</value>
+  </data>
+  <data name="Gender_Female" xml:space="preserve">
+	<value>Женский</value>
+  </data>
+  <data name="Gender_Male" xml:space="preserve">
+	<value>Мужской</value>
+  </data>
+  <data name="Passport_AmadeusString" xml:space="preserve">
+	<value>Данные для Amadeus</value>
+  </data>
+  <data name="Passport_GalileoString" xml:space="preserve">
+	<value>Данные для Galileo</value>
+  </data>
+  <data name="Country" xml:space="preserve">
+	<value>Страна</value>
+  </data>
+  <data name="Country_Caption_List" xml:space="preserve">
+	<value>Страны</value>
+  </data>
+  <data name="Country_ThreeCharCode" xml:space="preserve">
+	<value>Код (3-х сим.)</value>
+  </data>
+  <data name="Country_TwoCharCode" xml:space="preserve">
+	<value>Код (2-х сим.)</value>
+  </data>
+  <data name="Passport_Birthday" xml:space="preserve">
+	<value>Дата рождения</value>
+  </data>
+  <data name="Person_Birthday" xml:space="preserve">
+	<value>Дата рождения</value>
+  </data>
+  <data name="TaskStatus_Closed" xml:space="preserve">
+	<value>Закрыта</value>
+  </data>
+  <data name="TaskStatus_InProgress" xml:space="preserve">
+	<value>Выполняется</value>
+  </data>
+  <data name="TaskStatus_Open" xml:space="preserve">
+	<value>Открыта</value>
+  </data>
+  <data name="TaskStatus_WaitForResponse" xml:space="preserve">
+	<value>В ожидании ответа</value>
+  </data>
+  <data name="AviaDocument_PaymentForm" xml:space="preserve">
+	<value>Форма оплаты</value>
+  </data>
+  <data name="Common_Reissue" xml:space="preserve">
+	<value>Перевыпуск</value>
+  </data>
+	<data name="Common_ReissueFor" xml:space="preserve">
+	<value>Перевыпуск для</value>
+  </data>
+  <data name="Common_ReissuedBy" xml:space="preserve">
+	<value>Был перевыпуск</value>
+  </data>
+  <data name="AirlineServiceClass_Caption_List" xml:space="preserve">
+	<value>Сервис классы</value>
+  </data>
+  <data name="ServiceClass" xml:space="preserve">
+	<value>Сервис класс</value>
+  </data>
+  <data name="MirFile" xml:space="preserve">
+	<value>Mir-файл</value>
+  </data>
+  <data name="TktFile" xml:space="preserve">
+	<value>Tkt-файл</value>
+  </data>
+  <data name="AirlineServiceClass" xml:space="preserve">
+	<value>Сервис класс</value>
+  </data>
+  <data name="AviaDocumentOrigin_AmadeusAir" xml:space="preserve">
+	<value>Amadeus AIR</value>
+  </data>
+  <data name="AviaDocumentOrigin_AmadeusPrint" xml:space="preserve">
+	<value>Amadeus Print</value>
+  </data>
+  <data name="AviaDocumentOrigin_BspLink" xml:space="preserve">
+	<value>Bsp Link</value>
+  </data>
+  <data name="AviaDocumentOrigin_GalileoMir" xml:space="preserve">
+	<value>Galileo MIR</value>
+  </data>
+  <data name="AviaDocumentOrigin_GalileoTkt" xml:space="preserve">
+	<value>Galileo Ticket</value>
+  </data>
+  <data name="AviaDocumentOrigin_GalileoXml" xml:space="preserve">
+	<value>Galileo XML</value>
+  </data>
+  <data name="AviaDocumentOrigin_Manual" xml:space="preserve">
+	<value>Ручной ввод</value>
+  </data>
+  <data name="Product_Caption_List" xml:space="preserve">
+	<value>Все документы</value>
+  </data>
+  <data name="ProductType_Accommodation" xml:space="preserve">
+	<value>Проживание</value>
+  </data>
+  <data name="ProductType_AviaMco" xml:space="preserve">
+	<value>MCO</value>
+  </data>
+  <data name="ProductType_AviaRefund" xml:space="preserve">
+	<value>Возврат авиабилета</value>
+  </data>
+  <data name="ProductType_AviaTicket" xml:space="preserve">
+	<value>Авиабилет</value>
+  </data>
+  <data name="ProductType_CarRental" xml:space="preserve">
+	<value>Аренда авто</value>
+  </data>
+  <data name="ProductType_Excursion" xml:space="preserve">
+	<value>Экскурсия</value>
+  </data>
+  <data name="ProductType_GenericProduct" xml:space="preserve">
+	<value>Доп.услуга</value>
+  </data>
+  <data name="ProductType_Insurance" xml:space="preserve">
+	<value>Страховка</value>
+  </data>
+  <data name="ProductType_Isic" xml:space="preserve">
+	<value>Isic</value>
+  </data>
+  <data name="ProductType_Pasteboard" xml:space="preserve">
+	<value>Ж/д билет</value>
+  </data>
+  <data name="ProductType_SimCard" xml:space="preserve">
+	<value>SIM-карта</value>
+  </data>
+  <data name="ProductType_Tour" xml:space="preserve">
+	<value>Тур</value>
+  </data>
+  <data name="ProductType_Transfer" xml:space="preserve">
+	<value>Трансфер</value>
+  </data>
+  <data name="ProductType_BusTicket" xml:space="preserve">
+	<value>Автобусный билет</value>
+  </data>
+  <data name="ProductType_CarRentalRefund" xml:space="preserve">
+	<value>Возврат аренды авто</value>
+  </data>
+  <data name="ProductType_ExcursionRefund" xml:space="preserve">
+	<value>Возврат экскурсии</value>
+  </data>
+  <data name="ProductType_GenericProductRefund" xml:space="preserve">
+	<value>Возврат доп.услуги</value>
+  </data>
+  <data name="ProductType_InsuranceRefund" xml:space="preserve">
+	<value>Возврат страховки</value>
+  </data>
+  <data name="ProductType_IsicRefund" xml:space="preserve">
+	<value>Возврат Isic</value>
+  </data>
+  <data name="ProductType_PasteboardRefund" xml:space="preserve">
+	<value>Возврат ж/д билета</value>
+  </data>
+  <data name="ProductType_SimCardRefund" xml:space="preserve">
+	<value>Возврат SIM-карты</value>
+  </data>
+  <data name="ProductType_TourRefund" xml:space="preserve">
+	<value>Возврат тура</value>
+  </data>
+  <data name="ProductType_TransferRefund" xml:space="preserve">
+	<value>Возврат трансфера</value>
+  </data>
+  <data name="ProductType_BusTicketRefund" xml:space="preserve">
+	<value>Возврат автобусного билета</value>
+  </data>
+  <data name="CarRentalRefund" xml:space="preserve">
+	<value>Возврат аренды авто</value>
+  </data>
+  <data name="ExcursionRefund" xml:space="preserve">
+	<value>Возврат экскурсии</value>
+  </data>
+  <data name="GenericProductRefund" xml:space="preserve">
+	<value>Возврат доп.услуги</value>
+  </data>
+  <data name="InsuranceRefund" xml:space="preserve">
+	<value>Возврат страховки</value>
+  </data>
+  <data name="IsicRefund" xml:space="preserve">
+	<value>Возврат Isic</value>
+  </data>
+  <data name="SimCardRefund" xml:space="preserve">
+	<value>Возврат SIM-карты</value>
+  </data>
+  <data name="TourRefund" xml:space="preserve">
+	<value>Возврат тура</value>
+  </data>
+  <data name="TransferRefund" xml:space="preserve">
+	<value>Возврат трансфера</value>
+  </data>
+  <data name="BusTicketRefund" xml:space="preserve">
+	<value>Возврат автобусного билета</value>
+  </data>
+  <data name="AviaMco_Caption_List" xml:space="preserve">
+	<value>MCO</value>
+  </data>
+  <data name="AviaRefund_Caption_List" xml:space="preserve">
+	<value>Возвраты авиабилетов</value>
+  </data>
+  <data name="AviaTicket_Caption_List" xml:space="preserve">
+	<value>Авиабилеты</value>
+  </data>
+  <data name="AviaRefund_CancelCommission" xml:space="preserve">
+	<value>Комисия за возврат</value>
+  </data>
+  <data name="AviaDocument_ExtraCharge" xml:space="preserve">
+	<value>Наценка</value>
+  </data>
+  <data name="AviaDocument_Profit" xml:space="preserve">
+	<value>Прибыль</value>
+  </data>
+  <data name="FlightSegment_FromAirportCode" xml:space="preserve">
+	<value>Код</value>
+  </data>
+  <data name="FlightSegment_CarrierPrefixCode" xml:space="preserve">
+	<value>Код</value>
+  </data>
+  <data name="FlightSegment_MealTypes" xml:space="preserve">
+	<value>Питание</value>
+  </data>
+  <data name="FlightSegment_ServiceClassCode" xml:space="preserve">
+	<value>Код класса</value>
+  </data>
+  <data name="FlightSegment_Stopover" xml:space="preserve">
+	<value>Конечный пункт</value>
+  </data>
+  <data name="SystemConfiguration" xml:space="preserve">
+	<value>Настройки системы</value>
+  </data>
+  <data name="Order_Caption_List" xml:space="preserve">
+	<value>Заказы</value>
+  </data>
+  <data name="Common_Customer" xml:space="preserve">
+	<value>Заказчик</value>
+  </data>
+  <data name="Order_Agreement" xml:space="preserve">
+	<value>Договор</value>
+  </data>
+  <data name="Order_DaysTillExpiration" xml:space="preserve">
+	<value>Действителен в течение</value>
+  </data>
+  <data name="Order_IssueDate" xml:space="preserve">
+	<value>Дата</value>
+  </data>
+  <data name="Common_BillTo" xml:space="preserve">
+	<value>Плательщик</value>
+  </data>
+  <data name="Common_BillToName" xml:space="preserve">
+	<value>Плательщик</value>
+  </data>
+  <data name="Common_AssignedTo" xml:space="preserve">
+	<value>Ответственный</value>
+  </data>
+  <data name="Order" xml:space="preserve">
+	<value>Заказ</value>
+  </data>
+  <data name="Order_IsAviaCompanyAndAgencyDataSplitted" xml:space="preserve">
+	<value>Сервисный сбор отдельной строкой</value>
+  </data>
+  <data name="Order_Vat" xml:space="preserve">
+	<value>В т.ч. НДС</value>
+  </data>
+  <data name="Order_Invoices" xml:space="preserve">
+	<value>Счета / квитанции</value>
+  </data>
+  <data name="OrderItem_Price" xml:space="preserve">
+	<value>Цена</value>
+  </data>
+  <data name="OrderItem_Quantity" xml:space="preserve">
+	<value>Количество</value>
+  </data>
+  <data name="OrderItem_Text" xml:space="preserve">
+	<value>Название</value>
+  </data>
+  <data name="OrderItem" xml:space="preserve">
+	<value>Позиция заказа</value>
+  </data>
+  <data name="OrderItems" xml:space="preserve">
+	<value>Позиции</value>
+  </data>
+  <data name="AmadeusRizUsingMode_All" xml:space="preserve">
+	<value>Использовать полностью</value>
+  </data>
+  <data name="AmadeusRizUsingMode_None" xml:space="preserve">
+	<value>Не использовать</value>
+  </data>
+  <data name="AmadeusRizUsingMode_ServiceFeeOnly" xml:space="preserve">
+	<value>Использовать сервисный сбор</value>
+  </data>
+  <data name="OrderItem_Text_Itinerary" xml:space="preserve">
+	<value>маршрут</value>
+  </data>
+  <data name="OrderItem_Discount" xml:space="preserve">
+	<value>Сумма скидки</value>
+  </data>
+  <data name="OrderItem_Vat" xml:space="preserve">
+	<value>Сумма НДС</value>
+  </data>
+  <data name="Party_Name" xml:space="preserve">
+	<value>Наименование</value>
+  </data>
+  <data name="Airport_LocalizedSettlement" xml:space="preserve">
+	<value>Населенный пункт</value>
+  </data>
+  <data name="OrderItem_GrandTotal" xml:space="preserve">
+	<value>Итого</value>
+  </data>
+  <data name="OrderItem_HasVat" xml:space="preserve">
+	<value>Облагать НДС</value>
+  </data>
+  <data name="Person_MilesCardsString" xml:space="preserve">
+	<value>Мильные карточки</value>
+  </data>
+  <data name="GdsAgent_Office" xml:space="preserve">
+	<value>Офис</value>
+  </data>
+  <data name="TktFile_OfficeCode" xml:space="preserve">
+	<value>Код офиса</value>
+  </data>
+  <data name="DocumentOwner" xml:space="preserve">
+	<value>Владелец документов</value>
+  </data>
+  <data name="DocumentOwner_Caption_List" xml:space="preserve">
+	<value>Владельцы документов</value>
+  </data>
+  <data name="AirlineCommissionPercents" xml:space="preserve">
+	<value>Комиссия от авиакомпании</value>
+  </data>
+  <data name="AirlineCommissionPercents_Caption_List" xml:space="preserve">
+	<value>Комиссии от авиакомпаний</value>
+  </data>
+  <data name="AirlineMonthCommission" xml:space="preserve">
+	<value>Доп.комиссия от авиакомпании</value>
+  </data>
+  <data name="AirlineMonthCommission_Caption_List" xml:space="preserve">
+	<value>Доп.комиссия от авиакомпании</value>
+  </data>
+  <data name="AirlineCommissionPercents_Domestic" xml:space="preserve">
+	<value>Перелет внутри страны, %</value>
+  </data>
+  <data name="AirlineCommissionPercents_InterlineDomestic" xml:space="preserve">
+	<value>Перелет внутри страны (interline), %</value>
+  </data>
+  <data name="AirlineCommissionPercents_InterlineInternational" xml:space="preserve">
+	<value>Международный перелет (interline), %</value>
+  </data>
+  <data name="AirlineCommissionPercents_International" xml:space="preserve">
+	<value>Международный перелет, %</value>
+  </data>
+  <data name="Common_Reservation" xml:space="preserve">
+	<value>Бронировка</value>
+  </data>
+  <data name="PrintFile" xml:space="preserve">
+	<value>Print-файл</value>
+  </data>
+  <data name="PrintFile_FilePath" xml:space="preserve">
+	<value>Файл</value>
+  </data>
+  <data name="PrintFile_Office" xml:space="preserve">
+	<value>Офис</value>
+  </data>
+  <data name="PrintFile_UserName" xml:space="preserve">
+	<value>Пользователь</value>
+  </data>
+  <data name="PaymentType_WithoutPayment" xml:space="preserve">
+	<value>Без оплаты</value>
+  </data>
+  <data name="DocumentAccess" xml:space="preserve">
+	<value>Доступ к документам</value>
+  </data>
+  <data name="DocumentAccess_Caption_List" xml:space="preserve">
+	<value>Доступ к документам</value>
+  </data>
+  <data name="Common_Owner" xml:space="preserve">
+	<value>Владелец</value>
+  </data>
+  <data name="DocumentAccess_FullDocumentControl" xml:space="preserve">
+	<value>Полный доступ</value>
+  </data>
+  <data name="Common_TicketingIataOffice" xml:space="preserve">
+	<value>IATA офис</value>
+  </data>
+  <data name="PenalizeOperationStatus_Chargeable" xml:space="preserve">
+	<value>Штраф</value>
+  </data>
+  <data name="PenalizeOperationStatus_NotAllowed" xml:space="preserve">
+	<value>Недоступно</value>
+  </data>
+  <data name="PenalizeOperationStatus_NotChargeable" xml:space="preserve">
+	<value>Без штрафа</value>
+  </data>
+  <data name="AviaTicket_PenalizeOperations" xml:space="preserve">
+	<value>Штрафные санкции</value>
+  </data>
+  <data name="Payment_Amount" xml:space="preserve">
+	<value>Сумма</value>
+  </data>
+  <data name="Payment_Caption_List" xml:space="preserve">
+	<value>Платежи</value>
+  </data>
+  <data name="Payment_Payer" xml:space="preserve">
+	<value>Плательщик</value>
+  </data>
+  <data name="Payment_PaymentForm" xml:space="preserve">
+	<value>Форма оплаты</value>
+  </data>
+  <data name="Payment_ReceivedFrom" xml:space="preserve">
+	<value>Получен от</value>
+  </data>
+  <data name="Payment_RegisteredBy" xml:space="preserve">
+	<value>Зарегистрирован</value>
+  </data>
+  <data name="Payment" xml:space="preserve">
+	<value>Платеж</value>
+  </data>
+  <data name="PaymentForm_CashInOrder" xml:space="preserve">
+	<value>ПКО</value>
+  </data>
+  <data name="PaymentForm_CashOutOrder" xml:space="preserve">
+	<value>РКО</value>
+  </data>
+  <data name="PaymentForm_Check" xml:space="preserve">
+	<value>Кассовый чек</value>
+  </data>
+  <data name="PaymentForm_WireTransfer" xml:space="preserve">
+	<value>Безналичный платеж</value>
+  </data>
+  <data name="OrderType_Cash" xml:space="preserve">
+	<value>Наличный</value>
+  </data>
+  <data name="Invoice_Type" xml:space="preserve">
+	<value>Тип</value>
+  </data>
+  <data name="Payment_IsPosted" xml:space="preserve">
+	<value>Проведен</value>
+  </data>
+  <data name="Organization_Code" xml:space="preserve">
+	<value>Код предприятия</value>
+  </data>
+  <data name="Common_Handling" xml:space="preserve">
+	<value>Доп. доход от АК</value>
+  </data>
+  <data name="Payment_PostedOn" xml:space="preserve">
+	<value>Дата проводки</value>
+  </data>
+  <data name="Order_DeliveryBalance" xml:space="preserve">
+	<value>Баланс взаиморасчетов</value>
+  </data>
+  <data name="Common_IsPaid" xml:space="preserve">
+	<value>Оплачен</value>
+  </data>
+  <data name="Payment_Vat" xml:space="preserve">
+	<value>В т.ч. НДС</value>
+  </data>
+  <data name="Party_Files" xml:space="preserve">
+	<value>Файлы</value>
+  </data>
+  <data name="ClosedPeriod_Caption_List" xml:space="preserve">
+	<value>Закрытые периоды</value>
+  </data>
+  <data name="ClosedPeriod" xml:space="preserve">
+	<value>Закрытый период</value>
+  </data>
+  <data name="ClosedPeriod_DateFrom" xml:space="preserve">
+	<value>Дата с</value>
+  </data>
+  <data name="ClosedPeriod_DateTo" xml:space="preserve">
+	<value>Дата по</value>
+  </data>
+  <data name="ClosedPeriod_PeriodState" xml:space="preserve">
+	<value>Состояние</value>
+  </data>
+  <data name="AviaDocument_Closed" xml:space="preserve">
+	<value>Закрыт</value>
+  </data>
+  <data name="Payment_Closed" xml:space="preserve">
+	<value>Закрыт</value>
+  </data>
+  <data name="AviaTicket_PassportInformation" xml:space="preserve">
+	<value>Паспорт и контакты</value>
+  </data>
+  <data name="Organization_AirlinePassportRequirement" xml:space="preserve">
+	<value>Требование паспортных данных</value>
+  </data>
+  <data name="AirlinePassportRequirement_NotRequired" xml:space="preserve">
+	<value>Не требуется</value>
+  </data>
+  <data name="AirlinePassportRequirement_Required" xml:space="preserve">
+	<value>Требуется</value>
+  </data>
+  <data name="AirlinePassportRequirement_SystemDefault" xml:space="preserve">
+	<value>По умолчанию</value>
+  </data>
+  <data name="AviaDocument_GdsPassport" xml:space="preserve">
+	<value>Строка паспорта в GDS</value>
+  </data>
+  <data name="AviaDocument_GdsPassportStatus" xml:space="preserve">
+	<value>Паспорт в GDS</value>
+  </data>
+  <data name="Common_BonusCardNumber" xml:space="preserve">
+	<value>№ бонусной карты</value>
+  </data>
+  <data name="AviaDocument_Passenger" xml:space="preserve">
+	<value>Пассажир</value>
+  </data>
+  <data name="GdsPassportStatus_Exist" xml:space="preserve">
+	<value>Есть</value>
+  </data>
+  <data name="GdsPassportStatus_Incorrect" xml:space="preserve">
+	<value>Некорректен</value>
+  </data>
+  <data name="GdsPassportStatus_NotExist" xml:space="preserve">
+	<value>Нет</value>
+  </data>
+  <data name="GdsPassportStatus_Unknown" xml:space="preserve">
+	<value>Неизвестно</value>
+  </data>
+  <data name="Common_CommissionDiscount" xml:space="preserve">
+	<value>Скидка от ком. АК</value>
+  </data>
+  <data name="Consignment_Caption_List" xml:space="preserve">
+	<value>Накладные</value>
+  </data>
+  <data name="OrderItem_Consignment" xml:space="preserve">
+	<value>Накладная</value>
+  </data>
+  <data name="Consignment_Acquirer" xml:space="preserve">
+	<value>Получено</value>
+  </data>
+  <data name="Consignment_AcquirerCode" xml:space="preserve">
+	<value>ЕДРПОУ получателя</value>
+  </data>
+  <data name="Consignment_GrandTotal" xml:space="preserve">
+	<value>Сумма с ПДВ</value>
+  </data>
+  <data name="Consignment_IssueDate" xml:space="preserve">
+	<value>Дата создания</value>
+  </data>
+  <data name="Consignment_Supplier" xml:space="preserve">
+	<value>Отпущено</value>
+  </data>
+  <data name="Consignment_Total" xml:space="preserve">
+	<value>Сумма без ПДВ</value>
+  </data>
+  <data name="Consignment_TotalSupplied" xml:space="preserve">
+	<value>Всего отпущено</value>
+  </data>
+  <data name="Consignment_Vat" xml:space="preserve">
+	<value>ПДВ</value>
+  </data>
+  <data name="Common_ShipTo" xml:space="preserve">
+	<value>Получатель</value>
+  </data>
+  <data name="Order_Paid" xml:space="preserve">
+	<value>Оплачено</value>
+  </data>
+  <data name="Order_CheckPaid" xml:space="preserve">
+	<value>Оплачено нал</value>
+  </data>
+  <data name="Order_WirePaid" xml:space="preserve">
+	<value>Оплачено б/нал</value>
+  </data>
+  <data name="Order_CreditPaid" xml:space="preserve">
+	<value>Оплачено КК</value>
+  </data>
+  <data name="Order_RestPaid" xml:space="preserve">
+	<value>Оплачено прочее</value>
+  </data>
+  <data name="Order_TotalDue" xml:space="preserve">
+	<value>К оплате</value>
+  </data>
+  <data name="Order_VatDue" xml:space="preserve">
+	<value>НДС к оплате</value>
+  </data>
+  <data name="Order_ServiceFee" xml:space="preserve">
+	<value>Сервисный сбор</value>
+  </data>
+  <data name="Payment_DocumentNumber" xml:space="preserve">
+	<value>Номер документа</value>
+  </data>
+  <data name="CashInOrderPayment" xml:space="preserve">
+	<value>ПКО</value>
+  </data>
+  <data name="CashOutOrderPayment" xml:space="preserve">
+	<value>PКО</value>
+  </data>
+  <data name="CheckPayment" xml:space="preserve">
+	<value>Кассовый чек</value>
+  </data>
+  <data name="WireTransfer" xml:space="preserve">
+	<value>Безналичный платеж</value>
+  </data>
+  <data name="Consignment_IssuedConsignments" xml:space="preserve">
+	<value>Выпущенные накладные</value>
+  </data>
+  <data name="Common_ConsignmentNumbers" xml:space="preserve">
+	<value>Накладные</value>
+  </data>
+  <data name="Consignment_Number" xml:space="preserve">
+	<value>Номер</value>
+  </data>
+  <data name="Consignment" xml:space="preserve">
+	<value>Накладная</value>
+  </data>
+  <data name="Consignment_Discount" xml:space="preserve">
+	<value>Скидка</value>
+  </data>
+  <data name="Invoice_IssueDate" xml:space="preserve">
+	<value>Дата</value>
+  </data>
+  <data name="Invoice_IssuedBy" xml:space="preserve">
+	<value>Выпущен</value>
+  </data>
+  <data name="Invoice_TimeStamp" xml:space="preserve">
+	<value>Дата создания</value>
+  </data>
+  <data name="Invoice_Caption_List" xml:space="preserve">
+	<value>Счета/квитанции</value>
+  </data>
+  <data name="Payment_Invoice" xml:space="preserve">
+	<value>Счет/квитанция</value>
+  </data>
+  <data name="Currency_NumericCode" xml:space="preserve">
+	<value>Числовой код</value>
+  </data>
+  <data name="DocumentOwner_IsActive" xml:space="preserve">
+	<value>Действующий</value>
+  </data>
+  <data name="InvoiceType_Invoice" xml:space="preserve">
+	<value>Счет</value>
+  </data>
+  <data name="InvoiceType_Receipt" xml:space="preserve">
+	<value>Квитанция</value>
+  </data>
+  <data name="InvoiceType_CompletionCertificate" xml:space="preserve">
+	<value>Акт</value>
+  </data>
+  <data name="Invoice_IsOrderVoid" xml:space="preserve">
+	<value>Заказ аннулирован</value>
+  </data>
+  <data name="Person_Title" xml:space="preserve">
+	<value>Должность</value>
+  </data>
+  <data name="PaymentForm_Electronic" xml:space="preserve">
+	<value>Электронный платеж</value>
+  </data>
+  <data name="Currency_CyrillicCode" xml:space="preserve">
+	<value>Кириллический код</value>
+  </data>
+  <data name="ElectronicPayment" xml:space="preserve">
+	<value>Электронный платеж</value>
+  </data>
+  <data name="PaymentSystem" xml:space="preserve">
+	<value>Платежная система</value>
+  </data>
+  <data name="PaymentSystem_Caption_List" xml:space="preserve">
+	<value>Платежные системы</value>
+  </data>
+  <data name="ElectronicPayment_AuthorizationCode" xml:space="preserve">
+	<value>Код авторизации</value>
+  </data>
+  <data name="ElectronicPayment_PaymentSystem" xml:space="preserve">
+	<value>Платежная система</value>
+  </data>
+  <data name="Party_WebAddress" xml:space="preserve">
+	<value>Веб адрес</value>
+  </data>
+  <data name="Organization_Employees" xml:space="preserve">
+	<value>Сотрудники</value>
+  </data>
+  <data name="Order_IsPublic" xml:space="preserve">
+	<value>Общий доступ</value>
+  </data>
+  <data name="OpeningBalance" xml:space="preserve">
+	<value>Начальный остаток</value>
+  </data>
+  <data name="OpeningBalance_Balance" xml:space="preserve">
+	<value>Остаток</value>
+  </data>
+  <data name="OpeningBalance_Caption_List" xml:space="preserve">
+	<value>Начальные остатки</value>
+  </data>
+  <data name="Order_IsSubjectOfPaymentsControl" xml:space="preserve">
+	<value>Отображать в контроле оплат</value>
+  </data>
+  <data name="InternalTransfer" xml:space="preserve">
+	<value>Внутренний перевод</value>
+  </data>
+  <data name="InternalTransfer_Caption_List" xml:space="preserve">
+	<value>Внутренние переводы</value>
+  </data>
+  <data name="InternalTransfer_FromOrder" xml:space="preserve">
+	<value>Из заказа</value>
+  </data>
+  <data name="InternalTransfer_FromParty" xml:space="preserve">
+	<value>От контрагента</value>
+  </data>
+  <data name="InternalTransfer_ToOrder" xml:space="preserve">
+	<value>В заказ</value>
+  </data>
+  <data name="InternalTransfer_ToParty" xml:space="preserve">
+	<value>К контраагенту</value>
+  </data>
+  <data name="Payment_InvoiceDate" xml:space="preserve">
+	<value>Дата счета/квитанции</value>
+  </data>
+  <data name="AviaDocument_PaymentDetails" xml:space="preserve">
+	<value>Детали оплаты</value>
+  </data>
+  <data name="TktFile_OfficeIata" xml:space="preserve">
+	<value>IATA код офиса</value>
+  </data>
+  <data name="AviaTickets" xml:space="preserve">
+	<value>Авиабилеты</value>
+  </data>
+  <data name="CashInOrderPayment_DefaultReason" xml:space="preserve">
+	<value>Оплата за авиабилеты</value>
+  </data>
+  <data name="Order_IsPaid" xml:space="preserve">
+	<value>Оплачен</value>
+  </data>
+  <data name="AviaMco_InConnectionWith" xml:space="preserve">
+	<value>Связан с</value>
+  </data>
+  <data name="Airport_Latitude" xml:space="preserve">
+	<value>Широта</value>
+  </data>
+  <data name="Airport_Longitude" xml:space="preserve">
+	<value>Долгота</value>
+  </data>
+  <data name="AviaOrderItemGenerationOption_AlwaysOneOrderItem" xml:space="preserve">
+	<value>Всегда одна позиция</value>
+  </data>
+  <data name="AviaOrderItemGenerationOption_ManualSetting" xml:space="preserve">
+	<value>Настраивать вручную</value>
+  </data>
+  <data name="AviaOrderItemGenerationOption_SeparateServiceFee" xml:space="preserve">
+	<value>Cервисный сбор отдельной позицией</value>
+  </data>
+  <data name="SystemConfiguration_AllowAgentEditDictionaries" xml:space="preserve">
+	<value>Разрешить редактирование справочников</value>
+  </data>
+  <data name="SystemConfiguration_AllowAgentSetOrderVat" xml:space="preserve">
+	<value>Разрешить редактирование НДС в заказе</value>
+  </data>
+  <data name="SystemConfiguration_AmadeusRizUsingMode" xml:space="preserve">
+	<value>Использование riz-данных в Amadeus Air</value>
+  </data>
+  <data name="SystemConfiguration_AviaOrderItemGenerationOption" xml:space="preserve">
+	<value>Формирование номенклатур заказа по авиадокументу</value>
+  </data>
+  <data name="SystemConfiguration_BirthdayTaskResponsible" xml:space="preserve">
+	<value>Ответственный за поздравление именинников</value>
+  </data>
+  <data name="SystemConfiguration_Caption_List" xml:space="preserve">
+	<value>Настройки</value>
+  </data>
+  <data name="SystemConfiguration_Company" xml:space="preserve">
+	<value>Организация</value>
+  </data>
+  <data name="SystemConfiguration_CompanyDetails" xml:space="preserve">
+	<value>Реквизиты организации</value>
+  </data>
+  <data name="SystemConfiguration_DefaultCurrency" xml:space="preserve">
+	<value>Валюта по умолчанию</value>
+  </data>
+  <data name="SystemConfiguration_ModifiedBy" xml:space="preserve">
+	<value>Modified by</value>
+  </data>
+  <data name="SystemConfiguration_ModifiedOn" xml:space="preserve">
+	<value>Modified on</value>
+  </data>
+  <data name="SystemConfiguration_SeparateDocumentAccess" xml:space="preserve">
+	<value>Разделять доступ к документам</value>
+  </data>
+  <data name="SystemConfiguration_IsOrganizationCodeRequired" xml:space="preserve">
+	<value>Обязательное ЕДРПОУ для организаций</value>
+  </data>
+  <data name="SystemConfiguration_UseAviaHandling" xml:space="preserve">
+	<value>Использовать доп. доход от АК при обработке авиадокументов</value>
+  </data>
+  <data name="SystemConfiguration_UseDefaultCurrencyForInput" xml:space="preserve">
+	<value>Использовать только валюту по умолчанию</value>
+  </data>
+  <data name="SystemConfiguration_VatRate" xml:space="preserve">
+	<value>Ставка НДС,%</value>
+  </data>
+  <data name="UserRole_Administrator" xml:space="preserve">
+	<value>Администратор</value>
+  </data>
+  <data name="UserRole_Agent" xml:space="preserve">
+	<value>Агент</value>
+  </data>
+  <data name="UserRole_Analyst" xml:space="preserve">
+	<value>Аналитик</value>
+  </data>
+  <data name="UserRole_Cashier" xml:space="preserve">
+	<value>Кассир</value>
+  </data>
+  <data name="UserRole_Manager" xml:space="preserve">
+	<value>Менеджер подразделения</value>
+  </data>
+  <data name="UserRole_SubAgent" xml:space="preserve">
+	<value>Субагент</value>
+  </data>
+  <data name="UserRole_Supervisor" xml:space="preserve">
+	<value>Супервизор</value>
+  </data>
+  <data name="SystemConfiguration_IsPassengerPassportRequired" xml:space="preserve">
+	<value>Требование паспортных данных авиакомпаниями</value>
+  </data>
+  <data name="SystemConfiguration_DaysBeforeDeparture" xml:space="preserve">
+	<value>Дней до отправления</value>
+  </data>
+  <data name="SystemConfiguration_NeutralAirlineCode" xml:space="preserve">
+	<value>NeutralAirlineCode</value>
+  </data>
+  <data name="AviaDocumentVatOptions_TaxAirlineTotal" xml:space="preserve">
+	<value>Рассчитывать от итога</value>
+	<comment>11</comment>
+  </data>
+  <data name="AviaDocumentVatOptions_UseHFTax" xml:space="preserve">
+	<value>Использовать HF таксу</value>
+  </data>
+  <data name="SystemConfiguration_AccountantDisplayString" xml:space="preserve">
+	<value>Текст поля "Главный бухгалтер"</value>
+  </data>
+  <data name="SystemConfiguration_AviaDocumentVatOptions" xml:space="preserve">
+	<value>Расчет НДС в авиадокументе</value>
+  </data>
+  <data name="SystemConfiguration_UseAviaDocumentVatInOrder" xml:space="preserve">
+	<value>Использовать НДС авиадокумента в заказе</value>
+  </data>
+  <data name="SystemConfiguration_IncomingCashOrderCorrespondentAccount" xml:space="preserve">
+	<value>Корреспондентский счет для ПКО</value>
+  </data>
+  <data name="SystemConfiguration_IsOrderRequiredForProcessedDocument" xml:space="preserve">
+	<value>Заказ обязателен для обработки документов</value>
+  </data>
+  <data name="SystemConfiguration_MetricsFromDate" xml:space="preserve">
+	<value>Документы для метрик с</value>
+  </data>
+  <data name="SystemConfiguration_McoRequiresDescription" xml:space="preserve">
+	<value>Описание обязательно для MCO</value>
+  </data>
+  <data name="SystemConfiguration_ReservationsInOfficeMetrics" xml:space="preserve">
+	<value>Бронировки в документах по офису</value>
+  </data>
+  <data name="SystemConfiguration_Order_UseServiceFeeOnlyInVat" xml:space="preserve">
+	<value>Заказы: НДС только от сервисного сбора</value>
+  </data>
+  <data name="Order_UseServiceFeeOnlyInVat" xml:space="preserve">
+	<value>НДС только от сервисного сбора</value>
+  </data>
+  <data name="SystemConfiguration_Invoice_NumberMode" xml:space="preserve">
+	<value>Инвойсы: новый номер</value>
+  </data>
+  <data name="InvoiceNumberMode_Default" xml:space="preserve">
+	<value>По умолчанию</value>
+  </data>
+  <data name="InvoiceNumberMode_ByOrderNumber" xml:space="preserve">
+	<value>На основе номера заказа</value>
+  </data>
+  <data name="AllProduct_Caption_List" xml:space="preserve">
+	<value>Все документы</value>
+  </data>
+  <data name="Common_Operator" xml:space="preserve">
+	<value>Оператор</value>
+  </data>
+  <data name="Common_IsSale" xml:space="preserve">
+	<value>Продажа</value>
+  </data>
+  <data name="Transfer_Caption_List" xml:space="preserve">
+	<value>Трансферы</value>
+  </data>
+  <data name="Pasteboard_DeparturePlace" xml:space="preserve">
+	<value>Начальная станция</value>
+  </data>
+  <data name="Pasteboard_ArrivalPlace" xml:space="preserve">
+	<value>Конечная станция</value>
+  </data>
+  <data name="Pasteboard_TrainNumber" xml:space="preserve">
+	<value>Номер поезда</value>
+  </data>
+  <data name="Pasteboard_CarNumber" xml:space="preserve">
+	<value>Номер вагона</value>
+  </data>
+  <data name="SimCard" xml:space="preserve">
+	<value>SIM-карта</value>
+  </data>
+  <data name="SimCard_Caption_List" xml:space="preserve">
+	<value>SIM-карты</value>
+  </data>
+  <data name="Isic" xml:space="preserve">
+	<value>Студенческий билет Isic</value>
+  </data>
+  <data name="Isic_Caption_List" xml:space="preserve">
+	<value>Студенческие билеты Isic</value>
+  </data>
+  <data name="Common_TourName" xml:space="preserve">
+	<value>Название тура</value>
+  </data>
+  <data name="Common_StartDate" xml:space="preserve">
+	<value>Дата начала</value>
+  </data>
+  <data name="Common_FinishDate" xml:space="preserve">
+	<value>Дата окончания</value>
+  </data>
+  <data name="Excursion" xml:space="preserve">
+	<value>Экскурсия</value>
+  </data>
+  <data name="Excursion_Caption_List" xml:space="preserve">
+	<value>Экскурсии</value>
+  </data>
+  <data name="Tour" xml:space="preserve">
+	<value>Тур (готовый)</value>
+  </data>
+  <data name="Tour_Caption_List" xml:space="preserve">
+	<value>Туры (готовые)</value>
+  </data>
+  <data name="Common_Hotel" xml:space="preserve">
+	<value>Гостиница</value>
+  </data>
+  <data name="Common_HotelOffice" xml:space="preserve">
+	<value>Офис</value>
+  </data>
+  <data name="Common_HotelCode" xml:space="preserve">
+	<value>Код</value>
+  </data>
+  <data name="Common_HotelRoom" xml:space="preserve">
+	<value>Номер</value>
+  </data>
+  <data name="Common_Placement" xml:space="preserve">
+	<value>Расположение</value>
+  </data>
+  <data name="Common_PlacementOffice" xml:space="preserve">
+	<value>Офис</value>
+  </data>
+  <data name="Common_PlacementCode" xml:space="preserve">
+	<value>Код</value>
+  </data>
+  <data name="Common_Diet" xml:space="preserve">
+	<value>Питание</value>
+  </data>
+  <data name="Common_AviaDescription" xml:space="preserve">
+	<value>Авиа (описание)</value>
+  </data>
+  <data name="Common_TransferDescription" xml:space="preserve">
+	<value>Трансфер (описание)</value>
+  </data>
+  <data name="Accommodation" xml:space="preserve">
+	<value>Проживание</value>
+  </data>
+  <data name="Accommodation_Caption_List" xml:space="preserve">
+	<value>Проживания</value>
+  </data>
+  <data name="Transfer" xml:space="preserve">
+	<value>Трансфер</value>
+  </data>
+  <data name="Insurance" xml:space="preserve">
+	<value>Страховка</value>
+  </data>
+  <data name="Insurance_Caption_List" xml:space="preserve">
+	<value>Страховки</value>
+  </data>
+  <data name="CarRental" xml:space="preserve">
+	<value>Аренда автомобиля</value>
+  </data>
+  <data name="CarRental_Caption_List" xml:space="preserve">
+	<value>Аренды автомобилей</value>
+  </data>
+  <data name="CarRental_CarBrand" xml:space="preserve">
+	<value>Марка авто</value>
+  </data>
+  <data name="PasteboardServiceClass_FirstClass" xml:space="preserve">
+	<value>1-й класс</value>
+  </data>
+  <data name="PasteboardServiceClass_SecondClass" xml:space="preserve">
+	<value>2-й класс</value>
+  </data>
+  <data name="PasteboardServiceClass_LuxuryCoupe" xml:space="preserve">
+	<value>люкс</value>
+  </data>
+  <data name="PasteboardServiceClass_ReservedSeat" xml:space="preserve">
+	<value>плацкарт</value>
+  </data>
+  <data name="PasteboardServiceClass_Compartment" xml:space="preserve">
+	<value>купе</value>
+  </data>
+  <data name="Pasteboard_ServiceClass" xml:space="preserve">
+	<value>Класс обслуживания</value>
+  </data>
+  <data name="Common_Provider" xml:space="preserve">
+	<value>Провайдер</value>
+  </data>
+  <data name="ProductProvider" xml:space="preserve">
+	<value>Провайдер документов</value>
+  </data>
+  <data name="ProductProvider_Caption_List" xml:space="preserve">
+	<value>Провайдеры документов</value>
+  </data>
+  <data name="Common_IsAccommodationProvider" xml:space="preserve">
+	<value>Для проживания</value>
+  </data>
+  <data name="Common_IsBusTicketProvider" xml:space="preserve">
+	<value>Для автобусных билетов</value>
+  </data>
+  <data name="Common_IsCarRentalProvider" xml:space="preserve">
+	<value>Для аренды авто</value>
+  </data>
+  <data name="Common_IsInsuranceProvider" xml:space="preserve">
+	<value>Для страховок</value>
+  </data>
+  <data name="Common_IsPasteboardProvider" xml:space="preserve">
+	<value>Для ж/д билетов</value>
+  </data>
+  <data name="Common_IsTourProvider" xml:space="preserve">
+	<value>Для туров (готовых)</value>
+  </data>
+  <data name="Common_IsTransferProvider" xml:space="preserve">
+	<value>Для трансферов</value>
+  </data>
+  <data name="Common_IsGenericProductProvider" xml:space="preserve">
+	<value>Для дополнительных услуг</value>
+  </data>
+  <data name="GenericProductType" xml:space="preserve">
+	<value>Вид дополнительной услуги</value>
+  </data>
+  <data name="GenericProductType_Caption_List" xml:space="preserve">
+	<value>Виды дополнительных услуг</value>
+  </data>
+  <data name="GenericProduct" xml:space="preserve">
+	<value>Дополнительная услуга</value>
+  </data>
+  <data name="GenericProduct_Caption_List" xml:space="preserve">
+	<value>Дополнительные услуги</value>
+  </data>
+  <data name="GenericProduct_GenericType" xml:space="preserve">
+	<value>Вид услуги</value>
+  </data>
+  <data name="BusTicket" xml:space="preserve">
+	<value>Автобусный билет</value>
+  </data>
+  <data name="BusTicket_Caption_List" xml:space="preserve">
+	<value>Автобусные билеты</value>
+  </data>
+  <data name="Common_Departure" xml:space="preserve">
+	<value>Отправление</value>
+  </data>
+  <data name="Common_Arrival" xml:space="preserve">
+	<value>Прибытие</value>
+  </data>
+  <data name="Common_Place" xml:space="preserve">
+	<value>Место</value>
+  </data>
+  <data name="Common_DeparturePlace" xml:space="preserve">
+	<value>Место отправления</value>
+  </data>
+  <data name="Common_ArrivalPlace" xml:space="preserve">
+	<value>Место прибытия</value>
+  </data>
+  <data name="Common_DepartureDate" xml:space="preserve">
+	<value>Дата отправления</value>
+  </data>
+  <data name="Common_ArrivalDate" xml:space="preserve">
+	<value>Дата прибытия</value>
+  </data>
+  <data name="Common_Time" xml:space="preserve">
+	<value>Время</value>
+  </data>
+  <data name="Common_DepartureTime" xml:space="preserve">
+	<value>Время отправления</value>
+  </data>
+  <data name="Common_ArrivalTime" xml:space="preserve">
+	<value>Время прибытия</value>
+  </data>
+  <data name="Common_SeatNumber" xml:space="preserve">
+	<value>Номер места</value>
+  </data>
+  <data name="Common_BonusDiscount" xml:space="preserve">
+	<value>Бонусная скидка</value>
+  </data>
+  <data name="Common_BonusAccumulation" xml:space="preserve">
+	<value>Бонусное накопление</value>
+  </data>
+  <data name="AccommodationType" xml:space="preserve">
+	<value>Тип размещения</value>
+  </data>
+  <data name="AccommodationType_Caption_List" xml:space="preserve">
+	<value>Типы размещения</value>
+  </data>
+  <data name="Common_AccommodationType" xml:space="preserve">
+	<value>Тип размещения</value>
+  </data>
+  <data name="CateringType" xml:space="preserve">
+	<value>Тип питания</value>
+  </data>
+  <data name="CateringType_Caption_List" xml:space="preserve">
+	<value>Типы питания</value>
+  </data>
+  <data name="Common_CateringType" xml:space="preserve">
+	<value>Тип питания</value>
+  </data>
+  <data name="Common_Producer" xml:space="preserve">
+	<value>Производитель</value>
+  </data>
+  <data name="AviaDocument_Producer" xml:space="preserve">
+	<value>Авиакомпания</value>
+  </data>
+  <data name="Insurance_Producer" xml:space="preserve">
+	<value>Страховая компания</value>
+  </data>
+  <data name="Common_InsuranceCompany" xml:space="preserve">
+	<value>Страховая компания</value>
+  </data>
+  <data name="Organization_IsProvider" xml:space="preserve">
+	<value>Провайдер</value>
+  </data>
+  <data name="Organization_IsAirline" xml:space="preserve">
+	<value>Авиакомпания</value>
+  </data>
+  <data name="Organization_IsInsuranceCompany" xml:space="preserve">
+	<value>Страховая компания</value>
+  </data>
+  <data name="Organization_IsProvider_long" xml:space="preserve">
+	<value>Данная организация является Провайдером услуг</value>
+  </data>
+  <data name="Organization_IsAirline_long" xml:space="preserve">
+	<value>Данная организация является Авиакомпанией</value>
+  </data>
+  <data name="Organization_IsInsuranceCompany_long" xml:space="preserve">
+	<value>Данная организация является Страховой компанией</value>
+  </data>
+  <data name="Organization_IsRoamingOperator" xml:space="preserve">
+	<value>Роуминг-оператор</value>
+  </data>
+  <data name="Organization_IsRoamingOperator_long" xml:space="preserve">
+	<value>Данная организация является Роуминг-оператором</value>
+  </data>
+  <data name="Common_Misc" xml:space="preserve">
+	<value>Разное</value>
+  </data>
+  <data name="SimCard_Producer" xml:space="preserve">
+	<value>Оператор</value>
+  </data>
+  <data name="ProductRefund_NameFormat" xml:space="preserve">
+	<value>{0} (возврат)</value>
+  </data>
+  <data name="Common_UAH_EUR" xml:space="preserve">
+	<value>UAH/EUR</value>
+  </data>
+  <data name="Common_UAH_RUB" xml:space="preserve">
+	<value>UAH/RUB</value>
+  </data>
+  <data name="Common_UAH_USD" xml:space="preserve">
+	<value>UAH/USD</value>
+  </data>
+  <data name="Common_RUB_EUR" xml:space="preserve">
+	<value>RUB/EUR</value>
+  </data>
+  <data name="Common_RUB_USD" xml:space="preserve">
+	<value>RUB/USD</value>
+  </data>
+  <data name="Common_EUR_USD" xml:space="preserve">
+	<value>EUR/USD</value>
+  </data>
+  <data name="CurrencyDailyRate" xml:space="preserve">
+	<value>Курсы валют</value>
+  </data>
+  <data name="CurrencyDailyRate_Caption_List" xml:space="preserve">
+	<value>Курсы валют</value>
+  </data>
+  <data name="Contract" xml:space="preserve">
+	<value>Контракт</value>
+  </data>
+  <data name="Contract_Caption_List" xml:space="preserve">
+	<value>Контракты</value>
+  </data>
+  <data name="LuxenaXmlFile" xml:space="preserve">
+	<value>LuxenaXml-файл</value>
+  </data>
+</root>

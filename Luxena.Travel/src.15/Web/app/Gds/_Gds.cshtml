@@ -1,0 +1,15 @@
+﻿@Ui.GridViewEdit1(db => db.GdsAgents)
+
+@Ui.EditForm1(typeof(GdsAgent_ApplyToUnassigned))
+
+
+@Ui.Grid(db => db.GdsFiles)
+
+@Ui.ViewFormBegin2(db => db.GdsFiles)
+@Ui.FieldSet()
+@Ui.FormAccordion()
+@Ui.ViewFormEnd2()
+
+@Ui.EditFormBegin2(db => db.GdsFiles)
+@Ui.FieldSet()
+@Ui.EditFormEnd2()

@@ -1,0 +1,63 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ assembly name="System.ComponentModel.DataAnnotations, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="D:\data\git\Luxena.Travel\src\Core\bin\Debug\Luxena.Base.dll" #>
+<#@ assembly name="D:\data\git\Luxena.Travel\src\Core\bin\Debug\Luxena.Support.dll" #>
+<#@ assembly name="D:\data\git\Luxena.Travel\src\Core\bin\Debug\Luxena.Domain.dll" #>
+<#@ assembly name="D:\data\git\Luxena.Travel\src\Core\bin\Debug\Luxena.Travel.dll" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="Luxena" #>
+<#@ import namespace="Luxena.Domain" #>
+<#@ import namespace="Luxena.Travel.Domain" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Reflection" #>
+<#@ output extension=".cs" #>
+using System.Web.Services;
+
+using Luxena.Base.Data;
+using Luxena.Travel.Domain;
+
+
+namespace Luxena.Travel.Web.Services
+{
+
+	public class DomainService : DomainWebService
+	{
+<#	
+foreach (var serviceType in typeof(Contracts).Assembly.DefinedTypes
+	.Where(a =>
+		!a.IsGenericType
+			&& a.IsSubclassOf(typeof(Luxena.Domain.Contracts.EntityContractService<Domain, Contracts>))
+	)
+	.OrderBy(a => a.FullName)
+	)
+{
+	var contractType = typeof(Domain).Assembly.GetType(serviceType.FullName.Replace("ContractService", "Dto"));
+	if (contractType == null) continue;
+	var contract = contractType.Name;
+	var entity = contract.TrimEnd("Dto", "Contract");
+	var _entity = "_" + entity.Substring(0, 1).ToLower() + entity.Substring(1);
+	var entityType = typeof(Domain).Assembly.GetType("Luxena.Travel.Domain." + entity);
+
+	if (entityType != null && entityType.IsAbstract) continue;
+	if (serviceType.GetMethods().All(a => a.Name != "Update")) continue;
+#>
+
+		[WebMethod]
+		public <#= entity #>Dto Get<#= entity #>(object id)
+		{
+			return db.Commit(() => dc.<#= entity #>.By(id));
+		}
+
+		[WebMethod]
+		public ItemResponse Update<#= entity #>(<#= entity #>Dto dto, RangeRequest @params)
+		{
+			return db.Commit(() => dc.<#= entity #>.Update(dto, @params));
+		}
+<#
+}
+#>
+
+	}
+
+}

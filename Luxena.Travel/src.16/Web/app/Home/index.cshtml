@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	<meta name="viewport" content="width=device-width" />
+	<title>Luxena Travel 15</title>
+	@Styles.Render("~/Styles/Libs", "~/Styles/App")
+	@Scripts.Render("~/Scripts/Localize", "~/Scripts/Libs")
+
+	<link href="~/Content/dx.light.css" rel="stylesheet" />
+	@*<link href="~/Content/theme03.css" rel="stylesheet" />*@
+	<link href="~/app/_support/layouts/Agent/AgentLayout.css" rel="stylesheet" />
+
+	<script type="text/javascript">
+		var DX = DevExpress;
+	</script>
+
+	<!-- Layouts -->
+
+	<link rel="dx-template" type="text/html" href="~/app/_support/layouts/Agent/AgentLayout.html" />
+
+	@*@Scripts.Render("~/Scripts/App")*@
+	<script src="~/_app.js" type="text/javascript" charset="UTF-8"></script>
+
+</head>
+<body>
+
+	<div class="dx-viewport"></div>
+
+	<div style="display: none">
+
+		<div data-options="dxView: { name: 'Test16' }">
+			<h1>Test16</h1>
+			<div data-bind="renderer: renderer"></div>
+		</div>
+
+
+		@Html.Partial("Home/home")
+		@*@Html.Partial("References/_References")
+			@Html.Partial("Accounting/_Accounting")
+			@Html.Partial("App/_App")
+			@Html.Partial("Gds/_Gds")
+			@Html.Partial("Parties/_Parties")
+			@Html.Partial("Parties/Organization")
+			@Html.Partial("Products/_Products")*@
+		@*@foreach (var viewUrl in AppConfig.DxViewUrls)
+			{
+				@Html.Partial(viewUrl)
+			}*@
+
+	</div>
+</body>
+</html>

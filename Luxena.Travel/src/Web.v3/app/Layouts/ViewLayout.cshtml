@@ -1,0 +1,67 @@
+﻿@{
+    var name = ViewBag.ViewName;
+}
+<script type="text/javascript">
+
+    app.views.directive('@name', function ()
+    {
+        return {
+            restrict: 'E',
+            
+            @if (IsSectionDefined("Controller")) {
+                @:controller: (function() { return (@RenderSection("Controller")); })(),
+            }
+
+            link: function(scope, element, attrs)
+            {
+                @if (IsSectionDefined("Title"))
+                {
+                    <text>
+                    scope.viewPage.title = function()
+                    {
+                        var r = scope.r;
+                        var title = '';
+                        @if (IsSectionDefined("Icon"))
+                        {
+                            @:title = '<i class="' + (@RenderSection("Icon")) + '"></i> ';
+                        }
+                        return title + (@RenderSection("Title"));
+                    }
+                    </text>
+                }
+                @if (IsSectionDefined("Tooltip"))
+                {
+                    <text>
+                    scope.viewPage.tooltip = function()
+                    {
+                        var r = scope.r;
+                        return (@RenderSection("Tooltip"));
+                    }
+                    </text>
+                }
+               
+            },
+            template: '<div>@Html.Raw(RenderBody().ToString()
+                .Replace("'", @"\'")
+                .Replace(@"<script type=""text/javascript"">", null)
+                .Replace(@"<script>", null)
+                .Replace(@"</script>", null)
+                .Trim(' ', '\r', '\n', '\t')
+                .Replace("\r\n", "' + \r\n'")
+                .TrimEnd(';'))</div>',
+            replace: true
+        };
+    });
+
+    
+    app.config(function($routeProvider)
+    {
+        $routeProvider
+            .when('/@name', { viewName: '@name' })
+            .when('/@name/:id', { viewName: '@name' });
+    });
+    
+
+    @RenderSection("Scripts", false);
+    
+</script>

@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ReservationsList>
+	<ReservationsList ResellerCode="ARIOLA" Username="ievu23561.sha" Timestamp="2020-10-18T16:52:15+03:00">
+		<companyRegistrationCode>30972992</companyRegistrationCode>
+		<id>8681343</id>
+		<confirmationNumber>P97I8V</confirmationNumber>
+		<service>lowcost</service>
+		<trainNumber>W96002</trainNumber>
+		<wagonNumber/>
+		<wagonType>К</wagonType>
+		<seats>, </seats>
+		<withLinen/>
+		<departureDate>19.10.2020 12:55:00</departureDate>
+		<departureStation>Zhuliany</departureStation>
+		<departureStationCode>IEV</departureStationCode>
+		<arrivalDate>19.10.2020 14:20:00</arrivalDate>
+		<arrivalStation>Luton Airport</arrivalStation>
+		<arrivalStationCode>LTN</arrivalStationCode>
+		<serviceType>eticket</serviceType>
+		<addDate>18.10.2020</addDate>
+		<agentName>Anna Smirnova</agentName>
+		<officeId>ievu23561.sha</officeId>
+		<officeName>Ariola Group, Kyiv</officeName>
+		<numberOfDocuments>2</numberOfDocuments>
+		<source>contentrail</source>
+		<paymentGateway>credit</paymentGateway>
+		<documentType/>
+		<contentrailId>4076251</contentrailId>
+		<transporter>Wizz Air UK Limited dba Wizz Air UK</transporter>
+		<bookingWasConfirmed>1</bookingWasConfirmed>
+		<businessModel>merchant</businessModel>
+		<resellerPaidWith>credit</resellerPaidWith>
+		<roundTrip>1</roundTrip>
+		<relatedServiceId>8681345</relatedServiceId>
+		<type>booking</type>
+		<documentsPrice>10674.87</documentsPrice>
+		<fees>544.65</fees>
+		<purchasePrice>11219.52</purchasePrice>
+		<agentCommission>0</agentCommission>
+		<agentReturnCommission>0</agentReturnCommission>
+		<totalPrice>11219.52</totalPrice>
+		<currency>UAH</currency>
+		<status>OK</status>
+		<vatFromDocumentPrice>0</vatFromDocumentPrice>
+		<vatRateFromDocumentPrice>0</vatRateFromDocumentPrice>
+		<remitCommission>61.5</remitCommission>
+		<vatFromRemitCommission>0</vatFromRemitCommission>
+		<vatRateFromRemitCommission>0</vatRateFromRemitCommission>
+		<markup>375.78</markup>
+		<additionalMarkup>107.37</additionalMarkup>
+		<vatFromMarkup>62.63</vatFromMarkup>
+		<vatFromAdditionalMarkup>17.9</vatFromAdditionalMarkup>
+		<vatRateFromMarkup>20</vatRateFromMarkup>
+		<vatFromCommission>80.53</vatFromCommission>
+		<vatFromAgentCommission>0</vatFromAgentCommission>
+		<vatRateFromAgentCommission>20</vatRateFromAgentCommission>
+		<passenger>
+			<firstName>AWGUST</firstName>
+			<lastName>MARKOVYCH</lastName>
+			<isChild>0</isChild>
+			<phone/>
+			<email/>
+			<ticketNumber/>
+			<birthday>2000-11-08</birthday>
+			<documentsPrice>5337.28</documentsPrice>
+			<fees>304.45</fees>
+			<purchasePrice>5641.73</purchasePrice>
+			<agentCommission>0</agentCommission>
+			<agentReturnCommission>0</agentReturnCommission>
+			<totalPrice>5641.73</totalPrice>
+			<vatFromDocumentPrice>0</vatFromDocumentPrice>
+			<vatRateFromDocumentPrice>0</vatRateFromDocumentPrice>
+			<remitCommission>61.5</remitCommission>
+			<vatFromRemitCommission>0</vatFromRemitCommission>
+			<vatRateFromRemitCommission>0</vatRateFromRemitCommission>
+			<markup>188.96</markup>
+			<additionalMarkup>53.99</additionalMarkup>
+			<vatFromMarkup>31.49</vatFromMarkup>
+			<vatFromAdditionalMarkup>9</vatFromAdditionalMarkup>
+			<vatRateFromMarkup>20</vatRateFromMarkup>
+			<vatFromCommission>40.49</vatFromCommission>
+			<vatFromAgentCommission>0</vatFromAgentCommission>
+			<vatRateFromAgentCommission>20</vatRateFromAgentCommission>
+			<currency>UAH</currency>
+			<externalId/>
+		</passenger>
+		<passenger>
+			<firstName>YELYZAVETA</firstName>
+			<lastName>GARKAVA</lastName>
+			<isChild>0</isChild>
+			<phone/>
+			<email/>
+			<ticketNumber/>
+			<birthday>2002-07-21</birthday>
+			<documentsPrice>5337.59</documentsPrice>
+			<fees>240.2</fees>
+			<purchasePrice>5577.79</purchasePrice>
+			<agentCommission>0</agentCommission>
+			<agentReturnCommission>0</agentReturnCommission>
+			<totalPrice>5577.79</totalPrice>
+			<vatFromDocumentPrice>0</vatFromDocumentPrice>
+			<vatRateFromDocumentPrice>0</vatRateFromDocumentPrice>
+			<remitCommission>0</remitCommission>
+			<vatFromRemitCommission>0</vatFromRemitCommission>
+			<vatRateFromRemitCommission>0</vatRateFromRemitCommission>
+			<markup>186.82</markup>
+			<additionalMarkup>53.38</additionalMarkup>
+			<vatFromMarkup>31.14</vatFromMarkup>
+			<vatFromAdditionalMarkup>8.9</vatFromAdditionalMarkup>
+			<vatRateFromMarkup>20</vatRateFromMarkup>
+			<vatFromCommission>40.04</vatFromCommission>
+			<vatFromAgentCommission>0</vatFromAgentCommission>
+			<vatRateFromAgentCommission>20</vatRateFromAgentCommission>
+			<currency>UAH</currency>
+			<externalId/>
+		</passenger>
+	</ReservationsList>
+</ReservationsList>

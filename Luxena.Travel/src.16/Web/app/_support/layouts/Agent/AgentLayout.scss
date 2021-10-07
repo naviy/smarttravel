@@ -1,0 +1,79 @@
+﻿@import "../../../../Content/materialize/sass/dx.materialize.scss";
+
+$header-size: 80px;
+$menu-color: color('blue-grey', 'darken-1');
+$content-color: #fbfbfb;
+//$header-text-color: color('brown', 'base');
+//$header-text-color: color('orange', 'base');
+//$header-text-color: color('orange', 'darken-1');
+//$header-text-color: color('blue-grey', 'lighten-1');
+$header-text-color: color('blue-grey', 'darken-1');
+
+
+@import "../../styles/_layout.scss";
+
+
+.main-layout {
+	background: $content-color;
+	width: 100%;
+	min-height: 100%;	
+}
+
+.main-menu {
+	@extend .z-depth-2;
+	background: $menu-color;
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: $header-size;
+	bottom: 0;
+}
+
+
+.view-container {
+	position: absolute;
+	left: $header-size;
+	top: 0;
+	bottom: 0;
+	right: 0;
+}
+
+.view-header {
+	background: white;
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	height: $header-size - 12;
+	@extend .z-depth-1;
+	z-index: 100;
+	padding: 12px 10px 0 10px;
+}
+
+.view-content {
+	position: absolute;
+	left: 0;
+	top: $header-size;
+	right: 0;
+	bottom: 0;
+}
+
+
+.dx-toolbar-label, .dx-toolbar-item-content h1, 
+.dx-fieldset-header, 
+.dx-field-label,
+.dx-checkbox-text,
+.dx-tab-selected .dx-tab-text,
+.dx-accordion-item-title {
+	color: $header-text-color !important;
+}
+
+.dx-field-value-static {
+	h1,h2,h3,h4,h5 {
+		color: $header-text-color !important;
+	}
+}
+
+.fa {
+	color: #767676;
+}

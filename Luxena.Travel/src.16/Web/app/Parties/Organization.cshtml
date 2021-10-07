@@ -1,0 +1,44 @@
+﻿@using System.Linq.Expressions
+
+
+@Ui.GridView8Edit6(db => db.Organizations)
+
+
+@*@OrganizationViews(db => db.InsuranceCompanies)
+@OrganizationViews(db => db.Organizations)
+@OrganizationViews(db => db.InsuranceCompanies)
+@OrganizationViews(db => db.RoamingOperators)
+@OrganizationViews(db => db.AccommodationProviders)
+@OrganizationViews(db => db.BusTicketProviders)
+@OrganizationViews(db => db.CarRentalProviders)
+@OrganizationViews(db => db.GenericProductProviders)
+@OrganizationViews(db => db.PasteboardProviders)
+@OrganizationViews(db => db.TourProviders)
+@OrganizationViews(db => db.TransferProviders)*@
+
+
+
+@*@helper OrganizationViews(Expression<Func<Domain, object>> getEntitySet)
+{
+	@Ui.Grid(getEntitySet)
+
+	@Ui.ViewForm8(getEntitySet)
+
+	@Ui.EditForm6(getEntitySet)*@
+
+
+	@*@Ui.EditFormBegin(getEntitySet)
+		@Ui.Fields("header")
+
+		<div class="row">
+			<div class="col s12 l6">
+				@Ui.FieldCard("fields2")
+				@Ui.FieldCard("Providers")
+			</div>
+			<div class="col s12 l6">
+				@Ui.FieldCard("Contacts")
+			</div>
+		</div>
+	
+	@Ui.EditFormEnd()*@
+@*}*@

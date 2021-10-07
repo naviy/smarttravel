@@ -1,0 +1,354 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ assembly name="System.ComponentModel.DataAnnotations, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="D:\data\git\Luxena.Travel\src.15\Domain\bin\Debug\EntityFramework.dll" #>
+<#@ assembly name="D:\data\git\Luxena.Travel\src.15\Luxena.Libs.15\Luxena.Support\bin\Debug\Luxena.Support.dll" #>
+<#@ assembly name="D:\data\git\Luxena.Travel\src.15\Luxena.Libs.15\Luxena.Domain\bin\Debug\Luxena.Domain.dll" #>
+<#@ assembly name="D:\data\git\Luxena.Travel\src.15\Domain\bin\Debug\Luxena.Travel.Domain.dll" #>
+<#@ import namespace="Luxena" #>
+<#@ import namespace="Luxena.Domain" #>
+<#@ import namespace="Luxena.Travel.Domain" #>
+<#@ import namespace="System.Diagnostics" #>
+<#@ import namespace="System.Linq" #>
+<#@ output extension=".ts" #>
+<#
+	var sw = new Stopwatch();
+	sw.Start();
+
+	var lng = new DefaultLocalizationTypesSource();
+
+	var entities = Domain.CreateEntityInfos(lng, typeof(Entity2), typeof(Entity3), typeof(Entity3D));
+	Domain.ConfigEntityInfos(entities);
+#>
+//<#= sw.Elapsed #>
+module Luxena
+{
+
+	export interface IEntitySemantic extends ISemanticEntity
+	{
+		Id: SemanticMember;
+		Version: SemanticMember;
+	}
+
+	export class EntitySemantic extends SemanticEntity implements IEntitySemantic
+	{
+		Id = this.member().string().utility();
+		Version = this.member().int().utility();
+	}
+
+	export interface IDomainActionSemantic extends ISemanticEntity
+	{
+		Id: SemanticMember;
+	}
+
+	export class DomainActionSemantic extends SemanticEntity implements IDomainActionSemantic
+	{
+		Id = this.member().string().utility();
+	}
+
+<#
+
+
+
+	foreach (var entity in entities)
+	{
+		var entityTitle = entity.Title;
+#>
+
+//<#= sw.Elapsed #><#= entityTitle.As(a => "\r\n\t/** " + a + " */") ?? "" #>
+	export interface I<#= entity #>Semantic extends I<#= entity.EntityBaseTypeName #>
+	{
+<#
+		var setup = SemanticSetup.Invoke(entity.EntityType);
+
+		var skipPropertiesFromAll = new[] { "Version", "CreatedOn", "CreatedBy", "ModifiedOn", "ModifiedBy" };
+
+		foreach (var prop in entity.AllDbProperties)
+		{
+			if (prop.Name.EndsWith("Id")) continue;
+			if (skipPropertiesFromAll.Contains(prop.Name)) continue;
+#>
+		//se.<#= prop.Name #>,
+<#
+		}
+
+		foreach (var prop in entity.DbProperties)
+		{
+			if (prop.Name.EndsWith("Id")) continue;
+
+#><#= prop.Title.As(a => "\r\n\t\t/** " + a + " */") ?? "" #>
+		<#= prop.Name #>: SemanticMember;
+<#
+		}
+
+		foreach (var prop in entity.CollectionProperties)
+		{
+			var itemEntity = entities.By(prop.PropertyType.GenericTypeArguments[0]);
+			//if (itemEntity == null) continue;
+
+			var detailProp = itemEntity.Associations.Where(a => a.Value == prop).Select(a => a.Key).FirstOrDefault();
+			if (detailProp == null) continue;
+
+			var title = prop.Localization(lng).Default.One;
+			if (title.Yes())
+			{
+#>
+		/** <#= title #> */
+<#
+			}
+#>		
+		<#= prop.Name #>: SemanticCollectionMember<<#= itemEntity #>Semantic>;
+<#
+		}
+
+		foreach (var prop in entity.EntityActions)
+		{
+			var tags = SemanticCodeGenerator.GetCodeForTypeScript(prop.Member, lng);
+#>
+<#= prop.Title.As(a => "\r\n\t\t/** " + a + " */") ?? "" #>
+		<#= prop.Name #>: SemanticEntityAction;
+<#
+		}
+
+#>
+	
+	}
+
+//<#= sw.Elapsed #><#= entityTitle.As(a => "\r\n\t/** " + a + " */") ?? "" #>
+	export class <#= entity #>Semantic extends <#= entity.EntityBaseTypeName #> implements I<#= entity #>Semantic
+	{
+<#
+		if (entity.IsEntity || entity.IsEntityQuery || entity.IsQueryResult || entity.IsQueryParams || entity.IsDomainAction || entity.IsClass)
+		{
+#>
+
+		constructor()
+		{
+			super();
+		
+			this._isAbstract = <#= entity.EntityType.IsAbstract.ToString().ToLower() #>;
+			this._name = "<#= entity #>";
+			this._names = "<#= entity.EntitySetName ?? entity #>";
+			<#= (entity.EntitySetType.As(a => a.Semantic<IconAttribute>()) ?? entity.EntityType.Semantic<IconAttribute>()).As(a => "this.icon(\"" + a.IconName + "\");") ?? "" #>
+<# if (entity.IsEntity) { #>
+			this._isEntity = true;
+<# } else if (entity.IsEntityQuery) { #>
+			this._isEntityQuery = true;
+<# } else if (entity.IsQueryParams) { #>
+			this._isQueryParams = true;
+<# } else if (entity.IsQueryResult) { #>
+			this._isQueryResult = true;
+<# } else if (entity.IsDomainAction) { #>
+			this._isDomainAction = true;
+<# } #>
+<#
+			if (entityTitle.Yes())
+			{
+#>
+			this._localizeTitle({ <#= entity.Localization.AsCParams() #> });
+<#			
+			}
+
+			if (entity.DerivedEntities.Yes())
+			{
+#>
+
+			this._getDerivedEntities = () => [
+				<#= string.Join(", ", entity.DerivedEntities.OrderBy(a => a.Localization.Default.One ?? a.EntityName).Select(a => "sd." + a)) #>
+			];
+<#			
+			}
+			else
+			{
+#>
+
+			this._getDerivedEntities = null;
+<#
+			}
+
+
+			var baseEntity = entities.By(entity.EntityBaseType);
+
+			if (baseEntity != null && baseEntity.IsEntity)
+			{
+#>
+
+			this._getBaseEntity = () => sd.<#= baseEntity #>;
+<#
+			}
+
+			if (entity.RootEntity != null)
+			{
+#>
+
+			this._className = "<#= entity.RootEntity #>";
+			this._getRootEntity = () => sd.<#= entity.RootEntity #>;
+<#
+			}
+
+			if (entity.IsEntity || entity.IsEntityQuery || entity.IsQueryResult || entity.IsDomainAction)
+			{
+#>
+			this._store = db.<#= entity.EntitySetName #>;
+			this._saveStore = db.<#= (entity.IsEntityQuery ? entities.By(entity.EntityBaseType) : entity).EntitySetName #>;
+<#
+				if (entity.HasLookup)
+				{
+#>
+			this._lookupStore = db.<#= entity #>Lookup;
+<#
+				}
+#>
+			this._referenceFields = { id: "<#= entity.IdProperty.AsName() ?? "" #>", name: "<#= entity.NameProperty.AsName() ?? "" #>" };
+<#
+				if (entity.EntityType.Semantic<BigAttribute>() != null || entity.EntitySetType.Semantic<BigAttribute>() != null)
+				{
+#>
+			this.big();
+<#
+				}
+				if (entity.EntityType.Semantic<SmallAttribute>() != null || entity.EntitySetType.Semantic<SmallAttribute>() != null)
+				{
+#>
+			this.small();
+<#
+				}
+				if (entity.EntityType.Semantic<WideAttribute>() != null || entity.EntitySetType.Semantic<WideAttribute>() != null)
+				{
+#>
+			this.wide();
+<#
+				}
+			}
+
+			if (setup != null)
+			{
+				foreach (var setupProp in setup.Properties)
+				{
+					var tags = SemanticCodeGenerator.GetCodeForTypeScript(setupProp, lng);
+					if (tags.No()) continue;
+#>
+
+			this.<#= setupProp.Property.Name #>
+				<#= string.Join("\r\n\t\t\t\t", tags) #>;
+<#
+				}
+			}
+#>
+		}
+//<#= sw.Elapsed #>
+<#
+			if (entity.IsEntity || entity.IsEntityQuery || entity.IsQueryResult || entity.IsDomainAction)
+			{
+#>
+
+		_<#= entity #> = new SemanticMember()
+<#
+			if (entityTitle.Yes())
+			{
+			#>
+			.localizeTitle({ <#= entity.Localization.AsCParams() #> })
+<#
+			}
+#>
+			.lookup(() => sd.<#= entity #>);
+				
+<#
+			}
+		}
+
+
+		foreach (var prop in entity.DbProperties)
+		{
+			if (prop.Name.EndsWith("Id")) continue;
+
+			var tags = SemanticCodeGenerator.GetCodeForTypeScript(prop.Member, lng);
+#>
+<#= prop.Title.As(a => "\r\n\t\t/** " + a + " */") ?? "" #>
+		<#= prop.Name #> = this.member()
+			<#= string.Join("\r\n\t\t\t", tags) #>;
+<#
+		}
+
+		foreach (var prop in entity.CollectionProperties)
+		{
+			var itemEntity = entities.By(prop.PropertyType.GenericTypeArguments[0]);
+			if (itemEntity == null) continue;
+
+			var detailProp = itemEntity.Associations.Where(a => a.Value == prop).Select(a => a.Key).FirstOrDefault();
+			if (detailProp == null) continue;
+
+			var tags = SemanticCodeGenerator.GetCodeForTypeScript(prop, lng);
+#>
+
+<#
+			var title = prop.Localization(lng).Default.One;
+			if (title.Yes())
+			{
+#>
+		/** <#= title #> */
+<#			
+			}
+
+			if (tags.Yes())
+			{
+				#>
+		<#= prop.Name #> = this.collection(() => sd.<#= itemEntity #>, se => se.<#= detailProp.Name #>, m => m
+			<#= string.Join("\r\n\t\t\t", tags) #>);
+<#
+			}
+			else
+			{
+#>	
+		<#= prop.Name #> = this.collection(() => sd.<#= itemEntity #>, se => se.<#= detailProp.Name #>);
+<#
+			}
+		}
+
+
+		foreach (var prop in entity.EntityActions)
+		{
+			var tags = SemanticCodeGenerator.GetCodeForTypeScript(prop.Member, lng);
+#>
+<#= prop.Title.As(a => "\r\n\t\t/** " + a + " */") ?? "" #>
+		<#= prop.Name #> = this.action()
+			<#= string.Join("\r\n\t\t\t", tags) #>;
+<#
+		}
+#>	
+
+		clone(cfg?: Object): <#= entity #>Semantic
+		{
+			return $.extend({}, this, cfg);
+		}
+
+	}
+
+<#
+	}
+#>
+
+//<#= sw.Elapsed #>
+	export class DomainSemantic extends SemanticDomain
+	{
+<#
+	var domainEntities = entities
+		.Where(a => a.IsEntity || a.IsEntityQuery || a.IsQueryResult || a.IsQueryParams || a.IsDomainAction || a.IsClass)
+		.OrderBy(a => a.EntityName)
+		.ToArray();
+
+	foreach (var entity in domainEntities)
+	{
+#><#= entity.Title.As(a => "\t\t/** " + a + " */") ?? "" #>
+		<#= entity #> = <I<#= entity #>Semantic>this.entity(new <#= entity #>Semantic());
+<#		
+	}
+#>
+	};
+
+	export interface IDomainSemantic extends DomainSemantic { }
+
+	export var sd: IDomainSemantic = new DomainSemantic();
+
+}
+//<#= sw.Elapsed #>

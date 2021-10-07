@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+	<title>SmartTravel</title>
+
+
+	<link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicons/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicons/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicons/favicon-16x16.png">
+	<link rel="shortcut icon" type="image/x-icon" href="assets/img/favicons/favicon.ico">
+	<link rel="manifest" href="assets/img/favicons/manifest.json">
+	<meta name="msapplication-TileImage" content="assets/img/favicons/mstile-150x150.png">
+	<meta name="theme-color" content="#ffffff">
+
+
+	<link href="assets/css/theme.css" rel="stylesheet" />
+
+	<style>
+
+		body {
+			font-size: 20px;
+		}
+
+		.card-body {
+			padding: 1rem 5rem 1rem 0 !important;
+		}
+
+
+		.tableTarif {
+			border-spacing: 7px 5px;
+			border-collapse: unset;
+		}
+
+			.tableTarif th, .tableTarif td {
+				padding: 8px 12px;
+			}
+
+			.tableTarif th {
+				font-weight: 500;
+				background: rgba(0, 0, 0, .03);
+			}
+
+			.tableTarif td {
+				font-weight: 400;
+				background: rgba(0, 0, 0, .02);
+				text-align: center;
+			}
+	</style>
+
+
+</head>
+
+
+<body>
+
+
+
+	<main class="main" id="top">
+
+
+
+		<nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" data-navbar-on-scroll="data-navbar-on-scroll">
+			<div class="container">
+				<a class="navbar-brand" href="#"><img class="img-fluid" src="assets/img/icons/logo.png" alt="" /></a>
+				<button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav me-auto ms-lg-4 ms-xl-7 border-bottom border-lg-bottom-0 pt-2 pt-lg-0">
+						<li class="nav-item"><a class="nav-link fw-bold active" aria-current="page" href="#about">О системе</a></li>
+						<li class="nav-item"><a class="nav-link fw-medium" href="#features">Возможности</a></li>
+						<li class="nav-item"><a class="nav-link fw-medium" href="#demo">DEMO</a></li>
+						<li class="nav-item"><a class="nav-link fw-medium" href="#prices">Цены</a></li>
+						<li class="nav-item"><a class="nav-link fw-medium" href="#contacts">Контакты</a></li>
+
+					</ul>
+					<!--<form class="d-flex py-3 py-lg-0">
+						<a class="btn btn-light rounded-pill shadow fw-bold" href="http://demo.travel.smartikum.com" target="_blank" role="button">
+							Посмотреть Demo
+							<svg class="bi bi-arrow-right" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#9C69E2" viewBox="0 0 16 16">
+								<path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"></path>
+							</svg>
+						</a>
+					</form>-->
+				</div>
+			</div>
+		</nav>
+
+
+
+		<section class="py-5">
+
+			<div class="container">
+				<div class="row align-items-center">
+					<div class="col-md-5 col-lg-7 order-md-1 pt-8"><img class="img-fluid" src="assets/img/illustrations/hero-header.png" alt="" /></div>
+					<div class="col-md-7 col-lg-5 text-center text-md-start pt-5 pt-md-9">
+
+						<h1 class="mb-4 display-2 fw-bold">Управляй<br class="d-block d-lg-none d-xl-block" />туристическим бизнесом</h1>
+						<p class="mt-3 mb-4">
+							<b>SmartTravel</b> – это первое SaaS решение управления туристическим бизнесом. Доказавший свою надёжность инструмент, объединяющий информацию о продажах и клиентах в единую базу данных с простым и приятным интерфейсом пользователя.
+						</p>
+					</div>
+				</div>
+			</div>
+
+		</section>
+
+
+		<section id="about" class="py-4">
+
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<div class="card mb-3 bg-soft-danger rounded-3">
+							<div class="row g-0 align-items-center">
+								<div class="col-md-5 col-lg-5 text-md-center"><img class="img-fluid" src="assets/img/illustrations/about.png" alt="" /></div>
+								<div class="col-md-7 col-lg-7 px-md-2 px-xl-6 text-center text-md-start">
+									<div class="card-body px-4 py-5 p-lg-3 p-md-4">
+										<br />
+										<h1 class="mb-4 fw-bold">
+											Cистема учета продаж туристических услуг SmartTravel
+										</h1>
+
+										<p class="card-text">
+											<b>SmartTravel</b> объединяет и анализирует всю
+											информацию о продажах туруслуг. Речь как о билетах, выпущенных
+											в различных системах бронирования (GDS),
+											так и продажах туруслуг вне этих систем.
+											Система позволяет формировать из бронировок заказы,
+											контролировать их оплату и автоматически передавать данные
+											в системы бухучета (1С и др.).
+										</p>
+										<p class="card-text">
+											Единая система, работающая в "реальном времени" для
+											офиса и филиалов, и поддерживающая работу с субагентами.
+										</p>
+										<p class="card-text">
+											Ваша компания, перейдя на <b>SmartTravel</b> в повседневной практике, сократит время выполнения рутинных операций агента по обработке заказов и составлению отчетов. Система предоставит для бухучета всю необходимую информацию по счетам и фактическим платежам и даст руководителю аналитические данные, необходимые для эффективного управления компанией как целостным организмом.
+										</p>
+										<br />
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</section>
+
+
+
+		<section id="features" class="py-6">
+
+
+			<div class="container-lg">
+
+
+				<div class="row flex-center mb-5">
+					<div class="col-auto text-center my-4">
+						<h1 class="mb-4 fw-bold">Возможности SmartTravel</h1>
+						<p>
+							Некоторые функции и преимущества, которые мы предоставляем пользователям нашей системы
+						</p>
+					</div>
+				</div>
+
+
+				<div class="row">
+
+
+					<div class="col-md-6 mb-6">
+						<div class="card px-5 px-md-3 py-lg-5">
+							<div class="row flex-center">
+
+								<div class="bg-holder z-index-1 d-none d-lg-block" style="background-image: url(assets/img/illustrations/feature-bg-1.png); background-position: center; background-size: contain;"></div>
+
+								<div class="bg-holder z-index-1 d-block d-lg-none" style="background-image: url(assets/img/illustrations/feature-bg-1.png); background-position: center; background-size: cover;"></div>
+
+								<div class="col-md-4 pe-0 pe-md-0 text-center">
+									<img class="img-fluid" src="assets/img/illustrations/feature-search.png" alt="" />
+								</div>
+
+								<div class="col-md-8 ps-md-3 pe-md-2 text-center text-md-start z-index-2">
+									<div class="card-body px-0">
+
+										<h4 class="card-title pt-md-2">
+											Анализ продаж
+										</h4>
+
+										<p class="mb-2 mt-3">
+											Вы сможете контролировать продажи <br />
+											с момента выписки билетов
+											в системах бронирования до момента оплаты заказа вашим клиентом.
+										</p>
+
+										<p class="mb-2">
+											А система финансовой и операционной аналитики позволяет
+											как оценивать эффективность работы ваших филиалов и агентов,
+											так и находить наиболее прибыльные направления продаж.
+										</p>
+
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+
+
+					<div class="col-md-6 mb-6">
+						<div class="card px-5 px-md-3 py-lg-5">
+							<div class="row flex-center">
+
+								<div class="bg-holder z-index-1 d-none d-xl-block" style="background-image: url(assets/img/illustrations/feature-bg-2.png); background-position: center; background-size: contain;"></div>
+
+								<div class="bg-holder z-index-1 d-block d-xl-none" style="background-image: url(assets/img/illustrations/feature-bg-2.png); background-position: center; background-size: cover;"></div>
+
+								<div class="col-md-4 pe-0 pe-md-0 text-center"><img class="img-fluid" src="assets/img/illustrations/feature-hour.png" alt="" /></div>
+
+								<div class="col-md-8 ps-md-3 pe-md-2 text-center text-md-start z-index-2">
+									<div class="card-body px-0">
+
+										<h4 class="card-title">Каждому пользователю - индивидуальный подход!</h4>
+
+										<p class="mb-1">
+											Система доступна
+											с любого компьютера
+											<br class="d-none d-md-block" />
+											в безопасном режиме 24/7.
+										</p>
+
+										<p class="mb-1">
+											Мы проводим индивидуальную
+											настройку системы
+											для каждого пользователя.
+										</p>
+
+										<p class="mb-0">
+
+											Наши клиенты получают
+											от службы поддержки
+											своевременные консультации
+											и бесплатные обновления системы.
+										</p>
+
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+
+
+					<div class="col-md-6 mb-6">
+						<div class="card px-5 px-md-3 py-lg-5">
+							<div class="row flex-center">
+
+								<div class="bg-holder z-index-1 d-none d-lg-block" style="background-image: url(assets/img/illustrations/feature-bg-3.png); background-position: center; background-size: contain;"></div>
+
+								<div class="bg-holder z-index-1 d-block d-lg-none" style="background-image: url(assets/img/illustrations/feature-bg-3.png); background-position: center; background-size: cover;"></div>
+
+								<div class="col-md-4 pe-0 pe-md-0 text-center"><img class="img-fluid" src="assets/img/illustrations/feature-print.png" alt="" /></div>
+
+								<div class="col-md-8 ps-md-3 pe-md-2 text-center text-md-start z-index-2">
+									<div class="card-body px-0">
+
+										<h4 class="card-title pt-md-3">Печать документов</h4>
+
+										<p class="mb-1">
+											В SmartTravel Вы сможете формировать все необходимые сопроводительные документы: счета, накладные, квитанции, акты выдачи.
+										</p>
+
+										<p class="mb-1">
+											Индивидуальная форма печати билетов разрабатывается согласно Вашему корпоративному стилю и пожеланиям.
+										</p>
+
+										<p class="mb-3">
+											Ну и конечно же – формирование и печать отчётов
+										</p>
+
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+
+
+					<div class="col-md-6 mb-6">
+						<div class="card px-5 px-md-3 py-lg-5">
+							<div class="row flex-center">
+
+								<div class="bg-holder z-index-1 d-none d-lg-block" style="background-image: url(assets/img/illustrations/feature-bg-4.png); background-position: center; background-size: contain;"></div>
+
+								<div class="bg-holder z-index-1 d-block d-lg-none" style="background-image: url(assets/img/illustrations/feature-bg-4.png); background-position: center; background-size: cover;"></div>
+
+								<div class="col-md-4 pe-0 pe-md-0 text-center"><img class="img-fluid" src="assets/img/illustrations/feature-security.png" alt="" /></div>
+
+								<div class="col-md-8 ps-md-3 pe-md-2 text-center text-md-start z-index-2">
+									<div class="card-body px-0">
+
+										<h4 class="card-title pt-md-3">Безопасность</h4>
+
+										<p class="mb-1">
+											Ваши данные будут максимально защищены,
+											а доступ к ним предоставляется согласно
+											вашей политике безопасности.
+										</p>
+
+										<p class="mb-1">
+											Каждый агент работает только с
+											необходимыми ему документами.
+										</p>
+
+										<p class="mb-3">
+											Благодаря ежедневному
+											резервному копированию
+											Вы можете быть спокойны
+											за сохранность своих данных.
+										</p>
+
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+
+
+				</div>
+
+
+			</div>
+
+
+		</section>
+
+
+
+		<div class="container">
+			<div class="row">
+
+
+				<section class="col-md-6 py-0">
+					<div class="container">
+						<hr class="text-info opacity-25" />
+						<div class="py-4 pb-0 justify-content-sm-between text-center text-md-start">
+							<h3 class="mb-3">
+								Интеграция с различными системами бронирования (GDS)
+							</h3>
+
+							<p>
+								Каждый документ, выпущенный в системах бронирования, автоматически импортируется в SmartTravel.
+								Билеты появляются в SmartTravel в течение нескольких секунд после их выпуска.
+							</p>
+							<p>
+								При этом проводится автоматический расчет абсолютного и относительного значения комиссий,
+								оборота, прибыли, сумм НДС и сумм к перечислению в авиакомпанию.
+							</p>
+							<p>
+								Уже сейчас поддерживается интеграция со следующими системами бронирования: <b>Amadeus, Galileo, Sabre, DRCT, TravelPoint</b>.<br />
+								И по мере необходимости этот список будет расширяться.
+							</p>
+						</div>
+					</div>
+				</section>
+
+
+				<section class="col-md-6 py-0">
+					<div class="container">
+						<hr class="text-info opacity-25" />
+						<div class="py-4 pb-0 justify-content-sm-between text-center text-md-start">
+							<h3 class="mb-3">Удобная и простая форма обработки билетов агентом</h3>
+							<p class="mb-1">
+								Внесение агентом дополнительной информации о продаже (заказчик, посредник, сервисный сбор, скидка, тип оплаты, и др.).
+							</p>
+							<p class="mb-1">
+								Подготовка ежедневного отчета агента.
+							</p>
+							<p>
+								Учет бронировок для выставления по ним счетов, регистрации оплат.<br />
+							</p>
+						</div>
+					</div>
+				</section>
+
+
+				<section class="col-md-6 py-4 pb-0">
+					<div class="container">
+						<hr class="text-info opacity-25" />
+						<div class="py-4 pb-0 justify-content-sm-between text-center text-md-start">
+							<h3 class="mb-3">Интеграция с бухгалтерией</h3>
+							<p class="mb-1">
+								Подготовка и выгрузка информации о произведенных продажах. Использование Excel или XML файла с согласованной структурой.
+							</p>
+							<p class="mb-1">
+								Возможность устанавливать критерии для выгрузки (период продаж, авиакомпании, заказчики, офисы продаж и др.).
+							</p>
+							<p>
+								Автоматизация выгрузки повторяющихся задач согласно установленным критериям и расписанию (например, ежедневно, выгрузка каждого импортируемого документа).
+							</p>
+						</div>
+					</div>
+				</section>
+
+
+				<section class="col-md-6 py-4 pb-0">
+					<div class="container">
+						<hr class="text-info opacity-25" />
+						<div class="py-4 pb-0 justify-content-sm-between text-center text-md-start">
+							<h3 class="mb-3">
+								Формирование счетов, накладных, квитанций по сформированным заказам
+							</h3>
+
+							<p class="mb-1">
+								Автоматический расчет НДС.
+							</p>
+							<p class="mb-1">
+								Выпуск печатной формы счета.
+							</p>
+							<p class="mb-1">
+								Пользователь может легко отследить статус нужного документа.
+							</p>
+							<p>
+								Контроль оплаты заказа.
+							</p>
+						</div>
+					</div>
+				</section>
+
+
+				<section class="col-md-6 py-4 pb-0">
+					<div class="container">
+						<hr class="text-info opacity-25" />
+						<div class="py-4 pb-0 justify-content-sm-between text-center text-md-start">
+							<h3 class="mb-3">Кассовый журнал и учет платежей</h3>
+							<p class="mb-1">
+								Регистрация платежей.
+							</p>
+							<p class="mb-1">
+								Формирование квитанций и приходных кассовых ордеров по одному нажатию мыши.
+							</p>
+							<p>
+								Контроль оплат, авансовых платежей, взаиморасчетов с контрагентами.
+							</p>
+						</div>
+					</div>
+				</section>
+
+
+				<section class="col-md-6 py-4 pb-0">
+					<div class="container">
+						<hr class="text-info opacity-25" />
+						<div class="py-4 pb-0 justify-content-sm-between text-center text-md-start">
+							<h3 class="mb-3">Подсистема задач (элементы CRM)</h3>
+							<p>
+								Создание и отслеживание задач;<br />
+								Напоминание о днях рождения клиентов.
+							</p>
+						</div>
+					</div>
+				</section>
+
+
+
+			</div>
+		</div>
+
+
+
+		<section id="demo" class="pt-8">
+
+
+			<div class="container">
+
+				<hr class="text-info opacity-25 mb-8" />
+
+				<div class="text-center mb-4">
+					<h1 class="mb-4 fw-bold">Demo-версия</h1>
+				</div>
+
+				<div class="mx-auto w-50">
+					<p>
+						Чтобы посмотреть <a href="http://demo.travel.smartikum.com" target="_blank">demo-версию</a> онлайн
+						перейтите по следующей <a href="http://demo.travel.smartikum.com" target="_blank">ссылке</a>.
+					</p>
+					<p>
+						В качестве логина можете использовать следующие:<br />
+						&nbsp; &nbsp; &#9679; &nbsp; для входа с правами агента: <b>agent1, agent2 ... agent9</b>;<br />
+						&nbsp; &nbsp; &#9679; &nbsp; для входа с правами администратора: <b>admin1, admin2 ... admin5</b>.<br />
+					</p>
+					<p>
+						В demo-версии <b>пароль совпадает с логином</b>.
+					</p>
+
+					<p class="pt-3">
+						Так же Вы можете ознакомиться с основными возможностями с помощью записи вебинара:
+					</p>
+
+					<iframe class="mx-auto" width="560" height="315" src="https://www.youtube.com/embed/VeO3A1TFjhU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				</div>
+
+
+
+			</div>
+
+
+		</section>
+
+
+
+		<section id="prices" class="py-0 pb-0">
+
+			<div class="container">
+				<hr class="text-info opacity-25" />
+				<div class="row py-6 justify-content-sm-between text-center text-md-start">
+
+
+					<h1 class="text-center fw-bold">Цены и тарифные планы</h1>
+
+					<table class="tableTarif mt-6">
+						<tbody>
+
+							<tr>
+								<th>
+									Количество
+									пользователей
+								</th>
+								<td>2</td>
+								<td>3</td>
+								<td>4</td>
+								<td>5</td>
+								<td>6</td>
+								<td>7</td>
+								<td>8</td>
+								<td>9</td>
+								<td>10</td>
+								<td>11</td>
+								<td>12</td>
+								<td>13</td>
+								<td>14</td>
+								<td>от 15</td>
+							</tr>
+
+							<tr>
+								<th>
+									Стоимость<br />
+									EURO/месяц
+								</th>
+								<td>&#8364 99</td>
+								<td>&#8364 139</td>
+								<td>&#8364 169</td>
+								<td>&#8364 199</td>
+								<td>&#8364 229</td>
+								<td>&#8364 259</td>
+								<td>&#8364 289</td>
+								<td>&#8364 319</td>
+								<td>&#8364 349</td>
+								<td>&#8364 379</td>
+								<td>&#8364 409</td>
+								<td>&#8364 439</td>
+								<td>&#8364 469</td>
+								<td>&#8364 499</td>
+							</tr>
+						</tbody>
+					</table>
+
+
+				</div>
+			</div>
+		</section>
+
+
+
+		<section id="contacts" class="pt-6">
+
+
+			<div class="container">
+
+				<hr class="text-info opacity-25 mb-8" />
+
+				<div class="text-center mb-4">
+					<h1 class="mb-4 fw-bold">Попробуйте бесплатно!</h1>
+					<p>Бесплатный пробный период предоставляется в течении 1 месяца</p>
+				</div>
+
+				<div class="mx-auto w-50">
+					<p>
+						<a class="text-decoration-none" href="#">
+							<span class="fw-bold fs-1 text-1000">Чтобы попробовать систему <b>SmartTravel</b> в действии свяжитесь с нами:</span>
+						</a>
+					</p>
+					<p class="mt-4">
+						tel, Viber: <a href="viber://add?number=%2B380509787585">+38 050 978 75 85</a>
+					</p>
+					<p>
+						Skype: <a href="skype:siden7777">siden7777</a>
+					</p>
+					<p>
+						Telegram: <a href="tg://resolve?domain=@Naviy">@Naviy</a>
+					</p>
+
+				</div>
+
+
+			</div>
+
+			<hr class="text-info opacity-25 my-8" />
+
+		</section>
+
+
+
+	</main>
+
+
+
+	<script src="vendors/@popperjs/popper.min.js"></script>
+	<script src="vendors/bootstrap/bootstrap.min.js"></script>
+	<script src="vendors/is/is.min.js"></script>
+	<script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
+	<script src="assets/js/theme.js"></script>
+
+	<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,700;1,900&amp;display=swap" rel="stylesheet">
+
+</body>
+
+</html>

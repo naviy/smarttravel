@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<avia-ticket>
+	<issuing-date type="dateTime">2020-08-11T00:00:00+03:00</issuing-date>
+	<status>issue</status>
+	<ticket-number>566-2406994452</ticket-number>
+	<booking-number>NJII48</booking-number>
+	<reissue-old-no nil="true" />
+	<agent-id-booking nil="true" />
+	<agent-id-ticketing>SZ</agent-id-ticketing>
+	<office-id-subagent nil="true" />
+	<office-id-ticketing>IEVPS2461</office-id-ticketing>
+	<iata-agency-code>72324910</iata-agency-code>
+	<flight-class nil="true" />
+	<tour-code nil="true" />
+	<ticket-type>ticket</ticket-type>
+	<currency>UAH</currency>
+	<fare-eq type="float">10662.0</fare-eq>
+	<cancellation-fee type="integer">0</cancellation-fee>
+	<taxes type="float">2109.0</taxes>
+	<route>TLV-KBP;KBP-TLV</route>
+	<commission>1A</commission>
+	<commission-equiv type="integer">1</commission-equiv>
+	<passenger>Nazarov Ervin</passenger>
+	<carrier>PS</carrier>
+	<origin-city nil="true" />
+	<destination-city nil="true" />
+	<air-segments type="array">
+		<air-segment>
+			<no type="integer">1</no>
+			<carrier>PS</carrier>
+			<number type="integer">776</number>
+			<air-class>L</air-class>
+			<departure-date>2020-09-01</departure-date>
+			<departure-time>14:35</departure-time>
+			<arrival-date>2020-09-01</arrival-date>
+			<arrival-time>17:45</arrival-time>
+			<origin-airport-name nil="true" />
+			<origin-airport-code>TLV</origin-airport-code>
+			<destination-airport-name nil="true" />
+			<destination-airport-code>KBP</destination-airport-code>
+			<fare-basis>L002SSM1</fare-basis>
+			<baggage>1PC</baggage>
+			<meal nil="true" />
+			<terminal-check-in nil="true" />
+			<terminal-arrival nil="true" />
+			<flight-duration-time nil="true" />
+			<equipment nil="true" />
+		</air-segment>
+		<air-segment>
+			<no type="integer">2</no>
+			<carrier>PS</carrier>
+			<number type="integer">777</number>
+			<air-class>N</air-class>
+			<departure-date>2020-09-05</departure-date>
+			<departure-time>20:00</departure-time>
+			<arrival-date>2020-09-05</arrival-date>
+			<arrival-time>23:10</arrival-time>
+			<origin-airport-name nil="true" />
+			<origin-airport-code>KBP</origin-airport-code>
+			<destination-airport-name nil="true" />
+			<destination-airport-code>TLV</destination-airport-code>
+			<fare-basis>L002SSM1</fare-basis>
+			<baggage>1PC</baggage>
+			<meal nil="true" />
+			<terminal-check-in nil="true" />
+			<terminal-arrival nil="true" />
+			<flight-duration-time nil="true" />
+			<equipment nil="true" />
+		</air-segment>
+	</air-segments>
+	<supplier>IEVPS2461</supplier>
+	<buyer>Фламинго тревел</buyer>
+	<buyer-edrpou>37406272</buyer-edrpou>
+	<buyer-id type="integer">160</buyer-id>
+	<sf-total type="float">0.0</sf-total>
+	<miscellaneous-fees type="float">0.0</miscellaneous-fees>
+	<refund-fee type="integer">0</refund-fee>
+	<form-of-payment>CASH</form-of-payment>
+	<total-amount type="float">12771.0</total-amount>
+	<grand-total-amount type="float">0.0</grand-total-amount>
+	<our-commission type="float">0.0</our-commission>
+	<source>altea</source>
+	<consolidator>tc</consolidator>
+</avia-ticket>

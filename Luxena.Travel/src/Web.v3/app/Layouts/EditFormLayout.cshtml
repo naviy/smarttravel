@@ -1,0 +1,90 @@
+﻿@{
+    Layout = "ViewLayout.cshtml";
+    //var bs = Html.Bootstrap();
+    DomainUiHelper<dynamic> ui = ViewBag.ui;
+    //var v = ui.ViewEntity;
+}
+
+
+<div class="view-toolbar">
+
+    @*    <ul class="nav nav-tabs pull-left">*@
+    @*        <li ng-repeat="page in pages" ng-class="{ active: page.active }" ng-click="openPage(page)">*@
+    @*            <a href="javascript:"  style="padding-top1: 0; padding-bottom1: 0">{{page.title}}</a>*@
+    @*        </li>*@
+    @*    </ul>*@
+
+    <div class="pull-left">
+        @ui.Form.RefreshButton()
+    </div>
+
+    <div class="pull-right">
+        @ui.Form.BackToViewButton()
+    </div>
+
+    <div class="pull-right">
+        @ui.Form.SaveButton()
+    </div>
+</div>
+
+<div class="editform-container" data-section-scroll-spy="">
+    @*{{sections}}*@
+    <div class="row">
+
+        <div class="col-lg-offset-1 col-lg-2" style="position: fixed; padding: 0; left: -1px; margin-top: 5px; z-index: 9999">
+            <ul class="nav nav-tabs nav-stacked nav-stacked-left">
+                <li ng-repeat="section in sections" section-spy="section">
+                    <a ng-click="openSection(section)" href="javascript:">{{section.title}}<br />
+                        <small>{{section.description}}</small>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="col-lg-offset-3 col-lg-7">
+            @RenderBody()
+        </div>
+
+    </div>
+
+</div>
+
+
+@if (IsSectionDefined("Controller"))
+{
+    @section Controller { @RenderSection("Controller") }    
+}
+else
+{
+    @section Controller { Domain.@((ViewBag.ViewName as string).As(a => a.Substring(0, 1).ToUpper() + a.Substring(1)))Ctrl }
+}
+
+@if (IsSectionDefined("Scripts"))
+{
+    @section Scripts { @RenderSection("Scripts") }    
+}
+
+@*@if (IsSectionDefined("Title"))
+{
+    @section Title { @RenderSection("Title") }
+}
+else if (v != null)
+{
+    @section Title 
+    {
+        r && !r._isNew
+        ? '@v.title.Short "' + (@if (IsSectionDefined("Title1")) { @RenderSection("Title1") } else { <text>r.Name</text> }) + '"'
+        : '@v.title.Short' 
+    } 
+}
+
+@if (IsSectionDefined("Icon"))
+{
+@section Icon { @RenderSection("Icon") }
+}
+else if (v != null && v.icon.Yes())
+{
+@section Icon { '@v.icon' }
+}*@
+
+

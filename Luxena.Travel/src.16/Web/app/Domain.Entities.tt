@@ -1,0 +1,153 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="D:\data\git\Luxena.Travel\src.15\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll" #>
+<#@ assembly name="D:\data\git\Luxena.Travel\src.15\Luxena.Libs.15\Luxena.Support\bin\Debug\Luxena.Support.dll" #>
+<#@ assembly name="D:\data\git\Luxena.Travel\src.15\Luxena.Libs.15\Luxena.Domain\bin\Debug\Luxena.Domain.dll" #>
+<#@ assembly name="D:\data\git\Luxena.Travel\src.15\Domain\bin\Debug\Luxena.Travel.Domain.dll" #>
+<#@ import namespace="Luxena" #>
+<#@ import namespace="Luxena.Domain" #>
+<#@ import namespace="Luxena.Travel.Domain" #>
+<#@ import namespace="System.Linq" #>
+<#@ output extension=".ts" #>
+<#
+
+	var lng = new DefaultLocalizationTypesSource(typeof(RUAttribute), typeof(UAAttribute), typeof(ENAttribute));
+
+	var entities = Domain.CreateEntityInfos(lng, typeof(Entity2), typeof(Entity3), typeof(Entity3D));
+
+#>
+module Luxena
+{
+
+	//#region Enums
+
+<#	
+foreach (var enumType in typeof(Domain).Assembly.GetTypes().Where(a => a.IsEnum && a.Namespace == typeof(Domain).Namespace))
+{
+#>
+	//#region <#= enumType.Name #> 
+
+	export enum <#= enumType.Name #>
+	{
+<#
+	var enumValues = Enum.GetValues(enumType).Cast<object>().Select(enumValue =>
+	{
+		var enumInfo = enumType.GetMember(enumValue.ToString()).One();
+		
+		var loc = enumInfo.Localization(lng);
+
+		var name = loc.Default.One ?? enumValue.ToString();
+
+		var icon = enumInfo.Semantic<IconAttribute>() ?? loc.SourceMember.As(a => a.Semantic<IconAttribute>());
+
+		return new
+		{
+			Id = enumValue.ToString(),
+			Value = (int)enumValue,
+			Name = name, 
+			IconTS = icon.As(a => "Icon: \"" + a.IconName + "\", TextIconHtml: getTextIconHtml(\"" + a.IconName + "\"), ") ?? "TextIconHtml: \"\", ",
+			Location = loc,
+		};
+	}).ToArray();
+
+	foreach (var enumValue in enumValues)
+	{ 
+#>
+		<#= enumValue.Id #> = <#= enumValue.Value #>,
+<#
+	}
+#>
+	}
+
+	export module <#= enumType.Name #>
+	{
+		export var _ns = "<#= enumType.Namespace #>";
+		export var _name = "<#= enumType.Name #>";
+		export var _fullName = "<#= enumType.FullName #>";
+		export var _getEdm = value => !value ? null : new DevExpress.data.EdmLiteral("<#= enumType.FullName #>'" + value + "'");
+		<#= enumType.HasAttribute<System.FlagsAttribute>() ? "export var _isFlags = true;" : "" #>
+
+		export var _array = [
+<#
+	var maxLength = 0;
+
+	foreach (var enumValue in enumValues)
+	{
+		if (maxLength < enumValue.Name.Length) maxLength = enumValue.Name.Length;
+#>
+			{ Id: "<#= enumValue.Id #>", Value: <#= enumValue.Value #>, Name: <#=  '"' + enumValue.Name + '"' #>, <#= enumValue.IconTS #><#= enumValue.Location.AsCParams() #> },
+<#
+	}
+#>
+		];
+
+		export var _maxLength = <#= Math.Round(0.75 * maxLength) #>;
+
+		export var _items = {
+<#
+	var i = -1;
+	foreach (var enumValue in enumValues)
+	{
+		i++;
+#>
+			"<#= enumValue.Value #>": _array[<#= i #>],
+			"<#= enumValue.Id #>": _array[<#= i #>],
+<#
+	}
+#>
+		};
+			
+	}
+
+	//#endregion
+
+
+<#
+}
+#>
+	//#endregion
+
+
+	export class Domain extends DevExpress.data.ODataContext
+	{
+<#
+	var entities2 = entities
+		.Where(a => a.IsEntity || a.IsEntityQuery || a.IsQueryResult || a.IsDomainAction || a.IsDomainFunction)
+		.OrderBy(a => a.EntityName)
+		.ToList();
+
+	foreach (var entity in entities2)
+	{
+#>	
+		<#= entity.EntitySetName #>: DevExpress.data.ODataStore;
+<#
+		if (entity.HasLookup)
+		{
+#>	
+		<#= entity #>Lookup: DevExpress.data.ODataStore;
+<#
+		}
+	}
+#>	};
+
+
+	config.services.db.entities = 
+	{
+<#
+	foreach (var entity in entities2)
+	{
+#>	
+		<#= entity.EntitySetName #>: { key: "Id", keyType: "String" },
+<#		
+		if (entity.HasLookup)
+		{
+#>	
+		<#= entity #>Lookup: { key: "Id", keyType: "String" },
+<#
+		}
+	}
+#>
+	
+	};
+
+}

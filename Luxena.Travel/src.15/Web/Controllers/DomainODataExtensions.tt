@@ -1,0 +1,301 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="System.ComponentModel.DataAnnotations" #>
+<#@ assembly name="D:\data\git\Luxena.Travel\src.15\Domain\bin\Debug\EntityFramework.dll" #>
+<#@ assembly name="D:\data\git\Luxena.Travel\src.15\Luxena.Libs.15\Luxena.Support\bin\Debug\Luxena.Support.dll" #>
+<#@ assembly name="D:\data\git\Luxena.Travel\src.15\Luxena.Libs.15\Luxena.Domain\bin\Debug\Luxena.Domain.dll" #>
+<#@ assembly name="D:\data\git\Luxena.Travel\src.15\Domain\bin\Debug\Luxena.Travel.Domain.dll" #>
+<#@ import namespace="Luxena" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Reflection" #>
+<#@ import namespace="Luxena.Domain" #>
+<#@ import namespace="Luxena.Travel.Domain" #>
+<#@ output extension=".cs" #>
+<#
+
+	var lng = new DefaultLocalizationTypesSource(typeof(RUAttribute), typeof(UAAttribute), typeof(ENAttribute));
+
+	var entities = Domain.CreateEntityInfos(lng, typeof(Entity2), typeof(Entity3), typeof(Entity3D)).OrderBy(a => a.EntitySetName).ToArray();
+
+#>
+using System.Web.OData.Builder;
+
+using Luxena.Domain.Web;
+
+
+namespace Luxena.Travel.Web
+{
+
+	using Domain;
+	
+
+	#region Entity Controllers
+<#
+	foreach (var entity in entities.Where(a => a.IsEntity))
+	{
+#>
+
+	public partial class <#= entity.EntitySetName #>Controller: <#= entity.EntityType.IsAbstract ? "ReadOnly" : "" #>EntityODataController<Domain, <#= entity #>, string> { }
+<#
+	}
+#>
+
+	#endregion
+
+
+	#region EntityQuery Controllers
+<#
+
+	foreach (var entity in entities.Where(a => a.IsEntityQuery))
+	{
+#>
+
+	public partial class <#= entity.EntitySetName #>Controller: <#= entity.EntityBaseType.IsAbstract ? "ReadOnly" : "" #>EntityODataController<Domain, <#= entity.EntityType.Name #>, string> 
+	{ 
+		protected override Domain.EntityQuery<<#= entity.EntityType.Name #>> GetEntityQuery()
+		{
+			return db.<#= entity.EntitySetName #>;
+		}
+	}
+<#
+	}
+#>
+
+	#endregion
+
+
+	#region Lookup Controllers
+<#
+
+	foreach (var entity in entities.Where(a => a.HasLookup))
+	{
+#>
+
+	public partial class <#= entity #>LookupController : EntityLookupODataController<Domain, <#= entity.EntityType.Name #>, string, <#= entity.LookupTypeName #>>
+	{
+		public <#= entity #>LookupController()
+		{
+			Query = db.<#= entity.EntitySetName #>;
+<#
+		if (entity.LookupCallerType != null)
+		{
+#>
+			Lookup = <#= entity.LookupCallerType.Name #>.Lookup;
+<#
+		}
+		else
+		{
+#>
+			Lookup = <#= entity.LookupTypeName #>.DefaultLookup;
+<#
+		}
+#>
+			Select = <#= entity.LookupTypeName #>.SelectAndOrderByName;
+		}
+	}
+<#
+	}
+#>
+
+	#endregion
+
+
+	#region QueryResult Controllers
+<#
+	foreach (var entity in entities.Where(a => a.IsQueryResult))
+	{
+#>
+
+	public partial class <#= entity.EntitySetName #>Controller: DbQueryODataController<Domain, <#= entity.QueryParamsType.Name #>, <#= entity.EntityType.Name #>, <#= entity.QueryType.Name #>> { }
+<#		
+	}
+#>
+
+	#endregion
+
+
+	#region DomainAction Controllers
+<#
+	foreach (var entity in entities.Where(a => a.IsDomainAction))
+	{
+#>
+
+	public partial class <#= entity #>Controller: DomainActionODataController<Domain, <#= entity #>> { }
+<#		
+	}
+#>
+
+	#endregion
+
+
+	partial class AppConfig
+	{
+
+		public class DomainEdmModel
+		{
+
+			#region Properties
+<#
+	foreach (var entity in entities.Where(a => a.IsEntity || a.IsEntityQuery || a.IsQueryResult))
+	{
+#>
+
+			public EntitySetConfiguration<<#= entity #>> <#= entity.EntitySetName #>;
+			public EntityTypeConfiguration<<#= entity #>> <#= entity #>;
+<#		
+	}
+#>
+
+<#
+	foreach (var entity in entities.Where(a => a.IsQueryParams || a.IsDomainAction))
+	{
+#>
+			public EntitySetConfiguration<<#= entity #>> <#= entity #>;
+<#		
+	}
+#>
+
+			#endregion
+
+
+			public DomainEdmModel(ODataConventionModelBuilder mb)
+			{
+
+				#region Register References
+
+<#
+	foreach (var entity in entities.Where(a => a.IsEntity))
+	{
+		var nameProp = entity.EntityType.PropertyWithAttribute<EntityNameAttribute>();
+		if (nameProp != null && nameProp.PropertyType == typeof(string))
+		{
+#>
+				mb.ComplexType<<#= entity #>Reference>();
+<#
+		}
+	}
+#>
+
+				#endregion
+
+
+				#region Register EntitySets
+<#
+	foreach (var entity in entities.Where(a => a.IsEntity || a.IsEntityQuery || a.IsQueryResult))
+	{
+#>
+
+				<#= entity.EntitySetName #> = mb.EntitySet<<#= entity #>>("<#= entity.EntitySetName #>");
+				<#= entity #> = <#= entity.EntitySetName #>.EntityType;
+<#
+		if (entity.HasLookup)
+		{
+#>
+				mb.EntitySet<<#= entity.LookupTypeName #>>("<#= entity #>Lookup");
+<#
+		}
+	}
+#>
+
+<#		
+
+	foreach (var entity in entities.Where(a => a.IsQueryParams || a.IsDomainAction))
+	{
+#>
+				<#= entity #> = mb.EntitySet<<#= entity #>>("<#= entity #>");
+<#		
+	}
+#>
+
+				#endregion
+
+
+				#region Register calculated properties
+
+<#
+	foreach (var entity in entities.Where(a => a.IsEntity || a.IsDomainAction))
+	{
+		foreach (var prop in entity.DbProperties.Where(a => !a.CanWrite))
+		{
+			if (prop.IsNavigation)
+			{
+#>
+				<#= entity.EntitySetName #>.HasOptionalBinding(a => a.<#= prop.Name #>, <#= entities.By(prop.Type).EntitySetName #>);
+<#
+			}
+			else
+			{
+				var propMethod = 
+					prop.Type.IsEnum ? "EnumProperty" : 
+					prop.Type == typeof(string) ? "Property" : 
+					prop.Type.IsClass ? "ComplexProperty" : 
+					"Property";
+				//var propMethod = "Property";
+#>
+				<#= entity.IsDomainAction ? entity + ".EntityType" : entity #>.<#= propMethod #>(a => a.<#= prop.Name #>);
+<#
+			}
+		}
+	}
+#>
+
+				#endregion
+
+
+				#region Register functions
+
+<#
+	foreach (var entity in entities.Where(a => a.IsEntity || a.IsEntityQuery))
+	{
+#>
+				AddDefaultFunctions(<#= entity #>);
+<#
+	}
+	foreach (var entity in entities.Where(a => a.IsDomainAction))
+	{
+#>
+				AddDefaultFunctions(<#= entity #>.EntityType);
+<#
+	}
+#>
+
+				#endregion
+
+
+				#region Entity Actions
+<#
+	foreach (var entity in entities)
+	{
+		foreach (var action in entity.EntityActions)
+		{
+			var addResult = action.Type == typeof(void)
+				? "a.ReturnsFromEntitySet<" + entity + ">(\"" + entity.EntitySetName + "\");"
+				: "a.Returns<" + action.Type.ToCSharp() + ">();";
+#>
+
+				AddEntityAction(<#= entity #>, "<#= action.Name #>", a =>
+				{
+<#
+			foreach (var prm in ((MethodInfo)action.Member).GetParameters())
+			{
+#>
+					a.Parameter<<#= prm.ParameterType.ToCSharp() #>>("<#= prm.Name #>").OptionalParameter = true;
+<# 
+			}
+#>
+					<#= addResult #>
+				});
+<#
+		}
+	}
+#>
+
+				#endregion
+
+			}
+
+		}
+
+	}
+
+}

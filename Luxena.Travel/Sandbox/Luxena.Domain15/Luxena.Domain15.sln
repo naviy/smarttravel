@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Luxena.Domain15", "Luxena.Domain15\Luxena.Domain15.csproj", "{7533A14B-B767-4AE9-A531-0B095E6D8AF2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_Luxena.Support", "..\..\src\Luxena.Support\_Luxena.Support.csproj", "{376D2F32-6120-4AD3-9266-94B793F58532}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Luxena.Domain15.Tests", "Luxena.Domain15.Tests\Luxena.Domain15.Tests.csproj", "{C2833DB5-C29F-4D23-9979-B79EE8E18048}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7533A14B-B767-4AE9-A531-0B095E6D8AF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7533A14B-B767-4AE9-A531-0B095E6D8AF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7533A14B-B767-4AE9-A531-0B095E6D8AF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7533A14B-B767-4AE9-A531-0B095E6D8AF2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{376D2F32-6120-4AD3-9266-94B793F58532}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{376D2F32-6120-4AD3-9266-94B793F58532}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{376D2F32-6120-4AD3-9266-94B793F58532}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{376D2F32-6120-4AD3-9266-94B793F58532}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2833DB5-C29F-4D23-9979-B79EE8E18048}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2833DB5-C29F-4D23-9979-B79EE8E18048}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2833DB5-C29F-4D23-9979-B79EE8E18048}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2833DB5-C29F-4D23-9979-B79EE8E18048}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

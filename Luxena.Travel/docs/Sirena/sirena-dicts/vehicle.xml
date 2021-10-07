@@ -1,0 +1,3739 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sirena>
+  <answer pult="ГРФ365">
+    <describe data="vehicle">
+      <data>
+        <code xml:lang="ru">ЖДТ</code>
+        <code xml:lang="en">TRN</code>
+        <name xml:lang="ru">ПОЕЗД</name>
+        <name xml:lang="en">TRAIN</name>
+      </data>
+      <data>
+        <code xml:lang="ru">343</code>
+        <code xml:lang="en">343</code>
+        <name xml:lang="ru">АЭРОБУС А340-300</name>
+        <name xml:lang="en">AIRBUS INDUSTRIE A340-300</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЯК5</code>
+        <code xml:lang="en">ЯК5</code>
+        <name xml:lang="ru">ЯК-52</name>
+        <name xml:lang="en">YK-52</name>
+      </data>
+      <data>
+        <code xml:lang="ru">АБ6</code>
+        <code xml:lang="en">AB6</code>
+        <name xml:lang="ru">АЭРОБУС  А300-600</name>
+        <name xml:lang="en">AIRBUS INDUSTRIE A300-600 PASSENGER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">319</code>
+        <code xml:lang="en">319</code>
+        <name xml:lang="ru">АЭРОБУС А319</name>
+        <name xml:lang="en">AIRBUS INDUSTRIE A319</name>
+      </data>
+      <data>
+        <code xml:lang="ru">332</code>
+        <code xml:lang="en">332</code>
+        <name xml:lang="ru">АЭРОБУС А330-200</name>
+        <name xml:lang="en">AIRBUS INDUSTRIE A330-200</name>
+      </data>
+      <data>
+        <code xml:lang="ru">АБ4</code>
+        <code xml:lang="en">AB4</code>
+        <name xml:lang="ru">АЭ-БУС А300Б2/А300Б4</name>
+        <name xml:lang="en">AIRBUS INDUSTRIE A300B2/B4 PASSENGER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">100</code>
+        <code xml:lang="en">100</code>
+        <name xml:lang="ru">ФОККЕР 100</name>
+        <name xml:lang="en">FOKKER 100</name>
+      </data>
+      <data>
+        <code xml:lang="ru">АЭР</code>
+        <code xml:lang="en">AIR</code>
+        <name xml:lang="ru"/>
+        <name xml:lang="en"/>
+      </data>
+      <data>
+        <code xml:lang="ru">763</code>
+        <code xml:lang="en">763</code>
+        <name xml:lang="ru">БОИНГ 767-300</name>
+        <name xml:lang="en">BOEING 767-300 PASSENGER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">738</code>
+        <code xml:lang="en">738</code>
+        <name xml:lang="ru">БОИНГ 737-800</name>
+        <name xml:lang="en">BOEING 737-800 PASSENGER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Т23</code>
+        <code xml:lang="en">T23</code>
+        <name xml:lang="ru">ТУ-204-300</name>
+        <name xml:lang="en">TU-204-300</name>
+      </data>
+      <data>
+        <code xml:lang="ru">YAK</code>
+        <code xml:lang="en">YAK</code>
+        <name xml:lang="ru"/>
+        <name xml:lang="en"/>
+      </data>
+      <data>
+        <code xml:lang="ru">А4А</code>
+        <code xml:lang="en">А4А</code>
+        <name xml:lang="ru">АН-24АЛК</name>
+        <name xml:lang="en">AN-24ALK</name>
+      </data>
+      <data>
+        <code xml:lang="ru">А6А</code>
+        <code xml:lang="en">А6А</code>
+        <name xml:lang="ru">АН-26АЛК</name>
+        <name xml:lang="en">AN-26ALK</name>
+      </data>
+      <data>
+        <code xml:lang="ru">А7Д</code>
+        <code xml:lang="en">А7Д</code>
+        <name xml:lang="ru">АН-74-200</name>
+        <name xml:lang="en">AN-74-200</name>
+      </data>
+      <data>
+        <code xml:lang="ru">772</code>
+        <code xml:lang="en">772</code>
+        <name xml:lang="ru">БОИНГ 777-200</name>
+        <name xml:lang="en">BOEING 777-200 PASSENGER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">А1П</code>
+        <code xml:lang="en">А1П</code>
+        <name xml:lang="ru">АН-12АП</name>
+        <name xml:lang="en">AN-12AP</name>
+      </data>
+      <data>
+        <code xml:lang="ru">А8Т</code>
+        <code xml:lang="en">AN8</code>
+        <name xml:lang="ru">АН-8 ТРАНСПОРТНЫЙ</name>
+        <name xml:lang="en">AN-8</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Б31</code>
+        <code xml:lang="en">Б31</code>
+        <name xml:lang="ru">БИЧКРАФТ 31</name>
+        <name xml:lang="en">BEACHCRAFT 31</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Д1Ц</code>
+        <code xml:lang="en">D1C</code>
+        <name xml:lang="ru">ДУГЛАС ДЦ-10-30/40</name>
+        <name xml:lang="en">BOEING (DOUGLAS) DC10-30/40 (PAX)</name>
+      </data>
+      <data>
+        <code xml:lang="ru">И1В</code>
+        <code xml:lang="en">И1В</code>
+        <name xml:lang="ru">ИЛ-18В</name>
+        <name xml:lang="en">IL-18V</name>
+      </data>
+      <data>
+        <code xml:lang="ru">АНФ</code>
+        <code xml:lang="en">ANF</code>
+        <name xml:lang="ru">АН-12</name>
+        <name xml:lang="en">ANTONOV AN-12</name>
+      </data>
+      <data>
+        <code xml:lang="ru">И7Д</code>
+        <code xml:lang="en">И7Д</code>
+        <name xml:lang="ru">ИЛ-76МД ГРУЗОВОЙ</name>
+        <name xml:lang="en">IL-76MD FREIGHTER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ИЛ3</code>
+        <code xml:lang="en">ИЛ3</code>
+        <name xml:lang="ru">ИЛ-103</name>
+        <name xml:lang="en">IL-103</name>
+      </data>
+      <data>
+        <code xml:lang="ru">К26</code>
+        <code xml:lang="en">К26</code>
+        <name xml:lang="ru">КАМОВ КА-26</name>
+        <name xml:lang="en">KAMOV KA-26</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Ф50</code>
+        <code xml:lang="en">F50</code>
+        <name xml:lang="ru">ФОККЕР 50</name>
+        <name xml:lang="en">FOKKER 50</name>
+      </data>
+      <data>
+        <code xml:lang="ru">А61</code>
+        <code xml:lang="en">А61</code>
+        <name xml:lang="ru">АН-26-100</name>
+        <name xml:lang="en">AN-26-100</name>
+      </data>
+      <data>
+        <code xml:lang="ru">RJ8</code>
+        <code xml:lang="en">RJ8</code>
+        <name xml:lang="ru"/>
+        <name xml:lang="en"/>
+      </data>
+      <data>
+        <code xml:lang="ru">Б12</code>
+        <code xml:lang="en">B12</code>
+        <name xml:lang="ru">БРИТИШ АЭРОСПЕЙС 200</name>
+        <name xml:lang="en">BRITISH AEROSPACE (BAC) ONE-ELEVEN 200</name>
+      </data>
+      <data>
+        <code xml:lang="ru">TAT</code>
+        <code xml:lang="en">TAT</code>
+        <name xml:lang="ru">AUTO TRAIN</name>
+        <name xml:lang="en">AUTO TRAIN</name>
+      </data>
+      <data>
+        <code xml:lang="ru">TEE</code>
+        <code xml:lang="en">TEE</code>
+        <name xml:lang="ru">TRANS-EUROPE EXPRESS</name>
+        <name xml:lang="en">TRANS-EUROPE EXPRESS</name>
+      </data>
+      <data>
+        <code xml:lang="ru">THS</code>
+        <code xml:lang="en">THS</code>
+        <name xml:lang="ru">HIGH SPEED TRAIN</name>
+        <name xml:lang="en">HIGH SPEED TRAIN</name>
+      </data>
+      <data>
+        <code xml:lang="ru">TRB</code>
+        <code xml:lang="en">TRB</code>
+        <name xml:lang="ru">TURBOPROP</name>
+        <name xml:lang="en">TURBOPROP</name>
+      </data>
+      <data>
+        <code xml:lang="ru">YN7</code>
+        <code xml:lang="en">YN7</code>
+        <name xml:lang="ru">YUNSHUJI-7</name>
+        <name xml:lang="en">XIAN YUNSHUJI Y7/MA60</name>
+      </data>
+      <data>
+        <code xml:lang="ru">701</code>
+        <code xml:lang="en">701</code>
+        <name xml:lang="ru">БОИНГ 707-100</name>
+        <name xml:lang="en">BOEING 707-100</name>
+      </data>
+      <data>
+        <code xml:lang="ru">PA2</code>
+        <code xml:lang="en">PA2</code>
+        <name xml:lang="ru">ПАЙПЕР (СЕРИИ 20-40)</name>
+        <name xml:lang="en">PIPER (LIGHT AIRCRAFT - TWIN PISTON)</name>
+      </data>
+      <data>
+        <code xml:lang="ru">721</code>
+        <code xml:lang="en">721</code>
+        <name xml:lang="ru">БОИНГ 727-100</name>
+        <name xml:lang="en">BOEING 727-100 (PASSENGER)</name>
+      </data>
+      <data>
+        <code xml:lang="ru">А4К</code>
+        <code xml:lang="en">А4К</code>
+        <name xml:lang="ru">АН-24ТБК</name>
+        <name xml:lang="en">AN-24TBK</name>
+      </data>
+      <data>
+        <code xml:lang="ru">74Р</code>
+        <code xml:lang="en">74R</code>
+        <name xml:lang="ru">БОИНГ 747СР</name>
+        <name xml:lang="en">BOEING 747SR PASSENGER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ГР4</code>
+        <code xml:lang="en">ГР4</code>
+        <name xml:lang="ru">ГОЛЬФСТРИМ IV</name>
+        <name xml:lang="en">GULFSTREAM IV</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ДФ1</code>
+        <code xml:lang="en">DF2</code>
+        <name xml:lang="ru">ДАЗО ФАЛЬКОН 10/2</name>
+        <name xml:lang="en">DASSAULT FALCON 10/20/100/200/2000</name>
+      </data>
+      <data>
+        <code xml:lang="ru">И4М</code>
+        <code xml:lang="en">И4М</code>
+        <name xml:lang="ru">ИЛ-14М</name>
+        <name xml:lang="en">IL-14M</name>
+      </data>
+      <data>
+        <code xml:lang="ru">АНБ</code>
+        <code xml:lang="en">АНБ</code>
+        <name xml:lang="ru">АН-12Б ГРУЗОВОЙ</name>
+        <name xml:lang="en">AN-12 FREIGHTER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">АНМ</code>
+        <code xml:lang="en">A5F</code>
+        <name xml:lang="ru">АН-225 МРИЯ</name>
+        <name xml:lang="en">AN-225 MRYA</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ИЛ4</code>
+        <code xml:lang="en">IL4</code>
+        <name xml:lang="ru">ИЛ-14</name>
+        <name xml:lang="en">IL-14</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЦР2</code>
+        <code xml:lang="en">CR2</code>
+        <name xml:lang="ru">ДЖЕТ 200</name>
+        <name xml:lang="en">CANADAIR REGIONAL JET 200</name>
+      </data>
+      <data>
+        <code xml:lang="ru">С20</code>
+        <code xml:lang="en">S20</code>
+        <name xml:lang="ru">СААБ 2000</name>
+        <name xml:lang="en">SAAB 2000</name>
+      </data>
+      <data>
+        <code xml:lang="ru">M81</code>
+        <code xml:lang="en">M81</code>
+        <name xml:lang="ru">БОИНГ (ДУГЛАС) МД-81</name>
+        <name xml:lang="en">BOEING (DOUGLAS) MD-81</name>
+      </data>
+      <data>
+        <code xml:lang="ru">СВМ</code>
+        <code xml:lang="en">SWM</code>
+        <name xml:lang="ru">ФЭРЧАЙЛД (СВЕРИНГЕН)</name>
+        <name xml:lang="en">FAIRCHILD SA26/SA226/SA227 MERLIN/METRO</name>
+      </data>
+      <data>
+        <code xml:lang="ru">РП1</code>
+        <code xml:lang="en">РП1</code>
+        <name xml:lang="ru">РЭЙТОН 390 ПРЕМЬЕР 1</name>
+        <name xml:lang="en">РЭЙТОН 390 ПРЕМЬЕР 1</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЛШС</code>
+        <code xml:lang="en">ЛШС</code>
+        <name xml:lang="ru">ЛОКХИД Т-33 ШУТИНГ</name>
+        <name xml:lang="en">LOCKHEED T-33 SHOOTI</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Х2Ц</code>
+        <code xml:lang="en">Х2Ц</code>
+        <name xml:lang="ru">ХОКЕР БАЕ-125-1000</name>
+        <name xml:lang="en">HAWKER BAE-125-1000</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Ц52</code>
+        <code xml:lang="en">Ц52</code>
+        <name xml:lang="ru">ЦЕССНА 525А САЙТЕШН</name>
+        <name xml:lang="en">ЦЕССНА 525А САЙТЕШН</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Ц06</code>
+        <code xml:lang="en">Ц06</code>
+        <name xml:lang="ru">ЦЕССНА 206СТАТИОНАЙР</name>
+        <name xml:lang="en">ЦЕССНА 206СТАТИОНАЙР</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Ц18</code>
+        <code xml:lang="en">Ц18</code>
+        <name xml:lang="ru">ЦЕССНА 182, Т182</name>
+        <name xml:lang="en">ЦЕССНА 182, Т182</name>
+      </data>
+      <data>
+        <code xml:lang="ru">С01</code>
+        <code xml:lang="en">С01</code>
+        <name xml:lang="ru">ЦЕССНА 501 1СП</name>
+        <name xml:lang="en">ЦЕССНА 501 1СП</name>
+      </data>
+      <data>
+        <code xml:lang="ru">С25</code>
+        <code xml:lang="en">С25</code>
+        <name xml:lang="ru">ЦЕССНА 525 САЙТЕДЖЕТ</name>
+        <name xml:lang="en">ЦЕССНА 525 САЙТЕДЖЕТ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">С6Э</code>
+        <code xml:lang="en">С6Э</code>
+        <name xml:lang="ru">ЦЕССНА XL</name>
+        <name xml:lang="en">ЦЕССНА XL</name>
+      </data>
+      <data>
+        <code xml:lang="ru">С65</code>
+        <code xml:lang="en">С65</code>
+        <name xml:lang="ru">ЦЕССНА 650 САЙТЕШН 3</name>
+        <name xml:lang="en">ЦЕССНА 650 САЙТЕШН 3</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Л55</code>
+        <code xml:lang="en">Л55</code>
+        <name xml:lang="ru">ЛЭРДЖЕТ 55/ГЕЙТС 55</name>
+        <name xml:lang="en">ЛЭРДЖЕТ 55/ГЕЙТС 55</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Л45</code>
+        <code xml:lang="en">Л45</code>
+        <name xml:lang="ru">ЛЭРДЖЕТ 45</name>
+        <name xml:lang="en">ЛЭРДЖЕТ 45</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ГАЛ</code>
+        <code xml:lang="en">ГАЛ</code>
+        <name xml:lang="ru">ИАИ ГАЛАКСИ</name>
+        <name xml:lang="en">ИАИ ГАЛАКСИ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Е20</code>
+        <code xml:lang="en">E20</code>
+        <name xml:lang="ru">ЕВРОКОПТЕР ЕЦ-120</name>
+        <name xml:lang="en">ЕВРОКОПТЕР ЕЦ-120</name>
+      </data>
+      <data>
+        <code xml:lang="ru">DH3</code>
+        <code xml:lang="en">DH3</code>
+        <name xml:lang="ru">ДЕ ХЭВИЛЛЕНД ДЭШ-8</name>
+        <name xml:lang="en">DE HAVILLAND DHC-8-300 DASH 8/8Q</name>
+      </data>
+      <data>
+        <code xml:lang="ru">142</code>
+        <code xml:lang="en">142</code>
+        <name xml:lang="ru">БРИТ АЭРОСП 146-200П</name>
+        <name xml:lang="en">BRITISH AEROSPACE 146-200 PASSENGER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЦР7</code>
+        <code xml:lang="en">CR7</code>
+        <name xml:lang="ru">КАНАДЭР РЕГ ДЖЕТ 700</name>
+        <name xml:lang="en">CANADAIR REGIONAL JET 700</name>
+      </data>
+      <data>
+        <code xml:lang="ru">А4В</code>
+        <code xml:lang="en">А4В</code>
+        <name xml:lang="ru">АН-24РВ</name>
+        <name xml:lang="en">AN-24RV</name>
+      </data>
+      <data>
+        <code xml:lang="ru">А6П</code>
+        <code xml:lang="en">А6П</code>
+        <name xml:lang="ru">АН-26П ЛЕСОТУШЕНИЕ</name>
+        <name xml:lang="en">AN-26P</name>
+      </data>
+      <data>
+        <code xml:lang="ru">АНТ</code>
+        <code xml:lang="en">АНТ</code>
+        <name xml:lang="ru">АН-12ТБ ГРУЗОВОЙ</name>
+        <name xml:lang="en">AN-12TB FREIHTER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ИЛТ</code>
+        <code xml:lang="en">ИЛТ</code>
+        <name xml:lang="ru">ИЛ-76Т ГРУЗОВОЙ</name>
+        <name xml:lang="en">IL-76T FREIGHTER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">К3С</code>
+        <code xml:lang="en">К3С</code>
+        <name xml:lang="ru">КАМОВ КА-32С</name>
+        <name xml:lang="en">KAMOV KA-32S</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЯК2</code>
+        <code xml:lang="en">YK2</code>
+        <name xml:lang="ru">ЯК42</name>
+        <name xml:lang="en">YAKOVLEV YAK-42/142</name>
+      </data>
+      <data>
+        <code xml:lang="ru">МЯ1</code>
+        <code xml:lang="en">МЯ1</code>
+        <name xml:lang="ru">МЯСИЩЕВ М-101 ГЖЕЛЬ</name>
+        <name xml:lang="en">M-101 GZHEL</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Т21</code>
+        <code xml:lang="en">T21</code>
+        <name xml:lang="ru">ТУ-204-100</name>
+        <name xml:lang="en">TU-204-100</name>
+      </data>
+      <data>
+        <code xml:lang="ru">С27</code>
+        <code xml:lang="en">С27</code>
+        <name xml:lang="ru">ФЭРЧАЙЛД СА-227ЦЦ</name>
+        <name xml:lang="en">FAIRCHILD SA-227CC</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Б55</code>
+        <code xml:lang="en">BE2</code>
+        <name xml:lang="ru">БИЧ 55 БАРОН</name>
+        <name xml:lang="en">BEECHCRAFT-LGHT ACFT-TWIN PISTON ENGINE</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Б35</code>
+        <code xml:lang="en">Б35</code>
+        <name xml:lang="ru">БИЧ 300(Б300) СУПЕР</name>
+        <name xml:lang="en">BEECH 300/B300 SUPER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">БЛН</code>
+        <code xml:lang="en">БЛН</code>
+        <name xml:lang="ru">БЕЛЛ 407/НУСАНТАРА</name>
+        <name xml:lang="en">BELL 407/NUSANTARA</name>
+      </data>
+      <data>
+        <code xml:lang="ru">П47</code>
+        <code xml:lang="en">П47</code>
+        <name xml:lang="ru">ПАЙПЕР ПА-42-720</name>
+        <name xml:lang="en">ПАЙПЕР ПА-42-720</name>
+      </data>
+      <data>
+        <code xml:lang="ru">С50</code>
+        <code xml:lang="en">С50</code>
+        <name xml:lang="ru">ЦЕССНА 550 БРАВО</name>
+        <name xml:lang="en">ЦЕССНА 550 БРАВО</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Л31</code>
+        <code xml:lang="en">Л31</code>
+        <name xml:lang="ru">ЛЭРДЖЕТ:31/ГЕЙТС 31</name>
+        <name xml:lang="en">ЛЭРДЖЕТ:31/ГЕЙТС 31</name>
+      </data>
+      <data>
+        <code xml:lang="ru">M83</code>
+        <code xml:lang="en">M83</code>
+        <name xml:lang="ru">BOEING (DOUGLAS) MD-83</name>
+        <name xml:lang="en">BOEING (DOUGLAS) MD-83</name>
+      </data>
+      <data>
+        <code xml:lang="ru">346</code>
+        <code xml:lang="en">346</code>
+        <name xml:lang="ru">АЭРОБУС И А340-600</name>
+        <name xml:lang="en">AIRBUS INDUSTRIE A340-600</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ER3</code>
+        <code xml:lang="en">ER3</code>
+        <name xml:lang="ru">ЭМБРАЕР RJ135</name>
+        <name xml:lang="en">EMBRAER RJ135</name>
+      </data>
+      <data>
+        <code xml:lang="ru">703</code>
+        <code xml:lang="en">703</code>
+        <name xml:lang="ru">БОИНГ 707-300</name>
+        <name xml:lang="en">BOEING 707-320/320B/320C (PASSENGER)</name>
+      </data>
+      <data>
+        <code xml:lang="ru">А4Л</code>
+        <code xml:lang="en">А4Л</code>
+        <name xml:lang="ru">АН-24ЛР</name>
+        <name xml:lang="en">AN-24LR</name>
+      </data>
+      <data>
+        <code xml:lang="ru">741</code>
+        <code xml:lang="en">741</code>
+        <name xml:lang="ru">БОИНГ 747-100</name>
+        <name xml:lang="en">BOEING 747-100 (PASSENGER)</name>
+      </data>
+      <data>
+        <code xml:lang="ru">А1Б</code>
+        <code xml:lang="en">А1Б</code>
+        <name xml:lang="ru">АН-12БП</name>
+        <name xml:lang="en">AN-12BP</name>
+      </data>
+      <data>
+        <code xml:lang="ru">АН8</code>
+        <code xml:lang="en">A28</code>
+        <name xml:lang="ru">АН-28 ГРУЗОВОЙ</name>
+        <name xml:lang="en">ANTONOV AN28/PZL MIELEC M-28 SKYTRUCK</name>
+      </data>
+      <data>
+        <code xml:lang="ru">АР8</code>
+        <code xml:lang="en">AR8</code>
+        <name xml:lang="ru">АВРО RJ85</name>
+        <name xml:lang="en">AVRO RJ85</name>
+      </data>
+      <data>
+        <code xml:lang="ru">E75</code>
+        <code xml:lang="en">E75</code>
+        <name xml:lang="ru">EMBRAER EMB 175</name>
+        <name xml:lang="en">EMBRAER 175</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Б15</code>
+        <code xml:lang="en">B15</code>
+        <name xml:lang="ru">БРИТИШ АЭРОСПЕЙС 500</name>
+        <name xml:lang="en">BRITISH AEROSPACE (BAC) 1-11 500/ROMBAC</name>
+      </data>
+      <data>
+        <code xml:lang="ru">П46</code>
+        <code xml:lang="en">П46</code>
+        <name xml:lang="ru">ПАЙПЕР ПА-46-350П</name>
+        <name xml:lang="en">PAIPER PA-46-350P</name>
+      </data>
+      <data>
+        <code xml:lang="ru">БЕЛ</code>
+        <code xml:lang="en">БЕЛ</code>
+        <name xml:lang="ru">ВЕРТОЛЕТ БЕЛЛ</name>
+        <name xml:lang="en">HELICOPTER BELL</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Д20</code>
+        <code xml:lang="en">Д20</code>
+        <name xml:lang="ru">ДАЗО ФАЛЬКОН 20</name>
+        <name xml:lang="en">FALKON 20</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ПДЖ</code>
+        <code xml:lang="en">ПДЖ</code>
+        <name xml:lang="ru">ПЬЯДЖО П-180 АВАНТИ</name>
+        <name xml:lang="en">PIAGGIO P-180 AVANTI</name>
+      </data>
+      <data>
+        <code xml:lang="ru">СБР</code>
+        <code xml:lang="en">СБР</code>
+        <name xml:lang="ru">СЭЙБРЛАЙНЕР 60/ Т-39</name>
+        <name xml:lang="en">СЭЙБРЛАЙНЕР 60/ Т-39</name>
+      </data>
+      <data>
+        <code xml:lang="ru">С60</code>
+        <code xml:lang="en">С60</code>
+        <name xml:lang="ru">ЦЕССНА 560 5 УЛЬТРА</name>
+        <name xml:lang="en">ЦЕССНА 560 5 УЛЬТРА</name>
+      </data>
+      <data>
+        <code xml:lang="ru">154</code>
+        <code xml:lang="en">154</code>
+        <name xml:lang="ru">ТУ-154</name>
+        <name xml:lang="en">TU-154</name>
+      </data>
+      <data>
+        <code xml:lang="ru">32С</code>
+        <code xml:lang="en">32С</code>
+        <name xml:lang="ru">АЭРОБУС А319/320/321</name>
+        <name xml:lang="en">AIRBUS A319/320/321</name>
+      </data>
+      <data>
+        <code xml:lang="ru">АРЙ</code>
+        <code xml:lang="en">ARJ</code>
+        <name xml:lang="ru">АВРО RJ70/RJ85/RJ100</name>
+        <name xml:lang="en">AVRO RJ70/RJ85/RJ100</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЯКТ</code>
+        <code xml:lang="en">ЯКТ</code>
+        <name xml:lang="ru">ЯК-40АТ</name>
+        <name xml:lang="en">YAK-40AT</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Г15</code>
+        <code xml:lang="en">Г15</code>
+        <name xml:lang="ru">ГОЛЬФСТРИМ Г150</name>
+        <name xml:lang="en">ГОЛЬФСТРИМ Г150</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Г55</code>
+        <code xml:lang="en">Г55</code>
+        <name xml:lang="ru">ГОЛЬФСТРИМ АЭРОСПЕЙС</name>
+        <name xml:lang="en">ГОЛЬФСТРИМ АЭРОСПЕЙС</name>
+      </data>
+      <data>
+        <code xml:lang="ru">407</code>
+        <code xml:lang="en">407</code>
+        <name xml:lang="ru">407</name>
+        <name xml:lang="en">407</name>
+      </data>
+      <data>
+        <code xml:lang="ru">TK2</code>
+        <code xml:lang="en">TK2</code>
+        <name xml:lang="ru"/>
+        <name xml:lang="en"/>
+      </data>
+      <data>
+        <code xml:lang="ru">333</code>
+        <code xml:lang="en">333</code>
+        <name xml:lang="ru">АЭРОБУС  А330-300</name>
+        <name xml:lang="en">AIRBUS INDUSTRIE A330-300</name>
+      </data>
+      <data>
+        <code xml:lang="ru">А2В</code>
+        <code xml:lang="en">А2В</code>
+        <name xml:lang="ru">АН-2В</name>
+        <name xml:lang="en">AN-2W</name>
+      </data>
+      <data>
+        <code xml:lang="ru">А2Д</code>
+        <code xml:lang="en">А2Д</code>
+        <name xml:lang="ru">АН2-2ТП</name>
+        <name xml:lang="en">AN-2TP</name>
+      </data>
+      <data>
+        <code xml:lang="ru">А2М</code>
+        <code xml:lang="en">А2М</code>
+        <name xml:lang="ru">АН-2М</name>
+        <name xml:lang="en">AN-2M</name>
+      </data>
+      <data>
+        <code xml:lang="ru">А2П</code>
+        <code xml:lang="en">А2П</code>
+        <name xml:lang="ru">АН-2П</name>
+        <name xml:lang="en">AN-2P</name>
+      </data>
+      <data>
+        <code xml:lang="ru">314</code>
+        <code xml:lang="en">314</code>
+        <name xml:lang="ru">АЭРОБУС  А310-324</name>
+        <name xml:lang="en">AIRBUS I A310-324</name>
+      </data>
+      <data>
+        <code xml:lang="ru">А3А</code>
+        <code xml:lang="en">А3А</code>
+        <name xml:lang="ru">АН-32А ГРУЗОВОЙ</name>
+        <name xml:lang="en">АN-32A FREIGHTER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">А3Б</code>
+        <code xml:lang="en">А3Б</code>
+        <name xml:lang="ru">АН-32Б ГРУЗОВОЙ</name>
+        <name xml:lang="en">AN-32B FREIGHTER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">А3С</code>
+        <code xml:lang="en">А3С</code>
+        <name xml:lang="ru">АН-38-100</name>
+        <name xml:lang="en">AN-38-100</name>
+      </data>
+      <data>
+        <code xml:lang="ru">К3А</code>
+        <code xml:lang="en">К3А</code>
+        <name xml:lang="ru">КАМОВ КА-32А</name>
+        <name xml:lang="en">KAMOV KA-32A</name>
+      </data>
+      <data>
+        <code xml:lang="ru">БД7</code>
+        <code xml:lang="en">CCX</code>
+        <name xml:lang="ru">БОМБАРДИР БД-700</name>
+        <name xml:lang="en">BOMBARDIR BD-700</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Ц16</code>
+        <code xml:lang="en">Ц16</code>
+        <name xml:lang="ru">ТРАНСАЛЛ Ц-16</name>
+        <name xml:lang="en">TRANSALL</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Д2Т</code>
+        <code xml:lang="en">Д2Т</code>
+        <name xml:lang="ru">ДАЗО ФАЛЬКОН 2000</name>
+        <name xml:lang="en">DASSAULT FALCON 2000</name>
+      </data>
+      <data>
+        <code xml:lang="ru">CN1</code>
+        <code xml:lang="en">CN1</code>
+        <name xml:lang="ru">ЦЕССНА</name>
+        <name xml:lang="en">CESSNA</name>
+      </data>
+      <data>
+        <code xml:lang="ru">LRJ</code>
+        <code xml:lang="en">LRJ</code>
+        <name xml:lang="ru">ЛЭРДЖЕТ (ВСЕ СЕРИИ)</name>
+        <name xml:lang="en">LEARJET</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Т5С</code>
+        <code xml:lang="en">Т5С</code>
+        <name xml:lang="ru"/>
+        <name xml:lang="en"/>
+      </data>
+      <data>
+        <code xml:lang="ru">757</code>
+        <code xml:lang="en">757</code>
+        <name xml:lang="ru">БОИНГ 757</name>
+        <name xml:lang="en">BOEING 757 (PASSENGER)</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Б9Л</code>
+        <code xml:lang="en">Б9Л</code>
+        <name xml:lang="ru">БИЧ90 (Е90) КИНГ ЭЙР</name>
+        <name xml:lang="en">БИЧ90 (Е90) КИНГ ЭЙР</name>
+      </data>
+      <data>
+        <code xml:lang="ru">RU5</code>
+        <code xml:lang="en">RU5</code>
+        <name xml:lang="ru"/>
+        <name xml:lang="en"/>
+      </data>
+      <data>
+        <code xml:lang="ru">АТ5</code>
+        <code xml:lang="en">AT5</code>
+        <name xml:lang="ru">АТР 42-500</name>
+        <name xml:lang="en">ATR 42-500</name>
+      </data>
+      <data>
+        <code xml:lang="ru">АБЫ</code>
+        <code xml:lang="en">ABY</code>
+        <name xml:lang="ru">АЭРОБУС И А300-600</name>
+        <name xml:lang="en">AIRBUS INDUSTRIE A300-600 FREIGHTER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">31Ф</code>
+        <code xml:lang="en">31F</code>
+        <name xml:lang="ru">АЭРОБ ИНДУСТРИ А310</name>
+        <name xml:lang="en">AIRBUS INDUSTRIE A310 FREIGHTER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">342</code>
+        <code xml:lang="en">342</code>
+        <name xml:lang="ru">АЭРОБУС И А340-200</name>
+        <name xml:lang="en">AIRBUS INDUSTRIE A340-200</name>
+      </data>
+      <data>
+        <code xml:lang="ru">358</code>
+        <code xml:lang="en">358</code>
+        <name xml:lang="ru">АЭРОБУС И А350-800</name>
+        <name xml:lang="en">АЭРОБУС И А350-800</name>
+      </data>
+      <data>
+        <code xml:lang="ru">380</code>
+        <code xml:lang="en">380</code>
+        <name xml:lang="ru">АЭРОБУС И А380-800</name>
+        <name xml:lang="en">AIRBUS INDUSTRIE A380-800 PASSENGER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">АР1</code>
+        <code xml:lang="en">AR1</code>
+        <name xml:lang="ru">АВРО RJ100</name>
+        <name xml:lang="en">AVRO RJ100</name>
+      </data>
+      <data>
+        <code xml:lang="ru">БЕХ</code>
+        <code xml:lang="en">BEH</code>
+        <name xml:lang="ru">БИЧ 1900Д ЭЙРЛАЙНЕР</name>
+        <name xml:lang="en">BEECHCRAFT 1900D AIRLINER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Д1М</code>
+        <code xml:lang="en">D1M</code>
+        <name xml:lang="ru">БОИНГ КОМБ ДЦ-10-30</name>
+        <name xml:lang="en">BOEING (DOUGLAS) DC10-30(MIXED CONFIG)</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ДХ8</code>
+        <code xml:lang="en">DH8</code>
+        <name xml:lang="ru">ДЕ ХЭВИЛЛЕНД ДХЦ-8</name>
+        <name xml:lang="en">DE HAVILLAND DHC-8 DASH 8</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Л25</code>
+        <code xml:lang="en">Л25</code>
+        <name xml:lang="ru">ЛЭРДЖЕТ 25/ГЕЙТС 25</name>
+        <name xml:lang="en">ЛЭРДЖЕТ 25/ГЕЙТС 25</name>
+      </data>
+      <data>
+        <code xml:lang="ru">М1Ф</code>
+        <code xml:lang="en">M1F</code>
+        <name xml:lang="ru">БОИНГ МД-11 ГРУЗОВОЙ</name>
+        <name xml:lang="en">BOEING (DOUGLAS) MD-11 (FREIGHTER)</name>
+      </data>
+      <data>
+        <code xml:lang="ru">А74</code>
+        <code xml:lang="en">A74</code>
+        <name xml:lang="ru">АН-74 АНТОНОВ</name>
+        <name xml:lang="en">AN-74</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЦРВ</code>
+        <code xml:lang="en">CRV</code>
+        <name xml:lang="ru">АЭРОСПАСЬЯЛЬ СЕ210</name>
+        <name xml:lang="en">AEROSPATIALE SE210 CARAVELLE</name>
+      </data>
+      <data>
+        <code xml:lang="ru">72Ь</code>
+        <code xml:lang="en">72X</code>
+        <name xml:lang="ru">БОИНГ 727-100 ГРУЗОВ</name>
+        <name xml:lang="en">БОИНГ 727-100 ГРУЗОВ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">72Б</code>
+        <code xml:lang="en">72B</code>
+        <name xml:lang="ru">БОИНГ 727-100 КОМБИН</name>
+        <name xml:lang="en">БОИНГ 727-100 КОМБИН</name>
+      </data>
+      <data>
+        <code xml:lang="ru">73П</code>
+        <code xml:lang="en">73P</code>
+        <name xml:lang="ru">БОИНГ 737-400 ГРУЗОВ</name>
+        <name xml:lang="en">BOEING 737-400 (FREIGHTER)</name>
+      </data>
+      <data>
+        <code xml:lang="ru">73М</code>
+        <code xml:lang="en">73M</code>
+        <name xml:lang="ru">БОИНГ 737 КОМБИНИРОВ</name>
+        <name xml:lang="en">BOEING 737 (MIXED CONFIGURATION)</name>
+      </data>
+      <data>
+        <code xml:lang="ru">74М</code>
+        <code xml:lang="en">74M</code>
+        <name xml:lang="ru">БОИНГ 747 КОМБИНИРОВ</name>
+        <name xml:lang="en">BOEING 747 (MIXED CONFIGURATION)</name>
+      </data>
+      <data>
+        <code xml:lang="ru">74Л</code>
+        <code xml:lang="en">74L</code>
+        <name xml:lang="ru">БОИНГ 747 СП</name>
+        <name xml:lang="en">BOEING 747SP PASSENGER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">74Ж</code>
+        <code xml:lang="en">74V</code>
+        <name xml:lang="ru">БОИНГ 747СР ГРУЗОВОЙ</name>
+        <name xml:lang="en">БОИНГ 747СР ГРУЗОВОЙ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">74Ь</code>
+        <code xml:lang="en">74X</code>
+        <name xml:lang="ru">БОИНГ 747-200 ГРУЗОВ</name>
+        <name xml:lang="en">BOEING 747-200 (FREIGHTER)</name>
+      </data>
+      <data>
+        <code xml:lang="ru">77В</code>
+        <code xml:lang="en">77W</code>
+        <name xml:lang="ru">БОИНГ 777-300ЕР</name>
+        <name xml:lang="en">BOEING 777-300ER PASSENGER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЙСТ</code>
+        <code xml:lang="en">JST</code>
+        <name xml:lang="ru">БРИТ АЭРОС ДЖЕТСТРИМ</name>
+        <name xml:lang="en">BRITISH AEROSPACE JETSTREAM</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Й41</code>
+        <code xml:lang="en">J41</code>
+        <name xml:lang="ru">БРИТИШ АЭРОС ДЖЕТ 41</name>
+        <name xml:lang="en">BRITISH AEROSPACE JETSTREAM 41</name>
+      </data>
+      <data>
+        <code xml:lang="ru">БНТ</code>
+        <code xml:lang="en">BNT</code>
+        <name xml:lang="ru">БРИТТЕН БН-2А ТРИСЛ</name>
+        <name xml:lang="en">BRITTEN-NORMAN BN-2A MK.III TRISLANDER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЦР9</code>
+        <code xml:lang="en">CR9</code>
+        <name xml:lang="ru">КАНАДЭЙР ДЖЕТ 900</name>
+        <name xml:lang="en">CANADAIR REGIONAL JET 900</name>
+      </data>
+      <data>
+        <code xml:lang="ru">МБХ</code>
+        <code xml:lang="en">MBH</code>
+        <name xml:lang="ru">ВЕРТОЛЕТ ЕВРОКОПТЕР</name>
+        <name xml:lang="en">EUROCOPTER (MBB) BO 105</name>
+      </data>
+      <data>
+        <code xml:lang="ru">АПХ</code>
+        <code xml:lang="en">APH</code>
+        <name xml:lang="ru">ВЕРТОЛЕТ ЕВРОКОПТЕР</name>
+        <name xml:lang="en">ВЕРТОЛЕТ ЕВРОКОПТЕР</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Д38</code>
+        <code xml:lang="en">D38</code>
+        <name xml:lang="ru">ФЭРЧ ДОРНЬЕ 328-100</name>
+        <name xml:lang="en">FAIRCHILD DORNIER 328-100</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЫН2</code>
+        <code xml:lang="en">YN2</code>
+        <name xml:lang="ru">ХАРБИН ЮНШУЙ Y12</name>
+        <name xml:lang="en">HARBIN YUNSHUJI Y12</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ДХ7</code>
+        <code xml:lang="en">DH7</code>
+        <name xml:lang="ru">ДЕ ХЭВИЛЛЕНД ДХ-7</name>
+        <name xml:lang="en">DE HAVILLAND DHC-7 DASH 7</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Д1Ф</code>
+        <code xml:lang="en">D1F</code>
+        <name xml:lang="ru">БОИНГ ДЦ-10 ГРУЗОВОЙ</name>
+        <name xml:lang="en">BOEING (DOUGLAS) DC10 (FREIGHTER)</name>
+      </data>
+      <data>
+        <code xml:lang="ru">YK5</code>
+        <code xml:lang="en">YK5</code>
+        <name xml:lang="ru"/>
+        <name xml:lang="en"/>
+      </data>
+      <data>
+        <code xml:lang="ru">ТУ4</code>
+        <code xml:lang="en">ТУ4</code>
+        <name xml:lang="ru">ТУПОЛЕВ ТУ-334</name>
+        <name xml:lang="en">ТУПОЛЕВ ТУ-334</name>
+      </data>
+      <data>
+        <code xml:lang="ru">DH1</code>
+        <code xml:lang="en">DH1</code>
+        <name xml:lang="ru">DE HAVILLAND</name>
+        <name xml:lang="en">DE HAVILLAND DHC-8-100 DASH 8/8Q</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Б43</code>
+        <code xml:lang="en">Б43</code>
+        <name xml:lang="ru">БЕЛЛ 430</name>
+        <name xml:lang="en">БЕЛЛ 430</name>
+      </data>
+      <data>
+        <code xml:lang="ru">НД2</code>
+        <code xml:lang="en">ND2</code>
+        <name xml:lang="ru">АЭРОСПАСЬЯЛЬ 262</name>
+        <name xml:lang="en">AEROSPATIALE (NORD) 262</name>
+      </data>
+      <data>
+        <code xml:lang="ru">72М</code>
+        <code xml:lang="en">72M</code>
+        <name xml:lang="ru">БОИНГ 727 КОМБИНИРОВ</name>
+        <name xml:lang="en">BOEING 727 (MIXED CONFIGURATION)</name>
+      </data>
+      <data>
+        <code xml:lang="ru">73Ц</code>
+        <code xml:lang="en">73C</code>
+        <name xml:lang="ru">БОИНГ 737-300 ВИНГЛ</name>
+        <name xml:lang="en">BOEING 737-300 (WINGLETS) PASSENGER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">73Х</code>
+        <code xml:lang="en">73H</code>
+        <name xml:lang="ru">БОИНГ 737-800 ВИНГЛ</name>
+        <name xml:lang="en">BOEING 737-800 (WINGLETS) PASSENGER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">76Ы</code>
+        <code xml:lang="en">76Y</code>
+        <name xml:lang="ru">БОИНГ 767-300 ГРУЗОВ</name>
+        <name xml:lang="en">BOEING 767-300 FREIGHTER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">АТП</code>
+        <code xml:lang="en">ATP</code>
+        <name xml:lang="ru">БРИТИШ АЭРОСПЕЙС АТП</name>
+        <name xml:lang="en">BRITISH AEROSPACE ATP</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЕР3</code>
+        <code xml:lang="en">ЕР3</code>
+        <name xml:lang="ru">ЭМБРАЕР RJ135</name>
+        <name xml:lang="en">ЭМБРАЕР RJ135</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Е90</code>
+        <code xml:lang="en">E90</code>
+        <name xml:lang="ru">ЭМБРАЕР 190</name>
+        <name xml:lang="en">EMBRAER 190</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ДХ3</code>
+        <code xml:lang="en">ДХ3</code>
+        <name xml:lang="ru">ДЕ ХЭВИЛЛЕНД ДЭШ-8</name>
+        <name xml:lang="en">ДЕ ХЭВИЛЛЕНД ДЭШ-8</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Л10</code>
+        <code xml:lang="en">Л10</code>
+        <name xml:lang="ru">ЛОКХИД-1011</name>
+        <name xml:lang="en">LOKHID-1011</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Л11</code>
+        <code xml:lang="en">L11</code>
+        <name xml:lang="ru">ЛОКХИД Л-1011</name>
+        <name xml:lang="en">LOCKHEED L1011 TRISTAR 1/50/100/150/200</name>
+      </data>
+      <data>
+        <code xml:lang="ru">308</code>
+        <code xml:lang="en">308</code>
+        <name xml:lang="ru">АЭРОБУС А310-308</name>
+        <name xml:lang="en">AIRBUS A310-308</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЦС2</code>
+        <code xml:lang="en">СЫ2</code>
+        <name xml:lang="ru">КАСА/ИПТН 212АВИАКАР</name>
+        <name xml:lang="en">КАСА/ИПТН 212АВИАКАР</name>
+      </data>
+      <data>
+        <code xml:lang="ru">33Ф</code>
+        <code xml:lang="en">33F</code>
+        <name xml:lang="ru">АЭРОБУС ИНДУСТР А330</name>
+        <name xml:lang="en">АЭРОБУС ИНДУСТР А330</name>
+      </data>
+      <data>
+        <code xml:lang="ru">70Ф</code>
+        <code xml:lang="en">70F</code>
+        <name xml:lang="ru">БОИНГ 707-320Б/320Ц</name>
+        <name xml:lang="en">BOEING 707-320B/320C (FREIGHTER)</name>
+      </data>
+      <data>
+        <code xml:lang="ru">72В</code>
+        <code xml:lang="en">72W</code>
+        <name xml:lang="ru">БОИНГ 727-200 ВИНГЛ</name>
+        <name xml:lang="en">БОИНГ 727-200 ВИНГЛ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">73Й</code>
+        <code xml:lang="en">73J</code>
+        <name xml:lang="ru">БОИНГ737-900ВИНГЛЕТС</name>
+        <name xml:lang="en">BOEING 737-900 (WINGLETS) PASSENGER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">76В</code>
+        <code xml:lang="en">76W</code>
+        <name xml:lang="ru">БОИНГ 767-300 ВИНГЛ</name>
+        <name xml:lang="en">БОИНГ 767-300 ВИНГЛ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ДЦ4</code>
+        <code xml:lang="en">DC4</code>
+        <name xml:lang="ru">БОИНГ ДУГЛАС ДЦ-4</name>
+        <name xml:lang="en">MCDONNELL DOUGLAS DC</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Д8Л</code>
+        <code xml:lang="en">D8L</code>
+        <name xml:lang="ru">БОИНГ ДУГЛАС ДЦ-8-62</name>
+        <name xml:lang="en">BOEING (DOUGLAS) DC-8-62 PASSENGER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ДЦ6</code>
+        <code xml:lang="en">DC6</code>
+        <name xml:lang="ru">БОИНГ ДУГЛАС ДЦ-6Б</name>
+        <name xml:lang="en">BOEING (DOUGLAS) DC-6B PASSENGER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ДХД</code>
+        <code xml:lang="en">DHD</code>
+        <name xml:lang="ru">ДЕ ХЭВИЛЛКНД 104 ДАВ</name>
+        <name xml:lang="en">BRITISH AEROSPACE(DE HAVILLAND)104 DOVE</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ХС7</code>
+        <code xml:lang="en">HS7</code>
+        <name xml:lang="ru">ХОКЕР СИДДЛЕЙ 748/АН</name>
+        <name xml:lang="en">BRITISH AEROSPACE (HAWKER SIDDELEY) 748</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Ф23</code>
+        <code xml:lang="en">F23</code>
+        <name xml:lang="ru">ФОККЕР Ф28ФЕЛЛОУ3000</name>
+        <name xml:lang="en">FOKKER F28-3000 FELLOWSHIP</name>
+      </data>
+      <data>
+        <code xml:lang="ru">143</code>
+        <code xml:lang="en">143</code>
+        <name xml:lang="ru">БРИТИШ АЭРОСПЕЙС</name>
+        <name xml:lang="en">BRITISH AEROSPACE 146-300 PASSENGER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">А3Д</code>
+        <code xml:lang="en">А3Д</code>
+        <name xml:lang="ru">АН-30Д А/ФОТ</name>
+        <name xml:lang="en">AN-30D A/FOT</name>
+      </data>
+      <data>
+        <code xml:lang="ru">БДЖ</code>
+        <code xml:lang="en">БДЖ</code>
+        <name xml:lang="ru">БИЧ 400 БИЧДЖЕТ</name>
+        <name xml:lang="en">BEECH 400 BEECHJET</name>
+      </data>
+      <data>
+        <code xml:lang="ru">АСГ</code>
+        <code xml:lang="en">АСГ</code>
+        <name xml:lang="ru">АЭРОСПАСЬЯЛЬ ГАЗЕЛЬ</name>
+        <name xml:lang="en">AEROSPATIALE GAZELLE</name>
+      </data>
+      <data>
+        <code xml:lang="ru">БГМ</code>
+        <code xml:lang="en">БГМ</code>
+        <name xml:lang="ru">БОИНГ Ц17 ГЛОБМАСТЕР</name>
+        <name xml:lang="en">BOEING C17 GLOBEMAST</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Т20</code>
+        <code xml:lang="en">T20</code>
+        <name xml:lang="ru">ТУ-204</name>
+        <name xml:lang="en">TUPOLEV TU-204/TU-214</name>
+      </data>
+      <data>
+        <code xml:lang="ru">МИ8</code>
+        <code xml:lang="en">MI8</code>
+        <name xml:lang="ru">МИ8/МИ17/МИ171/МИ172</name>
+        <name xml:lang="en">MI8/MI17/MI171/MI172</name>
+      </data>
+      <data>
+        <code xml:lang="ru">БЕ2</code>
+        <code xml:lang="en">БЕ2</code>
+        <name xml:lang="ru">БЕРИЕВ БЕ200 АЛЬТАИР</name>
+        <name xml:lang="en">БЕРИЕВ БЕ200 АЛЬТАИР</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ERD</code>
+        <code xml:lang="en">ERD</code>
+        <name xml:lang="ru">ЭМБРАЕР RJ140</name>
+        <name xml:lang="en">EMBRAER RJ140</name>
+      </data>
+      <data>
+        <code xml:lang="ru">АБФ</code>
+        <code xml:lang="en">ABF</code>
+        <name xml:lang="ru">АЭРОБ ИНДУСТРИ А300</name>
+        <name xml:lang="en">AIRBUS INDUSTRIE A300 (FREIGHTER)</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Д1Ы</code>
+        <code xml:lang="en">D1Y</code>
+        <name xml:lang="ru">БОИНГ ГР ДЦ-10-30/40</name>
+        <name xml:lang="en">BOEING (DOUGLAS) DC10 - 30/40 FREIGHTER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Д8М</code>
+        <code xml:lang="en">D8M</code>
+        <name xml:lang="ru">БОИНГ ДУГЛАС ДЦ-8-62</name>
+        <name xml:lang="en">BOEING (DOUGLAS) DC8-62 MIXED CONFIG</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Д8Т</code>
+        <code xml:lang="en">D8T</code>
+        <name xml:lang="ru">БОИНГ ДУГЛАС ДЦ-8-50</name>
+        <name xml:lang="en">MCDONNELL DOUGLAS DC</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Д8Ы</code>
+        <code xml:lang="en">D8Y</code>
+        <name xml:lang="ru">БОИНГ ДЦ-8-71/72/73</name>
+        <name xml:lang="en">BOEING (DOUGLAS) DC-8-71/72/73 FRTR</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Д92</code>
+        <code xml:lang="en">D92</code>
+        <name xml:lang="ru">БОИНГ ДУГЛАС ДЦ-9-20</name>
+        <name xml:lang="en">BOEING (DOUGLAS) DC-9-20</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Д95</code>
+        <code xml:lang="en">D95</code>
+        <name xml:lang="ru">БОИНГ ДУГЛАС ДЦ-9-50</name>
+        <name xml:lang="en">BOEING (DOUGLAS) DC9-50 PASSENGER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Д9Ь</code>
+        <code xml:lang="en">D9X</code>
+        <name xml:lang="ru">БОИНГ ДУГЛАС ДЦ-9-10</name>
+        <name xml:lang="en">MCDONNELL DOUGLAS DC</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Д9Д</code>
+        <code xml:lang="en">D9D</code>
+        <name xml:lang="ru">БОИНГ ДУГЛАС ДЦ-9-40</name>
+        <name xml:lang="en">MCDONNELL DOUGLAS DC</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Ф24</code>
+        <code xml:lang="en">F24</code>
+        <name xml:lang="ru">ФОККЕР Ф28ФЕЛЛОУ4000</name>
+        <name xml:lang="en">FOKKER F28-4000 FELLOWSHIP</name>
+      </data>
+      <data>
+        <code xml:lang="ru">СХ6</code>
+        <code xml:lang="en">SH6</code>
+        <name xml:lang="ru">ШОРТС 360 (СДЗ-60)</name>
+        <name xml:lang="en">SHORTS 360 (SD3-60)</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЦД2</code>
+        <code xml:lang="en">CD2</code>
+        <name xml:lang="ru">ГОВЕРНМЕНТ Н22Б/Н22А</name>
+        <name xml:lang="en">GOVT.ACFT.FACTORIES N22B/N24A NOMAD</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЦЖ2</code>
+        <code xml:lang="en">CV2</code>
+        <name xml:lang="ru">КОНВЭР 240 ПАССАЖИР</name>
+        <name xml:lang="en">CONVAIR (ALL SERIES)</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЦЖ5</code>
+        <code xml:lang="en">CV5</code>
+        <name xml:lang="ru">КОНВЭР 580 ПАССАЖИР</name>
+        <name xml:lang="en">CONVAIR 580 PASSENGER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЦЖЖ</code>
+        <code xml:lang="en">CVV</code>
+        <name xml:lang="ru">КОНВЭР 240 ГРУЗОВОЙ</name>
+        <name xml:lang="en">CONVAIR (ALL SERIES)</name>
+      </data>
+      <data>
+        <code xml:lang="ru">141</code>
+        <code xml:lang="en">141</code>
+        <name xml:lang="ru">БРИТИШ АЭРОСПЭЙС 146-100</name>
+        <name xml:lang="en">BRITISH AEROSPACE 146-100 PASSENGER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Ц28</code>
+        <code xml:lang="en">Ц28</code>
+        <name xml:lang="ru">ЦЕССНА 208 ГРАНД</name>
+        <name xml:lang="en">CESSNA 208 GRAND</name>
+      </data>
+      <data>
+        <code xml:lang="ru">727</code>
+        <code xml:lang="en">727</code>
+        <name xml:lang="ru">БОИНГ 727</name>
+        <name xml:lang="en">BOEING 727 (PASSENGER)</name>
+      </data>
+      <data>
+        <code xml:lang="ru">73Щ</code>
+        <code xml:lang="en">73Q</code>
+        <name xml:lang="ru">БОИНГ 737-400 КОМБИН</name>
+        <name xml:lang="en">BOEING 737-400 (MIXED CONFIGURATION)</name>
+      </data>
+      <data>
+        <code xml:lang="ru">АН6</code>
+        <code xml:lang="en">AN6</code>
+        <name xml:lang="ru">АН-26</name>
+        <name xml:lang="en">ANTONOV AN-26/30/32</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Ц51</code>
+        <code xml:lang="en">Ц51</code>
+        <name xml:lang="ru">ЦЕССНА 510</name>
+        <name xml:lang="en">ЦЕССНА 510</name>
+      </data>
+      <data>
+        <code xml:lang="ru">736</code>
+        <code xml:lang="en">736</code>
+        <name xml:lang="ru">БОИНГ 737-600</name>
+        <name xml:lang="en">BOEING 737-600 PASSENGER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">73В</code>
+        <code xml:lang="en">73W</code>
+        <name xml:lang="ru">БОИНГ 737-700 ВИНГЛ</name>
+        <name xml:lang="en">BOEING 737-700 (WINGLETS) PASSENGER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">739</code>
+        <code xml:lang="en">739</code>
+        <name xml:lang="ru">БОИНГ 737-900 ПАССАЖ</name>
+        <name xml:lang="en">BOEING 737-900 PASSENGER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">74Ц</code>
+        <code xml:lang="en">74C</code>
+        <name xml:lang="ru">БОИНГ 747-200 КОМБИН</name>
+        <name xml:lang="en">BOEING 747-200 (MIXED CONFIGURATION)</name>
+      </data>
+      <data>
+        <code xml:lang="ru">74Й</code>
+        <code xml:lang="en">74J</code>
+        <name xml:lang="ru">БОИНГ 747-400 ДОМЕСТ</name>
+        <name xml:lang="en">BOEING 747-400 (DOMESTIC) PASSENGER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">75М</code>
+        <code xml:lang="en">75M</code>
+        <name xml:lang="ru">БОИНГ 757-200 КОМБИН</name>
+        <name xml:lang="en">БОИНГ 757-200 КОМБИН</name>
+      </data>
+      <data>
+        <code xml:lang="ru">76Ь</code>
+        <code xml:lang="en">76X</code>
+        <name xml:lang="ru">БОИНГ 767-200 ГРУЗОВ</name>
+        <name xml:lang="en">BOEING 767-200 FREIGHTER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">77Ф</code>
+        <code xml:lang="en">77F</code>
+        <name xml:lang="ru">БОИНГ 777 ГРУЗОВОЙ</name>
+        <name xml:lang="en">BOEING 777 FREIGHTER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">77Ь</code>
+        <code xml:lang="en">77X</code>
+        <name xml:lang="ru">БОИНГ 777-200Ф ГРУЗ</name>
+        <name xml:lang="en">BOEING 777-200F FREIGHTER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">788</code>
+        <code xml:lang="en">788</code>
+        <name xml:lang="ru">БОИНГ 787-800</name>
+        <name xml:lang="en">БОИНГ 787-800</name>
+      </data>
+      <data>
+        <code xml:lang="ru">14Ф</code>
+        <code xml:lang="en">14F</code>
+        <name xml:lang="ru">БРИТ АЭРОСПЭЙС 146ГР</name>
+        <name xml:lang="en">BRITISH AEROSPACE 146 (FREIGHTER)</name>
+      </data>
+      <data>
+        <code xml:lang="ru">14Ы</code>
+        <code xml:lang="en">14Y</code>
+        <name xml:lang="ru">БРИТ АЭРОСП 146-200Г</name>
+        <name xml:lang="en">БРИТ АЭРОСП 146-200Г</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЦНЦ</code>
+        <code xml:lang="en">CNC</code>
+        <name xml:lang="ru">ЦЕССНА (ЛЕГКИЙ)</name>
+        <name xml:lang="en">CESSNA LIGHT AIRCRAFT(SINGLE TURBOPROP)</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Л15</code>
+        <code xml:lang="en">L15</code>
+        <name xml:lang="ru">ЛОКХИД-1011-500 T</name>
+        <name xml:lang="en">LOCKHEED L1011 TRISTAR 500 PASSENGER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЦРК</code>
+        <code xml:lang="en">CRK</code>
+        <name xml:lang="ru">КАНАДЭЙР(БОМБАРДЬЕ)</name>
+        <name xml:lang="en">CANADAIR (BOMBARDIER) REGIONAL JET 1000</name>
+      </data>
+      <data>
+        <code xml:lang="ru">146</code>
+        <code xml:lang="en">146</code>
+        <name xml:lang="ru">BRITISH AEROSPACE 14</name>
+        <name xml:lang="en">BRITISH AEROSPACE 146 PASSENGER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">72S</code>
+        <code xml:lang="en">72S</code>
+        <name xml:lang="ru">BOEING 727-200</name>
+        <name xml:lang="en">BOEING 727-200 (PAX)</name>
+      </data>
+      <data>
+        <code xml:lang="ru">73S</code>
+        <code xml:lang="en">73S</code>
+        <name xml:lang="ru">БОИНГ 737</name>
+        <name xml:lang="en">BOEING 737 ADVANCED ALL SERIES</name>
+      </data>
+      <data>
+        <code xml:lang="ru">CNJ</code>
+        <code xml:lang="en">CNJ</code>
+        <name xml:lang="ru">CESSNA CITATION</name>
+        <name xml:lang="en">CESSNA CITATION</name>
+      </data>
+      <data>
+        <code xml:lang="ru">D9S</code>
+        <code xml:lang="en">D9S</code>
+        <name xml:lang="ru">MCDONNELL DOUGLAS DC</name>
+        <name xml:lang="en">MCDONNELL DOUGLAS DC9 30/40/50</name>
+      </data>
+      <data>
+        <code xml:lang="ru">FRT</code>
+        <code xml:lang="en">FRT</code>
+        <name xml:lang="ru">FREIGHTER</name>
+        <name xml:lang="en">FREIGHTER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">HEL</code>
+        <code xml:lang="en">HEL</code>
+        <name xml:lang="ru">HELICOPTER</name>
+        <name xml:lang="en">HELICOPTER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ICE</code>
+        <code xml:lang="en">ICE</code>
+        <name xml:lang="ru">INTER-CITY EXPRESS</name>
+        <name xml:lang="en">INTER-CITY EXPRESS TRAIN</name>
+      </data>
+      <data>
+        <code xml:lang="ru">L10</code>
+        <code xml:lang="en">L10</code>
+        <name xml:lang="ru">LOCKHEED L1011 (ALL</name>
+        <name xml:lang="en">LOCKHEED L1011 TRISTAR PASSENGER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">M11</code>
+        <code xml:lang="en">M11</code>
+        <name xml:lang="ru">MCDONNELL DOUGLAS MD</name>
+        <name xml:lang="en">BOEING (DOUGLAS) MD-11 PASSENGER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">MTL</code>
+        <code xml:lang="en">MTL</code>
+        <name xml:lang="ru">METROLINER</name>
+        <name xml:lang="en">METROLINER TRAIN</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ТУ5</code>
+        <code xml:lang="en">TU5</code>
+        <name xml:lang="ru">ТУ154</name>
+        <name xml:lang="en">TUPOLEV TU154</name>
+      </data>
+      <data>
+        <code xml:lang="ru">737</code>
+        <code xml:lang="en">737</code>
+        <name xml:lang="ru">БОИНГ 737</name>
+        <name xml:lang="en">BOEING 737 PASSENGER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">АН4</code>
+        <code xml:lang="en">AN4</code>
+        <name xml:lang="ru">АН-24</name>
+        <name xml:lang="en">ANTONOV AN-24</name>
+      </data>
+      <data>
+        <code xml:lang="ru">БО7</code>
+        <code xml:lang="en">Б07</code>
+        <name xml:lang="ru"/>
+        <name xml:lang="en"/>
+      </data>
+      <data>
+        <code xml:lang="ru">А38</code>
+        <code xml:lang="en">А38</code>
+        <name xml:lang="ru">АНТОНОВ АН-38</name>
+        <name xml:lang="en">AN-38</name>
+      </data>
+      <data>
+        <code xml:lang="ru">А72</code>
+        <code xml:lang="en">АN7</code>
+        <name xml:lang="ru">АНТОНОВ АН-72</name>
+        <name xml:lang="en">AN-72</name>
+      </data>
+      <data>
+        <code xml:lang="ru">И14</code>
+        <code xml:lang="en">I14</code>
+        <name xml:lang="ru">ИЛ-114</name>
+        <name xml:lang="en">ILYUSHIN IL114</name>
+      </data>
+      <data>
+        <code xml:lang="ru">733</code>
+        <code xml:lang="en">733</code>
+        <name xml:lang="ru">БОИНГ 737-300</name>
+        <name xml:lang="en">BOEING 737-300 PASSENGER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">752</code>
+        <code xml:lang="en">752</code>
+        <name xml:lang="ru">БОИНГ 757-200</name>
+        <name xml:lang="en">BOEING 757-200 PASSENGER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">734</code>
+        <code xml:lang="en">734</code>
+        <name xml:lang="ru">БОИНГ 737-400</name>
+        <name xml:lang="en">BOEING 737-400 PASSENGER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">321</code>
+        <code xml:lang="en">321</code>
+        <name xml:lang="ru">АЭРОБУС А321</name>
+        <name xml:lang="en">AIRBUS INDUSTRIE A321</name>
+      </data>
+      <data>
+        <code xml:lang="ru">717</code>
+        <code xml:lang="en">717</code>
+        <name xml:lang="ru">БОИНГ 717-200</name>
+        <name xml:lang="en">BOEING 717-200</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЛОК</code>
+        <code xml:lang="en">ЛОК</code>
+        <name xml:lang="ru"/>
+        <name xml:lang="en"/>
+      </data>
+      <data>
+        <code xml:lang="ru">DO8</code>
+        <code xml:lang="en">DO8</code>
+        <name xml:lang="ru">DORNIER 228</name>
+        <name xml:lang="en">DORNIER 228</name>
+      </data>
+      <data>
+        <code xml:lang="ru">JET</code>
+        <code xml:lang="en">JET</code>
+        <name xml:lang="ru">JET</name>
+        <name xml:lang="en">JET</name>
+      </data>
+      <data>
+        <code xml:lang="ru">M80</code>
+        <code xml:lang="en">M80</code>
+        <name xml:lang="ru">MCDONNELL DOUGLAS (M</name>
+        <name xml:lang="en">BOEING (DOUGLAS) MD-80</name>
+      </data>
+      <data>
+        <code xml:lang="ru">М71</code>
+        <code xml:lang="en">М71</code>
+        <name xml:lang="ru">МИЛЬ МИ-171</name>
+        <name xml:lang="en">MIL MI-8/MI-17/MI-17</name>
+      </data>
+      <data>
+        <code xml:lang="ru">PRO</code>
+        <code xml:lang="en">PRO</code>
+        <name xml:lang="ru">PROP</name>
+        <name xml:lang="en">PROP</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ТУ3</code>
+        <code xml:lang="en">TU3</code>
+        <name xml:lang="ru">ТУ134</name>
+        <name xml:lang="en">TUPOLEV TU134</name>
+      </data>
+      <data>
+        <code xml:lang="ru">707</code>
+        <code xml:lang="en">707</code>
+        <name xml:lang="ru">БОИНГ 707/720Б</name>
+        <name xml:lang="en">BOEING 707/720 PASSENGER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">410</code>
+        <code xml:lang="en">410</code>
+        <name xml:lang="ru">ЛЕТ Л-410Т</name>
+        <name xml:lang="en">LET L-410T</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ИЛ6</code>
+        <code xml:lang="en">IL6</code>
+        <name xml:lang="ru">ИЛ-62</name>
+        <name xml:lang="en">ILYUSHIN IL-62</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ТУ2</code>
+        <code xml:lang="en">TU2</code>
+        <name xml:lang="ru"/>
+        <name xml:lang="en"/>
+      </data>
+      <data>
+        <code xml:lang="ru">767</code>
+        <code xml:lang="en">767</code>
+        <name xml:lang="ru">БОИНГ 767-200/300</name>
+        <name xml:lang="en">BOEING 767 PASSENGER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">А32</code>
+        <code xml:lang="en">A32</code>
+        <name xml:lang="ru">АНТОНОВ АН-32 ГРУЗ</name>
+        <name xml:lang="en">AN-32</name>
+      </data>
+      <data>
+        <code xml:lang="ru">М8Т</code>
+        <code xml:lang="en">M8T</code>
+        <name xml:lang="ru">МИ-8Т (МИЛЬ)</name>
+        <name xml:lang="en">МИ-8Т (МИЛЬ)</name>
+      </data>
+      <data>
+        <code xml:lang="ru">732</code>
+        <code xml:lang="en">732</code>
+        <name xml:lang="ru">БОИНГ 737-200</name>
+        <name xml:lang="en">BOEING 737-200 PASSENGER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Л4Э</code>
+        <code xml:lang="en">L4Т</code>
+        <name xml:lang="ru"/>
+        <name xml:lang="en"/>
+      </data>
+      <data>
+        <code xml:lang="ru">73Г</code>
+        <code xml:lang="en">73G</code>
+        <name xml:lang="ru">БОИНГ 737-700</name>
+        <name xml:lang="en">BOEING 737-700 PASSENGER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">735</code>
+        <code xml:lang="en">735</code>
+        <name xml:lang="ru">БОИНГ 737-500</name>
+        <name xml:lang="en">BOEING 737-500 PASSENGER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЯК0</code>
+        <code xml:lang="en">YA0</code>
+        <name xml:lang="ru"/>
+        <name xml:lang="en"/>
+      </data>
+      <data>
+        <code xml:lang="ru">АБ3</code>
+        <code xml:lang="en">AB3</code>
+        <name xml:lang="ru">АЭРОБУС А300</name>
+        <name xml:lang="en">AIRBUS INDUSTRIE A300 PASSENGER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">322</code>
+        <code xml:lang="en">322</code>
+        <name xml:lang="ru">АЭРОБУС А320-200</name>
+        <name xml:lang="en">AIRBUS A320-200</name>
+      </data>
+      <data>
+        <code xml:lang="ru">АВТ</code>
+        <code xml:lang="en">BUS</code>
+        <name xml:lang="ru">АВТОБУС</name>
+        <name xml:lang="en">BUS</name>
+      </data>
+      <data>
+        <code xml:lang="ru">А40</code>
+        <code xml:lang="en">A40</code>
+        <name xml:lang="ru">АНТОНОВ АН-140</name>
+        <name xml:lang="en">ANTONOV AN-140</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ТРД</code>
+        <code xml:lang="en">ТРД</code>
+        <name xml:lang="ru"/>
+        <name xml:lang="en"/>
+      </data>
+      <data>
+        <code xml:lang="ru">320</code>
+        <code xml:lang="en">320</code>
+        <name xml:lang="ru">А320</name>
+        <name xml:lang="en">AIRBUS INDUSTRIE A320</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ХЕЦ</code>
+        <code xml:lang="en">HEC</code>
+        <name xml:lang="ru">ХИЛЕО Х-250 Н295/395</name>
+        <name xml:lang="en">HELIO H250 COURIER/H295/395SUPERCOURIER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ГРМ</code>
+        <code xml:lang="en">GRM</code>
+        <name xml:lang="ru">ГРУММАН Г-73 МАЛЛАРД</name>
+        <name xml:lang="en">GRUMMAN G-73 MALLARD (AMPHIBIAN)</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ГРГ</code>
+        <code xml:lang="en">GRG</code>
+        <name xml:lang="ru">ГРУММАН Г-21 ГУС АМФ</name>
+        <name xml:lang="en">GRUMMAN G-21 GOOSE (AMPHIBIAN)</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЙУ5</code>
+        <code xml:lang="en">JU5</code>
+        <name xml:lang="ru">ЮНКЕРС JU 52/3М</name>
+        <name xml:lang="en">JUNKERS JU 52/3M</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Л49</code>
+        <code xml:lang="en">L49</code>
+        <name xml:lang="ru">ЛОКХИД Л-749 КОНСТЭЛ</name>
+        <name xml:lang="en">LOCKHEED L749/L1049 SUPER CONSTELLATION</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЛОМ</code>
+        <code xml:lang="en">LOM</code>
+        <name xml:lang="ru">ЛОКХИД Л-188 ЭЛЕКТРА</name>
+        <name xml:lang="en">LOCKHEED L188 ELECTRA (MIXED CONFIG)</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЛОЕ</code>
+        <code xml:lang="en">LOE</code>
+        <name xml:lang="ru">ЛОКХИД Л-188 ЭЛЕКТРА</name>
+        <name xml:lang="en">LOCKHEED L188 ELECTRA (PASSENGER)</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ПЛ6</code>
+        <code xml:lang="en">PL6</code>
+        <name xml:lang="ru">ПИЛАТУС ПЦ-6 ТУРБО П</name>
+        <name xml:lang="en">PILATUS PC6 TURBO-PORTER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">СХБ</code>
+        <code xml:lang="en">SHB</code>
+        <name xml:lang="ru">ШОРТС СЦ.5 БЕЛФАСТ</name>
+        <name xml:lang="en">SHORTS SC.5 BELFAST</name>
+      </data>
+      <data>
+        <code xml:lang="ru">СХС</code>
+        <code xml:lang="en">SHS</code>
+        <name xml:lang="ru">ШОРТС СКАЙВЭН СЦ-7</name>
+        <name xml:lang="en">SHORTS SKYVAN (SC-7)</name>
+      </data>
+      <data>
+        <code xml:lang="ru">МУ2</code>
+        <code xml:lang="en">MU2</code>
+        <name xml:lang="ru">МИЦУБИШИ МУ-2</name>
+        <name xml:lang="en">MITSUBISHI MU-2</name>
+      </data>
+      <data>
+        <code xml:lang="ru">СУ1</code>
+        <code xml:lang="en">SU1</code>
+        <name xml:lang="ru">СУХОЙ СУПЕРДЖЕТ 100</name>
+        <name xml:lang="en">СУХОЙ СУПЕРДЖЕТ 100</name>
+      </data>
+      <data>
+        <code xml:lang="ru">СУ7</code>
+        <code xml:lang="en">SU7</code>
+        <name xml:lang="ru">СУХОЙСУПЕРДЖЕТ100-75</name>
+        <name xml:lang="en">СУХОЙСУПЕРДЖЕТ100-75</name>
+      </data>
+      <data>
+        <code xml:lang="ru">АЦТ</code>
+        <code xml:lang="en">ACT</code>
+        <name xml:lang="ru">ТВИН КОММАНДЕР/ДЖЕТП</name>
+        <name xml:lang="en">ТВИН КОММАНДЕР/ДЖЕТП</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Т2Ф</code>
+        <code xml:lang="en">T2F</code>
+        <name xml:lang="ru">ТУПОЛЕВ ТУ-204 ГРУЗ</name>
+        <name xml:lang="en">TUPOLEV TU-204 FREIGHTER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Т34</code>
+        <code xml:lang="en">T34</code>
+        <name xml:lang="ru">ТУПОЛЕВ ТУ-334</name>
+        <name xml:lang="en">ТУПОЛЕВ ТУ-334</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Б13</code>
+        <code xml:lang="en">B13</code>
+        <name xml:lang="ru">УАН-ЭЛЕВЕН 300</name>
+        <name xml:lang="en">BRITISH AEROSPACE (BAC) ONE-ELEVEN 300</name>
+      </data>
+      <data>
+        <code xml:lang="ru">КАС</code>
+        <code xml:lang="en">КАС</code>
+        <name xml:lang="ru">ВЕРТОЛЕТ КАМОВ КА226</name>
+        <name xml:lang="en">HELICOPTER KAMOV 226</name>
+      </data>
+      <data>
+        <code xml:lang="ru">М88</code>
+        <code xml:lang="en">M88</code>
+        <name xml:lang="ru">БОИНГ ДУГЛАС МД-88</name>
+        <name xml:lang="en">BOEING (DOUGLAS) MD-88</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Е70</code>
+        <code xml:lang="en">Е70</code>
+        <name xml:lang="ru">ЭМБРАЕР 170</name>
+        <name xml:lang="en">ЭМБРАЕР 170</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЛМО</code>
+        <code xml:lang="en">LMO</code>
+        <name xml:lang="ru">ЛИМУЗИН</name>
+        <name xml:lang="en">LIMOUSINE</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ВВ3</code>
+        <code xml:lang="en">ВВ3</code>
+        <name xml:lang="ru">ВЕРТОЛЕТ В-3</name>
+        <name xml:lang="en">ВЕРТОЛЕТ В-3</name>
+      </data>
+      <data>
+        <code xml:lang="ru">388</code>
+        <code xml:lang="en">388</code>
+        <name xml:lang="ru">АЭРОБУС ИНД А380-800</name>
+        <name xml:lang="en">AIRBUS INDUSTRIE A380-800 PASSENGER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Г20</code>
+        <code xml:lang="en">GR2</code>
+        <name xml:lang="ru">ГОЛЬФСТРИМ АЭРОСПЕЙС</name>
+        <name xml:lang="en">ГОЛЬФСТРИМ АЭРОСПЕЙС</name>
+      </data>
+      <data>
+        <code xml:lang="ru">73A</code>
+        <code xml:lang="en">73A</code>
+        <name xml:lang="ru">BOEING 73A</name>
+        <name xml:lang="en">BOEING 737-200/200C ADVANCED (PAX)</name>
+      </data>
+      <data>
+        <code xml:lang="ru">EQV</code>
+        <code xml:lang="en">EQV</code>
+        <name xml:lang="ru">CHANGE OF EQUIPMENT</name>
+        <name xml:lang="en">EQUIPMENT VARIES</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Д42</code>
+        <code xml:lang="en">Д42</code>
+        <name xml:lang="ru">ДАЙМОНД ДА-42 ТВИН</name>
+        <name xml:lang="en">ДАЙМОНД ДА-42 ТВИН</name>
+      </data>
+      <data>
+        <code xml:lang="ru">UK2</code>
+        <code xml:lang="en">UK2</code>
+        <name xml:lang="ru"/>
+        <name xml:lang="en"/>
+      </data>
+      <data>
+        <code xml:lang="ru">AT3</code>
+        <code xml:lang="en">AT3</code>
+        <name xml:lang="ru">AEROSPATIALE/ALENIA</name>
+        <name xml:lang="en">AEROSPATIALE/ALENIA ATR42 300/400</name>
+      </data>
+      <data>
+        <code xml:lang="ru">CL4</code>
+        <code xml:lang="en">CL4</code>
+        <name xml:lang="ru">CANADAIR CL-44D4</name>
+        <name xml:lang="en">CANADAIR CL-44D4</name>
+      </data>
+      <data>
+        <code xml:lang="ru">F22</code>
+        <code xml:lang="en">F22</code>
+        <name xml:lang="ru">FOKKER F28-2000 FELL</name>
+        <name xml:lang="en">FOKKER F28-2000 FELLOWSHIP</name>
+      </data>
+      <data>
+        <code xml:lang="ru">73X</code>
+        <code xml:lang="en">73X</code>
+        <name xml:lang="ru">BOEING 737-200 (FREI</name>
+        <name xml:lang="en">BOEING 737-200 (FREIGHTER)</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Г45</code>
+        <code xml:lang="en">Г45</code>
+        <name xml:lang="ru">ГОЛЬФСТРИМ Г450</name>
+        <name xml:lang="en">ГОЛЬФСТРИМ Г450</name>
+      </data>
+      <data>
+        <code xml:lang="ru">421</code>
+        <code xml:lang="en">421</code>
+        <name xml:lang="ru">ЦЕССНА 421</name>
+        <name xml:lang="en">ЦЕССНА 421</name>
+      </data>
+      <data>
+        <code xml:lang="ru">БЕФ</code>
+        <code xml:lang="en">BEF</code>
+        <name xml:lang="ru">БИЧ 1900 ГРУЗОВОЙ</name>
+        <name xml:lang="en">БИЧ 1900 ГРУЗОВОЙ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">T38</code>
+        <code xml:lang="en">T38</code>
+        <name xml:lang="ru"/>
+        <name xml:lang="en"/>
+      </data>
+      <data>
+        <code xml:lang="ru">ЯКД</code>
+        <code xml:lang="en">YKD</code>
+        <name xml:lang="ru">ЯКОВЛЕВ ЯК-42Д</name>
+        <name xml:lang="en">ЯКОВЛЕВ ЯК-42Д</name>
+      </data>
+      <data>
+        <code xml:lang="ru">724</code>
+        <code xml:lang="en">724</code>
+        <name xml:lang="ru">БОИНГ 724</name>
+        <name xml:lang="en">BOEING 724</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Е45</code>
+        <code xml:lang="en">E45</code>
+        <name xml:lang="ru">ЕВРОКОПТЕР</name>
+        <name xml:lang="en">ЕВРОКОПТЕР</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Р22</code>
+        <code xml:lang="en">Р22</code>
+        <name xml:lang="ru">РОБИНСОН Р22</name>
+        <name xml:lang="en">РОБИНСОН Р22</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Л40</code>
+        <code xml:lang="en">Л40</code>
+        <name xml:lang="ru">ЛЭРДЖЕТ 40</name>
+        <name xml:lang="en">ЛЭРДЖЕТ 40</name>
+      </data>
+      <data>
+        <code xml:lang="ru">М80</code>
+        <code xml:lang="en">М80</code>
+        <name xml:lang="ru">БОИНГ ДУГЛАС МД-80</name>
+        <name xml:lang="en">BOEING DOUGLAS MD-80</name>
+      </data>
+      <data>
+        <code xml:lang="ru">СФФ</code>
+        <code xml:lang="en">SFF</code>
+        <name xml:lang="ru">СААБ 340 ГРУЗОВОЙ</name>
+        <name xml:lang="en">SAAB 340 FREIGHTER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЦНФ</code>
+        <code xml:lang="en">CNF</code>
+        <name xml:lang="ru">ЦЕССНА 208Б ГРУЗОВОЙ</name>
+        <name xml:lang="en">CESSNA 208B FREIGHTER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">77Л</code>
+        <code xml:lang="en">77L</code>
+        <name xml:lang="ru">БОИНГ 777-200ЛР</name>
+        <name xml:lang="en">BOEING 777-200LR</name>
+      </data>
+      <data>
+        <code xml:lang="ru">330</code>
+        <code xml:lang="en">330</code>
+        <name xml:lang="ru">А330 АЭРОБУС</name>
+        <name xml:lang="en">AIRBUS INDUSTRIE A330</name>
+      </data>
+      <data>
+        <code xml:lang="ru">345</code>
+        <code xml:lang="en">345</code>
+        <name xml:lang="ru">АЭРОБУС И А340-500</name>
+        <name xml:lang="en">AIRBUS INDUSTRIE A340-500</name>
+      </data>
+      <data>
+        <code xml:lang="ru">318</code>
+        <code xml:lang="en">318</code>
+        <name xml:lang="ru">АЭРОБУС А-318</name>
+        <name xml:lang="en">AIRBUS INDUSTRIE A318</name>
+      </data>
+      <data>
+        <code xml:lang="ru">СУ9</code>
+        <code xml:lang="en">SU9</code>
+        <name xml:lang="ru">СУХ СУПЕРДЖЕТ 100-95</name>
+        <name xml:lang="en">SUKHOI SUPERJET 100-95</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Б99</code>
+        <code xml:lang="en">BET</code>
+        <name xml:lang="ru">БИЧ 99 ЭЙРЛАЙНЕР</name>
+        <name xml:lang="en">BEECHCRAFT (LGHT ACFT - TWIN TURBOPROP)</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ТКН</code>
+        <code xml:lang="en">TKH</code>
+        <name xml:lang="ru">ТЕКНАМ П2006Т</name>
+        <name xml:lang="en">ТЕКНАМ П2006Т</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЦЛ7</code>
+        <code xml:lang="en">CL7</code>
+        <name xml:lang="ru">БС ЧЕЛЛЕНДЖЕР 870</name>
+        <name xml:lang="en">BC CHALLENGER 870 UP-CL001</name>
+      </data>
+      <data>
+        <code xml:lang="ru">351</code>
+        <code xml:lang="en">351</code>
+        <name xml:lang="ru">АЭРОБУС ИНДУСТРИ А350-1000</name>
+        <name xml:lang="en">АЭРОБУС ИНДУСТРИ А350-1000</name>
+      </data>
+      <data>
+        <code xml:lang="ru">А58</code>
+        <code xml:lang="en">A58</code>
+        <name xml:lang="ru">АНТОНОВ АН-158</name>
+        <name xml:lang="en">АНТОНОВ АН-158</name>
+      </data>
+      <data>
+        <code xml:lang="ru">762</code>
+        <code xml:lang="en">762</code>
+        <name xml:lang="ru">БОИНГ 767-200/200ЕР</name>
+        <name xml:lang="en">BOEING 767-200 PASSENGER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">32S</code>
+        <code xml:lang="en">32S</code>
+        <name xml:lang="ru">AIRBUS INDUSTRIE A318/319/320/321</name>
+        <name xml:lang="en">AIRBUS INDUSTRIE A318/319/320/321</name>
+      </data>
+      <data>
+        <code xml:lang="ru">313</code>
+        <code xml:lang="en">313</code>
+        <name xml:lang="ru">АЭРОБУС А310-300</name>
+        <name xml:lang="en">AIRBUS INDUSTRIE A310-300 PASSENGER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">E70</code>
+        <code xml:lang="en">E70</code>
+        <name xml:lang="ru">ЭМБРАЕР 170</name>
+        <name xml:lang="en">EMBRAER 170</name>
+      </data>
+      <data>
+        <code xml:lang="ru">АН5</code>
+        <code xml:lang="en">AN5</code>
+        <name xml:lang="ru"/>
+        <name xml:lang="en"/>
+      </data>
+      <data>
+        <code xml:lang="ru">А4Б</code>
+        <code xml:lang="en">А4Б</code>
+        <name xml:lang="ru">АН-24Б</name>
+        <name xml:lang="en">AN-24B</name>
+      </data>
+      <data>
+        <code xml:lang="ru">А6Р</code>
+        <code xml:lang="en">А6Р</code>
+        <name xml:lang="ru">АН-26БРЛ</name>
+        <name xml:lang="en">AN-26BRL</name>
+      </data>
+      <data>
+        <code xml:lang="ru">А7Т</code>
+        <code xml:lang="en">А7Т</code>
+        <name xml:lang="ru">АН-74Т-100</name>
+        <name xml:lang="en">AN-74T-100</name>
+      </data>
+      <data>
+        <code xml:lang="ru">743</code>
+        <code xml:lang="en">743</code>
+        <name xml:lang="ru">БОИНГ 747-300</name>
+        <name xml:lang="en">BOEING 747-300/747-100/200 SUD (PAX)</name>
+      </data>
+      <data>
+        <code xml:lang="ru">А1Т</code>
+        <code xml:lang="en">А1Т</code>
+        <name xml:lang="ru">АН-12ТА</name>
+        <name xml:lang="en">AN-12TA</name>
+      </data>
+      <data>
+        <code xml:lang="ru">А1К</code>
+        <code xml:lang="en">А1К</code>
+        <name xml:lang="ru">АН-12БК</name>
+        <name xml:lang="en">AN-12BK</name>
+      </data>
+      <data>
+        <code xml:lang="ru">АН3</code>
+        <code xml:lang="en">AN3</code>
+        <name xml:lang="ru">АН-3 АНТОНОВ</name>
+        <name xml:lang="en">AN-3</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Д11</code>
+        <code xml:lang="en">D11</code>
+        <name xml:lang="ru">ДУГЛАС ДЦ-10-10/15</name>
+        <name xml:lang="en">BOEING (DOUGLAS) DC10-10/15 PASSENGER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ДА2</code>
+        <code xml:lang="en">DA2</code>
+        <name xml:lang="ru">ДАЙМОНД ДА-20 КАТАНА</name>
+        <name xml:lang="en">ДАЙМОНД ДА-20 КАТАНА</name>
+      </data>
+      <data>
+        <code xml:lang="ru">И1Е</code>
+        <code xml:lang="en">И1Е</code>
+        <name xml:lang="ru">ИЛ-18Е</name>
+        <name xml:lang="en">IL-18E</name>
+      </data>
+      <data>
+        <code xml:lang="ru">И6М</code>
+        <code xml:lang="en">I6M</code>
+        <name xml:lang="ru">ИЛ-62М</name>
+        <name xml:lang="en">IL-62M</name>
+      </data>
+      <data>
+        <code xml:lang="ru">И7М</code>
+        <code xml:lang="en">И7М</code>
+        <name xml:lang="ru">ИЛ-76М</name>
+        <name xml:lang="en">IL-76M</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ИЛВ</code>
+        <code xml:lang="en">ILW</code>
+        <name xml:lang="ru">ИЛ86 350</name>
+        <name xml:lang="en">ILYUSHIN IL-86</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ИЛД</code>
+        <code xml:lang="en">ИЛД</code>
+        <name xml:lang="ru">ИЛ-76ТД ГРУЗОВОЙ</name>
+        <name xml:lang="en">IL-76TD FREIGHTER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">К3Т</code>
+        <code xml:lang="en">К3Т</code>
+        <name xml:lang="ru">КАМОВ КА-32Т</name>
+        <name xml:lang="en">KAMOV KA-32T</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЯК4</code>
+        <code xml:lang="en">YK4</code>
+        <name xml:lang="ru">ЯК40</name>
+        <name xml:lang="en">YAKOVLEV YAK-40</name>
+      </data>
+      <data>
+        <code xml:lang="ru">DH4</code>
+        <code xml:lang="en">DH4</code>
+        <name xml:lang="ru">DEHAVILLAND DASH</name>
+        <name xml:lang="en">DE HAVILLAND DHC-8 DASH 8-400 DASH 8Q</name>
+      </data>
+      <data>
+        <code xml:lang="ru">А81</code>
+        <code xml:lang="en">A81</code>
+        <name xml:lang="ru">АН-148-100</name>
+        <name xml:lang="en">ANTONOV AN148-100</name>
+      </data>
+      <data>
+        <code xml:lang="ru">SSC</code>
+        <code xml:lang="en">SSC</code>
+        <name xml:lang="ru">AEROSPATIALE-BRITISH</name>
+        <name xml:lang="en">AEROSPATIALE-BRITISH</name>
+      </data>
+      <data>
+        <code xml:lang="ru">TCM</code>
+        <code xml:lang="en">TCM</code>
+        <name xml:lang="ru">COMMUTER TRAIN</name>
+        <name xml:lang="en">COMMUTER TRAIN</name>
+      </data>
+      <data>
+        <code xml:lang="ru">TGV</code>
+        <code xml:lang="en">TGV</code>
+        <name xml:lang="ru">TRAIN A GRAND VITESS</name>
+        <name xml:lang="en">TRAIN A GRAND VITESSE</name>
+      </data>
+      <data>
+        <code xml:lang="ru">THT</code>
+        <code xml:lang="en">THT</code>
+        <name xml:lang="ru">HOTEL TRAIN</name>
+        <name xml:lang="en">HOTEL TRAIN</name>
+      </data>
+      <data>
+        <code xml:lang="ru">TIC</code>
+        <code xml:lang="en">TIC</code>
+        <name xml:lang="ru">INTER-CITY TRAIN</name>
+        <name xml:lang="en">INTER-CITY TRAIN</name>
+      </data>
+      <data>
+        <code xml:lang="ru">TSL</code>
+        <code xml:lang="en">TSL</code>
+        <name xml:lang="ru">SLEEPER TRAIN</name>
+        <name xml:lang="en">SLEEPER TRAIN</name>
+      </data>
+      <data>
+        <code xml:lang="ru">П23</code>
+        <code xml:lang="en">П23</code>
+        <name xml:lang="ru">ПАЙПЕР ПА-23-250 АЦТ</name>
+        <name xml:lang="en">PIPER PA-23-250 AZTE</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ПАН</code>
+        <code xml:lang="en">ПАН</code>
+        <name xml:lang="ru">ПАЙПЕР НАВАДЖО ЧИФТА</name>
+        <name xml:lang="en">PIPER NAVAJO CHIEFTA</name>
+      </data>
+      <data>
+        <code xml:lang="ru">722</code>
+        <code xml:lang="en">722</code>
+        <name xml:lang="ru">БОИНГ 727-200</name>
+        <name xml:lang="en">BOEING 727-200 PASSENGER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">744</code>
+        <code xml:lang="en">744</code>
+        <name xml:lang="ru">БОИНГ 747-400</name>
+        <name xml:lang="en">BOEING 747-400 (PASSENGER)</name>
+      </data>
+      <data>
+        <code xml:lang="ru">А1Г</code>
+        <code xml:lang="en">А1Г</code>
+        <name xml:lang="ru">АН-12ТБП</name>
+        <name xml:lang="en">AN-12TBP</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ГР3</code>
+        <code xml:lang="en">ГР3</code>
+        <name xml:lang="ru">ГОЛЬФСТРИМ III</name>
+        <name xml:lang="en">GULFSTREAM III</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ДА9</code>
+        <code xml:lang="en">ДА9</code>
+        <name xml:lang="ru">ФАЛЬКОН 900</name>
+        <name xml:lang="en">FALKON 900</name>
+      </data>
+      <data>
+        <code xml:lang="ru">И1Д</code>
+        <code xml:lang="en">И1Д</code>
+        <name xml:lang="ru">ИЛ-18Д</name>
+        <name xml:lang="en">IL-18D</name>
+      </data>
+      <data>
+        <code xml:lang="ru">АНА</code>
+        <code xml:lang="en">A22</code>
+        <name xml:lang="ru">АН-22 АНТЕЙ ГРУЗОВОЙ</name>
+        <name xml:lang="en">AN-22 ANTEY FREIGHER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">АНР</code>
+        <code xml:lang="en">A4F</code>
+        <name xml:lang="ru">АН-124-100 РУСЛАН</name>
+        <name xml:lang="en">ANTONOV AN-124 RUSLAN</name>
+      </data>
+      <data>
+        <code xml:lang="ru">АНП</code>
+        <code xml:lang="en">АНП</code>
+        <name xml:lang="ru">АН-12П</name>
+        <name xml:lang="en">AN-12P</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Ф28</code>
+        <code xml:lang="en">F28</code>
+        <name xml:lang="ru">ФОККЕР Ф28 ФЕЛЛОУШИП</name>
+        <name xml:lang="en">FOKKER F28 FELLOWSHIP</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Ф70</code>
+        <code xml:lang="en">F70</code>
+        <name xml:lang="ru">ФОККЕР 70</name>
+        <name xml:lang="en">FOKKER 70</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Я42</code>
+        <code xml:lang="en">Y42</code>
+        <name xml:lang="ru">ЯК-42</name>
+        <name xml:lang="en">YAK 42</name>
+      </data>
+      <data>
+        <code xml:lang="ru">310</code>
+        <code xml:lang="en">310</code>
+        <name xml:lang="ru">АЭРОБУС А310</name>
+        <name xml:lang="en">AIRBUS INDUSTRIE A310 PASSENGER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ПЛ2</code>
+        <code xml:lang="en">PL2</code>
+        <name xml:lang="ru">ПИЛАТУС ПЦ-12</name>
+        <name xml:lang="en">PILATUS PC-12</name>
+      </data>
+      <data>
+        <code xml:lang="ru">П34</code>
+        <code xml:lang="en">П34</code>
+        <name xml:lang="ru">ПАЙПЕР СЕНЕКА ПА-А34</name>
+        <name xml:lang="en">PIPER SENECA PA-A-34</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ТБМ</code>
+        <code xml:lang="en">ТБМ</code>
+        <name xml:lang="ru">ТБМ/ТБМ-700/СОКАТА</name>
+        <name xml:lang="en">TBM/TBM-700/SOCATA</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Ф60</code>
+        <code xml:lang="en">F60</code>
+        <name xml:lang="ru">ФОККЕР 60</name>
+        <name xml:lang="en">FOKKER 60</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЦЛ3</code>
+        <code xml:lang="en">ЦЛ3</code>
+        <name xml:lang="ru">БД100 ЧЕЛЛЕНДЖЕР 300</name>
+        <name xml:lang="en">BD100 CHALLENGER 300</name>
+      </data>
+      <data>
+        <code xml:lang="ru">СБЛ</code>
+        <code xml:lang="en">СБЛ</code>
+        <name xml:lang="ru">ЭЙРКРАФТ СПРУС БЭЙБИ</name>
+        <name xml:lang="en">AIRCRAFT SPRUCE BABY</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Ц42</code>
+        <code xml:lang="en">Ц42</code>
+        <name xml:lang="ru">ЦЕССНА 421 ГОЛДЕНИГЛ</name>
+        <name xml:lang="en">ЦЕССНА 421 ГОЛДЕНИГЛ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЦРЙ</code>
+        <code xml:lang="en">СRJ</code>
+        <name xml:lang="ru">КАНАДЭР РЕГИОНАЛ</name>
+        <name xml:lang="en">KANADER REGIONAL JET</name>
+      </data>
+      <data>
+        <code xml:lang="ru">AK4</code>
+        <code xml:lang="en">AK4</code>
+        <name xml:lang="ru"/>
+        <name xml:lang="en"/>
+      </data>
+      <data>
+        <code xml:lang="ru">А4Р</code>
+        <code xml:lang="en">А4Р</code>
+        <name xml:lang="ru">АН-24РТ</name>
+        <name xml:lang="en">AN-24RT</name>
+      </data>
+      <data>
+        <code xml:lang="ru">А4Т</code>
+        <code xml:lang="en">А4Т</code>
+        <name xml:lang="ru">АН-24Т ГРУЗОВОЙ</name>
+        <name xml:lang="en">AN-24T FREIGHTER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ДФ9</code>
+        <code xml:lang="en">DF3</code>
+        <name xml:lang="ru">ДАЗО ФАЛЬКОН 900</name>
+        <name xml:lang="en">DASSAULT FALCON 50/900</name>
+      </data>
+      <data>
+        <code xml:lang="ru">АР7</code>
+        <code xml:lang="en">AR7</code>
+        <name xml:lang="ru">АВРО RJ70</name>
+        <name xml:lang="en">AVRO RJ70</name>
+      </data>
+      <data>
+        <code xml:lang="ru">К25</code>
+        <code xml:lang="en">К25</code>
+        <name xml:lang="ru">КАМОВ КА-25</name>
+        <name xml:lang="en">KAMOV KA-25</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Х25</code>
+        <code xml:lang="en">H25</code>
+        <name xml:lang="ru">ХОККЕР СИДДЛЕЙ  125</name>
+        <name xml:lang="en">BRITISH AEROSPACE (HAWKER SIDDELEY) 125</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Т24</code>
+        <code xml:lang="en">T24</code>
+        <name xml:lang="ru">ТУ-214</name>
+        <name xml:lang="en">TU-214</name>
+      </data>
+      <data>
+        <code xml:lang="ru">TO2</code>
+        <code xml:lang="en">TO2</code>
+        <name xml:lang="ru"/>
+        <name xml:lang="en"/>
+      </data>
+      <data>
+        <code xml:lang="ru">AT8</code>
+        <code xml:lang="en">AT8</code>
+        <name xml:lang="ru"/>
+        <name xml:lang="en"/>
+      </data>
+      <data>
+        <code xml:lang="ru">753</code>
+        <code xml:lang="en">753</code>
+        <name xml:lang="ru">БОИНГ 757-300</name>
+        <name xml:lang="en">BOEING 757-300 PASSENGER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Б36</code>
+        <code xml:lang="en">BEP</code>
+        <name xml:lang="ru">БИЧ 36 БОНАНЗА</name>
+        <name xml:lang="en">BEECH 36 BONANZA</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Б90</code>
+        <code xml:lang="en">Б90</code>
+        <name xml:lang="ru">БИЧ 90(Ф90) КИНГ ЭЙР</name>
+        <name xml:lang="en">BEECH 90/F90 KINGAIR</name>
+      </data>
+      <data>
+        <code xml:lang="ru">АГ2</code>
+        <code xml:lang="en">АГ2</code>
+        <name xml:lang="ru">АКРОТЕК Г-200</name>
+        <name xml:lang="en">АКРОТЕК Г-200</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Ц34</code>
+        <code xml:lang="en">CN2</code>
+        <name xml:lang="ru">ЦЕССНА 340</name>
+        <name xml:lang="en">CESSNA 340</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Ц41</code>
+        <code xml:lang="en">Ц41</code>
+        <name xml:lang="ru">ЦЕССНА 414 ЧАНСЕЛЛОР</name>
+        <name xml:lang="en">TSESSNA 414</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Ц95</code>
+        <code xml:lang="en">Ц95</code>
+        <name xml:lang="ru">ЦЕССНА 195, ЛЦ-126</name>
+        <name xml:lang="en">ЦЕССНА 195, ЛЦ-126</name>
+      </data>
+      <data>
+        <code xml:lang="ru">С51</code>
+        <code xml:lang="en">С51</code>
+        <name xml:lang="ru">ЦЕССНА 551 2СП</name>
+        <name xml:lang="en">ЦЕССНА 551 2СП</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Ц45</code>
+        <code xml:lang="en">Ц45</code>
+        <name xml:lang="ru">ЦЕССНА 425 КОНКВЕСТ1</name>
+        <name xml:lang="en">ЦЕССНА 425 КОНКВЕСТ1</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Е30</code>
+        <code xml:lang="en">EC3</code>
+        <name xml:lang="ru">ЕВРОКОПТЕР ЕЦ-130</name>
+        <name xml:lang="en">HELICOPTER EURO 130</name>
+      </data>
+      <data>
+        <code xml:lang="ru">M87</code>
+        <code xml:lang="en">M87</code>
+        <name xml:lang="ru">BOEING (DOUGLAS) MD-87</name>
+        <name xml:lang="en">BOEING (DOUGLAS) MD-87</name>
+      </data>
+      <data>
+        <code xml:lang="ru">773</code>
+        <code xml:lang="en">773</code>
+        <name xml:lang="ru">БОИНГ 777-300</name>
+        <name xml:lang="en">BOEING 777-300 PASSENGER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">I62</code>
+        <code xml:lang="en">I62</code>
+        <name xml:lang="ru"/>
+        <name xml:lang="en"/>
+      </data>
+      <data>
+        <code xml:lang="ru">731</code>
+        <code xml:lang="en">731</code>
+        <name xml:lang="ru">БОИНГ 737-100</name>
+        <name xml:lang="en">BOEING 737-100 PASSENGER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">А6Б</code>
+        <code xml:lang="en">А6Б</code>
+        <name xml:lang="ru">АН-26Б ГРУЗОВОЙ</name>
+        <name xml:lang="en">AN-26B FREIGHTER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">А14</code>
+        <code xml:lang="en">А14</code>
+        <name xml:lang="ru">АН-14</name>
+        <name xml:lang="en">AN-14</name>
+      </data>
+      <data>
+        <code xml:lang="ru">А1В</code>
+        <code xml:lang="en">А1В</code>
+        <name xml:lang="ru">АН-12ТБК</name>
+        <name xml:lang="en">AN-12TBK</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ГР2</code>
+        <code xml:lang="en">ГР2</code>
+        <name xml:lang="ru">ГОЛЬФСТРИМ II</name>
+        <name xml:lang="en">GULFSTREAM II</name>
+      </data>
+      <data>
+        <code xml:lang="ru">АТ4</code>
+        <code xml:lang="en">AT4</code>
+        <name xml:lang="ru">АТР 42-300/320</name>
+        <name xml:lang="en">ATR 42-300/320</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Л4Т</code>
+        <code xml:lang="en">L4T</code>
+        <name xml:lang="ru">ЛЕТ Л410</name>
+        <name xml:lang="en">LET 410</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Ц60</code>
+        <code xml:lang="en">CCJ</code>
+        <name xml:lang="ru">ЦЛ600/601/604 ЧЕЛЛЕНДЖЕР</name>
+        <name xml:lang="en">CANADAIR CL-600/601/604 CHALLENGER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Б14</code>
+        <code xml:lang="en">B14</code>
+        <name xml:lang="ru">БРИТИШ АЭРОСПЕЙС 400</name>
+        <name xml:lang="en">BRITISH AEROSPACE (BAC) 1-11 400/475</name>
+      </data>
+      <data>
+        <code xml:lang="ru">П42</code>
+        <code xml:lang="en">PAT</code>
+        <name xml:lang="ru">ПАЙПЕР ПА42/1000,31Т</name>
+        <name xml:lang="en">PIPER (LIGHT AIRCRAFT - TWIN TURBOPROP)</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Д50</code>
+        <code xml:lang="en">Д50</code>
+        <name xml:lang="ru">ДАЗО ФАЛЬКОН 50</name>
+        <name xml:lang="en">FALKON 50</name>
+      </data>
+      <data>
+        <code xml:lang="ru">БДГ</code>
+        <code xml:lang="en">БДГ</code>
+        <name xml:lang="ru">БОМБАРДИР БД700 ГЛОБ</name>
+        <name xml:lang="en">BOMBARDIER BD700 GLO</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЦНЙ</code>
+        <code xml:lang="en">ЦНЙ</code>
+        <name xml:lang="ru">ЦЕССНА САЙТЭШН</name>
+        <name xml:lang="en">ЦЕССНА САЙТЭШН</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Ц44</code>
+        <code xml:lang="en">Ц44</code>
+        <name xml:lang="ru">ЦЕССНА 441 КОНКВЕСТ2</name>
+        <name xml:lang="en">ЦЕССНА 441 КОНКВЕСТ2</name>
+      </data>
+      <data>
+        <code xml:lang="ru">АСТ</code>
+        <code xml:lang="en">АСТ</code>
+        <name xml:lang="ru">ИАИ АСТРА</name>
+        <name xml:lang="en">ИАИ АСТРА</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Д10</code>
+        <code xml:lang="en">D10</code>
+        <name xml:lang="ru">БОИНГ (ДУГЛАС) ДЦ-10</name>
+        <name xml:lang="en">BOEING (DOUGLAS) DC10 PASSENGER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">СФ3</code>
+        <code xml:lang="en">SF3</code>
+        <name xml:lang="ru">СААБ СФ340А/340Б</name>
+        <name xml:lang="en">SAAB 340</name>
+      </data>
+      <data>
+        <code xml:lang="ru">340</code>
+        <code xml:lang="en">340</code>
+        <name xml:lang="ru">АЭРОБУС А340</name>
+        <name xml:lang="en">AIRBUS INDUSTRIE A340</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Л4У</code>
+        <code xml:lang="en">Л4У</code>
+        <name xml:lang="ru">ЛЕТ Л410УВП</name>
+        <name xml:lang="en">LET L410UWP</name>
+      </data>
+      <data>
+        <code xml:lang="ru">А19</code>
+        <code xml:lang="en">А19</code>
+        <name xml:lang="ru">АГУСТА, А-119 КОАЛА</name>
+        <name xml:lang="en">АГУСТА, А-119 КОАЛА</name>
+      </data>
+      <data>
+        <code xml:lang="ru">БК7</code>
+        <code xml:lang="en">БК7</code>
+        <name xml:lang="ru">ВЕРТОЛЕТ БК-117</name>
+        <name xml:lang="en">ВЕРТОЛЕТ БК-117</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ИЛ9</code>
+        <code xml:lang="en">IL9</code>
+        <name xml:lang="ru">ИЛ-96-300</name>
+        <name xml:lang="en">ILYUSHIN IL-96 PASSENGER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Т5М</code>
+        <code xml:lang="en">T5M</code>
+        <name xml:lang="ru">ТУ154М</name>
+        <name xml:lang="en">TU-154M</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Б11</code>
+        <code xml:lang="en">B11</code>
+        <name xml:lang="ru">БРИТИШ АЭРОСПЕЙС</name>
+        <name xml:lang="en">BRITISH AEROSPACE (BAC) ONE-ELEVEN</name>
+      </data>
+      <data>
+        <code xml:lang="ru">АН2</code>
+        <code xml:lang="en">AN2</code>
+        <name xml:lang="ru">АН-2  АНТОНОВ</name>
+        <name xml:lang="en">AN-2</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Е55</code>
+        <code xml:lang="en">E55</code>
+        <name xml:lang="ru">ЕВРОКОПТЕР ЕЦ-155</name>
+        <name xml:lang="en">EUROCOPTER EC-155</name>
+      </data>
+      <data>
+        <code xml:lang="ru">CNT</code>
+        <code xml:lang="en">CNT</code>
+        <name xml:lang="ru">ЦЕССНА КОНКВЕСТ</name>
+        <name xml:lang="en">CESSNA LIGHT AIRCRAFT (TWIN TURBOPROP)</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Л35</code>
+        <code xml:lang="en">Л35</code>
+        <name xml:lang="ru">ЛЭРДЖЕТ: 35/ГЕЙТС 35</name>
+        <name xml:lang="en">ЛЭРДЖЕТ: 35/ГЕЙТС 35</name>
+      </data>
+      <data>
+        <code xml:lang="ru">С68</code>
+        <code xml:lang="en">С68</code>
+        <name xml:lang="ru">ЦЕССНА 680 САЙТЕШН</name>
+        <name xml:lang="en">ЦЕССНА 680 САЙТЕШН</name>
+      </data>
+      <data>
+        <code xml:lang="ru">747</code>
+        <code xml:lang="en">747</code>
+        <name xml:lang="ru">БОИНГ 747</name>
+        <name xml:lang="en">BOEING 747 (PASSENGER)</name>
+      </data>
+      <data>
+        <code xml:lang="ru">777</code>
+        <code xml:lang="en">777</code>
+        <name xml:lang="ru">БОИНГ 777</name>
+        <name xml:lang="en">BOEING 777 PASSENGER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ФРЙ</code>
+        <code xml:lang="en">FRJ</code>
+        <name xml:lang="ru">ФЭРЧАЙЛД Д.328 ДЖЕТ</name>
+        <name xml:lang="en">FAIRCHILD DORNIER 328JET</name>
+      </data>
+      <data>
+        <code xml:lang="ru">АТД</code>
+        <code xml:lang="en">ATD</code>
+        <name xml:lang="ru">АТР 42-400</name>
+        <name xml:lang="en">АТР 42-400</name>
+      </data>
+      <data>
+        <code xml:lang="ru">АБЬ</code>
+        <code xml:lang="en">ABX</code>
+        <name xml:lang="ru">АЭРОБУС А300Б4/Ц4/Ф4</name>
+        <name xml:lang="en">AIRBUS INDUSTRIE A300B4/A300C4/A300F4</name>
+      </data>
+      <data>
+        <code xml:lang="ru">АББ</code>
+        <code xml:lang="en">ABB</code>
+        <name xml:lang="ru">АЭРОБУС И А300-600СТ</name>
+        <name xml:lang="en">AIRBUS I A300-600ST</name>
+      </data>
+      <data>
+        <code xml:lang="ru">31Ь</code>
+        <code xml:lang="en">31X</code>
+        <name xml:lang="ru">АЭРОБУС И А310-200</name>
+        <name xml:lang="en">AIRBUS INDUSTRIE A310-200 FREIGHTER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">31Ы</code>
+        <code xml:lang="en">31Y</code>
+        <name xml:lang="ru">АЭРОБУС И А310-300</name>
+        <name xml:lang="en">AIRBUS INDUSTRIE A310-300 FREIGHTER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">350</code>
+        <code xml:lang="en">350</code>
+        <name xml:lang="ru">АЭРОБ ИНДУСТРИ А350</name>
+        <name xml:lang="en">АЭРОБ ИНДУСТРИ А350</name>
+      </data>
+      <data>
+        <code xml:lang="ru">359</code>
+        <code xml:lang="en">359</code>
+        <name xml:lang="ru">АЭРОБУС И А350-900</name>
+        <name xml:lang="en">АЭРОБУС И А350-900</name>
+      </data>
+      <data>
+        <code xml:lang="ru">38Ф</code>
+        <code xml:lang="en">38F</code>
+        <name xml:lang="ru">АЭРОБ И  А380-800</name>
+        <name xml:lang="en">AIRBUS INDUSTRIE A380-800F(FREIGHTER)</name>
+      </data>
+      <data>
+        <code xml:lang="ru">БЕС</code>
+        <code xml:lang="en">BES</code>
+        <name xml:lang="ru">БИЧ 1900Ц ЭЙРЛАЙНЕР</name>
+        <name xml:lang="en">BEECHCRAFT 1900C AIRLINER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Б19</code>
+        <code xml:lang="en">BE1</code>
+        <name xml:lang="ru">БИЧ 1900 ЭЙРЛАЙНЕР</name>
+        <name xml:lang="en">BEECHCRAFT 1900 AIRLINER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">А28</code>
+        <code xml:lang="en">А28</code>
+        <name xml:lang="ru">АНТОНОВ АН-28</name>
+        <name xml:lang="en">ANTONOV AN-28</name>
+      </data>
+      <data>
+        <code xml:lang="ru">И76</code>
+        <code xml:lang="en">IL7</code>
+        <name xml:lang="ru">ИЛ-76 ГРУЗОВОЙ</name>
+        <name xml:lang="en">ILYUSHIN IL-76</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ПАГ</code>
+        <code xml:lang="en">PAG</code>
+        <name xml:lang="ru">ПАЙПЕР ЛАЙТ ЭЙРКРАФТ</name>
+        <name xml:lang="en">PIPER (LIGHT AIRCRAFT)</name>
+      </data>
+      <data>
+        <code xml:lang="ru">74Ф</code>
+        <code xml:lang="en">74F</code>
+        <name xml:lang="ru">БОИНГ 747 ГРУЗОВОЙ</name>
+        <name xml:lang="en">BOEING 747 (FREIGHTER)</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ИЛ8</code>
+        <code xml:lang="en">IL8</code>
+        <name xml:lang="ru">ИЛ-18</name>
+        <name xml:lang="en">ILYUSHIN IL-18</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Р44</code>
+        <code xml:lang="en">R44</code>
+        <name xml:lang="ru">РОБИНСОН 44</name>
+        <name xml:lang="en">РОБИНСОН 44</name>
+      </data>
+      <data>
+        <code xml:lang="ru">72Ф</code>
+        <code xml:lang="en">72F</code>
+        <name xml:lang="ru">БОИНГ 727 ГРУЗОВОЙ</name>
+        <name xml:lang="en">BOEING 727 (FREIGHTER)</name>
+      </data>
+      <data>
+        <code xml:lang="ru">72Ы</code>
+        <code xml:lang="en">72Y</code>
+        <name xml:lang="ru">БОИНГ 727-200 ГРУЗОВ</name>
+        <name xml:lang="en">БОИНГ 727-200 ГРУЗОВ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">72Ц</code>
+        <code xml:lang="en">72C</code>
+        <name xml:lang="ru">БОИНГ 727-200 КОМБИН</name>
+        <name xml:lang="en">БОИНГ 727-200 КОМБИН</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЦЖЫ</code>
+        <code xml:lang="en">CVY</code>
+        <name xml:lang="ru">КОНВЭР 580/600/640 Г</name>
+        <name xml:lang="en">CONVAIR (ALL SERIES)</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЦВЦ</code>
+        <code xml:lang="en">CWC</code>
+        <name xml:lang="ru">КРРТИС Ц-46 КОММАНДО</name>
+        <name xml:lang="en">CURTISS C-46 COMMANDO</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ДХБ</code>
+        <code xml:lang="en">DHB</code>
+        <name xml:lang="ru">ДЕ ХЭВИЛЛЕНД ДХЦ-2 Т</name>
+        <name xml:lang="en">DE HAVILLAND DHC2 BEAVER/TURBO BEAVER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ДХП</code>
+        <code xml:lang="en">DHP</code>
+        <name xml:lang="ru">ХЭВИЛЛЕНД ДХЦ-2БЕВЕР</name>
+        <name xml:lang="en">DE HAVILLAND DHC-2 BEAVER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ДХР</code>
+        <code xml:lang="en">DHR</code>
+        <name xml:lang="ru">ХЭВИЛЛЕНД ДХЦ-2ТУРБО</name>
+        <name xml:lang="en">DE HAVILLAND DHC-2 T</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ДХО</code>
+        <code xml:lang="en">DHO</code>
+        <name xml:lang="ru">ХЭВИЛЛЕНД ДХЦ-3ТУРБО</name>
+        <name xml:lang="en">DE HAVILLAND DHC-3 OTTER/TURBO OTTER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ДХС</code>
+        <code xml:lang="en">DHS</code>
+        <name xml:lang="ru">ХЭВИЛЛЕНД ДХЦ-3ОТТЕР</name>
+        <name xml:lang="en">DE HAVILLAND DHC 3 OTTER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ДХЛ</code>
+        <code xml:lang="en">DHL</code>
+        <name xml:lang="ru">ХЭВИЛЛЕНД ДХЦ-3ТУР О</name>
+        <name xml:lang="en">DE HAVILLAND DHC-3 TURBO OTTER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ДХЦ</code>
+        <code xml:lang="en">DHC</code>
+        <name xml:lang="ru">ХЭВИЛЛЕНД ДХЦ-4КАРИБ</name>
+        <name xml:lang="en">DE HAVILLAND DHC-4 CARIBOU</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ДХТ</code>
+        <code xml:lang="en">DHT</code>
+        <name xml:lang="ru">ХЭВИЛЛЕНД ДХЦ-6 ТВИН</name>
+        <name xml:lang="en">DE HAVILLAND DHC-6 TWIN OTTER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ФК7</code>
+        <code xml:lang="en">FK7</code>
+        <name xml:lang="ru">ФЭРЧАЙЛД ИНД ФХ-227</name>
+        <name xml:lang="en">FAIRCHILD INDUSTRIES FH227</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Ф27</code>
+        <code xml:lang="en">F27</code>
+        <name xml:lang="ru">ФОККЕР Ф27 ФРЕНДШИП</name>
+        <name xml:lang="en">FOKKER F27 FRIENDSHIP/FAIRCHILD F27</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Ф21</code>
+        <code xml:lang="en">F21</code>
+        <name xml:lang="ru">ФОККЕР Ф28 ФЕЛЛОУШИП</name>
+        <name xml:lang="en">FOKKER F28-1000 FELLOWSHIP</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЕМБ</code>
+        <code xml:lang="en">EMB</code>
+        <name xml:lang="ru">ЭМБРАЕР 110 БАНДЕИРА</name>
+        <name xml:lang="en">EMBRAER 110 BANDEIRANTE</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ГРЙ</code>
+        <code xml:lang="en">GRJ</code>
+        <name xml:lang="ru">ГОЛЬФСТР II/III/IV/V</name>
+        <name xml:lang="en">GULFSTREAM AEROSPACE GULFSTREAM 2/3/4/5</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Ф5Ф</code>
+        <code xml:lang="en">F5F</code>
+        <name xml:lang="ru">ФОККЕР 50 ГРУЗОВОЙ</name>
+        <name xml:lang="en">FOKKER 50</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ГРС</code>
+        <code xml:lang="en">GRS</code>
+        <name xml:lang="ru">ГОЛЬФСТРИМ Г-159 ГРУ</name>
+        <name xml:lang="en">GULFSTREAM AEROSPACE G159 GULFSTREAM 1</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЛОХ</code>
+        <code xml:lang="en">LOH</code>
+        <name xml:lang="ru">ЛОКХИД Л-182/282/382</name>
+        <name xml:lang="en">LOCKHEED L182/L282/L382 (L100) HERCULES</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЛОФ</code>
+        <code xml:lang="en">LOF</code>
+        <name xml:lang="ru">ЛОКХИД Л-188 ГРУЗОВ</name>
+        <name xml:lang="en">LOCKHEED L188 ELECTRA (FREIGHTER)</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ПН6</code>
+        <code xml:lang="en">PN6</code>
+        <name xml:lang="ru">ПАРТЕНАВИА П68</name>
+        <name xml:lang="en">PARTENAVIA P68</name>
+      </data>
+      <data>
+        <code xml:lang="ru">СФБ</code>
+        <code xml:lang="en">SFB</code>
+        <name xml:lang="ru">СААБ 340Б</name>
+        <name xml:lang="en">SAAB SF340B</name>
+      </data>
+      <data>
+        <code xml:lang="ru">С61</code>
+        <code xml:lang="en">S61</code>
+        <name xml:lang="ru">СИКОРСКИЙ С-61 ВЕРТ</name>
+        <name xml:lang="en">SIKORSKY S61</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЫС1</code>
+        <code xml:lang="en">YS1</code>
+        <name xml:lang="ru">НАМЦ YS-11</name>
+        <name xml:lang="en">NAMC YS-11</name>
+      </data>
+      <data>
+        <code xml:lang="ru">АЦД</code>
+        <code xml:lang="en">ACD</code>
+        <name xml:lang="ru">ТВИН КОММАНДЕР/ТУРБО</name>
+        <name xml:lang="en">TWIN (AERO) COMMANDER/TURBO/JETPROP</name>
+      </data>
+      <data>
+        <code xml:lang="ru">АЦП</code>
+        <code xml:lang="en">ACP</code>
+        <name xml:lang="ru">ТВИН АЭРО КОММАНДЕР</name>
+        <name xml:lang="en">ТВИН АЭРО КОММАНДЕР</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ХОЖ</code>
+        <code xml:lang="en">HOV</code>
+        <name xml:lang="ru">СУДНО НА ВОЗД ПОДУШК</name>
+        <name xml:lang="en">HOVERCRAFT</name>
+      </data>
+      <data>
+        <code xml:lang="ru">T54</code>
+        <code xml:lang="en">T54</code>
+        <name xml:lang="ru"/>
+        <name xml:lang="en"/>
+      </data>
+      <data>
+        <code xml:lang="ru">М1М</code>
+        <code xml:lang="en">M1M</code>
+        <name xml:lang="ru">БОИНГ ДУГЛАС МД-11</name>
+        <name xml:lang="en">BOEING (DOUGLAS) MD-11 MIXED CONFIG</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЕРД</code>
+        <code xml:lang="en">ЕРД</code>
+        <name xml:lang="ru">ЭМБРАЕР RJ140</name>
+        <name xml:lang="en">ЭМБРАЕР RJ140</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЛЦХ</code>
+        <code xml:lang="en">LCH</code>
+        <name xml:lang="ru">МОТОР ЛОДКА/ШЛЮПКА</name>
+        <name xml:lang="en">LAUNCH/BOAT</name>
+      </data>
+      <data>
+        <code xml:lang="ru">РФС</code>
+        <code xml:lang="en">RFS</code>
+        <name xml:lang="ru">ГРУЗОВОЙ АВТОМОБИЛЬ</name>
+        <name xml:lang="en">ROAD FEEDER SERVICE (TRUCK)</name>
+      </data>
+      <data>
+        <code xml:lang="ru">АПФ</code>
+        <code xml:lang="en">APF</code>
+        <name xml:lang="ru">БРИТИШ АЭРОСПЭЙС ГР</name>
+        <name xml:lang="en">БРИТИШ АЭРОСПЭЙС ГР</name>
+      </data>
+      <data>
+        <code xml:lang="ru">M90</code>
+        <code xml:lang="en">M90</code>
+        <name xml:lang="ru">BOEING (DOUGLAS) MD-90</name>
+        <name xml:lang="en">BOEING (DOUGLAS) MD-90</name>
+      </data>
+      <data>
+        <code xml:lang="ru">DCH</code>
+        <code xml:lang="en">DCH</code>
+        <name xml:lang="ru">DCH</name>
+        <name xml:lang="en">DCH</name>
+      </data>
+      <data>
+        <code xml:lang="ru">MD8</code>
+        <code xml:lang="en">MD8</code>
+        <name xml:lang="ru">DONNELL DOUGLAS</name>
+        <name xml:lang="en">DONNELL DOUGLAS</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ПАЛ</code>
+        <code xml:lang="en">PA1</code>
+        <name xml:lang="ru">ПАЙПЕР ПА-32Р ЛАНСЕ</name>
+        <name xml:lang="en">PIPER (LIGHT AIRCRAFT - SINGLE PISTON)</name>
+      </data>
+      <data>
+        <code xml:lang="ru">AN7</code>
+        <code xml:lang="en">AN7</code>
+        <name xml:lang="ru">ANTONOV AN-72/74</name>
+        <name xml:lang="en">ANTONOV AN-72/74</name>
+      </data>
+      <data>
+        <code xml:lang="ru">FA7</code>
+        <code xml:lang="en">FA7</code>
+        <name xml:lang="ru">FAIRCHILD DORNIER 72</name>
+        <name xml:lang="en">FAIRCHILD DORNIER 728</name>
+      </data>
+      <data>
+        <code xml:lang="ru">72A</code>
+        <code xml:lang="en">72A</code>
+        <name xml:lang="ru">BOEING 727-200 ADVAN</name>
+        <name xml:lang="en">BOEING 727-200 ADVANCED</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ДФ7</code>
+        <code xml:lang="en">ДФ7</code>
+        <name xml:lang="ru">ДАЗО ФАЛКОН 7Х</name>
+        <name xml:lang="en">ДАЗО ФАЛКОН 7Х</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Е35</code>
+        <code xml:lang="en">Е35</code>
+        <name xml:lang="ru">ЕВРОКОПТЕР ЕЦ-135</name>
+        <name xml:lang="en">ЕВРОКОПТЕР ЕЦ-135</name>
+      </data>
+      <data>
+        <code xml:lang="ru">М72</code>
+        <code xml:lang="en">MIH</code>
+        <name xml:lang="ru">МИЛЬ МИ-172</name>
+        <name xml:lang="en">MIL MI-8/MI-17/MI-171/MI-172</name>
+      </data>
+      <data>
+        <code xml:lang="ru">БЕ9</code>
+        <code xml:lang="en">BE9</code>
+        <name xml:lang="ru">БИЧ Ц99 ЭЙРЛАЙНЕР</name>
+        <name xml:lang="en">BEECHCRAFT C99 AIRLINER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">761</code>
+        <code xml:lang="en">761</code>
+        <name xml:lang="ru"/>
+        <name xml:lang="en"/>
+      </data>
+      <data>
+        <code xml:lang="ru">73Ф</code>
+        <code xml:lang="en">73F</code>
+        <name xml:lang="ru">БОИНГ 737 ГРУЗОВОЙ</name>
+        <name xml:lang="en">BOEING 737 (FREIGHTER)</name>
+      </data>
+      <data>
+        <code xml:lang="ru">73Ы</code>
+        <code xml:lang="en">73Y</code>
+        <name xml:lang="ru">БОИНГ 737-300 ГРУЗОВ</name>
+        <name xml:lang="en">BOEING 737-300 (FREIGHTER)</name>
+      </data>
+      <data>
+        <code xml:lang="ru">73Л</code>
+        <code xml:lang="en">73L</code>
+        <name xml:lang="ru">БОИНГ 737-200 КОМБИН</name>
+        <name xml:lang="en">BOEING 737-200 (MIXED CONFIGURATION)</name>
+      </data>
+      <data>
+        <code xml:lang="ru">73Н</code>
+        <code xml:lang="en">73N</code>
+        <name xml:lang="ru">БОИНГ 737-300 КОМБИН</name>
+        <name xml:lang="en">BOEING 737-300 (MIXED CONFIGURATION)</name>
+      </data>
+      <data>
+        <code xml:lang="ru">74Д</code>
+        <code xml:lang="en">74D</code>
+        <name xml:lang="ru">БОИНГ 747-300/200 КО</name>
+        <name xml:lang="en">BOEING 747-300/747-200 SUD (MXD CONFIG)</name>
+      </data>
+      <data>
+        <code xml:lang="ru">75Ф</code>
+        <code xml:lang="en">75F</code>
+        <name xml:lang="ru">БОИНГ 757-200 ГРУЗОВ</name>
+        <name xml:lang="en">BOEING 757-200PF (FREIGHTER)</name>
+      </data>
+      <data>
+        <code xml:lang="ru">74Ы</code>
+        <code xml:lang="en">74Y</code>
+        <name xml:lang="ru">БОИНГ 747-400 ГРУЗОВ</name>
+        <name xml:lang="en">BOEING 747-400F (FREIGHTER)</name>
+      </data>
+      <data>
+        <code xml:lang="ru">74У</code>
+        <code xml:lang="en">74U</code>
+        <name xml:lang="ru">БОИНГ 747-300/200 ГР</name>
+        <name xml:lang="en">БОИНГ 747-300/200 ГР</name>
+      </data>
+      <data>
+        <code xml:lang="ru">74Т</code>
+        <code xml:lang="en">74T</code>
+        <name xml:lang="ru">БОИНГ 747-100 ГРУЗОВ</name>
+        <name xml:lang="en">BOEING 747-100 FREIGHTER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЦР1</code>
+        <code xml:lang="en">CR1</code>
+        <name xml:lang="ru">КАНАДЭР РЕГ ДЖЕТ 100</name>
+        <name xml:lang="en">CANADAIR REGIONAL JET 100</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Й32</code>
+        <code xml:lang="en">J32</code>
+        <name xml:lang="ru">БРИТИШ АЭРОС ДЖЕТ 32</name>
+        <name xml:lang="en">BRITISH AEROSPACE JETSTREAM 32</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Й31</code>
+        <code xml:lang="en">J31</code>
+        <name xml:lang="ru">БРИТИШ АЭРОС ДЖЕТ 31</name>
+        <name xml:lang="en">BRITISH AEROSPACE JETSTREAM 31</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЦРА</code>
+        <code xml:lang="en">CRA</code>
+        <name xml:lang="ru">КАНАДЭЙР ДЖЕТ 705</name>
+        <name xml:lang="en">CANADAIR CRJ SERIES 705</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЦН7</code>
+        <code xml:lang="en">CN7</code>
+        <name xml:lang="ru">ЦЕССНА 750 САЙТЕШН Х</name>
+        <name xml:lang="en">ЦЕССНА 750 САЙТЕШН Х</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ДХ2</code>
+        <code xml:lang="en">DH2</code>
+        <name xml:lang="ru">ДЕ ХЭВИЛЛЕНД ДЭШ-8</name>
+        <name xml:lang="en">DE HAVILLAND DHC-8-200 DASH 8/8Q</name>
+      </data>
+      <data>
+        <code xml:lang="ru">НДХ</code>
+        <code xml:lang="en">NDH</code>
+        <name xml:lang="ru">ВЕРТОЛЕТ ЕВРОКОПТЕР</name>
+        <name xml:lang="en">EUROCOPTER SA365C DAUPHIN 2</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Е95</code>
+        <code xml:lang="en">E95</code>
+        <name xml:lang="ru">ЭМБРАЕР 195</name>
+        <name xml:lang="en">EMBRAER 195</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Д28</code>
+        <code xml:lang="en">D28</code>
+        <name xml:lang="ru">ФЭРЧАЙЛД ДОРНЬЕ 228</name>
+        <name xml:lang="en">FAIRCHILD DORNIER 228</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ВВП</code>
+        <code xml:lang="en">WWP</code>
+        <name xml:lang="ru">ИСРАЭЛЬ ЭЙРКРАФТ</name>
+        <name xml:lang="en">ISRAEL AIRCRAFT IND.1124 WESTWIND</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Е75</code>
+        <code xml:lang="en">Е75</code>
+        <name xml:lang="ru">ЭМБРАЕР 175</name>
+        <name xml:lang="en">ЭМБРАЕР 175</name>
+      </data>
+      <data>
+        <code xml:lang="ru">А2Т</code>
+        <code xml:lang="en">А2Т</code>
+        <name xml:lang="ru">АН-2Т</name>
+        <name xml:lang="en">AN-2T</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЕМ2</code>
+        <code xml:lang="en">EM2</code>
+        <name xml:lang="ru">ЭМБРАЕР 120 БРАЗИЛИЯ</name>
+        <name xml:lang="en">EMBRAER 120 BRASILIA</name>
+      </data>
+      <data>
+        <code xml:lang="ru">CRJ</code>
+        <code xml:lang="en">CRJ</code>
+        <name xml:lang="ru">КАНАДЭР РЕГИОН ДЖЕТ</name>
+        <name xml:lang="en">CANADAIR REGIONAL JET</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ДХ4</code>
+        <code xml:lang="en">ДХ4</code>
+        <name xml:lang="ru">ДЕ ХЭВИЛЛЕНД</name>
+        <name xml:lang="en">ДЕ ХЭВИЛЛЕНД</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Л1Ф</code>
+        <code xml:lang="en">L1F</code>
+        <name xml:lang="ru">ЛОКХИД Л-1011 ГРУЗОВ</name>
+        <name xml:lang="en">LOCKHEED L1011 TRISTAR FREIGHTER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">МД9</code>
+        <code xml:lang="en">MD9</code>
+        <name xml:lang="ru">МД ХЕЛИКОПТЕРС 900</name>
+        <name xml:lang="en">MD HELICOPTERS MD 900 EXPLORER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЫН7</code>
+        <code xml:lang="en">ЫН7</code>
+        <name xml:lang="ru">КСИАН ЮНШУЙ Y7/МА-60</name>
+        <name xml:lang="en">КСИАН ЮНШУЙ Y7/МА-60</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЦС5</code>
+        <code xml:lang="en">CS5</code>
+        <name xml:lang="ru">КАСА/ИПТН ЦН-235</name>
+        <name xml:lang="en">CASA/NUSANTARA CN-235</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЕРЙ</code>
+        <code xml:lang="en">ERJ</code>
+        <name xml:lang="ru">ЭМБРАЕРRJ135/140/145</name>
+        <name xml:lang="en">EMBRAER RJ 135/140/145</name>
+      </data>
+      <data>
+        <code xml:lang="ru">33Ь</code>
+        <code xml:lang="en">33X</code>
+        <name xml:lang="ru">АЭРОБУС А330-200</name>
+        <name xml:lang="en">АЭРОБУС А330-200</name>
+      </data>
+      <data>
+        <code xml:lang="ru">АТФ</code>
+        <code xml:lang="en">ATF</code>
+        <name xml:lang="ru">АТР 72 ГРУЗОВОЙ</name>
+        <name xml:lang="en">АТР 72 ГРУЗОВОЙ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Б72</code>
+        <code xml:lang="en">B72</code>
+        <name xml:lang="ru">БОИНГ 720-020Б</name>
+        <name xml:lang="en">BOEING 720/020B</name>
+      </data>
+      <data>
+        <code xml:lang="ru">70М</code>
+        <code xml:lang="en">70M</code>
+        <name xml:lang="ru">БОИНГ 707-320Б/320Ц</name>
+        <name xml:lang="en">BOEING 707-320B/320C (MIXED CONFIG)</name>
+      </data>
+      <data>
+        <code xml:lang="ru">74Б</code>
+        <code xml:lang="en">74B</code>
+        <name xml:lang="ru">БОИНГ 747-400 СВИНГ</name>
+        <name xml:lang="en">BOEING 747-400 SWINGTAIL FREIGHTER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ДЦ8</code>
+        <code xml:lang="en">DC8</code>
+        <name xml:lang="ru">БОИНГ ДУГЛАС ДЦ-8</name>
+        <name xml:lang="en">BOEING (DOUGLAS) DC-8 PASSENGER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Д3Ф</code>
+        <code xml:lang="en">D3F</code>
+        <name xml:lang="ru">БОИНГ ДУГЛАС ДЦ-3 ГР</name>
+        <name xml:lang="en">BOEING (DOUGLAS) DC3 FREIGHTER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Д6Ф</code>
+        <code xml:lang="en">D6F</code>
+        <name xml:lang="ru">БОИНГ ДЦ-6А/ДЦ-6Б/6Ц</name>
+        <name xml:lang="en">BOEING (DOUGLAS) DC6A/B/C FREIGHTER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ДЦ3</code>
+        <code xml:lang="en">DC3</code>
+        <name xml:lang="ru">БОИНГ ДУГЛАС ДЦ-3</name>
+        <name xml:lang="en">BOEING (DOUGLAS) DC-3 PASSENGER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Д8Щ</code>
+        <code xml:lang="en">D8Q</code>
+        <name xml:lang="ru">БОИНГ ДУГЛАС ДЦ-8-72</name>
+        <name xml:lang="en">БОИНГ ДУГЛАС ДЦ-8-72</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ДХХ</code>
+        <code xml:lang="en">DHH</code>
+        <name xml:lang="ru">ХЭВИЛЛЕНД 114 ГЕРОН</name>
+        <name xml:lang="en">BRITISH AEROSPACE(DEHAVILLAND)114 HERON</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ВЦВ</code>
+        <code xml:lang="en">VCV</code>
+        <name xml:lang="ru">АЭРОСПЕЙС ВИКЕРС</name>
+        <name xml:lang="en">BRITISH AEROSPACE(VICKERS) VISCOUNT</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЦРФ</code>
+        <code xml:lang="en">CRF</code>
+        <name xml:lang="ru">КАНАДЭЙР РЕГИОН ДЖЕТ</name>
+        <name xml:lang="en">КАНАДЭЙР РЕГИОН ДЖЕТ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">742</code>
+        <code xml:lang="en">742</code>
+        <name xml:lang="ru">БОИНГ 747-200</name>
+        <name xml:lang="en">BOEING 747-200 (PASSENGER)</name>
+      </data>
+      <data>
+        <code xml:lang="ru">312</code>
+        <code xml:lang="en">312</code>
+        <name xml:lang="ru">АЭРОБУС  А310-200</name>
+        <name xml:lang="en">AIRBUS INDUSTRIE A310-200 PASSENGER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">АТР</code>
+        <code xml:lang="en">ATR</code>
+        <name xml:lang="ru">АТР 42/72</name>
+        <name xml:lang="en">ATR42/ATR72</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ТДГ</code>
+        <code xml:lang="en">ТДГ</code>
+        <name xml:lang="ru">ТРИДЭЙР 206Л-СТ ГЕМИ</name>
+        <name xml:lang="en">TRIDAIR 206L-ST GEMI</name>
+      </data>
+      <data>
+        <code xml:lang="ru">АС5</code>
+        <code xml:lang="en">АС5</code>
+        <name xml:lang="ru">АЭРОСПАСЬЯЛЬ АС-350</name>
+        <name xml:lang="en">AEROSPATIALE AS-350</name>
+      </data>
+      <data>
+        <code xml:lang="ru">П31</code>
+        <code xml:lang="en">П31</code>
+        <name xml:lang="ru">ПАЙПЕР ПА-31Т1-500</name>
+        <name xml:lang="en">PAIPER PA-31T1-500</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ДЦ9</code>
+        <code xml:lang="en">DC9</code>
+        <name xml:lang="ru">БОИНГ (ДУГЛАС) ДЦ-9</name>
+        <name xml:lang="en">BOEING (DOUGLAS) DC-9 PASSENGER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">VIP</code>
+        <code xml:lang="en">VIP</code>
+        <name xml:lang="ru"/>
+        <name xml:lang="en"/>
+      </data>
+      <data>
+        <code xml:lang="ru">АТ7</code>
+        <code xml:lang="en">AT7</code>
+        <name xml:lang="ru">АТР-72-200</name>
+        <name xml:lang="en">ATR 72</name>
+      </data>
+      <data>
+        <code xml:lang="ru">73V</code>
+        <code xml:lang="en">73V</code>
+        <name xml:lang="ru">BOEING 737</name>
+        <name xml:lang="en">BOEING 737</name>
+      </data>
+      <data>
+        <code xml:lang="ru">АГХ</code>
+        <code xml:lang="en">AGH</code>
+        <name xml:lang="ru">АГУСТА А109</name>
+        <name xml:lang="en">AGUSTA A109</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Д1Ь</code>
+        <code xml:lang="en">D1X</code>
+        <name xml:lang="ru">БОИН ДУГЛАС ДЦ-10-10</name>
+        <name xml:lang="en">БОИН ДУГЛАС ДЦ-10-10</name>
+      </data>
+      <data>
+        <code xml:lang="ru">74Е</code>
+        <code xml:lang="en">74E</code>
+        <name xml:lang="ru">БОИНГ 747-400 КОМБИН</name>
+        <name xml:lang="en">BOEING 747-400 (MIXED CONFIGURATION)</name>
+      </data>
+      <data>
+        <code xml:lang="ru">С58</code>
+        <code xml:lang="en">S58</code>
+        <name xml:lang="ru">СИКОРСКИЙ С-58Т</name>
+        <name xml:lang="en">SIKORSKY S-58T</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Д8Ф</code>
+        <code xml:lang="en">D8F</code>
+        <name xml:lang="ru">БОИНГ ДУГЛАС ДЦ-8 ГР</name>
+        <name xml:lang="en">BOEING (DOUGLAS) DC8 FREIGHTER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Д8Ь</code>
+        <code xml:lang="en">D8X</code>
+        <name xml:lang="ru">БОИНГ ДЦ-8-61/62/63</name>
+        <name xml:lang="en">BOEING (DOUGLAS) DC-8-61/62/63 FRTR</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Д91</code>
+        <code xml:lang="en">D91</code>
+        <name xml:lang="ru">БОИНГ ДУГЛАС ДЦ-9-10</name>
+        <name xml:lang="en">BOEING (DOUGLAS) DC-9-10 PASSENGER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Д93</code>
+        <code xml:lang="en">D93</code>
+        <name xml:lang="ru">БОИНГ ДУГЛАС ДЦ-9-30</name>
+        <name xml:lang="en">BOEING (DOUGLAS) DC9-30 PASSENGER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Д94</code>
+        <code xml:lang="en">D94</code>
+        <name xml:lang="ru">БОИНГ ДУГЛАС ДЦ-9-40</name>
+        <name xml:lang="en">BOEING (DOUGLAS) DC9-40 PASSENGER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Д9Ф</code>
+        <code xml:lang="en">D9F</code>
+        <name xml:lang="ru">БОИНГ ДУГЛАС ДЦ-9 ГР</name>
+        <name xml:lang="en">BOEING (DOUGLAS) DC9 FREIGHTER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Д9Ц</code>
+        <code xml:lang="en">D9C</code>
+        <name xml:lang="ru">БОИНГ ДУГЛАС ДЦ-9-30</name>
+        <name xml:lang="en">MCDONNELL DOUGLAS DC</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЕМЙ</code>
+        <code xml:lang="en">EMJ</code>
+        <name xml:lang="ru">ЭМБРАЕР 170/175/190</name>
+        <name xml:lang="en">EMBRAER 170/195</name>
+      </data>
+      <data>
+        <code xml:lang="ru">И9Ф</code>
+        <code xml:lang="en">I9F</code>
+        <name xml:lang="ru">ИЛЬЮШИН ИЛ-96 ГРУЗОВ</name>
+        <name xml:lang="en">ИЛЬЮШИН ИЛ-96 ГРУЗОВ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">С76</code>
+        <code xml:lang="en">S76</code>
+        <name xml:lang="ru">СИКОРСКИЙ С-76</name>
+        <name xml:lang="en">SIKORSKY S-76</name>
+      </data>
+      <data>
+        <code xml:lang="ru">СХ3</code>
+        <code xml:lang="en">SH3</code>
+        <name xml:lang="ru">ШОРТС 330 (СДЗ-30)</name>
+        <name xml:lang="en">SHORTS 330 (SD3-30)</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЦЖР</code>
+        <code xml:lang="en">CVR</code>
+        <name xml:lang="ru">КОНВЭР 240/440/580 П</name>
+        <name xml:lang="en">CONVAIR 240/440/580 (PASSENGER)</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЦЖ4</code>
+        <code xml:lang="en">CV4</code>
+        <name xml:lang="ru">КОНВЭР 440 МЕТРОПОЛ</name>
+        <name xml:lang="en">CONVAIR 440 METROPOLITAN (PASSENGER)</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЦЖФ</code>
+        <code xml:lang="en">CVF</code>
+        <name xml:lang="ru">КОНВ 240/340/440/580</name>
+        <name xml:lang="en">CONVAIR 440/580/600/640 (FREIGHTER)</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЦВЬ</code>
+        <code xml:lang="en">CVX</code>
+        <name xml:lang="ru">КОНВЭР 340/440 ГРУЗ</name>
+        <name xml:lang="en">CONVAIR (ALL SERIES)</name>
+      </data>
+      <data>
+        <code xml:lang="ru">А2С</code>
+        <code xml:lang="en">А2С</code>
+        <name xml:lang="ru">АН-2СХ</name>
+        <name xml:lang="en">AN-2SX</name>
+      </data>
+      <data>
+        <code xml:lang="ru">315</code>
+        <code xml:lang="en">315</code>
+        <name xml:lang="ru">АЭРОБУС А310-325</name>
+        <name xml:lang="en">AIRBUS I A310-325</name>
+      </data>
+      <data>
+        <code xml:lang="ru">БЛЛ</code>
+        <code xml:lang="en">BH2</code>
+        <name xml:lang="ru">ВЕРТОЛЕТ БЕЛЛ 206L</name>
+        <name xml:lang="en">BELL (HELICOPTERS)</name>
+      </data>
+      <data>
+        <code xml:lang="ru">А30</code>
+        <code xml:lang="en">A30</code>
+        <name xml:lang="ru">АНТОНОВ АН-30</name>
+        <name xml:lang="en">AN-30</name>
+      </data>
+      <data>
+        <code xml:lang="ru">НДЕ</code>
+        <code xml:lang="en">NDE</code>
+        <name xml:lang="ru">ЕВРОКОПТЕР ЭКЮРОЙ</name>
+        <name xml:lang="en">EUROCOPTER ECUREUIL AS350/AS355 2</name>
+      </data>
+      <data>
+        <code xml:lang="ru">БНИ</code>
+        <code xml:lang="en">BNI</code>
+        <name xml:lang="ru">БРИТТЕН БН-2А/2Б ИСЛ</name>
+        <name xml:lang="en">BRITTEN-NORMAN BN-2A/BN-2B ISLANDER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">75В</code>
+        <code xml:lang="en">75W</code>
+        <name xml:lang="ru">БОИНГ 757-200 ВИНГЛ</name>
+        <name xml:lang="en">BOEING 757-200 (WINGLETS) PASSENGER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">764</code>
+        <code xml:lang="en">764</code>
+        <name xml:lang="ru">БОИНГ 767-400 ПАССАЖ</name>
+        <name xml:lang="en">BOEING 767-400 PASSENGER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">76Ф</code>
+        <code xml:lang="en">76F</code>
+        <name xml:lang="ru">БОИНГ 767 ГРУЗОВОЙ</name>
+        <name xml:lang="en">BOEING 767 FREIGHTER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">783</code>
+        <code xml:lang="en">783</code>
+        <name xml:lang="ru">БОИНГ 787-300</name>
+        <name xml:lang="en">БОИНГ 787-300</name>
+      </data>
+      <data>
+        <code xml:lang="ru">789</code>
+        <code xml:lang="en">789</code>
+        <name xml:lang="ru">БОИНГ 787-900</name>
+        <name xml:lang="en">BOEING 787-900</name>
+      </data>
+      <data>
+        <code xml:lang="ru">787</code>
+        <code xml:lang="en">787</code>
+        <name xml:lang="ru">БОИНГ 787</name>
+        <name xml:lang="en">BOEING 787</name>
+      </data>
+      <data>
+        <code xml:lang="ru">14Ь</code>
+        <code xml:lang="en">14X</code>
+        <name xml:lang="ru">БРИТ АЭРОСП 146-100Г</name>
+        <name xml:lang="en">БРИТ АЭРОСП 146-100Г</name>
+      </data>
+      <data>
+        <code xml:lang="ru">14З</code>
+        <code xml:lang="en">14Z</code>
+        <name xml:lang="ru">БРИТ АЭРОСП 146-300Г</name>
+        <name xml:lang="en">БРИТ АЭРОСП 146-300Г</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЕР4</code>
+        <code xml:lang="en">ER4</code>
+        <name xml:lang="ru">ЭМБРАЕР RJ145</name>
+        <name xml:lang="en">EMBRAER RJ145</name>
+      </data>
+      <data>
+        <code xml:lang="ru">73Р</code>
+        <code xml:lang="en">73R</code>
+        <name xml:lang="ru">БОИНГ737-700КОМБИНИР</name>
+        <name xml:lang="en">BOEING 737-700 (MIXED CONFIGURATION)</name>
+      </data>
+      <data>
+        <code xml:lang="ru">73Е</code>
+        <code xml:lang="en">73E</code>
+        <name xml:lang="ru">БОИНГ737-500ВИНГЛЕТС</name>
+        <name xml:lang="en">БОИНГ737-500ВИНГЛЕТС</name>
+      </data>
+      <data>
+        <code xml:lang="ru">НДЦ</code>
+        <code xml:lang="en">NDC</code>
+        <name xml:lang="ru">АЭРОПАСЬЯЛЬ СН601</name>
+        <name xml:lang="en">AEROSPATIALE SN601 CORVETTE</name>
+      </data>
+      <data>
+        <code xml:lang="ru">БЕК</code>
+        <code xml:lang="en">BEC</code>
+        <name xml:lang="ru">БИЧ ЛАЙТ ЭЙКРАФТ</name>
+        <name xml:lang="en">BEECHCRAFT (LIGHT AIRCRAFT)</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЦНА</code>
+        <code xml:lang="en">CNA</code>
+        <name xml:lang="ru">ЦЕССНА ЛАЙТЭЙРКРАФТ</name>
+        <name xml:lang="en">CESSNA (LIGHT AIRCRAFT)</name>
+      </data>
+      <data>
+        <code xml:lang="ru">CS2</code>
+        <code xml:lang="en">CS2</code>
+        <name xml:lang="ru">CASA C-12/NUSANTARA</name>
+        <name xml:lang="en">CASA C212/NUSANTARA NC-212 AVIOCAR</name>
+      </data>
+      <data>
+        <code xml:lang="ru">DFL</code>
+        <code xml:lang="en">DFL</code>
+        <name xml:lang="ru">DESSAULT-BREGUET MYS</name>
+        <name xml:lang="en">DASSAULT FALCON</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЦС3</code>
+        <code xml:lang="en">CS3</code>
+        <name xml:lang="ru">БОМБАРДЬЕ CS300</name>
+        <name xml:lang="en">БОМБАРДЬЕ CS300</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЕПХ</code>
+        <code xml:lang="en">EPX</code>
+        <name xml:lang="ru">ЭМБРАЕР ФЕНОМ</name>
+        <name xml:lang="en">EMBRAER PHENOM</name>
+      </data>
+      <data>
+        <code xml:lang="ru">357</code>
+        <code xml:lang="en">357</code>
+        <name xml:lang="ru">АЭРОБУС ИНДУСТРИ А350</name>
+        <name xml:lang="en">AIRBUS INDUSTRIE А350</name>
+      </data>
+      <data>
+        <code xml:lang="ru">СВС</code>
+        <code xml:lang="en">СВС</code>
+        <name xml:lang="ru">ФЭРЧАЙЛД 300/СА227ТТ</name>
+        <name xml:lang="en">ФЭРЧАЙЛД 300/СА227ТТ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">32Ь</code>
+        <code xml:lang="en">32X</code>
+        <name xml:lang="ru">АЭРОБУС ИНДУСТРИ А321 ГРУЗОВОЙ</name>
+        <name xml:lang="en">AIRBUS INDUSTRIE A321</name>
+      </data>
+      <data>
+        <code xml:lang="ru">32Ф</code>
+        <code xml:lang="en">32F</code>
+        <name xml:lang="ru">АЭРОБУС ИНДУСТРИ А320 ГРУЗОВОЙ</name>
+        <name xml:lang="en">AIRBUS INDUSTRIE A320</name>
+      </data>
+      <data>
+        <code xml:lang="ru">32Б</code>
+        <code xml:lang="en">32B</code>
+        <name xml:lang="ru">АЭРОБУС ИНДУСТРИ А321 (ШАРКЛЕТС)</name>
+        <name xml:lang="en">AIRBUS INDUSTRIE A321</name>
+      </data>
+      <data>
+        <code xml:lang="ru">32А</code>
+        <code xml:lang="en">32A</code>
+        <name xml:lang="ru">АЭРОБУС ИНДУСТРИ А320 (ШАРКЛЕТС)</name>
+        <name xml:lang="en">AIRBUS INDUSTRIE A320</name>
+      </data>
+      <data>
+        <code xml:lang="ru">БТА</code>
+        <code xml:lang="en">BTA</code>
+        <name xml:lang="ru">БИЗНЕС ТУРБО-ПРОП ЭЙРКРАФТ</name>
+        <name xml:lang="en">БИЗНЕС ТУРБО-ПРОП ЭЙРКРАФТ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Ц21</code>
+        <code xml:lang="en">C21</code>
+        <name xml:lang="ru">КОМАК ARJ21</name>
+        <name xml:lang="en">КОМАК ARJ21</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Ц27</code>
+        <code xml:lang="en">C27</code>
+        <name xml:lang="ru">КОМАК ARJ21-700</name>
+        <name xml:lang="en">КОМАК ARJ21-700</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЕП3</code>
+        <code xml:lang="en">EP3</code>
+        <name xml:lang="ru">ЭМБРАЕР ЕМВ-505 ФЕНОМ 300</name>
+        <name xml:lang="en">EMBRAER  EMB-505 PHENOM 300</name>
+      </data>
+      <data>
+        <code xml:lang="ru">С52</code>
+        <code xml:lang="en">CJ2</code>
+        <name xml:lang="ru">ЦЕССНА 552 САЙТЕШН</name>
+        <name xml:lang="en">CESSNA 552 CITATION</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ССЖ</code>
+        <code xml:lang="en">SSJ</code>
+        <name xml:lang="ru">СУХОЙ СУПЕРДЖЕТ 100</name>
+        <name xml:lang="en">SUKHOI SUPERJET 100</name>
+      </data>
+      <data>
+        <code xml:lang="ru">РРЙ</code>
+        <code xml:lang="en">RRJ</code>
+        <name xml:lang="ru">СУХОЙ СУПЕРДЖЕТ</name>
+        <name xml:lang="en">SUKHOI SUPERJET</name>
+      </data>
+      <data>
+        <code xml:lang="ru">МА6</code>
+        <code xml:lang="en">MA6</code>
+        <name xml:lang="ru">КСИАН ЮНШУЙ МА-60</name>
+        <name xml:lang="en">КСИАН ЮНШУЙ МА-60</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЦСБ</code>
+        <code xml:lang="en">CSB</code>
+        <name xml:lang="ru">БОМБАРДЬЕ СИ СЕРВИС</name>
+        <name xml:lang="en">БОМБАРДЬЕ СИ СЕРВИС</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЕП1</code>
+        <code xml:lang="en">EP1</code>
+        <name xml:lang="ru">ЭМБРАЕР ЕМВ-500 ФЕНОМ 100</name>
+        <name xml:lang="en">EMBRAER  EMB-500 PHENOM 100</name>
+      </data>
+      <data>
+        <code xml:lang="ru">226</code>
+        <code xml:lang="en">226</code>
+        <name xml:lang="ru">ФЭРЧАЙЛД (СВЕРИНГЕН) СА226 ГРУЗОВОЙ</name>
+        <name xml:lang="en">FAIRCHILD (SWEARINGEN)CA226</name>
+      </data>
+      <data>
+        <code xml:lang="ru">М82</code>
+        <code xml:lang="en">M82</code>
+        <name xml:lang="ru">БОИНГ (ДУГЛАС) МД-82</name>
+        <name xml:lang="en">BOEING (DOUGLAS) MD-82</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЕЛС</code>
+        <code xml:lang="en">ЕЛС</code>
+        <name xml:lang="ru">ЭМБРАЕР ЛЕГАСИ 600</name>
+        <name xml:lang="en">ЭМБРАЕР ЛЕГАСИ 600</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЕАЦ</code>
+        <code xml:lang="en">EAC</code>
+        <name xml:lang="ru">ЭКЛИПС</name>
+        <name xml:lang="en">ЭКЛИПС</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЕА5</code>
+        <code xml:lang="en">EA5</code>
+        <name xml:lang="ru">ЭКЛИПС 500</name>
+        <name xml:lang="en">ЭКЛИПС 500</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Г25</code>
+        <code xml:lang="en">GR3</code>
+        <name xml:lang="ru">ГОЛЬФСТРИМ АЭРОСПЕЙС Г-250</name>
+        <name xml:lang="en">GULFSTREAM AEROSPACE G-250</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЦС1</code>
+        <code xml:lang="en">CS1</code>
+        <name xml:lang="ru">БОМБАРДЬЕ CS100</name>
+        <name xml:lang="en">БОМБАРДЬЕ CS100</name>
+      </data>
+    </describe>
+  </answer>
+</sirena>

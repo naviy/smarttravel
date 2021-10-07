@@ -1,0 +1,29 @@
+﻿@inherits EntityViewPage
+@{
+    Layout = "~/App/Layouts/EditFormLayout.cshtml";
+    Name = "passportEdit";
+
+    var v = new ViewDomain().Passport;
+    ui.ViewEntity = v;
+}
+
+@using (var f = ui.Form.BeginHForm(v))
+{
+    <div class="panel panel-default">
+        <div class="panel-body">
+            @ui.Form.TextBox(f, v.Owner)
+            <br />
+            @ui.Form.Row(f, v.Number, items: g => g(
+                bs.Col(4, html: @ui.Form.TextBox(v.Number))
+            ))
+            @ui.Form.Row(f, v.Name, items: g => g(
+                bs.Col(4, html: @ui.Form.TextBox(v.FirstName)),
+                bs.Col(4, html: @ui.Form.TextBox(v.MiddleName)),
+                bs.Col(4, html: @ui.Form.TextBox(v.LastName))
+            ))
+            <br />
+            @ui.Form.TextArea(f, v.Note, initEditor: a => a.Rows(8))
+        </div>
+    </div>
+}
+

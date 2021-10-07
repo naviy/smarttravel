@@ -1,0 +1,28 @@
+2015-10-27 16:00:42.0554|ERROR|WebApi|Microsoft.OData.Core.ODataException: Could not find a property named 'OrderId' on type 'Luxena.Travel.Domain.OrderBalanceReportParams'.
+   at Microsoft.OData.Core.UriParser.Parsers.EndPathBinder.GeneratePropertyAccessQueryForOpenType(EndPathToken endPathToken, SingleValueNode parentNode)
+   at Microsoft.OData.Core.UriParser.Parsers.EndPathBinder.BindEndPath(EndPathToken endPathToken)
+   at Microsoft.OData.Core.UriParser.Parsers.MetadataBinder.Bind(QueryToken token)
+   at Microsoft.OData.Core.UriParser.Parsers.BinaryOperatorBinder.GetOperandFromToken(BinaryOperatorKind operatorKind, QueryToken queryToken)
+   at Microsoft.OData.Core.UriParser.Parsers.BinaryOperatorBinder.BindBinaryOperator(BinaryOperatorToken binaryOperatorToken)
+   at Microsoft.OData.Core.UriParser.Parsers.MetadataBinder.Bind(QueryToken token)
+   at Microsoft.OData.Core.UriParser.Parsers.FilterBinder.BindFilter(QueryToken filter)
+   at Microsoft.OData.Core.UriParser.ODataQueryOptionParser.ParseFilterImplementation(String filter, ODataUriParserConfiguration configuration, IEdmType elementType, IEdmNavigationSource navigationSource)
+   at Microsoft.OData.Core.UriParser.ODataQueryOptionParser.ParseFilter()
+   at System.Web.OData.Query.FilterQueryOption.get_FilterClause()
+   at Luxena.Domain.Web.ODataExtensions.GetFilterParams[TParams](ODataQueryOptions queryOptions) in D:\data\git\Luxena.Travel\src.15\Luxena.Libs.15\Luxena.Domain.Web\OData\ODataExtensions.cs:line 105
+   at Luxena.Domain.Web.DbQueryODataController`4.Get(ODataQueryOptions`1 options) in D:\data\git\Luxena.Travel\src.15\Luxena.Libs.15\Luxena.Domain.Web\OData\DbQueryODataController.cs:line 31
+   at lambda_method(Closure , Object , Object[] )
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Dispatcher.HttpControllerDispatcher.<SendAsync>d__1.MoveNext()

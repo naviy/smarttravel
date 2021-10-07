@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sirena>
+  <answer pult="ГРФ365">
+    <describe data="document">
+      <data>
+        <code xml:lang="ru">ПС</code>
+        <code xml:lang="en">PS</code>
+        <name xml:lang="ru">ПАСПОРТ</name>
+        <name xml:lang="en">PASSPORT</name>
+        <international>0</international>
+      </data>
+      <data>
+        <code xml:lang="ru">ПСП</code>
+        <code xml:lang="en">PSP</code>
+        <name xml:lang="ru">ЗАГРАНИЧНЫЙ ПАСПОРТ ГРАЖДАНИНА РФ</name>
+        <name xml:lang="en">INTERNATIONAL PASSPORT</name>
+        <international>1</international>
+      </data>
+      <data>
+        <code xml:lang="ru">УД</code>
+        <code xml:lang="en">UD</code>
+        <name xml:lang="ru">УДОСТОВЕРЕН ДЕПУТАТА СОВЕТА ФЕДЕРАЦИЙ ИЛИ ГОС ДУМЫ</name>
+        <name xml:lang="en">IDENTIFICATION OF DEPUTY</name>
+        <international>0</international>
+      </data>
+      <data>
+        <code xml:lang="ru">УДЛ</code>
+        <code xml:lang="en">UDL</code>
+        <name xml:lang="ru">УДОСТОВЕРЕНИЕ ЛИЧНОСТИ ОФИЦЕРА ПРАПОРЩИКА МИЧМАНА</name>
+        <name xml:lang="en">OFFICER IDENTIFICATION</name>
+        <international>0</international>
+      </data>
+      <data>
+        <code xml:lang="ru">СПО</code>
+        <code xml:lang="en">SPO</code>
+        <name xml:lang="ru">СПРАВКА ОБ ОСВОБОЖДЕНИИ ДЛЯ ОСВОБОДИВШИХСЯ ЛИЦ</name>
+        <name xml:lang="en">СПРАВКА ОБ ОСВОБОЖДЕНИИ ДЛЯ ОСВОБОДИВШИХСЯ ЛИЦ</name>
+        <international>0</international>
+      </data>
+      <data>
+        <code xml:lang="ru">СПУ</code>
+        <code xml:lang="en">SPU</code>
+        <name xml:lang="ru">ВРЕМЕННОЕ УДОСТ ЛИЧНОСТИ ПРИ УТРАТЕ ИЛИ ЗАМЕНЕ ПС</name>
+        <name xml:lang="en">DOCUMENT OF PASSPORT LOSING</name>
+        <international>0</international>
+      </data>
+      <data>
+        <code xml:lang="ru">СР</code>
+        <code xml:lang="en">SR</code>
+        <name xml:lang="ru">СВИДЕТЕЛЬСТВО О РОЖДЕНИИ</name>
+        <name xml:lang="en">BIRTH REGISTRATION DOCUMENT</name>
+        <international>0</international>
+      </data>
+      <data>
+        <code xml:lang="ru">ВБ</code>
+        <code xml:lang="en">VB</code>
+        <name xml:lang="ru">ВОЕННЫЙ БИЛЕТ ДЛЯ ПРОХОДЯЩ СЛУЖБУ ИЛИ ПО КОНТРАКТУ</name>
+        <name xml:lang="en">MILITARY IDENTIFICATION CARD</name>
+        <international>0</international>
+      </data>
+      <data>
+        <code xml:lang="ru">БП</code>
+        <code xml:lang="en">БП</code>
+        <name xml:lang="ru">ПАСПОРТ ПРИ РЕГИСТРАЦИИ</name>
+        <name xml:lang="en">PASSPORT ON REGISTRATION</name>
+        <international>0</international>
+      </data>
+      <data>
+        <code xml:lang="ru">СПР</code>
+        <code xml:lang="en">SPR</code>
+        <name xml:lang="ru">СПРАВКА ИЗ РОДДОМА</name>
+        <name xml:lang="en">SERTIFICATE FROM MATERNITY HOME</name>
+        <international>0</international>
+      </data>
+      <data>
+        <code xml:lang="ru">ВУЛ</code>
+        <code xml:lang="en">VUL</code>
+        <name xml:lang="ru">УДОСТОВЕРЕН ВЫДАВАЕМОЕ ОСУЖДЕННОМУ НА ВРЕМЯ ОТПУСК</name>
+        <name xml:lang="en">УДОСТОВЕРЕН ВЫДАВАЕМОЕ ОСУЖДЕННОМУ НА ВРЕМЯ ОТПУСК</name>
+        <international>0</international>
+      </data>
+      <data>
+        <code xml:lang="ru">ВЖ</code>
+        <code xml:lang="en">VV</code>
+        <name xml:lang="ru">ВИД НА ЖИТЕЛЬСТВО</name>
+        <name xml:lang="en">DOKUMENT OF PASSPORT LOSING</name>
+        <international>1</international>
+      </data>
+      <data>
+        <code xml:lang="ru">ПМ</code>
+        <code xml:lang="en">PM</code>
+        <name xml:lang="ru">ПАСПОРТ МОРЯКА УДОСТОВЕРЕНИЕ ЛИЧНОСТИ МОРЯКА</name>
+        <name xml:lang="en">ПАСПОРТ МОРЯКА УДОСТОВЕРЕНИЕ ЛИЧНОСТИ МОРЯКА</name>
+        <international>1</international>
+      </data>
+      <data>
+        <code xml:lang="ru">СП</code>
+        <code xml:lang="en">SP</code>
+        <name xml:lang="ru">СЛУЖЕБНЫЙ ПАСПОРТ</name>
+        <name xml:lang="en">СЛУЖЕБНЫЙ ПАСПОРТ</name>
+        <international>1</international>
+      </data>
+      <data>
+        <code xml:lang="ru">ДП</code>
+        <code xml:lang="en">DP</code>
+        <name xml:lang="ru">ДИПЛОМАТИЧЕСКИЙ ПАСПОРТ</name>
+        <name xml:lang="en">ДИПЛОМАТИЧЕСКИЙ ПАСПОРТ</name>
+        <international>1</international>
+      </data>
+      <data>
+        <code xml:lang="ru">НП</code>
+        <code xml:lang="en">NP</code>
+        <name xml:lang="ru">НАЦИОНАЛЬНЫЙ ПАСПОРТ</name>
+        <name xml:lang="en">NATIONAL PASSPORT</name>
+        <international>1</international>
+      </data>
+      <data>
+        <code xml:lang="ru">СВВ</code>
+        <code xml:lang="en">CVV</code>
+        <name xml:lang="ru">СВИДЕТЕЛЬСТВО НА ВОЗВРАЩЕНИЕ В СТРАНЫ СНГ</name>
+        <name xml:lang="en">СВИДЕТЕЛЬСТВО НА ВОЗВРАЩЕНИЕ В СТРАНЫ СНГ</name>
+        <international>1</international>
+      </data>
+      <data>
+        <code xml:lang="ru">ГД</code>
+        <code xml:lang="en">GD</code>
+        <name xml:lang="ru">УДОСТ ДЕПУТАТА ГОС ДУМЫ ФЕДЕРАЛЬНОГО СОБРАНИЯ РФ</name>
+        <name xml:lang="en">УДОСТ ДЕПУТАТА ГОС ДУМЫ ФЕДЕРАЛЬНОГО СОБРАНИЯ РФ</name>
+        <international>0</international>
+      </data>
+      <data>
+        <code xml:lang="ru">КУ</code>
+        <code xml:lang="en">KU</code>
+        <name xml:lang="ru">КОМАНДИРОВОЧНОЕ УДОСТОВЕРЕНИЕ</name>
+        <name xml:lang="en">КОМАНДИРОВОЧНОЕ УДОСТОВЕРЕНИЕ</name>
+        <international>0</international>
+      </data>
+      <data>
+        <code xml:lang="ru">СТ</code>
+        <code xml:lang="en">ST</code>
+        <name xml:lang="ru">СЛ ТРЕБ ДЛЯ РАБОТН ГА А ТАКЖЕ ДРУГОГО ПРЕДПРИЯТ</name>
+        <name xml:lang="en">СЛ ТРЕБ ДЛЯ РАБОТН ГА А ТАКЖЕ ДРУГОГО ПРЕДПРИЯТ</name>
+        <international>0</international>
+      </data>
+      <data>
+        <code xml:lang="ru">ГБ</code>
+        <code xml:lang="en">GB</code>
+        <name xml:lang="ru">ГОДОВОЙ СЛУЖ БИЛЕТ ДЛЯ РАБОТН ГА И ДР ПРЕДПРИЯТ</name>
+        <name xml:lang="en">ГОДОВОЙ СЛУЖ БИЛЕТ ДЛЯ РАБОТН ГА И ДР ПРЕДПРИЯТ</name>
+        <international>0</international>
+      </data>
+      <data>
+        <code xml:lang="ru">СС</code>
+        <code xml:lang="en">SS</code>
+        <name xml:lang="ru">СВИДЕТЕЛЬСТВО О СМЕРТИ</name>
+        <name xml:lang="en">СВИДЕТЕЛЬСТВО О СМЕРТИ</name>
+        <international>0</international>
+      </data>
+      <data>
+        <code xml:lang="ru">НЛ</code>
+        <code xml:lang="en">NL</code>
+        <name xml:lang="ru">НАПРАВЛЕНИЕ НА ЛЕЧЕНИЕ</name>
+        <name xml:lang="en">НАПРАВЛЕНИЕ НА ЛЕЧЕНИЕ</name>
+        <international>0</international>
+      </data>
+      <data>
+        <code xml:lang="ru">МВ</code>
+        <code xml:lang="en">MV</code>
+        <name xml:lang="ru">СПРАВКА МЕДИКО СОЦИАЛЬНОЙ ЭКСПЕРТИЗЫ</name>
+        <name xml:lang="en">СПРАВКА МЕДИКО СОЦИАЛЬНОЙ ЭКСПЕРТИЗЫ</name>
+        <international>0</international>
+      </data>
+      <data>
+        <code xml:lang="ru">МД</code>
+        <code xml:lang="en">MD</code>
+        <name xml:lang="ru">МЕДИЦИНСКАЯ СПРАВКА</name>
+        <name xml:lang="en">МЕДИЦИНСКАЯ СПРАВКА</name>
+        <international>0</international>
+      </data>
+      <data>
+        <code xml:lang="ru">УИ</code>
+        <code xml:lang="en">UI</code>
+        <name xml:lang="ru">УДОСТОВЕРЕНИЕ ИНВАЛИДА</name>
+        <name xml:lang="en">УДОСТОВЕРЕНИЕ ИНВАЛИДА</name>
+        <international>0</international>
+      </data>
+      <data>
+        <code xml:lang="ru">СИ</code>
+        <code xml:lang="en">SI</code>
+        <name xml:lang="ru">СПР О ПРАВЕ РЕБ ИНВ НА ЛГ ВЫДАН ОРГАНОМ СОЦ ЗАЩИТЫ</name>
+        <name xml:lang="en">СПР О ПРАВЕ РЕБ ИНВ НА ЛГ ВЫДАН ОРГАНОМ СОЦ ЗАЩИТЫ</name>
+        <international>0</international>
+      </data>
+      <data>
+        <code xml:lang="ru">СУ</code>
+        <code xml:lang="en">SU</code>
+        <name xml:lang="ru">СЛУЖЕБНОЕ УДОСТ ИЛИ ДР ДОКУМ УДОСТ ПРОФ ПРИНАДЛЕЖН</name>
+        <name xml:lang="en">СЛУЖЕБНОЕ УДОСТ ИЛИ ДР ДОКУМ УДОСТ ПРОФ ПРИНАДЛЕЖН</name>
+        <international>0</international>
+      </data>
+      <data>
+        <code xml:lang="ru">РЗ</code>
+        <code xml:lang="en">RZ</code>
+        <name xml:lang="ru">РАЗРЕШ РУКОВОД АП НА ПЕРЕВОЗ БЕСПЛАТ ИЛИ СО СКИДК</name>
+        <name xml:lang="en">РАЗРЕШ РУКОВОД АП НА ПЕРЕВОЗ БЕСПЛАТ ИЛИ СО СКИДК</name>
+        <international>0</international>
+      </data>
+      <data>
+        <code xml:lang="ru">СЛ</code>
+        <code xml:lang="en">CL</code>
+        <name xml:lang="ru">ДОК ПОДТВЕРЖД ЧЛЕНСТВО В КЛУБЕ АССОЦИАЦ ОРГАНИЗАЦ</name>
+        <name xml:lang="en">ДОК ПОДТВЕРЖД ЧЛЕНСТВО В КЛУБЕ АССОЦИАЦ ОРГАНИЗАЦ</name>
+        <international>0</international>
+      </data>
+      <data>
+        <code xml:lang="ru">ПЗ</code>
+        <code xml:lang="en">PZ</code>
+        <name xml:lang="ru">ДОК ПОДТВЕРЖДАЮЩИЙ ЗВАНИЕ И НАГРАДЫ ПАССАЖИРА</name>
+        <name xml:lang="en">ДОК ПОДТВЕРЖДАЮЩИЙ ЗВАНИЕ И НАГРАДЫ ПАССАЖИРА</name>
+        <international>0</international>
+      </data>
+      <data>
+        <code xml:lang="ru">БР</code>
+        <code xml:lang="en">BR</code>
+        <name xml:lang="ru">СВИДЕТЕЛЬСТВО О БРАКЕ</name>
+        <name xml:lang="en">СВИДЕТЕЛЬСТВО О БРАКЕ</name>
+        <international>0</international>
+      </data>
+      <data>
+        <code xml:lang="ru">СК</code>
+        <code xml:lang="en">SK</code>
+        <name xml:lang="ru">СПРАВКА ИЗ ШКОЛЫ</name>
+        <name xml:lang="en">СПРАВКА ИЗ ШКОЛЫ</name>
+        <international>0</international>
+      </data>
+      <data>
+        <code xml:lang="ru">УБ</code>
+        <code xml:lang="en">UB</code>
+        <name xml:lang="ru">УЧЕНИЧЕСКИЙ БИЛЕТ</name>
+        <name xml:lang="en">УЧЕНИЧЕСКИЙ БИЛЕТ</name>
+        <international>0</international>
+      </data>
+      <data>
+        <code xml:lang="ru">СБ</code>
+        <code xml:lang="en">SB</code>
+        <name xml:lang="ru">СТУДЕНЧЕСКИЙ БИЛЕТ</name>
+        <name xml:lang="en">СТУДЕНЧЕСКИЙ БИЛЕТ</name>
+        <international>0</international>
+      </data>
+      <data>
+        <code xml:lang="ru">ПУ</code>
+        <code xml:lang="en">PU</code>
+        <name xml:lang="ru">ПЕНСИОННОЕ УДОСТОВЕРЕНИЕ</name>
+        <name xml:lang="en">ПЕНСИОННОЕ УДОСТОВЕРЕНИЕ</name>
+        <international>0</international>
+      </data>
+      <data>
+        <code xml:lang="ru">УЛ</code>
+        <code xml:lang="en">UL</code>
+        <name xml:lang="ru">УДОСТ ЛИЧНОСТИ ДЛЯ ВОЕННОСЛ ОФИЦЕР ПРАПОРЩ МИЧМААН</name>
+        <name xml:lang="en">УДОСТ ЛИЧНОСТИ ДЛЯ ВОЕННОСЛ ОФИЦЕР ПРАПОРЩ МИЧМААН</name>
+        <international>0</international>
+      </data>
+      <data>
+        <code xml:lang="ru">КС</code>
+        <code xml:lang="en">KS</code>
+        <name xml:lang="ru">УДОСТ СУДЬИ КОНСТИТУЦИОННОГО СУДА</name>
+        <name xml:lang="en">УДОСТ СУДЬИ КОНСТИТУЦИОННОГО СУДА</name>
+        <international>0</international>
+      </data>
+      <data>
+        <code xml:lang="ru">ДМ</code>
+        <code xml:lang="en">DM</code>
+        <name xml:lang="ru">УДОСТ ДЕПУТАТА МЕСТНЫХ ЗАКОНОДАТЕЛЬНЫХ ОРГАНОВ</name>
+        <name xml:lang="en">УДОСТ ДЕПУТАТА МЕСТНЫХ ЗАКОНОДАТЕЛЬНЫХ ОРГАНОВ</name>
+        <international>0</international>
+      </data>
+      <data>
+        <code xml:lang="ru">СФ</code>
+        <code xml:lang="en">SF</code>
+        <name xml:lang="ru">УДОСТ ЧЛЕНА СОВЕТА ФЕДЕРАЦИИ ФЕДЕРАЛЬН СОБРАН РФ</name>
+        <name xml:lang="en">УДОСТ ЧЛЕНА СОВЕТА ФЕДЕРАЦИИ ФЕДЕРАЛЬН СОБРАН РФ</name>
+        <international>0</international>
+      </data>
+      <data>
+        <code xml:lang="ru">ТС</code>
+        <code xml:lang="en">NS</code>
+        <name xml:lang="ru">СВОБОДНЫЙ ТЕКСТ</name>
+        <name xml:lang="en">СВОБОДНЫЙ ТЕКСТ</name>
+        <international>0</international>
+      </data>
+      <data>
+        <code xml:lang="ru">КН</code>
+        <code xml:lang="en">CN</code>
+        <name xml:lang="ru">КОД НАГРАДЫ</name>
+        <name xml:lang="en">PRIZE CODE</name>
+        <international>0</international>
+      </data>
+      <data>
+        <code xml:lang="ru">ZP</code>
+        <code xml:lang="en">ZP</code>
+        <name xml:lang="ru">ЗАГРАНИЧНЫЙ ПАСПОРТ ГРАЖДАНИНА РФ</name>
+        <name xml:lang="en">КОД НЕ ИСПОЛЬЗУЕТСЯ</name>
+        <international>1</international>
+      </data>
+      <data>
+        <code xml:lang="ru">ЗА</code>
+        <code xml:lang="en">ZA</code>
+        <name xml:lang="ru">ЗАГРАН ПАСПОРТ ГРАЖДАНИНА ЛЮБОЙ СТРАНЫ  КРОМЕ РФ</name>
+        <name xml:lang="en">INTERNATIONAL PASSPORT</name>
+        <international>1</international>
+      </data>
+      <data>
+        <code xml:lang="ru">ЗБ</code>
+        <code xml:lang="en">ZB</code>
+        <name xml:lang="ru">ЗАГРАН ПАСПОРТ ГРАЖДАНИНА РЕСПУБЛИКИ ТАДЖИКИСТАН</name>
+        <name xml:lang="en">FOREIGN PASSPORT OF THE REPUBLIC OF TADJIKISTAN</name>
+        <international>1</international>
+      </data>
+      <data>
+        <code xml:lang="ru">ЗС</code>
+        <code xml:lang="en">ZC</code>
+        <name xml:lang="ru">ЗАГРАНИЧНЫЙ ПАСПОРТ</name>
+        <name xml:lang="en">INTERNATIONAL PASSPORT</name>
+        <international>1</international>
+      </data>
+    </describe>
+  </answer>
+</sirena>

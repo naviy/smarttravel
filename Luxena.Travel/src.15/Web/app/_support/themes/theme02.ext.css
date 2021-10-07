@@ -1,0 +1,88 @@
+﻿.wrap-bg-color {
+  background: #eff4fc;
+}
+.main-header,
+.main-cart,
+.view-menu {
+  background: #96b9ef;
+}
+.view-content {
+  background: #eff4fc;
+}
+.main-header-wrapper.wrapper,
+.main-header-wrapper.wrapper2 {
+  background: #a5ccff;
+  box-shadow: 0 0 8px white, 0 0 4px white;
+}
+.main-menu-root div {
+  color: white;
+}
+.main-menu-root .dx-menu-item-expanded div {
+  color: #003d57;
+}
+.grid-panel {
+  background: white;
+  border-bottom: 1px solid #a3e3ff;
+}
+.form-panel {
+  background: white;
+  border-bottom: 10px solid #a5ccff;
+  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.3);
+}
+.form-panel .dx-accordion-item-title {
+  color: white;
+}
+.form-panel .dx-accordion-item-title h2 {
+  background: #96b9ef;
+}
+.form-panel .dx-accordion-item-opened .dx-accordion-item-title {
+  color: white;
+}
+.form-panel .dx-accordion-item-opened h2 {
+  background: #a5ccff;
+}
+.form-panel .tab-accordion-menu {
+  border-right: 1px solid white;
+}
+.form-panel .form-header-simple {
+  margin-top: -10px;
+  margin-bottom: 20px;
+  background: #a5ccff;
+}
+.form-panel .form-header-simple h1,
+.form-panel .form-header-simple h2,
+.form-panel .form-header-simple h3 {
+  color: white;
+}
+.filter-panel {
+  background: white;
+  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.3);
+}
+.main-menu-item.single:hover {
+  background: #add5ff;
+}
+/*.view-menu {
+	background-image: url(beach02_08.jpg);
+	background-position: center bottom;
+	background-repeat: no-repeat;
+}*/
+/*@font-face {
+	font-family: 'Kaushan Script';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Kaushan Script'), local('KaushanScript-Regular'), url(http://fonts.gstatic.com/s/kaushanscript/v4/qx1LSqts-NtiKcLw4N03IEd0sm1ffa_JvZxsF_BEwQk.woff2) format('woff2'), url(http://fonts.gstatic.com/s/kaushanscript/v4/qx1LSqts-NtiKcLw4N03IFhlQWQpSCpzb2Peu3I-Q34.woff) format('woff');
+}
+
+@font-face {
+	font-family: 'Satisfy';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Satisfy'), url(http://fonts.gstatic.com/s/satisfy/v6/2OzALGYfHwQjkPYWELy-cw.woff2) format('woff2'), url(http://fonts.gstatic.com/s/satisfy/v6/ch7X2unYkww0EzsjlC3m8w.woff) format('woff');
+}
+
+.logo02 {
+	font-family: 'Kaushan Script', cursive;
+	font-size: 50px;
+	height: @header-height;
+	width: 230px;
+}*/

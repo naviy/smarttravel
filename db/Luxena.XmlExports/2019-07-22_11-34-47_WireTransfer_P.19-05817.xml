@@ -1,0 +1,53 @@
+<Payment xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+	<Id>631431ab5a6d4686a25c43e2d173ba34</Id>
+	<Amount>
+		<Amount>-26000.00</Amount>
+		<Currency>UAH</Currency>
+	</Amount>
+	<AssignedTo>
+		<Id>b90940893cef46feb95d7e7ad16ca748</Id>
+		<Text>Алексеева Ирина</Text>
+		<Type>Person</Type>
+		<BonusCardNumber i:nil="true" />
+		<Code i:nil="true" />
+	</AssignedTo>
+	<Date>2019-07-19T00:00:00Z</Date>
+	<DocumentNumber i:nil="true" />
+	<Invoice i:nil="true" />
+	<IsVoid>false</IsVoid>
+	<Note i:nil="true" />
+	<Number>P.19-05817</Number>
+	<Order>
+		<Id>427f1ecbd24146408411972905d05104</Id>
+		<Text>O.19-02578</Text>
+		<Type>Order</Type>
+	</Order>
+	<Owner>
+		<Id>454ef229688144d6821bf0c9426d51d5</Id>
+		<Text>ТОВУФСА</Text>
+		<Type>Organization</Type>
+		<BonusCardNumber i:nil="true" />
+		<Code>40104290</Code>
+	</Owner>
+	<Payer>
+		<Id>454ef229688144d6821bf0c9426d51d5</Id>
+		<Text>ТОВУФСА</Text>
+		<Type>Organization</Type>
+		<BonusCardNumber i:nil="true" />
+		<Code>40104290</Code>
+	</Payer>
+	<PaymentForm>WireTransfer</PaymentForm>
+	<PostedOn>2019-07-22T00:00:00Z</PostedOn>
+	<ReceivedFrom i:nil="true" />
+	<RegisteredBy>
+		<Id>e53a0b59a5ef46cb9b7a79fd9016525b</Id>
+		<Text>Шпонарская Лариса Петровна</Text>
+		<Type>Person</Type>
+		<BonusCardNumber i:nil="true" />
+		<Code i:nil="true" />
+	</RegisteredBy>
+	<Vat>
+		<Amount>0.00</Amount>
+		<Currency>UAH</Currency>
+	</Vat>
+</Payment>

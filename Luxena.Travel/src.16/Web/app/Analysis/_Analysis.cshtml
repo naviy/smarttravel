@@ -1,0 +1,31 @@
+﻿@Ui.FilterGrid(db => db.EverydayProfitReports)
+@Ui.FilterGrid(db => db.FlownReports)
+@Ui.FilterGrid(db => db.ProfitDistributionByCustomers)
+@Ui.FilterGrid(db => db.ProfitDistributionByProviders)
+
+
+
+@Ui.FilterGrid(db => db.ProductSummaries)
+
+@Ui.FilterChart(db => db.ProductTotalByYears)
+@Ui.FilterChart(db => db.ProductTotalByQuarters)
+@Ui.FilterChart(db => db.ProductTotalByMonths)
+@Ui.FilterChart(db => db.ProductTotalByDays)
+@Ui.FilterChart(db => db.ProductTotalByTypes)
+@Ui.FilterChart(db => db.ProductTotalByProviders)
+@Ui.FilterChart(db => db.ProductTotalBySellers)
+@Ui.FilterChart(db => db.ProductTotalByBookers)
+@Ui.FilterChart(db => db.ProductTotalByOwners)
+
+@*@Ui.FilterPanelBegin(db => db.ProductSummaries)
+
+<div data-bind="dxTabPanel : { items: $root.tabs }" class="fill">
+	<div data-options="dxTemplate : { name: 'grid' }">
+		<div data-bind="dxDataGrid: $data.gridOptions" class="fill"></div>
+	</div>
+	<div data-options="dxTemplate : { name: 'chart' }">
+		<div data-bind="dxChart: $data.chartOptions" class="fill"></div>
+	</div>
+</div>
+
+@Ui.FilterPanelEnd()*@

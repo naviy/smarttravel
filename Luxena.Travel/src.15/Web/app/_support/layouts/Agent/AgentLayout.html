@@ -1,0 +1,67 @@
+﻿<div class="main-layout" data-options="dxLayout : { name: 'agent', platform: 'generic' }">
+
+
+	<div class="view-content">
+		<div class="fill" data-options="dxTransition: { name: 'contentTransition', animation: 'fade' }">
+			<div data-options="dxContentPlaceholder : { name: 'content' }" class="fill">
+
+				<div class="dx-loadindicator-container">
+					<div data-options="dxLoadIndicator: { visible: true }"></div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+
+	<div class="main-header" data-options="dxContentPlaceholder : { name: 'header' }">
+
+		<div class="main-menu-root pull-left" data-bind="dxMenu: Luxena.Layouts.getMainMenuOptions()"></div>
+
+		<div class="main-menu-root pull-right" data-bind="dxMenu: Luxena.Layouts.getBackMenuOptions()"></div>
+
+		<div data-bind="attr: { class: $data.wrapper ? 'main-header-wrapper ' + $data.wrapper : '' }">
+			<div class="main-menu-root pull-right" data-bind="dxMenu: Luxena.Layouts.getViewMenuOptions($data.viewMenuItems)"></div>
+
+			<div class="main-menu-root" data-bind="dxMenu: Luxena.Layouts.getTitleMenuOptions($data.titleMenuItems)">
+				<div data-options="dxTemplate : { name: 'title' }" class="main-menu-item">
+					<i data-bind="attr: { class: 'fa fa-' + ($root.icon || '') + ' fa-3x' }"></i>
+					<i class="down fa fa-angle-down fa-2x" data-bind="visible: $data.items && $data.items.length"></i>
+					<h1 data-bind="html: $root.title || '???'"></h1>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+
+	<div class="main-cart">
+		<div data-bind="attr: { class: $data.wrapper ? 'main-header-wrapper ' + $data.wrapper : '' }">
+		</div>
+	</div>
+
+
+	<div data-bind="dxPopover: Luxena.getSmartPopoverOptions()">
+		<div data-options="dxTemplate: { name: 'content' }">
+			<table data-bind="with: Luxena.smartViewScope" style="width: 100%;">
+				<tr>
+					<td id="smartcontent" class="smart-panel" style="vertical-align: top; max-height: 200px" data-bind="dxScrollView: { showScrollbar: 'always' }">
+						<div data-bind="renderer: $data.containers"></div>
+					</td>
+					<td style="vertical-align: top; width: 140px">
+						<div data-bind="buttonsCol: $data.buttons"></div>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+
+
+	<!--	<div class="view-menu" data-options="dxContentPlaceholder : { name: 'view-menu' } ">-->
+	<!--		$1$		<div data-bind="dxMenu: Luxena.Layouts.getViewMenuOptions($data.viewMenuItems)">#1#-->
+	<!--		$1$ </div>#1#-->
+	<!--		<br />-->
+	<!--		<h1 align="center">ТЕКУЩИЙ ЗАКАЗ</h1>-->
+	<!--	</div>-->
+
+</div>

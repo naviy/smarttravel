@@ -1,0 +1,321 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="$(SolutionDir)Core\bin\Debug\Luxena.Base.dll" #>
+<#@ assembly name="$(SolutionDir)Luxena.Domain\bin\Debug\Luxena.Support.dll" #>
+<#@ assembly name="$(SolutionDir)Luxena.Domain\bin\Debug\Luxena.Domain.dll" #>
+<#@ assembly name="$(SolutionDir)Core\bin\Debug\Luxena.Travel.dll" #>
+<#@ import namespace="Luxena" #>
+<#@ import namespace="Luxena.Base.Managers" #>
+<#@ import namespace="Luxena.Domain" #>
+<#@ import namespace="Luxena.Travel.Domain.Patterns" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="Luxena.Travel.Domain" #>
+<#@ import namespace="System.Reflection" #>
+<#@ output extension=".cs" #>
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+
+using Luxena.Base.Data;
+using Luxena.Base.Domain;
+using Luxena.Domain.Entities;
+using Luxena.Travel.Reports;
+
+
+namespace Luxena.Travel.Domain
+{
+
+	partial class Domain
+	{
+<#  
+	foreach (var serviceType in typeof(Domain).Assembly.DefinedTypes
+		.Where(a => 
+			!a.IsGenericType 
+			&& a.IsSubclassOf(typeof(Luxena.Domain.Entities.DomainService))
+			&& a != typeof(DomainService)
+			&& a.DeclaringType != null
+			&& a.DeclaringType.BaseType == typeof(object)
+		)
+		.OrderBy(a => a.FullName)
+	) 
+#>
+<#  { #>
+	<# var service = serviceType.DeclaringType.Name + "." + serviceType.Name; #>
+	<# var serviceProp = serviceType.DeclaringType.Name; #>
+	<# var serviceField = "_" + serviceProp.Substring(0, 1).ToLower() + serviceProp.Substring(1); #>
+
+		public <#=service#> <#=serviceProp#> { [DebuggerStepThrough] get { return ResolveService(ref <#=serviceField#>); } }
+		private <#=service#> <#=serviceField#>;
+<#  } #>
+
+	}
+
+
+<#  
+foreach (var serviceType in typeof(Domain).Assembly.DefinedTypes
+	.Where(a => 
+		!a.IsGenericType 
+		&& a.IsSubclassOf(typeof(Luxena.Domain.Entities.DomainService))
+		&& a != typeof(DomainService)
+		&& a.DeclaringType != null
+		&& a.DeclaringType.BaseType == typeof(object)
+	)
+	.OrderBy(a => a.FullName)
+) 
+{ 
+	var entity = serviceType.DeclaringType.Name;
+	var entity0 = serviceType.DeclaringType.Attribute<ExtendsAttribute>().As(a => a.BaseType.Name) ?? entity;
+#>
+
+	public partial class <#= entity #>Manager : EntityManager<<#= entity0 #>, <#= entity #>.<#= serviceType.Name #>> { }
+<#  
+	} 
+#>
+
+	
+	partial class Domain
+	{
+<#  foreach (var serviceType in typeof(Domain).Assembly.DefinedTypes
+	.Where(a => !a.IsGenericType && a.IsSubclassOf(typeof(DomainService)) && a != typeof(DomainService))
+	.OrderBy(a => a.FullName)) #>
+<#  { #>
+	<# var service = serviceType.Name; #>
+	<# var serviceProp = service.TrimEnd("Service"); #>
+	<# var serviceField = "_" + serviceProp.Substring(0, 1).ToLower() + serviceProp.Substring(1); #>
+
+		public <#=service#> <#=serviceProp#> { [DebuggerStepThrough] get { return ResolveService(ref <#=serviceField#>); } }
+		private <#=service#> <#=serviceField#>;
+<#  } #>
+
+	}
+
+<#  var assembly = typeof(Domain).Assembly; #>
+<#  foreach (var serviceType in assembly.DefinedTypes
+		.Where(a => 
+			!a.IsGenericType 
+			&& a.IsSubclassOf(typeof(Luxena.Domain.Entities.DomainService))
+			&& a != typeof(DomainService)
+			&& a.DeclaringType != null
+			&& a.DeclaringType.GetInterface("IEntity") != null
+		)
+		.OrderBy(a => a.FullName)
+	)  #>
+<# 	{ #>
+	<# var entityType = serviceType.DeclaringType; #>
+	<# if (entityType == null) continue; #>
+	<# var entity = entityType.Name; #>
+	<# var _entity = "_" + entity.Substring(0, 1).ToLower() + entity.Substring(1); #>
+		
+	#region <#=entity#>
+
+	partial class Domain : IEntityServiceContainer<Domain, <#=entity#>>
+	{
+
+		public <#=entity#>.Service <#=entity#> { [DebuggerStepThrough] get { return ResolveService(ref <#=_entity#>); } }
+		private <#=entity#>.Service <#=_entity#>;
+
+		EntityService<Domain, <#=entity#>> IEntityServiceContainer<Domain, <#=entity#>>.Service => <#=entity#>;
+		
+		[DebuggerStepThrough]
+		public static <#=entity#> operator +(<#=entity#> r, Domain db)
+		{
+			return (<#=entity#>)r?.Resolve(db);
+		}
+<# var exportMethod = serviceType.GetMethod("Export", new[] { entityType });
+	if (exportMethod != null) { #>
+
+		[DebuggerStepThrough]
+		public <#=entity#> Export(<#=entity#> r)
+		{
+			<#=entity#>.Export(r);
+			return r;
+		}
+
+		[DebuggerStepThrough]
+		public void Export(IEnumerable<<#=entity#>> entities)
+		{
+			foreach (var r in entities)
+				<#=entity#>.Export(r);
+		}
+<# } #>
+<# var importMethod = serviceType.GetMethod("Import", new[] { entityType });
+	if (importMethod != null) { #>
+
+		[DebuggerStepThrough]
+		public <#=entity#> Import(<#=entity#> r)
+		{
+			<#=entity#>.Import(r);
+			return r;
+		}
+		[DebuggerStepThrough]
+		public void Import(IEnumerable<<#=entity#>> entities)
+		{
+			foreach (var r in entities)
+				<#=entity#>.Import(r);
+		}
+<# } #>
+<# var issueMethod = serviceType.GetMethod("Issue", new[] { entityType });
+	if (issueMethod != null) { #>
+
+		[DebuggerStepThrough]
+		public <#=entity#> Issue(<#=entity#> r)
+		{
+			<#=entity#>.Issue(r);
+			return r;
+		}
+<# } #>
+
+	}
+
+	partial class <#=entity#>
+	{ 
+
+<#  if (entityType.IsAbstract) #>
+<#  { #>
+
+		partial class Service
+		{
+
+			//[DebuggerStepThrough]
+			protected override bool Delete(<#=entity#> r, Action<Action<<#=entity#>>> onCommit)
+			{
+<#			var subtypes = entityType.Subclasses().Where(a => a.GetNestedType("Service") != null && !a.IsAbstract).ToList(); #>
+<#			if (subtypes.Yes()) { #>
+				if (r == null) return false;
+
+				r = db.Unproxy(r);
+<#			} #>
+<#			foreach (var subtype in subtypes) #>
+<#			{ #>
+<#				var subentity = subtype.Name; #>
+<#				var vsubentity = subentity.ToLowerFirst(); #>
+				var <#=vsubentity#> = r as <#=subentity#>;
+				if (<#=vsubentity#> != null)
+					return db.<#=subentity#>.Delete(<#=vsubentity#>);
+
+<#			} #>
+				throw new NotImplementedException();
+			}
+
+			//[DebuggerStepThrough]
+			protected override <#=entity#> Save(<#=entity#> r, Action<Action<<#=entity#>>, Action<<#=entity#>>> onCommit)
+			{
+<#			subtypes = entityType.Subclasses().Where(a => a.GetNestedType("Service") != null && !a.IsAbstract).ToList(); #>
+<#			if (subtypes.Yes()) { #>
+				if (r == null) return null;
+
+				r = db.Unproxy(r);
+
+<#			} #>
+<#			foreach (var subtype in subtypes) #>
+<#			{ #>
+<#				var subentity = subtype.Name; #>
+<#				var vsubentity = subentity.ToLowerFirst(); #>
+				var <#=vsubentity#> = r as <#=subentity#>;
+				if (<#=vsubentity#> != null)
+					return db.<#=subentity#>.Save(<#=vsubentity#>);
+
+<#			} #>
+				throw new NotImplementedException();
+			}
+
+		}
+
+<#  } #>
+
+		#region Operators
+
+		[DebuggerStepThrough]
+		public static <#=entity#> operator |(<#=entity#> r1, <#=entity#> r2)
+		{
+			return r1 ?? r2;
+		}
+
+		#endregion
+<# var referenceProperty = entityType.GetProperties().FirstOrDefault(a => a.HasAttribute<EntityNameAttribute>()); #>
+<# if (referenceProperty != null) { #>
+
+
+<# if (entityType.BaseType != null && entityType.BaseType != typeof(object) && !entityType.BaseType.Name.StartsWith("Entity")) #>
+<# { #>
+		public new class Reference : <#=entityType.BaseType.Name#>.Reference
+<# } #>
+<# else #>
+<# { #>
+		public class Reference : EntityReference
+<# } #>
+		{
+
+			public Reference() { }
+
+			public Reference(string type, object id, string name) : base(type, id, name) { }
+
+			public Reference(<#=entity#> entity) : base(entity) { }
+
+			public Reference(<#=entity#> entity, string name) : base(entity, name) { }
+
+
+			public static implicit operator Reference(<#=entity#> entity)
+			{
+				return entity == null ? null : new Reference(entity);
+			}
+
+			[DebuggerStepThrough]
+			public static <#=entity#> operator +(Reference reference, Domain db)
+			{
+				return db.<#=entity#>.Load(reference);
+			}
+
+		}
+<# } #>
+
+	}
+
+<#
+	var assemblyTypes = typeof(Domain).Assembly.ExportedTypes.ToArray();
+
+	var type1 = entityType;
+	System.Type managerType1 = null;
+	do
+	{
+		managerType1 = assemblyTypes.By(a =>
+			a.IsSubclassOf(typeof(GenericManager)) && a.IsGenericTypeDefinition &&
+				a.Name.StartsWith(type1.Name + "Manager`2")
+			);
+		type1 = type1.BaseType;
+	} while (managerType1 == null && type1 != null && type1 != typeof(object));
+
+	var managerName = managerType1.As(a => a.Name.TrimEnd("`2"));
+
+#>
+	public partial class <#= entity #>Manager : <#= managerName #><<#= entity #>, <#= entity #>.<#= serviceType.Name #>> { }
+
+	#endregion
+
+<# } #>
+
+	#region Enums
+
+	partial class Domain
+	{
+<#  foreach (var enumType in typeof(Domain).Assembly.DefinedTypes.Where(a => 
+		a.IsEnum && a.Namespace == "Luxena.Travel.Domain"
+	).OrderBy(a => a.FullName)) #>
+<#  { #>
+<#		var enm = enumType.Name; #>
+
+		public static <#=enm#> operator +(<#=enm#> x, Domain y)
+		{
+			return x;
+		}
+		public static <#=enm#>? operator +(<#=enm#>? x, Domain y)
+		{
+			return x;
+		}
+<#  } #>
+
+	}
+
+	#endregion
+
+}

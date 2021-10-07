@@ -1,0 +1,229 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B68366D2-B3B5-40FD-84A0-81E9FECCA7C9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Luxena.Travel.Domain</RootNamespace>
+    <AssemblyName>Luxena.Travel.Domain</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Mono.Security, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <HintPath>..\packages\Npgsql.2.2.7\lib\net45\Mono.Security.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.4.2.3\lib\net45\NLog.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Npgsql, Version=2.2.7.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Npgsql.2.2.7\lib\net45\Npgsql.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Domain\AuthenticationToken.cs" />
+    <Compile Include="Domain\Domain.Security.cs" />
+    <Compile Include="Domain\Localization.cs" />
+    <Compile Include="Domain\Texts.cs" />
+    <Compile Include="Entities\Accounting\OrderTotalByDate.cs" />
+    <Compile Include="Entities\Accounting\TaxRate.cs" />
+    <Compile Include="Entities\Accounting\InvoiceNumberMode.cs" />
+    <Compile Include="Entities\Accounting\OpeningBalance.cs" />
+    <Compile Include="Entities\Accounting\OrderCheck.cs" />
+    <Compile Include="Entities\Accounting\InternalTransfer.cs" />
+    <Compile Include="Entities\Accounting\Invoice.cs" />
+    <Compile Include="Entities\Accounting\Invoice.Receipt.cs" />
+    <Compile Include="Entities\Accounting\InvoiceType.cs" />
+    <Compile Include="Entities\Accounting\Payment.CashInOrder.cs" />
+    <Compile Include="Entities\Accounting\Consignment.cs" />
+    <Compile Include="Entities\Accounting\IssuedConsignment.cs" />
+    <Compile Include="Entities\Accounting\Order..cs" />
+    <Compile Include="Entities\Accounting\OrderItem.cs" />
+    <Compile Include="Entities\Accounting\OrderItemLinkType.cs" />
+    <Compile Include="Entities\Accounting\Payment.CashOutOrder.cs" />
+    <Compile Include="Entities\Accounting\Payment.Check.cs" />
+    <Compile Include="Entities\Accounting\Payment..cs" />
+    <Compile Include="Entities\Accounting\Payment.WireTransfer.cs" />
+    <Compile Include="Entities\Accounting\PaymentForm.cs" />
+    <Compile Include="Entities\Accounting\ServiceFeeMode.cs" />
+    <Compile Include="Entities\Accounting\Order.Balance.cs" />
+    <Compile Include="Entities\Analysis\FlownReport.cs" />
+    <Compile Include="Entities\Analysis\ProductFilter.cs" />
+    <Compile Include="Entities\Analysis\EverydayProfitReport.cs" />
+    <Compile Include="Entities\Analysis\ProfitDistributionByCustomer.cs" />
+    <Compile Include="Entities\Analysis\ProfitDistributionByProvider.cs" />
+    <Compile Include="Entities\Analysis\ProductSummary.cs" />
+    <Compile Include="Domain\EF.Extensions.cs" />
+    <Compile Include="Domain\Patterns.cs" />
+    <Compile Include="Domain\SemanticCodeGenerator.cs" />
+    <Compile Include="Entities\Accounting\BankAccount.cs" />
+    <Compile Include="Entities\Accounting\Currency.cs" />
+    <Compile Include="Entities\Accounting\CurrencyDailyRate.cs" />
+    <Compile Include="Entities\Accounting\Money.cs" />
+    <Compile Include="Entities\Analysis\ProductTotal.cs" />
+    <Compile Include="Entities\Analysis\ProductTotalByBooker.cs" />
+    <Compile Include="Entities\Analysis\ProductTotalByDay.cs" />
+    <Compile Include="Entities\Analysis\ProductTotalByMonth.cs" />
+    <Compile Include="Entities\Analysis\ProductTotalByQuarter.cs" />
+    <Compile Include="Entities\Analysis\ProductTotalByOwner.cs" />
+    <Compile Include="Entities\Analysis\ProductTotalByProvider.cs" />
+    <Compile Include="Entities\Analysis\ProductTotalBySeller.cs" />
+    <Compile Include="Entities\Analysis\ProductTotalByType.cs" />
+    <Compile Include="Entities\Analysis\ProductTotalByYear.cs" />
+    <Compile Include="Entities\Analysis\ProfitDistributionTotal.cs" />
+    <Compile Include="Entities\App\Identity.cs" />
+    <Compile Include="Entities\App\InternalIdentity.cs" />
+    <Compile Include="Entities\App\Sequence.cs" />
+    <Compile Include="Entities\App\SystemConfiguration.cs" />
+    <Compile Include="Entities\App\User.cs" />
+    <Compile Include="Entities\Gds\GdsAgent.ApplyToUnassigned.cs" />
+    <Compile Include="Entities\Gds\GdsPassportStatus.cs" />
+    <Compile Include="Entities\Parties\Person.Employees.cs" />
+    <Compile Include="Entities\Parties\Party.Customer.cs" />
+    <Compile Include="Entities\Gds\GdsAgent..cs" />
+    <Compile Include="Entities\Parties\Agent.cs" />
+    <Compile Include="Entities\Parties\Organization.PasteboardProvider.cs" />
+    <Compile Include="Entities\Parties\Organization.TourProvider.cs" />
+    <Compile Include="Entities\Parties\Organization.TransferProvider.cs" />
+    <Compile Include="Entities\Parties\Organization.BusTicketProvider.cs" />
+    <Compile Include="Entities\Parties\Organization.CarRentalProvider.cs" />
+    <Compile Include="Entities\Parties\Organization.GenericProductProvider.cs" />
+    <Compile Include="Entities\Parties\Organization.AccommodationProvider.cs" />
+    <Compile Include="Entities\Parties\Organization.RoamingOperator.cs" />
+    <Compile Include="Entities\Parties\Organization.InsuranceCompany.cs" />
+    <Compile Include="Entities\Parties\Organization.Airline.cs" />
+    <Compile Include="Entities\Parties\AirlinePassportRequirement.cs" />
+    <Compile Include="Entities\Parties\AirlineServiceClass.cs" />
+    <Compile Include="Entities\Parties\Department.cs" />
+    <Compile Include="Entities\Parties\DocumentAccess.cs" />
+    <Compile Include="Entities\Parties\DocumentOwner.cs" />
+    <Compile Include="Entities\Parties\File.cs" />
+    <Compile Include="Entities\Parties\Gender.cs" />
+    <Compile Include="Entities\Parties\MilesCard.cs" />
+    <Compile Include="Entities\Parties\Organization..cs" />
+    <Compile Include="Entities\Parties\Party.cs" />
+    <Compile Include="Entities\Parties\Passport.cs" />
+    <Compile Include="Entities\Parties\Person..cs" />
+    <Compile Include="Entities\Products\Accommodation.cs" />
+    <Compile Include="Entities\Products\Avia\AviaDocument.cs" />
+    <Compile Include="Entities\Products\Avia\AviaMco.cs" />
+    <Compile Include="Entities\Products\Avia\AviaRefund.cs" />
+    <Compile Include="Entities\Products\Avia\AviaTicket.cs" />
+    <Compile Include="Entities\Products\Avia\AmadeusRizUsingMode.cs" />
+    <Compile Include="Entities\Products\Avia\AviaDocumentVatOptions.cs" />
+    <Compile Include="Entities\Products\Avia\ProductOrderItemGenerationOption.cs" />
+    <Compile Include="Entities\Products\Avia\FlightSegment.cs" />
+    <Compile Include="Entities\Products\BusDocument.cs" />
+    <Compile Include="Entities\Products\CarRental.cs" />
+    <Compile Include="Entities\Products\Excursion.cs" />
+    <Compile Include="Entities\Gds\GdsFile.cs" />
+    <Compile Include="Entities\Gds\GdsFileType.cs" />
+    <Compile Include="Entities\Gds\GdsOriginator.cs" />
+    <Compile Include="Entities\Products\Avia\FlightSegmentType.cs" />
+    <Compile Include="Entities\Products\GenericProduct.cs" />
+    <Compile Include="Entities\Gds\ImportResult.cs" />
+    <Compile Include="Entities\Products\InsuranceDocument.cs" />
+    <Compile Include="Entities\Products\Isic.cs" />
+    <Compile Include="Entities\Products\IsicCardType.cs" />
+    <Compile Include="Entities\Products\Avia\MealType.cs" />
+    <Compile Include="Entities\Products\ProductTotalByDate.cs" />
+    <Compile Include="Entities\Products\RailwayDocument.cs" />
+    <Compile Include="Entities\Products\PasteboardServiceClass.cs" />
+    <Compile Include="Entities\Products\PaymentType.cs" />
+    <Compile Include="Entities\Products\Product.cs" />
+    <Compile Include="Entities\Products\ProductOrigin.cs" />
+    <Compile Include="Entities\Products\ProductPassenger.cs" />
+    <Compile Include="Entities\Products\ProductType.cs" />
+    <Compile Include="Entities\Products\Avia\ServiceClass.cs" />
+    <Compile Include="Entities\Products\SimCard.cs" />
+    <Compile Include="Entities\Products\Tour.cs" />
+    <Compile Include="Entities\Products\Transfer.cs" />
+    <Compile Include="Entities\References\SimpleReferences.cs" />
+    <Compile Include="Entities\References\Airport.cs" />
+    <Compile Include="Entities\App\UserRole.cs" />
+    <Compile Include="Entities\References\Country.cs" />
+    <Compile Include="Domain\Domain.cs" />
+    <Compile Include="Entities\Sandbox.Entities.Bindings.cs" />
+    <Compile Include="Entities\Sandbox.Entities.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Domain\Entity.cs" />
+    <Compile Include="Domain\LuxenaTravelConvention.cs" />
+    <Compile Include="Entities\Entities.Extensions.cs">
+      <DependentUpon>Entities.Extensions.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Support\SystemExtentions.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Luxena.Libs.16\Luxena.Domain\_Luxena.Domain.csproj">
+      <Project>{623a60af-315b-421f-9d97-2164f7dbfbf5}</Project>
+      <Name>_Luxena.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Luxena.Libs.16\Luxena.Support\_Luxena.Support.csproj">
+      <Project>{376d2f32-6120-4ad3-9266-94b793f58532}</Project>
+      <Name>_Luxena.Support</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <Compile Include="Entities\Accounting\Payment.Electronic.cs" />
+    <None Include="Entities\Entities.Extensions.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Entities.Extensions.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

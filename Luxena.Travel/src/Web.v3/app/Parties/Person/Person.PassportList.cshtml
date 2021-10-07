@@ -1,0 +1,24 @@
+﻿@inherits EntityViewPage
+@{
+    Layout = "~/App/Layouts/FormGridLayout.cshtml";
+    Name = "personPassportList";
+
+    var v = new ViewDomain().Passport;
+    ui.ViewEntity = v;
+}
+
+@section Header
+{
+    <th>Номер</th>
+    <th></th>
+}
+@section Cells
+{
+    @ui.Grid.Cells(v.Number)
+    <td>
+        <dl class="dl-horizontal">
+            @ui.Form.Display(v.Name)
+            @ui.Form.Display(v.Note)
+        </dl>
+    </td>
+}

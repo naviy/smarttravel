@@ -1,0 +1,32 @@
+﻿@inherits EntityViewPage
+@{
+    Layout = "~/App/Layouts/GridLayout.cshtml";
+    Name = "personList";
+
+    var v = new ViewDomain().Person;
+    ui.ViewEntity = v;
+}
+
+@section Header
+{
+    <th sortable="@v.Name">@v.Name.title</th>
+    <th>@v.Contacts.title</th>
+    <th>@v.Organization / @v.ReportsTo.title</th>
+    <th>@v.Note.title</th>
+}
+@section Columns
+{
+    <col style="width: 30%" />
+    <col style="width: 20%" />
+    <col style="width: 15%" />
+    <col />
+}
+@section Cells
+{
+    @ui.Grid.Cells(v.Name)
+    <td>
+        <party-contact-list entities="r.@v.Contacts" watch="false" max-width="200px" />
+    </td>
+    <td>@ui.Grid.Block(v.Organization, "div")@ui.Grid.Block(v.ReportsTo, "div")</td>
+    @ui.Grid.Cells(v.Note)
+}

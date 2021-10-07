@@ -1,0 +1,21 @@
+﻿@inherits EntityViewPage
+@{
+    Layout = "~/App/Layouts/FormGridLayout.cshtml";
+    Name = "organizationEmployeeList";
+
+    var v = new ViewDomain().Person;
+    ui.ViewEntity = v;
+}
+
+@section Header
+{
+    <th>Сотрудник</th>
+    <th>Контакты</th>
+}
+@section Cells
+{
+    @ui.Grid.Cells(v.Name)
+    <td>
+        <party-contact-list entities="r.@v.Contacts" watch="false" max-width="200px" />
+    </td>
+}

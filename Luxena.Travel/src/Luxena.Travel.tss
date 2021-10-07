@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<ArrayOfArrayOfArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ArrayOfArrayOfString>
+    <ArrayOfString>
+      <string>D:\data\git\Luxena.Travel\src\Luxena.Domain\Contracts\Contracts.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>D:\data\git\Luxena.Travel\src\Luxena.Domain\Contracts\Contract.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>D:\data\git\Luxena.Travel\src\Core\Domain\Contracts.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>D:\data\git\Luxena.Travel\src\Luxena.Domain\Entities\DomainService.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>D:\data\git\Luxena.Travel\src\Luxena.Domain\Entities\Domain.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>D:\data\git\Luxena.Travel\src\Luxena.Domain\Entities\EntityService.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>D:\data\git\Luxena.Travel\src\Core\Domain\Domain.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>D:\data\git\Luxena.Travel\src\Core\Domain\EntityExtentions.cs</string>
+      <string>D:\data\git\Luxena.Travel\src\Core\Domain\EntityExtentions.tt</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>D:\data\git\Luxena.Travel\src\Core\Domain\Accounting\ConsignmentItems.Dto.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>D:\data\git\Luxena.Travel\src\Core\Domain\Accounting\IssuedConsignment.Dto.cs</string>
+    </ArrayOfString>
+  </ArrayOfArrayOfString>
+</ArrayOfArrayOfArrayOfString>

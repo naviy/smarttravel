@@ -1,0 +1,1195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sirena>
+  <answer pult="ГРФ365">
+    <describe data="country">
+      <data>
+        <code xml:lang="ru">РФ</code>
+        <code xml:lang="en">RU</code>
+        <name xml:lang="ru">РОССИЙСКАЯ ФЕДЕРАЦИЯ</name>
+        <name xml:lang="en">RUSSIAN FEDERATION</name>
+      </data>
+      <data>
+        <code xml:lang="ru">УА</code>
+        <code xml:lang="en">UA</code>
+        <name xml:lang="ru">УКРАИНА</name>
+        <name xml:lang="en">UKRAINE</name>
+      </data>
+      <data>
+        <code xml:lang="ru">БЛ</code>
+        <code xml:lang="en">BY</code>
+        <name xml:lang="ru">РЕСПУБЛИКА БЕЛАРУСЬ</name>
+        <name xml:lang="en">BELARUS</name>
+      </data>
+      <data>
+        <code xml:lang="ru">АЗ</code>
+        <code xml:lang="en">AZ</code>
+        <name xml:lang="ru">АЗЕРБАЙДЖАНСКАЯ РЕСПУБЛИК</name>
+        <name xml:lang="en">AZERBAIJAN</name>
+      </data>
+      <data>
+        <code xml:lang="ru">АМ</code>
+        <code xml:lang="en">AM</code>
+        <name xml:lang="ru">РЕСПУБЛИКА АРМЕНИЯ</name>
+        <name xml:lang="en">ARMENIAN REPUBLIC</name>
+      </data>
+      <data>
+        <code xml:lang="ru">КЗ</code>
+        <code xml:lang="en">KZ</code>
+        <name xml:lang="ru">РЕСПУБЛИКА КАЗАХСТАН</name>
+        <name xml:lang="en">KAZAKHSTAN REPUBLIC</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ТД</code>
+        <code xml:lang="en">TJ</code>
+        <name xml:lang="ru">РЕСПУБЛИКА ТАДЖИКИСТАН</name>
+        <name xml:lang="en">TAJIKISTAN REPUBLIC</name>
+      </data>
+      <data>
+        <code xml:lang="ru">УЗ</code>
+        <code xml:lang="en">UZ</code>
+        <name xml:lang="ru">РЕСПУБЛИКА УЗБЕКИСТАН</name>
+        <name xml:lang="en">UZBEKISTAN REPUBLIC</name>
+      </data>
+      <data>
+        <code xml:lang="ru">КГ</code>
+        <code xml:lang="en">KG</code>
+        <name xml:lang="ru">КЫРГЫЗСКАЯ РЕСПУБЛИКА</name>
+        <name xml:lang="en">KYRGYZSTAN</name>
+      </data>
+      <data>
+        <code xml:lang="ru">МД</code>
+        <code xml:lang="en">MD</code>
+        <name xml:lang="ru">РЕСПУБЛИКА МОЛДОВА</name>
+        <name xml:lang="en">MOLDAVIAN REPUBLIC</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ТМ</code>
+        <code xml:lang="en">TM</code>
+        <name xml:lang="ru">ТУРКМЕНИСТАН</name>
+        <name xml:lang="en">TURKMENISTAN</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЛТ</code>
+        <code xml:lang="en">LT</code>
+        <name xml:lang="ru">ЛИТВА</name>
+        <name xml:lang="en">LITHUANIA</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ГР</code>
+        <code xml:lang="en">GE</code>
+        <name xml:lang="ru">РЕСПУБЛИКА ГРУЗИЯ</name>
+        <name xml:lang="en">GEORGIA REPUBLIC</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЛВ</code>
+        <code xml:lang="en">LV</code>
+        <name xml:lang="ru">ЛАТВИЯ</name>
+        <name xml:lang="en">LATVIA</name>
+      </data>
+      <data>
+        <code xml:lang="ru">БГ</code>
+        <code xml:lang="en">BG</code>
+        <name xml:lang="ru">БОЛГАРИЯ</name>
+        <name xml:lang="en">BULCARIA REPUBLIC</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ДЕ</code>
+        <code xml:lang="en">DE</code>
+        <name xml:lang="ru">ГЕРМАНИЯ</name>
+        <name xml:lang="en">GERMANY REPUBLIC</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЕЕ</code>
+        <code xml:lang="en">EE</code>
+        <name xml:lang="ru">ЭСТОНИЯ</name>
+        <name xml:lang="en">ESTONIA</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ИН</code>
+        <code xml:lang="en">IN</code>
+        <name xml:lang="ru">ИНДИЯ</name>
+        <name xml:lang="en">INDIA</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ИЛ</code>
+        <code xml:lang="en">IL</code>
+        <name xml:lang="ru">ИЗРАИЛЬ</name>
+        <name xml:lang="en">ISRAEL</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ПК</code>
+        <code xml:lang="en">PK</code>
+        <name xml:lang="ru">ПАКИСТАН</name>
+        <name xml:lang="en">PAKISTAN</name>
+      </data>
+      <data>
+        <code xml:lang="ru">АЕ</code>
+        <code xml:lang="en">AE</code>
+        <name xml:lang="ru">ОБЪЕДИНЕННЫЕ АРАБСКИЕ ЭМИ</name>
+        <name xml:lang="en">UNITED ARAB EMIRATES</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЦН</code>
+        <code xml:lang="en">CN</code>
+        <name xml:lang="ru">КИТАЙ</name>
+        <name xml:lang="en">CHINA</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ТР</code>
+        <code xml:lang="en">TR</code>
+        <name xml:lang="ru">ТУРЦИЯ</name>
+        <name xml:lang="en">TURKEY</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ГБ</code>
+        <code xml:lang="en">GB</code>
+        <name xml:lang="ru">ВЕЛИКОБРИТАНИЯ</name>
+        <name xml:lang="en">UNITED KINGDOM</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЦЗ</code>
+        <code xml:lang="en">CZ</code>
+        <name xml:lang="ru">ЧЕШСКАЯ РЕСПУБЛИКА</name>
+        <name xml:lang="en">CZECH REPUBLIC</name>
+      </data>
+      <data>
+        <code xml:lang="ru">МГ</code>
+        <code xml:lang="en">MN</code>
+        <name xml:lang="ru">МОНГОЛИЯ</name>
+        <name xml:lang="en">MONGOLIA</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЕГ</code>
+        <code xml:lang="en">EG</code>
+        <name xml:lang="ru">ЕГИПЕТ</name>
+        <name xml:lang="en">EGYPT</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ГЦ</code>
+        <code xml:lang="en">GR</code>
+        <name xml:lang="ru">ГРЕЦИЯ</name>
+        <name xml:lang="en">GREECE</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ТХ</code>
+        <code xml:lang="en">TH</code>
+        <name xml:lang="ru">ТАИЛАНД</name>
+        <name xml:lang="en">THAILAND</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЙП</code>
+        <code xml:lang="en">JP</code>
+        <name xml:lang="ru">ЯПОНИЯ</name>
+        <name xml:lang="en">JAPAN</name>
+      </data>
+      <data>
+        <code xml:lang="ru">КП</code>
+        <code xml:lang="en">KP</code>
+        <name xml:lang="ru">КОРЕЯ  КНДР</name>
+        <name xml:lang="en">KOREA DEM PEOPLE REP OF</name>
+      </data>
+      <data>
+        <code xml:lang="ru">КО</code>
+        <code xml:lang="en">KR</code>
+        <name xml:lang="ru">КОРЕЙСКАЯ РЕСПУБЛИКА</name>
+        <name xml:lang="en">REPUBLIC OF KOREA</name>
+      </data>
+      <data>
+        <code xml:lang="ru">АФ</code>
+        <code xml:lang="en">AF</code>
+        <name xml:lang="ru">АФГАНИСТАН</name>
+        <name xml:lang="en">AFGANISTAN</name>
+      </data>
+      <data>
+        <code xml:lang="ru">АЛ</code>
+        <code xml:lang="en">AL</code>
+        <name xml:lang="ru">АЛБАНИЯ</name>
+        <name xml:lang="en">ALBANIA</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ДЗ</code>
+        <code xml:lang="en">DZ</code>
+        <name xml:lang="ru">АЛЖИР</name>
+        <name xml:lang="en">ALGERIA</name>
+      </data>
+      <data>
+        <code xml:lang="ru">АО</code>
+        <code xml:lang="en">AO</code>
+        <name xml:lang="ru">АНГОЛА</name>
+        <name xml:lang="en">ANGOLA</name>
+      </data>
+      <data>
+        <code xml:lang="ru">АР</code>
+        <code xml:lang="en">AR</code>
+        <name xml:lang="ru">АРГЕНТИНА</name>
+        <name xml:lang="en">ARGENTINA</name>
+      </data>
+      <data>
+        <code xml:lang="ru">АТ</code>
+        <code xml:lang="en">AT</code>
+        <name xml:lang="ru">АВСТРИЯ</name>
+        <name xml:lang="en">AUSTRIA</name>
+      </data>
+      <data>
+        <code xml:lang="ru">БХ</code>
+        <code xml:lang="en">BH</code>
+        <name xml:lang="ru">БАХРЕЙН</name>
+        <name xml:lang="en">BAHRAIN</name>
+      </data>
+      <data>
+        <code xml:lang="ru">БД</code>
+        <code xml:lang="en">BD</code>
+        <name xml:lang="ru">БАНГЛАДЕШ</name>
+        <name xml:lang="en">BANGLADESH</name>
+      </data>
+      <data>
+        <code xml:lang="ru">БЕ</code>
+        <code xml:lang="en">BE</code>
+        <name xml:lang="ru">БЕЛЬГИЯ</name>
+        <name xml:lang="en">BELGIUM</name>
+      </data>
+      <data>
+        <code xml:lang="ru">БЗ</code>
+        <code xml:lang="en">BZ</code>
+        <name xml:lang="ru">БЕЛИЗ</name>
+        <name xml:lang="en">BELIZE</name>
+      </data>
+      <data>
+        <code xml:lang="ru">СЯ</code>
+        <code xml:lang="en">SY</code>
+        <name xml:lang="ru">СИРИЯ</name>
+        <name xml:lang="en">SIRIA</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ХР</code>
+        <code xml:lang="en">HR</code>
+        <name xml:lang="ru">ХОРВАТИЯ</name>
+        <name xml:lang="en">CROATIA</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ФИ</code>
+        <code xml:lang="en">FI</code>
+        <name xml:lang="ru">ФИНЛЯНДИЯ</name>
+        <name xml:lang="en">FINLAND</name>
+      </data>
+      <data>
+        <code xml:lang="ru">МЫ</code>
+        <code xml:lang="en">MY</code>
+        <name xml:lang="ru">МАЛАЙЗИЯ</name>
+        <name xml:lang="en">MALAYSIA</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ОМ</code>
+        <code xml:lang="en">OM</code>
+        <name xml:lang="ru">ОМАН</name>
+        <name xml:lang="en">OMAN</name>
+      </data>
+      <data>
+        <code xml:lang="ru">СЕ</code>
+        <code xml:lang="en">SE</code>
+        <name xml:lang="ru">ШВЕЦИЯ</name>
+        <name xml:lang="en">SWEDEN</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ИТ</code>
+        <code xml:lang="en">IT</code>
+        <name xml:lang="ru">ИТАЛИЯ</name>
+        <name xml:lang="en">ITALY</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЕК</code>
+        <code xml:lang="en">ES</code>
+        <name xml:lang="ru">ИСПАНИЯ И КАНАРСКИЕ ОСТРО</name>
+        <name xml:lang="en">SPAIN AND CANARY ISLANDS</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ТУ</code>
+        <code xml:lang="en">TN</code>
+        <name xml:lang="ru">ТУНИС</name>
+        <name xml:lang="en">TUNISIA</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЮС</code>
+        <code xml:lang="en">US</code>
+        <name xml:lang="ru">СОЕДИНЕННЫЕ ШТАТЫ АМЕРИКИ</name>
+        <name xml:lang="en">USA</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ИЕ</code>
+        <code xml:lang="en">IE</code>
+        <name xml:lang="ru">ИРЛАНДИЯ</name>
+        <name xml:lang="en">IRELAND</name>
+      </data>
+      <data>
+        <code xml:lang="ru">НЛ</code>
+        <code xml:lang="en">NL</code>
+        <name xml:lang="ru">НИДЕРЛАНДЫ</name>
+        <name xml:lang="en">NETHERLANDS</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ПЛ</code>
+        <code xml:lang="en">PL</code>
+        <name xml:lang="ru">ПОЛЬША</name>
+        <name xml:lang="en">POLAND</name>
+      </data>
+      <data>
+        <code xml:lang="ru">БР</code>
+        <code xml:lang="en">BR</code>
+        <name xml:lang="ru">БРАЗИЛИЯ</name>
+        <name xml:lang="en">BRAZIL</name>
+      </data>
+      <data>
+        <code xml:lang="ru">АУ</code>
+        <code xml:lang="en">AU</code>
+        <name xml:lang="ru">АВСТРАЛИЯ</name>
+        <name xml:lang="en">AUSTRALIA</name>
+      </data>
+      <data>
+        <code xml:lang="ru">БС</code>
+        <code xml:lang="en">BS</code>
+        <name xml:lang="ru">БАГАМСКИЕ ОСТРОВА</name>
+        <name xml:lang="en">BAHAMAS</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ХУ</code>
+        <code xml:lang="en">HU</code>
+        <name xml:lang="ru">ВЕНГРИЯ</name>
+        <name xml:lang="en">HUNGARY</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЦА</code>
+        <code xml:lang="en">CA</code>
+        <name xml:lang="ru">КАНАДА</name>
+        <name xml:lang="en">CANADA</name>
+      </data>
+      <data>
+        <code xml:lang="ru">БМ</code>
+        <code xml:lang="en">BM</code>
+        <name xml:lang="ru">БЕРМУДСКИЕ ОСТРОВА</name>
+        <name xml:lang="en">BERMUDA</name>
+      </data>
+      <data>
+        <code xml:lang="ru">БО</code>
+        <code xml:lang="en">BO</code>
+        <name xml:lang="ru">БОЛИВИЯ</name>
+        <name xml:lang="en">BOLIVIA</name>
+      </data>
+      <data>
+        <code xml:lang="ru">БВ</code>
+        <code xml:lang="en">BW</code>
+        <name xml:lang="ru">БОТСВАНА</name>
+        <name xml:lang="en">BOTSWANA</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ИС</code>
+        <code xml:lang="en">IS</code>
+        <name xml:lang="ru">ИСЛАНДИЯ</name>
+        <name xml:lang="en">ICELAND</name>
+      </data>
+      <data>
+        <code xml:lang="ru">БН</code>
+        <code xml:lang="en">BN</code>
+        <name xml:lang="ru">БРУНЕЙ</name>
+        <name xml:lang="en">BRUNEI DARUSSALAM</name>
+      </data>
+      <data>
+        <code xml:lang="ru">БИ</code>
+        <code xml:lang="en">BI</code>
+        <name xml:lang="ru">БУРУНДИ</name>
+        <name xml:lang="en">BURUNDI</name>
+      </data>
+      <data>
+        <code xml:lang="ru">КХ</code>
+        <code xml:lang="en">KH</code>
+        <name xml:lang="ru">КАМБОДЖА</name>
+        <name xml:lang="en">CAMBODIA</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЦМ</code>
+        <code xml:lang="en">CM</code>
+        <name xml:lang="ru">КАМЕРУН</name>
+        <name xml:lang="en">CAMEROON</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЦЖ</code>
+        <code xml:lang="en">CV</code>
+        <name xml:lang="ru">КАПА ВЕРДЕ</name>
+        <name xml:lang="en">CAPE VERDE</name>
+      </data>
+      <data>
+        <code xml:lang="ru">КЫ</code>
+        <code xml:lang="en">KY</code>
+        <name xml:lang="ru">КАЙМАНСКИЕ ОСТРОВА</name>
+        <name xml:lang="en">CAYMAN ISLANDS</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЦЛ</code>
+        <code xml:lang="en">CL</code>
+        <name xml:lang="ru">ЧИЛИ</name>
+        <name xml:lang="en">CHILE</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЦО</code>
+        <code xml:lang="en">CO</code>
+        <name xml:lang="ru">КОЛУМБИЯ</name>
+        <name xml:lang="en">COLOMBIA</name>
+      </data>
+      <data>
+        <code xml:lang="ru">КМ</code>
+        <code xml:lang="en">KM</code>
+        <name xml:lang="ru">КОМОРСКИЕ ОСТРОВА</name>
+        <name xml:lang="en">COMOROS</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЦР</code>
+        <code xml:lang="en">CR</code>
+        <name xml:lang="ru">КОСТА-РИКА</name>
+        <name xml:lang="en">COSTA RICA</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЦЮ</code>
+        <code xml:lang="en">CU</code>
+        <name xml:lang="ru">КУБА</name>
+        <name xml:lang="en">CUBA</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ДК</code>
+        <code xml:lang="en">DK</code>
+        <name xml:lang="ru">ДАНИЯ</name>
+        <name xml:lang="en">DENMARK</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ДЙ</code>
+        <code xml:lang="en">DJ</code>
+        <name xml:lang="ru">ДЖИБУТИ</name>
+        <name xml:lang="en">DJIBOUTI REPUBLIC</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ДО</code>
+        <code xml:lang="en">DO</code>
+        <name xml:lang="ru">ДОМИНИКАНСКАЯ РЕСПУБЛИКА</name>
+        <name xml:lang="en">DOMINICAN REPUBLIC</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЕЦ</code>
+        <code xml:lang="en">EC</code>
+        <name xml:lang="ru">ЭКВАДОР</name>
+        <name xml:lang="en">ECUADOR</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ГШ</code>
+        <code xml:lang="en">GQ</code>
+        <name xml:lang="ru">ЭКВАТОРИАЛЬНАЯ ГВИНЕЯ</name>
+        <name xml:lang="en">EQUATORIAL GUINEA</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЕТ</code>
+        <code xml:lang="en">ET</code>
+        <name xml:lang="ru">ЭФИОПИЯ</name>
+        <name xml:lang="en">ETHIOPIA</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ФЙ</code>
+        <code xml:lang="en">FJ</code>
+        <name xml:lang="ru">ФИДЖИ</name>
+        <name xml:lang="en">FIJI</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ГМ</code>
+        <code xml:lang="en">GM</code>
+        <name xml:lang="ru">ГАМБИЯ</name>
+        <name xml:lang="en">GAMBIA</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ГХ</code>
+        <code xml:lang="en">GH</code>
+        <name xml:lang="ru">ГАНА</name>
+        <name xml:lang="en">GHANA</name>
+      </data>
+      <data>
+        <code xml:lang="ru">РО</code>
+        <code xml:lang="en">RO</code>
+        <name xml:lang="ru">РУМЫНИЯ</name>
+        <name xml:lang="en">ROMANIA</name>
+      </data>
+      <data>
+        <code xml:lang="ru">НО</code>
+        <code xml:lang="en">NO</code>
+        <name xml:lang="ru">НОРВЕГИЯ</name>
+        <name xml:lang="en">NORWAY</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЦХ</code>
+        <code xml:lang="en">CH</code>
+        <name xml:lang="ru">ШВЕЙЦАРИЯ</name>
+        <name xml:lang="en">SWITZERLAND</name>
+      </data>
+      <data>
+        <code xml:lang="ru">БА</code>
+        <code xml:lang="en">BA</code>
+        <name xml:lang="ru">БОСНИЯ И ГЕРЦЕГОВИНА</name>
+        <name xml:lang="en">BOSNIA AND HERCEGOVINA</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ИР</code>
+        <code xml:lang="en">IR</code>
+        <name xml:lang="ru">ИРАН</name>
+        <name xml:lang="en">IRAN</name>
+      </data>
+      <data>
+        <code xml:lang="ru">СИ</code>
+        <code xml:lang="en">SI</code>
+        <name xml:lang="ru">СЛОВЕНИЯ</name>
+        <name xml:lang="en">SLOVENIA</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ТЗ</code>
+        <code xml:lang="en">TZ</code>
+        <name xml:lang="ru">ТАНЗАНИЯ</name>
+        <name xml:lang="en">TANZANIA</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ХТ</code>
+        <code xml:lang="en">HT</code>
+        <name xml:lang="ru">ГАИТИ</name>
+        <name xml:lang="en">HAITI</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ХН</code>
+        <code xml:lang="en">HN</code>
+        <name xml:lang="ru">ГОНДУРАС</name>
+        <name xml:lang="en">HONDURAS</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ХК</code>
+        <code xml:lang="en">HK</code>
+        <name xml:lang="ru">ГОНКОНГ</name>
+        <name xml:lang="en">HONG KONG</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ИД</code>
+        <code xml:lang="en">ID</code>
+        <name xml:lang="ru">ИНДОНЕЗИЯ</name>
+        <name xml:lang="en">INDONESIA</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ИШ</code>
+        <code xml:lang="en">IQ</code>
+        <name xml:lang="ru">ИРАК</name>
+        <name xml:lang="en">IRAQ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ГТ</code>
+        <code xml:lang="en">GT</code>
+        <name xml:lang="ru">ГВАТЕМАЛА</name>
+        <name xml:lang="en">GUATEMALA</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ГВ</code>
+        <code xml:lang="en">GW</code>
+        <name xml:lang="ru">ГВИНЕЯ-БИССАУ</name>
+        <name xml:lang="en">GUINEA BISSAU</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЖН</code>
+        <code xml:lang="en">VN</code>
+        <name xml:lang="ru">ВЬЕТНАМ</name>
+        <name xml:lang="en">VIET NAM</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЙМ</code>
+        <code xml:lang="en">JM</code>
+        <name xml:lang="ru">ЯМАЙКА</name>
+        <name xml:lang="en">JAMAICA</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЙО</code>
+        <code xml:lang="en">JO</code>
+        <name xml:lang="ru">ИОРДАНИЯ</name>
+        <name xml:lang="en">JORDAN</name>
+      </data>
+      <data>
+        <code xml:lang="ru">КЕ</code>
+        <code xml:lang="en">KE</code>
+        <name xml:lang="ru">КЕНИЯ</name>
+        <name xml:lang="en">KENYA</name>
+      </data>
+      <data>
+        <code xml:lang="ru">КВ</code>
+        <code xml:lang="en">KW</code>
+        <name xml:lang="ru">КУВЕЙТ</name>
+        <name xml:lang="en">KUWAIT</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЛА</code>
+        <code xml:lang="en">LA</code>
+        <name xml:lang="ru">ЛАОС  ЛНДР</name>
+        <name xml:lang="en">LAOS</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЛБ</code>
+        <code xml:lang="en">LB</code>
+        <name xml:lang="ru">ЛИВАН</name>
+        <name xml:lang="en">LEBANON</name>
+      </data>
+      <data>
+        <code xml:lang="ru">НЗ</code>
+        <code xml:lang="en">NZ</code>
+        <name xml:lang="ru">НОВАЯ ЗЕЛАНДИЯ</name>
+        <name xml:lang="en">NEW ZEALAND</name>
+      </data>
+      <data>
+        <code xml:lang="ru">СГ</code>
+        <code xml:lang="en">SG</code>
+        <name xml:lang="ru">СИНГАПУР</name>
+        <name xml:lang="en">SINGAPORE</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЛК</code>
+        <code xml:lang="en">LK</code>
+        <name xml:lang="ru">ШРИЛАНКА</name>
+        <name xml:lang="en">SRI LANKA</name>
+      </data>
+      <data>
+        <code xml:lang="ru">СЖ</code>
+        <code xml:lang="en">SV</code>
+        <name xml:lang="ru">САЛЬВАДОР</name>
+        <name xml:lang="en">EL SALVADOR</name>
+      </data>
+      <data>
+        <code xml:lang="ru">СЧ</code>
+        <code xml:lang="en">SK</code>
+        <name xml:lang="ru">СЛОВАКИЯ</name>
+        <name xml:lang="en">SLOVAKIA</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ТВ</code>
+        <code xml:lang="en">TW</code>
+        <name xml:lang="ru">ТАЙВАНЬ</name>
+        <name xml:lang="en">TAIWAN</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ФР</code>
+        <code xml:lang="en">FR</code>
+        <name xml:lang="ru">ФРАНЦИЯ</name>
+        <name xml:lang="en">FRANCE</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЦЫ</code>
+        <code xml:lang="en">CY</code>
+        <name xml:lang="ru">КИПР</name>
+        <name xml:lang="en">CYPRUS</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЗА</code>
+        <code xml:lang="en">ZA</code>
+        <name xml:lang="ru">ЮЖНО-АФРИКАНСКАЯ РЕСПУБЛИ</name>
+        <name xml:lang="en">SOUTH AFRICA</name>
+      </data>
+      <data>
+        <code xml:lang="ru">СЦ</code>
+        <code xml:lang="en">SC</code>
+        <name xml:lang="ru">СЕЙШЕЛЬСКИЕ ОСТРОВА</name>
+        <name xml:lang="en">SEYCHELLES</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ША</code>
+        <code xml:lang="en">QA</code>
+        <name xml:lang="ru">КАТАР</name>
+        <name xml:lang="en">QATAR</name>
+      </data>
+      <data>
+        <code xml:lang="ru">МЖ</code>
+        <code xml:lang="en">MV</code>
+        <name xml:lang="ru">МАЛЬДИВСКАЯ РЕСПУБЛИКА</name>
+        <name xml:lang="en">MALDIVES</name>
+      </data>
+      <data>
+        <code xml:lang="ru">СП</code>
+        <code xml:lang="en">SA</code>
+        <name xml:lang="ru">САУДОВСКАЯ АРАВИЯ</name>
+        <name xml:lang="en">SAUDI ARABIA</name>
+      </data>
+      <data>
+        <code xml:lang="ru">СД</code>
+        <code xml:lang="en">SD</code>
+        <name xml:lang="ru">СУДАН</name>
+        <name xml:lang="en">SUDAN</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЫЕ</code>
+        <code xml:lang="en">YE</code>
+        <name xml:lang="ru">ЙЕМЕН</name>
+        <name xml:lang="en">YEMEN</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ФХ</code>
+        <code xml:lang="en">PH</code>
+        <name xml:lang="ru">ФИЛИППИНЫ</name>
+        <name xml:lang="en">PHILIPINES</name>
+      </data>
+      <data>
+        <code xml:lang="ru">МА</code>
+        <code xml:lang="en">MA</code>
+        <name xml:lang="ru">МАРОККО</name>
+        <name xml:lang="en">MOROCCO</name>
+      </data>
+      <data>
+        <code xml:lang="ru">НП</code>
+        <code xml:lang="en">NP</code>
+        <name xml:lang="ru">НЕПАЛ</name>
+        <name xml:lang="en">NEPAL</name>
+      </data>
+      <data>
+        <code xml:lang="ru">НГ</code>
+        <code xml:lang="en">NG</code>
+        <name xml:lang="ru">НИГЕРИЯ</name>
+        <name xml:lang="en">NIGERIA</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ПТ</code>
+        <code xml:lang="en">PT</code>
+        <name xml:lang="ru">ПОРТУГАЛИЯ</name>
+        <name xml:lang="en">PORTUGAL</name>
+      </data>
+      <data>
+        <code xml:lang="ru">МК</code>
+        <code xml:lang="en">MK</code>
+        <name xml:lang="ru">МАКЕДОНИЯ</name>
+        <name xml:lang="en">MACEDONIA</name>
+      </data>
+      <data>
+        <code xml:lang="ru">СЭ</code>
+        <code xml:lang="en">SN</code>
+        <name xml:lang="ru">СЕНЕГАЛ</name>
+        <name xml:lang="en">SENEGAL</name>
+      </data>
+      <data>
+        <code xml:lang="ru">МТ</code>
+        <code xml:lang="en">MT</code>
+        <name xml:lang="ru">МАЛЬТА</name>
+        <name xml:lang="en">MALTA</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЖЕ</code>
+        <code xml:lang="en">VE</code>
+        <name xml:lang="ru">ВЕНЕСУЭЛА</name>
+        <name xml:lang="en">VENEZUELA</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЦД</code>
+        <code xml:lang="en">CD</code>
+        <name xml:lang="ru">ДЕМОКРАТИЧЕСКАЯ РЕСПУБЛИК</name>
+        <name xml:lang="en">DEMOCRATIC REP OF CONGO</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ПФ</code>
+        <code xml:lang="en">PF</code>
+        <name xml:lang="ru">ФРАНЦУЗСКАЯ ПОЛИНЕЗИЯ</name>
+        <name xml:lang="en">FRENCH POLYNESIA</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЛУ</code>
+        <code xml:lang="en">LU</code>
+        <name xml:lang="ru">ЛЮКСЕМБУРГ</name>
+        <name xml:lang="en">LUXEMBOURG</name>
+      </data>
+      <data>
+        <code xml:lang="ru">МХ</code>
+        <code xml:lang="en">MX</code>
+        <name xml:lang="ru">МЕКСИКА</name>
+        <name xml:lang="en">MEXICO</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЗВ</code>
+        <code xml:lang="en">ZW</code>
+        <name xml:lang="ru">ЗИМБАБВЕ</name>
+        <name xml:lang="en">ZIMBABWE</name>
+      </data>
+      <data>
+        <code xml:lang="ru">НА</code>
+        <code xml:lang="en">NA</code>
+        <name xml:lang="ru">НАМИБИЯ</name>
+        <name xml:lang="en">NAMIBIA</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЛЫ</code>
+        <code xml:lang="en">LY</code>
+        <name xml:lang="ru">ЛИВИЯ</name>
+        <name xml:lang="en">LIBYA ARAB JAMAHIRIYA</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЛР</code>
+        <code xml:lang="en">LR</code>
+        <name xml:lang="ru">ЛИБЕРИЯ</name>
+        <name xml:lang="en">LIBERIA</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЦИ</code>
+        <code xml:lang="en">CI</code>
+        <name xml:lang="ru">КОТ ДИВУАР</name>
+        <name xml:lang="en">COTE D IVOIRE</name>
+      </data>
+      <data>
+        <code xml:lang="ru">УЫ</code>
+        <code xml:lang="en">UY</code>
+        <name xml:lang="ru">УРУГВАЙ</name>
+        <name xml:lang="en">URUGUAY</name>
+      </data>
+      <data>
+        <code xml:lang="ru">МУ</code>
+        <code xml:lang="en">MU</code>
+        <name xml:lang="ru">МАВРИКИЙ</name>
+        <name xml:lang="en">MAURITIUS</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ПА</code>
+        <code xml:lang="en">PA</code>
+        <name xml:lang="ru">ПАНАМА</name>
+        <name xml:lang="en">PANAMA</name>
+      </data>
+      <data>
+        <code xml:lang="ru">АГ</code>
+        <code xml:lang="en">AG</code>
+        <name xml:lang="ru">АНТИГУА И БАРБУДА</name>
+        <name xml:lang="en">ANTIGUA AND BARBUDA</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЦГ</code>
+        <code xml:lang="en">CG</code>
+        <name xml:lang="ru">КОНГО</name>
+        <name xml:lang="en">CONGO</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЦК</code>
+        <code xml:lang="en">CK</code>
+        <name xml:lang="ru">ОСТРОВА КУКА</name>
+        <name xml:lang="en">COOK ISLANDS</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЕР</code>
+        <code xml:lang="en">ER</code>
+        <name xml:lang="ru">ЭРИТРЕЯ</name>
+        <name xml:lang="en">ERITREA</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ГФ</code>
+        <code xml:lang="en">GF</code>
+        <name xml:lang="ru">ФРАНЦУЗСКАЯ ГВИАНА</name>
+        <name xml:lang="en">FRENCH GUIANA</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ГА</code>
+        <code xml:lang="en">GA</code>
+        <name xml:lang="ru">ГАБОН</name>
+        <name xml:lang="en">GABON</name>
+      </data>
+      <data>
+        <code xml:lang="ru">AI</code>
+        <code xml:lang="en">AI</code>
+        <name xml:lang="ru">ANGUILLA</name>
+        <name xml:lang="en">ANGUILLA</name>
+      </data>
+      <data>
+        <code xml:lang="ru">АВ</code>
+        <code xml:lang="en">AW</code>
+        <name xml:lang="ru">АРУБА</name>
+        <name xml:lang="en">ARUBA</name>
+      </data>
+      <data>
+        <code xml:lang="ru">БЙ</code>
+        <code xml:lang="en">BJ</code>
+        <name xml:lang="ru">БЕНИН</name>
+        <name xml:lang="en">BENIN</name>
+      </data>
+      <data>
+        <code xml:lang="ru">БФ</code>
+        <code xml:lang="en">BF</code>
+        <name xml:lang="ru">БУРКИНА ФАСО</name>
+        <name xml:lang="en">BURKINA FASO</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЦФ</code>
+        <code xml:lang="en">CF</code>
+        <name xml:lang="ru">ЦЕНТРАЛЬНО-АФРИКАНСКАЯ РЕ</name>
+        <name xml:lang="en">CENTRAL AFRICAN REPUBLIC</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ТЯ</code>
+        <code xml:lang="en">TD</code>
+        <name xml:lang="ru">ЧАД</name>
+        <name xml:lang="en">CHAD</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ГП</code>
+        <code xml:lang="en">GP</code>
+        <name xml:lang="ru">ГВАДЕЛУПА</name>
+        <name xml:lang="en">GUADELOUPE</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ГУ</code>
+        <code xml:lang="en">GU</code>
+        <name xml:lang="ru">ГУАМ</name>
+        <name xml:lang="en">GUAM</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ГН</code>
+        <code xml:lang="en">GN</code>
+        <name xml:lang="ru">ГВИНЕЯ</name>
+        <name xml:lang="en">GUINEA REPUBLIC</name>
+      </data>
+      <data>
+        <code xml:lang="ru">КИ</code>
+        <code xml:lang="en">KI</code>
+        <name xml:lang="ru">КИРИБАТИ</name>
+        <name xml:lang="en">KIRIBATI</name>
+      </data>
+      <data>
+        <code xml:lang="ru">МО</code>
+        <code xml:lang="en">MO</code>
+        <name xml:lang="ru">АОМЫНЬ  МАКАО</name>
+        <name xml:lang="en">MACAO</name>
+      </data>
+      <data>
+        <code xml:lang="ru">МЭ</code>
+        <code xml:lang="en">MG</code>
+        <name xml:lang="ru">МАДАГАСКАР</name>
+        <name xml:lang="en">MADAGASCAR</name>
+      </data>
+      <data>
+        <code xml:lang="ru">МВ</code>
+        <code xml:lang="en">MW</code>
+        <name xml:lang="ru">МАЛАВИ</name>
+        <name xml:lang="en">MALAWI</name>
+      </data>
+      <data>
+        <code xml:lang="ru">МЛ</code>
+        <code xml:lang="en">ML</code>
+        <name xml:lang="ru">МАЛИ</name>
+        <name xml:lang="en">MALI</name>
+      </data>
+      <data>
+        <code xml:lang="ru">МШ</code>
+        <code xml:lang="en">MH</code>
+        <name xml:lang="ru">МАРШАЛЛОВЫ ОСТРОВА</name>
+        <name xml:lang="en">MARSHALL ISLANDS</name>
+      </data>
+      <data>
+        <code xml:lang="ru">МЮ</code>
+        <code xml:lang="en">MQ</code>
+        <name xml:lang="ru">МАРТИНИКА</name>
+        <name xml:lang="en">MARTINIQUE</name>
+      </data>
+      <data>
+        <code xml:lang="ru">МЯ</code>
+        <code xml:lang="en">MR</code>
+        <name xml:lang="ru">МАВРИТАНИЯ</name>
+        <name xml:lang="en">MAURITANIA</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЫТ</code>
+        <code xml:lang="en">YT</code>
+        <name xml:lang="ru">МАЙОТТА</name>
+        <name xml:lang="en">MAYOTTE</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ФМ</code>
+        <code xml:lang="en">FM</code>
+        <name xml:lang="ru">МИКРОНЕЗИЯ</name>
+        <name xml:lang="en">MICRONESIA</name>
+      </data>
+      <data>
+        <code xml:lang="ru">МЗ</code>
+        <code xml:lang="en">MZ</code>
+        <name xml:lang="ru">МОЗАМБИК</name>
+        <name xml:lang="en">MOZAMBIQUE</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ММ</code>
+        <code xml:lang="en">MM</code>
+        <name xml:lang="ru">МЬЯНМА  БИРМА</name>
+        <name xml:lang="en">MYANMAR</name>
+      </data>
+      <data>
+        <code xml:lang="ru">НЦ</code>
+        <code xml:lang="en">NC</code>
+        <name xml:lang="ru">НОВАЯ КАЛЕДОНИЯ</name>
+        <name xml:lang="en">NEW CALEDONIA</name>
+      </data>
+      <data>
+        <code xml:lang="ru">НИ</code>
+        <code xml:lang="en">NI</code>
+        <name xml:lang="ru">НИКАРАГУА</name>
+        <name xml:lang="en">NICARAGUA</name>
+      </data>
+      <data>
+        <code xml:lang="ru">НЕ</code>
+        <code xml:lang="en">NE</code>
+        <name xml:lang="ru">НИГЕР</name>
+        <name xml:lang="en">NIGER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">МП</code>
+        <code xml:lang="en">MP</code>
+        <name xml:lang="ru">СЕВЕРНЫЕ МАРИАНСКИЕ ОСТРО</name>
+        <name xml:lang="en">NORTHERN MARIANA ISLANDS</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ПВ</code>
+        <code xml:lang="en">PW</code>
+        <name xml:lang="ru">ПАЛАУ</name>
+        <name xml:lang="en">PALAU</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ПЫ</code>
+        <code xml:lang="en">PY</code>
+        <name xml:lang="ru">ПАРАГВАЙ</name>
+        <name xml:lang="en">PARAGUAY</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ПЕ</code>
+        <code xml:lang="en">PE</code>
+        <name xml:lang="ru">ПЕРУ</name>
+        <name xml:lang="en">PERU</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ПР</code>
+        <code xml:lang="en">PR</code>
+        <name xml:lang="ru">ПУЭРТО-РИКО</name>
+        <name xml:lang="en">PUERTO RICO</name>
+      </data>
+      <data>
+        <code xml:lang="ru">РЬ</code>
+        <code xml:lang="en">RE</code>
+        <name xml:lang="ru">ОСТРОВ РЕЮНЬОН</name>
+        <name xml:lang="en">REUNION</name>
+      </data>
+      <data>
+        <code xml:lang="ru">РВ</code>
+        <code xml:lang="en">RW</code>
+        <name xml:lang="ru">РУАНДА</name>
+        <name xml:lang="en">RWANDA</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ВС</code>
+        <code xml:lang="en">WS</code>
+        <name xml:lang="ru">САМОА</name>
+        <name xml:lang="en">SAMOA</name>
+      </data>
+      <data>
+        <code xml:lang="ru">СТ</code>
+        <code xml:lang="en">ST</code>
+        <name xml:lang="ru">САН-ТОМЕ И ПРИНСИПИ</name>
+        <name xml:lang="en">SAO TOME AND PRINCIPE</name>
+      </data>
+      <data>
+        <code xml:lang="ru">СЛ</code>
+        <code xml:lang="en">SL</code>
+        <name xml:lang="ru">СЬЕРРА ЛЕОНЕ</name>
+        <name xml:lang="en">SIERRA LEONE</name>
+      </data>
+      <data>
+        <code xml:lang="ru">СБ</code>
+        <code xml:lang="en">SB</code>
+        <name xml:lang="ru">СОЛОМОНОВЫ ОСТРОВА</name>
+        <name xml:lang="en">SOLOMON ISLANDS</name>
+      </data>
+      <data>
+        <code xml:lang="ru">СР</code>
+        <code xml:lang="en">SR</code>
+        <name xml:lang="ru">СУРИНАМ</name>
+        <name xml:lang="en">SURINAME</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ТГ</code>
+        <code xml:lang="en">TG</code>
+        <name xml:lang="ru">ТОГО</name>
+        <name xml:lang="en">TOGO</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ТО</code>
+        <code xml:lang="en">TO</code>
+        <name xml:lang="ru">ТОНГА</name>
+        <name xml:lang="en">TONGA</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ТТ</code>
+        <code xml:lang="en">TT</code>
+        <name xml:lang="ru">ТРИНИДАД И ТОБАГО</name>
+        <name xml:lang="en">TRINIDAD AND TOBAGO</name>
+      </data>
+      <data>
+        <code xml:lang="ru">TC</code>
+        <code xml:lang="en">TC</code>
+        <name xml:lang="ru">TURKS AND CAICOS ISLANDS</name>
+        <name xml:lang="en">TURKS AND CAICOS ISLANDS</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ТЖ</code>
+        <code xml:lang="en">TV</code>
+        <name xml:lang="ru">ТУВАЛУ</name>
+        <name xml:lang="en">TUVALU</name>
+      </data>
+      <data>
+        <code xml:lang="ru">УГ</code>
+        <code xml:lang="en">UG</code>
+        <name xml:lang="ru">УГАНДА</name>
+        <name xml:lang="en">UGANDA</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЖУ</code>
+        <code xml:lang="en">VU</code>
+        <name xml:lang="ru">ВАНУА-ВАТУ</name>
+        <name xml:lang="en">VANUATU</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЖГ</code>
+        <code xml:lang="en">VG</code>
+        <name xml:lang="ru">ВИРГИНСКИЕ ОСТРОВА БРИТ</name>
+        <name xml:lang="en">VIRGIN ISLANDS BRITISH</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЖИ</code>
+        <code xml:lang="en">VI</code>
+        <name xml:lang="ru">ВИРГИНСКИЕ ОСТРОВА США</name>
+        <name xml:lang="en">VIRGIN ISLANDS US</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЗМ</code>
+        <code xml:lang="en">ZM</code>
+        <name xml:lang="ru">ЗАМБИЯ</name>
+        <name xml:lang="en">ZAMBIA</name>
+      </data>
+      <data>
+        <code xml:lang="ru">РС</code>
+        <code xml:lang="en">RS</code>
+        <name xml:lang="ru">СЕРБИЯ</name>
+        <name xml:lang="en">SERBIA</name>
+      </data>
+      <data>
+        <code xml:lang="ru">МЕ</code>
+        <code xml:lang="en">ME</code>
+        <name xml:lang="ru">ЧЕРНОГОРИЯ</name>
+        <name xml:lang="en">MONTENEGRO</name>
+      </data>
+      <data>
+        <code xml:lang="ru">BQ</code>
+        <code xml:lang="en">BQ</code>
+        <name xml:lang="ru">BONAIRE ST EUST SABA EFF</name>
+        <name xml:lang="en">BONAIRE ST EUST SABA EFF</name>
+      </data>
+      <data>
+        <code xml:lang="ru">CW</code>
+        <code xml:lang="en">CW</code>
+        <name xml:lang="ru">CURACAO</name>
+        <name xml:lang="en">CURACAO</name>
+      </data>
+      <data>
+        <code xml:lang="ru">SX</code>
+        <code xml:lang="en">SX</code>
+        <name xml:lang="ru">SINT MAARTEN EFF</name>
+        <name xml:lang="en">SINT MAARTEN EFF</name>
+      </data>
+    </describe>
+  </answer>
+</sirena>

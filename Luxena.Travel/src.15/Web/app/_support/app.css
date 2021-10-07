@@ -1,0 +1,118 @@
+﻿.bgred {
+	background: #ffcccc !important;
+}
+
+.bggreen {
+	background: #ccffcc !important;
+}
+
+.bgblue {
+	background: #ccccff !important;
+}
+
+.bggray {
+	background: gray !important;
+}
+
+.bgsilver {
+	background: silver !important;
+}
+
+.fill {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+.padding-top20 {
+	position: absolute;
+	top: 20px;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+
+.padding-top40 {
+	position: absolute;
+	top: 40px;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+
+
+/*.col-left {
+	float: left;
+	width: 45%;
+	border: 1px solid #ffcccc;
+}
+
+.col-right {
+	width: 45%;
+	border: 1px solid #ffcccc;
+}*/
+
+.pre {
+	white-space: pre;
+}
+
+.bold {
+	font-weight: bold;
+}
+
+.span-20 {
+	display: inline-block;
+	width: 20px;
+}
+.span-30 {
+	display: inline-block;
+	width: 30px;
+}
+.span-40 {
+	display: inline-block;
+	width: 40px;
+}
+.span-50 {
+	display: inline-block;
+	width: 50px;
+}
+.span-60 {
+	display: inline-block;
+	width: 60px;
+}
+.span-70 {
+	display: inline-block;
+	width: 70px;
+}
+.span-80 {
+	display: inline-block;
+	width: 80px;
+}
+.span-90 {
+	display: inline-block;
+	width: 90px;
+}
+.span-100 {
+	display: inline-block;
+	width: 100px;
+}
+.span-110 {
+	display: inline-block;
+	width: 110px;
+}
+.span-120 {
+	display: inline-block;
+	width: 120px;
+}
+.span-130 {
+	display: inline-block;
+	width: 130px;
+}
+.span-140 {
+	display: inline-block;
+	width: 140px;
+}
+.span-150 {
+	display: inline-block;
+	width: 150px;
+}

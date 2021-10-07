@@ -1,0 +1,1231 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E27BE899-79F5-46A8-99AB-C5F8EFDCB50E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Luxena.Travel</RootNamespace>
+    <AssemblyName>Luxena.Travel</AssemblyName>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Castle.Windsor">
+      <HintPath>..\..\lib\Castle.Windsor.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging, Version=2.3.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Common.Logging.2.3.1\lib\net40\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="DelegateDecompiler, Version=0.11.1.0, Culture=neutral, PublicKeyToken=93b26a10a04705bd, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\DelegateDecompiler.0.11.1.0\lib\net40-Client\DelegateDecompiler.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetDBF, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\DotNetDBF.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.85.5.452, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections">
+      <HintPath>..\packages\Iesi.Collections.3.2.0.4000\lib\Net35\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Core, Version=0.40.0.1, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\IKVM.OpenJDK.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Util">
+      <HintPath>..\..\lib\IKVM.OpenJDK.Util.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.Runtime, Version=0.40.0.1, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\IKVM.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=4.1.2.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AnalysisServices.AdomdClient, Version=10.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Microsoft.AnalysisServices.AdomdClient.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Reflection">
+      <HintPath>..\packages\Mono.Reflection.1.0.0.0\lib\Mono.Reflection.dll</HintPath>
+    </Reference>
+    <Reference Include="NGS.Templater, Version=2.1.5.13808, Culture=neutral, PublicKeyToken=b9c117a1d2974457, processorArchitecture=MSIL">
+      <HintPath>..\packages\Templater.2.1.5\lib\Net40\NGS.Templater.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NHibernate">
+      <HintPath>..\packages\NHibernate.3.3.3.4001\lib\Net35\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI">
+      <HintPath>..\..\lib\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="poi-3.5-FINAL-20090928, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\poi-3.5-FINAL-20090928.dll</HintPath>
+    </Reference>
+    <Reference Include="Renci.SshNet, Version=2016.0.0.0, Culture=neutral, PublicKeyToken=1cee9f8bde3db106, processorArchitecture=MSIL">
+      <HintPath>..\packages\SSH.NET.2016.0.0-beta2\lib\net40\Renci.SshNet.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\CommonAssemblyInfo.cs">
+      <Link>Properties\CommonAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="Calculated.cs" />
+    <Compile Include="Domain\Accounting\BankAccount.Dto.cs">
+      <DependentUpon>BankAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Accounting\CashInOrderPayment.Dto.cs">
+      <DependentUpon>CashInOrderPayment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Accounting\CashOutOrderPayment.Dto.cs">
+      <DependentUpon>CashOutOrderPayment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Accounting\CheckPayment.Dto.cs">
+      <DependentUpon>CheckPayment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Accounting\ClosedPeriod.Service.cs">
+      <DependentUpon>ClosedPeriod.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Accounting\Consignment.Service.cs">
+      <DependentUpon>Consignment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Accounting\CashOutOrderPayment.cs" />
+    <Compile Include="Domain\Accounting\BankAccount.cs" />
+    <Compile Include="Domain\Accounting\Contract.cs" />
+    <Compile Include="Domain\Accounting\Contract.Dto.cs">
+      <DependentUpon>Contract.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Accounting\Contract.Map.cs">
+      <DependentUpon>Contract.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Accounting\Currency.Dto.cs">
+      <DependentUpon>Currency.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Accounting\CurrencyDailyRate.cs" />
+    <Compile Include="Domain\Accounting\CurrencyDailyRate.Dto.cs">
+      <DependentUpon>CurrencyDailyRate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Accounting\CurrencyDailyRate.Map.cs">
+      <DependentUpon>CurrencyDailyRate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Accounting\ElectronicPayment.Dto.cs">
+      <DependentUpon>ElectronicPayment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Accounting\InternalTransfer.Dto.cs">
+      <DependentUpon>InternalTransfer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Accounting\InternalTransfer.Service.cs">
+      <DependentUpon>InternalTransfer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Accounting\Invoice.Service.cs">
+      <DependentUpon>Invoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Accounting\IssuedConsignment.Service.cs">
+      <DependentUpon>IssuedConsignment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Accounting\Order.Service.cs">
+      <DependentUpon>Order.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Accounting\OrderItem.Service.cs">
+      <DependentUpon>OrderItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Accounting\OrderItemLinkType.cs">
+      <DependentUpon>OrderItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Accounting\Payment.Service.cs">
+      <DependentUpon>Payment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Accounting\CashOutOrderPayment.Map.cs">
+      <DependentUpon>CashOutOrderPayment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Accounting\BankAccount.Map.cs">
+      <DependentUpon>BankAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Accounting\PaymentSystem.Dto.cs">
+      <DependentUpon>PaymentSystem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Accounting\Receipt.cs" />
+    <Compile Include="Domain\Accounting\WireTransfer.Dto.cs">
+      <DependentUpon>WireTransfer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\App\App.Service.cs" />
+    <Compile Include="Domain\App\Modification.cs" />
+    <Compile Include="Domain\App\Modification.Dto.cs">
+      <DependentUpon>Modification.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\App\GlobalSearchEntity.cs" />
+    <Compile Include="Domain\App\Modification.Map.cs">
+      <DependentUpon>Modification.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\App\ModificationInterceptor.cs" />
+    <Compile Include="Domain\App\ModificationType.cs" />
+    <Compile Include="Domain\App\UserVisit.cs" />
+    <Compile Include="Domain\App\User.Dto.cs">
+      <DependentUpon>User.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\App\UserVisit.Dto.cs">
+      <DependentUpon>UserVisit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\App\UserVisit.Map.cs">
+      <DependentUpon>UserVisit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\App\UserVisit.Service.cs">
+      <DependentUpon>UserVisit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Contracts.cs" />
+    <Compile Include="Domain\ContractExtentions.cs">
+      <DependentUpon>ContractExtentions.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Domain\DomainRes1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DomainRes.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Products\Avia\AirlineMonthCommission.cs" />
+    <Compile Include="Domain\Products\Avia\AirlineMonthCommission.Map.cs">
+      <DependentUpon>AirlineMonthCommission.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Products\Avia\AirlineMonthCommission.Service.cs">
+      <DependentUpon>AirlineMonthCommission.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Products\Avia\AirlineMonthCommissionDto.cs">
+      <DependentUpon>AirlineMonthCommission.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Products\Avia\DrctXmlFile.cs" />
+    <Compile Include="Domain\Products\Avia\DrctXmlFile.Map.cs" />
+    <Compile Include="Domain\Products\Avia\CrazyllamaPnrFile.Map.cs" />
+    <Compile Include="Domain\Products\Avia\GalileoBusXmlFile.cs" />
+    <Compile Include="Domain\Products\Avia\CrazyllamaPnrFile.cs" />
+    <Compile Include="Domain\Products\Avia\TravelPointXmlFile.Map.cs" />
+    <Compile Include="Domain\Products\Avia\TravelPointXmlFile.cs" />
+    <Compile Include="Domain\Products\Avia\LuxenaXmlFile.cs" />
+    <Compile Include="Domain\Products\Avia\GalileoRailXmlFile.cs" />
+    <Compile Include="Domain\Products\Avia\SabreFilFile.cs" />
+    <Compile Include="Domain\Products\Avia\AirplaneModel.cs" />
+    <Compile Include="Domain\Products\Avia\AirplaneModel.Dto.cs">
+      <DependentUpon>AirplaneModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Products\Avia\AirplaneModel.Map.cs">
+      <DependentUpon>AirplaneModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Products\Avia\SabreFilFile.Map.cs">
+      <DependentUpon>SabreFilFile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Products\TaxRate.cs" />
+    <Compile Include="Domain\SemanticCodeGeneration.cs" />
+    <Compile Include="Domain\Entity.cs" />
+    <Compile Include="Domain\EntityExtentions.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EntityExtentions.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Parties\Country.Dto.cs">
+      <DependentUpon>Country.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Parties\Customer.cs" />
+    <Compile Include="Domain\Parties\DocumentAccess.Dto.cs">
+      <DependentUpon>DocumentAccess.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Parties\DocumentOwner.Dto.cs">
+      <DependentUpon>DocumentOwner.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Parties\Organizations\ProductProviders.cs" />
+    <Compile Include="Domain\Patterns.cs" />
+    <Compile Include="Domain\Products\AccommodationType.cs" />
+    <Compile Include="Domain\Parties\Organizations\Airline.cs" />
+    <Compile Include="Domain\Products\Avia\AirlineCommissionPercents.Dto.cs">
+      <DependentUpon>AirlineCommissionPercents.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Products\Avia\AirlineServiceClassDto.cs">
+      <DependentUpon>AirlineServiceClass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Products\Avia\Airport.Dto.cs">
+      <DependentUpon>Airport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Products\Avia\AmadeusXmlPasteboardFile.Map.cs">
+      <DependentUpon>AmadeusXmlFile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Products\Avia\AmadeusXmlFile.cs" />
+    <Compile Include="Domain\Products\Avia\GdsFile.Dto.cs">
+      <DependentUpon>GdsFile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Products\Avia\GalileoXmlFile.cs" />
+    <Compile Include="Domain\Products\Avia\GalileoXmlFile.Map.cs">
+      <DependentUpon>GalileoXmlFile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Products\CateringType.Dto.cs">
+      <DependentUpon>CateringType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Products\AccommodationType.Dto.cs">
+      <DependentUpon>AccommodationType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Products\CateringType.Map.cs">
+      <DependentUpon>CateringType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Products\AccommodationType.Map.cs">
+      <DependentUpon>AccommodationType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Products\CateringType.cs" />
+    <Compile Include="Domain\Parties\Organizations\InsuranceCompany.cs" />
+    <Compile Include="Domain\Products\Product.Manager.cs">
+      <DependentUpon>Product.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Products\BusTicket.Dto.cs">
+      <DependentUpon>BusTicket.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Products\BusTicket.Map.cs">
+      <DependentUpon>BusTicket.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Products\CarRental.cs" />
+    <Compile Include="Domain\Products\CarRental.Dto.cs">
+      <DependentUpon>CarRental.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Products\BusTicket.cs" />
+    <Compile Include="Domain\Products\GenericProductType.cs" />
+    <Compile Include="Domain\Products\GenericProductType.Dto.cs">
+      <DependentUpon>GenericProductType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Products\GenericProduct.cs" />
+    <Compile Include="Domain\Products\GenericProduct.Dto.cs">
+      <DependentUpon>GenericProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Products\GenericProduct.Map.cs">
+      <DependentUpon>GenericProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Products\Insurance.Dto.cs">
+      <DependentUpon>Insurance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Products\CarRental.Map.cs">
+      <DependentUpon>CarRental.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Products\Insurance.Map.cs">
+      <DependentUpon>Insurance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Products\Insurance.cs" />
+    <Compile Include="Domain\Products\GenericProductType.Map.cs">
+      <DependentUpon>GenericProductType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Parties\Organizations\RoamingOperator.cs" />
+    <Compile Include="Domain\Products\Transfer.Dto.cs">
+      <DependentUpon>Transfer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Products\Transfer.Map.cs">
+      <DependentUpon>Transfer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Products\Accommodation.cs" />
+    <Compile Include="Domain\Products\Accommodation.Dto.cs">
+      <DependentUpon>Accommodation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Products\Accommodation.Map.cs">
+      <DependentUpon>Accommodation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Products\Transfer.cs" />
+    <Compile Include="Domain\Products\Tour.cs" />
+    <Compile Include="Domain\Products\Tour.Dto.cs">
+      <DependentUpon>Tour.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Products\Tour.Map.cs">
+      <DependentUpon>Tour.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Products\Excursion.cs" />
+    <Compile Include="Domain\Products\Excursion.Dto.cs">
+      <DependentUpon>Excursion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Products\Isic.cs" />
+    <Compile Include="Domain\Products\Isic.Dto.cs">
+      <DependentUpon>Isic.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Products\Excursion.Map.cs">
+      <DependentUpon>Excursion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Products\Isic.Map.cs">
+      <DependentUpon>Isic.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Products\ProductPassenger.Dto.cs">
+      <DependentUpon>ProductPassenger.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Products\SimCard.Dto.cs">
+      <DependentUpon>SimCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Products\SimCard.Map.cs">
+      <DependentUpon>SimCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Products\SimCard.cs" />
+    <Compile Include="Domain\Products\Pasteboard.Dto.cs">
+      <DependentUpon>Pasteboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Products\Pasteboard.Map.cs">
+      <DependentUpon>Pasteboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Products\Product.Dto.cs">
+      <DependentUpon>Product.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Products\ProductPassenger.Map.cs">
+      <DependentUpon>ProductPassenger.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Products\ProductPassenger.cs" />
+    <Compile Include="Domain\Products\Product.cs" />
+    <Compile Include="Domain\Products\Avia\AirlineServiceClass.Service.cs">
+      <DependentUpon>AirlineServiceClass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Products\Avia\AviaDocument.cs" />
+    <Compile Include="Domain\Products\Avia\AviaDocument.Map.cs">
+      <DependentUpon>AviaDocument.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Products\Avia\AviaDocument.Service.cs">
+      <DependentUpon>AviaDocument.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Products\Avia\ProductOrigin.cs">
+      <DependentUpon>AviaDocument.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Products\Avia\ProductType.cs">
+      <DependentUpon>AviaDocument.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Products\Avia\AviaTicket.Service.cs">
+      <DependentUpon>AviaTicket.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Accounting\InvoiceNumberMode.cs">
+      <DependentUpon>Invoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\EntityManager.cs" />
+    <Compile Include="Domain\Products\Avia\GdsFile.Service.cs">
+      <DependentUpon>GdsFile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Products\Avia\GdsOriginator.cs">
+      <DependentUpon>AviaDocument.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Products\Avia\GdsPassportStatus.cs">
+      <DependentUpon>AviaDocument.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Products\Avia\MirFile.Service.cs">
+      <DependentUpon>MirFile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Products\Avia\PenalizeOperation.Service.cs">
+      <DependentUpon>PenalizeOperation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Products\Avia\PrintFile.Service.cs">
+      <DependentUpon>PrintFile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Products\Avia\SirenaFile.Service.cs">
+      <DependentUpon>SirenaFile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Products\Avia\TktFile.Service.cs">
+      <DependentUpon>TktFile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Products\Avia\GdsAgent.Service.cs">
+      <DependentUpon>GdsAgent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\App\Identity.Service.cs">
+      <DependentUpon>Identity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\App\Preferences.Service.cs">
+      <DependentUpon>Preferences.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\App\SystemShutdown.Service.cs">
+      <DependentUpon>SystemShutdown.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\GenericDao.cs" />
+    <Compile Include="Domain\Parties\Organization.Dto.cs">
+      <DependentUpon>Organization.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Parties\DocumentAccessRestriction.cs">
+      <DependentUpon>DocumentAccess.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\ConfigurationBuilder.cs" />
+    <Compile Include="Domain\Accounting\OrderTransfer.Dto.cs">
+      <DependentUpon>Order.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Accounting\QuickReceipt.Request.cs">
+      <DependentUpon>Invoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CommonRes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CommonRes.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\App\AviaDocumentVatOptions.cs" />
+    <Compile Include="Domain\App\AviaOrderItemGenerationOption.cs" />
+    <Compile Include="Domain\Accounting\AviaPayment.Response.cs">
+      <DependentUpon>Payment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Accounting\CashOrderPayment.Request.cs">
+      <DependentUpon>CashInOrderPayment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Accounting\ConsignmentItems.Dto.cs">
+      <DependentUpon>Consignment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Accounting\ClosedPeriod.Dto.cs">
+      <DependentUpon>ClosedPeriod.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Accounting\CashOrderPayment.Response.cs">
+      <DependentUpon>CashInOrderPayment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Accounting\Consignment.Dto.cs">
+      <DependentUpon>Consignment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Accounting\IssuedConsignment.Dto.cs">
+      <DependentUpon>IssuedConsignment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Accounting\OrderItem.Dto.cs">
+      <DependentUpon>OrderItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Accounting\Payment.Dto.cs">
+      <DependentUpon>Payment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Accounting\Invoice.Dto.cs">
+      <DependentUpon>Invoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Products\Avia\AviaMcoProcess.Dto.cs">
+      <DependentUpon>AviaMco.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\App\DayStats.cs" />
+    <Compile Include="Domain\Products\Avia\AviaDocumentProcessArgs.cs">
+      <DependentUpon>AviaDocument.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Products\Avia\AviaTicketProcess.Dto.cs">
+      <DependentUpon>AviaTicket.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Products\Avia\PassportValidation.Response.cs" />
+    <Compile Include="Domain\Products\Avia\PenalizeOperation.Dto.cs">
+      <DependentUpon>PenalizeOperation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Products\Avia\ProcessOperationStatus.Response.cs" />
+    <Compile Include="Domain\Parties\File.Dto.cs">
+      <DependentUpon>File.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Parties\Department.Dto.cs">
+      <DependentUpon>Department.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Accounting\OpeningBalance.Dto.cs">
+      <DependentUpon>OpeningBalance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Accounting\OrderBalance.cs">
+      <DependentUpon>OpeningBalance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Accounting\PartyBalance.cs">
+      <DependentUpon>OpeningBalance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Parties\Task.Dto.cs">
+      <DependentUpon>Task.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Parties\UploadFileResponse.cs" />
+    <Compile Include="Domain\App\SystemConfiguration.Dto.cs">
+      <DependentUpon>SystemConfiguration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Accounting\CashOrderPayment.Map.cs">
+      <DependentUpon>CashInOrderPayment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Accounting\CheckPayment.Map.cs">
+      <DependentUpon>CheckPayment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Accounting\ClosedPeriod.Map.cs">
+      <DependentUpon>ClosedPeriod.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Accounting\Consignment.Map.cs">
+      <DependentUpon>Consignment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Accounting\ElectronicPayment.Map.cs">
+      <DependentUpon>ElectronicPayment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Accounting\InternalTransfer.Map.cs">
+      <DependentUpon>InternalTransfer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Accounting\Invoice.Map.cs">
+      <DependentUpon>Invoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Accounting\IssuedConsignment.Map.cs">
+      <DependentUpon>IssuedConsignment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Accounting\OpeningBalance.Map.cs">
+      <DependentUpon>OpeningBalance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Accounting\OrderItem.Map.cs">
+      <DependentUpon>OrderItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Accounting\Order.Map.cs">
+      <DependentUpon>Order.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Accounting\Payment.Map.cs">
+      <DependentUpon>Payment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Accounting\WireTransfer.Map.cs">
+      <DependentUpon>WireTransfer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Products\Avia\AirFile.Map.cs">
+      <DependentUpon>AirFile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Products\Avia\AirlineCommissionPercents.Map.cs">
+      <DependentUpon>AirlineCommissionPercents.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Products\Avia\AirlineServiceClass.Map.cs">
+      <DependentUpon>AirlineServiceClass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Products\Avia\Airport.Map.cs">
+      <DependentUpon>Airport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Products\Avia\AviaDocumentFee.Map.cs">
+      <DependentUpon>AviaDocumentFee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Products\Avia\AviaDocumentVoiding.Map.cs">
+      <DependentUpon>AviaDocumentVoiding.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Products\Avia\AviaMco.Map.cs">
+      <DependentUpon>AviaMco.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Products\Avia\AviaRefund.Map.cs">
+      <DependentUpon>AviaRefund.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Products\Avia\AviaTicket.Map.cs">
+      <DependentUpon>AviaTicket.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Products\Avia\FlightSegment.Map.cs">
+      <DependentUpon>FlightSegment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Products\Avia\GdsAgent.Map.cs">
+      <DependentUpon>GdsAgent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Products\Avia\GdsFile.Map.cs">
+      <DependentUpon>GdsFile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Products\Avia\MirFile.Map.cs">
+      <DependentUpon>MirFile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Products\Avia\PenalizeOperation.Map.cs">
+      <DependentUpon>PenalizeOperation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Products\Avia\PrintFile.Map.cs">
+      <DependentUpon>PrintFile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Products\Avia\SirenaFile.Map.cs">
+      <DependentUpon>SirenaFile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Products\Avia\TktFile.Map.cs">
+      <DependentUpon>TktFile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\App\Identity.Map.cs">
+      <DependentUpon>Identity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\App\InternalIdentity.Map.cs">
+      <DependentUpon>InternalIdentity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\App\Preferences.Map.cs">
+      <DependentUpon>Preferences.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\App\Security.Service.cs" />
+    <Compile Include="Domain\App\SystemConfiguration.Map.cs">
+      <DependentUpon>SystemConfiguration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\App\SystemShutdown.Map.cs">
+      <DependentUpon>SystemShutdown.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\App\SystemVariables.Map.cs">
+      <DependentUpon>SystemVariables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\App\User.Map.cs">
+      <DependentUpon>User.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\App\User.Service.cs">
+      <DependentUpon>User.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Parties\Country.Map.cs">
+      <DependentUpon>Country.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Accounting\Currency.Map.cs">
+      <DependentUpon>Currency.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Accounting\Money.Map.cs">
+      <DependentUpon>Money.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Parties\Department.Map.cs">
+      <DependentUpon>Department.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Parties\DocumentAccess.Map.cs">
+      <DependentUpon>DocumentAccess.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Parties\DocumentAccess.Service.cs">
+      <DependentUpon>DocumentAccess.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Parties\DocumentOwner.Map.cs">
+      <DependentUpon>DocumentOwner.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Parties\File.Map.cs">
+      <DependentUpon>File.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Parties\File.Service.cs">
+      <DependentUpon>File.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Parties\MilesCard.cs" />
+    <Compile Include="Domain\Parties\MilesCard.Map.cs">
+      <DependentUpon>MilesCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Parties\MilesCard.Service.cs">
+      <DependentUpon>MilesCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Parties\Organization.Map.cs">
+      <DependentUpon>Organization.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Parties\Party.Map.cs">
+      <DependentUpon>Party.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Parties\Party.Service.cs">
+      <DependentUpon>Party.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Parties\Passport.cs" />
+    <Compile Include="Domain\Parties\Passport.Map.cs">
+      <DependentUpon>Passport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Parties\Person.Map.cs">
+      <DependentUpon>Person.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Parties\Person.Service.cs">
+      <DependentUpon>Person.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Parties\Task.Map.cs">
+      <DependentUpon>Task.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Parties\Task.Service.cs">
+      <DependentUpon>Task.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Parties\TaskComment.Map.cs">
+      <DependentUpon>TaskComment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Parties\TaskComment.Service.cs">
+      <DependentUpon>TaskComment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Accounting\PaymentSystem.Map.cs">
+      <DependentUpon>PaymentSystem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Domain.cs" />
+    <Compile Include="Domain\Products\Product.Map.cs">
+      <DependentUpon>Product.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Products\Product.Service.cs">
+      <DependentUpon>Product.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Products\Pasteboard.cs" />
+    <Compile Include="Domain\Report.Service.cs" />
+    <Compile Include="Domain\Sequence.Service.cs" />
+    <Compile Include="Export\AirportContract.cs" />
+    <Compile Include="Export\InsuranceContract.cs" />
+    <Compile Include="Export\CountryContract.cs" />
+    <Compile Include="Export\IPartyExporter.cs" />
+    <Compile Include="Export\OrganizationContract.cs" />
+    <Compile Include="Export\PersonContract.cs" />
+    <Compile Include="Export\PartyContract.cs" />
+    <Compile Include="Export\ProductContract.cs" />
+    <Compile Include="Parsers\DrctXmlParser.cs" />
+    <Compile Include="Parsers\TravelPointXmlParser.cs" />
+    <Compile Include="Parsers\GalileoBusXmlParser.cs" />
+    <Compile Include="Parsers\LuxenaXmlParser.cs" />
+    <Compile Include="Parsers\GalileoRailXmlParser.cs" />
+    <Compile Include="Parsers\AmadeusXmlParser.cs" />
+    <Compile Include="Parsers\GalileoAviaXmlParser.cs" />
+    <Compile Include="Parsers\SabreFilParser.cs" />
+    <Compile Include="Reports\CompletionCertificatePrinter.cs" />
+    <Compile Include="Reports\CompletionCertificatePrinter2.cs" />
+    <Compile Include="Reports\ICompletionCertificatePrinter.cs" />
+    <Compile Include="Service References\GalileoWebService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\TravelPointWebService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Services\AmadeusRailSftpFileTask.cs" />
+    <Compile Include="Services\AmadeusSftpFileTaskBase.cs" />
+    <Compile Include="Services\GalileoBusWebServiceTask.cs" />
+    <Compile Include="Services\GalileoRailWebServiceTask.cs" />
+    <Compile Include="Services\DrctWebServiceTask.cs" />
+    <Compile Include="Services\TravelPointWebServiceTask.cs" />
+    <Compile Include="Services\GalileoWebServiceTask.cs" />
+    <Compile Include="Services\ExecSqlTask.cs" />
+    <Compile Include="Export\GdsFileExporter.cs" />
+    <Compile Include="Reports\AviaDocumentExcelExporter2011.cs" />
+    <Compile Include="Reports\DefaultOrderPrinter.cs" />
+    <Compile Include="Reports\ExportFtp2011.cs" />
+    <Compile Include="Reports\IOrderPrinter.cs" />
+    <Compile Include="Reports\IInvoicePrinter.cs" />
+    <Compile Include="Reports\PdfPageEventAction.cs" />
+    <Compile Include="Reports\ReportPrinterBase.cs" />
+    <Compile Include="Reports\TemplateInvoicePrinter.cs" />
+    <Compile Include="Reports\TemplatePrinter.cs" />
+    <Compile Include="Services\AmadeusSftpFileTask.cs" />
+    <Compile Include="Services\HomeModel.cs" />
+    <Compile Include="Utilites\DictionaryExtensions.cs" />
+    <Compile Include="Domain\Accounting\CashInOrderPayment.cs" />
+    <Compile Include="Domain\Accounting\CheckPayment.cs" />
+    <Compile Include="Domain\Accounting\ClosedPeriod.cs" />
+    <Compile Include="Domain\Accounting\Consignment.cs" />
+    <Compile Include="Domain\Accounting\ElectronicPayment.cs" />
+    <Compile Include="Domain\Accounting\InternalTransfer.cs" />
+    <Compile Include="Domain\Accounting\IssuedConsignment.cs" />
+    <Compile Include="Domain\Accounting\OpeningBalance.cs" />
+    <Compile Include="Domain\Accounting\PeriodState.cs">
+      <DependentUpon>ClosedPeriod.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Accounting\WireTransfer.cs" />
+    <Compile Include="Domain\Accounting\InvoiceType.cs">
+      <DependentUpon>Invoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Accounting\Payment.cs" />
+    <Compile Include="Domain\Accounting\PaymentForm.cs">
+      <DependentUpon>Payment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Products\Avia\AmadeusRizUsingMode.cs" />
+    <Compile Include="Domain\App\Identity.cs" />
+    <Compile Include="Domain\App\InternalIdentity.cs" />
+    <Compile Include="Domain\App\Preferences.cs" />
+    <Compile Include="Domain\App\SystemConfiguration.cs" />
+    <Compile Include="Domain\App\SystemShutdown.cs" />
+    <Compile Include="Domain\App\SystemVariables.cs" />
+    <Compile Include="Domain\App\User.cs" />
+    <Compile Include="Domain\App\UserRole.cs">
+      <DependentUpon>User.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Accounting\Order.Dto.cs">
+      <DependentUpon>Order.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\App\AppParameters.cs" />
+    <Compile Include="Domain\App\AppState.Response.cs" />
+    <Compile Include="Domain\App\AppState.Request.cs" />
+    <Compile Include="Domain\App\AviaDocumentState.cs" />
+    <Compile Include="Domain\Products\Avia\GdsAgent.Dto.cs">
+      <DependentUpon>GdsAgent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\App\ObjectStateInfo.cs" />
+    <Compile Include="Domain\Parties\MilesCard.Dto.cs">
+      <DependentUpon>MilesCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Parties\Passport.Dto.cs">
+      <DependentUpon>Passport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Parties\Person.Dto.cs">
+      <DependentUpon>Person.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Accounting\Order.cs" />
+    <Compile Include="Domain\Accounting\OrderItem.cs" />
+    <Compile Include="Domain\Accounting\Invoice.cs" />
+    <Compile Include="Domain\Products\Avia\AirlinePassportRequirement.cs" />
+    <Compile Include="Domain\Products\Avia\PenalizeOperation.cs" />
+    <Compile Include="Domain\Products\Avia\PenalizeOperationStatus.cs">
+      <DependentUpon>PenalizeOperation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Products\Avia\PenalizeOperationType.cs">
+      <DependentUpon>PenalizeOperation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Products\Avia\SirenaFile.cs" />
+    <Compile Include="Domain\Parties\File.cs" />
+    <Compile Include="Domain\Accounting\PaymentSystem.cs" />
+    <Compile Include="Domain\Parties\DocumentAccess.cs" />
+    <Compile Include="Domain\Parties\DocumentOwner.cs" />
+    <Compile Include="Domain\Products\Avia\AirlineCommissionPercents.cs" />
+    <Compile Include="Domain\Products\Avia\MirFile.cs" />
+    <Compile Include="Domain\Products\Avia\PrintFile.cs" />
+    <Compile Include="Domain\Products\Avia\TktFile.cs" />
+    <Compile Include="Domain\Parties\Country.cs" />
+    <Compile Include="Domain\Parties\Gender.cs">
+      <DependentUpon>Passport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Parties\Task.cs" />
+    <Compile Include="Domain\Parties\TaskComment.cs" />
+    <Compile Include="Domain\Parties\TaskStatus.cs">
+      <DependentUpon>Task.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\App\Profile.Dto.cs" />
+    <Compile Include="Domain\App\AppStateChangesHolding.cs" />
+    <Compile Include="Utilites\EnumerableExtensions.cs" />
+    <Compile Include="Export\AviaDocumentContract.cs" />
+    <Compile Include="Export\AviaDocumentExcelBuilder.cs" />
+    <Compile Include="Export\AviaDocumentFeeContract.cs" />
+    <Compile Include="Export\IExporter.cs" />
+    <Compile Include="Export\InvoiceContract.cs" />
+    <Compile Include="Export\PaymentContract.cs" />
+    <Compile Include="Export\XmlExporter.cs" />
+    <Compile Include="Export\AviaMcoContract.cs" />
+    <Compile Include="Export\AviaRefundContract.cs" />
+    <Compile Include="Export\AviaTicketContract.cs" />
+    <Compile Include="Export\CustomXmlWriter.cs" />
+    <Compile Include="Export\EntityReference.cs" />
+    <Compile Include="Export\EntityContract.cs" />
+    <Compile Include="Export\AviaDocumentExcelExporter.cs" />
+    <Compile Include="Export\ExportField.cs" />
+    <Compile Include="Export\ExportStructure.cs" />
+    <Compile Include="Export\FlightSegmentContract.cs" />
+    <Compile Include="Export\IAviaDocumentExporter.cs" />
+    <Compile Include="Export\MoneyContract.cs" />
+    <Compile Include="Export\OrderContract.cs" />
+    <Compile Include="Export\OrderItemContract.cs" />
+    <Compile Include="Export\PenalizeOperationContract.cs" />
+    <Compile Include="Domain\GeoUtility.cs" />
+    <Compile Include="Domain\ClassManagerProvider.cs" />
+    <Compile Include="Domain\Accounting\Invoice.Manager.cs">
+      <DependentUpon>Invoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Accounting\Order.Manager.cs">
+      <DependentUpon>Order.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\App\AppState.Service.cs" />
+    <Compile Include="Domain\Products\Avia\GdsAgent.Manager.cs">
+      <DependentUpon>GdsAgent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Accounting\Payment.Manager.cs">
+      <DependentUpon>Payment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Parties\Task.Manager.cs">
+      <DependentUpon>Task.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Parsers\DbfDataRecord.cs" />
+    <Compile Include="Parsers\DbfRecordProvider.cs" />
+    <Compile Include="Parsers\Exceptions.Designer.cs">
+      <DependentUpon>Exceptions.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Parsers\IataParser.cs" />
+    <Compile Include="Parsers\AirConsoleParser.cs" />
+    <Compile Include="Parsers\PaymentXmlParser.cs" />
+    <Compile Include="Parsers\PrintParser.cs" />
+    <Compile Include="Parsers\SirenaXmlParser.cs" />
+    <Compile Include="Parsers\TktParser.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Parsers\Utility.cs" />
+    <Compile Include="Reports\AgentReport.cs" />
+    <Compile Include="Domain\Products\Avia\AviaDocument.Dto.cs">
+      <DependentUpon>AviaDocument.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Products\Avia\AviaMco.Dto.cs">
+      <DependentUpon>AviaMco.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Products\Avia\AviaRefund.Dto.cs">
+      <DependentUpon>AviaRefund.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Products\Avia\AviaDocumentProcess.Dto.cs">
+      <DependentUpon>AviaDocument.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Products\Avia\AviaRefundProcess.Dto.cs">
+      <DependentUpon>AviaRefund.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Accounting\Money.Dto.cs">
+      <DependentUpon>Money.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Parsers\AbstractLinesParser.cs" />
+    <Compile Include="Parsers\GdsImportException.cs" />
+    <Compile Include="Parsers\AirParser.cs" />
+    <Compile Include="Domain\Products\Avia\AviaDocumentFee.Dto.cs">
+      <DependentUpon>AviaDocumentFee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Products\Avia\AviaTicket.Dto.cs">
+      <DependentUpon>AviaTicket.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Products\Avia\FlightSegment.Dto.cs">
+      <DependentUpon>FlightSegment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Parsers\ILinesEnumerator.cs" />
+    <Compile Include="Parsers\LinesEnumerator.cs" />
+    <Compile Include="Parsers\LinesGroupParser.cs" />
+    <Compile Include="Parsers\LinesSequenceParser.cs" />
+    <Compile Include="Parsers\MirParser.cs" />
+    <Compile Include="Parsers\StringArrayExtensions.cs" />
+    <Compile Include="Domain\Parties\Party.Dto.cs">
+      <DependentUpon>Party.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\BlankPrinter.cs" />
+    <Compile Include="Reports\CashOrderFormRussian.cs" />
+    <Compile Include="Reports\ConsignmentForm.cs" />
+    <Compile Include="Reports\FontExtensions.cs" />
+    <Compile Include="Reports\ICashOrderForm.cs" />
+    <Compile Include="Reports\UnbalancedReport.cs" />
+    <Compile Include="Reports\IReceiptPrinter.cs" />
+    <Compile Include="Reports\LuxenaTicketPrinter.cs" />
+    <Compile Include="Reports\PaymentExporter.cs" />
+    <Compile Include="Reports\IEntityExporter.cs" />
+    <Compile Include="Reports\InvoiceItemExporter.cs" />
+    <Compile Include="Reports\IPropertyExporter.cs" />
+    <Compile Include="Reports\CashOrderFormUkrainian.cs" />
+    <Compile Include="Reports\ExcelForm.cs" />
+    <Compile Include="Reports\GenericExporter.cs" />
+    <Compile Include="Reports\ReceiptPrinter.cs" />
+    <Compile Include="Reports\InvoicePrinter.cs" />
+    <Compile Include="Reports\PdfExtentions.cs" />
+    <Compile Include="Reports\RegistryReport.cs" />
+    <Compile Include="Reports\RegistryReportExcelWriter.cs" />
+    <Compile Include="Reports\RegistryReportPdfWriter.cs" />
+    <Compile Include="Reports\IRegistryReportWriter.cs" />
+    <Compile Include="Reports\CustomerReport.cs" />
+    <Compile Include="Reports\CustomerReportParams.cs" />
+    <Compile Include="Reports\DefaultTicketPrinter.cs" />
+    <Compile Include="Reports\PdfPageNumberHelper.cs" />
+    <Compile Include="Reports\PdfUtility.cs" />
+    <Compile Include="Reports\ReportRes.Designer.cs">
+      <DependentUpon>ReportRes.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Domain\Products\Avia\AirFile.cs" />
+    <Compile Include="Domain\Products\Avia\AirlineServiceClass.cs" />
+    <Compile Include="Domain\Products\Avia\Airport.cs" />
+    <Compile Include="Domain\Products\Avia\AviaDocumentFee.cs" />
+    <Compile Include="Domain\Products\Avia\AviaDocumentVoiding.cs" />
+    <Compile Include="Domain\Products\Avia\AviaTicket.cs" />
+    <Compile Include="Domain\Products\Avia\FlightSegmentType.cs">
+      <DependentUpon>FlightSegment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Products\Avia\GdsFileType.cs">
+      <DependentUpon>GdsFile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Products\Avia\PaymentType.cs">
+      <DependentUpon>AviaDocument.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Products\Avia\ServiceClass.cs" />
+    <Compile Include="Domain\Products\Avia\FlightSegment.cs" />
+    <Compile Include="Domain\Products\Avia\GdsAgent.cs" />
+    <Compile Include="Domain\Products\Avia\GdsFile.cs" />
+    <Compile Include="Domain\Products\Avia\ImportResult.cs" />
+    <Compile Include="Domain\Products\Avia\AviaMco.cs" />
+    <Compile Include="Domain\Products\Avia\AviaRefund.cs" />
+    <Compile Include="Domain\Products\Avia\MealType.cs">
+      <DependentUpon>FlightSegment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Accounting\Currency.cs" />
+    <Compile Include="Domain\Accounting\Money.cs" />
+    <Compile Include="Domain\Parties\Department.cs" />
+    <Compile Include="Domain\Parties\Organization.cs" />
+    <Compile Include="Domain\Parties\Party.cs" />
+    <Compile Include="Domain\Parties\Person.cs" />
+    <Compile Include="Exceptions.Designer.cs">
+      <DependentUpon>Exceptions.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Domain\Products\Avia\GdsFile.Manager.cs">
+      <DependentUpon>GdsFile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reports\ITicketPrinter.cs" />
+    <Compile Include="Reports\MoneyExtensions.cs" />
+    <Compile Include="Reports\ReportType.cs" />
+    <Compile Include="Reports\SerializableDictionary.cs" />
+    <Compile Include="Reports\InvoiceXmlExporter.cs" />
+    <Compile Include="Reports\XlsBuilder.cs" />
+    <Compile Include="Utilites\AuthenticationToken.cs" />
+    <Compile Include="Services\BirthdayTask.cs" />
+    <Compile Include="Services\DocumentClosedException.cs" />
+    <Compile Include="Services\GdsFileTask.cs" />
+    <Compile Include="Services\OlapService.cs" />
+    <Compile Include="Services\GdsFileSaveException.cs" />
+    <Compile Include="Services\ITask.cs" />
+    <Compile Include="Services\ObjectsNotFoundException.cs" />
+    <Compile Include="Domain\Products\Avia\PassportValidationResult.cs" />
+    <Compile Include="Services\PaymentXmlImportTask.cs" />
+    <Compile Include="Services\PeriodicTaskRunner.cs" />
+    <Compile Include="Services\PrintImportService.cs" />
+    <Compile Include="Services\BaseTaskRunner.cs" />
+    <Compile Include="Services\ScheduledTaskRunner.cs" />
+    <Compile Include="Utilites\SystemExtentions.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CommonRes.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>CommonRes.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CommonRes.uk.resx">
+      <LastGenOutput>CommonRes.uk.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Domain\DomainRes.uk.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Parsers\Exceptions.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Exceptions.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportRes.uk.resx">
+      <LastGenOutput>ReportRes.uk.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportRes.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ReportRes.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Domain\DomainRes.resx">
+      <SubType>Designer</SubType>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>DomainRes1.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Exceptions.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Exceptions.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Domain\ContractExtentions.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ContractExtentions.cs</LastGenOutput>
+    </None>
+    <None Include="Domain\EntityExtentions.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>EntityExtentions.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Service References\GalileoWebService\Luxena.Travel.GalileoWebService.GetTicketsXMLByPeriodResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\GalileoWebService\Luxena.Travel.GalileoWebService.GetTicketsXMLResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\GalileoWebService\XMLWebService.wsdl" />
+    <None Include="Service References\TravelPointWebService\ImportServiceXML.wsdl" />
+    <None Include="Service References\TravelPointWebService\Luxena.Travel.TravelPointWebService.ImportResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Services\GalileoRailWebServiceTask.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Luxena.Domain\_Luxena.Domain.csproj">
+      <Project>{d842c223-b8e6-43a9-aa5a-65e66ff2d071}</Project>
+      <Name>_Luxena.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Luxena.Libs\Luxena.Base.Data.NHibernate\Luxena.Base.Data.NHibernate.csproj">
+      <Project>{1ab4c1f7-8a2d-4a06-8f71-2ecbea71aa78}</Project>
+      <Name>Luxena.Base.Data.NHibernate</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Luxena.Libs\Luxena.Base\Luxena.Base.csproj">
+      <Project>{F3A3CE9A-AA9D-496D-8752-3B49E3BE4FE0}</Project>
+      <Name>Luxena.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Luxena.Libs\Luxena.Core\Luxena.Core.csproj">
+      <Project>{65091BE4-DBC2-4D09-8B17-37F04EE95DAA}</Project>
+      <Name>Luxena.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Luxena.Support\_Luxena.Support.csproj">
+      <Project>{376d2f32-6120-4ad3-9266-94b793f58532}</Project>
+      <Name>_Luxena.Support</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Domain\AuxilaryObjects.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\GalileoWebService\" />
+    <WCFMetadataStorage Include="Service References\TravelPointWebService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\GalileoWebService\XMLWebService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\GalileoWebService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\GalileoWebService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\GalileoWebService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Parsers\GalileoRailXmlParser.Response1.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Parsers\AmadeusXml.03.xml" />
+    <Content Include="Parsers\AmadeusXml.02.xml" />
+    <Content Include="Parsers\AmadeusXml.01.xml" />
+    <Content Include="Parsers\DrctXmlParser.xml" />
+    <Content Include="Parsers\XMLFile1.xml" />
+    <Content Include="Parsers\XMLFile2.xml" />
+    <Content Include="Parsers\XMLFile3.xml" />
+    <Content Include="Parsers\XMLFile4.xml" />
+    <None Include="Service References\TravelPointWebService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\TravelPointWebService\configuration.svcinfo" />
+    <None Include="Service References\TravelPointWebService\configuration91.svcinfo" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>copy /y "$(ProjectDir)Domain\DomainRes.resx" "$(ProjectDir)..\Web.Script"
+</PostBuildEvent>
+  </PropertyGroup>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+</Project>

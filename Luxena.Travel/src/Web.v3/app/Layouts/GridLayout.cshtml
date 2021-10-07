@@ -1,0 +1,106 @@
+﻿@{
+    Layout = "ViewLayout.cshtml";
+    var bs = Html.Bootstrap();
+    DomainUiHelper<dynamic> ui = ViewBag.ui;
+    //var v = ui.ViewEntity;
+}
+
+<div class="view-toolbar">
+    <div class="pull-left" style="width: 35%; padding-left: 28px">
+        @if (IsSectionDefined("TextSearch"))
+        {
+            @RenderSection("TextSearch", false)
+        }
+        else
+        {
+            @ui.Grid.TextSearch().Append(ui.Grid.RefreshButton())
+        }
+    </div>
+    
+    <div class="pull-right">
+        @ui.Form.CloseButton()
+    </div>
+    <div class="pull-right space">
+        @ui.Grid.DeleteButton()
+        @ui.Grid.AddButton()
+    </div>
+
+    <div class="pull-right">
+        <span class="badge" tooltip="Показано {{loadedCount}} записей" tooltip-placement="bottom">{{loadedCount}}</span>
+        из
+        <span class="badge" tooltip="Всего {{totalCount}} записей" tooltip-placement="bottom">{{totalCount}}</span>
+    </div>
+
+</div>
+
+<div class="grid-container">
+    @using (bs.Begin(new Table().Hover()))
+    {
+        <col style="width: 40px; cursor: pointer; text-align: right;"/>
+        @RenderSection("Columns", false)
+        <thead>
+            @{
+                var header = RenderSection("Header").ToString();
+                if (header.Contains("<tr"))
+                {
+                    @Html.Raw(header)
+                }
+                else
+                {
+                    <text>
+                        <tr>
+                            <th ng-click="toggleSelect()" style="cursor: pointer">
+                                <span ng-bind-html-unsafe="selectedCountLabel()"></span>
+                            </th>
+                            @Html.Raw(header)
+                        </tr>
+                    </text>
+                }
+            }
+        </thead>
+        <tbody>
+            <tr data-ng-repeat="r in data" ng-class="{ info: r.selected }">
+                <td class="btn-details grid-btn-select" ng-click="toggleSelect(r)">
+                    <i ng-class="{ 'fa fa-check-square-o fa-fw': r.selected, 'fa fa-square-o fa-fw': !r.selected }"></i>
+                </td>
+                @RenderSection("Cells")
+            </tr>
+        </tbody>
+    }
+    <br />
+    @(bs.Button().Text("").Title("Далее")//.InfoStyle()
+          .Size(ButtonSize.Large).CssStyle("width: 100%")
+          .PrependIcon(new Icon("fa-lg").Data(new { ng_class = "{ 'fa fa-caret-square-o-down': !loading, 'fa fa-spinner fa-spin': loading }" })) 
+          .ngClick("load()").ngHide("loadedCount == totalCount").ngDisabled("loading"))
+
+</div>
+
+
+    
+@if (IsSectionDefined("Controller"))
+{
+    @section Controller { @RenderSection("Controller") }
+}
+else
+{
+    @section Controller { Domain.@((ViewBag.ViewName as string).As(a => a.Substring(0, 1).ToUpper() + a.Substring(1)))Ctrl }
+}
+    
+@if (IsSectionDefined("Scripts"))
+{
+    @section Scripts { @RenderSection("Scripts") }
+}
+
+@*@if (IsSectionDefined("Title"))
+{
+    @section Title { @RenderSection("Title") }
+}
+
+@if (IsSectionDefined("Icon"))
+{
+    @section Icon { @RenderSection("Icon") }
+}
+else if (v != null && v.icon.Yes())
+{
+    @section Icon { '@v.icon' }
+}*@

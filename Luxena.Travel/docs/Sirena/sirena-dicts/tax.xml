@@ -1,0 +1,3679 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sirena>
+  <answer pult="ГРФ365">
+    <describe data="tax">
+      <data>
+        <code xml:lang="ru">SA</code>
+        <code xml:lang="en">SA</code>
+        <name xml:lang="ru">Сбор SA</name>
+        <name xml:lang="en">Tax SA</name>
+      </data>
+      <data>
+        <code xml:lang="ru">TS</code>
+        <code xml:lang="en">TS</code>
+        <name xml:lang="ru">Сбор TS</name>
+        <name xml:lang="en">Tax TS</name>
+      </data>
+      <data>
+        <code xml:lang="ru">IR</code>
+        <code xml:lang="en">IR</code>
+        <name xml:lang="ru">Сбор IR</name>
+        <name xml:lang="en">Tax IR</name>
+      </data>
+      <data>
+        <code xml:lang="ru">LB</code>
+        <code xml:lang="en">LB</code>
+        <name xml:lang="ru">Сбор LB</name>
+        <name xml:lang="en">Tax LB</name>
+      </data>
+      <data>
+        <code xml:lang="ru">RN</code>
+        <code xml:lang="en">RN</code>
+        <name xml:lang="ru">Сбор RN</name>
+        <name xml:lang="en">Tax RN</name>
+      </data>
+      <data>
+        <code xml:lang="ru">CJ</code>
+        <code xml:lang="en">CJ</code>
+        <name xml:lang="ru">Сбор CJ</name>
+        <name xml:lang="en">Tax CJ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">VV</code>
+        <code xml:lang="en">VV</code>
+        <name xml:lang="ru">Сбор VV</name>
+        <name xml:lang="en">Tax VV</name>
+      </data>
+      <data>
+        <code xml:lang="ru">WO</code>
+        <code xml:lang="en">WO</code>
+        <name xml:lang="ru">Сбор WO</name>
+        <name xml:lang="en">Tax WO</name>
+      </data>
+      <data>
+        <code xml:lang="ru">AT</code>
+        <code xml:lang="en">AT</code>
+        <name xml:lang="ru">Сбор AT</name>
+        <name xml:lang="en">Tax AT</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ZY</code>
+        <code xml:lang="en">ZY</code>
+        <name xml:lang="ru">Сбор ZY</name>
+        <name xml:lang="en">Tax ZY</name>
+      </data>
+      <data>
+        <code xml:lang="ru">AZ</code>
+        <code xml:lang="en">AZ</code>
+        <name xml:lang="ru">Сбор AZ</name>
+        <name xml:lang="en">Tax AZ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">FY</code>
+        <code xml:lang="en">FY</code>
+        <name xml:lang="ru">Сбор FY</name>
+        <name xml:lang="en">Tax FY</name>
+      </data>
+      <data>
+        <code xml:lang="ru">KG</code>
+        <code xml:lang="en">KG</code>
+        <name xml:lang="ru">Сбор KG</name>
+        <name xml:lang="en">Tax KG</name>
+      </data>
+      <data>
+        <code xml:lang="ru">WW</code>
+        <code xml:lang="en">WW</code>
+        <name xml:lang="ru">Сбор WW</name>
+        <name xml:lang="en">Tax WW</name>
+      </data>
+      <data>
+        <code xml:lang="ru">MD</code>
+        <code xml:lang="en">MD</code>
+        <name xml:lang="ru">Сбор MD</name>
+        <name xml:lang="en">Tax MD</name>
+      </data>
+      <data>
+        <code xml:lang="ru">GE</code>
+        <code xml:lang="en">GE</code>
+        <name xml:lang="ru">Сбор GE</name>
+        <name xml:lang="en">Tax GE</name>
+      </data>
+      <data>
+        <code xml:lang="ru">UZ</code>
+        <code xml:lang="en">UZ</code>
+        <name xml:lang="ru">Сбор UZ</name>
+        <name xml:lang="en">Tax UZ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ГА</code>
+        <code xml:lang="en">ГА</code>
+        <name xml:lang="ru">Сбор ГА</name>
+        <name xml:lang="en">Tax ГА</name>
+      </data>
+      <data>
+        <code xml:lang="ru">LT</code>
+        <code xml:lang="en">LT</code>
+        <name xml:lang="ru">Сбор LT</name>
+        <name xml:lang="en">Tax LT</name>
+      </data>
+      <data>
+        <code xml:lang="ru">LV</code>
+        <code xml:lang="en">LV</code>
+        <name xml:lang="ru">Сбор LV</name>
+        <name xml:lang="en">Tax LV</name>
+      </data>
+      <data>
+        <code xml:lang="ru">WJ</code>
+        <code xml:lang="en">WJ</code>
+        <name xml:lang="ru">Сбор WJ</name>
+        <name xml:lang="en">Tax WJ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">BY</code>
+        <code xml:lang="en">BY</code>
+        <name xml:lang="ru">Сбор BY</name>
+        <name xml:lang="en">Tax BY</name>
+      </data>
+      <data>
+        <code xml:lang="ru">WH</code>
+        <code xml:lang="en">WH</code>
+        <name xml:lang="ru">Сбор WH</name>
+        <name xml:lang="en">Tax WH</name>
+      </data>
+      <data>
+        <code xml:lang="ru">WI</code>
+        <code xml:lang="en">WI</code>
+        <name xml:lang="ru">Сбор WI</name>
+        <name xml:lang="en">Tax WI</name>
+      </data>
+      <data>
+        <code xml:lang="ru">EE</code>
+        <code xml:lang="en">EE</code>
+        <name xml:lang="ru">Сбор EE</name>
+        <name xml:lang="en">Tax EE</name>
+      </data>
+      <data>
+        <code xml:lang="ru">VL</code>
+        <code xml:lang="en">VL</code>
+        <name xml:lang="ru">Сбор VL</name>
+        <name xml:lang="en">Tax VL</name>
+      </data>
+      <data>
+        <code xml:lang="ru">BP</code>
+        <code xml:lang="en">BP</code>
+        <name xml:lang="ru">Сбор BP</name>
+        <name xml:lang="en">Tax BP</name>
+      </data>
+      <data>
+        <code xml:lang="ru">B</code>
+        <code xml:lang="en">B</code>
+        <name xml:lang="ru">Сбор B</name>
+        <name xml:lang="en">Tax B</name>
+      </data>
+      <data>
+        <code xml:lang="ru">D</code>
+        <code xml:lang="en">D</code>
+        <name xml:lang="ru">Сбор D</name>
+        <name xml:lang="en">Tax D</name>
+      </data>
+      <data>
+        <code xml:lang="ru">E</code>
+        <code xml:lang="en">E</code>
+        <name xml:lang="ru">Сбор E</name>
+        <name xml:lang="en">Tax E</name>
+      </data>
+      <data>
+        <code xml:lang="ru">H</code>
+        <code xml:lang="en">H</code>
+        <name xml:lang="ru">Сбор H</name>
+        <name xml:lang="en">Tax H</name>
+      </data>
+      <data>
+        <code xml:lang="ru">I</code>
+        <code xml:lang="en">I</code>
+        <name xml:lang="ru">Сбор I</name>
+        <name xml:lang="en">Tax I</name>
+      </data>
+      <data>
+        <code xml:lang="ru">J</code>
+        <code xml:lang="en">J</code>
+        <name xml:lang="ru">Сбор J</name>
+        <name xml:lang="en">Tax J</name>
+      </data>
+      <data>
+        <code xml:lang="ru">K</code>
+        <code xml:lang="en">K</code>
+        <name xml:lang="ru">Сбор K</name>
+        <name xml:lang="en">Tax K</name>
+      </data>
+      <data>
+        <code xml:lang="ru">L</code>
+        <code xml:lang="en">L</code>
+        <name xml:lang="ru">Сбор L</name>
+        <name xml:lang="en">Tax L</name>
+      </data>
+      <data>
+        <code xml:lang="ru">M</code>
+        <code xml:lang="en">M</code>
+        <name xml:lang="ru">Сбор M</name>
+        <name xml:lang="en">Tax M</name>
+      </data>
+      <data>
+        <code xml:lang="ru">N</code>
+        <code xml:lang="en">N</code>
+        <name xml:lang="ru">Сбор N</name>
+        <name xml:lang="en">Tax N</name>
+      </data>
+      <data>
+        <code xml:lang="ru">P</code>
+        <code xml:lang="en">P</code>
+        <name xml:lang="ru">Сбор P</name>
+        <name xml:lang="en">Tax P</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Q</code>
+        <code xml:lang="en">Q</code>
+        <name xml:lang="ru">Сбор Q</name>
+        <name xml:lang="en">Tax Q</name>
+      </data>
+      <data>
+        <code xml:lang="ru">R</code>
+        <code xml:lang="en">R</code>
+        <name xml:lang="ru">Сбор R</name>
+        <name xml:lang="en">Tax R</name>
+      </data>
+      <data>
+        <code xml:lang="ru">V</code>
+        <code xml:lang="en">V</code>
+        <name xml:lang="ru">Сбор V</name>
+        <name xml:lang="en">Tax V</name>
+      </data>
+      <data>
+        <code xml:lang="ru">W</code>
+        <code xml:lang="en">W</code>
+        <name xml:lang="ru">Сбор W</name>
+        <name xml:lang="en">Tax W</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Y</code>
+        <code xml:lang="en">Y</code>
+        <name xml:lang="ru">Сбор Y</name>
+        <name xml:lang="en">Tax Y</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Z</code>
+        <code xml:lang="en">Z</code>
+        <name xml:lang="ru">Сбор Z</name>
+        <name xml:lang="en">Tax Z</name>
+      </data>
+      <data>
+        <code xml:lang="ru">G</code>
+        <code xml:lang="en">G</code>
+        <name xml:lang="ru">Сбор G</name>
+        <name xml:lang="en">Tax G</name>
+      </data>
+      <data>
+        <code xml:lang="ru">C</code>
+        <code xml:lang="en">C</code>
+        <name xml:lang="ru">Сбор C</name>
+        <name xml:lang="en">Tax C</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЯЯ</code>
+        <code xml:lang="en">QQ</code>
+        <name xml:lang="ru">Сбор ЯЯ</name>
+        <name xml:lang="en">Tax QQ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">UH</code>
+        <code xml:lang="en">UH</code>
+        <name xml:lang="ru">Сбор UH</name>
+        <name xml:lang="en">Tax UH</name>
+      </data>
+      <data>
+        <code xml:lang="ru">_Р</code>
+        <code xml:lang="en">_R</code>
+        <name xml:lang="ru">Сбор _Р</name>
+        <name xml:lang="en">Tax _R</name>
+      </data>
+      <data>
+        <code xml:lang="ru">RK</code>
+        <code xml:lang="en">RK</code>
+        <name xml:lang="ru">Сбор RK</name>
+        <name xml:lang="en">Tax RK</name>
+      </data>
+      <data>
+        <code xml:lang="ru">YA</code>
+        <code xml:lang="en">YA</code>
+        <name xml:lang="ru">Сбор YA</name>
+        <name xml:lang="en">Tax YA</name>
+      </data>
+      <data>
+        <code xml:lang="ru">SW</code>
+        <code xml:lang="en">SW</code>
+        <name xml:lang="ru">Сбор SW</name>
+        <name xml:lang="en">Tax SW</name>
+      </data>
+      <data>
+        <code xml:lang="ru">CA</code>
+        <code xml:lang="en">CA</code>
+        <name xml:lang="ru">Сбор CA</name>
+        <name xml:lang="en">Tax CA</name>
+      </data>
+      <data>
+        <code xml:lang="ru">SQ</code>
+        <code xml:lang="en">SQ</code>
+        <name xml:lang="ru">Сбор SQ</name>
+        <name xml:lang="en">Tax SQ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">XG</code>
+        <code xml:lang="en">XG</code>
+        <name xml:lang="ru">Сбор XG</name>
+        <name xml:lang="en">Tax XG</name>
+      </data>
+      <data>
+        <code xml:lang="ru">YL</code>
+        <code xml:lang="en">YL</code>
+        <name xml:lang="ru">Сбор YL</name>
+        <name xml:lang="en">Tax YL</name>
+      </data>
+      <data>
+        <code xml:lang="ru">UR</code>
+        <code xml:lang="en">UR</code>
+        <name xml:lang="ru">Сбор UR</name>
+        <name xml:lang="en">Tax UR</name>
+      </data>
+      <data>
+        <code xml:lang="ru">CH</code>
+        <code xml:lang="en">CH</code>
+        <name xml:lang="ru">Сбор CH</name>
+        <name xml:lang="en">Tax CH</name>
+      </data>
+      <data>
+        <code xml:lang="ru">XQ</code>
+        <code xml:lang="en">XQ</code>
+        <name xml:lang="ru">Сбор XQ</name>
+        <name xml:lang="en">Tax XQ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">EQ</code>
+        <code xml:lang="en">EQ</code>
+        <name xml:lang="ru">Сбор EQ</name>
+        <name xml:lang="en">Tax EQ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ZO</code>
+        <code xml:lang="en">ZO</code>
+        <name xml:lang="ru">Сбор ZO</name>
+        <name xml:lang="en">Tax ZO</name>
+      </data>
+      <data>
+        <code xml:lang="ru">AO</code>
+        <code xml:lang="en">AO</code>
+        <name xml:lang="ru">Сбор AO</name>
+        <name xml:lang="en">Tax AO</name>
+      </data>
+      <data>
+        <code xml:lang="ru">JJ</code>
+        <code xml:lang="en">JJ</code>
+        <name xml:lang="ru">Сбор JJ</name>
+        <name xml:lang="en">Tax JJ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">RD</code>
+        <code xml:lang="en">RD</code>
+        <name xml:lang="ru">Сбор RD</name>
+        <name xml:lang="en">Tax RD</name>
+      </data>
+      <data>
+        <code xml:lang="ru">UP</code>
+        <code xml:lang="en">UP</code>
+        <name xml:lang="ru">Сбор UP</name>
+        <name xml:lang="en">Tax UP</name>
+      </data>
+      <data>
+        <code xml:lang="ru">BC</code>
+        <code xml:lang="en">BC</code>
+        <name xml:lang="ru">Сбор BC</name>
+        <name xml:lang="en">Tax BC</name>
+      </data>
+      <data>
+        <code xml:lang="ru">UQ</code>
+        <code xml:lang="en">UQ</code>
+        <name xml:lang="ru">Сбор UQ</name>
+        <name xml:lang="en">Tax UQ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">R_</code>
+        <code xml:lang="en">R_</code>
+        <name xml:lang="ru">Сбор R_</name>
+        <name xml:lang="en">Tax R_</name>
+      </data>
+      <data>
+        <code xml:lang="ru">JK</code>
+        <code xml:lang="en">JK</code>
+        <name xml:lang="ru">Сбор JK</name>
+        <name xml:lang="en">Tax JK</name>
+      </data>
+      <data>
+        <code xml:lang="ru">EG</code>
+        <code xml:lang="en">EG</code>
+        <name xml:lang="ru">Сбор EG</name>
+        <name xml:lang="en">Tax EG</name>
+      </data>
+      <data>
+        <code xml:lang="ru">SY</code>
+        <code xml:lang="en">SY</code>
+        <name xml:lang="ru">Сбор SY</name>
+        <name xml:lang="en">Tax SY</name>
+      </data>
+      <data>
+        <code xml:lang="ru">AY</code>
+        <code xml:lang="en">AY</code>
+        <name xml:lang="ru">Сбор AY</name>
+        <name xml:lang="en">Tax AY</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ME</code>
+        <code xml:lang="en">ME</code>
+        <name xml:lang="ru">Сбор ME</name>
+        <name xml:lang="en">Tax ME</name>
+      </data>
+      <data>
+        <code xml:lang="ru">JX</code>
+        <code xml:lang="en">JX</code>
+        <name xml:lang="ru">Сбор JX</name>
+        <name xml:lang="en">Tax JX</name>
+      </data>
+      <data>
+        <code xml:lang="ru">JW</code>
+        <code xml:lang="en">JW</code>
+        <name xml:lang="ru">Сбор JW</name>
+        <name xml:lang="en">Tax JW</name>
+      </data>
+      <data>
+        <code xml:lang="ru">MT</code>
+        <code xml:lang="en">MT</code>
+        <name xml:lang="ru">Сбор MT</name>
+        <name xml:lang="en">Tax MT</name>
+      </data>
+      <data>
+        <code xml:lang="ru">UF</code>
+        <code xml:lang="en">UF</code>
+        <name xml:lang="ru">Сбор UF</name>
+        <name xml:lang="en">Tax UF</name>
+      </data>
+      <data>
+        <code xml:lang="ru">DB</code>
+        <code xml:lang="en">DB</code>
+        <name xml:lang="ru">Сбор DB</name>
+        <name xml:lang="en">Tax DB</name>
+      </data>
+      <data>
+        <code xml:lang="ru">MN</code>
+        <code xml:lang="en">MN</code>
+        <name xml:lang="ru">Сбор MN</name>
+        <name xml:lang="en">Tax MN</name>
+      </data>
+      <data>
+        <code xml:lang="ru">HK</code>
+        <code xml:lang="en">HK</code>
+        <name xml:lang="ru">Сбор HK</name>
+        <name xml:lang="en">Tax HK</name>
+      </data>
+      <data>
+        <code xml:lang="ru">LK</code>
+        <code xml:lang="en">LK</code>
+        <name xml:lang="ru">Сбор LK</name>
+        <name xml:lang="en">Tax LK</name>
+      </data>
+      <data>
+        <code xml:lang="ru">BQ</code>
+        <code xml:lang="en">BQ</code>
+        <name xml:lang="ru">Сбор BQ</name>
+        <name xml:lang="en">Tax BQ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">MY</code>
+        <code xml:lang="en">MY</code>
+        <name xml:lang="ru">Сбор MY</name>
+        <name xml:lang="en">Tax MY</name>
+      </data>
+      <data>
+        <code xml:lang="ru">XL</code>
+        <code xml:lang="en">XL</code>
+        <name xml:lang="ru">Сбор XL</name>
+        <name xml:lang="en">Tax XL</name>
+      </data>
+      <data>
+        <code xml:lang="ru">RH</code>
+        <code xml:lang="en">RH</code>
+        <name xml:lang="ru">Сбор RH</name>
+        <name xml:lang="en">Tax RH</name>
+      </data>
+      <data>
+        <code xml:lang="ru">WM</code>
+        <code xml:lang="en">WM</code>
+        <name xml:lang="ru">Сбор WM</name>
+        <name xml:lang="en">Tax WM</name>
+      </data>
+      <data>
+        <code xml:lang="ru">HQ</code>
+        <code xml:lang="en">HQ</code>
+        <name xml:lang="ru">Сбор HQ</name>
+        <name xml:lang="en">Tax HQ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">JO</code>
+        <code xml:lang="en">JO</code>
+        <name xml:lang="ru">Сбор JO</name>
+        <name xml:lang="en">Tax JO</name>
+      </data>
+      <data>
+        <code xml:lang="ru">UU</code>
+        <code xml:lang="en">UU</code>
+        <name xml:lang="ru">Сбор UU</name>
+        <name xml:lang="en">Tax UU</name>
+      </data>
+      <data>
+        <code xml:lang="ru">MK</code>
+        <code xml:lang="en">MK</code>
+        <name xml:lang="ru">Сбор MK</name>
+        <name xml:lang="en">Tax MK</name>
+      </data>
+      <data>
+        <code xml:lang="ru">VS</code>
+        <code xml:lang="en">VS</code>
+        <name xml:lang="ru">Сбор VS</name>
+        <name xml:lang="en">Tax VS</name>
+      </data>
+      <data>
+        <code xml:lang="ru">AA</code>
+        <code xml:lang="en">AA</code>
+        <name xml:lang="ru">Сбор AA</name>
+        <name xml:lang="en">Tax AA</name>
+      </data>
+      <data>
+        <code xml:lang="ru">А</code>
+        <code xml:lang="en">A</code>
+        <name xml:lang="ru">Сбор А</name>
+        <name xml:lang="en">Tax A</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Г</code>
+        <code xml:lang="en">X</code>
+        <name xml:lang="ru">Сбор Г</name>
+        <name xml:lang="en">Tax X</name>
+      </data>
+      <data>
+        <code xml:lang="ru">QR</code>
+        <code xml:lang="en">QR</code>
+        <name xml:lang="ru">Сбор QR</name>
+        <name xml:lang="en">Tax QR</name>
+      </data>
+      <data>
+        <code xml:lang="ru">WG</code>
+        <code xml:lang="en">WG</code>
+        <name xml:lang="ru">Сбор WG</name>
+        <name xml:lang="en">Tax WG</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Б</code>
+        <code xml:lang="en">O</code>
+        <name xml:lang="ru">Сбор Б</name>
+        <name xml:lang="en">Tax O</name>
+      </data>
+      <data>
+        <code xml:lang="ru">СС</code>
+        <code xml:lang="en">СС</code>
+        <name xml:lang="ru">Сбор СС</name>
+        <name xml:lang="en">Tax СС</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ГИ</code>
+        <code xml:lang="en">ГИ</code>
+        <name xml:lang="ru">Сбор ГИ</name>
+        <name xml:lang="en">Tax ГИ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">АП</code>
+        <code xml:lang="en">АП</code>
+        <name xml:lang="ru">Сбор АП</name>
+        <name xml:lang="en">Tax АП</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ГУ</code>
+        <code xml:lang="en">GU</code>
+        <name xml:lang="ru">Сбор ГУ</name>
+        <name xml:lang="en">Tax GU</name>
+      </data>
+      <data>
+        <code xml:lang="ru">Т</code>
+        <code xml:lang="en">F</code>
+        <name xml:lang="ru">Сбор Т</name>
+        <name xml:lang="en">Tax F</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ZP</code>
+        <code xml:lang="en">ZP</code>
+        <name xml:lang="ru">Сбор ZP</name>
+        <name xml:lang="en">Tax ZP</name>
+      </data>
+      <data>
+        <code xml:lang="ru">WN</code>
+        <code xml:lang="en">WN</code>
+        <name xml:lang="ru">Сбор WN</name>
+        <name xml:lang="en">Tax WN</name>
+      </data>
+      <data>
+        <code xml:lang="ru">KK</code>
+        <code xml:lang="en">KK</code>
+        <name xml:lang="ru">Сбор KK</name>
+        <name xml:lang="en">Tax KK</name>
+      </data>
+      <data>
+        <code xml:lang="ru">IA</code>
+        <code xml:lang="en">IA</code>
+        <name xml:lang="ru">Сбор IA</name>
+        <name xml:lang="en">Tax IA</name>
+      </data>
+      <data>
+        <code xml:lang="ru">РУ</code>
+        <code xml:lang="en">RU</code>
+        <name xml:lang="ru">Сбор РУ</name>
+        <name xml:lang="en">Tax RU</name>
+      </data>
+      <data>
+        <code xml:lang="ru">UB</code>
+        <code xml:lang="en">UB</code>
+        <name xml:lang="ru">Сбор UB</name>
+        <name xml:lang="en">Tax UB</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ТГ</code>
+        <code xml:lang="en">SE</code>
+        <name xml:lang="ru">Сбор ТГ</name>
+        <name xml:lang="en">Tax SE</name>
+      </data>
+      <data>
+        <code xml:lang="ru">AE</code>
+        <code xml:lang="en">AE</code>
+        <name xml:lang="ru">Сбор AE</name>
+        <name xml:lang="en">Tax AE</name>
+      </data>
+      <data>
+        <code xml:lang="ru">QX</code>
+        <code xml:lang="en">QX</code>
+        <name xml:lang="ru">Сбор QX</name>
+        <name xml:lang="en">Tax QX</name>
+      </data>
+      <data>
+        <code xml:lang="ru">CY</code>
+        <code xml:lang="en">CY</code>
+        <name xml:lang="ru">Сбор CY</name>
+        <name xml:lang="en">Tax CY</name>
+      </data>
+      <data>
+        <code xml:lang="ru">IL</code>
+        <code xml:lang="en">IL</code>
+        <name xml:lang="ru">Сбор IL</name>
+        <name xml:lang="en">Tax IL</name>
+      </data>
+      <data>
+        <code xml:lang="ru">DE</code>
+        <code xml:lang="en">DE</code>
+        <name xml:lang="ru">Сбор DE</name>
+        <name xml:lang="en">Tax DE</name>
+      </data>
+      <data>
+        <code xml:lang="ru">RA</code>
+        <code xml:lang="en">RA</code>
+        <name xml:lang="ru">Сбор RA</name>
+        <name xml:lang="en">Tax RA</name>
+      </data>
+      <data>
+        <code xml:lang="ru">GB</code>
+        <code xml:lang="en">GB</code>
+        <name xml:lang="ru">Сбор GB</name>
+        <name xml:lang="en">Tax GB</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ZZ</code>
+        <code xml:lang="en">ZZ</code>
+        <name xml:lang="ru">Сбор ZZ</name>
+        <name xml:lang="en">Tax ZZ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">BG</code>
+        <code xml:lang="en">BG</code>
+        <name xml:lang="ru">Сбор BG</name>
+        <name xml:lang="en">Tax BG</name>
+      </data>
+      <data>
+        <code xml:lang="ru">IY</code>
+        <code xml:lang="en">IY</code>
+        <name xml:lang="ru">Сбор IY</name>
+        <name xml:lang="en">Tax IY</name>
+      </data>
+      <data>
+        <code xml:lang="ru">EJ</code>
+        <code xml:lang="en">EJ</code>
+        <name xml:lang="ru">Сбор EJ</name>
+        <name xml:lang="en">Tax EJ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ZN</code>
+        <code xml:lang="en">ZN</code>
+        <name xml:lang="ru">Сбор ZN</name>
+        <name xml:lang="en">Tax ZN</name>
+      </data>
+      <data>
+        <code xml:lang="ru">СП</code>
+        <code xml:lang="en">СП</code>
+        <name xml:lang="ru">Сбор СП</name>
+        <name xml:lang="en">Tax СП</name>
+      </data>
+      <data>
+        <code xml:lang="ru">БО</code>
+        <code xml:lang="en">BO</code>
+        <name xml:lang="ru">Сбор БО</name>
+        <name xml:lang="en">Tax BO</name>
+      </data>
+      <data>
+        <code xml:lang="ru">LQ</code>
+        <code xml:lang="en">LQ</code>
+        <name xml:lang="ru">Сбор LQ</name>
+        <name xml:lang="en">Tax LQ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">MB</code>
+        <code xml:lang="en">MB</code>
+        <name xml:lang="ru">Сбор MB</name>
+        <name xml:lang="en">Tax MB</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ZL</code>
+        <code xml:lang="en">ZL</code>
+        <name xml:lang="ru">Сбор ZL</name>
+        <name xml:lang="en">Tax ZL</name>
+      </data>
+      <data>
+        <code xml:lang="ru">MI</code>
+        <code xml:lang="en">MI</code>
+        <name xml:lang="ru">Сбор MI</name>
+        <name xml:lang="en">Tax MI</name>
+      </data>
+      <data>
+        <code xml:lang="ru">SC</code>
+        <code xml:lang="en">SC</code>
+        <name xml:lang="ru">Сбор SC</name>
+        <name xml:lang="en">Tax SC</name>
+      </data>
+      <data>
+        <code xml:lang="ru">СТ</code>
+        <code xml:lang="en">CT</code>
+        <name xml:lang="ru">Сбор СТ</name>
+        <name xml:lang="en">Tax CT</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ШР</code>
+        <code xml:lang="en">ШР</code>
+        <name xml:lang="ru">Сбор ШР</name>
+        <name xml:lang="en">Tax ШР</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ИА</code>
+        <code xml:lang="en">ИА</code>
+        <name xml:lang="ru">Сбор ИА</name>
+        <name xml:lang="en">Tax ИА</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЕР</code>
+        <code xml:lang="en">ER</code>
+        <name xml:lang="ru">Сбор ЕР</name>
+        <name xml:lang="en">Tax ER</name>
+      </data>
+      <data>
+        <code xml:lang="ru">CZ</code>
+        <code xml:lang="en">CZ</code>
+        <name xml:lang="ru">Сбор CZ</name>
+        <name xml:lang="en">Tax CZ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">FR</code>
+        <code xml:lang="en">FR</code>
+        <name xml:lang="ru">Сбор FR</name>
+        <name xml:lang="en">Tax FR</name>
+      </data>
+      <data>
+        <code xml:lang="ru">TR</code>
+        <code xml:lang="en">TR</code>
+        <name xml:lang="ru">Сбор TR</name>
+        <name xml:lang="en">Tax TR</name>
+      </data>
+      <data>
+        <code xml:lang="ru">XD</code>
+        <code xml:lang="en">XD</code>
+        <name xml:lang="ru">Сбор XD</name>
+        <name xml:lang="en">Tax XD</name>
+      </data>
+      <data>
+        <code xml:lang="ru">UK</code>
+        <code xml:lang="en">UK</code>
+        <name xml:lang="ru">Сбор UK</name>
+        <name xml:lang="en">Tax UK</name>
+      </data>
+      <data>
+        <code xml:lang="ru">MJ</code>
+        <code xml:lang="en">MJ</code>
+        <name xml:lang="ru">Сбор MJ</name>
+        <name xml:lang="en">Tax MJ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">XO</code>
+        <code xml:lang="en">XO</code>
+        <name xml:lang="ru">Сбор XO</name>
+        <name xml:lang="en">Tax XO</name>
+      </data>
+      <data>
+        <code xml:lang="ru">MO</code>
+        <code xml:lang="en">MO</code>
+        <name xml:lang="ru">Сбор MO</name>
+        <name xml:lang="en">Tax MO</name>
+      </data>
+      <data>
+        <code xml:lang="ru">JN</code>
+        <code xml:lang="en">JN</code>
+        <name xml:lang="ru">Сбор JN</name>
+        <name xml:lang="en">Tax JN</name>
+      </data>
+      <data>
+        <code xml:lang="ru">IN</code>
+        <code xml:lang="en">IN</code>
+        <name xml:lang="ru">Сбор IN</name>
+        <name xml:lang="en">Tax IN</name>
+      </data>
+      <data>
+        <code xml:lang="ru">US</code>
+        <code xml:lang="en">US</code>
+        <name xml:lang="ru">Сбор US</name>
+        <name xml:lang="en">Tax US</name>
+      </data>
+      <data>
+        <code xml:lang="ru">YC</code>
+        <code xml:lang="en">YC</code>
+        <name xml:lang="ru">Сбор YC</name>
+        <name xml:lang="en">Tax YC</name>
+      </data>
+      <data>
+        <code xml:lang="ru">XY</code>
+        <code xml:lang="en">XY</code>
+        <name xml:lang="ru">Сбор XY</name>
+        <name xml:lang="en">Tax XY</name>
+      </data>
+      <data>
+        <code xml:lang="ru">SF</code>
+        <code xml:lang="en">SF</code>
+        <name xml:lang="ru">Сбор SF</name>
+        <name xml:lang="en">Tax SF</name>
+      </data>
+      <data>
+        <code xml:lang="ru">XA</code>
+        <code xml:lang="en">XA</code>
+        <name xml:lang="ru">Сбор XA</name>
+        <name xml:lang="en">Tax XA</name>
+      </data>
+      <data>
+        <code xml:lang="ru">XF</code>
+        <code xml:lang="en">XF</code>
+        <name xml:lang="ru">Сбор XF</name>
+        <name xml:lang="en">Tax XF</name>
+      </data>
+      <data>
+        <code xml:lang="ru">RI</code>
+        <code xml:lang="en">RI</code>
+        <name xml:lang="ru">Сбор RI</name>
+        <name xml:lang="en">Tax RI</name>
+      </data>
+      <data>
+        <code xml:lang="ru">RY</code>
+        <code xml:lang="en">RY</code>
+        <name xml:lang="ru">Сбор RY</name>
+        <name xml:lang="en">Tax RY</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЛЛ</code>
+        <code xml:lang="en">ЛЛ</code>
+        <name xml:lang="ru">Сбор ЛЛ</name>
+        <name xml:lang="en">Tax ЛЛ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">KS</code>
+        <code xml:lang="en">KS</code>
+        <name xml:lang="ru">Сбор KS</name>
+        <name xml:lang="en">Tax KS</name>
+      </data>
+      <data>
+        <code xml:lang="ru">YQ</code>
+        <code xml:lang="en">YQ</code>
+        <name xml:lang="ru">Сбор YQ</name>
+        <name xml:lang="en">Tax YQ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">РГ</code>
+        <code xml:lang="en">РГ</code>
+        <name xml:lang="ru">Сбор РГ</name>
+        <name xml:lang="en">Tax РГ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">РЮ</code>
+        <code xml:lang="en">РЮ</code>
+        <name xml:lang="ru">Сбор РЮ</name>
+        <name xml:lang="en">Tax РЮ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">AV</code>
+        <code xml:lang="en">AV</code>
+        <name xml:lang="ru">Сбор AV</name>
+        <name xml:lang="en">Tax AV</name>
+      </data>
+      <data>
+        <code xml:lang="ru">YR</code>
+        <code xml:lang="en">YR</code>
+        <name xml:lang="ru">Сбор YR</name>
+        <name xml:lang="en">Tax YR</name>
+      </data>
+      <data>
+        <code xml:lang="ru">QH</code>
+        <code xml:lang="en">QH</code>
+        <name xml:lang="ru">Сбор QH</name>
+        <name xml:lang="en">Tax QH</name>
+      </data>
+      <data>
+        <code xml:lang="ru">РБ</code>
+        <code xml:lang="en">РБ</code>
+        <name xml:lang="ru">Сбор РБ</name>
+        <name xml:lang="en">Tax РБ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">FX</code>
+        <code xml:lang="en">FX</code>
+        <name xml:lang="ru">Сбор FX</name>
+        <name xml:lang="en">Tax FX</name>
+      </data>
+      <data>
+        <code xml:lang="ru">GR</code>
+        <code xml:lang="en">GR</code>
+        <name xml:lang="ru">Сбор GR</name>
+        <name xml:lang="en">Tax GR</name>
+      </data>
+      <data>
+        <code xml:lang="ru">WQ</code>
+        <code xml:lang="en">WQ</code>
+        <name xml:lang="ru">Сбор WQ</name>
+        <name xml:lang="en">Tax WQ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">WP</code>
+        <code xml:lang="en">WP</code>
+        <name xml:lang="ru">Сбор WP</name>
+        <name xml:lang="en">Tax WP</name>
+      </data>
+      <data>
+        <code xml:lang="ru">UD</code>
+        <code xml:lang="en">UD</code>
+        <name xml:lang="ru">Сбор UD</name>
+        <name xml:lang="en">Tax UD</name>
+      </data>
+      <data>
+        <code xml:lang="ru">YK</code>
+        <code xml:lang="en">YK</code>
+        <name xml:lang="ru">Сбор YK</name>
+        <name xml:lang="en">Tax YK</name>
+      </data>
+      <data>
+        <code xml:lang="ru">UA</code>
+        <code xml:lang="en">UA</code>
+        <name xml:lang="ru">Сбор UA</name>
+        <name xml:lang="en">Tax UA</name>
+      </data>
+      <data>
+        <code xml:lang="ru">НС</code>
+        <code xml:lang="en">HF</code>
+        <name xml:lang="ru">Сбор НС</name>
+        <name xml:lang="en">Tax HF</name>
+      </data>
+      <data>
+        <code xml:lang="ru">SI</code>
+        <code xml:lang="en">SI</code>
+        <name xml:lang="ru">Сбор SI</name>
+        <name xml:lang="en">Tax SI</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ГО</code>
+        <code xml:lang="en">ГО</code>
+        <name xml:lang="ru">Сбор ГО</name>
+        <name xml:lang="en">Tax ГО</name>
+      </data>
+      <data>
+        <code xml:lang="ru">АЕ</code>
+        <code xml:lang="en">AR</code>
+        <name xml:lang="ru">Сбор АЕ</name>
+        <name xml:lang="en">Tax AR</name>
+      </data>
+      <data>
+        <code xml:lang="ru">CN</code>
+        <code xml:lang="en">CN</code>
+        <name xml:lang="ru">Сбор CN</name>
+        <name xml:lang="en">Tax CN</name>
+      </data>
+      <data>
+        <code xml:lang="ru">UL</code>
+        <code xml:lang="en">UL</code>
+        <name xml:lang="ru">Сбор UL</name>
+        <name xml:lang="en">Tax UL</name>
+      </data>
+      <data>
+        <code xml:lang="ru">RG</code>
+        <code xml:lang="en">RG</code>
+        <name xml:lang="ru">Сбор RG</name>
+        <name xml:lang="en">Tax RG</name>
+      </data>
+      <data>
+        <code xml:lang="ru">OP</code>
+        <code xml:lang="en">OP</code>
+        <name xml:lang="ru">Сбор OP</name>
+        <name xml:lang="en">Tax OP</name>
+      </data>
+      <data>
+        <code xml:lang="ru">AF</code>
+        <code xml:lang="en">AF</code>
+        <name xml:lang="ru">Сбор AF</name>
+        <name xml:lang="en">Tax AF</name>
+      </data>
+      <data>
+        <code xml:lang="ru">NS</code>
+        <code xml:lang="en">NS</code>
+        <name xml:lang="ru">Сбор NS</name>
+        <name xml:lang="en">Tax NS</name>
+      </data>
+      <data>
+        <code xml:lang="ru">AP</code>
+        <code xml:lang="en">AP</code>
+        <name xml:lang="ru">Сбор AP</name>
+        <name xml:lang="en">Tax AP</name>
+      </data>
+      <data>
+        <code xml:lang="ru">TZ</code>
+        <code xml:lang="en">TZ</code>
+        <name xml:lang="ru">Сбор TZ</name>
+        <name xml:lang="en">Tax TZ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">OQ</code>
+        <code xml:lang="en">OQ</code>
+        <name xml:lang="ru">Сбор OQ</name>
+        <name xml:lang="en">Tax OQ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">OU</code>
+        <code xml:lang="en">OU</code>
+        <name xml:lang="ru">Сбор OU</name>
+        <name xml:lang="en">Tax OU</name>
+      </data>
+      <data>
+        <code xml:lang="ru">IH</code>
+        <code xml:lang="en">IH</code>
+        <name xml:lang="ru">Сбор IH</name>
+        <name xml:lang="en">Tax IH</name>
+      </data>
+      <data>
+        <code xml:lang="ru">VD</code>
+        <code xml:lang="en">VD</code>
+        <name xml:lang="ru">Сбор VD</name>
+        <name xml:lang="en">Tax VD</name>
+      </data>
+      <data>
+        <code xml:lang="ru">OV</code>
+        <code xml:lang="en">OV</code>
+        <name xml:lang="ru">Сбор OV</name>
+        <name xml:lang="en">Tax OV</name>
+      </data>
+      <data>
+        <code xml:lang="ru">HB</code>
+        <code xml:lang="en">HB</code>
+        <name xml:lang="ru">Сбор HB</name>
+        <name xml:lang="en">Tax HB</name>
+      </data>
+      <data>
+        <code xml:lang="ru">VT</code>
+        <code xml:lang="en">VT</code>
+        <name xml:lang="ru">Сбор VT</name>
+        <name xml:lang="en">Tax VT</name>
+      </data>
+      <data>
+        <code xml:lang="ru">HL</code>
+        <code xml:lang="en">HL</code>
+        <name xml:lang="ru">Сбор HL</name>
+        <name xml:lang="en">Tax HL</name>
+      </data>
+      <data>
+        <code xml:lang="ru">РП</code>
+        <code xml:lang="en">РП</code>
+        <name xml:lang="ru">Сбор РП</name>
+        <name xml:lang="en">Tax РП</name>
+      </data>
+      <data>
+        <code xml:lang="ru">IT</code>
+        <code xml:lang="en">IT</code>
+        <name xml:lang="ru">Сбор IT</name>
+        <name xml:lang="en">Tax IT</name>
+      </data>
+      <data>
+        <code xml:lang="ru">СВ</code>
+        <code xml:lang="en">СВ</code>
+        <name xml:lang="ru">Сбор СВ</name>
+        <name xml:lang="en">Tax СВ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЦН</code>
+        <code xml:lang="en">ЦН</code>
+        <name xml:lang="ru">Сбор ЦН</name>
+        <name xml:lang="en">Tax ЦН</name>
+      </data>
+      <data>
+        <code xml:lang="ru">QV</code>
+        <code xml:lang="en">QV</code>
+        <name xml:lang="ru">Сбор QV</name>
+        <name xml:lang="en">Tax QV</name>
+      </data>
+      <data>
+        <code xml:lang="ru">RS</code>
+        <code xml:lang="en">RS</code>
+        <name xml:lang="ru">Сбор RS</name>
+        <name xml:lang="en">Tax RS</name>
+      </data>
+      <data>
+        <code xml:lang="ru">XK</code>
+        <code xml:lang="en">XK</code>
+        <name xml:lang="ru">Сбор XK</name>
+        <name xml:lang="en">Tax XK</name>
+      </data>
+      <data>
+        <code xml:lang="ru">DP</code>
+        <code xml:lang="en">DP</code>
+        <name xml:lang="ru">Сбор DP</name>
+        <name xml:lang="en">Tax DP</name>
+      </data>
+      <data>
+        <code xml:lang="ru">UJ</code>
+        <code xml:lang="en">UJ</code>
+        <name xml:lang="ru">Сбор UJ</name>
+        <name xml:lang="en">Tax UJ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">IZ</code>
+        <code xml:lang="en">IZ</code>
+        <name xml:lang="ru">Сбор IZ</name>
+        <name xml:lang="en">Tax IZ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">NN</code>
+        <code xml:lang="en">NN</code>
+        <name xml:lang="ru">Сбор NN</name>
+        <name xml:lang="en">Tax NN</name>
+      </data>
+      <data>
+        <code xml:lang="ru">HU</code>
+        <code xml:lang="en">HU</code>
+        <name xml:lang="ru">Сбор HU</name>
+        <name xml:lang="en">Tax HU</name>
+      </data>
+      <data>
+        <code xml:lang="ru">FE</code>
+        <code xml:lang="en">FE</code>
+        <name xml:lang="ru">Сбор FE</name>
+        <name xml:lang="en">Tax FE</name>
+      </data>
+      <data>
+        <code xml:lang="ru">XW</code>
+        <code xml:lang="en">XW</code>
+        <name xml:lang="ru">Сбор XW</name>
+        <name xml:lang="en">Tax XW</name>
+      </data>
+      <data>
+        <code xml:lang="ru">EX</code>
+        <code xml:lang="en">EX</code>
+        <name xml:lang="ru">Сбор EX</name>
+        <name xml:lang="en">Tax EX</name>
+      </data>
+      <data>
+        <code xml:lang="ru">JA</code>
+        <code xml:lang="en">JA</code>
+        <name xml:lang="ru">Сбор JA</name>
+        <name xml:lang="en">Tax JA</name>
+      </data>
+      <data>
+        <code xml:lang="ru">RO</code>
+        <code xml:lang="en">RO</code>
+        <name xml:lang="ru">Сбор RO</name>
+        <name xml:lang="en">Tax RO</name>
+      </data>
+      <data>
+        <code xml:lang="ru">DC</code>
+        <code xml:lang="en">DC</code>
+        <name xml:lang="ru">Сбор DC</name>
+        <name xml:lang="en">Tax DC</name>
+      </data>
+      <data>
+        <code xml:lang="ru">LU</code>
+        <code xml:lang="en">LU</code>
+        <name xml:lang="ru">Сбор LU</name>
+        <name xml:lang="en">Tax LU</name>
+      </data>
+      <data>
+        <code xml:lang="ru">YJ</code>
+        <code xml:lang="en">YJ</code>
+        <name xml:lang="ru">Сбор YJ</name>
+        <name xml:lang="en">Tax YJ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">JC</code>
+        <code xml:lang="en">JC</code>
+        <name xml:lang="ru">Сбор JC</name>
+        <name xml:lang="en">Tax JC</name>
+      </data>
+      <data>
+        <code xml:lang="ru">AN</code>
+        <code xml:lang="en">AN</code>
+        <name xml:lang="ru">Сбор AN</name>
+        <name xml:lang="en">Tax AN</name>
+      </data>
+      <data>
+        <code xml:lang="ru">PT</code>
+        <code xml:lang="en">PT</code>
+        <name xml:lang="ru">Сбор PT</name>
+        <name xml:lang="en">Tax PT</name>
+      </data>
+      <data>
+        <code xml:lang="ru">YP</code>
+        <code xml:lang="en">YP</code>
+        <name xml:lang="ru">Сбор YP</name>
+        <name xml:lang="en">Tax YP</name>
+      </data>
+      <data>
+        <code xml:lang="ru">HR</code>
+        <code xml:lang="en">HR</code>
+        <name xml:lang="ru">Сбор HR</name>
+        <name xml:lang="en">Tax HR</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ДУ</code>
+        <code xml:lang="en">DU</code>
+        <name xml:lang="ru">Сбор ДУ</name>
+        <name xml:lang="en">Tax DU</name>
+      </data>
+      <data>
+        <code xml:lang="ru">JQ</code>
+        <code xml:lang="en">JQ</code>
+        <name xml:lang="ru">Сбор JQ</name>
+        <name xml:lang="en">Tax JQ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">CS</code>
+        <code xml:lang="en">CS</code>
+        <name xml:lang="ru">Сбор CS</name>
+        <name xml:lang="en">Tax CS</name>
+      </data>
+      <data>
+        <code xml:lang="ru">JD</code>
+        <code xml:lang="en">JD</code>
+        <name xml:lang="ru">Сбор JD</name>
+        <name xml:lang="en">Tax JD</name>
+      </data>
+      <data>
+        <code xml:lang="ru">JL</code>
+        <code xml:lang="en">JL</code>
+        <name xml:lang="ru">Сбор JL</name>
+        <name xml:lang="en">Tax JL</name>
+      </data>
+      <data>
+        <code xml:lang="ru">BE</code>
+        <code xml:lang="en">BE</code>
+        <name xml:lang="ru">Сбор BE</name>
+        <name xml:lang="en">Tax BE</name>
+      </data>
+      <data>
+        <code xml:lang="ru">DQ</code>
+        <code xml:lang="en">DQ</code>
+        <name xml:lang="ru">Сбор DQ</name>
+        <name xml:lang="en">Tax DQ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">FI</code>
+        <code xml:lang="en">FI</code>
+        <name xml:lang="ru">Сбор FI</name>
+        <name xml:lang="en">Tax FI</name>
+      </data>
+      <data>
+        <code xml:lang="ru">AL</code>
+        <code xml:lang="en">AL</code>
+        <name xml:lang="ru">Сбор AL</name>
+        <name xml:lang="en">Tax AL</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЮН</code>
+        <code xml:lang="en">UN</code>
+        <name xml:lang="ru">Сбор ЮН</name>
+        <name xml:lang="en">Tax UN</name>
+      </data>
+      <data>
+        <code xml:lang="ru">NA</code>
+        <code xml:lang="en">NA</code>
+        <name xml:lang="ru">Сбор NA</name>
+        <name xml:lang="en">Tax NA</name>
+      </data>
+      <data>
+        <code xml:lang="ru">WY</code>
+        <code xml:lang="en">WY</code>
+        <name xml:lang="ru">Сбор WY</name>
+        <name xml:lang="en">Tax WY</name>
+      </data>
+      <data>
+        <code xml:lang="ru">HH</code>
+        <code xml:lang="en">HH</code>
+        <name xml:lang="ru">Сбор HH</name>
+        <name xml:lang="en">Tax HH</name>
+      </data>
+      <data>
+        <code xml:lang="ru">WC</code>
+        <code xml:lang="en">WC</code>
+        <name xml:lang="ru">Сбор WC</name>
+        <name xml:lang="en">Tax WC</name>
+      </data>
+      <data>
+        <code xml:lang="ru">SK</code>
+        <code xml:lang="en">SK</code>
+        <name xml:lang="ru">Сбор SK</name>
+        <name xml:lang="en">Tax SK</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ХХ</code>
+        <code xml:lang="en">ХХ</code>
+        <name xml:lang="ru">Сбор ХХ</name>
+        <name xml:lang="en">Tax ХХ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">VB</code>
+        <code xml:lang="en">VB</code>
+        <name xml:lang="ru">Сбор VB</name>
+        <name xml:lang="en">Tax VB</name>
+      </data>
+      <data>
+        <code xml:lang="ru">BA</code>
+        <code xml:lang="en">BA</code>
+        <name xml:lang="ru">Сбор BA</name>
+        <name xml:lang="en">Tax BA</name>
+      </data>
+      <data>
+        <code xml:lang="ru">MU</code>
+        <code xml:lang="en">MU</code>
+        <name xml:lang="ru">Сбор MU</name>
+        <name xml:lang="en">Tax MU</name>
+      </data>
+      <data>
+        <code xml:lang="ru">FN</code>
+        <code xml:lang="en">FN</code>
+        <name xml:lang="ru">Сбор FN</name>
+        <name xml:lang="en">Tax FN</name>
+      </data>
+      <data>
+        <code xml:lang="ru">LG</code>
+        <code xml:lang="en">LG</code>
+        <name xml:lang="ru">Сбор LG</name>
+        <name xml:lang="en">Tax LG</name>
+      </data>
+      <data>
+        <code xml:lang="ru">XJ</code>
+        <code xml:lang="en">XJ</code>
+        <name xml:lang="ru">Сбор XJ</name>
+        <name xml:lang="en">Tax XJ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">UX</code>
+        <code xml:lang="en">UX</code>
+        <name xml:lang="ru">Сбор UX</name>
+        <name xml:lang="en">Tax UX</name>
+      </data>
+      <data>
+        <code xml:lang="ru">HJ</code>
+        <code xml:lang="en">HJ</code>
+        <name xml:lang="ru">Сбор HJ</name>
+        <name xml:lang="en">Tax HJ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">AU</code>
+        <code xml:lang="en">AU</code>
+        <name xml:lang="ru">Сбор AU</name>
+        <name xml:lang="en">Tax AU</name>
+      </data>
+      <data>
+        <code xml:lang="ru">SP</code>
+        <code xml:lang="en">SP</code>
+        <name xml:lang="ru">Сбор SP</name>
+        <name xml:lang="en">Tax SP</name>
+      </data>
+      <data>
+        <code xml:lang="ru">LJ</code>
+        <code xml:lang="en">LJ</code>
+        <name xml:lang="ru">Сбор LJ</name>
+        <name xml:lang="en">Tax LJ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">IS</code>
+        <code xml:lang="en">IS</code>
+        <name xml:lang="ru">Сбор IS</name>
+        <name xml:lang="en">Tax IS</name>
+      </data>
+      <data>
+        <code xml:lang="ru">HA</code>
+        <code xml:lang="en">HA</code>
+        <name xml:lang="ru">Сбор HA</name>
+        <name xml:lang="en">Tax HA</name>
+      </data>
+      <data>
+        <code xml:lang="ru">KJ</code>
+        <code xml:lang="en">KJ</code>
+        <name xml:lang="ru">Сбор KJ</name>
+        <name xml:lang="en">Tax KJ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">DW</code>
+        <code xml:lang="en">DW</code>
+        <name xml:lang="ru">Сбор DW</name>
+        <name xml:lang="en">Tax DW</name>
+      </data>
+      <data>
+        <code xml:lang="ru">WV</code>
+        <code xml:lang="en">WV</code>
+        <name xml:lang="ru">Сбор WV</name>
+        <name xml:lang="en">Tax WV</name>
+      </data>
+      <data>
+        <code xml:lang="ru">IX</code>
+        <code xml:lang="en">IX</code>
+        <name xml:lang="ru">Сбор IX</name>
+        <name xml:lang="en">Tax IX</name>
+      </data>
+      <data>
+        <code xml:lang="ru">KC</code>
+        <code xml:lang="en">KC</code>
+        <name xml:lang="ru">Сбор KC</name>
+        <name xml:lang="en">Tax KC</name>
+      </data>
+      <data>
+        <code xml:lang="ru">DT</code>
+        <code xml:lang="en">DT</code>
+        <name xml:lang="ru">Сбор DT</name>
+        <name xml:lang="en">Tax DT</name>
+      </data>
+      <data>
+        <code xml:lang="ru">DO</code>
+        <code xml:lang="en">DO</code>
+        <name xml:lang="ru">Сбор DO</name>
+        <name xml:lang="en">Tax DO</name>
+      </data>
+      <data>
+        <code xml:lang="ru">LY</code>
+        <code xml:lang="en">LY</code>
+        <name xml:lang="ru">Сбор LY</name>
+        <name xml:lang="en">Tax LY</name>
+      </data>
+      <data>
+        <code xml:lang="ru">TM</code>
+        <code xml:lang="en">TM</code>
+        <name xml:lang="ru">Сбор TM</name>
+        <name xml:lang="en">Tax TM</name>
+      </data>
+      <data>
+        <code xml:lang="ru">TU</code>
+        <code xml:lang="en">TU</code>
+        <name xml:lang="ru">Сбор TU</name>
+        <name xml:lang="en">Tax TU</name>
+      </data>
+      <data>
+        <code xml:lang="ru">PF</code>
+        <code xml:lang="en">PF</code>
+        <name xml:lang="ru">Сбор PF</name>
+        <name xml:lang="en">Tax PF</name>
+      </data>
+      <data>
+        <code xml:lang="ru">JP</code>
+        <code xml:lang="en">JP</code>
+        <name xml:lang="ru">Сбор JP</name>
+        <name xml:lang="en">Tax JP</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ZU</code>
+        <code xml:lang="en">ZU</code>
+        <name xml:lang="ru">Сбор ZU</name>
+        <name xml:lang="en">Tax ZU</name>
+      </data>
+      <data>
+        <code xml:lang="ru">DR</code>
+        <code xml:lang="en">DR</code>
+        <name xml:lang="ru">Сбор DR</name>
+        <name xml:lang="en">Tax DR</name>
+      </data>
+      <data>
+        <code xml:lang="ru">LA</code>
+        <code xml:lang="en">LA</code>
+        <name xml:lang="ru">Сбор LA</name>
+        <name xml:lang="en">Tax LA</name>
+      </data>
+      <data>
+        <code xml:lang="ru">HV</code>
+        <code xml:lang="en">HV</code>
+        <name xml:lang="ru">Сбор HV</name>
+        <name xml:lang="en">Tax HV</name>
+      </data>
+      <data>
+        <code xml:lang="ru">XX</code>
+        <code xml:lang="en">XX</code>
+        <name xml:lang="ru">Сбор XX</name>
+        <name xml:lang="en">Tax XX</name>
+      </data>
+      <data>
+        <code xml:lang="ru">VQ</code>
+        <code xml:lang="en">VQ</code>
+        <name xml:lang="ru">Сбор VQ</name>
+        <name xml:lang="en">Tax VQ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">KV</code>
+        <code xml:lang="en">KV</code>
+        <name xml:lang="ru">Сбор KV</name>
+        <name xml:lang="en">Tax KV</name>
+      </data>
+      <data>
+        <code xml:lang="ru">AG</code>
+        <code xml:lang="en">AG</code>
+        <name xml:lang="ru">Сбор AG</name>
+        <name xml:lang="en">Tax AG</name>
+      </data>
+      <data>
+        <code xml:lang="ru">RL</code>
+        <code xml:lang="en">RL</code>
+        <name xml:lang="ru">Сбор RL</name>
+        <name xml:lang="en">Tax RL</name>
+      </data>
+      <data>
+        <code xml:lang="ru">HE</code>
+        <code xml:lang="en">HE</code>
+        <name xml:lang="ru">Сбор HE</name>
+        <name xml:lang="en">Tax HE</name>
+      </data>
+      <data>
+        <code xml:lang="ru">TJ</code>
+        <code xml:lang="en">TJ</code>
+        <name xml:lang="ru">Сбор TJ</name>
+        <name xml:lang="en">Tax TJ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">TA</code>
+        <code xml:lang="en">TA</code>
+        <name xml:lang="ru">Сбор TA</name>
+        <name xml:lang="en">Tax TA</name>
+      </data>
+      <data>
+        <code xml:lang="ru">JV</code>
+        <code xml:lang="en">JV</code>
+        <name xml:lang="ru">Сбор JV</name>
+        <name xml:lang="en">Tax JV</name>
+      </data>
+      <data>
+        <code xml:lang="ru">MG</code>
+        <code xml:lang="en">MG</code>
+        <name xml:lang="ru">Сбор MG</name>
+        <name xml:lang="en">Tax MG</name>
+      </data>
+      <data>
+        <code xml:lang="ru">JE</code>
+        <code xml:lang="en">JE</code>
+        <name xml:lang="ru">Сбор JE</name>
+        <name xml:lang="en">Tax JE</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ZA</code>
+        <code xml:lang="en">ZA</code>
+        <name xml:lang="ru">Сбор ZA</name>
+        <name xml:lang="en">Tax ZA</name>
+      </data>
+      <data>
+        <code xml:lang="ru">EV</code>
+        <code xml:lang="en">EV</code>
+        <name xml:lang="ru">Сбор EV</name>
+        <name xml:lang="en">Tax EV</name>
+      </data>
+      <data>
+        <code xml:lang="ru">HY</code>
+        <code xml:lang="en">HY</code>
+        <name xml:lang="ru">Сбор HY</name>
+        <name xml:lang="en">Tax HY</name>
+      </data>
+      <data>
+        <code xml:lang="ru">MA</code>
+        <code xml:lang="en">MA</code>
+        <name xml:lang="ru">Сбор MA</name>
+        <name xml:lang="en">Tax MA</name>
+      </data>
+      <data>
+        <code xml:lang="ru">S</code>
+        <code xml:lang="en">S</code>
+        <name xml:lang="ru">Сбор S</name>
+        <name xml:lang="en">Tax S</name>
+      </data>
+      <data>
+        <code xml:lang="ru">SG</code>
+        <code xml:lang="en">SG</code>
+        <name xml:lang="ru">Сбор SG</name>
+        <name xml:lang="en">Tax SG</name>
+      </data>
+      <data>
+        <code xml:lang="ru">NT</code>
+        <code xml:lang="en">NT</code>
+        <name xml:lang="ru">Сбор NT</name>
+        <name xml:lang="en">Tax NT</name>
+      </data>
+      <data>
+        <code xml:lang="ru">QK</code>
+        <code xml:lang="en">QK</code>
+        <name xml:lang="ru">Сбор QK</name>
+        <name xml:lang="en">Tax QK</name>
+      </data>
+      <data>
+        <code xml:lang="ru">OH</code>
+        <code xml:lang="en">OH</code>
+        <name xml:lang="ru">Сбор OH</name>
+        <name xml:lang="en">Tax OH</name>
+      </data>
+      <data>
+        <code xml:lang="ru">KW</code>
+        <code xml:lang="en">KW</code>
+        <name xml:lang="ru">Сбор KW</name>
+        <name xml:lang="en">Tax KW</name>
+      </data>
+      <data>
+        <code xml:lang="ru">GZ</code>
+        <code xml:lang="en">GZ</code>
+        <name xml:lang="ru">Сбор GZ</name>
+        <name xml:lang="en">Tax GZ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">OI</code>
+        <code xml:lang="en">OI</code>
+        <name xml:lang="ru">Сбор OI</name>
+        <name xml:lang="en">Tax OI</name>
+      </data>
+      <data>
+        <code xml:lang="ru">OO</code>
+        <code xml:lang="en">OO</code>
+        <name xml:lang="ru">Сбор OO</name>
+        <name xml:lang="en">Tax OO</name>
+      </data>
+      <data>
+        <code xml:lang="ru">HZ</code>
+        <code xml:lang="en">HZ</code>
+        <name xml:lang="ru">Сбор HZ</name>
+        <name xml:lang="en">Tax HZ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ET</code>
+        <code xml:lang="en">ET</code>
+        <name xml:lang="ru">Сбор ET</name>
+        <name xml:lang="en">Tax ET</name>
+      </data>
+      <data>
+        <code xml:lang="ru">UT</code>
+        <code xml:lang="en">UT</code>
+        <name xml:lang="ru">Сбор UT</name>
+        <name xml:lang="en">Tax UT</name>
+      </data>
+      <data>
+        <code xml:lang="ru">CI</code>
+        <code xml:lang="en">CI</code>
+        <name xml:lang="ru">Сбор CI</name>
+        <name xml:lang="en">Tax CI</name>
+      </data>
+      <data>
+        <code xml:lang="ru">YE</code>
+        <code xml:lang="en">YE</code>
+        <name xml:lang="ru">Сбор YE</name>
+        <name xml:lang="en">Tax YE</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ND</code>
+        <code xml:lang="en">ND</code>
+        <name xml:lang="ru">Сбор ND</name>
+        <name xml:lang="en">Tax ND</name>
+      </data>
+      <data>
+        <code xml:lang="ru">OB</code>
+        <code xml:lang="en">OB</code>
+        <name xml:lang="ru">Сбор OB</name>
+        <name xml:lang="en">Tax OB</name>
+      </data>
+      <data>
+        <code xml:lang="ru">EK</code>
+        <code xml:lang="en">EK</code>
+        <name xml:lang="ru">Сбор EK</name>
+        <name xml:lang="en">Tax EK</name>
+      </data>
+      <data>
+        <code xml:lang="ru">EI</code>
+        <code xml:lang="en">EI</code>
+        <name xml:lang="ru">Сбор EI</name>
+        <name xml:lang="en">Tax EI</name>
+      </data>
+      <data>
+        <code xml:lang="ru">UG</code>
+        <code xml:lang="en">UG</code>
+        <name xml:lang="ru">Сбор UG</name>
+        <name xml:lang="en">Tax UG</name>
+      </data>
+      <data>
+        <code xml:lang="ru">FQ</code>
+        <code xml:lang="en">FQ</code>
+        <name xml:lang="ru">Сбор FQ</name>
+        <name xml:lang="en">Tax FQ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">CQ</code>
+        <code xml:lang="en">CQ</code>
+        <name xml:lang="ru">Сбор CQ</name>
+        <name xml:lang="en">Tax CQ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">OZ</code>
+        <code xml:lang="en">OZ</code>
+        <name xml:lang="ru">Сбор OZ</name>
+        <name xml:lang="en">Tax OZ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">NP</code>
+        <code xml:lang="en">NP</code>
+        <name xml:lang="ru">Сбор NP</name>
+        <name xml:lang="en">Tax NP</name>
+      </data>
+      <data>
+        <code xml:lang="ru">NQ</code>
+        <code xml:lang="en">NQ</code>
+        <name xml:lang="ru">Сбор NQ</name>
+        <name xml:lang="en">Tax NQ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">GP</code>
+        <code xml:lang="en">GP</code>
+        <name xml:lang="ru">Сбор GP</name>
+        <name xml:lang="en">Tax GP</name>
+      </data>
+      <data>
+        <code xml:lang="ru">GH</code>
+        <code xml:lang="en">GH</code>
+        <name xml:lang="ru">Сбор GH</name>
+        <name xml:lang="en">Tax GH</name>
+      </data>
+      <data>
+        <code xml:lang="ru">TI</code>
+        <code xml:lang="en">TI</code>
+        <name xml:lang="ru">Сбор TI</name>
+        <name xml:lang="en">Tax TI</name>
+      </data>
+      <data>
+        <code xml:lang="ru">QS</code>
+        <code xml:lang="en">QS</code>
+        <name xml:lang="ru">Сбор QS</name>
+        <name xml:lang="en">Tax QS</name>
+      </data>
+      <data>
+        <code xml:lang="ru">OE</code>
+        <code xml:lang="en">OE</code>
+        <name xml:lang="ru">Сбор OE</name>
+        <name xml:lang="en">Tax OE</name>
+      </data>
+      <data>
+        <code xml:lang="ru">OS</code>
+        <code xml:lang="en">OS</code>
+        <name xml:lang="ru">Сбор OS</name>
+        <name xml:lang="en">Tax OS</name>
+      </data>
+      <data>
+        <code xml:lang="ru">NG</code>
+        <code xml:lang="en">NG</code>
+        <name xml:lang="ru">Сбор NG</name>
+        <name xml:lang="en">Tax NG</name>
+      </data>
+      <data>
+        <code xml:lang="ru">RQ</code>
+        <code xml:lang="en">RQ</code>
+        <name xml:lang="ru">Сбор RQ</name>
+        <name xml:lang="en">Tax RQ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">IU</code>
+        <code xml:lang="en">IU</code>
+        <name xml:lang="ru">Сбор IU</name>
+        <name xml:lang="en">Tax IU</name>
+      </data>
+      <data>
+        <code xml:lang="ru">BH</code>
+        <code xml:lang="en">BH</code>
+        <name xml:lang="ru">Сбор BH</name>
+        <name xml:lang="en">Tax BH</name>
+      </data>
+      <data>
+        <code xml:lang="ru">BD</code>
+        <code xml:lang="en">BD</code>
+        <name xml:lang="ru">Сбор BD</name>
+        <name xml:lang="en">Tax BD</name>
+      </data>
+      <data>
+        <code xml:lang="ru">NH</code>
+        <code xml:lang="en">NH</code>
+        <name xml:lang="ru">Сбор NH</name>
+        <name xml:lang="en">Tax NH</name>
+      </data>
+      <data>
+        <code xml:lang="ru">AM</code>
+        <code xml:lang="en">AM</code>
+        <name xml:lang="ru">Сбор AM</name>
+        <name xml:lang="en">Tax AM</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ZX</code>
+        <code xml:lang="en">ZX</code>
+        <name xml:lang="ru">Сбор ZX</name>
+        <name xml:lang="en">Tax ZX</name>
+      </data>
+      <data>
+        <code xml:lang="ru">WL</code>
+        <code xml:lang="en">WL</code>
+        <name xml:lang="ru">Сбор WL</name>
+        <name xml:lang="en">Tax WL</name>
+      </data>
+      <data>
+        <code xml:lang="ru">OJ</code>
+        <code xml:lang="en">OJ</code>
+        <name xml:lang="ru">Сбор OJ</name>
+        <name xml:lang="en">Tax OJ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">OA</code>
+        <code xml:lang="en">OA</code>
+        <name xml:lang="ru">Сбор OA</name>
+        <name xml:lang="en">Tax OA</name>
+      </data>
+      <data>
+        <code xml:lang="ru">QT</code>
+        <code xml:lang="en">QT</code>
+        <name xml:lang="ru">Сбор QT</name>
+        <name xml:lang="en">Tax QT</name>
+      </data>
+      <data>
+        <code xml:lang="ru">OM</code>
+        <code xml:lang="en">OM</code>
+        <name xml:lang="ru">Сбор OM</name>
+        <name xml:lang="en">Tax OM</name>
+      </data>
+      <data>
+        <code xml:lang="ru">QA</code>
+        <code xml:lang="en">QA</code>
+        <name xml:lang="ru">Сбор QA</name>
+        <name xml:lang="en">Tax QA</name>
+      </data>
+      <data>
+        <code xml:lang="ru">QW</code>
+        <code xml:lang="en">QW</code>
+        <name xml:lang="ru">Сбор QW</name>
+        <name xml:lang="en">Tax QW</name>
+      </data>
+      <data>
+        <code xml:lang="ru">DJ</code>
+        <code xml:lang="en">DJ</code>
+        <name xml:lang="ru">Сбор DJ</name>
+        <name xml:lang="en">Tax DJ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">VR</code>
+        <code xml:lang="en">VR</code>
+        <name xml:lang="ru">Сбор VR</name>
+        <name xml:lang="en">Tax VR</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ZV</code>
+        <code xml:lang="en">ZV</code>
+        <name xml:lang="ru">Сбор ZV</name>
+        <name xml:lang="en">Tax ZV</name>
+      </data>
+      <data>
+        <code xml:lang="ru">JF</code>
+        <code xml:lang="en">JF</code>
+        <name xml:lang="ru">Сбор JF</name>
+        <name xml:lang="en">Tax JF</name>
+      </data>
+      <data>
+        <code xml:lang="ru">EL</code>
+        <code xml:lang="en">EL</code>
+        <name xml:lang="ru">Сбор EL</name>
+        <name xml:lang="en">Tax EL</name>
+      </data>
+      <data>
+        <code xml:lang="ru">WD</code>
+        <code xml:lang="en">WD</code>
+        <name xml:lang="ru">Сбор WD</name>
+        <name xml:lang="en">Tax WD</name>
+      </data>
+      <data>
+        <code xml:lang="ru">KN</code>
+        <code xml:lang="en">KN</code>
+        <name xml:lang="ru">Сбор KN</name>
+        <name xml:lang="en">Tax KN</name>
+      </data>
+      <data>
+        <code xml:lang="ru">NC</code>
+        <code xml:lang="en">NC</code>
+        <name xml:lang="ru">Сбор NC</name>
+        <name xml:lang="en">Tax NC</name>
+      </data>
+      <data>
+        <code xml:lang="ru">GF</code>
+        <code xml:lang="en">GF</code>
+        <name xml:lang="ru">Сбор GF</name>
+        <name xml:lang="en">Tax GF</name>
+      </data>
+      <data>
+        <code xml:lang="ru">CG</code>
+        <code xml:lang="en">CG</code>
+        <name xml:lang="ru">Сбор CG</name>
+        <name xml:lang="en">Tax CG</name>
+      </data>
+      <data>
+        <code xml:lang="ru">BX</code>
+        <code xml:lang="en">BX</code>
+        <name xml:lang="ru">Сбор BX</name>
+        <name xml:lang="en">Tax BX</name>
+      </data>
+      <data>
+        <code xml:lang="ru">YH</code>
+        <code xml:lang="en">YH</code>
+        <name xml:lang="ru">Сбор YH</name>
+        <name xml:lang="en">Tax YH</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ZH</code>
+        <code xml:lang="en">ZH</code>
+        <name xml:lang="ru">Сбор ZH</name>
+        <name xml:lang="en">Tax ZH</name>
+      </data>
+      <data>
+        <code xml:lang="ru">LN</code>
+        <code xml:lang="en">LN</code>
+        <name xml:lang="ru">Сбор LN</name>
+        <name xml:lang="en">Tax LN</name>
+      </data>
+      <data>
+        <code xml:lang="ru">QL</code>
+        <code xml:lang="en">QL</code>
+        <name xml:lang="ru">Сбор QL</name>
+        <name xml:lang="en">Tax QL</name>
+      </data>
+      <data>
+        <code xml:lang="ru">AX</code>
+        <code xml:lang="en">AX</code>
+        <name xml:lang="ru">Сбор AX</name>
+        <name xml:lang="en">Tax AX</name>
+      </data>
+      <data>
+        <code xml:lang="ru">UE</code>
+        <code xml:lang="en">UE</code>
+        <name xml:lang="ru">Сбор UE</name>
+        <name xml:lang="en">Tax UE</name>
+      </data>
+      <data>
+        <code xml:lang="ru">NZ</code>
+        <code xml:lang="en">NZ</code>
+        <name xml:lang="ru">Сбор NZ</name>
+        <name xml:lang="en">Tax NZ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">PI</code>
+        <code xml:lang="en">PI</code>
+        <name xml:lang="ru">Сбор PI</name>
+        <name xml:lang="en">Tax PI</name>
+      </data>
+      <data>
+        <code xml:lang="ru">OD</code>
+        <code xml:lang="en">OD</code>
+        <name xml:lang="ru">Сбор OD</name>
+        <name xml:lang="en">Tax OD</name>
+      </data>
+      <data>
+        <code xml:lang="ru">WX</code>
+        <code xml:lang="en">WX</code>
+        <name xml:lang="ru">Сбор WX</name>
+        <name xml:lang="en">Tax WX</name>
+      </data>
+      <data>
+        <code xml:lang="ru">PS</code>
+        <code xml:lang="en">PS</code>
+        <name xml:lang="ru">Сбор PS</name>
+        <name xml:lang="en">Tax PS</name>
+      </data>
+      <data>
+        <code xml:lang="ru">SM</code>
+        <code xml:lang="en">SM</code>
+        <name xml:lang="ru">Сбор SM</name>
+        <name xml:lang="en">Tax SM</name>
+      </data>
+      <data>
+        <code xml:lang="ru">GM</code>
+        <code xml:lang="en">GM</code>
+        <name xml:lang="ru">Сбор GM</name>
+        <name xml:lang="en">Tax GM</name>
+      </data>
+      <data>
+        <code xml:lang="ru">BM</code>
+        <code xml:lang="en">BM</code>
+        <name xml:lang="ru">Сбор BM</name>
+        <name xml:lang="en">Tax BM</name>
+      </data>
+      <data>
+        <code xml:lang="ru">EN</code>
+        <code xml:lang="en">EN</code>
+        <name xml:lang="ru">Сбор EN</name>
+        <name xml:lang="en">Tax EN</name>
+      </data>
+      <data>
+        <code xml:lang="ru">CB</code>
+        <code xml:lang="en">CB</code>
+        <name xml:lang="ru">Сбор CB</name>
+        <name xml:lang="en">Tax CB</name>
+      </data>
+      <data>
+        <code xml:lang="ru">HN</code>
+        <code xml:lang="en">HN</code>
+        <name xml:lang="ru">Сбор HN</name>
+        <name xml:lang="en">Tax HN</name>
+      </data>
+      <data>
+        <code xml:lang="ru">WK</code>
+        <code xml:lang="en">WK</code>
+        <name xml:lang="ru">Сбор WK</name>
+        <name xml:lang="en">Tax WK</name>
+      </data>
+      <data>
+        <code xml:lang="ru">FF</code>
+        <code xml:lang="en">FF</code>
+        <name xml:lang="ru">Сбор FF</name>
+        <name xml:lang="en">Tax FF</name>
+      </data>
+      <data>
+        <code xml:lang="ru">HG</code>
+        <code xml:lang="en">HG</code>
+        <name xml:lang="ru">Сбор HG</name>
+        <name xml:lang="en">Tax HG</name>
+      </data>
+      <data>
+        <code xml:lang="ru">JM</code>
+        <code xml:lang="en">JM</code>
+        <name xml:lang="ru">Сбор JM</name>
+        <name xml:lang="en">Tax JM</name>
+      </data>
+      <data>
+        <code xml:lang="ru">MQ</code>
+        <code xml:lang="en">MQ</code>
+        <name xml:lang="ru">Сбор MQ</name>
+        <name xml:lang="en">Tax MQ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">TN</code>
+        <code xml:lang="en">TN</code>
+        <name xml:lang="ru">Сбор TN</name>
+        <name xml:lang="en">Tax TN</name>
+      </data>
+      <data>
+        <code xml:lang="ru">IC</code>
+        <code xml:lang="en">IC</code>
+        <name xml:lang="ru">Сбор IC</name>
+        <name xml:lang="en">Tax IC</name>
+      </data>
+      <data>
+        <code xml:lang="ru">CF</code>
+        <code xml:lang="en">CF</code>
+        <name xml:lang="ru">Сбор CF</name>
+        <name xml:lang="en">Tax CF</name>
+      </data>
+      <data>
+        <code xml:lang="ru">JU</code>
+        <code xml:lang="en">JU</code>
+        <name xml:lang="ru">Сбор JU</name>
+        <name xml:lang="en">Tax JU</name>
+      </data>
+      <data>
+        <code xml:lang="ru">RJ</code>
+        <code xml:lang="en">RJ</code>
+        <name xml:lang="ru">Сбор RJ</name>
+        <name xml:lang="en">Tax RJ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">XS</code>
+        <code xml:lang="en">XS</code>
+        <name xml:lang="ru">Сбор XS</name>
+        <name xml:lang="en">Tax XS</name>
+      </data>
+      <data>
+        <code xml:lang="ru">OC</code>
+        <code xml:lang="en">OC</code>
+        <name xml:lang="ru">Сбор OC</name>
+        <name xml:lang="en">Tax OC</name>
+      </data>
+      <data>
+        <code xml:lang="ru">PU</code>
+        <code xml:lang="en">PU</code>
+        <name xml:lang="ru">Сбор PU</name>
+        <name xml:lang="en">Tax PU</name>
+      </data>
+      <data>
+        <code xml:lang="ru">QF</code>
+        <code xml:lang="en">QF</code>
+        <name xml:lang="ru">Сбор QF</name>
+        <name xml:lang="en">Tax QF</name>
+      </data>
+      <data>
+        <code xml:lang="ru">BR</code>
+        <code xml:lang="en">BR</code>
+        <name xml:lang="ru">Сбор BR</name>
+        <name xml:lang="en">Tax BR</name>
+      </data>
+      <data>
+        <code xml:lang="ru">XV</code>
+        <code xml:lang="en">XV</code>
+        <name xml:lang="ru">Сбор XV</name>
+        <name xml:lang="en">Tax XV</name>
+      </data>
+      <data>
+        <code xml:lang="ru">VY</code>
+        <code xml:lang="en">VY</code>
+        <name xml:lang="ru">Сбор VY</name>
+        <name xml:lang="en">Tax VY</name>
+      </data>
+      <data>
+        <code xml:lang="ru">JY</code>
+        <code xml:lang="en">JY</code>
+        <name xml:lang="ru">Сбор JY</name>
+        <name xml:lang="en">Tax JY</name>
+      </data>
+      <data>
+        <code xml:lang="ru">RW</code>
+        <code xml:lang="en">RW</code>
+        <name xml:lang="ru">Сбор RW</name>
+        <name xml:lang="en">Tax RW</name>
+      </data>
+      <data>
+        <code xml:lang="ru">OT</code>
+        <code xml:lang="en">OT</code>
+        <name xml:lang="ru">Сбор OT</name>
+        <name xml:lang="en">Tax OT</name>
+      </data>
+      <data>
+        <code xml:lang="ru">XP</code>
+        <code xml:lang="en">XP</code>
+        <name xml:lang="ru">Сбор XP</name>
+        <name xml:lang="en">Tax XP</name>
+      </data>
+      <data>
+        <code xml:lang="ru">GO</code>
+        <code xml:lang="en">GO</code>
+        <name xml:lang="ru">Сбор GO</name>
+        <name xml:lang="en">Tax GO</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ES</code>
+        <code xml:lang="en">ES</code>
+        <name xml:lang="ru">Сбор ES</name>
+        <name xml:lang="en">Tax ES</name>
+      </data>
+      <data>
+        <code xml:lang="ru">DD</code>
+        <code xml:lang="en">DD</code>
+        <name xml:lang="ru">Сбор DD</name>
+        <name xml:lang="en">Tax DD</name>
+      </data>
+      <data>
+        <code xml:lang="ru">VW</code>
+        <code xml:lang="en">VW</code>
+        <name xml:lang="ru">Сбор VW</name>
+        <name xml:lang="en">Tax VW</name>
+      </data>
+      <data>
+        <code xml:lang="ru">LE</code>
+        <code xml:lang="en">LE</code>
+        <name xml:lang="ru">Сбор LE</name>
+        <name xml:lang="en">Tax LE</name>
+      </data>
+      <data>
+        <code xml:lang="ru">FG</code>
+        <code xml:lang="en">FG</code>
+        <name xml:lang="ru">Сбор FG</name>
+        <name xml:lang="en">Tax FG</name>
+      </data>
+      <data>
+        <code xml:lang="ru">FH</code>
+        <code xml:lang="en">FH</code>
+        <name xml:lang="ru">Сбор FH</name>
+        <name xml:lang="en">Tax FH</name>
+      </data>
+      <data>
+        <code xml:lang="ru">IW</code>
+        <code xml:lang="en">IW</code>
+        <name xml:lang="ru">Сбор IW</name>
+        <name xml:lang="en">Tax IW</name>
+      </data>
+      <data>
+        <code xml:lang="ru">UI</code>
+        <code xml:lang="en">UI</code>
+        <name xml:lang="ru">Сбор UI</name>
+        <name xml:lang="en">Tax UI</name>
+      </data>
+      <data>
+        <code xml:lang="ru">HS</code>
+        <code xml:lang="en">HS</code>
+        <name xml:lang="ru">Сбор HS</name>
+        <name xml:lang="en">Tax HS</name>
+      </data>
+      <data>
+        <code xml:lang="ru">IQ</code>
+        <code xml:lang="en">IQ</code>
+        <name xml:lang="ru">Сбор IQ</name>
+        <name xml:lang="en">Tax IQ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">QJ</code>
+        <code xml:lang="en">QJ</code>
+        <name xml:lang="ru">Сбор QJ</name>
+        <name xml:lang="en">Tax QJ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">CW</code>
+        <code xml:lang="en">CW</code>
+        <name xml:lang="ru">Сбор CW</name>
+        <name xml:lang="en">Tax CW</name>
+      </data>
+      <data>
+        <code xml:lang="ru">RP</code>
+        <code xml:lang="en">RP</code>
+        <name xml:lang="ru">Сбор RP</name>
+        <name xml:lang="en">Tax RP</name>
+      </data>
+      <data>
+        <code xml:lang="ru">TF</code>
+        <code xml:lang="en">TF</code>
+        <name xml:lang="ru">Сбор TF</name>
+        <name xml:lang="en">Tax TF</name>
+      </data>
+      <data>
+        <code xml:lang="ru">PB</code>
+        <code xml:lang="en">PB</code>
+        <name xml:lang="ru">Сбор PB</name>
+        <name xml:lang="en">Tax PB</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ON</code>
+        <code xml:lang="en">ON</code>
+        <name xml:lang="ru">Сбор ON</name>
+        <name xml:lang="en">Tax ON</name>
+      </data>
+      <data>
+        <code xml:lang="ru">VX</code>
+        <code xml:lang="en">VX</code>
+        <name xml:lang="ru">Сбор VX</name>
+        <name xml:lang="en">Tax VX</name>
+      </data>
+      <data>
+        <code xml:lang="ru">GA</code>
+        <code xml:lang="en">GA</code>
+        <name xml:lang="ru">Сбор GA</name>
+        <name xml:lang="en">Tax GA</name>
+      </data>
+      <data>
+        <code xml:lang="ru">YF</code>
+        <code xml:lang="en">YF</code>
+        <name xml:lang="ru">Сбор YF</name>
+        <name xml:lang="en">Tax YF</name>
+      </data>
+      <data>
+        <code xml:lang="ru">DF</code>
+        <code xml:lang="en">DF</code>
+        <name xml:lang="ru">Сбор DF</name>
+        <name xml:lang="en">Tax DF</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ZE</code>
+        <code xml:lang="en">ZE</code>
+        <name xml:lang="ru">Сбор ZE</name>
+        <name xml:lang="en">Tax ZE</name>
+      </data>
+      <data>
+        <code xml:lang="ru">KD</code>
+        <code xml:lang="en">KD</code>
+        <name xml:lang="ru">Сбор KD</name>
+        <name xml:lang="en">Tax KD</name>
+      </data>
+      <data>
+        <code xml:lang="ru">TC</code>
+        <code xml:lang="en">TC</code>
+        <name xml:lang="ru">Сбор TC</name>
+        <name xml:lang="en">Tax TC</name>
+      </data>
+      <data>
+        <code xml:lang="ru">JG</code>
+        <code xml:lang="en">JG</code>
+        <name xml:lang="ru">Сбор JG</name>
+        <name xml:lang="en">Tax JG</name>
+      </data>
+      <data>
+        <code xml:lang="ru">DI</code>
+        <code xml:lang="en">DI</code>
+        <name xml:lang="ru">Сбор DI</name>
+        <name xml:lang="en">Tax DI</name>
+      </data>
+      <data>
+        <code xml:lang="ru">KT</code>
+        <code xml:lang="en">KT</code>
+        <name xml:lang="ru">Сбор KT</name>
+        <name xml:lang="en">Tax KT</name>
+      </data>
+      <data>
+        <code xml:lang="ru">HC</code>
+        <code xml:lang="en">HC</code>
+        <name xml:lang="ru">Сбор HC</name>
+        <name xml:lang="en">Tax HC</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ZB</code>
+        <code xml:lang="en">ZB</code>
+        <name xml:lang="ru">Сбор ZB</name>
+        <name xml:lang="en">Tax ZB</name>
+      </data>
+      <data>
+        <code xml:lang="ru">QY</code>
+        <code xml:lang="en">QY</code>
+        <name xml:lang="ru">Сбор QY</name>
+        <name xml:lang="en">Tax QY</name>
+      </data>
+      <data>
+        <code xml:lang="ru">RZ</code>
+        <code xml:lang="en">RZ</code>
+        <name xml:lang="ru">Сбор RZ</name>
+        <name xml:lang="en">Tax RZ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ZC</code>
+        <code xml:lang="en">ZC</code>
+        <name xml:lang="ru">Сбор ZC</name>
+        <name xml:lang="en">Tax ZC</name>
+      </data>
+      <data>
+        <code xml:lang="ru">DX</code>
+        <code xml:lang="en">DX</code>
+        <name xml:lang="ru">Сбор DX</name>
+        <name xml:lang="en">Tax DX</name>
+      </data>
+      <data>
+        <code xml:lang="ru">VO</code>
+        <code xml:lang="en">VO</code>
+        <name xml:lang="ru">Сбор VO</name>
+        <name xml:lang="en">Tax VO</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ZT</code>
+        <code xml:lang="en">ZT</code>
+        <name xml:lang="ru">Сбор ZT</name>
+        <name xml:lang="en">Tax ZT</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ZG</code>
+        <code xml:lang="en">ZG</code>
+        <name xml:lang="ru">Сбор ZG</name>
+        <name xml:lang="en">Tax ZG</name>
+      </data>
+      <data>
+        <code xml:lang="ru">VP</code>
+        <code xml:lang="en">VP</code>
+        <name xml:lang="ru">Сбор VP</name>
+        <name xml:lang="en">Tax VP</name>
+      </data>
+      <data>
+        <code xml:lang="ru">JZ</code>
+        <code xml:lang="en">JZ</code>
+        <name xml:lang="ru">Сбор JZ</name>
+        <name xml:lang="en">Tax JZ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">MR</code>
+        <code xml:lang="en">MR</code>
+        <name xml:lang="ru">Сбор MR</name>
+        <name xml:lang="en">Tax MR</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ZI</code>
+        <code xml:lang="en">ZI</code>
+        <name xml:lang="ru">Сбор ZI</name>
+        <name xml:lang="en">Tax ZI</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ZJ</code>
+        <code xml:lang="en">ZJ</code>
+        <name xml:lang="ru">Сбор ZJ</name>
+        <name xml:lang="en">Tax ZJ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">RE</code>
+        <code xml:lang="en">RE</code>
+        <name xml:lang="ru">Сбор RE</name>
+        <name xml:lang="en">Tax RE</name>
+      </data>
+      <data>
+        <code xml:lang="ru">KH</code>
+        <code xml:lang="en">KH</code>
+        <name xml:lang="ru">Сбор KH</name>
+        <name xml:lang="en">Tax KH</name>
+      </data>
+      <data>
+        <code xml:lang="ru">LO</code>
+        <code xml:lang="en">LO</code>
+        <name xml:lang="ru">Сбор LO</name>
+        <name xml:lang="en">Tax LO</name>
+      </data>
+      <data>
+        <code xml:lang="ru">KP</code>
+        <code xml:lang="en">KP</code>
+        <name xml:lang="ru">Сбор KP</name>
+        <name xml:lang="en">Tax KP</name>
+      </data>
+      <data>
+        <code xml:lang="ru">NY</code>
+        <code xml:lang="en">NY</code>
+        <name xml:lang="ru">Сбор NY</name>
+        <name xml:lang="en">Tax NY</name>
+      </data>
+      <data>
+        <code xml:lang="ru">LS</code>
+        <code xml:lang="en">LS</code>
+        <name xml:lang="ru">Сбор LS</name>
+        <name xml:lang="en">Tax LS</name>
+      </data>
+      <data>
+        <code xml:lang="ru">FJ</code>
+        <code xml:lang="en">FJ</code>
+        <name xml:lang="ru">Сбор FJ</name>
+        <name xml:lang="en">Tax FJ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">PQ</code>
+        <code xml:lang="en">PQ</code>
+        <name xml:lang="ru">Сбор PQ</name>
+        <name xml:lang="en">Tax PQ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">TO</code>
+        <code xml:lang="en">TO</code>
+        <name xml:lang="ru">Сбор TO</name>
+        <name xml:lang="en">Tax TO</name>
+      </data>
+      <data>
+        <code xml:lang="ru">PO</code>
+        <code xml:lang="en">PO</code>
+        <name xml:lang="ru">Сбор PO</name>
+        <name xml:lang="en">Tax PO</name>
+      </data>
+      <data>
+        <code xml:lang="ru">YO</code>
+        <code xml:lang="en">YO</code>
+        <name xml:lang="ru">Сбор YO</name>
+        <name xml:lang="en">Tax YO</name>
+      </data>
+      <data>
+        <code xml:lang="ru">SS</code>
+        <code xml:lang="en">SS</code>
+        <name xml:lang="ru">Сбор SS</name>
+        <name xml:lang="en">Tax SS</name>
+      </data>
+      <data>
+        <code xml:lang="ru">TE</code>
+        <code xml:lang="en">TE</code>
+        <name xml:lang="ru">Сбор TE</name>
+        <name xml:lang="en">Tax TE</name>
+      </data>
+      <data>
+        <code xml:lang="ru">TP</code>
+        <code xml:lang="en">TP</code>
+        <name xml:lang="ru">Сбор TP</name>
+        <name xml:lang="en">Tax TP</name>
+      </data>
+      <data>
+        <code xml:lang="ru">QU</code>
+        <code xml:lang="en">QU</code>
+        <name xml:lang="ru">Сбор QU</name>
+        <name xml:lang="en">Tax QU</name>
+      </data>
+      <data>
+        <code xml:lang="ru">CM</code>
+        <code xml:lang="en">CM</code>
+        <name xml:lang="ru">Сбор CM</name>
+        <name xml:lang="en">Tax CM</name>
+      </data>
+      <data>
+        <code xml:lang="ru">KB</code>
+        <code xml:lang="en">KB</code>
+        <name xml:lang="ru">Сбор KB</name>
+        <name xml:lang="en">Tax KB</name>
+      </data>
+      <data>
+        <code xml:lang="ru">WB</code>
+        <code xml:lang="en">WB</code>
+        <name xml:lang="ru">Сбор WB</name>
+        <name xml:lang="en">Tax WB</name>
+      </data>
+      <data>
+        <code xml:lang="ru">LL</code>
+        <code xml:lang="en">LL</code>
+        <name xml:lang="ru">Сбор LL</name>
+        <name xml:lang="en">Tax LL</name>
+      </data>
+      <data>
+        <code xml:lang="ru">HX</code>
+        <code xml:lang="en">HX</code>
+        <name xml:lang="ru">Сбор HX</name>
+        <name xml:lang="en">Tax HX</name>
+      </data>
+      <data>
+        <code xml:lang="ru">DA</code>
+        <code xml:lang="en">DA</code>
+        <name xml:lang="ru">Сбор DA</name>
+        <name xml:lang="en">Tax DA</name>
+      </data>
+      <data>
+        <code xml:lang="ru">TW</code>
+        <code xml:lang="en">TW</code>
+        <name xml:lang="ru">Сбор TW</name>
+        <name xml:lang="en">Tax TW</name>
+      </data>
+      <data>
+        <code xml:lang="ru">JI</code>
+        <code xml:lang="en">JI</code>
+        <name xml:lang="ru">Сбор JI</name>
+        <name xml:lang="en">Tax JI</name>
+      </data>
+      <data>
+        <code xml:lang="ru">EW</code>
+        <code xml:lang="en">EW</code>
+        <name xml:lang="ru">Сбор EW</name>
+        <name xml:lang="en">Tax EW</name>
+      </data>
+      <data>
+        <code xml:lang="ru">II</code>
+        <code xml:lang="en">II</code>
+        <name xml:lang="ru">Сбор II</name>
+        <name xml:lang="en">Tax II</name>
+      </data>
+      <data>
+        <code xml:lang="ru">JS</code>
+        <code xml:lang="en">JS</code>
+        <name xml:lang="ru">Сбор JS</name>
+        <name xml:lang="en">Tax JS</name>
+      </data>
+      <data>
+        <code xml:lang="ru">GI</code>
+        <code xml:lang="en">GI</code>
+        <name xml:lang="ru">Сбор GI</name>
+        <name xml:lang="en">Tax GI</name>
+      </data>
+      <data>
+        <code xml:lang="ru">QZ</code>
+        <code xml:lang="en">QZ</code>
+        <name xml:lang="ru">Сбор QZ</name>
+        <name xml:lang="en">Tax QZ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">AB</code>
+        <code xml:lang="en">AB</code>
+        <name xml:lang="ru">Сбор AB</name>
+        <name xml:lang="en">Tax AB</name>
+      </data>
+      <data>
+        <code xml:lang="ru">RX</code>
+        <code xml:lang="en">RX</code>
+        <name xml:lang="ru">Сбор RX</name>
+        <name xml:lang="en">Tax RX</name>
+      </data>
+      <data>
+        <code xml:lang="ru">NM</code>
+        <code xml:lang="en">NM</code>
+        <name xml:lang="ru">Сбор NM</name>
+        <name xml:lang="en">Tax NM</name>
+      </data>
+      <data>
+        <code xml:lang="ru">IP</code>
+        <code xml:lang="en">IP</code>
+        <name xml:lang="ru">Сбор IP</name>
+        <name xml:lang="en">Tax IP</name>
+      </data>
+      <data>
+        <code xml:lang="ru">CD</code>
+        <code xml:lang="en">CD</code>
+        <name xml:lang="ru">Сбор CD</name>
+        <name xml:lang="en">Tax CD</name>
+      </data>
+      <data>
+        <code xml:lang="ru">XH</code>
+        <code xml:lang="en">XH</code>
+        <name xml:lang="ru">Сбор XH</name>
+        <name xml:lang="en">Tax XH</name>
+      </data>
+      <data>
+        <code xml:lang="ru">LD</code>
+        <code xml:lang="en">LD</code>
+        <name xml:lang="ru">Сбор LD</name>
+        <name xml:lang="en">Tax LD</name>
+      </data>
+      <data>
+        <code xml:lang="ru">KX</code>
+        <code xml:lang="en">KX</code>
+        <name xml:lang="ru">Сбор KX</name>
+        <name xml:lang="en">Tax KX</name>
+      </data>
+      <data>
+        <code xml:lang="ru">FA</code>
+        <code xml:lang="en">FA</code>
+        <name xml:lang="ru">Сбор FA</name>
+        <name xml:lang="en">Tax FA</name>
+      </data>
+      <data>
+        <code xml:lang="ru">EY</code>
+        <code xml:lang="en">EY</code>
+        <name xml:lang="ru">Сбор EY</name>
+        <name xml:lang="en">Tax EY</name>
+      </data>
+      <data>
+        <code xml:lang="ru">EZ</code>
+        <code xml:lang="en">EZ</code>
+        <name xml:lang="ru">Сбор EZ</name>
+        <name xml:lang="en">Tax EZ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">OW</code>
+        <code xml:lang="en">OW</code>
+        <name xml:lang="ru">Сбор OW</name>
+        <name xml:lang="en">Tax OW</name>
+      </data>
+      <data>
+        <code xml:lang="ru">OY</code>
+        <code xml:lang="en">OY</code>
+        <name xml:lang="ru">Сбор OY</name>
+        <name xml:lang="en">Tax OY</name>
+      </data>
+      <data>
+        <code xml:lang="ru">LM</code>
+        <code xml:lang="en">LM</code>
+        <name xml:lang="ru">Сбор LM</name>
+        <name xml:lang="en">Tax LM</name>
+      </data>
+      <data>
+        <code xml:lang="ru">SB</code>
+        <code xml:lang="en">SB</code>
+        <name xml:lang="ru">Сбор SB</name>
+        <name xml:lang="en">Tax SB</name>
+      </data>
+      <data>
+        <code xml:lang="ru">VU</code>
+        <code xml:lang="en">VU</code>
+        <name xml:lang="ru">Сбор VU</name>
+        <name xml:lang="en">Tax VU</name>
+      </data>
+      <data>
+        <code xml:lang="ru">BW</code>
+        <code xml:lang="en">BW</code>
+        <name xml:lang="ru">Сбор BW</name>
+        <name xml:lang="en">Tax BW</name>
+      </data>
+      <data>
+        <code xml:lang="ru">RR</code>
+        <code xml:lang="en">RR</code>
+        <name xml:lang="ru">Сбор RR</name>
+        <name xml:lang="en">Tax RR</name>
+      </data>
+      <data>
+        <code xml:lang="ru">WZ</code>
+        <code xml:lang="en">WZ</code>
+        <name xml:lang="ru">Сбор WZ</name>
+        <name xml:lang="en">Tax WZ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">SL</code>
+        <code xml:lang="en">SL</code>
+        <name xml:lang="ru">Сбор SL</name>
+        <name xml:lang="en">Tax SL</name>
+      </data>
+      <data>
+        <code xml:lang="ru">KQ</code>
+        <code xml:lang="en">KQ</code>
+        <name xml:lang="ru">Сбор KQ</name>
+        <name xml:lang="en">Tax KQ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">EF</code>
+        <code xml:lang="en">EF</code>
+        <name xml:lang="ru">Сбор EF</name>
+        <name xml:lang="en">Tax EF</name>
+      </data>
+      <data>
+        <code xml:lang="ru">GN</code>
+        <code xml:lang="en">GN</code>
+        <name xml:lang="ru">Сбор GN</name>
+        <name xml:lang="en">Tax GN</name>
+      </data>
+      <data>
+        <code xml:lang="ru">NV</code>
+        <code xml:lang="en">NV</code>
+        <name xml:lang="ru">Сбор NV</name>
+        <name xml:lang="en">Tax NV</name>
+      </data>
+      <data>
+        <code xml:lang="ru">BI</code>
+        <code xml:lang="en">BI</code>
+        <name xml:lang="ru">Сбор BI</name>
+        <name xml:lang="en">Tax BI</name>
+      </data>
+      <data>
+        <code xml:lang="ru">BL</code>
+        <code xml:lang="en">BL</code>
+        <name xml:lang="ru">Сбор BL</name>
+        <name xml:lang="en">Tax BL</name>
+      </data>
+      <data>
+        <code xml:lang="ru">XE</code>
+        <code xml:lang="en">XE</code>
+        <name xml:lang="ru">Сбор XE</name>
+        <name xml:lang="en">Tax XE</name>
+      </data>
+      <data>
+        <code xml:lang="ru">EM</code>
+        <code xml:lang="en">EM</code>
+        <name xml:lang="ru">Сбор EM</name>
+        <name xml:lang="en">Tax EM</name>
+      </data>
+      <data>
+        <code xml:lang="ru">WA</code>
+        <code xml:lang="en">WA</code>
+        <name xml:lang="ru">Сбор WA</name>
+        <name xml:lang="en">Tax WA</name>
+      </data>
+      <data>
+        <code xml:lang="ru">TT</code>
+        <code xml:lang="en">TT</code>
+        <name xml:lang="ru">Сбор TT</name>
+        <name xml:lang="en">Tax TT</name>
+      </data>
+      <data>
+        <code xml:lang="ru">JT</code>
+        <code xml:lang="en">JT</code>
+        <name xml:lang="ru">Сбор JT</name>
+        <name xml:lang="en">Tax JT</name>
+      </data>
+      <data>
+        <code xml:lang="ru">EC</code>
+        <code xml:lang="en">EC</code>
+        <name xml:lang="ru">Сбор EC</name>
+        <name xml:lang="en">Tax EC</name>
+      </data>
+      <data>
+        <code xml:lang="ru">WT</code>
+        <code xml:lang="en">WT</code>
+        <name xml:lang="ru">Сбор WT</name>
+        <name xml:lang="en">Tax WT</name>
+      </data>
+      <data>
+        <code xml:lang="ru">HP</code>
+        <code xml:lang="en">HP</code>
+        <name xml:lang="ru">Сбор HP</name>
+        <name xml:lang="en">Tax HP</name>
+      </data>
+      <data>
+        <code xml:lang="ru">EB</code>
+        <code xml:lang="en">EB</code>
+        <name xml:lang="ru">Сбор EB</name>
+        <name xml:lang="en">Tax EB</name>
+      </data>
+      <data>
+        <code xml:lang="ru">HD</code>
+        <code xml:lang="en">HD</code>
+        <name xml:lang="ru">Сбор HD</name>
+        <name xml:lang="en">Tax HD</name>
+      </data>
+      <data>
+        <code xml:lang="ru">YG</code>
+        <code xml:lang="en">YG</code>
+        <name xml:lang="ru">Сбор YG</name>
+        <name xml:lang="en">Tax YG</name>
+      </data>
+      <data>
+        <code xml:lang="ru">NE</code>
+        <code xml:lang="en">NE</code>
+        <name xml:lang="ru">Сбор NE</name>
+        <name xml:lang="en">Tax NE</name>
+      </data>
+      <data>
+        <code xml:lang="ru">JR</code>
+        <code xml:lang="en">JR</code>
+        <name xml:lang="ru">Сбор JR</name>
+        <name xml:lang="en">Tax JR</name>
+      </data>
+      <data>
+        <code xml:lang="ru">HO</code>
+        <code xml:lang="en">HO</code>
+        <name xml:lang="ru">Сбор HO</name>
+        <name xml:lang="en">Tax HO</name>
+      </data>
+      <data>
+        <code xml:lang="ru">RC</code>
+        <code xml:lang="en">RC</code>
+        <name xml:lang="ru">Сбор RC</name>
+        <name xml:lang="en">Tax RC</name>
+      </data>
+      <data>
+        <code xml:lang="ru">PP</code>
+        <code xml:lang="en">PP</code>
+        <name xml:lang="ru">Сбор PP</name>
+        <name xml:lang="en">Tax PP</name>
+      </data>
+      <data>
+        <code xml:lang="ru">PZ</code>
+        <code xml:lang="en">PZ</code>
+        <name xml:lang="ru">Сбор PZ</name>
+        <name xml:lang="en">Tax PZ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">QD</code>
+        <code xml:lang="en">QD</code>
+        <name xml:lang="ru">Сбор QD</name>
+        <name xml:lang="en">Tax QD</name>
+      </data>
+      <data>
+        <code xml:lang="ru">CV</code>
+        <code xml:lang="en">CV</code>
+        <name xml:lang="ru">Сбор CV</name>
+        <name xml:lang="en">Tax CV</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ZS</code>
+        <code xml:lang="en">ZS</code>
+        <name xml:lang="ru">Сбор ZS</name>
+        <name xml:lang="en">Tax ZS</name>
+      </data>
+      <data>
+        <code xml:lang="ru">VN</code>
+        <code xml:lang="en">VN</code>
+        <name xml:lang="ru">Сбор VN</name>
+        <name xml:lang="en">Tax VN</name>
+      </data>
+      <data>
+        <code xml:lang="ru">RF</code>
+        <code xml:lang="en">RF</code>
+        <name xml:lang="ru">Сбор RF</name>
+        <name xml:lang="en">Tax RF</name>
+      </data>
+      <data>
+        <code xml:lang="ru">YT</code>
+        <code xml:lang="en">YT</code>
+        <name xml:lang="ru">Сбор YT</name>
+        <name xml:lang="en">Tax YT</name>
+      </data>
+      <data>
+        <code xml:lang="ru">VZ</code>
+        <code xml:lang="en">VZ</code>
+        <name xml:lang="ru">Сбор VZ</name>
+        <name xml:lang="en">Tax VZ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">SX</code>
+        <code xml:lang="en">SX</code>
+        <name xml:lang="ru">Сбор SX</name>
+        <name xml:lang="en">Tax SX</name>
+      </data>
+      <data>
+        <code xml:lang="ru">SN</code>
+        <code xml:lang="en">SN</code>
+        <name xml:lang="ru">Сбор SN</name>
+        <name xml:lang="en">Tax SN</name>
+      </data>
+      <data>
+        <code xml:lang="ru">GG</code>
+        <code xml:lang="en">GG</code>
+        <name xml:lang="ru">Сбор GG</name>
+        <name xml:lang="en">Tax GG</name>
+      </data>
+      <data>
+        <code xml:lang="ru">GQ</code>
+        <code xml:lang="en">GQ</code>
+        <name xml:lang="ru">Сбор GQ</name>
+        <name xml:lang="en">Tax GQ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">JH</code>
+        <code xml:lang="en">JH</code>
+        <name xml:lang="ru">Сбор JH</name>
+        <name xml:lang="en">Tax JH</name>
+      </data>
+      <data>
+        <code xml:lang="ru">IJ</code>
+        <code xml:lang="en">IJ</code>
+        <name xml:lang="ru">Сбор IJ</name>
+        <name xml:lang="en">Tax IJ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">FB</code>
+        <code xml:lang="en">FB</code>
+        <name xml:lang="ru">Сбор FB</name>
+        <name xml:lang="en">Tax FB</name>
+      </data>
+      <data>
+        <code xml:lang="ru">LC</code>
+        <code xml:lang="en">LC</code>
+        <name xml:lang="ru">Сбор LC</name>
+        <name xml:lang="en">Tax LC</name>
+      </data>
+      <data>
+        <code xml:lang="ru">RB</code>
+        <code xml:lang="en">RB</code>
+        <name xml:lang="ru">Сбор RB</name>
+        <name xml:lang="en">Tax RB</name>
+      </data>
+      <data>
+        <code xml:lang="ru">BJ</code>
+        <code xml:lang="en">BJ</code>
+        <name xml:lang="ru">Сбор BJ</name>
+        <name xml:lang="en">Tax BJ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ZD</code>
+        <code xml:lang="en">ZD</code>
+        <name xml:lang="ru">Сбор ZD</name>
+        <name xml:lang="en">Tax ZD</name>
+      </data>
+      <data>
+        <code xml:lang="ru">IB</code>
+        <code xml:lang="en">IB</code>
+        <name xml:lang="ru">Сбор IB</name>
+        <name xml:lang="en">Tax IB</name>
+      </data>
+      <data>
+        <code xml:lang="ru">LW</code>
+        <code xml:lang="en">LW</code>
+        <name xml:lang="ru">Сбор LW</name>
+        <name xml:lang="en">Tax LW</name>
+      </data>
+      <data>
+        <code xml:lang="ru">BF</code>
+        <code xml:lang="en">BF</code>
+        <name xml:lang="ru">Сбор BF</name>
+        <name xml:lang="en">Tax BF</name>
+      </data>
+      <data>
+        <code xml:lang="ru">PC</code>
+        <code xml:lang="en">PC</code>
+        <name xml:lang="ru">Сбор PC</name>
+        <name xml:lang="en">Tax PC</name>
+      </data>
+      <data>
+        <code xml:lang="ru">CE</code>
+        <code xml:lang="en">CE</code>
+        <name xml:lang="ru">Сбор CE</name>
+        <name xml:lang="en">Tax CE</name>
+      </data>
+      <data>
+        <code xml:lang="ru">LH</code>
+        <code xml:lang="en">LH</code>
+        <name xml:lang="ru">Сбор LH</name>
+        <name xml:lang="en">Tax LH</name>
+      </data>
+      <data>
+        <code xml:lang="ru">BN</code>
+        <code xml:lang="en">BN</code>
+        <name xml:lang="ru">Сбор BN</name>
+        <name xml:lang="en">Tax BN</name>
+      </data>
+      <data>
+        <code xml:lang="ru">MM</code>
+        <code xml:lang="en">MM</code>
+        <name xml:lang="ru">Сбор MM</name>
+        <name xml:lang="en">Tax MM</name>
+      </data>
+      <data>
+        <code xml:lang="ru">YY</code>
+        <code xml:lang="en">YY</code>
+        <name xml:lang="ru">Сбор YY</name>
+        <name xml:lang="en">Tax YY</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ПП</code>
+        <code xml:lang="en">PP</code>
+        <name xml:lang="ru">Сбор ПП</name>
+        <name xml:lang="en">Tax PP</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ПБ</code>
+        <code xml:lang="en">PB</code>
+        <name xml:lang="ru">Сбор ПБ</name>
+        <name xml:lang="en">Tax PB</name>
+      </data>
+      <data>
+        <code xml:lang="ru">КМ</code>
+        <code xml:lang="en">КМ</code>
+        <name xml:lang="ru">Сбор КМ</name>
+        <name xml:lang="en">Tax КМ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">УО</code>
+        <code xml:lang="en">УО</code>
+        <name xml:lang="ru">Сбор УО</name>
+        <name xml:lang="en">Tax УО</name>
+      </data>
+      <data>
+        <code xml:lang="ru">РТ</code>
+        <code xml:lang="en">РТ</code>
+        <name xml:lang="ru">Сбор РТ</name>
+        <name xml:lang="en">Tax РТ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">КР</code>
+        <code xml:lang="en">КР</code>
+        <name xml:lang="ru">Сбор КР</name>
+        <name xml:lang="en">Tax КР</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ММ</code>
+        <code xml:lang="en">ММ</code>
+        <name xml:lang="ru">Сбор ММ</name>
+        <name xml:lang="en">Tax ММ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ИБ</code>
+        <code xml:lang="en">ИБ</code>
+        <name xml:lang="ru">Сбор ИБ</name>
+        <name xml:lang="en">Tax ИБ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">БР</code>
+        <code xml:lang="en">БР</code>
+        <name xml:lang="ru">Сбор БР</name>
+        <name xml:lang="en">Tax БР</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ПР</code>
+        <code xml:lang="en">PR</code>
+        <name xml:lang="ru">Сбор ПР</name>
+        <name xml:lang="en">Tax PR</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ОБ</code>
+        <code xml:lang="en">CE</code>
+        <name xml:lang="ru">Сбор ОБ</name>
+        <name xml:lang="en">Tax CE</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ВЗ</code>
+        <code xml:lang="en">ВЗ</code>
+        <name xml:lang="ru">Сбор ВЗ</name>
+        <name xml:lang="en">Tax ВЗ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">НН</code>
+        <code xml:lang="en">НН</code>
+        <name xml:lang="ru">Сбор НН</name>
+        <name xml:lang="en">Tax НН</name>
+      </data>
+      <data>
+        <code xml:lang="ru">КП</code>
+        <code xml:lang="en">KP</code>
+        <name xml:lang="ru">Сбор КП</name>
+        <name xml:lang="en">Tax KP</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЗС</code>
+        <code xml:lang="en">ZC</code>
+        <name xml:lang="ru">Сбор ЗС</name>
+        <name xml:lang="en">Tax ZC</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЗД</code>
+        <code xml:lang="en">ZD</code>
+        <name xml:lang="ru">Сбор ЗД</name>
+        <name xml:lang="en">Tax ZD</name>
+      </data>
+      <data>
+        <code xml:lang="ru">КС</code>
+        <code xml:lang="en">КС</code>
+        <name xml:lang="ru">Сбор КС</name>
+        <name xml:lang="en">Tax КС</name>
+      </data>
+      <data>
+        <code xml:lang="ru">РЛ</code>
+        <code xml:lang="en">РЛ</code>
+        <name xml:lang="ru">Сбор РЛ</name>
+        <name xml:lang="en">Tax РЛ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">РС</code>
+        <code xml:lang="en">РС</code>
+        <name xml:lang="ru">Сбор РС</name>
+        <name xml:lang="en">Tax РС</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЭВ</code>
+        <code xml:lang="en">ЭВ</code>
+        <name xml:lang="ru">Сбор ЭВ</name>
+        <name xml:lang="en">Tax ЭВ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">КЮ</code>
+        <code xml:lang="en">КЮ</code>
+        <name xml:lang="ru">Сбор КЮ</name>
+        <name xml:lang="en">Tax КЮ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЯГ</code>
+        <code xml:lang="en">JG</code>
+        <name xml:lang="ru">Сбор ЯГ</name>
+        <name xml:lang="en">Tax JG</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ДБ</code>
+        <code xml:lang="en">ДБ</code>
+        <name xml:lang="ru">Сбор ДБ</name>
+        <name xml:lang="en">Tax ДБ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">НП</code>
+        <code xml:lang="en">НП</code>
+        <name xml:lang="ru">Сбор НП</name>
+        <name xml:lang="en">Tax НП</name>
+      </data>
+      <data>
+        <code xml:lang="ru">НИ</code>
+        <code xml:lang="en">НИ</code>
+        <name xml:lang="ru">Сбор НИ</name>
+        <name xml:lang="en">Tax НИ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">СА</code>
+        <code xml:lang="en">СА</code>
+        <name xml:lang="ru">Сбор СА</name>
+        <name xml:lang="en">Tax СА</name>
+      </data>
+      <data>
+        <code xml:lang="ru">БА</code>
+        <code xml:lang="en">БА</code>
+        <name xml:lang="ru">Сбор БА</name>
+        <name xml:lang="en">Tax БА</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ВА</code>
+        <code xml:lang="en">ВА</code>
+        <name xml:lang="ru">Сбор ВА</name>
+        <name xml:lang="en">Tax ВА</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЗА</code>
+        <code xml:lang="en">ZB</code>
+        <name xml:lang="ru">Сбор ЗА</name>
+        <name xml:lang="en">Tax ZB</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ОА</code>
+        <code xml:lang="en">ОА</code>
+        <name xml:lang="ru">Сбор ОА</name>
+        <name xml:lang="en">Tax ОА</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЫЫ</code>
+        <code xml:lang="en">ЫЫ</code>
+        <name xml:lang="ru">Сбор ЫЫ</name>
+        <name xml:lang="en">Tax ЫЫ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">QW</code>
+        <code xml:lang="en">QW</code>
+        <name xml:lang="ru">Сбор QW</name>
+        <name xml:lang="en">Tax QW</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ОТ</code>
+        <code xml:lang="en">ОТ</code>
+        <name xml:lang="ru">Сбор ОТ</name>
+        <name xml:lang="en">Tax ОТ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ГЛ</code>
+        <code xml:lang="en">ГЛ</code>
+        <name xml:lang="ru">Сбор ГЛ</name>
+        <name xml:lang="en">Tax ГЛ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">АГ</code>
+        <code xml:lang="en">АГ</code>
+        <name xml:lang="ru">Сбор АГ</name>
+        <name xml:lang="en">Tax АГ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">АТ</code>
+        <code xml:lang="en">АТ</code>
+        <name xml:lang="ru">Сбор АТ</name>
+        <name xml:lang="en">Tax АТ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">УК</code>
+        <code xml:lang="en">УК</code>
+        <name xml:lang="ru">Сбор УК</name>
+        <name xml:lang="en">Tax УК</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ВП</code>
+        <code xml:lang="en">ВП</code>
+        <name xml:lang="ru">Сбор ВП</name>
+        <name xml:lang="en">Tax ВП</name>
+      </data>
+      <data>
+        <code xml:lang="ru">СИ</code>
+        <code xml:lang="en">СИ</code>
+        <name xml:lang="ru">Сбор СИ</name>
+        <name xml:lang="en">Tax СИ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЮК</code>
+        <code xml:lang="en">ЮК</code>
+        <name xml:lang="ru">Сбор ЮК</name>
+        <name xml:lang="en">Tax ЮК</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЛА</code>
+        <code xml:lang="en">ЛА</code>
+        <name xml:lang="ru">Сбор ЛА</name>
+        <name xml:lang="en">Tax ЛА</name>
+      </data>
+      <data>
+        <code xml:lang="ru">СР</code>
+        <code xml:lang="en">SR</code>
+        <name xml:lang="ru">Сбор СР</name>
+        <name xml:lang="en">Tax SR</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ВР</code>
+        <code xml:lang="en">VP</code>
+        <name xml:lang="ru">Сбор ВР</name>
+        <name xml:lang="en">Tax VP</name>
+      </data>
+      <data>
+        <code xml:lang="ru">СО</code>
+        <code xml:lang="en">SO</code>
+        <name xml:lang="ru">Сбор СО</name>
+        <name xml:lang="en">Tax SO</name>
+      </data>
+      <data>
+        <code xml:lang="ru">АВ</code>
+        <code xml:lang="en">АВ</code>
+        <name xml:lang="ru">Сбор АВ</name>
+        <name xml:lang="en">Tax АВ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">СВ</code>
+        <code xml:lang="en">СВ</code>
+        <name xml:lang="ru">Сбор СВ</name>
+        <name xml:lang="en">Tax СВ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">УС</code>
+        <code xml:lang="en">УС</code>
+        <name xml:lang="ru">Сбор УС</name>
+        <name xml:lang="en">Tax УС</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ПЗ</code>
+        <code xml:lang="en">RV</code>
+        <name xml:lang="ru">Сбор ПЗ</name>
+        <name xml:lang="en">Tax RV</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ИВ</code>
+        <code xml:lang="en">IV</code>
+        <name xml:lang="ru">Сбор ИВ</name>
+        <name xml:lang="en">Tax IV</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ДД</code>
+        <code xml:lang="en">ДД</code>
+        <name xml:lang="ru">Сбор ДД</name>
+        <name xml:lang="en">Tax ДД</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ВТ</code>
+        <code xml:lang="en">ВТ</code>
+        <name xml:lang="ru">Сбор ВТ</name>
+        <name xml:lang="en">Tax ВТ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЗК</code>
+        <code xml:lang="en">ЗК</code>
+        <name xml:lang="ru">Сбор ЗК</name>
+        <name xml:lang="en">Tax ЗК</name>
+      </data>
+      <data>
+        <code xml:lang="ru">МА</code>
+        <code xml:lang="en">МА</code>
+        <name xml:lang="ru">Сбор МА</name>
+        <name xml:lang="en">Tax МА</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ТЗ</code>
+        <code xml:lang="en">ТЗ</code>
+        <name xml:lang="ru">Сбор ТЗ</name>
+        <name xml:lang="en">Tax ТЗ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ТТ</code>
+        <code xml:lang="en">ТТ</code>
+        <name xml:lang="ru">Сбор ТТ</name>
+        <name xml:lang="en">Tax ТТ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ПД</code>
+        <code xml:lang="en">PD</code>
+        <name xml:lang="ru">Сбор ПД</name>
+        <name xml:lang="en">Tax PD</name>
+      </data>
+      <data>
+        <code xml:lang="ru">СГ</code>
+        <code xml:lang="en">СГ</code>
+        <name xml:lang="ru">Сбор СГ</name>
+        <name xml:lang="en">Tax СГ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">АС</code>
+        <code xml:lang="en">АС</code>
+        <name xml:lang="ru">Сбор АС</name>
+        <name xml:lang="en">Tax АС</name>
+      </data>
+      <data>
+        <code xml:lang="ru">СБ</code>
+        <code xml:lang="en">CB</code>
+        <name xml:lang="ru">Сбор СБ</name>
+        <name xml:lang="en">Tax CB</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ПО</code>
+        <code xml:lang="en">PO</code>
+        <name xml:lang="ru">Сбор ПО</name>
+        <name xml:lang="en">Tax PO</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ОВ</code>
+        <code xml:lang="en">ОВ</code>
+        <name xml:lang="ru">Сбор ОВ</name>
+        <name xml:lang="en">Tax ОВ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ГГ</code>
+        <code xml:lang="en">ГГ</code>
+        <name xml:lang="ru">Сбор ГГ</name>
+        <name xml:lang="en">Tax ГГ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">БВ</code>
+        <code xml:lang="en">БВ</code>
+        <name xml:lang="ru">Сбор БВ</name>
+        <name xml:lang="en">Tax БВ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">НЕ</code>
+        <code xml:lang="en">НЕ</code>
+        <name xml:lang="ru">Сбор НЕ</name>
+        <name xml:lang="en">Tax НЕ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ДР</code>
+        <code xml:lang="en">ДР</code>
+        <name xml:lang="ru">Сбор ДР</name>
+        <name xml:lang="en">Tax ДР</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ПС</code>
+        <code xml:lang="en">ПС</code>
+        <name xml:lang="ru">Сбор ПС</name>
+        <name xml:lang="en">Tax ПС</name>
+      </data>
+      <data>
+        <code xml:lang="ru">СН</code>
+        <code xml:lang="en">СН</code>
+        <name xml:lang="ru">Сбор СН</name>
+        <name xml:lang="en">Tax СН</name>
+      </data>
+      <data>
+        <code xml:lang="ru">СЗ</code>
+        <code xml:lang="en">СЗ</code>
+        <name xml:lang="ru">Сбор СЗ</name>
+        <name xml:lang="en">Tax СЗ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ПВ</code>
+        <code xml:lang="en">ПВ</code>
+        <name xml:lang="ru">Сбор ПВ</name>
+        <name xml:lang="en">Tax ПВ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">УР</code>
+        <code xml:lang="en">УР</code>
+        <name xml:lang="ru">Сбор УР</name>
+        <name xml:lang="en">Tax УР</name>
+      </data>
+      <data>
+        <code xml:lang="ru">УЧ</code>
+        <code xml:lang="en">УЧ</code>
+        <name xml:lang="ru">Сбор УЧ</name>
+        <name xml:lang="en">Tax УЧ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ОП</code>
+        <code xml:lang="en">ОП</code>
+        <name xml:lang="ru">Сбор ОП</name>
+        <name xml:lang="en">Tax ОП</name>
+      </data>
+      <data>
+        <code xml:lang="ru">СК</code>
+        <code xml:lang="en">СК</code>
+        <name xml:lang="ru">Сбор СК</name>
+        <name xml:lang="en">Tax СК</name>
+      </data>
+      <data>
+        <code xml:lang="ru">БЗ</code>
+        <code xml:lang="en">БЗ</code>
+        <name xml:lang="ru">Сбор БЗ</name>
+        <name xml:lang="en">Tax БЗ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">НР</code>
+        <code xml:lang="en">НР</code>
+        <name xml:lang="ru">Сбор НР</name>
+        <name xml:lang="en">Tax НР</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ИЗ</code>
+        <code xml:lang="en">ИЗ</code>
+        <name xml:lang="ru">Сбор ИЗ</name>
+        <name xml:lang="en">Tax ИЗ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ВМ</code>
+        <code xml:lang="en">VM</code>
+        <name xml:lang="ru">Сбор ВМ</name>
+        <name xml:lang="en">Tax VM</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ОМ</code>
+        <code xml:lang="en">ОМ</code>
+        <name xml:lang="ru">Сбор ОМ</name>
+        <name xml:lang="en">Tax ОМ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ВБ</code>
+        <code xml:lang="en">ВБ</code>
+        <name xml:lang="ru">Сбор ВБ</name>
+        <name xml:lang="en">Tax ВБ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">АЗ</code>
+        <code xml:lang="en">АЗ</code>
+        <name xml:lang="ru">Сбор АЗ</name>
+        <name xml:lang="en">Tax АЗ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ТИ</code>
+        <code xml:lang="en">ТИ</code>
+        <name xml:lang="ru">Сбор ТИ</name>
+        <name xml:lang="en">Tax ТИ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">УН</code>
+        <code xml:lang="en">УН</code>
+        <name xml:lang="ru">Сбор УН</name>
+        <name xml:lang="en">Tax УН</name>
+      </data>
+      <data>
+        <code xml:lang="ru">КБ</code>
+        <code xml:lang="en">КБ</code>
+        <name xml:lang="ru">Сбор КБ</name>
+        <name xml:lang="en">Tax КБ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЛЕ</code>
+        <code xml:lang="en">ЛЕ</code>
+        <name xml:lang="ru">Сбор ЛЕ</name>
+        <name xml:lang="en">Tax ЛЕ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">СМ</code>
+        <code xml:lang="en">СМ</code>
+        <name xml:lang="ru">Сбор СМ</name>
+        <name xml:lang="en">Tax СМ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">РА</code>
+        <code xml:lang="en">РА</code>
+        <name xml:lang="ru">Сбор РА</name>
+        <name xml:lang="en">Tax РА</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ДА</code>
+        <code xml:lang="en">ДА</code>
+        <name xml:lang="ru">Сбор ДА</name>
+        <name xml:lang="en">Tax ДА</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЦБ</code>
+        <code xml:lang="en">ЦБ</code>
+        <name xml:lang="ru">Сбор ЦБ</name>
+        <name xml:lang="en">Tax ЦБ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">АБ</code>
+        <code xml:lang="en">АБ</code>
+        <name xml:lang="ru">Сбор АБ</name>
+        <name xml:lang="en">Tax АБ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">КА</code>
+        <code xml:lang="en">КА</code>
+        <name xml:lang="ru">Сбор КА</name>
+        <name xml:lang="en">Tax КА</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ОО</code>
+        <code xml:lang="en">ОО</code>
+        <name xml:lang="ru">Сбор ОО</name>
+        <name xml:lang="en">Tax ОО</name>
+      </data>
+      <data>
+        <code xml:lang="ru">УА</code>
+        <code xml:lang="en">УА</code>
+        <name xml:lang="ru">Сбор УА</name>
+        <name xml:lang="en">Tax УА</name>
+      </data>
+      <data>
+        <code xml:lang="ru">МО</code>
+        <code xml:lang="en">МО</code>
+        <name xml:lang="ru">Сбор МО</name>
+        <name xml:lang="en">Tax МО</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ОД</code>
+        <code xml:lang="en">ОД</code>
+        <name xml:lang="ru">Сбор ОД</name>
+        <name xml:lang="en">Tax ОД</name>
+      </data>
+      <data>
+        <code xml:lang="ru">СУ</code>
+        <code xml:lang="en">СУ</code>
+        <name xml:lang="ru">Сбор СУ</name>
+        <name xml:lang="en">Tax СУ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ВД</code>
+        <code xml:lang="en">ВД</code>
+        <name xml:lang="ru">Сбор ВД</name>
+        <name xml:lang="en">Tax ВД</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ВО</code>
+        <code xml:lang="en">ВО</code>
+        <name xml:lang="ru">Сбор ВО</name>
+        <name xml:lang="en">Tax ВО</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ПТ</code>
+        <code xml:lang="en">ПТ</code>
+        <name xml:lang="ru">Сбор ПТ</name>
+        <name xml:lang="en">Tax ПТ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ПЛ</code>
+        <code xml:lang="en">ПЛ</code>
+        <name xml:lang="ru">Сбор ПЛ</name>
+        <name xml:lang="en">Tax ПЛ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ДТ</code>
+        <code xml:lang="en">ДТ</code>
+        <name xml:lang="ru">Сбор ДТ</name>
+        <name xml:lang="en">Tax ДТ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">УП</code>
+        <code xml:lang="en">УП</code>
+        <name xml:lang="ru">Сбор УП</name>
+        <name xml:lang="en">Tax УП</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ПМ</code>
+        <code xml:lang="en">ПМ</code>
+        <name xml:lang="ru">Сбор ПМ</name>
+        <name xml:lang="en">Tax ПМ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">УВ</code>
+        <code xml:lang="en">УВ</code>
+        <name xml:lang="ru">Сбор УВ</name>
+        <name xml:lang="en">Tax УВ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ОЛ</code>
+        <code xml:lang="en">ОЛ</code>
+        <name xml:lang="ru">Сбор ОЛ</name>
+        <name xml:lang="en">Tax ОЛ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ФО</code>
+        <code xml:lang="en">ФО</code>
+        <name xml:lang="ru">Сбор ФО</name>
+        <name xml:lang="en">Tax ФО</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ЮХ</code>
+        <code xml:lang="en">ЮХ</code>
+        <name xml:lang="ru">Сбор ЮХ</name>
+        <name xml:lang="en">Tax ЮХ</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ПА</code>
+        <code xml:lang="en">ПА</code>
+        <name xml:lang="ru">Сбор ПА</name>
+        <name xml:lang="en">Tax ПА</name>
+      </data>
+      <data>
+        <code xml:lang="ru">УЗ</code>
+        <code xml:lang="en">УЗ</code>
+        <name xml:lang="ru">Сбор УЗ</name>
+        <name xml:lang="en">Tax УЗ</name>
+      </data>
+    </describe>
+  </answer>
+</sirena>

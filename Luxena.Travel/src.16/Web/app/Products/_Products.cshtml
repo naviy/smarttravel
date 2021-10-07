@@ -1,0 +1,116 @@
+﻿@Ui.Grid(db => db.Products)
+
+@Ui.GridView8Edit8(db => db.Accommodations)
+@Ui.GridView8Edit8(db => db.AviaRefunds)
+@Ui.GridView8Edit8(db => db.AviaMcos)
+@Ui.GridView8Edit8(db => db.AviaTickets)
+@Ui.GridView8Edit8(db => db.BusTickets)
+@Ui.GridView8Edit8(db => db.BusTicketRefunds)
+@Ui.GridView8Edit8(db => db.CarRentals)
+@Ui.GridView8Edit8(db => db.Excursions)
+@Ui.GridView8Edit8(db => db.GenericProducts)
+@Ui.GridView8Edit8(db => db.Insurances)
+@Ui.GridView8Edit8(db => db.InsuranceRefunds)
+@Ui.GridView8Edit8(db => db.Isics)
+@Ui.GridView8Edit8(db => db.Pasteboards)
+@Ui.GridView8Edit8(db => db.PasteboardRefunds)
+@Ui.GridView8Edit8(db => db.SimCards)
+@Ui.GridView8Edit8(db => db.Tours)
+@Ui.GridView8Edit8(db => db.Transfers)
+
+
+
+@Ui.GridView6Edit6(db => db.FlightSegments)
+
+
+
+@*@GridViewEdit_Product(db => db.Accommodations)
+
+
+@Ui.Grid(db => db.AviaDocuments)
+
+
+@ViewEdit_Product(db => db.AviaRefunds)
+
+
+@ViewEdit_Product(db => db.AviaMcos)
+
+
+@View_ProductBegin(db => db.AviaTickets)
+@Ui.FormAccordion()
+@View_ProductEnd()
+
+@Edit_Product(db => db.AviaTickets)
+
+@Ui.GridViewEdit2(db => db.FlightSegments)
+
+
+@Ui.Grid(db => db.BusDocuments)
+@ViewEdit_Product(db => db.BusTickets)
+@ViewEdit_Product(db => db.BusTicketRefunds)
+
+
+@GridViewEdit_Product(db => db.CarRentals)
+
+
+@GridViewEdit_Product(db => db.Excursions)
+
+
+@GridViewEdit_Product(db => db.GenericProducts)
+
+
+@Ui.Grid(db => db.InsuranceDocuments)
+@ViewEdit_Product(db => db.Insurances)
+@ViewEdit_Product(db => db.InsuranceRefunds)
+
+
+@GridViewEdit_Product(db => db.Isics)
+
+
+@Ui.Grid(db => db.Products)
+
+
+@Ui.Grid(db => db.RailwayDocuments)
+@ViewEdit_Product(db => db.Pasteboards)
+@ViewEdit_Product(db => db.PasteboardRefunds)
+
+
+@GridViewEdit_Product(db => db.SimCards)
+
+
+@GridViewEdit_Product(db => db.Tours)
+
+
+@GridViewEdit_Product(db => db.Transfers)
+
+
+
+@helper View_ProductBegin(Expression<Func<Domain, object>> getEntitySet)
+{
+	@Ui.ViewFormBegin2(getEntitySet)
+	@Ui.Columns2("fields1", "fields2", width1: 8, width2: 4)
+	@Ui.FieldSet("fields3")
+}
+
+@helper View_ProductEnd()
+{
+	@Ui.ViewFormEnd2()
+}
+
+@helper Edit_Product(Expression<Func<Domain, object>> getEntitySet)
+{
+	@Ui.EditForm3(getEntitySet, width1: 8, width2: 4)
+}
+
+@helper ViewEdit_Product(Expression<Func<Domain, object>> getEntitySet)
+{
+	@View_ProductBegin(getEntitySet)
+	@View_ProductEnd()
+	@Edit_Product(getEntitySet)
+}
+
+@helper GridViewEdit_Product(Expression<Func<Domain, object>> getEntitySet)
+{
+	@Ui.Grid(getEntitySet)
+	@ViewEdit_Product(getEntitySet)
+}*@

@@ -1,0 +1,110 @@
+2015-11-16 14:47:11.7835|ERROR|WebApi|Microsoft.OData.Core.ODataException: A binary operator with incompatible types was detected. Found operand types 'Luxena.Travel.Domain.Organization' and 'Edm.String' for operator kind 'Equal'.
+   at Microsoft.OData.Core.UriParser.Parsers.BinaryOperatorBinder.PromoteOperandTypes(BinaryOperatorKind binaryOperatorKind, SingleValueNode& left, SingleValueNode& right)
+   at Microsoft.OData.Core.UriParser.Parsers.BinaryOperatorBinder.BindBinaryOperator(BinaryOperatorToken binaryOperatorToken)
+   at Microsoft.OData.Core.UriParser.Parsers.MetadataBinder.Bind(QueryToken token)
+   at Microsoft.OData.Core.UriParser.Parsers.BinaryOperatorBinder.GetOperandFromToken(BinaryOperatorKind operatorKind, QueryToken queryToken)
+   at Microsoft.OData.Core.UriParser.Parsers.BinaryOperatorBinder.BindBinaryOperator(BinaryOperatorToken binaryOperatorToken)
+   at Microsoft.OData.Core.UriParser.Parsers.MetadataBinder.Bind(QueryToken token)
+   at Microsoft.OData.Core.UriParser.Parsers.FilterBinder.BindFilter(QueryToken filter)
+   at Microsoft.OData.Core.UriParser.ODataQueryOptionParser.ParseFilterImplementation(String filter, ODataUriParserConfiguration configuration, IEdmType elementType, IEdmNavigationSource navigationSource)
+   at Microsoft.OData.Core.UriParser.ODataQueryOptionParser.ParseFilter()
+   at System.Web.OData.Query.FilterQueryOption.get_FilterClause()
+   at Luxena.Domain.Web.ODataExtensions.GetIdFilterValue(ODataQueryOptions queryOptions, String idPropertyName) in D:\data\git\Luxena.Travel\src.15\Luxena.Libs.15\Luxena.Domain.Web\OData\ODataExtensions.cs:line 80
+   at Luxena.Domain.Web.ReadOnlyEntityODataController`3.Get(ODataQueryOptions`1 options) in D:\data\git\Luxena.Travel\src.15\Luxena.Libs.15\Luxena.Domain.Web\OData\EntityODataController.cs:line 100
+   at lambda_method(Closure , Object , Object[] )
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.ActionFilterAttribute.<ExecuteActionFilterAsyncCore>d__0.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Dispatcher.HttpControllerDispatcher.<SendAsync>d__1.MoveNext()
+2015-11-16 14:48:00.9030|ERROR|WebApi|Microsoft.OData.Core.ODataException: A binary operator with incompatible types was detected. Found operand types 'Luxena.Travel.Domain.Organization' and 'Edm.String' for operator kind 'Equal'.
+   at Microsoft.OData.Core.UriParser.Parsers.BinaryOperatorBinder.PromoteOperandTypes(BinaryOperatorKind binaryOperatorKind, SingleValueNode& left, SingleValueNode& right)
+   at Microsoft.OData.Core.UriParser.Parsers.BinaryOperatorBinder.BindBinaryOperator(BinaryOperatorToken binaryOperatorToken)
+   at Microsoft.OData.Core.UriParser.Parsers.MetadataBinder.Bind(QueryToken token)
+   at Microsoft.OData.Core.UriParser.Parsers.BinaryOperatorBinder.GetOperandFromToken(BinaryOperatorKind operatorKind, QueryToken queryToken)
+   at Microsoft.OData.Core.UriParser.Parsers.BinaryOperatorBinder.BindBinaryOperator(BinaryOperatorToken binaryOperatorToken)
+   at Microsoft.OData.Core.UriParser.Parsers.MetadataBinder.Bind(QueryToken token)
+   at Microsoft.OData.Core.UriParser.Parsers.BinaryOperatorBinder.GetOperandFromToken(BinaryOperatorKind operatorKind, QueryToken queryToken)
+   at Microsoft.OData.Core.UriParser.Parsers.BinaryOperatorBinder.BindBinaryOperator(BinaryOperatorToken binaryOperatorToken)
+   at Microsoft.OData.Core.UriParser.Parsers.MetadataBinder.Bind(QueryToken token)
+   at Microsoft.OData.Core.UriParser.Parsers.FilterBinder.BindFilter(QueryToken filter)
+   at Microsoft.OData.Core.UriParser.ODataQueryOptionParser.ParseFilterImplementation(String filter, ODataUriParserConfiguration configuration, IEdmType elementType, IEdmNavigationSource navigationSource)
+   at Microsoft.OData.Core.UriParser.ODataQueryOptionParser.ParseFilter()
+   at System.Web.OData.Query.FilterQueryOption.get_FilterClause()
+   at Luxena.Domain.Web.ODataExtensions.GetIdFilterValue(ODataQueryOptions queryOptions, String idPropertyName) in D:\data\git\Luxena.Travel\src.15\Luxena.Libs.15\Luxena.Domain.Web\OData\ODataExtensions.cs:line 80
+   at Luxena.Domain.Web.ReadOnlyEntityODataController`3.Get(ODataQueryOptions`1 options) in D:\data\git\Luxena.Travel\src.15\Luxena.Libs.15\Luxena.Domain.Web\OData\EntityODataController.cs:line 100
+   at lambda_method(Closure , Object , Object[] )
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.ActionFilterAttribute.<ExecuteActionFilterAsyncCore>d__0.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Dispatcher.HttpControllerDispatcher.<SendAsync>d__1.MoveNext()
+2015-11-16 19:16:49.5966|ERROR|WebApi|System.NullReferenceException: Object reference not set to an instance of an object.
+   at Luxena.Travel.Domain.Product.<CalculatePassenger>b__222_0(ProductPassenger a) in D:\data\git\Luxena.Travel\src.15\Domain\Entities\Products\Product.cs:line 344
+   at System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
+   at System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   at System.Linq.OrderedEnumerable`1.<GetEnumerator>d__1.MoveNext()
+   at System.String.Join(String separator, IEnumerable`1 values)
+   at Luxena.StringExtentions.Join(IEnumerable`1 me, String separator) in D:\data\git\Luxena.Travel\src.15\Luxena.Libs.15\Luxena.Support\Extensions\StringExtensions.cs:line 57
+   at Luxena.Travel.Domain.Product.CalculatePassenger() in D:\data\git\Luxena.Travel\src.15\Domain\Entities\Products\Product.cs:line 342
+   at Luxena.Travel.Domain.Product.Calculate() in D:\data\git\Luxena.Travel\src.15\Domain\Entities\Products\Product.cs:line 443
+   at Luxena.Domain.Web.EntityQueryAttribute.<>c.<ApplyQuery>b__0_1(ICalculateContainer r) in D:\data\git\Luxena.Travel\src.15\Luxena.Libs.15\Luxena.Domain.Web\OData\EntityODataController.cs:line 45
+   at Luxena.CodePatternExtentions.Do[T](Object me, Action`1 action) in D:\data\git\Luxena.Travel\src.15\Luxena.Libs.15\Luxena.Support\CodePatterns\Do.cs:line 25
+   at Luxena.Domain.Web.EntityQueryAttribute.ApplyQuery(IQueryable query, ODataQueryOptions queryOptions) in D:\data\git\Luxena.Travel\src.15\Luxena.Libs.15\Luxena.Domain.Web\OData\EntityODataController.cs:line 42
+   at System.Web.OData.EnableQueryAttribute.ExecuteQuery(Object response, HttpRequestMessage request, HttpActionDescriptor actionDescriptor)
+   at System.Web.OData.EnableQueryAttribute.OnActionExecuted(HttpActionExecutedContext actionExecutedContext)
+   at System.Web.Http.Filters.ActionFilterAttribute.OnActionExecutedAsync(HttpActionExecutedContext actionExecutedContext, CancellationToken cancellationToken)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.ActionFilterAttribute.<ExecuteActionFilterAsyncCore>d__0.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Dispatcher.HttpControllerDispatcher.<SendAsync>d__1.MoveNext()

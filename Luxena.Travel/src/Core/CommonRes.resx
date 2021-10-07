@@ -1,0 +1,404 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<!-- 
+	Microsoft ResX Schema 
+	
+	Version 2.0
+	
+	The primary goals of this format is to allow a simple XML format 
+	that is mostly human readable. The generation and parsing of the 
+	various data types are done through the TypeConverter classes 
+	associated with the data types.
+	
+	Example:
+	
+	... ado.net/XML headers & schema ...
+	<resheader name="resmimetype">text/microsoft-resx</resheader>
+	<resheader name="version">2.0</resheader>
+	<resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+	<resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+	<data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+	<data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+	<data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+		<value>[base64 mime encoded serialized .NET Framework object]</value>
+	</data>
+	<data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+		<comment>This is a comment</comment>
+	</data>
+				
+	There are any number of "resheader" rows that contain simple 
+	name/value pairs.
+	
+	Each data row contains a name, and value. The row also contains a 
+	type or mimetype. Type corresponds to a .NET class that support 
+	text/value conversion through the TypeConverter architecture. 
+	Classes that don't support this are serialized and stored with the 
+	mimetype set.
+	
+	The mimetype is used for serialized objects, and tells the 
+	ResXResourceReader how to depersist the object. This is currently not 
+	extensible. For a given mimetype the value must be set accordingly:
+	
+	Note - application/x-microsoft.net.object.binary.base64 is the format 
+	that the ResXResourceWriter will generate, however the reader can 
+	read any of the formats listed below.
+	
+	mimetype: application/x-microsoft.net.object.binary.base64
+	value   : The object must be serialized with 
+			: System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+			: and then encoded with base64 encoding.
+	
+	mimetype: application/x-microsoft.net.object.soap.base64
+	value   : The object must be serialized with 
+			: System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+			: and then encoded with base64 encoding.
+
+	mimetype: application/x-microsoft.net.object.bytearray.base64
+	value   : The object must be serialized into a byte array 
+			: using a System.ComponentModel.TypeConverter
+			: and then encoded with base64 encoding.
+	-->
+	<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+		<xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+		<xsd:element name="root" msdata:IsDataSet="true">
+			<xsd:complexType>
+				<xsd:choice maxOccurs="unbounded">
+					<xsd:element name="metadata">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" />
+							</xsd:sequence>
+							<xsd:attribute name="name" use="required" type="xsd:string" />
+							<xsd:attribute name="type" type="xsd:string" />
+							<xsd:attribute name="mimetype" type="xsd:string" />
+							<xsd:attribute ref="xml:space" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="assembly">
+						<xsd:complexType>
+							<xsd:attribute name="alias" type="xsd:string" />
+							<xsd:attribute name="name" type="xsd:string" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="data">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+								<xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+							<xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+							<xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+							<xsd:attribute ref="xml:space" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="resheader">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" />
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:choice>
+			</xsd:complexType>
+		</xsd:element>
+	</xsd:schema>
+	<resheader name="resmimetype">
+		<value>text/microsoft-resx</value>
+	</resheader>
+	<resheader name="version">
+		<value>2.0</value>
+	</resheader>
+	<resheader name="reader">
+		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<resheader name="writer">
+		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<data name="Billion_Five" xml:space="preserve">
+	<value>миллиардов</value>
+  </data>
+	<data name="Billion_One" xml:space="preserve">
+	<value>миллиард</value>
+  </data>
+	<data name="Billion_Two" xml:space="preserve">
+	<value>миллиарда</value>
+  </data>
+	<data name="BirthdayTask_Subject" xml:space="preserve">
+	<value>Поздравить с Днем рождения</value>
+  </data>
+	<data name="DaysAgo" xml:space="preserve">
+	<value>дн. назад</value>
+  </data>
+	<data name="Eight" xml:space="preserve">
+	<value>восемь</value>
+  </data>
+	<data name="Eighteen" xml:space="preserve">
+	<value>восемнадцать</value>
+  </data>
+	<data name="EightHundred" xml:space="preserve">
+	<value>восемьсот</value>
+  </data>
+	<data name="Eighty" xml:space="preserve">
+	<value>восемьдеся</value>
+  </data>
+	<data name="Eleven" xml:space="preserve">
+	<value>одиннадцать</value>
+  </data>
+	<data name="Fifteen" xml:space="preserve">
+	<value>пятнадцать</value>
+  </data>
+	<data name="Fifty" xml:space="preserve">
+	<value>пятьдесят</value>
+  </data>
+	<data name="Five" xml:space="preserve">
+	<value>пять</value>
+  </data>
+	<data name="FiveHundred" xml:space="preserve">
+	<value>пятьсот</value>
+  </data>
+	<data name="Forty" xml:space="preserve">
+	<value>сорок</value>
+  </data>
+	<data name="Four" xml:space="preserve">
+	<value>четыре</value>
+  </data>
+	<data name="FourHundred" xml:space="preserve">
+	<value>четыреста</value>
+  </data>
+	<data name="Fourteen" xml:space="preserve">
+	<value>четырнадцать</value>
+  </data>
+	<data name="Hundred" xml:space="preserve">
+	<value>сто</value>
+  </data>
+	<data name="Million_Five" xml:space="preserve">
+	<value>миллионов</value>
+  </data>
+	<data name="Million_One" xml:space="preserve">
+	<value>миллион</value>
+  </data>
+	<data name="Million_Two" xml:space="preserve">
+	<value>миллиона</value>
+  </data>
+	<data name="Minus" xml:space="preserve">
+	<value>минус</value>
+  </data>
+	<data name="Nine" xml:space="preserve">
+	<value>девять</value>
+  </data>
+	<data name="NineHundred" xml:space="preserve">
+	<value>девятьсот</value>
+  </data>
+	<data name="Nineteen" xml:space="preserve">
+	<value>девятнадцать</value>
+  </data>
+	<data name="Ninety" xml:space="preserve">
+	<value>девяносто</value>
+  </data>
+	<data name="NoData" xml:space="preserve">
+	<value>Нет данных</value>
+  </data>
+	<data name="One" xml:space="preserve">
+	<value>один</value>
+  </data>
+	<data name="One1" xml:space="preserve">
+	<value>одна</value>
+  </data>
+	<data name="One2" xml:space="preserve">
+	<value>одно</value>
+  </data>
+	<data name="Restored" xml:space="preserve">
+	<value>восстановлен</value>
+  </data>
+	<data name="Seven" xml:space="preserve">
+	<value>семь</value>
+  </data>
+	<data name="SevenHundred" xml:space="preserve">
+	<value>семьсот</value>
+  </data>
+	<data name="Seventeen" xml:space="preserve">
+	<value>семнадцать</value>
+  </data>
+	<data name="Seventy" xml:space="preserve">
+	<value>семьдесят</value>
+  </data>
+	<data name="Six" xml:space="preserve">
+	<value>шесть</value>
+  </data>
+	<data name="SixHundred" xml:space="preserve">
+	<value>шестьсот</value>
+  </data>
+	<data name="Sixteen" xml:space="preserve">
+	<value>шестнадцать</value>
+  </data>
+	<data name="Sixty" xml:space="preserve">
+	<value>шестьдесят</value>
+  </data>
+	<data name="Ten" xml:space="preserve">
+	<value>десять</value>
+  </data>
+	<data name="Thirteen" xml:space="preserve">
+	<value>тринадцать</value>
+  </data>
+	<data name="Thirty" xml:space="preserve">
+	<value>тридцать</value>
+  </data>
+	<data name="Thousand_Five" xml:space="preserve">
+	<value>тысяч</value>
+  </data>
+	<data name="Thousand_One" xml:space="preserve">
+	<value>тысяча</value>
+  </data>
+	<data name="Thousand_Two" xml:space="preserve">
+	<value>тысячи</value>
+  </data>
+	<data name="Three" xml:space="preserve">
+	<value>три</value>
+  </data>
+	<data name="ThreeHundred" xml:space="preserve">
+	<value>триста</value>
+  </data>
+	<data name="Today" xml:space="preserve">
+	<value>сегодня</value>
+  </data>
+	<data name="Tomorrow" xml:space="preserve">
+	<value>завтра</value>
+  </data>
+	<data name="Twelve" xml:space="preserve">
+	<value>двенадцать</value>
+  </data>
+	<data name="Twenty" xml:space="preserve">
+	<value>двадцать</value>
+  </data>
+	<data name="Two" xml:space="preserve">
+	<value>два</value>
+  </data>
+	<data name="Two1" xml:space="preserve">
+	<value>две</value>
+  </data>
+	<data name="Two2" xml:space="preserve">
+	<value>два</value>
+  </data>
+	<data name="TwoHundred" xml:space="preserve">
+	<value>двести</value>
+  </data>
+	<data name="UAH_Minor_Five" xml:space="preserve">
+	<value>коп.</value>
+  </data>
+	<data name="UAH_Minor_One" xml:space="preserve">
+	<value>коп.</value>
+  </data>
+	<data name="UAH_Minor_Two" xml:space="preserve">
+	<value>коп.</value>
+  </data>
+	<data name="UAH_Five" xml:space="preserve">
+	<value>гривен</value>
+  </data>
+	<data name="UAH_One" xml:space="preserve">
+	<value>гривна</value>
+  </data>
+	<data name="UAH_Two" xml:space="preserve">
+	<value>гривны</value>
+  </data>
+	<data name="Voided" xml:space="preserve">
+	<value>аннулирован</value>
+  </data>
+	<data name="Yesterday" xml:space="preserve">
+	<value>вчера</value>
+  </data>
+	<data name="Number_Short" xml:space="preserve">
+	<value>№</value>
+  </data>
+	<data name="ImportGdsFiles_DocumentImported" xml:space="preserve">
+	<value>{0} {1} успешно импортирован</value>
+  </data>
+	<data name="OrderItem_AviaMcoSource" xml:space="preserve">
+	<value>Оплата авиадокумента</value>
+  </data>
+	<data name="OrderItem_AviaRefundSource" xml:space="preserve">
+	<value>Возврат авиабилета</value>
+  </data>
+	<data name="OrderItem_AviaServiceFeeSource" xml:space="preserve">
+	<value>Сервисный сбор</value>
+  </data>
+	<data name="OrderItem_AviaTicketSource" xml:space="preserve">
+	<value>Оплата авиабилета</value>
+  </data>
+
+	<!--Оплата залізничного квитка Київ - Москва, дата відправлення 04.06.2014, плацкарт, поїзд 074Л, вагон 17 П,  Кривенко Дмитро-->
+	<data name="OrderItem_PasteboardSource" xml:space="preserve">
+		<value>Оплата железнодорожного билета</value>
+	</data>
+	<data name="OrderItem_PasteboardSource_StartDate" xml:space="preserve">
+		<value>дата отправления</value>
+	</data>
+	<data name="OrderItem_PasteboardSource_TrainNumber" xml:space="preserve">
+		<value>поезд</value>
+	</data>
+	<data name="OrderItem_PasteboardSource_CarNumber" xml:space="preserve">
+		<value>вагон</value>
+	</data>
+
+	<data name="OrderItem_BusTicketSource_SeatNumber" xml:space="preserve">
+		<value>место</value>
+	</data>
+
+	<data name="OrderItem_SimCardSource" xml:space="preserve">
+		<value>Оплата SIM-карты</value>
+	</data>
+	<data name="OrderItem_IsicSource" xml:space="preserve">
+		<value>Оплата студенческого билета ISIC</value>
+	</data>
+	<data name="OrderItem_ExcursionSource" xml:space="preserve">
+		<value>Оплата экскурсии</value>
+	</data>
+	<data name="OrderItem_TourSource" xml:space="preserve">
+		<value>Оплата готового тура</value>
+	</data>
+	<data name="OrderItem_AccommodationSource" xml:space="preserve">
+		<value>Оплата проживания</value>
+	</data>
+	<data name="OrderItem_TransferSource" xml:space="preserve">
+		<value>Оплата трансфера</value>
+	</data>
+	<data name="OrderItem_InsuranceSource" xml:space="preserve">
+		<value>Оплата страховки</value>
+	</data>
+	<data name="OrderItem_CarRentalSource" xml:space="preserve">
+		<value>Оплата аренды авто</value>
+	</data>
+	<data name="OrderItem_GenericProduct" xml:space="preserve">
+		<value>Оплата услуги </value>
+	</data>
+
+	<data name="One2" xml:space="preserve">
+	<value>одно</value>
+  </data>
+	<data name="OrderItem_From" xml:space="preserve">
+	<value>от</value>
+  </data>
+	<data name="OrderItem_AviaTicketsSource" xml:space="preserve">
+	<value>Оплата авиабилетов</value>
+  </data>
+	<data name="RUB_Five" xml:space="preserve">
+	<value>рублей</value>
+  </data>
+	<data name="RUB_Minor_Five" xml:space="preserve">
+	<value>коп.</value>
+  </data>
+	<data name="RUB_Minor_One" xml:space="preserve">
+	<value>коп.</value>
+  </data>
+	<data name="RUB_Minor_Two" xml:space="preserve">
+	<value>коп.</value>
+  </data>
+	<data name="RUB_One" xml:space="preserve">
+	<value>рубль</value>
+  </data>
+	<data name="RUB_Two" xml:space="preserve">
+	<value>рубля</value>
+  </data>
+</root>

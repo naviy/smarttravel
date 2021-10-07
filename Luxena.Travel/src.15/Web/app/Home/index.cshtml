@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	<meta name="viewport" content="width=device-width" />
+	<title>Luxena Travel 15</title>
+	@Styles.Render("~/Styles/Libs", "~/Styles/App")
+	@Scripts.Render("~/Scripts/Localize", "~/Scripts/Libs")
+
+	<script type="text/javascript">
+		var DX = DevExpress;
+	</script>
+
+	<!-- Layouts -->
+
+	@*<link rel="dx-template" type="text/html" href="~/app/_support/layouts/Simple/SimpleLayout.html" />
+	<link rel="dx-template" type="text/html" href="~/app/_support/layouts/Popup/PopupLayout.html" />*@
+	<link rel="dx-template" type="text/html" href="~/app/_support/layouts/Agent/AgentLayout.html" />
+
+	@*@Scripts.Render("~/Scripts/App")*@
+	<script src="@Scripts.Url("~/_app.js")" type="text/javascript" charset="UTF-8"></script>
+
+</head>
+<body>
+
+	<div class="dx-viewport"></div>
+
+@foreach (var viewUrl in AppConfig.DxViewUrls)
+{
+	@Html.Partial(viewUrl)
+}
+
+</body>
+</html>

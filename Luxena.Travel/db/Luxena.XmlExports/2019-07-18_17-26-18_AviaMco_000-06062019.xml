@@ -1,0 +1,136 @@
+<AviaMco xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+	<Id>c032756fc27148969c58616c18a11035</Id>
+	<Commission>
+		<Amount>0.00</Amount>
+		<Currency>UAH</Currency>
+	</Commission>
+	<CommissionDiscount>
+		<Amount>0.00</Amount>
+		<Currency>UAH</Currency>
+	</CommissionDiscount>
+	<CommissionPercent i:nil="true" />
+	<Customer>
+		<Id>454ef229688144d6821bf0c9426d51d5</Id>
+		<Text>ТОВУФСА</Text>
+		<Type>Organization</Type>
+		<BonusCardNumber i:nil="true" />
+		<Code>40104290</Code>
+	</Customer>
+	<Discount>
+		<Amount>0.00</Amount>
+		<Currency>UAH</Currency>
+	</Discount>
+	<EqualFare>
+		<Amount>3272.39</Amount>
+		<Currency>UAH</Currency>
+	</EqualFare>
+	<ExtraCharge>
+		<Amount>0.00</Amount>
+		<Currency>UAH</Currency>
+	</ExtraCharge>
+	<Fare>
+		<Amount>0.00</Amount>
+		<Currency>UAH</Currency>
+	</Fare>
+	<FeesTotal>
+		<Amount>0.00</Amount>
+		<Currency>UAH</Currency>
+	</FeesTotal>
+	<GrandTotal>
+		<Amount>3272.39</Amount>
+		<Currency>UAH</Currency>
+	</GrandTotal>
+	<Handling>
+		<Amount>0.00</Amount>
+		<Currency>UAH</Currency>
+	</Handling>
+	<HandlingN>
+		<Amount>0.00</Amount>
+		<Currency>UAH</Currency>
+	</HandlingN>
+	<Intermediary i:nil="true" />
+	<IsPaid>false</IsPaid>
+	<IsVoid>false</IsVoid>
+	<IssueDate>2019-06-06T00:00:00Z</IssueDate>
+	<Name>000-06062019</Name>
+	<Note>Kiev  THESSALONIKI 10/06  wizzair   + seat    покупка на сайте Рябченко  карточка</Note>
+	<Order>
+		<Id>5de4a15bf4ba4178a53aac8e79b9aad7</Id>
+		<Text>O.19-04135</Text>
+		<Type>Order</Type>
+	</Order>
+	<Owner>
+		<Id>454ef229688144d6821bf0c9426d51d5</Id>
+		<Text>ТОВУФСА</Text>
+		<Type>Organization</Type>
+		<BonusCardNumber i:nil="true" />
+		<Code>40104290</Code>
+	</Owner>
+	<PassengerName>VSEVOLODSKA/TETIANA</PassengerName>
+	<Passengers>
+		<PartyReference i:nil="true" />
+	</Passengers>
+	<PaymentType>Cash</PaymentType>
+	<PnrCode i:nil="true" />
+	<Profit>
+		<Amount>0.00</Amount>
+		<Currency>UAH</Currency>
+	</Profit>
+	<Seller>
+		<Id>7d30c82047174c2793e61aec20f990d6</Id>
+		<Text>Рудчук ТОВУФСА</Text>
+		<Type>Person</Type>
+		<BonusCardNumber i:nil="true" />
+		<Code i:nil="true" />
+	</Seller>
+	<ServiceFee>
+		<Amount>0.00</Amount>
+		<Currency>UAH</Currency>
+	</ServiceFee>
+	<Total>
+		<Amount>3272.39</Amount>
+		<Currency>UAH</Currency>
+	</Total>
+	<TotalToTransfer>
+		<Amount>3272.39</Amount>
+		<Currency>UAH</Currency>
+	</TotalToTransfer>
+	<TourCode i:nil="true" />
+	<Type>AviaMco</Type>
+	<Vat>
+		<Amount>0.00</Amount>
+		<Currency>UAH</Currency>
+	</Vat>
+	<Airline>
+		<Id>0ee6072a01aa4d44a53ff38a33f724d5</Id>
+		<Text>UFSA MCO</Text>
+		<Type>Organization</Type>
+		<BonusCardNumber i:nil="true" />
+		<Code>369741</Code>
+	</Airline>
+	<AirlineIataCode i:nil="true" />
+	<AirlineName i:nil="true" />
+	<AirlinePnrCode i:nil="true" />
+	<AirlinePrefixCode>000</AirlinePrefixCode>
+	<Booker i:nil="true" />
+	<BookerCode i:nil="true" />
+	<BookerOffice i:nil="true" />
+	<ConjunctionNumbers i:nil="true" />
+	<Fees />
+	<IsTicketerRobot>false</IsTicketerRobot>
+	<Itinerary i:nil="true" />
+	<Number>06062019</Number>
+	<Origin>Manual</Origin>
+	<Originator>AirArabia</Originator>
+	<Passenger i:nil="true" />
+	<PaymentDetails i:nil="true" />
+	<PaymentForm i:nil="true" />
+	<Remarks i:nil="true" />
+	<Ticketer i:nil="true" />
+	<TicketerCode i:nil="true" />
+	<TicketerOffice i:nil="true" />
+	<TicketingIataOffice i:nil="true" />
+	<Description>Kiev  THESSALONIKI 10/06  wizzair   + seat</Description>
+	<InConnectionWith xmlns:d2p1="http://schemas.datacontract.org/2004/07/Luxena.Travel.Export" i:nil="true" />
+	<ReissueFor xmlns:d2p1="http://schemas.datacontract.org/2004/07/Luxena.Travel.Export" i:nil="true" />
+</AviaMco>

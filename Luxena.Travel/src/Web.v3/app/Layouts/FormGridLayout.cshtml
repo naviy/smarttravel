@@ -1,0 +1,44 @@
+﻿@{
+    Layout = "ViewLayout.cshtml";
+    var bs = Html.Bootstrap();
+    DomainUiHelper<dynamic> ui = ViewBag.ui;
+}
+
+
+@using (bs.Begin(new Table().Hover()))
+{
+    @RenderSection("Columns", false)
+    <col />
+    <thead>
+        @{
+            <text>
+                <tr>
+                    @RenderSection("Header")
+                    <th style="width: 0;">@ui.Grid.AddButton2()</th>
+                </tr>
+            </text>
+        }
+    </thead>
+    <tbody>
+        <tr data-ng-repeat="r in data">
+            @RenderSection("Cells")
+            <td class="hover-shown">
+                @ui.Grid.RowDeleteButton()
+            </td>
+        </tr>
+    </tbody>
+}
+
+@if (IsSectionDefined("Controller"))
+{
+    @section Controller { @RenderSection("Controller") }
+}
+else
+{
+    @section Controller { Domain.@((ViewBag.ViewName as string).As(a => a.Substring(0, 1).ToUpper() + a.Substring(1)))Ctrl }
+}
+    
+@if (IsSectionDefined("Scripts"))
+{
+    @section Scripts { @RenderSection("Scripts") }
+}

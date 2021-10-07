@@ -1,0 +1,11 @@
+{
+	"name": "luxena-file-server",
+	"description": "Luxena.Travel File Server",
+	"version": "2.1.3",
+	"dependencies": {
+		"async": "",
+		"log4js": "",
+		"mkdirp": "",
+		"socket.io": ""
+	}
+}

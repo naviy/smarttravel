@@ -1,0 +1,51 @@
+﻿@*** Party ***@
+
+@Html.Partial("Parties/Party")
+
+@Html.Partial("Parties/Organization/OrganizationList")
+@Html.Partial("Parties/Organization/OrganizationView")
+@Html.Partial("Parties/Organization/OrganizationEdit")
+@Html.Partial("Parties/Organization/Organization.DepartmentList")
+@Html.Partial("Parties/Organization/Organization.EmployeeList")
+
+@Html.Partial("Parties/Person/PersonList")
+@Html.Partial("Parties/Person/PersonView")
+@Html.Partial("Parties/Person/PersonEdit")
+@Html.Partial("Parties/Person/Person.PassportList")
+@Html.Partial("Parties/Person/PassportEdit")
+
+
+
+
+<script type="text/javascript">
+    @foreach (var v in new ViewDomain().GetEntities())
+    {
+        var icon = v.CssIcon().As(a => @"<i class=""" + a + @"""></i> ");
+        <text>
+    if (db.@(v))
+    {
+        if (!db.@(v).titles) db.@(v).titles = function(scope) { return '@Html.Raw(icon)@v.title.Shorts'; };        
+        if (!db.@(v).title) db.@(v).title = function(scope, r, title1) 
+        { 
+            var title1 = r && (title1 ? title1 : this.title1)(scope, r) || '';
+            if (title1) title1 = ' "' + title1 + '"'; 
+            return '@Html.Raw(icon)@v.title.Short' + title1; 
+        };
+        if (!db.@(v).title1) db.@(v).title1 = function(scope, r) { return r.Name; };        
+    }        
+        </text>
+    }
+</script>
+
+<script type="text/ng-template" id="Domain.LinkDialog.html">
+    <div class="modal-header">
+        <h3>Выделите записи, которые необходимо добавить</h3>
+    </div>
+    <div class="modal-body">
+        tyertyertyertyery
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" ng-click="ok()">OK</button>
+        <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+    </div>
+</script>

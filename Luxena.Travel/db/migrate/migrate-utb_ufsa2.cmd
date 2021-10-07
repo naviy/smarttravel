@@ -1,0 +1,1 @@
+_migrate_OLAP.cmd utb_ufsa %*

@@ -1,0 +1,24 @@
+﻿@Ui.Grid(db => db.Airports)
+@Ui.ViewForm2(db => db.Airports)
+@Ui.EditForm1(db => db.Airports)
+
+
+@Ui.Grid(db => db.Countries)
+
+@Ui.ViewFormBegin2(db => db.Countries)
+@Ui.FieldSet()
+@Ui.FormAccordion()
+@Ui.ViewFormEnd2()
+
+@Ui.EditForm1(db => db.Countries)
+
+
+@Ui.GridViewEdit1(db => db.AirlineServiceClasses)
+@Ui.GridViewEdit1(db => db.AccommodationTypes)
+@Ui.GridViewEdit1(db => db.BankAccounts)
+@Ui.GridViewEdit1(db => db.CateringTypes)
+@Ui.GridViewEdit1(db => db.CurrencyDailyRates)
+@Ui.GridViewEdit1(db => db.DocumentAccesses)
+@Ui.GridViewEdit1(db => db.DocumentOwners)
+@Ui.GridViewEdit1(db => db.GenericProductTypes)
+@Ui.GridViewEdit1(db => db.PaymentSystems)

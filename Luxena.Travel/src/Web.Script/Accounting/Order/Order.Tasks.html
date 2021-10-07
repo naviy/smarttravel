@@ -1,0 +1,18 @@
+﻿<div class="order-tasks" data-bind="foreach: tasks">
+	<div data-bind="css: { closed: Status == Luxena.Travel.TaskStatus.closed, overdue: Overdue }">
+		<div class="checkbox">
+			<input type="checkbox" data-bind="click: $parent.taskClick, checked: Status == Luxena.Travel.TaskStatus.closed, enable: CanModify" />
+		</div>
+		<div class="main">
+			<a data-bind="view: $data, text: Number + ' - ' + Subject" /><span class="related-to" data-bind="if: RelatedTo">, связана с <a class="related-to" data-bind="view: RelatedTo" /></span>
+		</div>
+		<div class="details">
+			<!-- ko if: AssignedTo -->
+				<a data-bind="view: AssignedTo" /><span data-bind="if: DueDate">,</span>
+			<!-- /ko -->
+			<!-- ko if: DueDate -->
+				выполнить до <span data-bind="text: DueDate.format('d.m.Y')" />
+			<!-- /ko -->
+		</div>
+	</div>
+</div>

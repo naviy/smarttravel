@@ -1,0 +1,47 @@
+﻿@using System.Linq.Expressions
+@{
+	var contactTabs = new[] { Ui.TabColumns2("Contacts") };
+}
+
+
+@Ui.Grid(db => db.Agents)
+@Ui.ViewForm2a(db => db.Agents, addTabs: contactTabs)
+
+
+@Ui.Grid(db => db.Airlines)
+@Ui.ViewForm3a(db => db.Airlines, addTabs: contactTabs)
+@Ui.EditForm3a(db => db.Airlines, addTabs: contactTabs)
+
+
+@Ui.Grid(db => db.Customers)
+
+
+@OrganizationViews(db => db.Organizations)
+@OrganizationViews(db => db.InsuranceCompanies)
+@OrganizationViews(db => db.RoamingOperators)
+@OrganizationViews(db => db.AccommodationProviders)
+@OrganizationViews(db => db.BusTicketProviders)
+@OrganizationViews(db => db.CarRentalProviders)
+@OrganizationViews(db => db.GenericProductProviders)
+@OrganizationViews(db => db.PasteboardProviders)
+@OrganizationViews(db => db.TourProviders)
+@OrganizationViews(db => db.TransferProviders)
+
+
+@Ui.Grid(db => db.Parties)
+
+
+@Ui.Grid(db => db.Persons)
+@Ui.ViewForm2a(db => db.Persons, addTabs: contactTabs)
+@Ui.EditForm2a(db => db.Persons, addTabs: contactTabs)
+
+@Ui.GridViewEdit1(db => db.MilesCards)
+@Ui.GridViewEdit1(db => db.Passports)
+
+
+@helper OrganizationViews(Expression<Func<Domain, object>> getEntitySet)
+{
+	@Ui.Grid(getEntitySet)
+	@Ui.ViewForm2a(getEntitySet, addTabs: new[] { Ui.TabColumns2("Contacts"), Ui.TabFieldSets2("Providers") })
+	@Ui.EditForm2a(getEntitySet, addTabs: new[] { Ui.TabColumns2("Contacts"), Ui.TabColumns2("Providers") })
+}

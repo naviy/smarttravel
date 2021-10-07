@@ -1,0 +1,35 @@
+﻿@Ui.Grid(db => db.Consignments)
+@Ui.ViewForm2a(db => db.Consignments)
+@Ui.EditForm1(db => db.Consignments)
+
+
+@Ui.GridViewEdit1(db => db.IssuedConsignments)
+
+
+@Ui.GridViewEdit1(db => db.InternalTransfers)
+
+
+@Ui.Grid(db => db.Invoices)
+@Ui.ViewForm2a(db => db.Invoices)
+
+
+@Ui.Grid(db => db.Orders)
+@Ui.ViewForm2(db => db.Orders, 8, 4)
+@Ui.EditForm1(db => db.Orders)
+
+
+@Ui.GridView1(db => db.OrderChecks)
+
+
+@Ui.GridViewEdit1(db => db.OrderItems)
+
+
+@Ui.Grid(db => db.Payments)
+
+
+@Ui.ViewEdit3(db => db.CashInOrderPayments)
+@Ui.ViewEdit1(db => db.CashOutOrderPayments)
+@Ui.ViewEdit1(db => db.CheckPayments)
+@Ui.ViewEdit1(db => db.ElectronicPayments)
+@Ui.ViewEdit1(db => db.WireTransfers)
+

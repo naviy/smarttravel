@@ -1,0 +1,104 @@
+<ProductContract xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+	<Id>d0a586e402d84890abed06165238b39f</Id>
+	<Commission>
+		<Amount>9.00</Amount>
+		<Currency>UAH</Currency>
+	</Commission>
+	<CommissionDiscount>
+		<Amount>0.00</Amount>
+		<Currency>UAH</Currency>
+	</CommissionDiscount>
+	<CommissionPercent i:nil="true" />
+	<Customer>
+		<Id>bdddbeaef64b4f6187837564dabaf706</Id>
+		<Text>Универсальное агентство</Text>
+		<Type>Organization</Type>
+		<BonusCardNumber i:nil="true" />
+		<Code>25264192</Code>
+	</Customer>
+	<Discount>
+		<Amount>0.00</Amount>
+		<Currency>UAH</Currency>
+	</Discount>
+	<EqualFare>
+		<Amount>1118.41</Amount>
+		<Currency>UAH</Currency>
+	</EqualFare>
+	<ExtraCharge>
+		<Amount>101.59</Amount>
+		<Currency>UAH</Currency>
+	</ExtraCharge>
+	<Fare>
+		<Amount>0.00</Amount>
+		<Currency>UAH</Currency>
+	</Fare>
+	<FeesTotal>
+		<Amount>0.00</Amount>
+		<Currency>UAH</Currency>
+	</FeesTotal>
+	<GrandTotal>
+		<Amount>1220.00</Amount>
+		<Currency>UAH</Currency>
+	</GrandTotal>
+	<Handling>
+		<Amount>101.59</Amount>
+		<Currency>UAH</Currency>
+	</Handling>
+	<HandlingN>
+		<Amount>0.00</Amount>
+		<Currency>UAH</Currency>
+	</HandlingN>
+	<Intermediary i:nil="true" />
+	<IsPaid>false</IsPaid>
+	<IsVoid>false</IsVoid>
+	<IssueDate>2019-07-25T00:00:00Z</IssueDate>
+	<Name>000B3FF1-9ADD-2B8A-0001</Name>
+	<Note i:nil="true" />
+	<Order>
+		<Id>c3774c050dcf49f395167e67601af76d</Id>
+		<Text>O.19-05718</Text>
+		<Type>Order</Type>
+	</Order>
+	<Owner>
+		<Id>b6387663fb9f44e6a3df212081a67310</Id>
+		<Text>UFSA</Text>
+		<Type>Organization</Type>
+		<BonusCardNumber i:nil="true" />
+		<Code>ufsaufsa</Code>
+	</Owner>
+	<PassengerName>ЩЕРБАКОВ ВІТАЛІЙ</PassengerName>
+	<Passengers>
+		<PartyReference i:nil="true" />
+	</Passengers>
+	<PaymentType>Cash</PaymentType>
+	<PnrCode i:nil="true" />
+	<Profit>
+		<Amount>110.59</Amount>
+		<Currency>UAH</Currency>
+	</Profit>
+	<Seller>
+		<Id>3b77a1939ca4498db36f88bc8ba3ec8a</Id>
+		<Text>Довженок UFSA</Text>
+		<Type>Person</Type>
+		<BonusCardNumber i:nil="true" />
+		<Code i:nil="true" />
+	</Seller>
+	<ServiceFee>
+		<Amount>0.00</Amount>
+		<Currency>UAH</Currency>
+	</ServiceFee>
+	<Total>
+		<Amount>1118.41</Amount>
+		<Currency>UAH</Currency>
+	</Total>
+	<TotalToTransfer>
+		<Amount>1109.41</Amount>
+		<Currency>UAH</Currency>
+	</TotalToTransfer>
+	<TourCode i:nil="true" />
+	<Type>Pasteboard</Type>
+	<Vat>
+		<Amount>0.00</Amount>
+		<Currency>UAH</Currency>
+	</Vat>
+</ProductContract>

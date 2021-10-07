@@ -1,0 +1,28 @@
+﻿@helper Directive_AttrToHtml(string name, string attr, string html)
+{
+    <text>
+    app.views.directive('@name', function ($compile)
+    {
+        return {
+            restrict: 'E',
+            replace: true,
+
+            link: function (scope, element, attrs)
+            {
+                if (attrs.watch === 'false') {
+                    var attr = scope.$eval(attrs.@attr);
+                    element.html(@html);
+                    $compile(element.contents())(scope);
+                } else {
+                    scope.$watch(attrs.@attr, function (value) 
+                    {
+                        var attr = value;
+                        element.html(@html);
+                        $compile(element.contents())(scope);
+                    });
+                }
+            }
+        }
+    });
+    </text>
+}

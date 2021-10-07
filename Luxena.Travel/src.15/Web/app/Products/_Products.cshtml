@@ -1,0 +1,93 @@
+﻿@using System.Linq.Expressions
+
+
+@GridViewEdit_Product(db => db.Accommodations)
+
+
+@Ui.Grid(db => db.AviaDocuments)
+
+
+@ViewEdit_Product(db => db.AviaRefunds)
+
+
+@ViewEdit_Product(db => db.AviaMcos)
+
+
+@View_ProductBegin(db => db.AviaTickets)
+@Ui.FormAccordion()
+@View_ProductEnd()
+
+@Edit_Product(db => db.AviaTickets)
+
+@Ui.GridViewEdit2(db => db.FlightSegments)
+
+
+@Ui.Grid(db => db.BusDocuments)
+@ViewEdit_Product(db => db.BusTickets)
+@ViewEdit_Product(db => db.BusTicketRefunds)
+
+
+@GridViewEdit_Product(db => db.CarRentals)
+
+
+@GridViewEdit_Product(db => db.Excursions)
+
+
+@GridViewEdit_Product(db => db.GenericProducts)
+
+
+@Ui.Grid(db => db.InsuranceDocuments)
+@ViewEdit_Product(db => db.Insurances)
+@ViewEdit_Product(db => db.InsuranceRefunds)
+
+
+@GridViewEdit_Product(db => db.Isics)
+
+
+@Ui.Grid(db => db.Products)
+
+
+@Ui.Grid(db => db.RailwayDocuments)
+@ViewEdit_Product(db => db.Pasteboards)
+@ViewEdit_Product(db => db.PasteboardRefunds)
+
+
+@GridViewEdit_Product(db => db.SimCards)
+
+
+@GridViewEdit_Product(db => db.Tours)
+
+
+@GridViewEdit_Product(db => db.Transfers)
+
+
+
+@helper View_ProductBegin(Expression<Func<Domain, object>> getEntitySet)
+{
+	@Ui.ViewFormBegin2(getEntitySet)
+	@Ui.Columns2("fields1", "fields2", width1: 8, width2: 4)
+	@Ui.FieldSet("fields3")
+}
+
+@helper View_ProductEnd()
+{
+	@Ui.ViewFormEnd2()
+}
+
+@helper Edit_Product(Expression<Func<Domain, object>> getEntitySet)
+{
+	@Ui.EditForm3(getEntitySet, width1: 8, width2: 4)
+}
+
+@helper ViewEdit_Product(Expression<Func<Domain, object>> getEntitySet)
+{
+	@View_ProductBegin(getEntitySet)
+	@View_ProductEnd()
+	@Edit_Product(getEntitySet)
+}
+
+@helper GridViewEdit_Product(Expression<Func<Domain, object>> getEntitySet)
+{
+	@Ui.Grid(getEntitySet)
+	@ViewEdit_Product(getEntitySet)
+}

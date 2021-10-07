@@ -1,0 +1,1439 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sirena>
+  <answer pult="ГРФ365">
+    <describe data="airport">
+      <data>
+        <code xml:lang="ru">ТАУ</code>
+        <code xml:lang="en">ТАУ</code>
+        <name xml:lang="ru">ТУРА ГОРНЫЙ</name>
+        <name xml:lang="en">TURA</name>
+        <city xml:lang="ru">ТАУ</city>
+        <city xml:lang="en">ТАУ</city>
+      </data>
+      <data>
+        <code xml:lang="ru">АМД</code>
+        <code xml:lang="en">AMV</code>
+        <name xml:lang="ru">АМДЕРМА</name>
+        <name xml:lang="en">AMDERMA</name>
+        <city xml:lang="ru">АМД</city>
+        <city xml:lang="en">AMV</city>
+      </data>
+      <data>
+        <code xml:lang="ru">ПРЛ</code>
+        <code xml:lang="en">PKC</code>
+        <name xml:lang="ru">ЕЛИЗОВО</name>
+        <name xml:lang="en">ELIZOVO</name>
+        <city xml:lang="ru">ПРЛ</city>
+        <city xml:lang="en">PKC</city>
+      </data>
+      <data>
+        <code xml:lang="ru">ЯРТ</code>
+        <code xml:lang="en">IAR</code>
+        <name xml:lang="ru">ТУНОШНА</name>
+        <name xml:lang="en">TUNOSHNA</name>
+        <city xml:lang="ru">ЯРЛ</city>
+        <city xml:lang="en">IAR</city>
+      </data>
+      <data>
+        <code xml:lang="ru">АНА</code>
+        <code xml:lang="en">AAQ</code>
+        <name xml:lang="ru">АНАПА ВИТЯЗЕВО</name>
+        <name xml:lang="en">ANAPA</name>
+        <city xml:lang="ru">АНА</city>
+        <city xml:lang="en">AAQ</city>
+      </data>
+      <data>
+        <code xml:lang="ru">БРС</code>
+        <code xml:lang="en">BTK</code>
+        <name xml:lang="ru">БРАТСК</name>
+        <name xml:lang="en">BRATSK</name>
+        <city xml:lang="ru">БРС</city>
+        <city xml:lang="en">BTK</city>
+      </data>
+      <data>
+        <code xml:lang="ru">ПФО</code>
+        <code xml:lang="en">PFO</code>
+        <name xml:lang="ru">ПАФОС  КИПР</name>
+        <name xml:lang="en">PAFOS</name>
+        <city xml:lang="ru">ПФО</city>
+        <city xml:lang="en">PFO</city>
+      </data>
+      <data>
+        <code xml:lang="ru">ТФС</code>
+        <code xml:lang="en">TFS</code>
+        <name xml:lang="ru">САР РЕИНА СОФИЯ</name>
+        <name xml:lang="en">TENERIFE SUR REINA SOFIA</name>
+        <city xml:lang="ru">ТЦИ</city>
+        <city xml:lang="en">TCI</city>
+      </data>
+      <data>
+        <code xml:lang="ru">ЦГН</code>
+        <code xml:lang="en">CGN</code>
+        <name xml:lang="ru">КЕЛЬН</name>
+        <name xml:lang="en">COLOGNE/BONN K.A.APT</name>
+        <city xml:lang="ru">ЦГН</city>
+        <city xml:lang="en">CGN</city>
+      </data>
+      <data>
+        <code xml:lang="ru">ИЦН</code>
+        <code xml:lang="en">ICN</code>
+        <name xml:lang="ru">ИНЧЕОН</name>
+        <name xml:lang="en">SEOUL INCHEON INTERNATION</name>
+        <city xml:lang="ru">СЕЛ</city>
+        <city xml:lang="en">SEL</city>
+      </data>
+      <data>
+        <code xml:lang="ru">ЛНС</code>
+        <code xml:lang="en">LYS</code>
+        <name xml:lang="ru">САТОЛАС</name>
+        <name xml:lang="en">LYON SAINT EXUPERY APT</name>
+        <city xml:lang="ru">ЛНС</city>
+        <city xml:lang="en">LYS</city>
+      </data>
+      <data>
+        <code xml:lang="ru">ФЦО</code>
+        <code xml:lang="en">FCO</code>
+        <name xml:lang="ru">ФЬЮМИЧИНО</name>
+        <name xml:lang="en">ROME FIUMICINO APT</name>
+        <city xml:lang="ru">РОМ</city>
+        <city xml:lang="en">ROM</city>
+      </data>
+      <data>
+        <code xml:lang="ru">TXL</code>
+        <code xml:lang="en">TXL</code>
+        <name xml:lang="ru">ТЕГЕЛЬ</name>
+        <name xml:lang="en">BERLIN TEGEL APT</name>
+        <city xml:lang="ru">БРЛ</city>
+        <city xml:lang="en">BER</city>
+      </data>
+      <data>
+        <code xml:lang="ru">STN</code>
+        <code xml:lang="en">STN</code>
+        <name xml:lang="ru">СТЕНСТЕД</name>
+        <name xml:lang="en">LONDON STANSTED APT</name>
+        <city xml:lang="ru">ЛОД</city>
+        <city xml:lang="en">LON</city>
+      </data>
+      <data>
+        <code xml:lang="ru">ЛГА</code>
+        <code xml:lang="en">LGW</code>
+        <name xml:lang="ru">ГАТВИК</name>
+        <name xml:lang="en">LONDON GATWICK APT</name>
+        <city xml:lang="ru">ЛОД</city>
+        <city xml:lang="en">LON</city>
+      </data>
+      <data>
+        <code xml:lang="ru">ФФФ</code>
+        <code xml:lang="en">ФФФ</code>
+        <name xml:lang="ru">ФФФФФФФФФФФФ</name>
+        <name xml:lang="en">ФФФФФФФФФФФФ             </name>
+        <city xml:lang="ru">ФФФ</city>
+        <city xml:lang="en">ФФФ</city>
+      </data>
+      <data>
+        <code xml:lang="ru">ЦДГ</code>
+        <code xml:lang="en">CDG</code>
+        <name xml:lang="ru">ШАРЛЬ ДЕ ГОЛЬ</name>
+        <name xml:lang="en">PARIS CHARLES DE GAULLE A</name>
+        <city xml:lang="ru">ПАЖ</city>
+        <city xml:lang="en">PAR</city>
+      </data>
+      <data>
+        <code xml:lang="ru">СХТ</code>
+        <code xml:lang="en">HTA</code>
+        <name xml:lang="ru">ЧИТА</name>
+        <name xml:lang="en">CHITA</name>
+        <city xml:lang="ru">СХТ</city>
+        <city xml:lang="en">HTA</city>
+      </data>
+      <data>
+        <code xml:lang="ru">БУД</code>
+        <code xml:lang="en">BUD</code>
+        <name xml:lang="ru">ФЕРИХЕДЬ</name>
+        <name xml:lang="en">FERICHED</name>
+        <city xml:lang="ru">БУД</city>
+        <city xml:lang="en">BUD</city>
+      </data>
+      <data>
+        <code xml:lang="ru">БЙЖ</code>
+        <code xml:lang="en">BJV</code>
+        <name xml:lang="ru">МИЛАС</name>
+        <name xml:lang="en">BODRUM MILAS AIRPORT</name>
+        <city xml:lang="ru">БДР</city>
+        <city xml:lang="en">BXN</city>
+      </data>
+      <data>
+        <code xml:lang="ru">ПЕК</code>
+        <code xml:lang="en">PEK</code>
+        <name xml:lang="ru">БЕЙИНГ CAPITAL</name>
+        <name xml:lang="en">BEIJING CAPITAL APT</name>
+        <city xml:lang="ru">ПЕК</city>
+        <city xml:lang="en">BJS</city>
+      </data>
+      <data>
+        <code xml:lang="ru">ПЖГ</code>
+        <code xml:lang="en">PVG</code>
+        <name xml:lang="ru">ПУ ДОНГ</name>
+        <name xml:lang="en">SHANGHAI PUDONG INTERNATI</name>
+        <city xml:lang="ru">ШАЙ</city>
+        <city xml:lang="en">SHA</city>
+      </data>
+      <data>
+        <code xml:lang="ru">ХАЙ</code>
+        <code xml:lang="en">HAJ</code>
+        <name xml:lang="ru">АЭРОПОРТ ГАННОВЕР</name>
+        <name xml:lang="en">HANOVER</name>
+        <city xml:lang="ru">ХАЙ</city>
+        <city xml:lang="en">HAJ</city>
+      </data>
+      <data>
+        <code xml:lang="ru">ПУС</code>
+        <code xml:lang="en">PUS</code>
+        <name xml:lang="ru">БУСАН ГИМХЕ</name>
+        <name xml:lang="en">BUSAN GIMHAE</name>
+        <city xml:lang="ru">ПУС</city>
+        <city xml:lang="en">PUS</city>
+      </data>
+      <data>
+        <code xml:lang="ru">СБХ</code>
+        <code xml:lang="en">SAW</code>
+        <name xml:lang="ru">САБИХА ГОКЦЕН</name>
+        <name xml:lang="en">ISTANBUL SABIHA GOKCEN AP</name>
+        <city xml:lang="ru">ИСТ</city>
+        <city xml:lang="en">IST</city>
+      </data>
+      <data>
+        <code xml:lang="ru">ИСТ</code>
+        <code xml:lang="en">IST</code>
+        <name xml:lang="ru">АТАТУРК</name>
+        <name xml:lang="en">ISTANBUL ATATURK AIRPORT</name>
+        <city xml:lang="ru">ИСТ</city>
+        <city xml:lang="en">IST</city>
+      </data>
+      <data>
+        <code xml:lang="ru">МГН</code>
+        <code xml:lang="en">МГН</code>
+        <name xml:lang="ru">ЯКУТСК МАГАН</name>
+        <name xml:lang="en">ЯКУТСК МАГАН             </name>
+        <city xml:lang="ru">ЯКТ</city>
+        <city xml:lang="en">YKS</city>
+      </data>
+      <data>
+        <code xml:lang="ru">ЦМН</code>
+        <code xml:lang="en">CMN</code>
+        <name xml:lang="ru">МОХАМЕД 5</name>
+        <name xml:lang="en">CASABLANCA MOHAMED V APT</name>
+        <city xml:lang="ru">ЦАС</city>
+        <city xml:lang="en">CAS</city>
+      </data>
+      <data>
+        <code xml:lang="ru">ОРИ</code>
+        <code xml:lang="en">ORY</code>
+        <name xml:lang="ru">ОРЛИ</name>
+        <name xml:lang="en">PARIS ORLY APT</name>
+        <city xml:lang="ru">ПАЖ</city>
+        <city xml:lang="en">PAR</city>
+      </data>
+      <data>
+        <code xml:lang="ru">АУХ</code>
+        <code xml:lang="en">AUH</code>
+        <name xml:lang="ru">МЕЖДУНАРОДНЫЙ АБУ ДАБИ</name>
+        <name xml:lang="en">ABU DHABI INTERNATIONAL A</name>
+        <city xml:lang="ru">АУХ</city>
+        <city xml:lang="en">AUH</city>
+      </data>
+      <data>
+        <code xml:lang="ru">АМН</code>
+        <code xml:lang="en">AMM</code>
+        <name xml:lang="ru">КВИН АЛИЯ</name>
+        <name xml:lang="en">AMMAN QUEEN ALIA INTERNAT</name>
+        <city xml:lang="ru">АМН</city>
+        <city xml:lang="en">AMM</city>
+      </data>
+      <data>
+        <code xml:lang="ru">ЯКТ</code>
+        <code xml:lang="en">YKS</code>
+        <name xml:lang="ru">ЯКУТСК</name>
+        <name xml:lang="en">YAKUTSK</name>
+        <city xml:lang="ru">ЯКТ</city>
+        <city xml:lang="en">YKS</city>
+      </data>
+      <data>
+        <code xml:lang="ru">ШАЙ</code>
+        <code xml:lang="en">SHA</code>
+        <name xml:lang="ru">ХОНКЬЯО</name>
+        <name xml:lang="en">SHANGHAI HONGQIAO INTERNA</name>
+        <city xml:lang="ru">ШАЙ</city>
+        <city xml:lang="en">SHA</city>
+      </data>
+      <data>
+        <code xml:lang="ru">ЦГК</code>
+        <code xml:lang="en">CGK</code>
+        <name xml:lang="ru">СУКАРНО ХАТТА ИНТЕРНЭЙШНЛ</name>
+        <name xml:lang="en">JAKARTA SOEKARNO-HATTA AP</name>
+        <city xml:lang="ru">ДКТ</city>
+        <city xml:lang="en">JKT</city>
+      </data>
+      <data>
+        <code xml:lang="ru">MUC</code>
+        <code xml:lang="en">MUC</code>
+        <name xml:lang="ru">ФРАНЦ ЖОЗЕФ ШТРАУСС</name>
+        <name xml:lang="en">MUNICH INTERNATIONAL AIRP</name>
+        <city xml:lang="ru">МЮН</city>
+        <city xml:lang="en">MUC</city>
+      </data>
+      <data>
+        <code xml:lang="ru">ГАМ</code>
+        <code xml:lang="en">HAM</code>
+        <name xml:lang="ru">ГАМБУРГ</name>
+        <name xml:lang="en">HAMBURG AIRPORT</name>
+        <city xml:lang="ru">ГАМ</city>
+        <city xml:lang="en">HAM</city>
+      </data>
+      <data>
+        <code xml:lang="ru">ФРА</code>
+        <code xml:lang="en">FRA</code>
+        <name xml:lang="ru">ФРАНКФУРТ МЕЖДУНАРОДНЫЙ</name>
+        <name xml:lang="en">FRANKFURT INTERNATIONAL A</name>
+        <city xml:lang="ru">ФРА</city>
+        <city xml:lang="en">FRA</city>
+      </data>
+      <data>
+        <code xml:lang="ru">HHN</code>
+        <code xml:lang="en">HHN</code>
+        <name xml:lang="ru">ФРАНКФУРТ ХАНН</name>
+        <name xml:lang="en">FRANKFURT HAHN AIRPORT</name>
+        <city xml:lang="ru">ФРА</city>
+        <city xml:lang="en">FRA</city>
+      </data>
+      <data>
+        <code xml:lang="ru">ВЕН</code>
+        <code xml:lang="en">VIE</code>
+        <name xml:lang="ru">ВЕНА МЕЖДУНАРОДНЫЙ</name>
+        <name xml:lang="en">VIENNA INTL</name>
+        <city xml:lang="ru">ВЕН</city>
+        <city xml:lang="en">VIE</city>
+      </data>
+      <data>
+        <code xml:lang="ru">АТХ</code>
+        <code xml:lang="en">ATH</code>
+        <name xml:lang="ru">ЭЛЕФТЕРИОС ВЕНИЦЕЛОС</name>
+        <name xml:lang="en">ATHENS INTL ELEFTHERIOS V</name>
+        <city xml:lang="ru">АТХ</city>
+        <city xml:lang="en">ATH</city>
+      </data>
+      <data>
+        <code xml:lang="ru">ГЛА</code>
+        <code xml:lang="en">GLA</code>
+        <name xml:lang="ru">ГЛАЗГО МЕЖДУНАРОДНЫЙ</name>
+        <name xml:lang="en">GLASGOW INTERNATIONAL AIR</name>
+        <city xml:lang="ru">ГЛА</city>
+        <city xml:lang="en">GLA</city>
+      </data>
+      <data>
+        <code xml:lang="ru">BSL</code>
+        <code xml:lang="en">BSL</code>
+        <name xml:lang="ru">BASEL EUROAIRPORT</name>
+        <name xml:lang="en">BASEL</name>
+        <city xml:lang="ru">ЕАП</city>
+        <city xml:lang="en">EAP</city>
+      </data>
+      <data>
+        <code xml:lang="ru">ЕСБ</code>
+        <code xml:lang="en">ESB</code>
+        <name xml:lang="ru">ЕСЕНБОГА</name>
+        <name xml:lang="en">ANKARA ESENBOGA APT</name>
+        <city xml:lang="ru">АНК</city>
+        <city xml:lang="en">ANK</city>
+      </data>
+      <data>
+        <code xml:lang="ru">МРД</code>
+        <code xml:lang="en">YUL</code>
+        <name xml:lang="ru">МОНРЕАЛЬ ПЬЕРЭЛЛИОТТРЮДО</name>
+        <name xml:lang="en">MONTREAL PIERRE ELLIOTT T</name>
+        <city xml:lang="ru">МНЛ</city>
+        <city xml:lang="en">YMQ</city>
+      </data>
+      <data>
+        <code xml:lang="ru">ОДС</code>
+        <code xml:lang="en">ODS</code>
+        <name xml:lang="ru">ОДЕССА</name>
+        <name xml:lang="en">ODESSA</name>
+        <city xml:lang="ru">ОДС</city>
+        <city xml:lang="en">ODS</city>
+      </data>
+      <data>
+        <code xml:lang="ru">МИК</code>
+        <code xml:lang="en">MSQ</code>
+        <name xml:lang="ru">ИНТЕРНЭЙШНЛ</name>
+        <name xml:lang="en">INTERNATIONAL</name>
+        <city xml:lang="ru">МСК</city>
+        <city xml:lang="en">MSQ</city>
+      </data>
+      <data>
+        <code xml:lang="ru">ПТБ</code>
+        <code xml:lang="en">PES</code>
+        <name xml:lang="ru">БЕСОВЕЦ</name>
+        <name xml:lang="en">BESOVETS</name>
+        <city xml:lang="ru">ПТЗ</city>
+        <city xml:lang="en">PES</city>
+      </data>
+      <data>
+        <code xml:lang="ru">КАЙ</code>
+        <code xml:lang="en">KIX</code>
+        <name xml:lang="ru">КАНСАЙ ИНТЕРНЕЙШНЛ</name>
+        <name xml:lang="en">OSAKA KANSAI INTERNATIONA</name>
+        <city xml:lang="ru">ОСЭ</city>
+        <city xml:lang="en">OSA</city>
+      </data>
+      <data>
+        <code xml:lang="ru">СПУ</code>
+        <code xml:lang="en">SIN</code>
+        <name xml:lang="ru">СИНГАПУР ЧАНГИ</name>
+        <name xml:lang="en">SINGAPORE CHANGI APT</name>
+        <city xml:lang="ru">СПУ</city>
+        <city xml:lang="en">SIN</city>
+      </data>
+      <data>
+        <code xml:lang="ru">OTP</code>
+        <code xml:lang="en">OTP</code>
+        <name xml:lang="ru">OTOPENI</name>
+        <name xml:lang="en">BUCHAREST OTOPENI APT</name>
+        <city xml:lang="ru">БУХ</city>
+        <city xml:lang="en">BUH</city>
+      </data>
+      <data>
+        <code xml:lang="ru">BBU</code>
+        <code xml:lang="en">BBU</code>
+        <name xml:lang="ru">BANEASA</name>
+        <name xml:lang="en">BUCHAREST BANEASA APT</name>
+        <city xml:lang="ru">БУХ</city>
+        <city xml:lang="en">BUH</city>
+      </data>
+      <data>
+        <code xml:lang="ru">MXP</code>
+        <code xml:lang="en">MXP</code>
+        <name xml:lang="ru">МАЛЬПЕНСА</name>
+        <name xml:lang="en">MILAN MALPENSA APT</name>
+        <city xml:lang="ru">МИА</city>
+        <city xml:lang="en">MIL</city>
+      </data>
+      <data>
+        <code xml:lang="ru">LIN</code>
+        <code xml:lang="en">LIN</code>
+        <name xml:lang="ru">МИЛАН ЛИНАТЕ</name>
+        <name xml:lang="en">MILAN LINATE APT</name>
+        <city xml:lang="ru">МИА</city>
+        <city xml:lang="en">MIL</city>
+      </data>
+      <data>
+        <code xml:lang="ru">ЧТЗ</code>
+        <code xml:lang="en">CTS</code>
+        <name xml:lang="ru">ЧИТОЗА</name>
+        <name xml:lang="en">SAPPORO CHITOSE APT</name>
+        <city xml:lang="ru">СПР</city>
+        <city xml:lang="en">SPK</city>
+      </data>
+      <data>
+        <code xml:lang="ru">ТЛЯ</code>
+        <code xml:lang="en">TLV</code>
+        <name xml:lang="ru">BEN GURION INTL</name>
+        <name xml:lang="en">TEL AVIV BEN GURION INTER</name>
+        <city xml:lang="ru">ТЛЯ</city>
+        <city xml:lang="en">TLV</city>
+      </data>
+      <data>
+        <code xml:lang="ru">SDV</code>
+        <code xml:lang="en">SDV</code>
+        <name xml:lang="ru">ТЕЛЬ АВИВ</name>
+        <name xml:lang="en">TEL AVIV YAFO SDE DOV</name>
+        <city xml:lang="ru">ТЛЯ</city>
+        <city xml:lang="en">TLV</city>
+      </data>
+      <data>
+        <code xml:lang="ru">NGO</code>
+        <code xml:lang="en">NGO</code>
+        <name xml:lang="ru">НАГОЯ ЧУБУ</name>
+        <name xml:lang="en">NAGOYA CHUBU CENTRAIR INT</name>
+        <city xml:lang="ru">NGO</city>
+        <city xml:lang="en">NGO</city>
+      </data>
+      <data>
+        <code xml:lang="ru">BHD</code>
+        <code xml:lang="en">BHD</code>
+        <name xml:lang="ru">БЕЛФАСТ СИТИ ЭЙРПОРТ</name>
+        <name xml:lang="en">BELFAST GEORGE BEST CITY</name>
+        <city xml:lang="ru">BFS</city>
+        <city xml:lang="en">BFS</city>
+      </data>
+      <data>
+        <code xml:lang="ru">IKA</code>
+        <code xml:lang="en">IKA</code>
+        <name xml:lang="ru">IMAM KHOMEINI INTL TEHRAN</name>
+        <name xml:lang="en">TEHRAN IMAM KHOMEINI INTE</name>
+        <city xml:lang="ru">ТХР</city>
+        <city xml:lang="en">THR</city>
+      </data>
+      <data>
+        <code xml:lang="ru">IAD</code>
+        <code xml:lang="en">IAD</code>
+        <name xml:lang="ru">DULLES WASHINGTON</name>
+        <name xml:lang="en">WASHINGTON DULLES INTERNA</name>
+        <city xml:lang="ru">ВАС</city>
+        <city xml:lang="en">WAS</city>
+      </data>
+      <data>
+        <code xml:lang="ru">WDH</code>
+        <code xml:lang="en">WDH</code>
+        <name xml:lang="ru">ВИНДХУК</name>
+        <name xml:lang="en">WINDHOEK HOSEA KUTAKO INT</name>
+        <city xml:lang="ru">WDH</city>
+        <city xml:lang="en">WDH</city>
+      </data>
+      <data>
+        <code xml:lang="ru">ЦПХ</code>
+        <code xml:lang="en">CPH</code>
+        <name xml:lang="ru">КОПЕНГАГЕН</name>
+        <name xml:lang="en">COPENHAGEN APT</name>
+        <city xml:lang="ru">ЦПХ</city>
+        <city xml:lang="en">CPH</city>
+      </data>
+      <data>
+        <code xml:lang="ru">GOT</code>
+        <code xml:lang="en">GOT</code>
+        <name xml:lang="ru">ГОТЕНБУРГ</name>
+        <name xml:lang="en">GOTHENBURG LANDVETTER APT</name>
+        <city xml:lang="ru">GOT</city>
+        <city xml:lang="en">GOT</city>
+      </data>
+      <data>
+        <code xml:lang="ru">GSE</code>
+        <code xml:lang="en">GSE</code>
+        <name xml:lang="ru">SAEVE</name>
+        <name xml:lang="en">GOTHENBURG SAEVE APT</name>
+        <city xml:lang="ru">GOT</city>
+        <city xml:lang="en">GOT</city>
+      </data>
+      <data>
+        <code xml:lang="ru">ВЕЦ</code>
+        <code xml:lang="en">VCE</code>
+        <name xml:lang="ru">ВЕНЕЦИЯ</name>
+        <name xml:lang="en">VENICE MARCO POLO APT</name>
+        <city xml:lang="ru">ВЕЦ</city>
+        <city xml:lang="en">VCE</city>
+      </data>
+      <data>
+        <code xml:lang="ru">IAH</code>
+        <code xml:lang="en">IAH</code>
+        <name xml:lang="ru">GEORGE BUSH INTERCNTL</name>
+        <name xml:lang="en">HOUSTON GEORGE BUSH INTER</name>
+        <city xml:lang="ru">HOU</city>
+        <city xml:lang="en">HOU</city>
+      </data>
+      <data>
+        <code xml:lang="ru">KEF</code>
+        <code xml:lang="en">KEF</code>
+        <name xml:lang="ru">KEFLAVIK</name>
+        <name xml:lang="en">REYKJAVIK KEFLAVIK INTERN</name>
+        <city xml:lang="ru">REK</city>
+        <city xml:lang="en">REK</city>
+      </data>
+      <data>
+        <code xml:lang="ru">MCO</code>
+        <code xml:lang="en">MCO</code>
+        <name xml:lang="ru">INT L ORLANDO</name>
+        <name xml:lang="en">ORLANDO INTERNATIONAL APT</name>
+        <city xml:lang="ru">ORL</city>
+        <city xml:lang="en">ORL</city>
+      </data>
+      <data>
+        <code xml:lang="ru">NRT</code>
+        <code xml:lang="en">NRT</code>
+        <name xml:lang="ru">NARITA</name>
+        <name xml:lang="en">TOKYO NARITA APT</name>
+        <city xml:lang="ru">ТОК</city>
+        <city xml:lang="en">TYO</city>
+      </data>
+      <data>
+        <code xml:lang="ru">ITM</code>
+        <code xml:lang="en">ITM</code>
+        <name xml:lang="ru">ИТАМИ</name>
+        <name xml:lang="en">OSAKA ITAMI AIRPORT</name>
+        <city xml:lang="ru">ОСЭ</city>
+        <city xml:lang="en">OSA</city>
+      </data>
+      <data>
+        <code xml:lang="ru">GRU</code>
+        <code xml:lang="en">GRU</code>
+        <name xml:lang="ru">GUARULHOS</name>
+        <name xml:lang="en">SAO PAULO GUARULHOS INTL</name>
+        <city xml:lang="ru">SAO</city>
+        <city xml:lang="en">SAO</city>
+      </data>
+      <data>
+        <code xml:lang="ru">BRQ</code>
+        <code xml:lang="en">BRQ</code>
+        <name xml:lang="ru">БРНО</name>
+        <name xml:lang="en">BRNO TURANY APT</name>
+        <city xml:lang="ru">BRQ</city>
+        <city xml:lang="en">BRQ</city>
+      </data>
+      <data>
+        <code xml:lang="ru">CLE</code>
+        <code xml:lang="en">CLE</code>
+        <name xml:lang="ru">КЛИВЛЕНД</name>
+        <name xml:lang="en">CLEVELAND HOPKINS INTERNA</name>
+        <city xml:lang="ru">CLE</city>
+        <city xml:lang="en">CLE</city>
+      </data>
+      <data>
+        <code xml:lang="ru">SYD</code>
+        <code xml:lang="en">SYD</code>
+        <name xml:lang="ru">СИДНЕЙ</name>
+        <name xml:lang="en">SYDNEY KINGSFORD SMITH AP</name>
+        <city xml:lang="ru">SYD</city>
+        <city xml:lang="en">SYD</city>
+      </data>
+      <data>
+        <code xml:lang="ru">NBO</code>
+        <code xml:lang="en">NBO</code>
+        <name xml:lang="ru">НАЙРОБИ</name>
+        <name xml:lang="en">NAIROBI JOMO KENYATTA INT</name>
+        <city xml:lang="ru">NBO</city>
+        <city xml:lang="en">NBO</city>
+      </data>
+      <data>
+        <code xml:lang="ru">MEL</code>
+        <code xml:lang="en">MEL</code>
+        <name xml:lang="ru">МЕЛЬБУРН</name>
+        <name xml:lang="en">MELBOURNE AIRPORT</name>
+        <city xml:lang="ru">MEL</city>
+        <city xml:lang="en">MEL</city>
+      </data>
+      <data>
+        <code xml:lang="ru">СФЦ</code>
+        <code xml:lang="en">SFO</code>
+        <name xml:lang="ru">САН ФРАНЦИСКО</name>
+        <name xml:lang="en">SAN FRANCISCO INTERNATION</name>
+        <city xml:lang="ru">СФЦ</city>
+        <city xml:lang="en">SFO</city>
+      </data>
+      <data>
+        <code xml:lang="ru">КУЛ</code>
+        <code xml:lang="en">KUL</code>
+        <name xml:lang="ru">КУАЛА ЛУМПУР</name>
+        <name xml:lang="en">KUALA LUMPUR INTERNATIONA</name>
+        <city xml:lang="ru">КУЛ</city>
+        <city xml:lang="en">KUL</city>
+      </data>
+      <data>
+        <code xml:lang="ru">ADB</code>
+        <code xml:lang="en">ADB</code>
+        <name xml:lang="ru">ADNAN MEND IZMIR</name>
+        <name xml:lang="en">IZMIR ADNAN MENDERES APT</name>
+        <city xml:lang="ru">IZM</city>
+        <city xml:lang="en">IZM</city>
+      </data>
+      <data>
+        <code xml:lang="ru">YYZ</code>
+        <code xml:lang="en">YYZ</code>
+        <name xml:lang="ru">PEARSON INTL</name>
+        <name xml:lang="en">TORONTO LESTER B PEARSON</name>
+        <city xml:lang="ru">ТТО</city>
+        <city xml:lang="en">YTO</city>
+      </data>
+      <data>
+        <code xml:lang="ru">TFN</code>
+        <code xml:lang="en">TFN</code>
+        <name xml:lang="ru">NORTE LOS RODEOS</name>
+        <name xml:lang="en">TENERIFE NORTE APT</name>
+        <city xml:lang="ru">ТЦИ</city>
+        <city xml:lang="en">TCI</city>
+      </data>
+      <data>
+        <code xml:lang="ru">БЦН</code>
+        <code xml:lang="en">BCN</code>
+        <name xml:lang="ru">BARCELONA APT</name>
+        <name xml:lang="en">BARCELONA APT</name>
+        <city xml:lang="ru">БЦН</city>
+        <city xml:lang="en">BCN</city>
+      </data>
+      <data>
+        <code xml:lang="ru">БРЮ</code>
+        <code xml:lang="en">BRU</code>
+        <name xml:lang="ru">БРЮССЕЛЬ</name>
+        <name xml:lang="en">BRUSSELS AIRPORT</name>
+        <city xml:lang="ru">БРЮ</city>
+        <city xml:lang="en">BRU</city>
+      </data>
+      <data>
+        <code xml:lang="ru">CAE</code>
+        <code xml:lang="en">CAE</code>
+        <name xml:lang="ru">COLUMBIA METROPOLITAN APT</name>
+        <name xml:lang="en">COLUMBIA METROPOLITAN APT</name>
+        <city xml:lang="ru">CAE</city>
+        <city xml:lang="en">CAE</city>
+      </data>
+      <data>
+        <code xml:lang="ru">КОБ</code>
+        <code xml:lang="en">CMB</code>
+        <name xml:lang="ru">COLOMBO BANDARANAIKE APT</name>
+        <name xml:lang="en">COLOMBO BANDARANAIKE APT</name>
+        <city xml:lang="ru">КОБ</city>
+        <city xml:lang="en">CMB</city>
+      </data>
+      <data>
+        <code xml:lang="ru">CMH</code>
+        <code xml:lang="en">CMH</code>
+        <name xml:lang="ru">COLUMBUS PORT COLUMBUS IN</name>
+        <name xml:lang="en">COLUMBUS PORT COLUMBUS IN</name>
+        <city xml:lang="ru">CMH</city>
+        <city xml:lang="en">CMH</city>
+      </data>
+      <data>
+        <code xml:lang="ru">ЖУЛ</code>
+        <code xml:lang="en">IEV</code>
+        <name xml:lang="ru">ЖУЛЯНЫ</name>
+        <name xml:lang="en">ZHULYANY</name>
+        <city xml:lang="ru">ИЕВ</city>
+        <city xml:lang="en">IEV</city>
+      </data>
+      <data>
+        <code xml:lang="ru">ШРМ</code>
+        <code xml:lang="en">SVO</code>
+        <name xml:lang="ru">ШЕРЕМЕТЬЕВО</name>
+        <name xml:lang="en">SHEREMETYEVO</name>
+        <city xml:lang="ru">МОВ</city>
+        <city xml:lang="en">MOW</city>
+      </data>
+      <data>
+        <code xml:lang="ru">ДМД</code>
+        <code xml:lang="en">DME</code>
+        <name xml:lang="ru">ДОМОДЕДОВО</name>
+        <name xml:lang="en">DOMODEDOVO</name>
+        <city xml:lang="ru">МОВ</city>
+        <city xml:lang="en">MOW</city>
+      </data>
+      <data>
+        <code xml:lang="ru">ВНК</code>
+        <code xml:lang="en">VKO</code>
+        <name xml:lang="ru">ВНУКОВО</name>
+        <name xml:lang="en">VNUKOVO</name>
+        <city xml:lang="ru">МОВ</city>
+        <city xml:lang="en">MOW</city>
+      </data>
+      <data>
+        <code xml:lang="ru">БКВ</code>
+        <code xml:lang="en">BKA</code>
+        <name xml:lang="ru">БЫКОВО</name>
+        <name xml:lang="en">BYKOVO</name>
+        <city xml:lang="ru">МОВ</city>
+        <city xml:lang="en">MOW</city>
+      </data>
+      <data>
+        <code xml:lang="ru">БСП</code>
+        <code xml:lang="en">KBP</code>
+        <name xml:lang="ru">БОРИСПОЛЬ</name>
+        <name xml:lang="en">BORISPOL</name>
+        <city xml:lang="ru">ИЕВ</city>
+        <city xml:lang="en">IEV</city>
+      </data>
+      <data>
+        <code xml:lang="ru">МСЛ</code>
+        <code xml:lang="en">MHP</code>
+        <name xml:lang="ru">МИНСК 1</name>
+        <name xml:lang="en">MINSK 1</name>
+        <city xml:lang="ru">МСК</city>
+        <city xml:lang="en">MSQ</city>
+      </data>
+      <data>
+        <code xml:lang="ru">ПЛК</code>
+        <code xml:lang="en">LED</code>
+        <name xml:lang="ru">ПУЛКОВО</name>
+        <name xml:lang="en">PULKOVO</name>
+        <city xml:lang="ru">СПТ</city>
+        <city xml:lang="en">LED</city>
+      </data>
+      <data>
+        <code xml:lang="ru">ЗВР</code>
+        <code xml:lang="en">EVN</code>
+        <name xml:lang="ru">ЗВАРТНОЦ</name>
+        <name xml:lang="en">ZVARTNOTS</name>
+        <city xml:lang="ru">ЕВН</city>
+        <city xml:lang="en">EVN</city>
+      </data>
+      <data>
+        <code xml:lang="ru">КЛЦ</code>
+        <code xml:lang="en">SVX</code>
+        <name xml:lang="ru">КОЛЬЦОВО</name>
+        <name xml:lang="en">KOLTSOVO</name>
+        <city xml:lang="ru">ЕКБ</city>
+        <city xml:lang="en">SVX</city>
+      </data>
+      <data>
+        <code xml:lang="ru">JFK</code>
+        <code xml:lang="en">JFK</code>
+        <name xml:lang="ru">КЕННЕДИ</name>
+        <name xml:lang="en">JOHN F KENNEDY</name>
+        <city xml:lang="ru">НРК</city>
+        <city xml:lang="en">NYC</city>
+      </data>
+      <data>
+        <code xml:lang="ru">ORD</code>
+        <code xml:lang="en">ORD</code>
+        <name xml:lang="ru">OHARE CHICAGO</name>
+        <name xml:lang="en">CHICAGO O'HARE INTERNATIO</name>
+        <city xml:lang="ru">CHI</city>
+        <city xml:lang="en">CHI</city>
+      </data>
+      <data>
+        <code xml:lang="ru">БНШ</code>
+        <code xml:lang="en">SXF</code>
+        <name xml:lang="ru">ШЕНЕФЕЛЬД</name>
+        <name xml:lang="en">BERLIN SCHOENEFELD APT</name>
+        <city xml:lang="ru">БРЛ</city>
+        <city xml:lang="en">BER</city>
+      </data>
+      <data>
+        <code xml:lang="ru">ТЛЧ</code>
+        <code xml:lang="en">OVB</code>
+        <name xml:lang="ru">ТОЛМАЧЕВО</name>
+        <name xml:lang="en">TOLMACHEVO</name>
+        <city xml:lang="ru">ОВБ</city>
+        <city xml:lang="en">OVB</city>
+      </data>
+      <data>
+        <code xml:lang="ru">СВР</code>
+        <code xml:lang="en">СВР</code>
+        <name xml:lang="ru">СЕВЕРНЫЙ</name>
+        <name xml:lang="en">NOVOSIBIRSK NORTH</name>
+        <city xml:lang="ru">ОВБ</city>
+        <city xml:lang="en">OVB</city>
+      </data>
+      <data>
+        <code xml:lang="ru">ЕМВ</code>
+        <code xml:lang="en">KJA</code>
+        <name xml:lang="ru">ЕМЕЛЬЯНОВО</name>
+        <name xml:lang="en">ЕМЕLIАNОVО</name>
+        <city xml:lang="ru">КЯА</city>
+        <city xml:lang="en">KJA</city>
+      </data>
+      <data>
+        <code xml:lang="ru">КЯС</code>
+        <code xml:lang="en">КЯС</code>
+        <name xml:lang="ru">ЧЕРЕМШАНКА</name>
+        <name xml:lang="en">CHEREMSHANKA</name>
+        <city xml:lang="ru">КЯА</city>
+        <city xml:lang="en">KJA</city>
+      </data>
+      <data>
+        <code xml:lang="ru">ЛХР</code>
+        <code xml:lang="en">LHR</code>
+        <name xml:lang="ru">ХИТРОУ</name>
+        <name xml:lang="en">LONDON HEATHROW APT</name>
+        <city xml:lang="ru">ЛОД</city>
+        <city xml:lang="en">LON</city>
+      </data>
+      <data>
+        <code xml:lang="ru">АХГ</code>
+        <code xml:lang="en">ARH</code>
+        <name xml:lang="ru">ТАЛАГИ</name>
+        <name xml:lang="en">TALAGI</name>
+        <city xml:lang="ru">АРХ</city>
+        <city xml:lang="en">ARH</city>
+      </data>
+      <data>
+        <code xml:lang="ru">ПРЬ</code>
+        <code xml:lang="en">PEE</code>
+        <name xml:lang="ru">БОЛЬШОЕ САВИНО</name>
+        <name xml:lang="en">BIG SAVINO</name>
+        <city xml:lang="ru">ПРМ</city>
+        <city xml:lang="en">PEE</city>
+      </data>
+      <data>
+        <code xml:lang="ru">ККЗ</code>
+        <code xml:lang="en">KZN</code>
+        <name xml:lang="ru">КАЗАНЬ ОСНОВНОЙ</name>
+        <name xml:lang="en">KAZAN BASICS</name>
+        <city xml:lang="ru">КЗН</city>
+        <city xml:lang="en">KZN</city>
+      </data>
+      <data>
+        <code xml:lang="ru">СКЧ</code>
+        <code xml:lang="en">KUF</code>
+        <name xml:lang="ru">КУРУМОЧ</name>
+        <name xml:lang="en">KURUMOCH</name>
+        <city xml:lang="ru">СМШ</city>
+        <city xml:lang="en">KUF</city>
+      </data>
+      <data>
+        <code xml:lang="ru">МДС</code>
+        <code xml:lang="en">GDX</code>
+        <name xml:lang="ru">СОКОЛ</name>
+        <name xml:lang="en">SOKOL</name>
+        <city xml:lang="ru">МДН</city>
+        <city xml:lang="en">GDX</city>
+      </data>
+      <data>
+        <code xml:lang="ru">РЩН</code>
+        <code xml:lang="en">TJM</code>
+        <name xml:lang="ru">РОЩИНО</name>
+        <name xml:lang="en">ROSCHINO</name>
+        <city xml:lang="ru">ТЮМ</city>
+        <city xml:lang="en">TJM</city>
+      </data>
+      <data>
+        <code xml:lang="ru">НАК</code>
+        <code xml:lang="en">NSK</code>
+        <name xml:lang="ru">АЛЫКЕЛЬ</name>
+        <name xml:lang="en">ALYKELL</name>
+        <city xml:lang="ru">НРС</city>
+        <city xml:lang="en">NSK</city>
+      </data>
+      <data>
+        <code xml:lang="ru">БАК</code>
+        <code xml:lang="en">GYD</code>
+        <name xml:lang="ru">АП БАКУ ГЕЙДАР АЛИЕВ</name>
+        <name xml:lang="en">BAKU HEYDAR ALIYEV INTERN</name>
+        <city xml:lang="ru">БАК</city>
+        <city xml:lang="en">BAK</city>
+      </data>
+      <data>
+        <code xml:lang="ru">КПА</code>
+        <code xml:lang="en">KRR</code>
+        <name xml:lang="ru">ПАШКОВСКАЯ</name>
+        <name xml:lang="en">PASHKOVSKAYA</name>
+        <city xml:lang="ru">КРР</city>
+        <city xml:lang="en">KRR</city>
+      </data>
+      <data>
+        <code xml:lang="ru">СТА</code>
+        <code xml:lang="en">ARN</code>
+        <name xml:lang="ru">ARLANDA</name>
+        <name xml:lang="en">STOCKHOLM ARLANDA APT</name>
+        <city xml:lang="ru">СТО</city>
+        <city xml:lang="en">STO</city>
+      </data>
+      <data>
+        <code xml:lang="ru">ОМС</code>
+        <code xml:lang="en">OMS</code>
+        <name xml:lang="ru">ОМСК</name>
+        <name xml:lang="en">OMSK</name>
+        <city xml:lang="ru">ОМС</city>
+        <city xml:lang="en">OMS</city>
+      </data>
+      <data>
+        <code xml:lang="ru">АЛА</code>
+        <code xml:lang="en">ALA</code>
+        <name xml:lang="ru">АЛМАТЫ</name>
+        <name xml:lang="en">ALMATA</name>
+        <city xml:lang="ru">АЛА</city>
+        <city xml:lang="en">ALA</city>
+      </data>
+      <data>
+        <code xml:lang="ru">АНЫ</code>
+        <code xml:lang="en">DYR</code>
+        <name xml:lang="ru">АНАДЫРЬ</name>
+        <name xml:lang="en">ANADYR</name>
+        <city xml:lang="ru">АНЫ</city>
+        <city xml:lang="en">DYR</city>
+      </data>
+      <data>
+        <code xml:lang="ru">УФА</code>
+        <code xml:lang="en">UFA</code>
+        <name xml:lang="ru">УФА</name>
+        <name xml:lang="en">UFA</name>
+        <city xml:lang="ru">УФА</city>
+        <city xml:lang="en">UFA</city>
+      </data>
+      <data>
+        <code xml:lang="ru">ХБР</code>
+        <code xml:lang="en">KHV</code>
+        <name xml:lang="ru">ХАБАРОВСК</name>
+        <name xml:lang="en">КНАВАRОVSК</name>
+        <city xml:lang="ru">ХБР</city>
+        <city xml:lang="en">KHV</city>
+      </data>
+      <data>
+        <code xml:lang="ru">ДПК</code>
+        <code xml:lang="en">DNK</code>
+        <name xml:lang="ru">ДНЕПРОПЕТРОВСК</name>
+        <name xml:lang="en">DNЕРRОРЕТRОVSС</name>
+        <city xml:lang="ru">ДПК</city>
+        <city xml:lang="en">DNK</city>
+      </data>
+      <data>
+        <code xml:lang="ru">КИС</code>
+        <code xml:lang="en">KUT</code>
+        <name xml:lang="ru">КУТАИСИ</name>
+        <name xml:lang="en">CUTAISI</name>
+        <city xml:lang="ru">КИС</city>
+        <city xml:lang="en">KUT</city>
+      </data>
+      <data>
+        <code xml:lang="ru">СИП</code>
+        <code xml:lang="en">SIP</code>
+        <name xml:lang="ru">СИМФЕРОПОЛЬ</name>
+        <name xml:lang="en">SIMFEROPOL</name>
+        <city xml:lang="ru">СИП</city>
+        <city xml:lang="en">SIP</city>
+      </data>
+      <data>
+        <code xml:lang="ru">ТАС</code>
+        <code xml:lang="en">TAS</code>
+        <name xml:lang="ru">ТАШКЕНТ</name>
+        <name xml:lang="en">VOSTOCHNY</name>
+        <city xml:lang="ru">ТАС</city>
+        <city xml:lang="en">TAS</city>
+      </data>
+      <data>
+        <code xml:lang="ru">УЛК</code>
+        <code xml:lang="en">ULV</code>
+        <name xml:lang="ru">УЛЬЯНОВСК БАРАТАЕВКА</name>
+        <name xml:lang="en">ULIANOVSK BARATAEVKA</name>
+        <city xml:lang="ru">УЛК</city>
+        <city xml:lang="en">ULY</city>
+      </data>
+      <data>
+        <code xml:lang="ru">УЛС</code>
+        <code xml:lang="en">ULY</code>
+        <name xml:lang="ru">ВОСТОЧНЫЙ</name>
+        <name xml:lang="en">VOSTOCHNIY</name>
+        <city xml:lang="ru">УЛК</city>
+        <city xml:lang="en">ULY</city>
+      </data>
+      <data>
+        <code xml:lang="ru">BHX</code>
+        <code xml:lang="en">BHX</code>
+        <name xml:lang="ru">BIRMINGHAM INTERNATIONAL</name>
+        <name xml:lang="en">BIRMINGHAM INTERNATIONAL</name>
+        <city xml:lang="ru">БИМ</city>
+        <city xml:lang="en">BHX</city>
+      </data>
+      <data>
+        <code xml:lang="ru">БКК</code>
+        <code xml:lang="en">BKK</code>
+        <name xml:lang="ru">БАНГКОК</name>
+        <name xml:lang="en">BANGKOK SUVARNABHUMI INTE</name>
+        <city xml:lang="ru">БКК</city>
+        <city xml:lang="en">BKK</city>
+      </data>
+      <data>
+        <code xml:lang="ru">BOS</code>
+        <code xml:lang="en">BOS</code>
+        <name xml:lang="ru">BOSTON LOGAN INTERNATIONA</name>
+        <name xml:lang="en">BOSTON LOGAN INTERNATIONA</name>
+        <city xml:lang="ru">BOS</city>
+        <city xml:lang="en">BOS</city>
+      </data>
+      <data>
+        <code xml:lang="ru">HND</code>
+        <code xml:lang="en">HND</code>
+        <name xml:lang="ru">HANEDA</name>
+        <name xml:lang="en">TOKYO HANEDA APT</name>
+        <city xml:lang="ru">ТОК</city>
+        <city xml:lang="en">TYO</city>
+      </data>
+      <data>
+        <code xml:lang="ru">DFW</code>
+        <code xml:lang="en">DFW</code>
+        <name xml:lang="ru">ДАЛЛАС</name>
+        <name xml:lang="en">DALLAS/FORT WORTH INTL AP</name>
+        <city xml:lang="ru">DFW</city>
+        <city xml:lang="en">DFW</city>
+      </data>
+      <data>
+        <code xml:lang="ru">XIY</code>
+        <code xml:lang="en">XIY</code>
+        <name xml:lang="ru">XIANYANG</name>
+        <name xml:lang="en">XI AN XIANYANG APT</name>
+        <city xml:lang="ru">SIA</city>
+        <city xml:lang="en">SIA</city>
+      </data>
+      <data>
+        <code xml:lang="ru">ALB</code>
+        <code xml:lang="en">ALB</code>
+        <name xml:lang="ru">ALBANY INTERNATIONAL AIRP</name>
+        <name xml:lang="en">ALBANY INTERNATIONAL AIRP</name>
+        <city xml:lang="ru">ALB</city>
+        <city xml:lang="en">ALB</city>
+      </data>
+      <data>
+        <code xml:lang="ru">VBS</code>
+        <code xml:lang="en">VBS</code>
+        <name xml:lang="ru">BRESCIA MONTECHIARI</name>
+        <name xml:lang="en">BRESCIA MONTECHIARI</name>
+        <city xml:lang="ru">ВЕР</city>
+        <city xml:lang="en">VRN</city>
+      </data>
+      <data>
+        <code xml:lang="ru">ВРА</code>
+        <code xml:lang="en">VRA</code>
+        <name xml:lang="ru">VARADERO JUAN GUALBERTO G</name>
+        <name xml:lang="en">VARADERO JUAN GUALBERTO G</name>
+        <city xml:lang="ru">ВРА</city>
+        <city xml:lang="en">VRA</city>
+      </data>
+      <data>
+        <code xml:lang="ru">ВЕР</code>
+        <code xml:lang="en">VRN</code>
+        <name xml:lang="ru">VILLAFRANCA</name>
+        <name xml:lang="en">VILLAFRANCA</name>
+        <city xml:lang="ru">ВЕР</city>
+        <city xml:lang="en">VRN</city>
+      </data>
+      <data>
+        <code xml:lang="ru">DAY</code>
+        <code xml:lang="en">DAY</code>
+        <name xml:lang="ru">DAYTON INTL APT</name>
+        <name xml:lang="en">DAYTON INTL APT</name>
+        <city xml:lang="ru">DAY</city>
+        <city xml:lang="en">DAY</city>
+      </data>
+      <data>
+        <code xml:lang="ru">DEN</code>
+        <code xml:lang="en">DEN</code>
+        <name xml:lang="ru">DENVER INTL APT</name>
+        <name xml:lang="en">DENVER INTL APT</name>
+        <city xml:lang="ru">DEN</city>
+        <city xml:lang="en">DEN</city>
+      </data>
+      <data>
+        <code xml:lang="ru">PHL</code>
+        <code xml:lang="en">PHL</code>
+        <name xml:lang="ru">PHILADELPHIA INTERNATIONA</name>
+        <name xml:lang="en">PHILADELPHIA INTERNATIONA</name>
+        <city xml:lang="ru">PHL</city>
+        <city xml:lang="en">PHL</city>
+      </data>
+      <data>
+        <code xml:lang="ru">PHX</code>
+        <code xml:lang="en">PHX</code>
+        <name xml:lang="ru">PHOENIX SKY HARBOR INTL A</name>
+        <name xml:lang="en">PHOENIX SKY HARBOR INTL A</name>
+        <city xml:lang="ru">PHX</city>
+        <city xml:lang="en">PHX</city>
+      </data>
+      <data>
+        <code xml:lang="ru">PIT</code>
+        <code xml:lang="en">PIT</code>
+        <name xml:lang="ru">PITTSBURGH INTERNATIONAL</name>
+        <name xml:lang="en">PITTSBURGH INTERNATIONAL</name>
+        <city xml:lang="ru">PIT</city>
+        <city xml:lang="en">PIT</city>
+      </data>
+      <data>
+        <code xml:lang="ru">SAN</code>
+        <code xml:lang="en">SAN</code>
+        <name xml:lang="ru">SAN DIEGO INTERNATIONAL</name>
+        <name xml:lang="en">SAN DIEGO INTERNATIONAL</name>
+        <city xml:lang="ru">SAN</city>
+        <city xml:lang="en">SAN</city>
+      </data>
+      <data>
+        <code xml:lang="ru">SAV</code>
+        <code xml:lang="en">SAV</code>
+        <name xml:lang="ru">SAVANNAH/HILTON HEAD INTE</name>
+        <name xml:lang="en">SAVANNAH/HILTON HEAD INTE</name>
+        <city xml:lang="ru">SAV</city>
+        <city xml:lang="en">SAV</city>
+      </data>
+      <data>
+        <code xml:lang="ru">DUR</code>
+        <code xml:lang="en">DUR</code>
+        <name xml:lang="ru">DURBAN INTERNATIONAL AIRP</name>
+        <name xml:lang="en">DURBAN INTERNATIONAL AIRP</name>
+        <city xml:lang="ru">DUR</city>
+        <city xml:lang="en">DUR</city>
+      </data>
+      <data>
+        <code xml:lang="ru">ДУС</code>
+        <code xml:lang="en">DUS</code>
+        <name xml:lang="ru">DUSSELDORF INTERNATIONAL</name>
+        <name xml:lang="en">DUSSELDORF INTERNATIONAL</name>
+        <city xml:lang="ru">ДУС</city>
+        <city xml:lang="en">DUS</city>
+      </data>
+      <data>
+        <code xml:lang="ru">EMA</code>
+        <code xml:lang="en">EMA</code>
+        <name xml:lang="ru">NOTTINGHAM EAST MIDLANDS</name>
+        <name xml:lang="en">NOTTINGHAM EAST MIDLANDS</name>
+        <city xml:lang="ru">NQT</city>
+        <city xml:lang="en">NQT</city>
+      </data>
+      <data>
+        <code xml:lang="ru">EWR</code>
+        <code xml:lang="en">EWR</code>
+        <name xml:lang="ru">NEWARK LIBERTY INTERNATIO</name>
+        <name xml:lang="en">NEWARK LIBERTY INTERNATIO</name>
+        <city xml:lang="ru">НРК</city>
+        <city xml:lang="en">NYC</city>
+      </data>
+      <data>
+        <code xml:lang="ru">ФКБ</code>
+        <code xml:lang="en">FKB</code>
+        <name xml:lang="ru">KARLSRUHE/BADEN BADEN</name>
+        <name xml:lang="en">KARLSRUHE/BADEN BADEN</name>
+        <city xml:lang="ru">ФКБ</city>
+        <city xml:lang="en">FKB</city>
+      </data>
+      <data>
+        <code xml:lang="ru">GSP</code>
+        <code xml:lang="en">GSP</code>
+        <name xml:lang="ru">GREENVILLE/SPARTANBURG AP</name>
+        <name xml:lang="en">GREENVILLE/SPARTANBURG AP</name>
+        <city xml:lang="ru">GSP</city>
+        <city xml:lang="en">GSP</city>
+      </data>
+      <data>
+        <code xml:lang="ru">HIJ</code>
+        <code xml:lang="en">HIJ</code>
+        <name xml:lang="ru">HIROSHIMA INTERNATIONAL A</name>
+        <name xml:lang="en">HIROSHIMA INTERNATIONAL A</name>
+        <city xml:lang="ru">HIJ</city>
+        <city xml:lang="en">HIJ</city>
+      </data>
+      <data>
+        <code xml:lang="ru">ХКГ</code>
+        <code xml:lang="en">HKG</code>
+        <name xml:lang="ru">HONG KONG INTERNATIONAL A</name>
+        <name xml:lang="en">HONG KONG INTERNATIONAL A</name>
+        <city xml:lang="ru">ХКГ</city>
+        <city xml:lang="en">HKG</city>
+      </data>
+      <data>
+        <code xml:lang="ru">JNB</code>
+        <code xml:lang="en">JNB</code>
+        <name xml:lang="ru">JOHANNESBURG O.R. TAMBO I</name>
+        <name xml:lang="en">JOHANNESBURG O.R. TAMBO I</name>
+        <city xml:lang="ru">JNB</city>
+        <city xml:lang="en">JNB</city>
+      </data>
+      <data>
+        <code xml:lang="ru">LAS</code>
+        <code xml:lang="en">LAS</code>
+        <name xml:lang="ru">LAS VEGAS MCCARRAN INTERN</name>
+        <name xml:lang="en">LAS VEGAS MCCARRAN INTERN</name>
+        <city xml:lang="ru">LAS</city>
+        <city xml:lang="en">LAS</city>
+      </data>
+      <data>
+        <code xml:lang="ru">ЛАН</code>
+        <code xml:lang="en">LAX</code>
+        <name xml:lang="ru">LOS ANGELES INTERNATIONAL</name>
+        <name xml:lang="en">LOS ANGELES INTERNATIONAL</name>
+        <city xml:lang="ru">ЛАН</city>
+        <city xml:lang="en">LAX</city>
+      </data>
+      <data>
+        <code xml:lang="ru">МАД</code>
+        <code xml:lang="en">MAD</code>
+        <name xml:lang="ru">MADRID BARAJAS APT</name>
+        <name xml:lang="en">MADRID BARAJAS APT</name>
+        <city xml:lang="ru">МАД</city>
+        <city xml:lang="en">MAD</city>
+      </data>
+      <data>
+        <code xml:lang="ru">МНЧ</code>
+        <code xml:lang="en">MAN</code>
+        <name xml:lang="ru">MANCHESTER INTERNATIONAL</name>
+        <name xml:lang="en">MANCHESTER INTERNATIONAL</name>
+        <city xml:lang="ru">МНЧ</city>
+        <city xml:lang="en">MAN</city>
+      </data>
+      <data>
+        <code xml:lang="ru">MNL</code>
+        <code xml:lang="en">MNL</code>
+        <name xml:lang="ru">MANILA NINOY AQUINO INTER</name>
+        <name xml:lang="en">MANILA NINOY AQUINO INTER</name>
+        <city xml:lang="ru">МНИ</city>
+        <city xml:lang="en">MNL</city>
+      </data>
+      <data>
+        <code xml:lang="ru">MSY</code>
+        <code xml:lang="en">MSY</code>
+        <name xml:lang="ru">NEW ORLEANS LOUIS ARMSTRO</name>
+        <name xml:lang="en">NEW ORLEANS LOUIS ARMSTRO</name>
+        <city xml:lang="ru">MSY</city>
+        <city xml:lang="en">MSY</city>
+      </data>
+      <data>
+        <code xml:lang="ru">NAP</code>
+        <code xml:lang="en">NAP</code>
+        <name xml:lang="ru">NAPLES CAPODICHINO APT</name>
+        <name xml:lang="en">NAPLES CAPODICHINO APT</name>
+        <city xml:lang="ru">NAP</city>
+        <city xml:lang="en">NAP</city>
+      </data>
+      <data>
+        <code xml:lang="ru">НЮН</code>
+        <code xml:lang="en">NUE</code>
+        <name xml:lang="ru">NUREMBERG APT</name>
+        <name xml:lang="en">NUREMBERG APT</name>
+        <city xml:lang="ru">НЮН</city>
+        <city xml:lang="en">NUE</city>
+      </data>
+      <data>
+        <code xml:lang="ru">ORF</code>
+        <code xml:lang="en">ORF</code>
+        <name xml:lang="ru">NORFOLK INTERNATIONAL APT</name>
+        <name xml:lang="en">NORFOLK INTERNATIONAL APT</name>
+        <city xml:lang="ru">ORF</city>
+        <city xml:lang="en">ORF</city>
+      </data>
+      <data>
+        <code xml:lang="ru">YEG</code>
+        <code xml:lang="en">YEG</code>
+        <name xml:lang="ru">INTERNATIONAL EDMONTON</name>
+        <name xml:lang="en">EDMONTON INTERNATIONAL AP</name>
+        <city xml:lang="ru">YEA</city>
+        <city xml:lang="en">YEA</city>
+      </data>
+      <data>
+        <code xml:lang="ru">ОСЛ</code>
+        <code xml:lang="en">OSL</code>
+        <name xml:lang="ru">OSLO</name>
+        <name xml:lang="en">OSLO AIRPORT</name>
+        <city xml:lang="ru">ОСЛ</city>
+        <city xml:lang="en">OSL</city>
+      </data>
+      <data>
+        <code xml:lang="ru">OSR</code>
+        <code xml:lang="en">OSR</code>
+        <name xml:lang="ru">ОСТРАВА</name>
+        <name xml:lang="en">OSTRAVA</name>
+        <city xml:lang="ru">OSR</city>
+        <city xml:lang="en">OSR</city>
+      </data>
+      <data>
+        <code xml:lang="ru">TRN</code>
+        <code xml:lang="en">TRN</code>
+        <name xml:lang="ru">ТУРИН</name>
+        <name xml:lang="en">TURIN TORINO CASELLE AIRP</name>
+        <city xml:lang="ru">TRN</city>
+        <city xml:lang="en">TRN</city>
+      </data>
+      <data>
+        <code xml:lang="ru">БТИ</code>
+        <code xml:lang="en">BTS</code>
+        <name xml:lang="ru">ИВАНКО</name>
+        <name xml:lang="en">BRATISLAVA M.R.STEFANIK A</name>
+        <city xml:lang="ru">БТИ</city>
+        <city xml:lang="en">BTS</city>
+      </data>
+      <data>
+        <code xml:lang="ru">AKL</code>
+        <code xml:lang="en">AKL</code>
+        <name xml:lang="ru">AUCKLAND</name>
+        <name xml:lang="en">AUCKLAND INTERNATIONAL AP</name>
+        <city xml:lang="ru">AKL</city>
+        <city xml:lang="en">AKL</city>
+      </data>
+      <data>
+        <code xml:lang="ru">MIA</code>
+        <code xml:lang="en">MIA</code>
+        <name xml:lang="ru">МАЙАМИ</name>
+        <name xml:lang="en">MIAMI INTERNATIONAL APT</name>
+        <city xml:lang="ru">MIA</city>
+        <city xml:lang="en">MIA</city>
+      </data>
+      <data>
+        <code xml:lang="ru">RSW</code>
+        <code xml:lang="en">RSW</code>
+        <name xml:lang="ru">SW FLORIDA</name>
+        <name xml:lang="en">FORT MYERS SW FLORIDA INT</name>
+        <city xml:lang="ru">FMY</city>
+        <city xml:lang="en">FMY</city>
+      </data>
+      <data>
+        <code xml:lang="ru">BGY</code>
+        <code xml:lang="en">BGY</code>
+        <name xml:lang="ru">ORIO AL SERIO</name>
+        <name xml:lang="en">MILAN ORIO AL SERIO APT</name>
+        <city xml:lang="ru">МИА</city>
+        <city xml:lang="en">MIL</city>
+      </data>
+      <data>
+        <code xml:lang="ru">БГА</code>
+        <code xml:lang="en">BEG</code>
+        <name xml:lang="ru">БЕЛГРАД</name>
+        <name xml:lang="en">BEOGRAD</name>
+        <city xml:lang="ru">БГА</city>
+        <city xml:lang="en">BEG</city>
+      </data>
+      <data>
+        <code xml:lang="ru">SCN</code>
+        <code xml:lang="en">SCN</code>
+        <name xml:lang="ru">SAARBRUCKEN ENSHEIM AIRPO</name>
+        <name xml:lang="en">SAARBRUCKEN ENSHEIM AIRPO</name>
+        <city xml:lang="ru">SCN</city>
+        <city xml:lang="en">SCN</city>
+      </data>
+      <data>
+        <code xml:lang="ru">SEA</code>
+        <code xml:lang="en">SEA</code>
+        <name xml:lang="ru">SEATTLE/TACOMA INTERNATIO</name>
+        <name xml:lang="en">SEATTLE/TACOMA INTERNATIO</name>
+        <city xml:lang="ru">СЕА</city>
+        <city xml:lang="en">SEA</city>
+      </data>
+      <data>
+        <code xml:lang="ru">ШТР</code>
+        <code xml:lang="en">STR</code>
+        <name xml:lang="ru">STUTTGART AIRPORT</name>
+        <name xml:lang="en">STUTTGART AIRPORT</name>
+        <city xml:lang="ru">ШТР</city>
+        <city xml:lang="en">STR</city>
+      </data>
+      <data>
+        <code xml:lang="ru">TPA</code>
+        <code xml:lang="en">TPA</code>
+        <name xml:lang="ru">TAMPA INTERNATIONAL APT</name>
+        <name xml:lang="en">TAMPA INTERNATIONAL APT</name>
+        <city xml:lang="ru">TPA</city>
+        <city xml:lang="en">TPA</city>
+      </data>
+      <data>
+        <code xml:lang="ru">YHZ</code>
+        <code xml:lang="en">YHZ</code>
+        <name xml:lang="ru">HALIFAX STANFIELD INTERNA</name>
+        <name xml:lang="en">HALIFAX STANFIELD INTERNA</name>
+        <city xml:lang="ru">YHZ</city>
+        <city xml:lang="en">YHZ</city>
+      </data>
+      <data>
+        <code xml:lang="ru">YOW</code>
+        <code xml:lang="en">YOW</code>
+        <name xml:lang="ru">OTTAWA MCDONALD CARTIER I</name>
+        <name xml:lang="en">OTTAWA MCDONALD CARTIER I</name>
+        <city xml:lang="ru">YOW</city>
+        <city xml:lang="en">YOW</city>
+      </data>
+      <data>
+        <code xml:lang="ru">YVR</code>
+        <code xml:lang="en">YVR</code>
+        <name xml:lang="ru">VANCOUVER INTERNATIONAL A</name>
+        <name xml:lang="en">VANCOUVER INTERNATIONAL A</name>
+        <city xml:lang="ru">YVR</city>
+        <city xml:lang="en">YVR</city>
+      </data>
+      <data>
+        <code xml:lang="ru">YWG</code>
+        <code xml:lang="en">YWG</code>
+        <name xml:lang="ru">WINNIPEG J.A. RICHARDSON</name>
+        <name xml:lang="en">WINNIPEG J.A. RICHARDSON</name>
+        <city xml:lang="ru">YWG</city>
+        <city xml:lang="en">YWG</city>
+      </data>
+      <data>
+        <code xml:lang="ru">ЦРХ</code>
+        <code xml:lang="en">ZRH</code>
+        <name xml:lang="ru">ZURICH AIRPORT</name>
+        <name xml:lang="en">ZURICH AIRPORT</name>
+        <city xml:lang="ru">ЦРХ</city>
+        <city xml:lang="en">ZRH</city>
+      </data>
+    </describe>
+  </answer>
+</sirena>

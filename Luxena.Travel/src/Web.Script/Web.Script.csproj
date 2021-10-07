@@ -1,0 +1,361 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B2A850D5-0DC5-48E5-99D4-1E6A60AC4D77}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <NoStdLib>True</NoStdLib>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+    <LangVersion>ISO-2</LangVersion>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Luxena.Travel</RootNamespace>
+    <AssemblyName>LxnTravel</AssemblyName>
+    <TemplateFile>Properties\LxnTravel.jst</TemplateFile>
+    <CodeAnalysisRuleSet>Properties\LxnTravel.ruleset</CodeAnalysisRuleSet>
+    <ReferencePath>$(ProgramFiles)\ScriptSharp\v1.0\Framework\</ReferencePath>
+    <DeploymentPath>..\Web\static\script\</DeploymentPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <OutputPath>bin\Debug\</OutputPath>
+    <ScriptPath>..\Web\static\script\</ScriptPath>
+    <DefineConstants>DEBUG;CODE_ANALYSIS ScriptSharp</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn>0028, 1591</NoWarn>
+    <DocumentationFile>
+    </DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <OutputPath>bin\Release\</OutputPath>
+    <ScriptPath>..\Web\static\script\</ScriptPath>
+    <DefineConstants>CODE_ANALYSIS ScriptSharp</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn>0028, 1591</NoWarn>
+    <DocumentationFile>
+    </DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'WebScript|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\WebScript\</OutputPath>
+    <DefineConstants>DEBUG;CODE_ANALYSIS ScriptSharp</DefineConstants>
+    <NoWarn>0028, 1591</NoWarn>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <LangVersion>ISO-2</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>Properties\LxnTravel.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Ext">
+      <HintPath>..\..\lib\scriptsharp\Ext.dll</HintPath>
+    </Reference>
+    <Reference Include="Knockout">
+      <HintPath>..\..\lib\scriptsharp\Knockout.dll</HintPath>
+    </Reference>
+    <Reference Include="mscorlib, Version=0.7.4.0, Culture=neutral, PublicKeyToken=8fc0e3af5abcb6c4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\ScriptSharp\v1.0\Framework\mscorlib.dll</HintPath>
+    </Reference>
+    <Reference Include="Script.jQuery, Version=0.7.4.0, Culture=neutral, PublicKeyToken=8fc0e3af5abcb6c4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\ScriptSharp\v1.0\Framework\Script.jQuery.dll</HintPath>
+    </Reference>
+    <Reference Include="Script.Web, Version=0.7.4.0, Culture=neutral, PublicKeyToken=8fc0e3af5abcb6c4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\ScriptSharp\v1.0\Framework\Script.Web.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Accounting\ClosedPeriod.Forms.cs" />
+    <Compile Include="Accounting\Contract\Contract.EditForm.cs" />
+    <Compile Include="Accounting\Contract\Contract.ListTab.cs" />
+    <Compile Include="Accounting\CurrencyDailyRate\CurrencyDailyRate.EditForm.cs" />
+    <Compile Include="Accounting\CurrencyDailyRate\CurrencyDailyRate.ListTab.cs" />
+    <Compile Include="Accounting\BankAccount.ListTab.cs" />
+    <Compile Include="Accounting\InternalTransfer.Forms.cs" />
+    <Compile Include="Accounting\Invoice\Invoice.EditForm.cs" />
+    <Compile Include="Accounting\OpeningBalance.Forms.cs" />
+    <Compile Include="Accounting\Order\Order.EditForm.cs" />
+    <Compile Include="Accounting\Order\Order.ListTab.cs" />
+    <Compile Include="Accounting\Payment\Payment.EditForm2.cs" />
+    <Compile Include="App\Modification.Forms.cs" />
+    <Compile Include="Configuration\Identity.Forms.cs" />
+    <Compile Include="Configuration\UserVisit.Forms.cs" />
+    <Compile Include="Configuration\User.Forms.cs" />
+    <Compile Include="Controls\CellRenderers.cs" />
+    <Compile Include="Controls\ReferenceSelectorConfig.cs" />
+    <Compile Include="Controls\SemanticDomain\AutoListTabExt2.cs" />
+    <Compile Include="Controls\SemanticDomain\BaseEditForm2.cs" />
+    <Compile Include="Controls\SemanticDomain\BasicViewForm.cs" />
+    <Compile Include="Controls\SemanticDomain\EntityEditForm.cs" />
+    <Compile Include="Controls\SemanticDomain\EntityListTab.cs" />
+    <Compile Include="Controls\SemanticDomain\IGridControl.cs" />
+    <Compile Include="Controls\SemanticDomain\SemanticTypes\BoolSemanticType.cs" />
+    <Compile Include="Controls\SemanticDomain\SemanticTypes\LocalReferenceSemanticType.cs" />
+    <Compile Include="Controls\SemanticDomain\SemanticTypes\MoneySemanticType.cs" />
+    <Compile Include="Controls\SemanticDomain\SemanticTypes\EnumSemanticType.cs" />
+    <Compile Include="Controls\SemanticDomain\SemanticTypes\ReferenceSemanticType.cs" />
+    <Compile Include="Controls\SemanticDomain\SemanticTypes\NumericSemanticType.cs" />
+    <Compile Include="Controls\SemanticDomain\SemanticTypes\DateSemanticType.cs" />
+    <Compile Include="Controls\SemanticDomain\FormMember.cs" />
+    <Compile Include="Controls\SemanticDomain\FormMembers.cs" />
+    <Compile Include="Controls\SemanticDomain\SemanticTypes\StringSemanticType.cs" />
+    <Compile Include="Controls\SemanticDomain\SemanticDomain.cs" />
+    <Compile Include="Controls\SemanticDomain\SemanticEntity.cs" />
+    <Compile Include="Controls\SemanticDomain\SemanticMember.cs" />
+    <Compile Include="Controls\SemanticDomain\SemanticType.cs" />
+    <Content Include="Accounting\Order\Order.Tasks.html" />
+    <Content Include="App\HomeTab.Documents.html" />
+    <Content Include="App\HomeTab.html" />
+    <Content Include="Parties\SystemConfiguration.html" />
+    <Content Include="Parties\Party.ListDetail.html" />
+    <Content Include="Parties\Party.Contacts.html" />
+    <Content Include="Parties\Party.html" />
+    <Content Include="Properties\LxnTravel.jst" />
+    <Content Include="Properties\LxnTravel.ruleset" />
+    <Compile Include="Accounting\Invoice\Invoice.GridView.cs" />
+    <Compile Include="Accounting\Invoice\Invoice.IssueForm.cs" />
+    <Compile Include="Accounting\Invoice\Invoice.ListTab.cs" />
+    <Compile Include="Accounting\Order\Order.EditForm0.cs" />
+    <Compile Include="Accounting\Order\OrderItem.EditForm.cs" />
+    <Compile Include="Accounting\Order\OrderItem.GridControl.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Accounting\Order\Order.ViewForm.cs" />
+    <Compile Include="Accounting\Consignment\Consignment.ViewForm.cs" />
+    <Compile Include="Accounting\Consignment\Consignment.EditForm.cs" />
+    <Compile Include="Accounting\Consignment\ConsignmentItem.GridControl.cs" />
+    <Compile Include="Accounting\Invoice\QuickReceipt.EditForm.cs" />
+    <Compile Include="Accounting\Payment\Payment.GridView.cs" />
+    <Compile Include="Domain.Semantics.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Domain.Semantics.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Parties\Country.Forms.cs" />
+    <Compile Include="Parties\Currency.Forms.cs" />
+    <Compile Include="Parties\Customer.View.Ext.cs" />
+    <Compile Include="Parties\Department\Department.EditForm.cs" />
+    <Compile Include="Parties\Department\Department.ListTab.cs" />
+    <Compile Include="Parties\DocumentAccess.Forms.cs" />
+    <Compile Include="Parties\DocumentOwner.Forms.cs" />
+    <Compile Include="Parties\Party.Replace.cs" />
+    <Compile Include="Parties\Organization\Organization.ListTab.cs" />
+    <Compile Include="Accounting\BankAccount.EditForm.cs" />
+    <Compile Include="Parties\Organization\PartyListTab.cs" />
+    <Compile Include="Parties\Person\MilesCard.EditForm.cs" />
+    <Compile Include="Parties\Person\MilesCard.ListTab.cs" />
+    <Compile Include="Parties\Person\Passport.ListTab.cs" />
+    <Compile Include="Parties\Person\Person.ListTab.cs" />
+    <Compile Include="Parties\Person\Passport.EditForm.cs" />
+    <Compile Include="Parties\Person\Person.EditForm.cs" />
+    <Compile Include="Parties\Party.View.Ext.cs" />
+    <Compile Include="Parties\Party.EditForm.cs" />
+    <Compile Include="Parties\Task.EditForm.cs" />
+    <Compile Include="Products\Accommodation\Accommodation.EditForm.cs" />
+    <Compile Include="Products\Accommodation\Accommodation.ListTab.cs" />
+    <Compile Include="Products\Accommodation\Accommodation.View.Ext.cs" />
+    <Compile Include="Products\Accommodation\Accommodation.ViewForm.cs" />
+    <Compile Include="Products\Avia\AirlineCommissionPercents.Forms.cs" />
+    <Compile Include="Products\Avia\AirlineMonthCommission.EditForm.cs" />
+    <Compile Include="Products\Avia\AirlineServiceClass.EditForm.cs" />
+    <Compile Include="Products\Avia\AirlineMonthCommission.ListTab.cs" />
+    <Compile Include="Products\Avia\AirlineServiceClass.ListTab.cs" />
+    <Compile Include="Products\Avia\AirplaneModel.Forms.cs" />
+    <Compile Include="Products\Avia\Airport.Forms.cs" />
+    <Compile Include="Products\Avia\FlightSegment.Forms.cs" />
+    <Compile Include="Products\Avia\GdsAgent.Forms.cs" />
+    <Compile Include="Products\Avia\FlightSegment.GridControl.cs" />
+    <Compile Include="Products\Avia\GdsFile.EditForm.cs" />
+    <Compile Include="Products\CarRental\CarRental.EditForm.cs" />
+    <Compile Include="Products\CarRental\CarRental.ListTab.cs" />
+    <Compile Include="Products\CarRental\CarRental.View.Ext.cs" />
+    <Compile Include="Products\CarRental\CarRental.ViewForm.cs" />
+    <Compile Include="Products\BusTicket\BusTicket.EditForm.cs" />
+    <Compile Include="Products\BusTicket\BusTicket.ListTab.cs" />
+    <Compile Include="Products\BusTicket\BusTicket.View.Ext.cs" />
+    <Compile Include="Products\BusTicket\BusTicket.ViewForm.cs" />
+    <Compile Include="Products\GenericProduct\GenericProduct.EditForm.cs" />
+    <Compile Include="Products\GenericProduct\GenericProduct.ListTab.cs" />
+    <Compile Include="Products\GenericProduct\GenericProduct.View.Ext.cs" />
+    <Compile Include="Products\GenericProduct\GenericProduct.ViewForm.cs" />
+    <Compile Include="Products\Insurance\Insurance.EditForm.cs" />
+    <Compile Include="Products\Insurance\Insurance.ListTab.cs" />
+    <Compile Include="Products\Insurance\Insurance.View.Ext.cs" />
+    <Compile Include="Products\Insurance\Insurance.ViewForm.cs" />
+    <Compile Include="Products\AllProduct.ListTab.cs" />
+    <Compile Include="Products\ProductPassenger.ListTab.cs" />
+    <Compile Include="Products\Transfer\Transfer.EditForm.cs" />
+    <Compile Include="Products\Transfer\Transfer.ListTab.cs" />
+    <Compile Include="Products\Transfer\Transfer.View.Ext.cs" />
+    <Compile Include="Products\Transfer\Transfer.ViewForm.cs" />
+    <Compile Include="Products\Tour\Tour.EditForm.cs" />
+    <Compile Include="Products\Tour\Tour.ListTab.cs" />
+    <Compile Include="Products\Tour\Tour.View.Ext.cs" />
+    <Compile Include="Products\Tour\Tour.ViewForm.cs" />
+    <Compile Include="Products\ProductPassenger.View.Ext.cs" />
+    <Compile Include="Products\ProductPassenger.EditForm.cs" />
+    <Compile Include="Products\Excursion\Excursion.EditForm.cs" />
+    <Compile Include="Products\Excursion\Excursion.ListTab.cs" />
+    <Compile Include="Products\Excursion\Excursion.View.Ext.cs" />
+    <Compile Include="Products\Excursion\Excursion.ViewForm.cs" />
+    <Compile Include="Products\Isic\Isic.EditForm.cs" />
+    <Compile Include="Products\Isic\Isic.ListTab.cs" />
+    <Compile Include="Products\Isic\Isic.View.Ext.cs" />
+    <Compile Include="Products\Isic\Isic.ViewForm.cs" />
+    <Compile Include="Products\ProductPassenger.GridControl.cs" />
+    <Compile Include="Products\SimCard\SimCard.EditForm.cs" />
+    <Compile Include="Products\SimCard\SimCard.ViewForm.cs" />
+    <Compile Include="Products\SimCard\SimCard.View.Ext.cs" />
+    <Compile Include="Products\SimCard\SimCard.ListTab.cs" />
+    <Compile Include="Products\Product.ViewForm.cs" />
+    <Compile Include="Products\Pasteboard\Pasteboard.ViewForm.cs" />
+    <Compile Include="Products\Product.EditForm.cs" />
+    <Compile Include="Products\Pasteboard\Pasteboard.EditForm.cs" />
+    <Compile Include="Products\Pasteboard\Pasteboard.ListTab.cs" />
+    <Compile Include="Products\Avia\AviaDocument.View.Ext.cs" />
+    <Compile Include="Products\Avia\AviaDocument.Dto.cs" />
+    <Compile Include="Products\Avia\AviaRefund.EditForm.cs" />
+    <Compile Include="Products\Avia\AviaTicket.EditForm.cs" />
+    <Compile Include="Products\Avia\AviaMco.EditForm.cs" />
+    <Compile Include="Products\Pasteboard\Pasteboard.View.Ext.cs" />
+    <Compile Include="Products\Product.View.Ext.cs" />
+    <Compile Include="Products\Avia\Passport.CompareForm.cs" />
+    <Compile Include="Products\Avia\Passport.ListForm.cs" />
+    <Compile Include="Products\Avia\AviaConsoleParserForm.cs" />
+    <Compile Include="Controls\PropertyListControl.cs" />
+    <Compile Include="Controls\PropertyType.cs" />
+    <Compile Include="Delegates.cs" />
+    <Compile Include="DomainRes.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DomainRes.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Parties\Department\Department.Model.cs" />
+    <Compile Include="Parties\FileModel.cs" />
+    <Compile Include="Parties\Organization\Organization.Model.cs" />
+    <Compile Include="Parties\Party.ViewForm.cs" />
+    <Compile Include="Parties\Department\Department.ViewForm.cs" />
+    <Compile Include="Parties\PartyFile.cs" />
+    <Compile Include="Parties\FileUploadForm.cs" />
+    <Compile Include="Accounting\Order\Order.ListTab0.cs" />
+    <Compile Include="Accounting\Order\Order.GridView.cs" />
+    <Compile Include="Accounting\ReportPrinter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Accounting\Payment\Payment.EditForm.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Accounting\Payment\Payment.ListTab.cs" />
+    <Compile Include="Accounting\Payment\Payment.ViewForm.cs" />
+    <Compile Include="Accounting\Payment\CashPayment.RegisterForm.cs" />
+    <Compile Include="App\ServerEvents.cs" />
+    <Compile Include="App\AppManager.cs" />
+    <Compile Include="Products\Avia\Airline.ListTab.cs" />
+    <Compile Include="Products\Avia\AviaDocument.ListTab.cs" />
+    <Compile Include="Products\Avia\AviaDocument.SelectForm.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Products\Avia\PenalizeOperation.EditForm.cs" />
+    <Compile Include="App\HomeSettingsForm.cs" />
+    <Compile Include="Products\Product.ListTab.cs" />
+    <Compile Include="Products\Product.Dto.cs" />
+    <Compile Include="Reports\UnbalancedReportForm.cs" />
+    <Compile Include="Reports\RegistryReportForm.cs" />
+    <Compile Include="Products\Avia\Segment.EditForm.cs" />
+    <Compile Include="Products\Avia\Segment.GridControl.cs" />
+    <Compile Include="Products\Avia\SetDataToDocumentsForm.cs" />
+    <Compile Include="Products\Avia\GdsFile.ViewForm.cs" />
+    <Compile Include="ClassNames.cs" />
+    <Compile Include="Configuration\Password.EditForm.cs" />
+    <Compile Include="Configuration\Profile.ViewForm.cs" />
+    <Compile Include="Configuration\SystemConfiguration.EditForm.cs" />
+    <Compile Include="Configuration\SystemConfiguration.ViewForm.cs" />
+    <Compile Include="Controls\AutoListTabExt.cs" />
+    <Compile Include="Controls\MoneyControlCalculator.cs" />
+    <Compile Include="Controls\MoneyControlConfig.cs" />
+    <Compile Include="Controls\MoneyControl.cs" />
+    <Compile Include="Controls\PropertyGridControl.cs" />
+    <Compile Include="Controls\PropertyGridControlConfig.cs" />
+    <Compile Include="Controls\PropertyItem.cs" />
+    <Compile Include="Controls\PropertyListControlConfig.cs" />
+    <Compile Include="DataTransferObjects.cs" />
+    <Compile Include="App\AppActions.cs" />
+    <Compile Include="Reports\CustomerReportForm.cs" />
+    <Compile Include="LocalStorageProvider.cs" />
+    <Compile Include="MessageFactory.cs" />
+    <Compile Include="Parties\Organization\Organization.EditForm.cs" />
+    <Compile Include="Parties\Party.Model.cs" />
+    <Compile Include="Parties\PartyTemplates.cs" />
+    <Compile Include="Parties\Person\Person.Model.cs" />
+    <Compile Include="Parties\Task.ListTab.cs" />
+    <Compile Include="Parties\Person\Passport.GridControl.cs" />
+    <Compile Include="Parties\Person\MilesCard.GridControl.cs" />
+    <Compile Include="Parties\Person\Person.ViewForm.cs" />
+    <Compile Include="Parties\Task.ViewForm.cs" />
+    <Compile Include="ReportProvider.cs" />
+    <Compile Include="App\Application.cs" />
+    <Compile Include="Products\Product.GridView.cs" />
+    <Compile Include="Products\Avia\AviaDocument.ViewForm.cs" />
+    <Compile Include="App\Header.cs" />
+    <Compile Include="Products\Avia\AviaDocument.ProcessForm.cs" />
+    <Compile Include="Products\Avia\GdsFile.ListTab.cs" />
+    <Compile Include="Products\Avia\AviaDocument.EditForm.cs" />
+    <Compile Include="Controls\ControlFactoryExt.cs" />
+    <Compile Include="Controls\GridFilterPluginExtention.cs" />
+    <Compile Include="App\HomeTab.cs" />
+    <Compile Include="Controls\LinkButton.cs" />
+    <Compile Include="Parties\Organization\Organization.ViewForm.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Res.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Res.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Templates.cs" />
+    <Compile Include="MoneyDto.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Res.resx">
+      <Generator>ResXPublicScriptGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Res.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DomainRes.resx">
+      <Generator>ResXPublicScriptGenerator</Generator>
+      <LastGenOutput>DomainRes.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Luxena.Libs\LxnBase\LxnBase.csproj">
+      <Project>{634c56e0-148a-4280-875b-66aa87d0bd0b}</Project>
+      <Name>LxnBase</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Domain.Semantics.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Domain.Semantics.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="C:\Program Files (x86)\ScriptSharp\v1.0\ScriptSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>"$(ProjectDir)..\..\tools\html-to-tmpl\Luxena.HtmlToTmpl.exe" LxnTravel "$(ProjectDir)." Templates.cs
+</PreBuildEvent>
+  </PropertyGroup>
+</Project>

@@ -1,0 +1,27 @@
+﻿@{
+	var contactTabs = new[] { Ui.TabColumns2("Contacts") };
+}
+
+
+@Ui.Grid(db => db.Parties)
+
+
+@Ui.Grid(db => db.Agents)
+@Ui.ViewForm8(db => db.Agents)
+
+
+@Ui.Grid(db => db.Airlines)
+@Ui.ViewForm3a(db => db.Airlines, addTabs: contactTabs)
+@Ui.EditForm3a(db => db.Airlines, addTabs: contactTabs)
+
+
+@*@Ui.Grid(db => db.Customers)*@
+
+
+@Ui.GridView8Edit6(db => db.Departments)
+
+@Ui.GridView8Edit6(db => db.Persons)
+@Ui.GridView6Edit6(db => db.MilesCards)
+@Ui.GridView6Edit6(db => db.Passports)
+
+@Ui.GridView8Edit6(db => db.Employees)

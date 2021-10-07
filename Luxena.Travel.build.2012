@@ -1,0 +1,311 @@
+<project name="Luxena.Travel" default="build" xmlns="http://nant.sf.net/schemas/nant.xsd">
+
+	<loadtasks assembly="tools\nantcontrib\NAnt.Contrib.Tasks.dll" /> 
+
+	<tstamp property="build.year" pattern="yyyy" verbose="false" />
+	<tstamp property="build.datetime" pattern="yyyy-MM-dd_HH-mm" verbose="false" />
+
+	<property name="build.dir" value="D:\data\git\Luxena.Travel\build" />
+	<property name="build.output.dir" value="${build.dir}/_output_" />
+	<property name="build.web-app.dir" value="${build.dir}/web-app" />
+
+	<property name="conf.dir" value="conf" />
+
+	<property name="profiles.dir" value="profiles" />
+
+	<property name="lib.dir" value="lib" />
+	
+	<property name="src.dir" value="src" />
+
+	<property name="tools.dir" value="tools" />
+	<property name="psql" value="${tools.dir}/psql/psql.exe" />
+	<property name="dto-create.dir" value="${tools.dir}/dto-create" />
+	<property name="dto-create.exe" value="Luxena.DtoCreate.exe" />
+	<property name="html-to-tmpl" value="${tools.dir}/html-to-tmpl/Luxena.HtmlToTmpl.exe" />
+
+
+	<target name="cleanup">
+		<delete>
+			<fileset basedir="${build.dir}">
+				<include name="**/bin/**" />
+			</fileset>
+		</delete>
+		<delete dir="${build.dir}\web-app" />
+		<delete>
+			<fileset basedir="${src.dir}">
+				<include name="**/bin/**" />
+				<include name="**/obj/**" />
+			</fileset>
+		</delete>
+		<delete>
+			<fileset basedir="${src.dir}">
+				<include name="**/logs/**" />
+			</fileset>
+		</delete>
+	</target>
+
+
+	<target name="update.version">
+		<property name="svn.revision" value="1" />
+	</target>
+
+
+	<target name="dto">
+
+		<msbuild project="${src.dir}/Core/Core.csproj" target="Rebuild">
+			<property name="Configuration" value="Release"/>
+		</msbuild>
+
+		<property name="output.dir" value="${src.dir}/Core/bin/Release" />
+
+		<copy todir="${src.dir}/Core/bin/Release" flatten="true">
+			<fileset>
+				<include name="${dto-create.dir}/${dto-create.exe}*" />
+			</fileset>
+		</copy>
+
+		<exec program="${output.dir}/${dto-create.exe}">
+			<arg value="-file: ${src.dir}/Web.Script/DataTransferObjects.cs" />
+			<arg value="-assemblies: ${output.dir}/${project::get-name()}.dll" />
+			<arg value="-references: ${output.dir}/Luxena.Base.dll" />
+		</exec>
+
+	</target>
+
+
+	<target name="schema-manager" depends="update.version">
+
+		<property name="output.dir" value="${build.dir}/schema-manager" />
+		<property name="output.bin.dir" value="${output.dir}/bin" />
+
+		<msbuild project="${src.dir}/SchemaManager/SchemaManager.csproj" target="Rebuild">
+			<property name="Configuration" value="Release"/>
+			<property name="OutDir" value="${output.bin.dir}"/>
+		</msbuild>
+
+		<move todir="${output.dir}">
+			<fileset basedir="${output.bin.dir}">
+				<include name="Luxena.Travel.SchemaManager.*" />
+			</fileset>
+		</move>		
+
+		<exec program="${output.dir}/Luxena.Travel.SchemaManager.exe" workingdir="${output.dir}" />
+
+	</target>
+
+
+	<target name="web-app" depends="update.version">
+
+		<property name="input.dir" value="${src.dir}/Web" />
+		<property name="output.dir" value="${build.web-app.dir}/web" />
+
+		<msbuild project="${src.dir}/Web/Web.csproj" target="Rebuild">
+			<property name="Configuration" value="Release"/>
+			<property name="DeployOnBuild" value="True" />
+			<property name="ExcludeGeneratedDebugSymbol" value="False"/>
+			<property name="PublishProfile" value="Release" />
+			<property name="_PackageTempDir" value="${output.dir}" />
+		</msbuild>
+
+		<copy todir="${output.dir}" file="${input.dir}/Web.config">
+			<filterchain>
+				<replacestring from='add key="showDebugOnBrowser" value="true"' to='add key="showDebugOnBrowser" value="false"' ignorecase="true" />
+				<replacestring from='compilation debug="true"' to='compilation' ignorecase="true" />
+				<replacestring from='value="~/../../conf/' to='value="~/../conf/' ignorecase="true" />
+			</filterchain>
+		</copy>
+
+		<property name="lib.revision" value="${version::get-revision(assemblyname::get-version(assemblyname::get-assembly-name(output.dir + '/bin/Luxena.Base.dll')))}" />
+
+		<copy todir="${output.dir}" file="${input.dir}/index.html" outputencoding="utf-8">
+			<filterchain>
+				<replacestring from="Ext.debug.js" to="Ext.js" ignorecase="true" />
+				<replacestring from="-debug.js" to=".js" ignorecase="true" />
+			</filterchain>
+		</copy>
+
+		<copy todir="${build.web-app.dir}">
+			<fileset basedir=".">
+				<include name="${conf.dir}/**" />
+			</fileset>
+		</copy>
+
+	</target>
+
+
+	<target name="build" depends="cleanup, web-app" />
+
+
+	<target name="customer.build" depends="cleanup">
+
+		<delete dir="${build.web-app.dir}" />
+
+		<call target="web-app" cascade="false" />
+
+		<property name="customer.name.lowercase" value="${string::to-lower(customer.name)}" />
+		<property name="schema" value="${string::to-lower(customer.name)}" />
+
+		<property name="output.dir" value="${build.web-app.dir}" />
+
+		<property name="customer.dir" value="${src.dir}/Customization/${customer.name}" />
+		<property name="customer.project" value="${customer.dir}/${customer.name}.csproj" />
+
+		<if test="${file::exists(customer.project)}">
+			<msbuild project="${customer.project}" target="Rebuild">
+				<property name="Configuration" value="Release"/>
+			</msbuild>
+			<copy todir="${build.web-app.dir}/web/bin" overwrite="true">
+				<fileset basedir="${customer.dir}/bin/Release">
+					<include name="*.${customer.name}.dll" />				
+				</fileset>
+			</copy>
+		</if>
+
+		<copy todir="${output.dir}/conf" file="${conf.dir}/log4net.config" overwrite="true">
+			<filterchain>
+				<replacestring from='smtpAppender.from' to='mailer@luxena.com' ignorecase="true" />
+				<replacestring from='smtpAppender.to' to='helpdesk@luxena.com' ignorecase="true" />
+				<replacestring from='smtpAppender.smtpHost' to='smtp.gmail.com' ignorecase="true" />
+				<replacestring from='smtpAppender.username' to='mailer@luxena.com' ignorecase="true" />
+				<replacestring from='smtpAppender.password' to='mailer_pass' ignorecase="true" />
+				<replacestring from='smtpAppender.port' to='587' ignorecase="true" />
+				<replacestring from='smtpAppender.enableSsl' to='true' ignorecase="true" />
+				<replacestring from='smtpAppender.subject.source' to='${customer.name}' ignorecase="true" />
+			</filterchain>
+		</copy>
+
+		<copy todir="${output.dir}" overwrite="true">
+			<fileset basedir="${profiles.dir}/${customer.name.lowercase}">
+				<include name="**" />
+			</fileset>
+		</copy>
+
+		<property name="web-app.zip" value="${build.datetime}_travel_${schema}_web-app.zip" />
+
+		<zip zipfile="build\${web-app.zip}">
+			<fileset basedir="${output.dir}">
+				<include name="**" />
+				<exclude name="web/packages.config" />
+				<!--exclude name="web/bin/*.pdb" /-->
+				<exclude name="web/bin/*.xml" />
+			</fileset>
+		</zip>
+
+		<move 
+			file="${build.dir}/${web-app.zip}" 
+			tofile="${build.dir}/inbox/_last/${web-app.zip}" overwrite="true" />
+
+	</target>
+
+
+	<target name="delete.inbox">
+		<delete dir="${build.dir}/inbox/_last" />
+	</target>
+
+
+	<target name="ailes">
+		<property name="customer.name" value="Ailes" />
+		<call target="customer.build" cascade="false" />
+	</target>
+
+	<target name="anextour">
+		<property name="customer.name" value="AnexTour" />
+		<call target="customer.build" cascade="false" />
+	</target>
+
+	<target name="atlastour">
+		<property name="customer.name" value="AtlasTour" />
+		<call target="customer.build" cascade="false" />
+	</target>
+
+	<target name="bsv">
+		<property name="customer.name" value="Bsv" />
+		<call target="customer.build" cascade="false" />
+	</target>
+
+	<target name="demo">
+		<property name="customer.name" value="Demo" />
+		<call target="customer.build" cascade="false" />
+	</target>
+
+	<target name="fgr">
+		<property name="customer.name" value="Fgr" />
+		<call target="customer.build" cascade="false" />
+	</target>
+
+	<target name="gtg">
+		<property name="customer.name" value="Gtg" />
+		<call target="customer.build" cascade="false" />
+	</target>
+
+	<target name="kiyavia">
+		<property name="customer.name" value="KiyAvia" />
+		<call target="customer.build" cascade="false" />
+	</target>
+
+	<target name="merci">
+		<property name="customer.name" value="Merci" />
+		<call target="customer.build" cascade="false" />
+	</target>
+
+	<target name="persey">
+		<property name="customer.name" value="Persey" />
+		<call target="customer.build" cascade="false" />
+	</target>
+
+	<target name="silpovoyage">
+		<property name="customer.name" value="SilpoVoyage" />
+		<call target="customer.build" cascade="false" />
+	</target>
+
+	<target name="ufsa">
+		<property name="customer.name" value="Ufsa" />
+		<call target="customer.build" cascade="false" />
+	</target>
+
+	<target name="utb">
+		<property name="customer.name" value="UTB" />
+		<call target="customer.build" cascade="false" />
+	</target>
+
+	<target name="all" depends="delete.inbox, ailes, anextour, atlastour, bsv, demo, fgr, gtg, kiyavia, merci, persey, silpovoyage, ufsa, utb" />
+
+
+	<target name="test">
+
+		<delete dir="${build.web-app.dir}" />
+
+		<call target="web-app" cascade="false" />
+
+		<copy todir="${build.web-app.dir}" overwrite="true">
+			<fileset basedir="${profiles.dir}/test">
+				<include name="**" />
+			</fileset>
+		</copy>
+
+		<property name="compile.assembly.target" value="Specs" />
+		<property name="compile.assembly.dir" value="${build.output.dir}" />
+		<property name="compile.assembly.name" value="${project::get-name()}.${compile.assembly.target}" />
+		<call target="compile.assembly" cascade="false" />
+
+		<copy todir="${build.output.dir}">
+			<fileset basedir="${lib.dir}">
+				<include name="Luxena.Core.dll" />
+				<include name="nunit.framework.dll" />
+				<include name="Ionic.Zip.dll" />
+				<include name="Newtonsoft.Json.dll" />
+				<include name="TechTalk.SpecFlow.dll" />
+				<include name="WebDriver.dll" />
+			</fileset>
+		</copy>
+
+		<copy file="${tools.dir}/selenium-server/chromedriver.exe" todir="${build.output.dir}" />
+
+		<nunit2>
+			<formatter type="${unittest.output}" />
+			<test assemblyname="${build.output.dir}/${project::get-name()}.Specs.dll" />
+		</nunit2>
+
+	</target>
+
+</project>

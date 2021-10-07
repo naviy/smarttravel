@@ -1,0 +1,316 @@
+<div class="band-wrap">
+	<table class="band-table">
+		<tr>
+			<td class="band-left">
+				<div class="party-header">
+					<h1 class="party-name" data-bind="text: Name" />
+					<!-- ko if: LegalName --><div class="party-legalname" data-bind="text: LegalName" /><!-- /ko -->
+					<!-- ko if: IsCustomer || IsSupplier -->
+					<div class="party-roles">
+						<!-- ko if: IsCustomer --><span>заказчик</span><!-- /ko -->
+						<!-- ko if: IsSupplier --><span>поставщик</span><!-- /ko -->
+					</div>
+					<!-- /ko -->
+				</div>
+				<!-- ko if: IsPerson -->
+				<div class="person-employment">
+					<!-- ko if: Title -->
+					<span data-bind="text: Title" />
+					<!-- /ko -->
+					<!-- ko if: Organization -->
+					<!-- ko ifnot: Title -->
+					<span>Сотрудник</span>
+					<!-- /ko -->
+					<a data-bind="view: Organization" />
+					<!-- /ko -->
+				</div>
+				<!-- /ko -->
+				<!-- ko if: ReportsTo -->
+				<div class="party-reportsto">
+					<span data-bind="res: 'party_ReportsTo'" /> <a data-bind="view: ReportsTo" />
+				</div>
+				<!-- /ko -->
+				<!-- ko if: Note --><div class="party-note" data-bind="text: Note" /><!-- /ko -->
+
+				<div class="tabs-menu">
+					<ul>
+						<li><span data-bind="res: 'party_Files'" /> (<span data-bind="text: Files().length" />)</li>
+						<!-- ko if: IsOrganization -->
+						<li><span data-bind="res: 'organization_Employees'" /> (<span data-bind="text: Employees().length" />)</li>
+						<li><span data-bind="res: 'department_Caption_List'" /> (<span data-bind="text: Departments().length" />)</li>
+						<!-- /ko -->
+						<li data-bind="css: { positive: !!(Products().length || Orders().length || Invoices().length)}">Покупки</li>
+						<li data-bind="css: { negative: Balance().Overall() < 0 }">Взаиморасчеты</li>
+					</ul>
+					<div></div>
+				</div>
+
+				<div class="tabs-content">
+					<div class="party-files">
+						<div class="actions">
+							<a href="javascript:void(0)" data-bind="click: AddFile">Добавить файл</a>
+						</div>
+						<!-- ko foreach: Files -->
+						<div class="file">
+							<a href="javascript:void(0)" data-bind="text: FileName, click: $parent.DownloadFile" /> <a href="javascript:void(0)" class="delete-action" data-bind="click: $parent.DeleteFile" />
+							<div>
+								<span data-bind="text: TimeStamp().format('d.m.Y H:i')" /> - <a data-bind="view: UploadedBy" />
+							</div>
+						</div>
+						<!-- /ko -->
+					</div>
+					<!-- ko if: IsOrganization -->
+					<div class="list">
+						<div class="actions">
+							<a href="javascript:void(0)" data-bind="click: AddEmployee">Добавить сотрудника</a>
+						</div>
+						<!-- ko foreach: Employees -->
+						<div class="employee">
+							<a data-bind="view: $data" /><!-- ko if: Title --><span class="employee-title" data-bind="text: ' - ' + Title()" /><!-- /ko -->
+							<!-- ko template: { name: "Party.ListDetail" } --><!-- /ko -->
+						</div>
+						<!-- /ko -->
+					</div>
+					<div class="list">
+						<div class="actions">
+							<a href="javascript:void(0)" data-bind="click: AddDepartment">Добавить подразделение</a>
+						</div>
+						<!-- ko foreach: Departments -->
+						<div class="department">
+							<a data-bind="view: $data" />
+							<!-- ko template: { name: "Party.ListDetail" } --><!-- /ko -->
+						</div>
+						<!-- /ko -->
+					</div>
+					<!-- /ko -->
+					<div class="list">
+						<div class="actions">
+							<a href="javascript:void(0)" data-bind="click: AddOrder">Добавить заказ</a> &nbsp; &nbsp; 
+							<a href="javascript:void(0)" data-bind="click: OpenAllProducts">Все услуги (<span data-bind="text: ProductCount" />)</a>
+							<a href="javascript:void(0)" data-bind="click: OpenAllOrders">Все заказы (<span data-bind="text: OrderCount" />)</a>
+							<a href="javascript:void(0)" data-bind="click: OpenAllInvoices">Все счета (<span data-bind="text: InvoiceCount" />)</a>
+						</div>
+						<!-- ko if: Products().length -->
+						<div class="property-grid-control" style="font-size: 12px; font-family: Arial">
+							<div class="grid-title">Услуги</div>
+							<div class="item-list">
+								<table style="width: 100%">
+									<tbody>
+										<tr class="alternate">
+											<th>Название</th>
+											<th>Дата</th>
+											<th>Маршрут</th>
+											<th>Тариф</th>
+											<!--<th class="right-align">Итого по провайдеру</th>
+											<th class="right-align">Сервисный сбор</th>-->
+											<th class="right-align">К оплате</th>
+											<th class="right-align">Заказ</th>
+										</tr>
+										<!-- ko foreach: Products -->
+										<tr>
+											<td class="center-align">
+												<a class="object-link" href="#"
+												   data-bind="text: Name(), click: function(data, event) { LxnBase.UI.Controls.ObjectLink.viewObject(event, Type(), Id()) }"></a>
+											</td>
+											<td data-bind="date: IssueDate" class="center-align"></td>
+											<td data-bind="text: Itinerary"></td>
+											<td data-bind="fixed: Fare" class="right-align"></td>
+											<!--<td data-bind="fixed: Total && Total.MoneyString" class="right-align"></td>
+											<td data-bind="fixed: ServiceFee && ServiceFee.MoneyString" class="right-align"></td>-->
+											<td data-bind="fixed: GrandTotal" class="right-align"></td>
+											<td class="center-align">
+												<a class="object-link" href="#"
+												   data-bind="text: Order && Order.Name, click: function(data, event) { LxnBase.UI.Controls.ObjectLink.viewObject(event, 'Order', Order && Order.Id()) }"></a>
+											</td>
+										</tr>
+										<!-- /ko -->
+									</tbody>
+								</table>
+							</div>
+						</div>
+						<!-- /ko -->
+
+						<!-- ko if: Orders().length -->
+						<br />
+						<div class="property-grid-control" style="font-size: 12px; font-family: Arial">
+							<div class="grid-title">Заказы</div>
+							<div class="item-list">
+								<table style="width: 100%">
+									<tbody>
+										<tr class="alternate">
+											<th>Номер</th>
+											<th>Дата</th>
+											<th class="right-align">Итого</th>
+											<th class="right-align">Оплачено</th>
+											<th class="right-align">К оплате</th>
+										</tr>
+										<!-- ko foreach: Orders -->
+										<tr>
+											<td class="center-align">
+												<a class="object-link" href="#"
+												   data-bind="text: Number, click: function(data, event) { LxnBase.UI.Controls.ObjectLink.viewObject(event, 'Order', Id()) }"></a>
+											</td>
+											<td data-bind="date: IssueDate" class="center-align"></td>
+											<td data-bind="fixed: Total && Total.MoneyString" class="right-align"></td>
+											<td data-bind="fixed: Paid && Paid.MoneyString" class="right-align"></td>
+											<td data-bind="fixed: TotalDue && TotalDue.MoneyString" class="right-align"></td>
+										</tr>
+										<!-- /ko -->
+									</tbody>
+								</table>
+							</div>
+						</div>
+						<!-- /ko -->
+						<!-- ko if: Invoices().length -->
+						<br />
+						<div class="property-grid-control" style="font-size: 12px; font-family: Arial">
+							<div class="grid-title">Счета/квитанции</div>
+							<div class="item-list">
+								<table style="width: 100%">
+									<tbody>
+									<tr class="alternate">
+										<th>Номер</th>
+										<th>Дата</th>
+										<th>Тип</th>
+										<th>Заказ</th>
+										<th class="right-align">Итого</th>
+										<th class="right-align">В т.ч. НДС</th>
+									</tr>
+									<!-- ko foreach: Invoices -->
+									<tr>
+										<td data-bind="text: Number" class="center-align"></td>
+										<td data-bind="date: IssueDate" class="center-align"></td>
+										<td data-bind="date: Type" class="center-align"></td>
+										<td class="center-align">
+											<a class="object-link" href="#"
+												data-bind="text: Order ? Order.Name : '', click: function(data, event) { LxnBase.UI.Controls.ObjectLink.viewObject(event, 'Order', Order.Id()) }"></a>
+										</td>
+										<td data-bind="fixed: Total && Total.MoneyString" class="right-align"></td>
+										<td data-bind="fixed: Vat && Vat.MoneyString" class="right-align"></td>
+									</tr>
+									<!-- /ko -->
+									</tbody>
+								</table>
+							</div>
+						</div>
+						<!-- /ko -->
+					</div>
+					<div class="party-balance">
+						<!-- ko with: Balance -->
+						<!-- ko if: OpeningBalance -->
+						<!-- ko with: OpeningBalance -->
+						<div class="opening quite">
+							Начальный остаток:
+							<span data-bind="fixed: Balance" /> (<a data-bind="view: $data" /> от <span data-bind="text: Date().format('d.m.Y')" />)
+						</div>
+						<!-- /ko -->
+						<!-- /ko -->
+						<div class="overall">Общий баланс взаиморасчетов: <span data-bind="fixed: Overall" /></div>
+						<!-- ko if: ByOrders() && ByOrders().length -->
+						<table class="by-orders">
+							<thead>
+								<tr>
+									<th colspan="2">Оказано услуг на сумму</th>
+									<th>Оплачено</th>
+									<th>Баланс</th>
+								</tr>
+							</thead>
+							<tbody>
+								<!-- ko foreach: ByOrders -->
+								<tr>
+									<td>
+										<!-- ko if: Order --><a data-bind="view: Order" /><!-- /ko -->
+										<!-- ko ifnot: Order -->Без заказа<!-- /ko -->
+									</td>
+									<td><span data-bind="fixed: Delivered" /></td>
+									<td><span data-bind="fixed: Paid" /></td>
+									<td><span data-bind="fixed: Balance" /></td>
+								</tr>
+								<!-- /ko -->
+							</tbody>
+						</table>
+						<!-- /ko -->
+						<!-- /ko -->
+					</div>
+				</div>
+			</td>
+			<td class="band-right">
+				<div class="block-header" data-bind="text: InfoTitle" />
+
+				<!-- ko if: IsPerson && Birthday -->
+				<p class="birthday" data-bind="text: Birthday().format('d.m.Y')" />
+				<!-- /ko -->
+				<!-- ko template: "Party.Contacts" --><!-- /ko -->
+				<!-- ko if: IsOrganization && Code -->
+				<div class="organization-code">
+					<div class="label" data-bind="res: 'organization_Code'" />
+					<span data-bind="text: Code" />
+				</div>
+				<!-- /ko -->
+				<!-- ko if: IsPerson -->
+				<!-- ko if: MilesCards() && MilesCards().length -->
+				<div class="miles-cards" data-bind="foreach: MilesCards">
+					<div>
+						<!-- ko if: Organization --><div data-bind="text: Organization.Name" /><!-- /ko -->
+						<div data-bind="text: Number" />
+					</div>
+				</div>
+				<!-- /ko -->
+				<!-- ko if: Passports() && Passports().length -->
+				<div class="person-passports" data-bind="foreach: Passports">
+					<div>
+						<div class="pass-number"><!-- ko if: IssuedByCode --><span data-bind="text: IssuedByCode" /><!-- /ko --> <span data-bind="text: Number" /></div>
+						<!-- ko if: ExpiredOn --><div class="pass-expiredon">Действителен до <span data-bind="text: ExpiredOn().format('d.m.Y')" /></div><!-- /ko -->
+						<!-- ko if: Note --><div class="pass-note" data-bind="text: Note" /><!-- /ko -->
+						<div class="pass-details">
+							<div>
+								<span data-bind="text: FirstName" /> <span data-bind="text: MiddleName" /> <span data-bind="text: LastName" />
+							</div>
+							<!-- ko if: Birthday --><div><span data-bind="res: 'passport_Birthday'" />: <span data-bind="text: Birthday().format('d.m.Y')" /></div><!-- /ko -->
+							<!-- ko if: GenderString --><div><span data-bind="res: 'passport_Gender'" />: <span data-bind="text: GenderString" /></div><!-- /ko -->
+							<!-- ko if: Citizenship --><div><span data-bind="res: 'passport_Citizenship'" />: <span data-bind="text: Citizenship.Text" /></div><!-- /ko -->
+						</div>
+						<div class="pass-copy">
+							<a href="javascript:void(0)">Amadeus</a><input readonly="readonly" data-bind="value: AmadeusString" />
+							<a href="javascript:void(0)">Galileo</a><input readonly="readonly" data-bind="value: GalileoString" />
+						</div>
+						<!-- ko if: ExpiredDays() <= 200 --><div class="pass-validate">
+							<!-- ko if: ExpiredDays() > 0 && ExpiredDays() <= 200  --><div class="text-warning">Срок действия паспорта заканчивается через <b data-bind="text: ExpiredDays" /> дней</div><!-- /ko -->
+							<!-- ko if: ExpiredDays() == 0 --><div class="text-error">ВНИМАНИЕ! Срок действия паспорта закончился!</div><!-- /ko -->
+							<!-- ko if: ExpiredDays() < 0 --><div class="text-error">ВНИМАНИЕ! Срок действия паспорта закончился <b data-bind="text: -ExpiredDays()" /> дней назад!</div><!-- /ko -->
+						</div><!-- /ko -->
+					</div>
+				</div>
+				<!-- /ko -->
+				<!-- /ko -->
+				<!-- ko if: InfoPrompt -->
+				<div class="party-info-prompt">
+					<a href="javascript:void(0)" data-bind="click: Edit">Укажите</a>
+					<!-- ko if: IsPerson -->номера телефонов, адреса, мильные карты, паспорта<!-- /ko -->
+					<!-- ko if: IsOrganization -->номера телефонов, адреса, код предприятия<!-- /ko -->
+					<!-- ko if: IsDepartment -->номера телефонов, адреса<!-- /ko -->
+					и они будут здесь отображаться
+				</div>
+				<!-- /ko -->
+				<!-- ko if: BonusCardNumber -->
+				<div class="organization-code">
+					<div class="label" data-bind="res: 'common_BonusCardNumber'" />
+					<span data-bind="text: BonusCardNumber" />
+					<div class="label">Накоплено бонусов</div>
+					<span data-bind="text: BonusAmount" />
+					<br />
+					<br />
+				</div>
+				<!-- /ko -->
+				<!-- ko ifnot: IsOrganization -->
+				<!-- ko if: Organization -->
+				<div class="block-header party-organization" data-bind="res: 'organizationView_Info'" />
+				<a data-bind="view: Organization" />
+				<!-- ko template: { name: "Party.Contacts", data: Organization } --><!-- /ko -->
+				<!-- /ko -->
+				<!-- /ko -->
+
+			</td>
+		</tr>
+	</table>
+</div>

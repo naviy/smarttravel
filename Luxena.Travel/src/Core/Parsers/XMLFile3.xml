@@ -1,0 +1,82 @@
+﻿
+<?xml version="1.0" encoding="UTF-8"?>
+<ReservationsList>
+	<ReservationsList ResellerCode="ARIOLA" Username="ievu23561.soa" Timestamp="2018-04-02T17:30:33+03:00">
+		<id>4173643</id>
+		<confirmationNumber>БЛ7-Н1-5235811-0204</confirmationNumber>
+		<service>railua</service>
+		<trainNumber>006К</trainNumber>
+		<wagonNumber>10</wagonNumber>
+		<wagonType>К</wagonType>
+		<seats>027</seats>
+		<withLinen>1</withLinen>
+		<departureDate>21.04.2018 20:33:00</departureDate>
+		<departureStation>Kiev Pass</departureStation>
+		<departureStationCode>2200001</departureStationCode>
+		<arrivalDate>22.04.2018 10:01:00</arrivalDate>
+		<arrivalStation>Moscow Kievskaya</arrivalStation>
+		<arrivalStationCode>2000007</arrivalStationCode>
+		<serviceType>order</serviceType>
+		<addDate>02.04.2018</addDate>
+		<agentName>Oksana Sumischuk</agentName>
+		<officeId>ievu23561.soa</officeId>
+		<officeName>Ariola Group, Kyiv</officeName>
+		<numberOfDocuments>1</numberOfDocuments>
+		<source>contentrail</source>
+		<paymentGateway>non-cash</paymentGateway>
+		<documentType/>
+		<contentrailId>1659643</contentrailId>
+		<transporter>Ukrainian railways</transporter>
+		<bookingWasConfirmed>1</bookingWasConfirmed>
+		<businessModel>merchant</businessModel>
+		<resellerPaidWith>credit</resellerPaidWith>
+		<roundTrip>0</roundTrip>
+		<relatedServiceId/>
+		<type>booking</type>
+		<documentsPrice>2985.52</documentsPrice>
+		<fees>12.44</fees>
+		<purchasePrice>2997.96</purchasePrice>
+		<agentCommission>60</agentCommission>
+		<totalPrice>3057.96</totalPrice>
+		<currency>UAH</currency>
+		<status>OK</status>
+		<vatFromDocumentPrice>5</vatFromDocumentPrice>
+		<vatRateFromDocumentPrice>20</vatRateFromDocumentPrice>
+		<remitCommission>2</remitCommission>
+		<vatFromRemitCommission>0.33</vatFromRemitCommission>
+		<vatRateFromRemitCommission>20</vatRateFromRemitCommission>
+		<markup>10.44</markup>
+		<vatFromMarkup>1.74</vatFromMarkup>
+		<vatRateFromMarkup>20</vatRateFromMarkup>
+		<vatFromCommission>2.07</vatFromCommission>
+		<vatFromAgentCommission>10</vatFromAgentCommission>
+		<vatRateFromAgentCommission>20</vatRateFromAgentCommission>
+		<passenger>
+			<firstName>Ирина</firstName>
+			<lastName>Кириченко</lastName>
+			<isChild>0</isChild>
+			<phone/>
+			<email/>
+			<ticketNumber>000B3E12-2FE51D40-0001</ticketNumber>
+			<birthday/>
+			<documentsPrice>2985.52</documentsPrice>
+			<fees>12.44</fees>
+			<purchasePrice>2997.96</purchasePrice>
+			<agentCommission>60</agentCommission>
+			<totalPrice>3057.96</totalPrice>
+			<vatFromDocumentPrice>5</vatFromDocumentPrice>
+			<vatRateFromDocumentPrice>20</vatRateFromDocumentPrice>
+			<remitCommission>2</remitCommission>
+			<vatFromRemitCommission>0.33</vatFromRemitCommission>
+			<vatRateFromRemitCommission>20</vatRateFromRemitCommission>
+			<markup>10.44</markup>
+			<vatFromMarkup>1.74</vatFromMarkup>
+			<vatRateFromMarkup>20</vatRateFromMarkup>
+			<vatFromCommission>2.07</vatFromCommission>
+			<vatFromAgentCommission>10</vatFromAgentCommission>
+			<vatRateFromAgentCommission>20</vatRateFromAgentCommission>
+			<currency>UAH</currency>
+			<externalId/>
+		</passenger>
+	</ReservationsList>
+</ReservationsList>

@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sirena>
+  <answer pult="ГРФ365">
+    <describe data="meal">
+      <data>
+        <code xml:lang="ru">АВПЩ</code>
+        <code xml:lang="en">AVML</code>
+        <name xml:lang="ru">Азиатская вегетарианская пища</name>
+        <name xml:lang="en">Asian vegetarian meal</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ГРПЩ</code>
+        <code xml:lang="en">BBML</code>
+        <name xml:lang="ru">Питание для грудного ребенка</name>
+        <name xml:lang="en">Infant/baby food</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ПРПЩ</code>
+        <code xml:lang="en">BLML</code>
+        <name xml:lang="ru">Протертая пища</name>
+        <name xml:lang="en">Bland/soft meal</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ДТПЩ</code>
+        <code xml:lang="en">CHML</code>
+        <name xml:lang="ru">Детское питание</name>
+        <name xml:lang="en">Child meal</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ДБПЩ</code>
+        <code xml:lang="en">DBML</code>
+        <name xml:lang="ru">Диабетическая пища</name>
+        <name xml:lang="en">Diabetic meal</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ФРПЩ</code>
+        <code xml:lang="en">FPML</code>
+        <name xml:lang="ru">Фрукты</name>
+        <name xml:lang="en">Fruit platter</name>
+      </data>
+      <data>
+        <code xml:lang="ru">БЖПЩ</code>
+        <code xml:lang="en">GFML</code>
+        <name xml:lang="ru">Обезжиренная пища</name>
+        <name xml:lang="en">Gluten-free meal</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ВВПЩ</code>
+        <code xml:lang="en">HFML</code>
+        <name xml:lang="ru">Высоко волокнистая пища</name>
+        <name xml:lang="en">Hire fibre meal</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ИНПЩ</code>
+        <code xml:lang="en">HNML</code>
+        <name xml:lang="ru">Индусская пища</name>
+        <name xml:lang="en">Hindu meal</name>
+      </data>
+      <data>
+        <code xml:lang="ru">КШПЩ</code>
+        <code xml:lang="en">KSML</code>
+        <name xml:lang="ru">Кошерная пища</name>
+        <name xml:lang="en">Kosher meal</name>
+      </data>
+      <data>
+        <code xml:lang="ru">НКПЩ</code>
+        <code xml:lang="en">LCML</code>
+        <name xml:lang="ru">Низкокалорийная пища</name>
+        <name xml:lang="en">Low calorie meal</name>
+      </data>
+      <data>
+        <code xml:lang="ru">НЖПЩ</code>
+        <code xml:lang="en">LFML</code>
+        <name xml:lang="ru">Низкое содержание жира</name>
+        <name xml:lang="en">Low fat meal,lowcholesterol</name>
+      </data>
+      <data>
+        <code xml:lang="ru">НППЩ</code>
+        <code xml:lang="en">LPML</code>
+        <name xml:lang="ru">Пища с низким содержанием протеина</name>
+        <name xml:lang="en">Low protein meal</name>
+      </data>
+      <data>
+        <code xml:lang="ru">БСПЩ</code>
+        <code xml:lang="en">LSML</code>
+        <name xml:lang="ru">Несоленая пища</name>
+        <name xml:lang="en">No salt added meal</name>
+      </data>
+      <data>
+        <code xml:lang="ru">МСПЩ</code>
+        <code xml:lang="en">MOML</code>
+        <name xml:lang="ru">Мусульманская пища</name>
+        <name xml:lang="en">Moslem  meal</name>
+      </data>
+      <data>
+        <code xml:lang="ru">НЛПЩ</code>
+        <code xml:lang="en">NLML</code>
+        <name xml:lang="ru">Питание, исключающее лактозу</name>
+        <name xml:lang="en">Non-lactose meal</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ВСПЩ</code>
+        <code xml:lang="en">ORML</code>
+        <name xml:lang="ru">Восточная пища</name>
+        <name xml:lang="en">Oriental meal</name>
+      </data>
+      <data>
+        <code xml:lang="ru">НБПЩ</code>
+        <code xml:lang="en">PRML</code>
+        <name xml:lang="ru">Нерафинированная пища</name>
+        <name xml:lang="en">Low purin meal</name>
+      </data>
+      <data>
+        <code xml:lang="ru">СРПЩ</code>
+        <code xml:lang="en">RVML</code>
+        <name xml:lang="ru">Сырая растительная пища</name>
+        <name xml:lang="en">Raw vegetarian meal</name>
+      </data>
+      <data>
+        <code xml:lang="ru">МППЩ</code>
+        <code xml:lang="en">SFML</code>
+        <name xml:lang="ru">Морепродукты</name>
+        <name xml:lang="en">Sea food meal</name>
+      </data>
+      <data>
+        <code xml:lang="ru">СЦПЩ</code>
+        <code xml:lang="en">SPML</code>
+        <name xml:lang="ru">Постная пища</name>
+        <name xml:lang="en">Lenten fare</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ВГПЩ</code>
+        <code xml:lang="en">VGML</code>
+        <name xml:lang="ru">Вегетарианское питание</name>
+        <name xml:lang="en">Vegetarian meal</name>
+      </data>
+      <data>
+        <code xml:lang="ru">ВНПЩ</code>
+        <code xml:lang="en">VLML</code>
+        <name xml:lang="ru">Вегетарианское питание ( лакто-овощное)</name>
+        <name xml:lang="en">Vegetarian meal</name>
+      </data>
+    </describe>
+  </answer>
+</sirena>

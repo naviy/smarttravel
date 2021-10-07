@@ -1,0 +1,125 @@
+﻿@bg-color: white;
+@dark-bg-color: #96b9ef;
+@dark-bg-color-ligth: @dark-bg-color * 1.1;
+@hover-color: #ffefe2;
+@wrap-bg-color: lighten(@dark-bg-color, 20%);
+@line-color: #a3e3ff;
+
+
+.wrap-bg-color {
+	background: @wrap-bg-color;
+}
+
+
+.main-header, .main-cart, .view-menu {
+	background: @dark-bg-color;
+}
+
+.view-content {
+	background: @wrap-bg-color;
+}
+
+
+.main-header-wrapper.wrapper, .main-header-wrapper.wrapper2 {
+	background: @dark-bg-color-ligth;
+	box-shadow: 0 0 8px white, 0 0 4px white;
+}
+
+
+.main-menu-root {
+
+	div {
+		color: white;
+	}
+
+	.dx-menu-item-expanded div {
+		color: #003d57;
+	}
+}
+
+
+.grid-panel {
+	background: @bg-color;
+	border-bottom: 1px solid @line-color;
+}
+
+
+.form-panel {
+	background: @bg-color;
+	border-bottom: 10px solid @dark-bg-color-ligth;
+	box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.3);
+
+	.dx-accordion-item-title {
+		color: @bg-color;
+
+		h2 {
+			background: @dark-bg-color;
+		}
+	}
+
+	.dx-accordion-item-opened {
+
+		.dx-accordion-item-title {
+			color: @bg-color;
+		}
+
+		h2 {
+			background: @dark-bg-color-ligth;
+		}
+	}
+
+	.tab-accordion-menu {
+		border-right: 1px solid @bg-color;
+	}
+
+	.form-header-simple {
+		margin-top: -10px;
+		margin-bottom: 20px;
+
+		background: @dark-bg-color-ligth;
+
+		h1, h2, h3 {
+			color: @bg-color;
+		}
+	}
+}
+
+
+.filter-panel {
+	background: @bg-color;
+	box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.3);
+}
+
+
+.main-menu-item.single:hover {
+	background: @dark-bg-color * 1.15;
+}
+
+
+/*.view-menu {
+	background-image: url(beach02_08.jpg);
+	background-position: center bottom;
+	background-repeat: no-repeat;
+}*/
+
+
+/*@font-face {
+	font-family: 'Kaushan Script';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Kaushan Script'), local('KaushanScript-Regular'), url(http://fonts.gstatic.com/s/kaushanscript/v4/qx1LSqts-NtiKcLw4N03IEd0sm1ffa_JvZxsF_BEwQk.woff2) format('woff2'), url(http://fonts.gstatic.com/s/kaushanscript/v4/qx1LSqts-NtiKcLw4N03IFhlQWQpSCpzb2Peu3I-Q34.woff) format('woff');
+}
+
+@font-face {
+	font-family: 'Satisfy';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Satisfy'), url(http://fonts.gstatic.com/s/satisfy/v6/2OzALGYfHwQjkPYWELy-cw.woff2) format('woff2'), url(http://fonts.gstatic.com/s/satisfy/v6/ch7X2unYkww0EzsjlC3m8w.woff) format('woff');
+}
+
+.logo02 {
+	font-family: 'Kaushan Script', cursive;
+	font-size: 50px;
+	height: @header-height;
+	width: 230px;
+}*/

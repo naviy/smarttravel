@@ -1,0 +1,27 @@
+﻿@Ui.Grid(db => db.Identities)
+@Ui.GridViewEdit1(db => db.InternalIdentities)
+@Ui.GridViewEdit1(db => db.Users)
+
+
+@Ui.GridViewEdit1(db => db.Sequences)
+
+
+@Ui.ViewFormBegin1(db => db.SystemConfigurations)
+<div data-bind="dxTabPanel: { items: tabs }" class="field-label-width-300">
+	@Ui.TabFieldSet("Company")
+	@Ui.TabFieldSet("Orders")
+	@Ui.TabFieldSet("Invoices")
+	@Ui.TabFieldSet("Products")
+	@Ui.TabFieldSet("Rest")
+</div>
+@Ui.ViewFormEnd1()
+
+@Ui.EditFormBegin1(db => db.SystemConfigurations)
+<div data-bind="dxTabPanel: { items: tabs }" class="field-label-width-300">
+	@Ui.TabFieldSet("Company")
+	@Ui.TabFieldSet("Orders")
+	@Ui.TabFieldSet("Invoices")
+	@Ui.TabFieldSet("Products")
+	@Ui.TabFieldSet("Rest")
+</div>
+@Ui.EditFormEnd1()

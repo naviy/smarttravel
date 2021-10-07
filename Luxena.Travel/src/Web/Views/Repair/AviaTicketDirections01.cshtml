@@ -1,0 +1,34 @@
+﻿@model Luxena.Travel.Domain.Domain
+@{
+	Layout = null;
+	var db = Model;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+	<style>
+		body {
+			font-family: monospace;
+			font-size: 14pt;
+		}
+		 .hover:hover {
+			 background: #f0f0f0;
+		 }
+	</style>
+</head>
+<body>
+<table>
+	@foreach (var r in db.AviaTicket.Query.Where(a=> !a.IsVoid).OrderBy(a => a.Id).Take(1000))
+	{
+		<tr class="hover">
+			<td>@r.Id</td>
+			@*<td>@r.Name</td>
+			<td>@r.Itinerary</td>*@
+			<td>@r.GetDirection()</td>
+		</tr>
+	}
+</table>
+</body>
+</html>

@@ -1,0 +1,71 @@
+﻿.chips {
+	margin: -7px 0 -5px 0;
+	white-space: normal;
+	.chip {
+		@extend .grey.lighten-4;
+		@extend .blue-grey-text.text-darken-1;
+		margin: 3px 5px 0 0;
+		//font-size: 14px;
+		line-height: 30px;
+
+		i {
+			float: left;
+			display: block;
+			font-size: 18px;
+			margin-top: 7px;
+		}
+	}
+}
+
+
+.left-align {
+	text-align: left;
+}
+
+.center-align {
+	text-align: center;
+}
+
+.right-align {
+	text-align: right;
+}
+
+
+i.text-icon {
+	width: 24px;
+	text-align: center;
+	padding-right: 8px;
+}
+
+h1 i.text-icon {
+	width: 54px;
+}
+
+h2 i.text-icon {
+	width: 38px;
+}
+
+h3 i.text-icon {
+	width: 34px;
+}
+
+
+.entity-name-cell {
+	display:inline-block;
+	margin-top: -4px;
+	font-weight: 500 !important;
+	//color: #666666 !important;
+	color: $header-text-color !important;
+	font-size: 18px !important;
+	text-decoration: none !important;
+	//padding-left: 20px;
+}
+.entity-name-cell:hover {
+	text-decoration: underline !important;
+}
+.dx-selection.dx-row .entity-name-cell {
+	color: white !important;
+}
+.dx-multiview-item-content .entity-name-cell {
+	font-size: 16px;
+}

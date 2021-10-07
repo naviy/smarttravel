@@ -1,0 +1,44 @@
+﻿@using System.Reflection
+@{
+
+	var version = File.GetCreationTime(Assembly.GetExecutingAssembly().Location).ToString("yyy-MM-ddThh:mm");
+
+}
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" >
+
+		<title>SmartTravel</title>
+
+		<link href="static/style/ext/css/ext-all.css" rel="stylesheet" type="text/css" />
+		<link href="static/style/travel/style.css" rel="stylesheet" type="text/css" />
+
+		<script src="static/script/jquery-1.7.2.debug.js" type="text/javascript"></script>
+		<script src="static/script/knockout-2.1.0.debug.js" type="text/javascript"></script>
+		<script src="static/script/knockout.mapping-2.2.3.debug.js" type="text/javascript"></script>
+
+		<script src="static/script/mscorlib.debug.js" type="text/javascript"></script>
+		<script src="static/script/mscorlib.fix.js" type="text/javascript"></script>
+
+		<script src="static/script/ext-jquery-adapter-debug.js" type="text/javascript"></script>
+		<script src="static/script/ext-all-debug.js?r=1" type="text/javascript"></script>
+		<script src="static/script/ext-ux-all-debug.js" type="text/javascript"></script>
+		<script src="static/script/ext-lang-ru.js" type="text/javascript"></script>
+
+		<script src="static/script/Ext.debug.js" type="text/javascript"></script>
+		<script src="static/script/LxnBase.debug.js?v=@version" type="text/javascript"></script>
+		<script src="static/script/LxnTravel.debug.js?v=@version" type="text/javascript"></script>
+
+		<link href="static/style/toastr.css" rel="stylesheet" />
+		<script src="static/script/toastr.js" type="text/javascript"></script>
+		<script src="static/script/toastr-logger.js" type="text/javascript"></script>
+
+	</head>
+	<body class="luxena">
+		<div id="app-loading">
+			SmartTravel загружается. Пожалуйста, подождите...
+		</div>
+	</body>
+</html>

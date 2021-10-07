@@ -1,0 +1,637 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="System.ComponentModel.DataAnnotations" #>
+<#@ assembly name="D:\data\git\Luxena.Travel\src.15\Domain\bin\Debug\EntityFramework.dll" #>
+<#@ assembly name="D:\data\git\Luxena.Travel\src.15\Luxena.Libs.15\Luxena.Support\bin\Debug\Luxena.Support.dll" #>
+<#@ assembly name="D:\data\git\Luxena.Travel\src.15\Luxena.Libs.15\Luxena.Domain\bin\Debug\Luxena.Domain.dll" #>
+<#@ assembly name="D:\data\git\Luxena.Travel\src.15\Domain\bin\Debug\Luxena.Travel.Domain.dll" #>
+<#@ import namespace="System.ComponentModel.DataAnnotations" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Reflection" #>
+<#@ import namespace="Luxena" #>
+<#@ import namespace="Luxena.Domain" #>
+<#@ import namespace="Luxena.Travel.Domain" #>
+<#@ output extension=".cs" #>
+<#
+
+	var lng = new DefaultLocalizationTypesSource();
+
+	var entities = Domain.CreateEntityInfos(lng, typeof(Entity2), typeof(Entity3), typeof(Entity3D));
+	Domain.ConfigEntityInfos(entities);
+
+#>
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration;
+using System.Diagnostics;
+using System.Linq;
+using System.Linq.Expressions;
+using System.Reflection;
+
+using Luxena.Domain;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable RedundantCast
+// ReSharper disable UnusedParameter.Local
+#pragma warning disable 109
+#pragma warning disable 108,114
+
+namespace Luxena.Travel.Domain
+{
+	
+<#
+	entities = entities.OrderBy(a => a.EntityName).ToArray();
+
+	foreach (var entity in entities.Where(a => a.IsEntity))
+	{
+		var idProp = entity.IdProperty.As(a => a.Name) ?? "Id";
+		var nameProp = entity.NameProperty.As(a => a.Name);
+		var typeProp = entity.TypeProperty.As(a => a.Name);
+
+		if (entity.IsEntityQuery && nameProp.No()) continue;
+
+#>
+
+	#region <#= entity #>
+
+	partial class <#= entity #>
+	{
+	//1
+<#
+		var unassociationProperties = entity.NavigationProperties.Where(a => 
+			a.CanWrite && a.IsDbMapped && 
+			entity.Associations.Keys.By(ass => ass.Name == a.Name) == null
+		).ToList();
+
+		if (unassociationProperties.Yes())
+		{
+#>
+	//2
+		#error <#= entity #>: Надо прописать ассоциации
+		/*
+		static partial void Config_(Domain.EntityConfiguration<<#= entity #>> entity)
+		{
+<#
+			foreach (var prop in unassociationProperties)
+			{
+				var collectionName = entity.EntitySetName;
+				if (prop.Name != prop.Type.Name)
+					collectionName += "_" + prop.Name;
+
+				var collections = prop.Type.GetProperties().Where(a =>
+					a.IsCollection() &&
+						a.PropertyType.GenericTypeArguments[0] == entity
+					).ToList();
+
+				if (collections.Count == 1)
+					collectionName = collections[0].Name;
+					#>
+			entity.Association(a => a.<#= prop.Name #>);//, a => a.<#= collectionName #>);
+<#
+			}
+#>
+		}
+		*/
+
+<#
+		}
+
+		var moneyProps = entity.DbProperties.Where(a => a.MemberCanWrite && a.Type == typeof(Money)).ToArray();
+
+		if (moneyProps.Yes())
+		{
+#>
+		public <#= entity #>()
+		{
+<#
+			foreach (var prop in moneyProps)
+			{
+#>
+			<#= prop.Name #> = new Money();
+<#
+			}
+#>
+		}
+<#
+		}
+
+		foreach (var prop in entity.NavigationProperties.Where(a => a.FieldName.Yes()))
+		{
+#>
+
+		[ForeignKey("<#= prop.Name #>")]
+		public string <#= prop.Name #>Id
+		{ 
+			get { return _<#= prop.Name #>Id; }
+			set 
+			{
+				if (_<#= prop.Name #>Id == value) return;
+				_<#= prop.Name #>Id = value;
+				_<#= prop.Name #> = null;
+			}
+		}
+		private string _<#= prop.Name #>Id;
+
+		public virtual <#= prop.Type.Name #> <#= prop.Name #>
+		{
+			get 
+			{ 
+				return _<#= prop.Name #> ?? (_<#= prop.Name #> = db?.<#= entities.By(prop.Type).EntitySetName #>.ById(_<#= prop.Name #>Id)); 
+			}
+			set
+			{
+				_<#= prop.Name #> = value;
+				_<#= prop.Name #>Id = value?.Id;
+			}
+		}
+<#
+		}
+#>
+
+<#
+		if (!entity.EntityType.IsAbstract)
+		{
+#>
+
+		[DebuggerStepThrough]
+		public override Type GetClass() => typeof(<#= entity #>);
+<#
+		}
+
+		if (entity.EntitySetType != null)
+		{
+#>
+
+		[DebuggerStepThrough]
+		public override DbSet GetDbSet(Domain domain = null) => (domain ?? db).<#= entity.EntitySetName #>;
+
+		internal <#= entity #> n, o;
+
+		protected override Domain.Entity GetNew() => n;
+		protected override void SetNew(Domain.Entity value)
+		{
+			base.SetNew(value);
+			n = (<#= entity #>)value;
+		}
+
+		protected override Domain.Entity GetOld() => o;
+		protected override void SetOld(Domain.Entity value)
+		{
+			base.SetOld(value);
+			o = (<#= entity #>)value;
+		}
+<#
+		}
+#>
+
+		public class Lazy<TValue> : Lazy<<#= entity #>, TValue>
+		{
+			public Lazy(Func<<#= entity #>, TValue> defaultGetter) : base(defaultGetter) { }
+		}
+
+		public static Lazy<TValue> NewLazy<TValue>(Func<<#= entity #>, TValue> defaultGetter)
+		{
+			return new Lazy<TValue>(defaultGetter);
+		}
+
+
+		public static PropertyInfo Property<TValue>(Expression<Func<<#= entity #>, TValue>> property)
+		{
+			return property.GetProperty();
+		}
+
+
+		[DebuggerStepThrough]
+		public static <#= entity #> operator +(<#= entity #> r, Domain db) => r.Resolve(db);
+
+		[DebuggerStepThrough]
+		public static <#= entity #> operator |(<#= entity #> r1, <#= entity #> r2) => r1 ?? r2;
+<#
+		if (!entity.EntityType.IsAbstract)
+		{
+#>
+
+		public override Domain.Entity GetFromDb()
+		{
+			var e = db.Entry(this);
+
+			var r = new <#= entity #>
+			{
+<#
+			foreach (var prop in entity.AllDbProperties.Where(a => a.CanWrite && !a.IsNavigation && a.IsDbMapped))
+			{
+#>
+				<#= prop.Name #> = e.Property(a => a.<#= prop.Name #>).OriginalValue,
+<#
+			}
+#>
+			};
+
+			return r.Domain(db);
+		}
+
+
+		public override LocalizationText Localization(string lang) => Localization()[lang];
+		
+		public static LocalizationAttribute Localization()
+		{
+			return _localization ?? (_localization = typeof(<#= entity #>).Localization(Domain.DefaultLocalizationTypesSource));
+		}
+		static LocalizationAttribute _localization;
+<#
+			}
+#>
+
+
+		static partial void Config_(Domain.EntityConfiguration<<#= entity #>> entity);
+		public static void Config(Domain.EntityConfiguration<<#= entity #>> entity) => Config_(entity);
+
+	}
+<#
+
+		var hasTypeProp = entity.EntityType.IsAbstract && typeProp.Yes();
+
+
+		if (nameProp.Yes())
+		{
+#>
+
+
+	[Localization(typeof(<#= entity #>))]
+	public class <#= entity #>Reference : INameContainer
+	{
+
+		public string <#= idProp #> { get; set; }
+
+		public string <#= nameProp #> { get; set; }
+<#
+			if (hasTypeProp)
+			{
+#>
+
+		public string _Type { get; set; }
+<#
+			}
+#>
+			
+		public <#= entity #>Reference() { }
+
+		public <#= entity #>Reference(string id, string name)
+		{
+			<#= idProp #> = id;
+			<#= nameProp #> = name;
+		}
+
+		public string GetName() => <#= nameProp #>;
+
+		public static implicit operator bool(<#= entity #>Reference reference)
+		{
+			return reference != null && reference.Id.Yes();
+		}
+
+		public static <#= entity #>Reference operator +(<#= entity #>Reference reference, DbSet<<#= entity #>> set)
+		{
+			if (reference == null) return null;
+			if (set == null) return reference;
+
+			var id = reference.<#= idProp #>;
+
+			reference.<#= nameProp #> = set.Where(a => a.<#= idProp #> == id).Select(a => a.<#= nameProp #>).FirstOrDefault();
+
+
+			return reference;
+		}
+
+		public static <#= entity #>Reference operator +(<#= entity #>Reference reference, Domain db)
+		{
+			if (reference == null) return null;
+			if (db == null) return reference;
+
+			var id = reference.<#= idProp #>;
+
+<#
+			if (hasTypeProp)
+			{
+#>
+			db.<#= entity.EntitySetName #>.Where(a => a.<#= idProp #> == id).Select(a => new { a.<#= nameProp #>, a.<#= typeProp #> }).FirstOrDefault().Do(a =>
+			{
+				reference.<#= nameProp #> = a.<#= nameProp #>;
+				reference._Type = a.<#= typeProp #>.AsString();
+			});
+<#
+			}
+			else
+			{
+#>
+			reference.<#= nameProp #> = db.<#= entity.EntitySetName #>.Where(a => a.<#= idProp #> == id).Select(a => a.<#= nameProp #>).FirstOrDefault();
+<#
+			}
+#>
+
+			return reference;
+		}
+
+		public static implicit operator <#= entity #>Reference(<#= entity #> entity)
+		{
+			return entity == null ? null : new <#= entity #>Reference { <#= idProp #> = entity.<#= idProp #>, <#= nameProp #> = entity.<#= nameProp #> };
+		}
+
+	}
+
+	
+	public static partial class EntityReferenceExtension
+	{
+		public static <#= entity #>Reference OneRef(this IQueryable<<#= entity #>> query)
+		{
+			return query?
+				.Select(a => new <#= entity #>Reference { <#= idProp #> = a.<#= idProp #>, <#= nameProp #> = a.<#= nameProp #> })
+				.FirstOrDefault();
+		}
+	}
+
+<#
+		}
+
+		if (nameProp.Yes())
+		{
+#>
+
+	public partial class <#= entity #>Lookup : INameContainer
+	{
+
+		public string <#= idProp #> { get; set; }
+
+		public string <#= nameProp #> { get; set; }
+<#
+			if (hasTypeProp)
+			{
+#>
+
+		public string _Type { get; set; }
+<#
+			}
+#>
+
+		public string GetName()	=> <#= nameProp #>;
+
+		static partial void SelectAndOrderByName(IQueryable<<#= entity #>> query, ref IEnumerable<<#= entity #>Lookup> lookupList);
+
+		public static IEnumerable<<#= entity #>Lookup> SelectAndOrderByName(IQueryable<<#= entity.EntityType.Name #>> query)
+		{
+			IEnumerable<<#= entity #>Lookup> lookupList = null;
+			SelectAndOrderByName(query, ref lookupList);
+
+			// ReSharper disable once ConstantNullCoalescingCondition
+			return lookupList ?? query
+				.Select(a => new <#= entity #>Lookup { <#= idProp #> = a.<#= idProp #>, <#= nameProp #> = a.<#= nameProp #><#= hasTypeProp ? ", _Type = a." + typeProp + (entity.TypeProperty.PropertyType != typeof(string) ? ".ToString()" : "") : "" #> })
+				.OrderBy(a => a.<#= nameProp #>);
+		}
+
+		public static IEnumerable<<#= entity #>Lookup> DefaultLookup(LookupParams<<#= entity.EntityType.Name #>, <#= entity #>Lookup> p)
+		{
+			return p.GetList(p.Filter.No() ? null : p.Where(a => a.<#= nameProp #>.Contains(p.Filter)));
+		}
+
+	}
+<#
+		}
+#>
+
+	#endregion
+	
+<#
+	}
+
+
+	foreach (var entity in entities.Where(a => a.IsQueryParams))
+	{
+#>
+
+	#region <#= entity #>
+
+	partial class <#= entity #>
+	{ 
+<#
+		foreach (var prop in entity.NavigationProperties.Where(a => a.IsDbMapped && a.CanWrite))
+		{
+#>
+		public string <#= prop.Name #>Id { get; set; }		
+<#
+		}
+
+		var baseType = entity.EntityType.BaseType;
+		if (baseType != null && entity.QueryResultType != null)
+		{
+#>
+		// entity.BaseType: <#= baseType.Name #>
+		// entity.QueryResultType: <#= entity.QueryResultType.Name #>
+<#
+			foreach (var prop in entities.By(entity.QueryResultType).AllDbProperties)
+			{
+
+				if (baseType.GetProperty(prop.Name) != null) continue;
+#>
+
+		public <#= prop.Type.ToCSharp() #> <#= prop.Name #> { get; set; }		
+<#
+			}
+		}
+#>
+	}
+
+	#endregion
+
+<#
+	}
+
+
+	foreach (var entity in entities.Where(a => a.IsQueryResult))
+	{
+#>
+
+	#region <#= entity #>
+
+	partial class <#= entity #>
+	{ 
+		/*
+		[SemanticSetup]
+		public static void SemanticSetup(SemanticSetup<<#= entity #>> sm)
+		{
+			sm.Patterns(( a) => new <#= entity #>
+			{
+<#
+		foreach (var prop in entity.DbProperties)
+		{
+#>
+				<#= prop.Name #> = a.<#= prop.Name #>,
+<#
+		}
+#>
+			});
+		}
+		*/
+	}
+
+	#endregion
+
+<#
+	}
+
+
+	foreach (var entity in entities.Where(a => a.IsDomainAction))
+	{
+#>
+
+	#region <#= entity #>
+
+	partial class <#= entity #>
+	{
+<#
+		foreach (var prop in entity.NavigationProperties.Where(a => a.FieldName.Yes()))
+		{
+#>
+
+		[ForeignKey("<#= prop.Name #>")]
+		public string <#= prop.Name #>Id
+		{ 
+			get { return _<#= prop.Name #>Id; }
+			set 
+			{
+				if (_<#= prop.Name #>Id == value) return;
+				_<#= prop.Name #>Id = value;
+				_<#= prop.Name #> = null;
+			}
+		}
+		private string _<#= prop.Name #>Id;
+
+		public virtual <#= prop.Type.Name #> <#= prop.Name #>
+		{
+			get 
+			{ 
+				return _<#= prop.Name #> ?? (_<#= prop.Name #> = db?.<#= entities.By(prop.Type).EntitySetName #>.ById(<#= prop.Name #>Id)); 
+			}
+			set
+			{
+				_<#= prop.Name #> = value;
+				_<#= prop.Name #>Id = value?.Id;
+			}
+		}
+<#
+		}
+#>
+	}
+
+	#endregion
+
+<#
+	}
+
+	entities = entities.OrderBy(a => a.EntityName).ToArray();
+#>
+
+
+	partial class Domain
+	{
+
+		partial void InitQueries()
+		{
+<#	
+	foreach (var entity in entities.Where(a => a.IsEntityQuery))
+	{
+#>
+			<#= entity.EntitySetName #> = new <#= entity #> { db = this };
+<#
+	}
+#>
+		}
+
+
+		static partial void ConfigEntityInfos_(EntityInfo[] entities)
+		{
+<#	
+	foreach (var entity in entities.Where(a => a.IsEntity))
+	{
+#>
+			<#= entity #>.Config(entities.Config<<#= entity #>>());
+<#
+	}
+#>
+		}
+
+
+		public class DomainModel
+		{
+<#
+	foreach (var entity in entities.Where(a => a.IsEntity))
+	{
+#>
+
+			public EntityTypeConfiguration<<#= entity #>> <#= entity #>;
+<#		
+	}
+#>
+
+
+			public DomainModel(DbModelBuilder mb)
+			{
+<#
+	foreach (var entity in entities.Where(a => a.IsEntity))
+	{
+#>
+				<#= entity #> = mb.Entity<<#= entity #>>();
+<#		
+	}
+#>
+
+<#	
+	foreach (var entity in entities.Where(a => a.IsEntity))
+	{
+		foreach (var prop in entity.DbProperties.Where(a => !a.IsDbMapped))
+		{
+#>
+				<#= entity #>.Ignore(a => a.<#= prop.Name #>);
+<#
+		} 
+	} 
+#>
+
+<#	
+	foreach (var entity in entities.Where(a => a.IsEntity))
+	{
+		foreach (var aprops in entity.Associations)
+		{
+			var navigationProp = aprops.Key;
+			var collectionProp = aprops.Value;
+			var isRequired = navigationProp.Semantic<RequiredAttribute>() != null;
+#>
+				<#= entity #>.Has<#= isRequired ? "Required" : "Optional" #>(a => a.<#= navigationProp.Name #><#= collectionProp.As(a => ", a => a." + a.Name) ?? "" #>);
+<#
+		} 
+	} 
+#>
+
+<#
+	foreach (var entity in entities.Where(a => a.IsEntity || a.IsEntityQuery))
+	{
+		var props = entity.DbProperties.Where(a => a.Type == typeof(Money) && a.MemberCanWrite).ToArray();
+		if (props.No()) continue;
+#>
+				mb.Types<<#= entity #>>().Configure(c =>
+				{
+<#		foreach (var prop in props)
+		{ #>
+					c.Property(a => a.<#= prop.Name #>.Amount).HasColumnName("<#= prop.Name.ToLower() #>_amount");
+					c.Property(a => a.<#= prop.Name #>.CurrencyId).HasColumnName("<#= prop.Name.ToLower() #>_currency");
+<#		} #>
+				});
+<#	} 
+#>
+			}
+		}
+
+	}
+
+}

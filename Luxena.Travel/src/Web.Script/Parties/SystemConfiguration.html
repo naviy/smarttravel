@@ -1,0 +1,170 @@
+<div class="band-wrap">
+	<table class="band-table">
+		<tr>
+			<td class="band-left">
+				<div class="party-header">
+					<h1 class="party-name" data-bind="text: Name" />
+					<!-- ko if: LegalName --><div class="party-legalname" data-bind="text: LegalName" /><!-- /ko -->
+					<!-- ko if: IsCustomer || IsSupplier -->
+					<div class="party-roles">
+						<!-- ko if: IsCustomer --><span>заказчик</span><!-- /ko -->
+						<!-- ko if: IsSupplier --><span>поставщик</span><!-- /ko -->
+					</div>
+					<!-- /ko -->
+				</div>
+
+				<!-- ko if: IsPerson -->
+				<div class="person-employment">
+					<!-- ko if: Title -->
+					<span data-bind="text: Title" />
+					<!-- /ko -->
+					<!-- ko if: Organization -->
+					<!-- ko ifnot: Title -->
+					<span>Сотрудник</span>
+					<!-- /ko -->
+					<a data-bind="view: Organization" />
+					<!-- /ko -->
+				</div>
+				<!-- /ko -->
+
+				<!-- ko if: ReportsTo -->
+				<div class="party-reportsto">
+					<span data-bind="res: 'party_ReportsTo'" /> <a data-bind="view: ReportsTo" />
+				</div>
+				<!-- /ko -->
+
+				<!-- ko if: Note --><div class="party-note" data-bind="text: Note" /><!-- /ko -->
+
+				<div class="tabs-menu">
+					<ul>
+						<li><span data-bind="res: 'balance'" /></li>
+						<li><span data-bind="res: 'party_Files'" /> (<span data-bind="text: Files().length" />)</li>
+						<!-- ko if: IsOrganization -->
+						<li><span data-bind="res: 'organization_Employees'" /> (<span data-bind="text: Employees().length" />)</li>
+						<li><span data-bind="res: 'department_Caption_List'" /> (<span data-bind="text: Departments().length" />)</li>
+						<!-- /ko -->
+					</ul>
+					<div></div>
+				</div>
+
+				<div class="tabs-content">
+					<div class="party-overview">
+						<div><span data-bind="text: TotalBalance" /></div>
+						<!-- ko foreach: UnbalancedOrders -->
+						<div>
+							<a data-bind="view: $data" />
+							<span data-bind="text: Total.Amount" />
+							<span data-bind="text: Paid.Amount" />
+							<span data-bind="text: TotalDue.Amount" />
+						</div>
+						<!-- /ko -->
+					</div>
+					<div class="party-files">
+						<div class="actions">
+							<a href="javascript:void(0)" data-bind="click: AddFile">Добавить файл</a>
+						</div>
+						<!-- ko foreach: Files -->
+						<div class="file">
+							<a href="javascript:void(0)" data-bind="text: FileName, click: $parent.DownloadFile" /> <a href="javascript:void(0)" class="delete-action" data-bind="click: $parent.DeleteFile" />
+							<div>
+								<span data-bind="text: TimeStamp().format('d.m.Y H:i')" /> - <a data-bind="view: UploadedBy" />
+							</div>
+						</div>
+						<!-- /ko -->
+					</div>
+					<!-- ko if: IsOrganization -->
+					<div class="list">
+						<div class="actions">
+							<a href="javascript:void(0)" data-bind="click: AddEmployee">Добавить сотрудника</a>
+						</div>
+						<!-- ko foreach: Employees -->
+						<div class="employee">
+							<a data-bind="view: $data" /><!-- ko if: Title --><span class="employee-title" data-bind="text: ' - ' + Title()" /><!-- /ko -->
+							<!-- ko template: { name: "Party.ListDetail" } --><!-- /ko -->
+						</div>
+						<!-- /ko -->
+					</div>
+					<div class="list">
+						<div class="actions">
+							<a href="javascript:void(0)" data-bind="click: AddDepartment">Добавить подразделение</a>
+						</div>
+						<!-- ko foreach: Departments -->
+						<div class="department">
+							<a data-bind="view: $data" />
+							<!-- ko template: { name: "Party.ListDetail" } --><!-- /ko -->
+						</div>
+						<!-- /ko -->
+					</div>
+					<!-- /ko -->
+				</div>
+			</td>
+			<td class="band-right">
+				<div class="block-header" data-bind="text: InfoTitle" />
+
+				<!-- ko if: IsPerson && Birthday -->
+				<p class="birthday" data-bind="text: Birthday().format('d.m.Y')" />
+				<!-- /ko -->
+
+				<!-- ko template: "Party.Contacts" --><!-- /ko -->
+
+				<!-- ko if: IsOrganization && Code -->
+				<div class="organization-code">
+					<div class="label" data-bind="res: 'organization_Code'" />
+					<span data-bind="text: Code" />
+				</div>
+				<!-- /ko -->
+
+				<!-- ko if: IsPerson -->
+				<!-- ko if: MilesCards() && MilesCards().length -->
+				<div class="miles-cards" data-bind="foreach: MilesCards">
+					<div>
+						<!-- ko if: Organization --><div data-bind="text: Organization.Text" /><!-- /ko -->
+						<div data-bind="text: Number" />
+					</div>
+				</div>
+				<!-- /ko -->
+
+				<!-- ko if: Passports() && Passports().length -->
+				<div class="person-passports" data-bind="foreach: Passports">
+					<div>
+						<div class="pass-number"><!-- ko if: IssuedByCode --><span data-bind="text: IssuedByCode" /><!-- /ko --> <span data-bind="text: Number" /></div>
+						<!-- ko if: ExpiredOn --><div class="pass-expiredon">Действителен до <span data-bind="text: ExpiredOn().format('d.m.Y')" /></div><!-- /ko -->
+						<!-- ko if: Note --><div class="pass-note" data-bind="text: Note" /><!-- /ko -->
+						<div class="pass-details">
+							<div>
+								<span data-bind="text: FirstName" /> <span data-bind="text: MiddleName" /> <span data-bind="text: LastName" />
+							</div>
+							<!-- ko if: Birthday --><div><span data-bind="res: 'passport_Birthday'" />: <span data-bind="text: Birthday().format('d.m.Y')" /></div><!-- /ko -->
+							<!-- ko if: GenderString --><div><span data-bind="res: 'passport_Gender'" />: <span data-bind="text: GenderString" /></div><!-- /ko -->
+							<!-- ko if: Citizenship --><div><span data-bind="res: 'passport_Citizenship'" />: <span data-bind="text: Citizenship.Text" /></div><!-- /ko -->
+						</div>
+						<div class="pass-copy">
+							<a href="javascript:void(0)">Amadeus</a><input readonly="readonly" data-bind="value: AmadeusString" />
+							<a href="javascript:void(0)">Galileo</a><input readonly="readonly" data-bind="value: GalileoString" />
+						</div>
+					</div>
+				</div>
+				<!-- /ko -->
+				<!-- /ko -->
+
+				<!-- ko if: InfoPrompt -->
+				<div class="party-info-prompt">
+					<a href="javascript:void(0)" data-bind="click: Edit">Укажите</a>
+					<!-- ko if: IsPerson -->номера телефонов, адреса, мильные карты, паспорта<!-- /ko -->
+					<!-- ko if: IsOrganization -->номера телефонов, адреса, код предприятия<!-- /ko -->
+					<!-- ko if: IsDepartment -->номера телефонов, адреса<!-- /ko -->
+					и они будут здесь отображаться
+				</div>
+				<!-- /ko -->
+
+				<!-- ko ifnot: IsOrganization -->
+				<!-- ko if: Organization -->
+				<div class="block-header party-organization" data-bind="res: 'organizationView_Info'" />
+				<a data-bind="view: Organization" />
+				<!-- ko template: { name: "Party.Contacts", data: Organization } --><!-- /ko -->
+				<!-- /ko -->
+				<!-- /ko -->
+			</td>
+		</tr>
+	</table>
+</div>

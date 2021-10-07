@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="urn:rsa_key" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="urn:rsa_key" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="urn:rsa_key">
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <xsd:import namespace="http://schemas.xmlsoap.org/wsdl/" />
+      <xsd:complexType name="changeKeyToken">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute wsdl:arrayType="tns:changeKeyToken[]" ref="SOAP-ENC:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="loginRequest">
+    <wsdl:part name="terminal" type="xsd:string" />
+    <wsdl:part name="login" type="xsd:string" />
+    <wsdl:part name="password" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="loginResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="logoutRequest">
+    <wsdl:part name="session_id" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="logoutResponse" />
+  <wsdl:message name="login_tokenRequest">
+    <wsdl:part name="terminal" type="xsd:string" />
+    <wsdl:part name="token" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="login_tokenResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="get_new_tokenRequest">
+    <wsdl:part name="terminal" type="xsd:string" />
+    <wsdl:part name="old_token" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="get_new_tokenResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="changeKeyTokenRequest">
+    <wsdl:part name="SessionId" type="xsd:string" />
+    <wsdl:part name="OldKey" type="xsd:string" />
+    <wsdl:part name="NewKey" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="changeKeyTokenResponse">
+    <wsdl:part name="message" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:portType name="rsa_keyPortType">
+    <wsdl:operation name="login">
+      <documentation>Deprecated. Do not use</documentation>
+      <wsdl:input message="tns:loginRequest" />
+      <wsdl:output message="tns:loginResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="logout">
+      <documentation>Removes session</documentation>
+      <wsdl:input message="tns:logoutRequest" />
+      <wsdl:output message="tns:logoutResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="login_token">
+      <documentation>Returns session id</documentation>
+      <wsdl:input message="tns:login_tokenRequest" />
+      <wsdl:output message="tns:login_tokenResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="get_new_token">
+      <documentation>Return new token</documentation>
+      <wsdl:input message="tns:get_new_tokenRequest" />
+      <wsdl:output message="tns:get_new_tokenResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="changeKeyToken">
+      <documentation>Return result for process changing RSA key</documentation>
+      <wsdl:input message="tns:changeKeyTokenRequest" />
+      <wsdl:output message="tns:changeKeyTokenResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="rsa_keyBinding" type="tns:rsa_keyPortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <wsdl:operation name="login">
+      <soap:operation soapAction="urn:rsa_key#login" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:rsa_key" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:rsa_key" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="logout">
+      <soap:operation soapAction="urn:rsa_key#logout" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:rsa_key" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:rsa_key" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="login_token">
+      <soap:operation soapAction="urn:rsa_key#login_token" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:rsa_key" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:rsa_key" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="get_new_token">
+      <soap:operation soapAction="urn:rsa_key#get_new_token" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:rsa_key" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:rsa_key" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="changeKeyToken">
+      <soap:operation soapAction="urn:rsa_key#changeKeyToken" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:rsa_key" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:rsa_key" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="rsa_key">
+    <wsdl:port name="rsa_keyPort" binding="tns:rsa_keyBinding">
+      <soap:address location="https://webservices.bmp.viaamadeus.com:443/rsa_key.php" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,65 @@
+﻿* {
+	margin: 0;
+	padding: 0;
+}
+
+html, body {
+	height: 100%;
+}
+
+body {
+	border: none;
+	font-family: "Trebuchet MS", Arial, Helvetica, Sans-Serif;
+	font-size: 12pt;
+}
+
+input {
+	font-family: "Trebuchet MS", Arial, Helvetica, Sans-Serif;
+	font-size: 12pt;
+	padding: 1px 1px;
+}
+
+#content {
+	width: 608px;
+	height: 290px;
+	background: url(img/login.gif) no-repeat top left;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -220px;
+	margin-left: -380px;
+}
+
+form {
+	margin: 91px 0 0 233px;
+	width: 293px;
+}
+
+form div {
+	padding: 13px 10px 0;
+}
+
+form div label {
+	display: inline-block;
+	width: 120px;
+	text-align: right;
+	margin-right: 5px;
+	padding: 1px 0;
+}
+
+#UserName, #Password {
+	width: 140px;
+	outline: none !important;
+}
+
+#submit {
+	margin: 15px 0 0 135px;
+	padding: 0 10px;
+}
+
+.field-validation-error
+{
+	display: block;
+	margin: 30px 10px 0 10px;
+	color: red;
+}
