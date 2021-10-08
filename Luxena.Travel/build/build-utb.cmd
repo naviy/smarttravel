@@ -1,2 +1,0 @@
-cd ..
-build.cmd utb

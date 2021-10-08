@@ -1,1 +1,0 @@
-_get-diff2 persey %1

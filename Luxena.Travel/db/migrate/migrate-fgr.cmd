@@ -1,1 +1,0 @@
-_migrate.cmd fgr %*

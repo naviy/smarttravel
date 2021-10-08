@@ -1,1 +1,0 @@
-_get-diff2 merci %1

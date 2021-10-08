@@ -1,1 +1,0 @@
-@java -jar D:\data\luxena-ua\Projects\Luxena.Travel\Implementation\Database\diff\tools\apgdiff-2.4.jar %*

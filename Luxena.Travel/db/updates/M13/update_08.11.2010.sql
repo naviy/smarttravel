@@ -1,1 +1,0 @@
-ALTER TABLE lt_user CHANGE isreporter iscashier tinyint(1) NOT NULL
