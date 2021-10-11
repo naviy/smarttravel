@@ -128,8 +128,8 @@ namespace Luxena.Travel
 					.fields(new string[] { "number", "name" })
 					.data(new object[]
 					{
-						new object[] { 1, "Форма 1" },
-						new object[] { 2, "Форма 2" }
+						new object[] { 1, "XP в позициях (форма 1)" },
+						new object[] { 2, "XP скрыт (форма 2)" }
 					})
 					.ToDictionary()
 				))

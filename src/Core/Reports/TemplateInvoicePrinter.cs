@@ -28,6 +28,13 @@ namespace Luxena.Travel.Reports
 
 		public Domain.Domain db { get; set; }
 
+
+
+		public string TemplateFileName1 { get; set; }
+
+		public string TemplateFileName2 { get; set; }
+
+
 		public int FormNumber { get; set; }
 
 		public string ServiceFeeTitle { get; set; }
@@ -44,13 +51,14 @@ namespace Luxena.Travel.Reports
 			DateTime issueDate,
 			Person issuedBy,
 			int? formNumber,
-			bool showPaid
+			bool showPaid, 
+			out string fileExtension
 		)
 		{
 
 			var stream = (formNumber ?? FormNumber) == 2 
-				? GetStream2(order, number, issueDate, issuedBy, showPaid) 
-				: GetStream1(order, number, issueDate, issuedBy, showPaid)
+				? GetStream2(order, number, issueDate, issuedBy, showPaid, out fileExtension) 
+				: GetStream1(order, number, issueDate, issuedBy, showPaid, out fileExtension)
 			;
 
 			return stream.ToBytes();
@@ -59,7 +67,7 @@ namespace Luxena.Travel.Reports
 
 
 
-		private Stream GetStream1(Order order, string number, DateTime issueDate, Person issuedBy, bool showPaid)
+		private Stream GetStream1(Order order, string number, DateTime issueDate, Person issuedBy, bool showPaid, out string fileExtension)
 		{
 
 			var pos = 1;
@@ -138,13 +146,17 @@ namespace Luxena.Travel.Reports
 
 
 
-			return Build(TemplateFileName ?? "~/static/reports/InvoiceTemplate1.xlsx", data);
+			return Build(
+				TemplateFileName1 ?? TemplateFileName ?? "~/static/reports/InvoiceTemplate1.xlsx", 
+				data,
+				out fileExtension
+			);
 
 		}
 
 
 
-		private Stream GetStream2(Order order, string number, DateTime issueDate, Person issuedBy, bool showPaid)
+		private Stream GetStream2(Order order, string number, DateTime issueDate, Person issuedBy, bool showPaid, out string fileExtension)
 		{
 
 			var pos = 1;
@@ -191,6 +203,10 @@ namespace Luxena.Travel.Reports
 
 						var vat = orderHasVat ? Math.Round(serviceFee * vatRate / (1 + vatRate), 2) : 0;
 
+
+						var grandTotal = a.Product?.GrandTotal.AsAmount() ?? a.GrandTotal.AsAmount();
+
+
 						return new
 						{
 							Position = pos++,
@@ -201,7 +217,8 @@ namespace Luxena.Travel.Reports
 							ServiceFee0 = (serviceFee - vat).If(b => b != 0),
 							Vat = vat.If(b => b != 0),
 							ServiceFee = serviceFee.If(b => b != 0),
-							GrandTotal = a.Product?.GrandTotal.AsAmount() ?? a.GrandTotal.AsAmount(),
+							GrandTotal = grandTotal,
+							GrandTotal2 = grandTotal, // у шаблонизатора проблемы с использованием одинаковых полей
 						};
 					})
 					.ToArray()
@@ -237,7 +254,11 @@ namespace Luxena.Travel.Reports
 
 
 
-			return Build(TemplateFileName ?? "~/static/reports/InvoiceTemplate2.xlsx", data);
+			return Build(
+				TemplateFileName2 ?? TemplateFileName ?? "~/static/reports/InvoiceTemplate2.xlsx", 
+				data, 
+				out fileExtension
+			);
 
 		}
 

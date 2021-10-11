@@ -659,6 +659,18 @@ update lt_order o set
 	}
 
 
+	[Migration(2021101101)]
+	public class Migration_2021101101 : AutoReversingMigration
+	{
+		public override void Up()
+		{
+			Alter.Table("lt_invoice")
+				.AddColumn("fileextension").AsString(8).Nullable()
+			;
+		}
+	}
+
+
 
 
 }

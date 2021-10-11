@@ -78,26 +78,42 @@ namespace Luxena.Travel
 							},
 							null);
 					}))
-				.ToDictionary());
+				.ToDictionary()
+			);
+
 
 			QuickReceipt = new Action(new ActionConfig()
+
 				.text(Res.QuickReceipt_Action)
+
 				.handler(new AnonymousDelegate(delegate
 				{
+
 					QuickReceiptEditForm form = new QuickReceiptEditForm();
 
 					form.Saved += delegate(object arg)
 					{
+
 						QuickReceiptResponse result = (QuickReceiptResponse) arg;
 
 						FormsRegistry.ViewObject(ClassNames.Order, result.Order.Id);
 
-						ReportPrinter.GetOrderDocument(result.Receipt.Id, result.Receipt.Name, InvoiceType.Receipt);
+						ReportPrinter.GetOrderDocument(
+							result.Receipt.Id, 
+							result.Receipt.Name, 
+							InvoiceType.Receipt, 
+							null
+						);
+
 					};
 
 					form.Open();
+
 				}))
-				.ToDictionary());
+
+				.ToDictionary()
+			);
+
 
 			NewTask = new Action(new ActionConfig()
 				.text(Res.NewTask_Action)

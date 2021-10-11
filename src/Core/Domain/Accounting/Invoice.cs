@@ -5,13 +5,28 @@ using Luxena.Base.Metamodel;
 using Luxena.Domain;
 
 
+
+
 namespace Luxena.Travel.Domain
 {
+
+
+
+	//===g
+
+
+
+
+
 
 	[RU("Счет/квитанция", "Счета/квитанции")]
 	[SupervisorPrivileges(List2 = UserRole.Agent, Delete2 = UserRole.Agent)]
 	public partial class Invoice : Entity
 	{
+
+		//---g
+
+
 
 		[Patterns.Number, EntityName]
 		public virtual string Number { get; set; }
@@ -72,8 +87,32 @@ namespace Luxena.Travel.Domain
 		[Patterns.Vat]
 		public virtual Money Vat { get; set; }
 
+		
+		[RU("Формат файла")]
+		[Hidden(true)]
+		public virtual string FileExtension { get; set; }
+
+
+
+		//---g
+
+
 
 		public override string ToString() => Number;
+
+
+
+		//---g
+
 	}
+
+
+
+
+
+
+	//===g
+
+
 
 }

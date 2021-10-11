@@ -3,12 +3,17 @@ using System.Collections.Generic;
 using Luxena.Base.Data;
 using Luxena.Base.Serialization;
 
+
+
 namespace Luxena.Travel.Domain
 {
+
+
 
 	[DataContract]
 	public class AppParameters
 	{
+
 		public EntityReference UserPerson { get; set; }
 
 		public EntityReference CurrentUser { get; set; }
@@ -24,6 +29,12 @@ namespace Luxena.Travel.Domain
 		public BankAccount.Reference[] BankAccounts { get; set; }
 
 		public string Version { get; set; }
+
+
+		//public string InvoiceFileExtension { get; set; }
+
 	}
+
+
 
 }

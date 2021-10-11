@@ -33,7 +33,8 @@ namespace Luxena.Travel.Reports
 			DateTime issueDate,
 			Person issuedBy,
 			int? formNumber,
-			bool showPaid
+			bool showPaid, 
+			out string fileExtension
 		);
 
 

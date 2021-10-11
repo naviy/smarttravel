@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -35,11 +36,15 @@ namespace Luxena.Travel.Services
 
 		public Domain.Domain db { get; set; }
 
+
 		public string Key { get; set; }
 
-		public string Robots { get { return GlobalRobots; } set { GlobalRobots = value; } }
+		public string Robots { get => GlobalRobots; set => GlobalRobots = value; }
 
 		public static string GlobalRobots { get; set; }
+
+
+		public List<GdsFileTaskReimport> Reimports { get; set; }
 
 
 
@@ -84,7 +89,15 @@ namespace Luxena.Travel.Services
 					try
 					{
 						_log.Info($"Import DRCT-file {file.Name}...");
-						db.GdsFile.AddFile(file);
+
+
+						var reimport = Reimports.By(a => file.Content.Contains(a.OfficeCode));
+
+						if (reimport != null)
+							file.SaveToInboxFolder(reimport.InboxPath);
+						else
+							db.GdsFile.AddFile(file);
+
 					}
 					catch (Exception ex)
 					{
@@ -124,6 +137,8 @@ namespace Luxena.Travel.Services
 				+ $"&date_to={importDate.AddDays(1):yyyy-MM-dd}"
 			;
 
+			// https://api.drct.aero/reporting/tickets?date_from=20211007&date_to=20211008
+
 			var request = WebRequest.Create(url) as HttpWebRequest;
 
 			if (request == null)
@@ -135,7 +150,13 @@ namespace Luxena.Travel.Services
 
 
 			//ServicePointManager.Expect100Continue = true; 
-			ServicePointManager.SecurityProtocol = SecurityProtocolType.Ssl3 | SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
+			ServicePointManager.SecurityProtocol = 
+				SecurityProtocolType.Ssl3 |
+				SecurityProtocolType.Tls |
+				SecurityProtocolType.Tls11 | 
+				SecurityProtocolType.Tls12 //|
+				//SecurityProtocolType.Tls13
+			;
 
 
 			var response = request.GetResponse() as HttpWebResponse;

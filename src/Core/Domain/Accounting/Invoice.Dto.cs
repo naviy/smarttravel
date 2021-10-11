@@ -3,8 +3,19 @@
 using Luxena.Domain.Contracts;
 
 
+
+
 namespace Luxena.Travel.Domain
 {
+
+
+
+	//===g
+
+
+
+
+
 
 	public partial class InvoiceDto : EntityContract
 	{
@@ -25,11 +36,29 @@ namespace Luxena.Travel.Domain
 
 		public InvoiceType Type { get; set; }
 
+		public string FileExtension { get; set; }
+
 	}
+
+
+
+
+
+
+	//===g
+
+
+
+
 
 
 	public partial class InvoiceContractService : EntityContractService<Invoice, Invoice.Service, InvoiceDto>
 	{
+
+		//---g
+
+
+
 		public InvoiceContractService()
 		{
 			ContractFromEntity += (r, c) =>
@@ -42,6 +71,7 @@ namespace Luxena.Travel.Domain
 				c.Total = r.Total;
 				c.Vat = r.Vat;
 				c.Type = r.Type;
+				c.FileExtension = r.FileExtension;
 			};
 
 			EntityFromContract += (r, c) =>
@@ -53,7 +83,9 @@ namespace Luxena.Travel.Domain
 				r.Total = c.Total + db;
 				r.Vat = c.Vat + db;
 				r.Type = c.Type + db;
+				r.FileExtension = c.FileExtension + db;
 			};
+
 		}
 
 
@@ -92,6 +124,19 @@ namespace Luxena.Travel.Domain
 			return New(r);
 		}
 
+
+
+		//---g
+
 	}
+
+
+
+
+
+
+	//===g
+
+
 
 }

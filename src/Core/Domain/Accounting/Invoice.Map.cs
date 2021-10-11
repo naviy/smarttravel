@@ -4,10 +4,16 @@ using Luxena.Base.Data.NHibernate.Type;
 using NHibernate.Mapping.ByCode.Conformist;
 
 
+
+
 namespace Luxena.Travel.Domain.Accounting
 {
+
+
+
 	public class InvoiceMap : ClassMapping<Invoice>
 	{
+
 		public InvoiceMap()
 		{
 			Id(x => x.Id, Uuid.Mapping);
@@ -27,6 +33,12 @@ namespace Luxena.Travel.Domain.Accounting
 
 			Component(x => x.Total);
 			Component(x => x.Vat);
+
+			Property(x => x.FileExtension);
 		}
+
 	}
+
+
+
 }

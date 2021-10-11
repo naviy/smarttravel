@@ -4131,7 +4131,7 @@ Luxena.Travel.InvoiceIssueForm.prototype = {
             this._number$1 = new Ext.form.ComboBox(new Ext.form.ComboBoxConfig().fieldLabel(Luxena.Travel.DomainRes.common_Number).store(new Ext.data.ArrayStore(new Ext.data.ArrayStoreConfig().data(data).fields([ 'number' ]).toDictionary())).mode('local').displayField('number').valueField('number').tpl(new Ext.XTemplate("<tpl for=\".\"><div class='x-combo-list-item invoice-reissue-action'>" + Luxena.Travel.Res.invoice_Reissue + '{number}</div></tpl>')).emptyText(Luxena.Travel.Res.auto).emptyClass('auto-text').width(170).toDictionary());
         }
         this._showPayments$1 = new Ext.form.Checkbox(new Ext.form.CheckboxConfig().boxLabel(Luxena.Travel.Res.invoiceIssueForm_ShowPaid).toDictionary());
-        this._formNumber$1 = new Ext.form.ComboBox(new Ext.form.ComboBoxConfig().fieldLabel('\u0424\u043e\u0440\u043c\u0430 \u0441\u0447\u0451\u0442\u0430').store(new Ext.data.ArrayStore(new Ext.data.ArrayStoreConfig().fields([ 'number', 'name' ]).data([ [ 1, '\u0424\u043e\u0440\u043c\u0430 1' ], [ 2, '\u0424\u043e\u0440\u043c\u0430 2' ] ]).toDictionary())).mode('local').displayField('name').valueField('number').triggerAction('all').selectOnFocus(true).editable(false).emptyText('\u043f\u043e \u0443\u043c\u043e\u043b\u0447\u0430\u043d\u0438\u044e').emptyClass('auto-text').width(170).toDictionary());
+        this._formNumber$1 = new Ext.form.ComboBox(new Ext.form.ComboBoxConfig().fieldLabel('\u0424\u043e\u0440\u043c\u0430 \u0441\u0447\u0451\u0442\u0430').store(new Ext.data.ArrayStore(new Ext.data.ArrayStoreConfig().fields([ 'number', 'name' ]).data([ [ 1, 'XP \u0432 \u043f\u043e\u0437\u0438\u0446\u0438\u044f\u0445 (\u0444\u043e\u0440\u043c\u0430 1)' ], [ 2, 'XP \u0441\u043a\u0440\u044b\u0442 (\u0444\u043e\u0440\u043c\u0430 2)' ] ]).toDictionary())).mode('local').displayField('name').valueField('number').triggerAction('all').selectOnFocus(true).editable(false).emptyText('\u043f\u043e \u0443\u043c\u043e\u043b\u0447\u0430\u043d\u0438\u044e').emptyClass('auto-text').width(170).toDictionary());
         var fields = [ this._issueDate$1, this._number$1, this._formNumber$1, this._showPayments$1 ];
         this.get_form().add(fields);
         var list = [];
@@ -5290,7 +5290,7 @@ Luxena.Travel.OrderViewForm.prototype = {
             var invoice = $enum1.current;
             container.append($("<div class='issued-invoice'></div>").data('invoice', invoice).append($("<span class='invoice-link'></span>").html(invoice.Number).click(function(e) {
                 var dto = $(e.target).parent().data('invoice');
-                Luxena.Travel.ReportPrinter.getOrderDocument(dto.Id, dto.Number, dto.Type);
+                Luxena.Travel.ReportPrinter.getOrderDocument(dto.Id, dto.Number, dto.Type, dto.FileExtension);
             })).append(String.format(Luxena.Travel.Res.orderView_IssuedInvoice_Html, invoice.IssueDate.format('d.m.y'), Luxena.Travel.MoneyDto.toMoneyFullString(invoice.Total))).append($("<a href='javascript:void(0)' class='delete-action'></a>").click(function(e) {
                 var parent = $(e.target).parent();
                 var dto = parent.data('invoice');
@@ -5361,7 +5361,7 @@ Luxena.Travel.OrderViewForm.prototype = {
         list.addRange(this.get__order$7().Invoices);
         this.get__order$7().Invoices = list;
         this._orderProperties$7.loadInstance(this.get__order$7());
-        Luxena.Travel.ReportPrinter.getOrderDocument(invoice.Id, invoice.Number, invoice.Type);
+        Luxena.Travel.ReportPrinter.getOrderDocument(invoice.Id, invoice.Number, invoice.Type, invoice.FileExtension);
     },
     
     _createPayment$7: function Luxena_Travel_OrderViewForm$_createPayment$7(type) {
@@ -12266,8 +12266,8 @@ Luxena.Travel.OrderGridView.prototype = {
 
 Luxena.Travel.ReportPrinter = function Luxena_Travel_ReportPrinter() {
 }
-Luxena.Travel.ReportPrinter.getOrderDocument = function Luxena_Travel_ReportPrinter$getOrderDocument(invoiceId, number, type) {
-    LxnBase.UI.AutoControls.ReportLoader.load(String.format('files/invoice/{0}_{1}.xls', type.toString(), number), { invoice: invoiceId });
+Luxena.Travel.ReportPrinter.getOrderDocument = function Luxena_Travel_ReportPrinter$getOrderDocument(invoiceId, number, type, fileExtension) {
+    LxnBase.UI.AutoControls.ReportLoader.load(String.format('files/invoice/{0}_{1}.{2}', type.toString(), number, fileExtension || 'xls'), { invoice: invoiceId });
 }
 Luxena.Travel.ReportPrinter.getCashOrder = function Luxena_Travel_ReportPrinter$getCashOrder(paymentId, number) {
     LxnBase.UI.AutoControls.ReportLoader.load(String.format('files/payment/CashOrder_{0}.xls', number), { payment: paymentId });
@@ -13234,6 +13234,9 @@ Luxena.Travel.ServerEvents.prototype = {
 // Luxena.Travel.AppManager
 
 Luxena.Travel.AppManager = function Luxena_Travel_AppManager() {
+}
+Luxena.Travel.AppManager.get_appParameters = function Luxena_Travel_AppManager$get_appParameters() {
+    return Luxena.Travel.AppManager._appParameters;
 }
 Luxena.Travel.AppManager.get_systemConfiguration = function Luxena_Travel_AppManager$get_systemConfiguration() {
     return Luxena.Travel.AppManager._appParameters.SystemConfiguration;
@@ -14652,7 +14655,8 @@ Luxena.Travel.InvoiceDto.prototype = {
     TimeStamp: null,
     IssuedBy: null,
     Total: null,
-    Type: 0
+    Type: 0,
+    FileExtension: null
 }
 
 
@@ -15546,7 +15550,7 @@ Luxena.Travel.AppActions.init = function Luxena_Travel_AppActions$init() {
         form.add_saved(function(arg) {
             var result = arg;
             LxnBase.UI.FormsRegistry.viewObject('Order', result.Order.Id);
-            Luxena.Travel.ReportPrinter.getOrderDocument(result.Receipt.Id, result.Receipt.Name, 1);
+            Luxena.Travel.ReportPrinter.getOrderDocument(result.Receipt.Id, result.Receipt.Name, 1, null);
         });
         form.open();
     }).toDictionary());

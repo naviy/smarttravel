@@ -7,10 +7,16 @@ using LxnBase.UI.AutoControls;
 using jQueryApi;
 
 
+
+
 namespace Luxena.Travel
 {
+
+
+
 	public class ReportProvider : IReportProvider
 	{
+
 		public ReportProvider()
 		{
 			jQuery.OnDocumentReady(delegate
@@ -21,8 +27,11 @@ namespace Luxena.Travel
 			});
 		}
 
+
+
 		public void LoadReport(string url, Dictionary parameters)
 		{
+
 			url = Window.Location.Pathname + url.EncodeUri();
 
 			jQueryObject form = jQuery.FromHtml("<form action='" + url + "' method='post'></form>");
@@ -30,17 +39,27 @@ namespace Luxena.Travel
 			if (Script.IsValue(parameters))
 			{
 				foreach (DictionaryEntry entry in parameters)
+				{
 					jQuery.FromHtml("<input type='hidden' name='" + entry.Key + "' />")
 						.Value((string)entry.Value)
 						.AppendTo(form);
+				}
 			}
+
 
 			form.AppendTo(((IFrameElement) _frames[++_current % _frames.Length]).ContentWindow.Document.Body);
 
 			form.Submit().Remove();
+
 		}
+
+
 
 		private jQueryObject _frames;
 		private int _current;
+
 	}
+
+
+
 }

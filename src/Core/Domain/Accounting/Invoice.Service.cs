@@ -108,6 +108,7 @@ namespace Luxena.Travel.Domain
 
 				db.AssertUpdate(order);
 
+
 				if (number.No())
 				{
 					if (db.Configuration.Invoice_NumberMode == InvoiceNumberMode.ByOrderNumber)
@@ -127,13 +128,14 @@ namespace Luxena.Travel.Domain
 					}
 				}
 
+
 				var issuedBy = db.Security.Person;
 
 
 				var printer = db.Resolve<IInvoicePrinter>() ?? new InvoicePrinter { db = db };
 
 				var content = printer.Build(
-					order, number, issueDate, issuedBy, formNumber, showPaid
+					order, number, issueDate, issuedBy, formNumber, showPaid, out var fileExtension
 				);
 
 
@@ -147,6 +149,7 @@ namespace Luxena.Travel.Domain
 					IssuedBy = issuedBy,
 					Total = order.TotalDue.Clone(),
 					Vat = order.VatDue.Clone(),
+					FileExtension = fileExtension,
 				};
 
 

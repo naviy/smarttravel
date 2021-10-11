@@ -11,9 +11,8 @@ using Common.Logging;
 
 using Luxena.Travel.Domain;
 
-using NHibernate.Util;
-
 using static System.Net.WebRequestMethods;
+
 
 
 
@@ -21,10 +20,25 @@ namespace Luxena.Travel.Services
 {
 
 
+
+	//===g
+
+
+
+
+
+
 	public class GdsFileTask<TGdsFile> : ITask
 		where TGdsFile : GdsFile, new()
 	{
 
+		//---g
+
+
+		
+		public Domain.Domain db { get; set; }       
+		
+		
 		//bool ITask.IsStarted { get; set; }
 
 		public AccessMode AccessMode { get; set; }
@@ -50,7 +64,6 @@ namespace Luxena.Travel.Services
 
 		public string[] ReplicationUrls { get; set; }
 
-		public Domain.Domain db { get; set; }
 
 		public PrintImportService PrintImportService { get; set; }
 
@@ -58,10 +71,27 @@ namespace Luxena.Travel.Services
 		public List<GdsFileTaskReimport> Reimports { get; set; }
 
 
+
+		//---g
+
+
+
+		private readonly ILog _log = LogManager.GetLogger("Luxena.Travel.Services." + typeof(TGdsFile).Name + "Task");
+
+		private static readonly CultureInfo _culture = CultureInfo.GetCultureInfo("en-US");
+
+
+
+		//---g
+
+
+
 		public void Execute()
 		{
 			CheckNewFiles();
 		}
+
+
 
 		private void CheckNewFiles()
 		{
@@ -81,25 +111,35 @@ namespace Luxena.Travel.Services
 		}
 
 
+
 		private void ImportFiles()
 		{
+
 			var files = GetFileList();
+
 
 			foreach (var file in files)
 			{
+
 				try
 				{
+
 					file.Do((TktFile a) =>
 					{
 						a.OfficeCode = OfficeCode;
 						a.OfficeIata = OfficeIata;
 					});
 
+
 					_log.Info($"Import file {file.Name}...");
 					_log.Debug("\tLoad file content...");
 
+
 					LoadFileContent(file);
-					if (file.Content.No()) continue;
+					
+					if (file.Content.No()) 
+						continue;
+
 
 					var reimport = Reimports.By(a => file.Content.Contains(a.OfficeCode));
 
@@ -108,28 +148,37 @@ namespace Luxena.Travel.Services
 					else
 						db.GdsFile.AddFile(file);
 
+
 					if (ArchiveFolder.Yes())
 					{
 						using (var streamWriter = new StreamWriter(Path.Combine(ArchiveFolder.ResolvePath(), file.Name)))
 							streamWriter.Write(file.Content);
 					}
 
+
 					DeleteFile(file.Name);
+
 				}
 				catch (Exception ex)
 				{
 					_log.Error(ex);
 				}
+
 			}
+
 		}
+
 
 
 		private void ImportPrintFiles()
 		{
+
 			if (!Directory.Exists(LocalPath))
 				return;
 
+
 			foreach (var filePath in Directory.GetFiles(LocalPath))
+			{
 				try
 				{
 					_log.Info($"Import file {Path.GetFileName(filePath)}...");
@@ -142,14 +191,19 @@ namespace Luxena.Travel.Services
 				{
 					_log.Error(ex);
 				}
+			}
+
 		}
+
 
 
 		private IEnumerable<TGdsFile> GetFileList()
 		{
+
 			_log.Debug("Get file list...");
 
 			var files = new List<TGdsFile>();
+
 
 			if (AccessMode == AccessMode.Remote)
 			{
@@ -187,15 +241,20 @@ namespace Luxena.Travel.Services
 				}
 			}
 
+
 			return files;
+
 		}
+
 
 
 		private FtpWebResponse CreateFtpResponse(string uri, string method)
 		{
+
 			var request = (FtpWebRequest)WebRequest.Create(uri);
 			request.EnableSsl = EnableSsl;
 			request.Method = method;
+
 
 			if (UseProxy)
 			{
@@ -210,13 +269,18 @@ namespace Luxena.Travel.Services
 				request.Proxy = proxy;
 			}
 
+
 			return (FtpWebResponse)request.GetResponse();
+
 		}
+
 
 
 		private static TGdsFile ParseFileInfo(string ftpListLine)
 		{
+
 			var fileListStyle = GetFileListStyle(ftpListLine);
+
 
 			switch (fileListStyle)
 			{
@@ -227,32 +291,46 @@ namespace Luxena.Travel.Services
 					return ParseUnixFileInfo(ftpListLine);
 			}
 
+
 			throw new FormatException("Directory list is in unknown format");
+
 		}
+
 
 
 		private static FileListStyle GetFileListStyle(string ftpListLine)
 		{
+
 			if (Regex.IsMatch(ftpListLine, "^[-d][-rwxs]{9}.*$"))
 				return FileListStyle.Unix;
+
 
 			if (Regex.IsMatch(ftpListLine, @"^\d{2}-\d{2}-\d{2}.*$"))
 				return FileListStyle.Windows;
 
+
 			return FileListStyle.Unknown;
+
 		}
 
 
+
 		private static TGdsFile ParseWindowsFileInfo(string ftpListLine)
-			=> new TGdsFile
+		{
+
+			return new TGdsFile
 			{
 				Name = ftpListLine.Substring(39),
 				TimeStamp = DateTime.Parse(ftpListLine.Substring(0, 17), _culture)
 			};
 
+		}
+
+
 
 		private static TGdsFile ParseUnixFileInfo(string ftpListLine)
 		{
+
 			const string pattern = @"^(?<dir>[\-ld])(?<permission>([\-r][\-w][\-xs]){3})\s+(?<filecode>\d+)\s+(?<owner>\w+)\s+(?<group>\w+)\s+(?<size>\d+)\s+(?<timestamp>((?<month>\w{3})\s+(?<day>\d{1,2})\s+(?<hour>\d{1,2}):(?<minute>\d{2}))|((?<month>\w{3})\s+(?<day>\d{1,2})\s+(?<year>\d{4})))\s+(?<name>.+)$";
 
 			var regex = new Regex(pattern);
@@ -269,10 +347,12 @@ namespace Luxena.Travel.Services
 			var minute = match.Groups["minute"].Value;
 			var name = match.Groups["name"].Value;
 
+
 			var timestamp = DateTime.ParseExact($"{month} {day} {hour}:{minute}", "MMM d HH:mm", _culture);
 
 			if (timestamp.Date > DateTime.Today)
 				timestamp = timestamp.AddYears(-1);
+
 
 			var gdsFile = (TGdsFile)Activator.CreateInstance(typeof(TGdsFile));
 
@@ -280,11 +360,14 @@ namespace Luxena.Travel.Services
 			gdsFile.TimeStamp = timestamp;
 
 			return gdsFile;
+
 		}
+
 
 
 		private void LoadFileContent(GdsFile file)
 		{
+
 			if (AccessMode == AccessMode.Remote)
 			{
 				using (var response = CreateFtpResponse($"{Uri}/{file.Name}", Ftp.DownloadFile))
@@ -301,11 +384,14 @@ namespace Luxena.Travel.Services
 				using (var stream = new StreamReader(Path.Combine(LocalPath, file.Name)))
 					file.Content = stream.ReadToEnd();
 			}
+
 		}
+
 
 
 		private void DeleteFile(string fileName)
 		{
+
 			_log.Debug($"\nDeleting file {fileName}...");
 
 			if (AccessMode == AccessMode.Remote)
@@ -321,7 +407,10 @@ namespace Luxena.Travel.Services
 			}
 
 			_log.Debug($"\nFile {fileName} deleted");
+
 		}
+
+
 
 
 		private enum FileListStyle
@@ -332,10 +421,21 @@ namespace Luxena.Travel.Services
 		}
 
 
-		private readonly ILog _log = LogManager.GetLogger("Luxena.Travel.Services." + typeof(TGdsFile).Name + "Task");
 
-		private static readonly CultureInfo _culture = CultureInfo.GetCultureInfo("en-US");
+
+		//---g
+
 	}
+
+
+
+
+
+
+	//===g
+
+
+
 
 
 
@@ -347,11 +447,23 @@ namespace Luxena.Travel.Services
 
 
 
+
+
+
 	[Convertible]
 	public class GdsFileTaskReimport
 	{
 		public string OfficeCode { get; set; }
 		public string InboxPath { get; set; }
 	}
+
+
+
+
+
+
+	//===g
+
+
 
 }

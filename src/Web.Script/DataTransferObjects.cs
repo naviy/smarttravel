@@ -412,6 +412,9 @@ namespace Luxena.Travel
 		[PreserveCase()]
 		public OperationPermissions Permissions;
 	}
+
+
+
 	
 	public partial class InvoiceDto
 	{
@@ -436,8 +439,15 @@ namespace Luxena.Travel
 		
 		[PreserveCase()]
 		public InvoiceType Type;
+
+		[PreserveCase()]
+		public string FileExtension;
+
 	}
-	
+
+
+
+
 	public enum PeriodState
 	{
 		
@@ -1699,6 +1709,9 @@ namespace Luxena.Travel
 		[PreserveCase()]
 		public bool Ticket_NoPrintReservations;
 	}
+
+
+
 	
 	public partial class AppParameters
 	{
@@ -1726,8 +1739,15 @@ namespace Luxena.Travel
 
 		[PreserveCase()]
 		public string Version;
+
+
+		//[PreserveCase()]
+		//public string InvoiceFileExtension;
+
 	}
-	
+
+
+
 	public partial class AppStateResponse
 	{
 		

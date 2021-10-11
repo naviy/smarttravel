@@ -7,19 +7,43 @@ using System.Text;
 
 using Luxena.Base.Data;
 using Luxena.Domain.Entities;
+using Luxena.Travel.Reports;
 
 using NHibernate;
 using NHibernate.Criterion;
 using NHibernate.Transform;
 
 
+
+
 namespace Luxena.Travel.Domain
 {
 
+
+
+	//===g
+
+
+
+
+
+
 	public class AppService : DomainService
 	{
+
+		//---g
+
+
+
 		public const int DefaultAgentReportDays = 7 - 1;
+
 		public const int MaxAgentReportDays = 10;
+
+
+
+		//---g
+
+
 
 		public IList<Task> GetActiveTasks(Person person, int count)
 		{
@@ -35,6 +59,8 @@ namespace Luxena.Travel.Domain
 			return query.Take(count).List();
 		}
 
+
+
 		public int GetActiveTaskCount(Person person)
 		{
 			var query = Session.QueryOver<Task>()
@@ -46,6 +72,8 @@ namespace Luxena.Travel.Domain
 
 			return query.SingleOrDefault<int>();
 		}
+
+
 
 		public int GetUnprocessedProducts(Person agent, IList<Party> documentOwners)
 		{
@@ -59,10 +87,14 @@ namespace Luxena.Travel.Domain
 				.SingleOrDefault<int>();
 		}
 
+
+
 		public int GetDocumentsWithoutOwners()
 		{
 			return db.Product.Query.Count(a => a.Owner == null && !a.IsVoid && a.RequiresProcessing);
 		}
+
+
 
 		public int GetUnpaidProducts(Person agent, IList<Party> documentOwners)
 		{
@@ -74,10 +106,14 @@ namespace Luxena.Travel.Domain
 				.SingleOrDefault<int>();
 		}
 
+
+
 		public IList<object> GetPassportRequirements(Person agent, IList<Party> documentOwners)
 		{
 			return GetPassportRequirementsQuery(agent, documentOwners).List<object>();
 		}
+
+
 
 		public IList<object> GetUrgentPassportRequirements(Person agent, IList<Party> documentOwners, int daysPeriod)
 		{
@@ -87,6 +123,8 @@ namespace Luxena.Travel.Domain
 
 			return query.List<object>();
 		}
+
+
 
 		public IList<object> GetIncorrectPassports(Person agent, IList<Party> documentOwners)
 		{
@@ -103,12 +141,16 @@ namespace Luxena.Travel.Domain
 			return query.List<object>();
 		}
 
+
+
 		public int GetOrdersToPay(Person agent, IList<Party> documentOwners)
 		{
 			return GetOrderQuery(agent, documentOwners)
 				.Where(o => o.TotalDue.Amount > 0)
 				.SingleOrDefault<int>();
 		}
+
+
 
 		public int GetOrdersToExecute(Person agent, IList<Party> documentOwners)
 		{
@@ -117,6 +159,8 @@ namespace Luxena.Travel.Domain
 				.SingleOrDefault<int>();
 		}
 
+
+
 		public int GetOrdersWithDebt(Person agent, IList<Party> documentOwners)
 		{
 			return GetOrderQuery(agent, documentOwners)
@@ -124,8 +168,11 @@ namespace Luxena.Travel.Domain
 				.SingleOrDefault<int>();
 		}
 
+
+
 		public IList<DayStats> GetDayStats(Person agent, IList<Party> documentOwners, DateTime? from, DateTime? to)
 		{
+
 			if (!to.HasValue && !from.HasValue)
 			{
 				to = DateTime.Today;
@@ -198,8 +245,12 @@ namespace Luxena.Travel.Domain
 				result.Add(stats);
 			}
 
+
 			return result;
+
 		}
+
+		
 
 		private static string GetDateText(DateTime date)
 		{
@@ -220,6 +271,8 @@ namespace Luxena.Travel.Domain
 			return null;
 		}
 
+
+
 		private IQueryOver<Product, Product> GetProductsQuery(Person agent, IList<Party> documentOwners)
 		{
 			var query = Session.QueryOver<Product>()
@@ -236,6 +289,8 @@ namespace Luxena.Travel.Domain
 
 			return query;
 		}
+
+
 
 		private IQueryOver<AviaTicket, AviaTicket> GetPassportRequirementsQuery(Person agent, IList<Party> documentOwners)
 		{
@@ -267,6 +322,8 @@ namespace Luxena.Travel.Domain
 			return query;
 		}
 
+
+
 		private IQueryOver<Order, Order> GetOrderQuery(Person agent, IList<Party> documentOwners)
 		{
 			var query = Session.QueryOver<Order>()
@@ -285,15 +342,21 @@ namespace Luxena.Travel.Domain
 			return query;
 		}
 
+
+
 		//		public User GetCurrentUser()
 		//		{
 		//			return db.Security.User;
 		//		}
 
+
+
 		public void ClearUserData()
 		{
 			db.AppState.ClearUserData(db.Security.User);
 		}
+
+
 
 		public EntityReference[] GetImportedDocuments()
 		{
@@ -321,6 +384,8 @@ namespace Luxena.Travel.Domain
 			return list;
 		}
 
+
+
 		public EntityReference[] GetAssignedTasks()
 		{
 			var tasks = db.AppState.GetAssignedTasks(db.Security.User);
@@ -338,10 +403,14 @@ namespace Luxena.Travel.Domain
 			return list;
 		}
 
+
+
 		public bool CheckUserRoleChanges()
 		{
 			return db.AppState.IsUserRolesChanged(db.Security.User);
 		}
+
+
 
 		public bool CanViewOfficeTaskMetrics()
 		{
@@ -357,6 +426,8 @@ namespace Luxena.Travel.Domain
 			return documentOwners.Any(owner => db.DocumentAccess.HasAccess(owner, out fullDocumentControl) && fullDocumentControl);
 		}
 
+
+
 		public bool CanViewOfficeDocumentMetrics()
 		{
 			bool fullDocumentControl;
@@ -371,8 +442,10 @@ namespace Luxena.Travel.Domain
 		}
 
 
+
 		public AppParameters GetAppParameters()
 		{
+
 			var user = db.Security.User;
 
 			var actions = GetActionPermissions();
@@ -383,10 +456,13 @@ namespace Luxena.Travel.Domain
 				{ "OfficeDocuments", CanViewOfficeDocumentMetrics() }
 			};
 
+
 			var dc = new Contracts();
+
 
 			var parameters = new AppParameters
 			{
+
 				CurrentUser = user,
 
 				UserPerson = user.Person,
@@ -405,11 +481,17 @@ namespace Luxena.Travel.Domain
 					select new BankAccount.Reference("BankAccount", a.Id, a.Name)
 				).ToArray(),
 
-				Version = Assembly.GetExecutingAssembly().GetName().Version.ToString()
+				Version = Assembly.GetExecutingAssembly().GetName().Version.ToString(),
+
+				//InvoiceFileExtension = InvoicePrinter.FileExtension(db),
+
 			};
 
+
 			return parameters;
+
 		}
+
 
 
 		public void CloseTask(object id)
@@ -419,27 +501,38 @@ namespace Luxena.Travel.Domain
 			task.Status = TaskStatus.Closed;
 		}
 
+
+
 		public AppStateResponse GetAppStateChanges(AppStateRequest request)
 		{
+
 			if (request.ClearUserData)
 				ClearUserData();
+
 
 			var response = new AppStateResponse
 			{
 				Version = Assembly.GetExecutingAssembly().GetName().Version.ToString()
 			};
 
+
 			if (request.CheckImportedDocuments)
 				response.ImportedDocuments = GetImportedDocuments();
+
 
 			if (request.CheckNewTasks)
 				response.AssignedTasks = GetAssignedTasks();
 
+
 			if (request.CheckUserRoleChanges)
 				response.IsUserRolesChanged = CheckUserRoleChanges();
 
+
 			return response;
+
 		}
+
+
 
 		public Party.Reference[] GetDocumentOwners()
 		{
@@ -448,10 +541,14 @@ namespace Luxena.Travel.Domain
 			return result;
 		}
 
+
+
 		private OperationStatus CanUpdateAnalytics()
 		{
 			return db.Granted(db.Olap != null && db.IsGranted(UserRole.Administrator));
 		}
+
+
 
 		public void UpdateAnalytics()
 		{
@@ -461,9 +558,13 @@ namespace Luxena.Travel.Domain
 			db.Olap.Process();
 		}
 
+
+
 		private Dictionary<string, OperationPermissions> GetActionPermissions()
 		{
+
 			var actions = new Dictionary<string, OperationPermissions>();
+
 
 			foreach (var service in db.GetServices())
 			{
@@ -482,6 +583,7 @@ namespace Luxena.Travel.Domain
 				});
 			}
 
+
 			var user = db.Security.User;
 
 			//actions.Add("CustomerReport", (OperationStatus)true);
@@ -493,11 +595,25 @@ namespace Luxena.Travel.Domain
 
 			actions.Add("UpdateAnalytics", CanUpdateAnalytics());
 
+
 			return actions;
+
 		}
 
 
+
+		//---g
+
 	}
+
+
+
+
+
+
+	//===g
+
+
 
 }
 

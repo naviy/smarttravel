@@ -11,43 +11,81 @@ using Luxena.Travel.Domain;
 namespace Luxena.Travel.Reports
 {
 
+
+
+	//===g
+
+
+
+
+
+
 	public class TemplatePrinter
 	{
+
+		//---g
+
+
+
 		public string TemplateFileName { get; set; }
 
 
-		protected Stream Build<T>(T data) where T : class
+
+		//---g
+
+
+
+		protected Stream Build<T>(T data, out string fileExtension) where T : class
 		{
-			return Build(TemplateFileName, data);
+			return Build(TemplateFileName, data, out fileExtension);
 		}
 
-		protected Stream Build<T>(string templateFileName, T data) where T : class
+
+
+		protected Stream Build<T>(string templateFileName, T data, out string fileExtension) where T : class
 		{
+
 			templateFileName = HttpContext.Current.Server.MapPath(templateFileName);
 
 			var reportStream = new MemoryStream();
+
 
 			using (var templateStream = System.IO.File.OpenRead(templateFileName))
 			{
 				templateStream.CopyTo(reportStream);
 			}
 
-			var extension = Path.GetExtension(templateFileName);
-			using (var document = NGS.Templater.Configuration.Factory.Open(reportStream, extension))
+
+			fileExtension = Path.GetExtension(templateFileName);
+
+			using (var document = NGS.Templater.Configuration.Factory.Open(reportStream, fileExtension))
 			{
 				document.Process(data);
 			}
 
-			if (extension == ".xlsx")
+
+			fileExtension = fileExtension.TrimStart('.');
+
+
+			if (fileExtension == "xlsx")
+			{
 				RemoveExcelUnlicensedInfo(reportStream);
-			else if (extension == ".docx")
+			}
+			else if (fileExtension == "docx")
+			{
 				RemoveWordUnlicensedInfo(reportStream);
+			}
+
 
 			return reportStream;
+
 		}
+
+
 
 		protected static void RemoveExcelUnlicensedInfo(Stream reportStream)
 		{
+
 			// Выгрызаем страницу с Unliсensed version
 			using (var archive = new ZipArchive(reportStream, ZipArchiveMode.Update, true))
 			{
@@ -69,12 +107,16 @@ namespace Luxena.Travel.Reports
 					writer.Write(text);
 				}
 			}
+
 		}
+
 		private static readonly Regex reUnlicensedSheet = new Regex(@"\<sheet name=""Unlicensed version"".*?/\>", RegexOptions.Compiled);
+
 
 
 		protected static void RemoveWordUnlicensedInfo(Stream reportStream)
 		{
+
 			// Выгрызаем параграф с Unliсensed version
 			using (var archive = new ZipArchive(reportStream, ZipArchiveMode.Update, true))
 			{
@@ -96,8 +138,14 @@ namespace Luxena.Travel.Reports
 					writer.Write(text);
 				}
 			}
+
 		}
+
 		private static readonly Regex reUnlicensedParagraph = new Regex(@"<w:p.*?Unlicensed version.*?</w:p>", RegexOptions.Compiled);
+
+
+
+		//---g
 
 
 
@@ -106,6 +154,7 @@ namespace Luxena.Travel.Reports
 			public string Title { get; set; }
 			public decimal Amount { get; set; }
 		}
+
 
 
 		public class TotalSums : List<TotalSum>
@@ -124,6 +173,19 @@ namespace Luxena.Travel.Reports
 			}
 		}
 
+
+
+		//---g
+
 	}
+
+
+
+
+
+
+	//===g
+
+
 
 }

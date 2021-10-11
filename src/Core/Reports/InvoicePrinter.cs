@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 
 using java.io;
 
@@ -29,6 +30,46 @@ namespace Luxena.Travel.Reports
 		//---g
 
 
+		
+		//public static string FileExtension(Domain.Domain db)
+		//{
+
+		//	if (_fileExtension != null)
+		//		return _fileExtension;
+
+
+		//	if (db.Resolve<IInvoicePrinter>() is TemplateInvoicePrinter printer)
+		//	{
+
+		//		_fileExtension =
+
+		//			Path.GetExtension(
+		//				printer.TemplateFileName1 ?? printer.TemplateFileName2 ?? printer.TemplateFileName
+		//			)
+		//			.TrimStart('.')
+		//			.Clip()
+
+		//			?? "xlsx"
+
+		//		;
+
+		//	}
+		//	else
+		//	{
+		//		_fileExtension = "xls";
+		//	}
+
+
+		//	return _fileExtension;
+
+		//}
+
+
+		//private static string _fileExtension;
+
+
+
+		//---g
 
 		public Domain.Domain db { get; set; }
 
@@ -71,7 +112,8 @@ namespace Luxena.Travel.Reports
 			DateTime issueDate,
 			Person issuedBy,
 			int? formNumber,
-			bool showPaid
+			bool showPaid,
+			out string fileExtension
 		)
 		{
 
@@ -96,6 +138,9 @@ namespace Luxena.Travel.Reports
 				bytes = outputStream.toByteArray();
 			}
 
+
+
+			fileExtension = "xls";
 
 			return bytes;
 
