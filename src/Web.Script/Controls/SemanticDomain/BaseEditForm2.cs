@@ -110,7 +110,9 @@ namespace Luxena.Travel
 		//			ProductService.UpdateObject1(className, GetData(), _args.RangeRequest, CompleteSave, FailSave);
 		//		}
 
+
 		protected abstract void CreateControls();
+
 
 		protected virtual string GetNameBy(object data)
 		{
@@ -317,7 +319,7 @@ namespace Luxena.Travel
 		#region Components
 
 
-		public Panel TabPane(string title, object[] items)
+		public override Panel TabPane(string title, object[] items)
 		{
 			return new Panel(new PanelConfig()
 				.items((object[])AddEditors(null, items))
@@ -327,7 +329,7 @@ namespace Luxena.Travel
 			);
 		}
 
-		public Panel TabMainPane(string title, object[] items)
+		public override Panel TabMainPane(string title, object[] items)
 		{
 			return new Panel(new PanelConfig()
 				.items((object[])AddEditors(null, items))
@@ -338,7 +340,7 @@ namespace Luxena.Travel
 			);
 		}
 
-		public Panel TabColumnPane(string title, object[] items)
+		public override Panel TabColumnPane(string title, object[] items)
 		{
 			return new Panel(new PanelConfig()
 				.items((object[])AddEditors(null, items))
@@ -348,7 +350,7 @@ namespace Luxena.Travel
 			);
 		}
 
-		public Panel TabFitPane(string title, object item)
+		public override Panel TabFitPane(string title, object item)
 		{
 			return new Panel(new PanelConfig()
 				.items((object[])AddEditors(null, new object[] { item }))
@@ -358,7 +360,7 @@ namespace Luxena.Travel
 			);
 		}
 
-		public Panel MainDataPanel(object[] items)
+		public override Panel MainDataPanel(object[] items)
 		{
 			return new Panel(new PanelConfig()
 				.items((object[])AddEditors(null, items))
@@ -368,7 +370,7 @@ namespace Luxena.Travel
 			);
 		}
 
-		public Panel ColumnPanel(object[] items)
+		public override Panel ColumnPanel(object[] items)
 		{
 			return new Panel(new PanelConfig()
 				.items((object[])AddEditors(null, items))
@@ -377,7 +379,7 @@ namespace Luxena.Travel
 			);
 		}
 
-		public Panel FormPanel(object[] items)
+		public override Panel FormPanel(object[] items)
 		{
 			return new Panel(new PanelConfig()
 				.items((object[])AddEditors(null, items))

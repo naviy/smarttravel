@@ -1374,18 +1374,6 @@
 	<data name="AviaConsoleParserForm_Title" xml:space="preserve">
 	<value>Создание бронировок с помощью копии экрана терминала</value>
   </data>
-	<data name="AviaConsoleParserForm_Label1" xml:space="preserve">
-	<value>Для создания авиа-документов на основании данных из терминала систем Amadeus:&lt;br/&gt;
-	&lt;br&gt;
-	1) в терминале системы поочерёдно введите следующие команды:&lt;br&gt;
-	   - для системы Amadeus: rt[номер бронировки] и tqt; в случае, если просчётов несколько - tqt/T1, tqt/T2 ... соответственно; &lt;br&gt;
-	&lt;br&gt;
-	2) полностью скопируйте с экрана терминала текст данных комманд в буфер обмена;&lt;br&gt;
-	&lt;br&gt;
-	3) вставте скопированный текст в поле ниже.&lt;br&gt;
-	&lt;br&gt;
-	</value>
-  </data>
 	<data name="AviaConsoleParserForm_Parse" xml:space="preserve">
 	<value>Создать документы</value>
   </data>

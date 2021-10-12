@@ -36,6 +36,7 @@ namespace Luxena.Travel.Parsers
 		}
 
 
+
 		public static IList<AviaDocument> Parse(string content, Currency defaultCurrency)
 		{
 			if (content.No())
@@ -179,6 +180,7 @@ namespace Luxena.Travel.Parsers
 
 
 			var ticketIndex = 0;
+
 
 			for (int i = 0, len = passangerGroups.Length; i < len; i++)
 			{

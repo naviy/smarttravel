@@ -363,7 +363,11 @@ namespace LxnBase.UI
 		}
 
 
-		#region Components
+
+		//---g
+
+
+
 
 		[AlternateSignature]
 		public extern Panel EmptyRow();
@@ -379,6 +383,8 @@ namespace LxnBase.UI
 			);
 		}
 
+
+
 		public Panel TabPanel(int height, Component[] items)
 		{
 			return new TabPanel(new TabPanelConfig()
@@ -389,6 +395,94 @@ namespace LxnBase.UI
 			);
 		}
 
+
+		public virtual Panel TabPane(string title, object[] items)
+		{
+			return new Panel(new PanelConfig()
+				.items(items)
+				.cls("main-data")
+				.layout("form")
+				.title(title)
+				.ToDictionary()
+			);
+		}
+
+
+		public virtual Panel TabMainPane(string title, object[] items)
+		{
+			return new Panel(new PanelConfig()
+				.items(items)
+				.layout("form")
+				.cls("main-data")
+				.title(title)
+				.ToDictionary()
+			);
+		}
+
+
+
+		public virtual Panel TabColumnPane(string title, object[] items)
+		{
+			return new Panel(new PanelConfig()
+				.items(items)
+				.layout("column")
+				.title(title)
+				.ToDictionary()
+			);
+		}
+
+
+
+		public virtual Panel TabFitPane(string title, object item)
+		{
+			return new Panel(new PanelConfig()
+				.items(new object[] { item })
+				.layout("fit")
+				.title(title)
+				.ToDictionary()
+			);
+		}
+
+
+
+		public virtual Panel MainDataPanel(object[] items)
+		{
+			return new Panel(new PanelConfig()
+				.items(items)
+				.layout("form")
+				.cls("main-data")
+				.ToDictionary()
+			);
+		}
+
+
+
+		public virtual Panel ColumnPanel(object[] items)
+		{
+			return new Panel(new PanelConfig()
+				.items(items)
+				.layout("column")
+				.ToDictionary()
+			);
+		}
+
+
+
+		public virtual Panel FormPanel(object[] items)
+		{
+			return new Panel(new PanelConfig()
+				.items(items)
+				.layout("form")
+				.ToDictionary()
+			);
+		}
+
+
+
+		//---g
+
+
+
 		public static BoxComponent TextComponent(string html)
 		{
 			return new BoxComponent(new BoxComponentConfig()
@@ -396,6 +490,8 @@ namespace LxnBase.UI
 				.cls("x-form-item float-left box-label")
 				.ToDictionary());
 		}
+
+
 
 		public static Panel RowPanel(Component[] items)
 		{
@@ -406,9 +502,9 @@ namespace LxnBase.UI
 				.ToDictionary());
 		}
 
-		#endregion
 
 
+		//---g
 
 
 

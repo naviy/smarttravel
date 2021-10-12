@@ -854,10 +854,6 @@ namespace Luxena.Travel {
 
 		public static readonly string AviaConsoleParserForm_Title = null;
 
-		public static readonly string AviaConsoleParserForm_Label1 = null;
-		public static readonly string AviaConsoleParserForm_Label2 = null;
-		public static readonly string AviaConsoleParserForm_Label3 = null;
-
 		public static readonly string AviaConsoleParserForm_Parse = null;
 
 	}

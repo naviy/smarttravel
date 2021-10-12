@@ -10,16 +10,35 @@ using Luxena.Travel.Parsers;
 using Luxena.Travel.Reports;
 
 
+
+
 namespace Luxena.Travel.Domain
 {
 
+
+
+	//===g
+
+
+
+
+
+
 	partial class AviaDocument
 	{
+
+		//---g
+
+
+
 		public override Entity Resolve(Domain db)
 		{
+
 			base.Resolve(db);
 
+
 			var r = this;
+
 
 			if (r.Producer != null)
 			{
@@ -31,6 +50,7 @@ namespace Luxena.Travel.Domain
 				r.AirlineIataCode = r.Producer?.AirlineIataCode ?? r.AirlineIataCode;
 				r.AirlinePrefixCode = r.Producer?.AirlinePrefixCode ?? r.AirlinePrefixCode;
 			}
+
 			else if (r.AirlineIataCode.Yes())
 			{
 				r.Producer = db.Airline.ByIataCode(r.AirlineIataCode);
@@ -38,6 +58,7 @@ namespace Luxena.Travel.Domain
 				if (r.Producer != null && r.Producer.AirlinePrefixCode.Yes())
 					r.AirlinePrefixCode = r.Producer.AirlinePrefixCode;
 			}
+
 			else if (r.AirlinePrefixCode.Yes())
 			{
 				r.Producer = db.Airline.ByPrefixCode(r.AirlinePrefixCode);
@@ -50,6 +71,7 @@ namespace Luxena.Travel.Domain
 
 
 			var vatFee = r.Fees.By(fee => fee.Code == AviaDocumentFee.VatCode);
+
 			if (vatFee != null)
 			{
 				if (db.Configuration.AviaDocumentVatOptions == AviaDocumentVatOptions.UseHFTax)
@@ -62,10 +84,13 @@ namespace Luxena.Travel.Domain
 				}
 			}
 
+
 			r.Fees.ForEach(a => a.Amount += db);
+
 
 			if (r.Customer != null)
 				r.SetCustomer(db, db.Party.ByLegalName(r.Customer.LegalName));
+
 
 			if (r.GdsPassport.No())
 			{
@@ -85,7 +110,9 @@ namespace Luxena.Travel.Domain
 				}
 			}
 
+
 			return r;
+
 		}
 
 
@@ -235,32 +262,45 @@ namespace Luxena.Travel.Domain
 
 
 
-			#region Permissions
-
 			public override OperationStatus CanDelete(TAviaDocument r)
 			{
+
 				var status = base.CanDelete(r);
-				if (!status) return status;
+
+				if (!status) 
+					return status;
+
 
 				return r.Origin == ProductOrigin.Manual || CanUpdateAll();
+
 			}
+
 
 
 			public OperationStatus CanProcess(AviaDocument document)
 			{
+
 				var status = OperationStatus.Enabled();
 
-				if (/*document.Total == null || document.Commission == null || */
-					document.PassengerName.No() || document.Seller == null
+
+				if (document.PassengerName.No() || document.Seller == null
 				)
+				{
 					status.DisableInfo = Exceptions.AviaDocument_Handle_NotFull;
+				}
+
 
 				return status;
+
 			}
+
+
 
 			public ProcessOperationPermissionsResponse CanProcess(object documentId)
 			{
+
 				var document = db.AviaDocument.Load(documentId);
+
 
 				var status = new ProcessOperationPermissionsResponse
 				{
@@ -276,13 +316,16 @@ namespace Luxena.Travel.Domain
 					}
 				};
 
+
 				return status;
+
 			}
 
-			#endregion
 
 
-			#region Modify
+			//---g
+
+
 
 			public Service()
 			{
@@ -311,37 +354,55 @@ namespace Luxena.Travel.Domain
 				};
 			}
 
-			#endregion
 
 
-			#region Passport
+			//---g
+
+
 
 			public Passport GetPassport(AviaDocument document)
 			{
+
 				var passport = document.ParseGdsPassport();
-				if (passport == null) return null;
+
+				if (passport == null) 
+					return null;
+
 
 				passport.Citizenship = db.Country.ByCode(passport.Citizenship.TwoCharCode);
 				passport.IssuedBy = db.Country.ByCode(passport.IssuedBy.TwoCharCode);
 
+
 				return passport;
+
 			}
+
 
 
 			public PassportValidationResult ValidatePassengerPassport(AviaDocument document, Passport passport, bool isGdsPassportNull)
 			{
+
 				if (document.GdsPassport.No() || isGdsPassportNull)
 				{
+
 					if (document is AviaTicket && passport.ExpiredOn.HasValue && ((AviaTicket)document).Departure > passport.ExpiredOn.Value)
+					{
 						return PassportValidationResult.ExpirationDateNotValid;
+					}
+
 
 					return PassportValidationResult.Valid;
+
 				}
+
 
 				var gdsPassport = GetPassport(document);
 
 				if (gdsPassport == null || !string.Equals(passport.Number, gdsPassport.Number, StringComparison.InvariantCultureIgnoreCase) || passport.IssuedBy != gdsPassport.IssuedBy)
+				{
 					return PassportValidationResult.NoPassport;
+				}
+
 
 				var isValid = passport.Citizenship == gdsPassport.Citizenship
 					&& passport.IssuedBy == gdsPassport.IssuedBy
@@ -351,52 +412,73 @@ namespace Luxena.Travel.Domain
 					&& passport.ExpiredOn == gdsPassport.ExpiredOn
 					&& passport.Gender == gdsPassport.Gender;
 
+
 				return isValid ? PassportValidationResult.Valid : PassportValidationResult.NotValid;
+
 			}
+
+
 
 			public PassportValidationResult ValidatePassengerPassports(AviaDocument ticket, Person passenger, bool isGdsPassportNull, out Passport passport)
 			{
+
 				passport = null;
 
 				if (passenger == null)
+				{
 					return PassportValidationResult.NoPassport;
+				}
+
 
 				foreach (var passport_ in passenger.Passports)
 				{
+
 					var result = ValidatePassengerPassport(ticket, passport_, isGdsPassportNull);
 
 					if (result == PassportValidationResult.NoPassport || result == PassportValidationResult.ExpirationDateNotValid)
 						continue;
 
 					passport = passport_;
+
+
 					return result;
+
 				}
 
+
 				return PassportValidationResult.NoPassport;
+
 			}
+
 
 
 			public bool IsPassportRequired(AviaDocument ticket)
 			{
+
 				if (ticket.Producer == null)
 					return false;
+
 
 				return ticket.Producer.AirlinePassportRequirement == AirlinePassportRequirement.Required ||
 					(ticket.Producer.AirlinePassportRequirement == AirlinePassportRequirement.SystemDefault &&
 						db.Configuration.IsPassengerPassportRequired);
 			}
 
-			#endregion
 
 
-			#region Resolve
+			//---g
+
+
 
 			public void ResolvePrintDocumentCommission(AviaDocument r)
 			{
+
 				if (r.Commission != null || r.EqualFare == null)
 					return;
 
+
 				var commissionPercents = db.AirlineCommissionPercents.By(r.Producer);
+
 
 				if (commissionPercents == null || r.IsAviaMco)
 				{
@@ -405,28 +487,28 @@ namespace Luxena.Travel.Domain
 					return;
 				}
 
+
 				var ticket = (AviaTicket)r;
 
-				if (!ticket.Interline)
-				{
-					ticket.CommissionPercent = !ticket.Domestic
-						? commissionPercents.Domestic
-						: commissionPercents.International;
-				}
-				else
-				{
-					ticket.CommissionPercent = !ticket.Domestic
+
+				ticket.CommissionPercent = ticket.Interline
+					? !ticket.Domestic
 						? commissionPercents.InterlineDomestic
-						: commissionPercents.InterlineInternational;
-				}
+						: commissionPercents.InterlineInternational
+					: !ticket.Domestic
+						? commissionPercents.Domestic
+						: commissionPercents.International
+				;
+
 
 				ticket.Commission = ticket.EqualFare * ticket.CommissionPercent.Value / 100;
+
 			}
 
 
 
+			//---g
 
-			#endregion
 
 
 			public override void Export(TAviaDocument document)
@@ -436,31 +518,59 @@ namespace Luxena.Travel.Domain
 				);
 			}
 
+
+
+			//---g
+
 		}
+
+
+
+
+
+
+		//===g
+
+
+
+
 
 
 		public new partial class Service : Service<AviaDocument>
 		{
 
+			//---g
+
+
+
 			public AviaDocument GetByNumber(string number)
 			{
+
 				var r = ByFullNumber(number);
 
 				if (r != null && !db.DocumentAccess.HasAccess(r.Owner))
 					throw new OperationDeniedException(string.Format(Exceptions.AviaDocumentAccessDenied_Msg, r.FullNumber));
 
+
 				return r;
+
 			}
+
 
 
 			public IList<AviaDocument> GetReservationList(AviaDocument document)
 			{
+
 				var type = document.GetClass().Type;
 
 				if (type != typeof(AviaRefund))
 				{
+
 					if (document.PnrCode.No())
+					{
 						return new[] { document };
+					}
+
 
 					var reservation = Session
 						.CreateQuery(@"
@@ -472,19 +582,30 @@ namespace Luxena.Travel.Domain
 						.SetParameter("id", document.Id)
 						.SetString("pnrCode", document.PnrCode)
 						.SetReadOnly(true)
-						.List<AviaDocument>();
+						.List<AviaDocument>()
+					;
+
 					reservation.Insert(0, document);
 
+
 					return reservation;
+
 				}
 
+
 				if (document.Number == null)
+				{
 					return new[] { document };
+				}
+
 
 				var ticket = db.AviaTicket.ByFullNumber(document.Number);
 
 				if (ticket == null || ticket.PnrCode.No())
+				{
 					return new[] { document };
+				}
+
 
 				var reservation2 = Session
 					.CreateQuery(@"
@@ -500,11 +621,18 @@ namespace Luxena.Travel.Domain
 					.SetParameter("id", document.Id)
 					.SetString("pnrCode", ticket.PnrCode)
 					.SetReadOnly(true)
-					.List<AviaDocument>();
+					.List<AviaDocument>()
+				;
+
 
 				reservation2.Insert(0, document);
+
+
 				return reservation2;
+
 			}
+
+
 
 			public int GetReservationDocumentCount(object id)
 			{
@@ -512,25 +640,41 @@ namespace Luxena.Travel.Domain
 			}
 
 
+
 			public AviaDocument ForHandlingByNumber(string number)
 			{
+
 				var document = db.AviaDocument.ByFullNumber(number);
 
 				if (document != null && !db.AviaDocument.CanUpdate(document))
-					throw new OperationDeniedException(string.Format(Exceptions.AviaDocumentAccessDenied_Msg, document.FullNumber));
+				{
+					throw new OperationDeniedException(string.Format(
+						Exceptions.AviaDocumentAccessDenied_Msg,
+						document.FullNumber
+					));
+				}
+
 
 				return document;
+
 			}
+
+
 
 			public IList<AviaDocument> AddByConsoleContent(string content, string sellerId, string ownerId)
 			{
+
 				var docs = AirConsoleParser.Parse(content, db.Configuration.DefaultCurrency);
 
+
 				var seller = db.Person.By(sellerId) ?? db.Security.Person;
+
 				var owner = db.Party.By(ownerId);
+
 
 				foreach (var doc in docs)
 				{
+
 					doc.Owner = owner;
 					doc.Seller = seller;
 
@@ -538,11 +682,13 @@ namespace Luxena.Travel.Domain
 						doc.Ticketer = seller;
 
 					doc.Resolve(db);
-					//db.Commit(() => Save(doc));
 					Save(doc);
+
 				}
 
+
 				return docs;
+
 			}
 
 
@@ -558,13 +704,19 @@ namespace Luxena.Travel.Domain
 			}
 
 
+
 			public void Import(IEnumerable<Entity2> documents, Dictionary<Entity2, ImportStatus> importedDocuments)
 			{
+
 				foreach (var r in documents)
 				{
+
 					ImportStatus status = null;
+
+
 					try
 					{
+
 						r.Do((AviaDocument a) => a.MustBeUnprocessed = true);
 
 						db.Save(r + db);
@@ -572,27 +724,50 @@ namespace Luxena.Travel.Domain
 						db.AppState.RegisterEntity(r);
 
 						status = new ImportStatus(ImportResult.Success, "Ok");
+
 					}
 					catch (Exception ex)
 					{
+
 						if (ex is DomainException || ex is GdsImportException)
 						{
 							status = new ImportStatus(ImportResult.Warn, ex.Message);
 						}
 						else
+						{
 							status = new ImportStatus(ImportResult.Error, ex.Message);
+						}
+
 
 						db.Warn(ex);
+
 					}
 					finally
 					{
 						importedDocuments[r] = status;
 					}
+
 				}
+
 			}
+
+
+
+			//---g
 
 		}
 
+
+		
+		//---g
+
 	}
+
+
+
+
+
+
+	//===g
 
 }

@@ -3246,6 +3246,63 @@ LxnBase.UI.BaseEditForm.prototype = {
         return new Ext.TabPanel(new Ext.TabPanelConfig().items(items).activeTab(0).height(height).toDictionary());
     },
     
+    tabPane: function LxnBase_UI_BaseEditForm$tabPane(title, items) {
+        /// <param name="title" type="String">
+        /// </param>
+        /// <param name="items" type="Array" elementType="Object">
+        /// </param>
+        /// <returns type="Ext.Panel"></returns>
+        return new Ext.Panel(new Ext.PanelConfig().items(items).cls('main-data').layout('form').title(title).toDictionary());
+    },
+    
+    tabMainPane: function LxnBase_UI_BaseEditForm$tabMainPane(title, items) {
+        /// <param name="title" type="String">
+        /// </param>
+        /// <param name="items" type="Array" elementType="Object">
+        /// </param>
+        /// <returns type="Ext.Panel"></returns>
+        return new Ext.Panel(new Ext.PanelConfig().items(items).layout('form').cls('main-data').title(title).toDictionary());
+    },
+    
+    tabColumnPane: function LxnBase_UI_BaseEditForm$tabColumnPane(title, items) {
+        /// <param name="title" type="String">
+        /// </param>
+        /// <param name="items" type="Array" elementType="Object">
+        /// </param>
+        /// <returns type="Ext.Panel"></returns>
+        return new Ext.Panel(new Ext.PanelConfig().items(items).layout('column').title(title).toDictionary());
+    },
+    
+    tabFitPane: function LxnBase_UI_BaseEditForm$tabFitPane(title, item) {
+        /// <param name="title" type="String">
+        /// </param>
+        /// <param name="item" type="Object">
+        /// </param>
+        /// <returns type="Ext.Panel"></returns>
+        return new Ext.Panel(new Ext.PanelConfig().items([ item ]).layout('fit').title(title).toDictionary());
+    },
+    
+    mainDataPanel: function LxnBase_UI_BaseEditForm$mainDataPanel(items) {
+        /// <param name="items" type="Array" elementType="Object">
+        /// </param>
+        /// <returns type="Ext.Panel"></returns>
+        return new Ext.Panel(new Ext.PanelConfig().items(items).layout('form').cls('main-data').toDictionary());
+    },
+    
+    columnPanel: function LxnBase_UI_BaseEditForm$columnPanel(items) {
+        /// <param name="items" type="Array" elementType="Object">
+        /// </param>
+        /// <returns type="Ext.Panel"></returns>
+        return new Ext.Panel(new Ext.PanelConfig().items(items).layout('column').toDictionary());
+    },
+    
+    formPanel: function LxnBase_UI_BaseEditForm$formPanel(items) {
+        /// <param name="items" type="Array" elementType="Object">
+        /// </param>
+        /// <returns type="Ext.Panel"></returns>
+        return new Ext.Panel(new Ext.PanelConfig().items(items).layout('form').toDictionary());
+    },
+    
     _window: null,
     _form: null,
     _errorPanel: null,
