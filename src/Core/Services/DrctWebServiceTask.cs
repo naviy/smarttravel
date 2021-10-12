@@ -88,6 +88,7 @@ namespace Luxena.Travel.Services
 				{
 					try
 					{
+
 						_log.Info($"Import DRCT-file {file.Name}...");
 
 
@@ -144,10 +145,10 @@ namespace Luxena.Travel.Services
 			if (request == null)
 				return null;
 
+
 			request.Accept = "application/xml";
 			request.Headers.Add("authorization", "Bearer "+ key);
-
-
+			
 
 			//ServicePointManager.Expect100Continue = true; 
 			ServicePointManager.SecurityProtocol = 
@@ -176,6 +177,7 @@ namespace Luxena.Travel.Services
 			
 
 			return xml;
+
 		}
 
 

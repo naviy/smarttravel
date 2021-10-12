@@ -91,11 +91,22 @@ namespace Luxena.Travel.Domain
 
 
 
+
+
+		//===g
+
+
+
+
+
+
 		public new class Service<TAviaDocument> : Product.Service<TAviaDocument>
 			where TAviaDocument : AviaDocument
 		{
 
-			#region Read
+			//---g
+
+
 
 			public TAviaDocument ByNumber(string airlinePrefixCode, string number)
 			{
@@ -104,25 +115,36 @@ namespace Luxena.Travel.Domain
 					: By(a => a.Number == number);
 			}
 
-			public TAviaDocument ByNumber(TAviaDocument document)
+
+
+			public TAviaDocument ByNumber(AviaDocument document)
 			{
+
 				if (document == null || !document.Number.Yes())
 					return null;
 
+
 				var prefixCode = document.AirlinePrefixCode;
+
 				var iataCode = document.AirlineIataCode;
+
 				if (prefixCode.No() && iataCode.No())
 					return null;
 
-				return prefixCode.Yes() 
-					? By(a => a.Number == document.Number && a.AirlinePrefixCode == prefixCode) 
+
+				return prefixCode.Yes()
+					? By(a => a.Number == document.Number && a.AirlinePrefixCode == prefixCode)
 					: By(a => a.Number == document.Number && a.AirlineIataCode == iataCode);
 			}
+
+
 
 			public TAviaDocument ByNumber(string number)
 			{
 				return number == null ? null : By(a => a.Number == number);
 			}
+
+
 
 			public TAviaDocument ByFullNumber(string fullNumber)
 			{
@@ -134,6 +156,12 @@ namespace Luxena.Travel.Domain
 					? ByNumber(fullNumber)
 					: ByNumber(split[0].Clip(), split[1].Clip());
 			}
+
+
+
+			//---g
+
+
 
 			public bool IsExists(TAviaDocument r)
 			{
@@ -153,42 +181,58 @@ namespace Luxena.Travel.Domain
 				return id != null;
 			}
 
+
+
 			public AviaDocument FindToVoid(AviaDocumentVoiding voiding)
 			{
-				if (voiding.Document == null || voiding.Document.Number.No())
+
+				var doc = voiding.Document;
+
+				if (doc == null || doc.Number.No())
 					throw new DomainException(Exceptions.ImportGdsFile_DocumentToVoidNotSpecified);
 
-				var number = voiding.Document.Number;
-				var prefixCode = voiding.Document.AirlinePrefixCode;
 
-				AviaDocument doc;
-
-				if (voiding.Document is AviaRefund)
-					doc = db.AviaRefund.ByNumber(prefixCode, number);
-
-				else if (voiding.Document is AviaMco)
-					doc = db.AviaMco.ByNumber(prefixCode, number);
-
-				else
+				if (doc is AviaRefund)
 				{
-					AviaDocument ticket = db.AviaTicket.ByNumber(prefixCode, number);
-					AviaDocument mco = db.AviaMco.ByNumber(prefixCode, number);
-
-					if (ticket != null && mco != null)
-						throw new DomainException(string.Format(Exceptions.ImportGdsFile_TwoDocumentsToVoid, voiding.Document));
-
-					doc = ticket ?? mco;
+					return Check(db.AviaRefund.ByNumber(doc));
 				}
 
-				if (doc == null)
-					throw new DomainException(string.Format(Exceptions.ImportGdsFile_NotFoundDocumentToVoid, voiding.Document));
 
-				return doc;
+				if (doc is AviaMco)
+				{
+					return Check(db.AviaMco.ByNumber(doc));
+				}
+
+
+				AviaDocument ticket = db.AviaTicket.ByNumber(doc);
+				
+				AviaDocument mco = db.AviaMco.ByNumber(doc);
+
+
+				if (ticket != null && mco != null)
+					throw new DomainException(string.Format(Exceptions.ImportGdsFile_TwoDocumentsToVoid, doc));
+
+
+				return Check(ticket ?? mco);
+
+
+
+
+				AviaDocument Check(AviaDocument result)
+				{
+
+					if (result == null)
+						throw new DomainException(string.Format(Exceptions.ImportGdsFile_NotFoundDocumentToVoid, doc));
+
+					return result;
+				}
+
 			}
 
 
 
-			#endregion
+			//---g
+
 
 
 			#region Permissions
@@ -206,7 +250,7 @@ namespace Luxena.Travel.Domain
 			{
 				var status = OperationStatus.Enabled();
 
-				if (/*document.Total == null || document.Commission == null || */ 
+				if (/*document.Total == null || document.Commission == null || */
 					document.PassengerName.No() || document.Seller == null
 				)
 					status.DisableInfo = Exceptions.AviaDocument_Handle_NotFull;
@@ -526,7 +570,7 @@ namespace Luxena.Travel.Domain
 						db.Save(r + db);
 
 						db.AppState.RegisterEntity(r);
-						
+
 						status = new ImportStatus(ImportResult.Success, "Ok");
 					}
 					catch (Exception ex)

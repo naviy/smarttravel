@@ -61,7 +61,7 @@ namespace Luxena.Travel.Parsers
 		private DrctXmlParser(Currency defaultCurrency, string[] robotCodes)
 		{
 			_defaultCurrency = defaultCurrency;
-			_robotCodes = robotCodes ?? new string[0];
+			_robotCodes = robotCodes ?? Array.Empty<string>();
 		}
 
 
@@ -96,23 +96,53 @@ namespace Luxena.Travel.Parsers
 			if (type == "ticket")
 			{
 
-				if (status == "issued" || status == "reissued" || status == "void")
+				if (status == "issued" || status == "reissued")
 				{
 					yield return ParseAviaTicket(xml);
-
-					if (status == "void")
-						yield return ParseVoid(xml);
 				}
+
+				else if (status == "void")
+				{
+					yield return ParseVoid<AviaTicket>(xml);
+				}
+
 				//else if (status == "refund")
 				//	yield return ParseRefund(xml);
 
 				else
+				{
 					throw new NotImplementedException();
+				}
+
+			}
+
+			else if (type == "emd")
+			{
+
+				if (status == "issued" || status == "reissued")
+				{
+					yield return ParseMco(xml);
+				}
+
+				else if (status == "void")
+				{
+					yield return ParseVoid<AviaMco>(xml);
+				}
+
+				//else if (status == "refund")
+				//	yield return ParseRefund(xml);
+
+				else
+				{
+					throw new NotImplementedException();
+				}
 
 			}
 
 			else
+			{
 				throw new NotImplementedException();
+			}
 
 		}
 
@@ -122,7 +152,7 @@ namespace Luxena.Travel.Parsers
 
 
 
-		private TAviaDocument ParseAviaDocument<TAviaDocument>(XElement x)
+		private TAviaDocument ParseAviaDocument<TAviaDocument>(XElement xdoc)
 			where TAviaDocument : AviaDocument, new()
 		{
 
@@ -132,16 +162,16 @@ namespace Luxena.Travel.Parsers
 			r.Originator = GdsOriginator.Drct;
 			r.Origin = ProductOrigin.Drct;
 
-			r.IssueDate = x.Value("last_transaction_at").As().DateTime.Date;
+			r.IssueDate = xdoc.Value("last_transaction_at").As().DateTime.Date;
 
 
-			var number = x.Value("number") ?? x.Value("locator");
-			var passenger = x.Value("passenger", "last_name") + " " + x.Value("passenger", "first_name");
+			var number = xdoc.Value("number") ?? xdoc.Value("locator");
+			var passenger = xdoc.Value("passenger", "last_name") + " " + xdoc.Value("passenger", "first_name");
 
 			r.Number = number + " - " + passenger;
 
 
-			r.PnrCode = x.Value("locator");
+			r.PnrCode = xdoc.Value("locator");
 
 			//x.Attr("reissue-old-no")?.Split('-').Do(a =>
 			//{
@@ -152,11 +182,11 @@ namespace Luxena.Travel.Parsers
 			//	};
 			//});
 
-			r.BookerOffice = x.Value("booking_office") ?? x.Value("company", "id");
-			r.BookerCode = x.Value("originator", "id");
+			r.BookerOffice = xdoc.Value("booking_office") ?? xdoc.Value("company", "id");
+			r.BookerCode = xdoc.Value("originator", "id");
 
-			r.TicketerOffice = x.Value("ticketing_office") ?? x.Value("company", "id");
-			r.TicketerCode = x.Value("originator", "id");
+			r.TicketerOffice = xdoc.Value("ticketing_office") ?? xdoc.Value("company", "id");
+			r.TicketerCode = xdoc.Value("originator", "id");
 
 
 			r.PassengerName = passenger;
@@ -166,15 +196,15 @@ namespace Luxena.Travel.Parsers
 			//r.Itinerary = x.Value("route");
 
 
-			r.EqualFare = NewMoney(x, "fare");
+			r.EqualFare = NewMoney(xdoc, "fare");
 			r.Fare = r.EqualFare.Clone();
-			r.FeesTotal = NewMoney(x, "taxes");
-			r.Total = NewMoney(x, "total_price");
+			r.FeesTotal = NewMoney(xdoc, "taxes");
+			r.Total = NewMoney(xdoc, "total_price");
 
 			if (r.EqualFare.No() && r.Total.Yes())
 				r.EqualFare = r.Total - r.FeesTotal;
 
-			r.Commission = new Money(r.Total?.Currency, x.Value("commission_equivalent").As().Decimal);
+			r.Commission = new Money(r.Total?.Currency, xdoc.Value("commission_equivalent").As().Decimal);
 
 
 			return r;
@@ -230,11 +260,30 @@ namespace Luxena.Travel.Parsers
 
 
 
-		private void ResolveAviaDoument(AviaDocument r)
+		private Entity2 ParseMco(XElement xmco)
 		{
 
+			var r = ParseAviaDocument<AviaMco>(xmco);
+
+			
+			var iataCode = xmco.Els("segments", "segment").One().Value("carrier");
+
+			r.Producer = new Organization { AirlineIataCode = iataCode };
+			r.AirlineIataCode = iataCode;
 
 
+			ResolveAviaDoument(r);
+
+
+			return r;
+
+		}
+
+
+
+		private void ResolveAviaDoument(AviaDocument r)
+		{
+			
 			//r.PaymentType =
 			//	r.PaymentForm == "CASH" ? PaymentType.Cash :
 			//	r.PaymentForm == "CHEQUE" ? PaymentType.Check :
@@ -247,6 +296,46 @@ namespace Luxena.Travel.Parsers
 			r.GrandTotal = r.GetGrandTotal();
 
 		}
+
+
+
+		private Entity2 ParseVoid<TDocument>(XElement xvoid)
+			where TDocument: AviaDocument, new()
+		{
+
+			var number = xvoid.Value("number") ?? xvoid.Value("locator");
+
+			var passenger = xvoid.Value("passenger", "last_name") + " " + xvoid.Value("passenger", "first_name");
+
+			var iataCode = xvoid.Els("segments", "segment").One().Value("carrier");
+
+
+			var r = new AviaDocumentVoiding
+			{
+
+				Originator = GdsOriginator.Drct,
+				Origin = ProductOrigin.Drct,
+				IsVoid = true,
+				TimeStamp = xvoid.Value("last_transaction_at").As().DateTime.Date,
+
+				//IataOffice = xvoid.Value("iata-agency-code"),
+				
+				AgentOffice = xvoid.Value("ticketing_office") ?? xvoid.Value("company", "id"),
+				AgentCode = xvoid.Value("originator", "id"),
+
+				Document = new TDocument
+				{
+					AirlineIataCode = iataCode,
+					Number = number + " - " + passenger,
+				},
+
+			};
+
+
+			return r;
+
+		}
+
 
 
 		//private Entity2 ParseRefund(XElement xrefund)
@@ -349,40 +438,6 @@ namespace Luxena.Travel.Parsers
 
 		//	return r;
 		//}
-
-
-
-		private Entity2 ParseVoid(XElement x)
-		{
-
-			var r = new AviaDocumentVoiding
-			{
-				Originator = GdsOriginator.Drct,
-				Origin = ProductOrigin.Drct,
-				IsVoid = true,
-				TimeStamp = x.Value("Created").As().DateTime,
-
-				IataOffice = x.Value("iata-agency-code"),
-				AgentOffice = x.Value("office-id-ticketing"),
-				AgentCode = x.Value("agent-id-ticketing"),
-
-				Document = x.Value("ticket-number").Split('-').As(a => new AviaTicket
-				{
-					AirlinePrefixCode = a.By(0),
-					Number = a.By(1),
-				}),
-			};
-
-			//if (_robotCodes.Any(a => a == r.AgentOffice + r.AgentCode))
-			//{
-			//	r.AgentOffice = h.Attr("OfficeID", "Booking");
-			//	r.AgentCode = xml.Attr("SignInBooking").Right(2);
-			//}
-
-
-			return r;
-
-		}
 
 
 

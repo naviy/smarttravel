@@ -218,7 +218,7 @@ namespace Luxena.Travel.Reports
 							Vat = vat.If(b => b != 0),
 							ServiceFee = serviceFee.If(b => b != 0),
 							GrandTotal = grandTotal,
-							GrandTotal2 = grandTotal, // у шаблонизатора проблемы с использованием одинаковых полей
+							GrandTotal2 = grandTotal, // у шаблонизатора проблемы с использованием одиного поля несколько раз
 						};
 					})
 					.ToArray()

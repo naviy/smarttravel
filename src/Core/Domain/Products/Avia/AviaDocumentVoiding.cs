@@ -1,11 +1,27 @@
 using System;
 
 
+
+
 namespace Luxena.Travel.Domain
 {
 
+
+
+	//===g
+
+
+
+
+
+
 	public partial class AviaDocumentVoiding : Entity2
 	{
+
+		//---g
+
+
+
 		[EntityName]
 		public virtual AviaDocument Document { get; set; }
 
@@ -26,6 +42,11 @@ namespace Luxena.Travel.Domain
 		public virtual string IataOffice { get; set; }
 
 
+
+		//---g
+
+
+
 		public override object Clone()
 		{
 			var voiding = (AviaDocumentVoiding) base.Clone();
@@ -35,15 +56,22 @@ namespace Luxena.Travel.Domain
 			return voiding;
 		}
 
+
+
 		public override string ToString()
 		{
 			return (IsVoid ? "Void" : "Restore") + " " + Document;
 		}
 
+
+
 		public override Entity Resolve(Domain db)
 		{
+
 			base.Resolve(db);
+
 			var r = this;
+
 
 			r.Document = db.AviaDocument.FindToVoid(r);
 
@@ -51,11 +79,19 @@ namespace Luxena.Travel.Domain
 
 			r.Document.AddVoiding(r);
 
+
 			if (r.IsVoid)
 				r.Document.Order?.Remove(db, r.Document);
 
+
 			return r;
+
 		}
+
+
+
+		//---g
+
 
 
 		public class Service : Entity2Service<AviaDocumentVoiding>
@@ -63,6 +99,20 @@ namespace Luxena.Travel.Domain
 
 		}
 
+
+
+
+		//---g
+
 	}
+
+
+
+
+
+
+	//===g
+
+
 
 }
