@@ -33,10 +33,10 @@ namespace Luxena.Travel.Reports
 
 
 
-		public byte[] Build(Order order, string number, DateTime issueDate, Person issuedBy, bool showPaid)
+		public byte[] Build(Order order, string number, DateTime issueDate, Person issuedBy, bool showPaid, out string fileExtension)
 		{
 
-			var stream = GetStream2(order, number, issueDate, issuedBy, showPaid);
+			var stream = GetStream2(order, number, issueDate, issuedBy, showPaid, out fileExtension);
 
 			return stream.ToBytes();
 
@@ -44,7 +44,7 @@ namespace Luxena.Travel.Reports
 
 
 
-		private Stream GetStream2(Order order, string number, DateTime issueDate, Person issuedBy, bool showPaid)
+		private Stream GetStream2(Order order, string number, DateTime issueDate, Person issuedBy, bool showPaid, out string fileExtension)
 		{
 
 			var pos = 1;
@@ -74,7 +74,8 @@ namespace Luxena.Travel.Reports
 				OrderNo = order.Number,
 
 				Supplier = db.Configuration.Company,
-				Customer = order.ShipTo ?? order.Customer,
+				Customer = (order.ShipTo ?? order.Customer)?.Name,
+				CustomerSignature = (order.ShipTo ?? order.Customer).As(a => a.Signature ?? a.Name),
 				SupplierDetails = db.Configuration.GetSupplierDetails(db, order),
 				CustomerDetails = db.Configuration.GetCustomerDetails(db, order.ShipTo ?? order.Customer),
 
@@ -154,7 +155,7 @@ namespace Luxena.Travel.Reports
 			return Build(
 				TemplateFileName ?? "~/static/reports/CompletionCertificateTemplate2.xlsx", 
 				data, 
-				out _
+				out fileExtension
 			);
 
 		}

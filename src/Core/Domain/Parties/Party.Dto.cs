@@ -5,19 +5,37 @@ using Luxena.Base.Metamodel;
 using Luxena.Domain.Contracts;
 
 
+
+
 namespace Luxena.Travel.Domain
 {
+
+
+
+	//===g
+
+
+
+
+
 
 	public abstract class PartyDto : EntityContract
 	{
 
+		//---g
+
+
+
 		public string Type { get; set; }
+
 
 		public string Text => Name;
 
 		public string Name { get; set; }
 
 		public string LegalName { get; set; }
+
+		public string Signature { get; set; }
 
 
 		public string BonusCardNumber { get; set; }
@@ -71,7 +89,15 @@ namespace Luxena.Travel.Domain
 
 		public PartyBalance Balance { get; set; }
 
+
+
+		//---g
+
 	}
+
+
+
+
 
 
 	public partial class PartyContractService<TParty, TPartyService, TPartyContract>
@@ -80,14 +106,21 @@ namespace Luxena.Travel.Domain
 		where TPartyService : Party.Service<TParty>
 		where TPartyContract : PartyDto, new()
 	{
+
+		//---g
+
+
+
 		public PartyContractService()
 		{
+
 			ContractFromEntity += (r, c) =>
 			{
 				c.Type = Class.Of(r).Id;
 
 				c.Name = r.Name;
 				c.LegalName = r.LegalName;
+				c.Signature = r.Signature;
 
 				c.BonusCardNumber = r.BonusCardNumber;
 				c.BonusAmount = r.BonusAmount;
@@ -139,12 +172,17 @@ namespace Luxena.Travel.Domain
 				c.DefaultBankAccount = r.DefaultBankAccount;
 
 				c.Balance = PartyBalance.By(db, dc, r);
+
 			};
+
+
 
 			EntityFromContract += (r, c) =>
 			{
+
 				r.Name = c.Name + db;
 				r.LegalName = c.LegalName + db;
+				r.Signature = c.Signature + db;
 
 				r.BonusCardNumber = c.BonusCardNumber + db;
 				r.BonusAmount = c.BonusAmount + db;
@@ -171,13 +209,32 @@ namespace Luxena.Travel.Domain
 
 				r.ReportsTo = c.ReportsTo + db;
 				r.DefaultBankAccount = c.DefaultBankAccount + db;
+
 			};
+
 		}
+
+
+
+		//---g
+
 	}
+
+
+
+
+
+
+	//===g
+
+
+
+
 
 
 	public abstract class PartyListDetailDto : EntityContract
 	{
+
 		public string Type { get; set; }
 
 		public string Name { get; set; }
@@ -185,7 +242,13 @@ namespace Luxena.Travel.Domain
 		public string Phone1 { get; set; }
 
 		public string Email1 { get; set; }
+
 	}
+
+
+
+
+
 
 	public partial class PartyListDetailContractService<TParty, TPartyService, TPartyContract>
 			: EntityContractService<TParty, TPartyService, TPartyContract>
@@ -208,8 +271,20 @@ namespace Luxena.Travel.Domain
 	}
 
 
+
+
+
+
+	//===g
+
+
+
+
+
+
 	public partial class PartyOrderDto : EntityContract
 	{
+
 		public string Type => nameof(Order);
 
 		public string Text => Number;
@@ -223,10 +298,17 @@ namespace Luxena.Travel.Domain
 		public MoneyDto Paid { get; set; }
 
 		public MoneyDto TotalDue { get; set; }
+
 	}
+
+
+
+
+
 
 	public partial class PartyOrderContractService : EntityContractService<Order, Order.Service, PartyOrderDto>
 	{
+
 		public PartyOrderContractService()
 		{
 			ContractFromEntity += (r, c) =>
@@ -243,8 +325,20 @@ namespace Luxena.Travel.Domain
 	}
 
 
+
+
+
+
+	//===g
+
+
+
+
+
+
 	public partial class PartyInvoiceDto : EntityContract
 	{
+
 		public string Number { get; set; }
 
 		public DateTime IssueDate { get; set; }
@@ -258,10 +352,17 @@ namespace Luxena.Travel.Domain
 		public MoneyDto Total { get; set; }
 
 		public MoneyDto Vat { get; set; }
+
 	}
+
+
+
+
+
 
 	public partial class PartyInvoiceContractService : EntityContractService<Invoice, Invoice.Service, PartyInvoiceDto>
 	{
+
 		public PartyInvoiceContractService()
 		{
 			ContractFromEntity += (r, c) =>
@@ -275,11 +376,24 @@ namespace Luxena.Travel.Domain
 				c.Type = r.Type;
 			};
 		}
+
 	}
+
+
+
+
+
+
+	//===g
+
+
+
+
 
 
 	public partial class PartyProductDto : EntityContract
 	{
+
 		public string Type { get; set; }
 
 		public string Name { get; set; }
@@ -305,13 +419,20 @@ namespace Luxena.Travel.Domain
 		public MoneyDto GrandTotal { get; set; }
 
 		public string Itinerary { get; set; }
+
 	}
+
+
+
+
 
 
 	public partial class PartyProductContractService : EntityContractService<Product, Product.Service, PartyProductDto>
 	{
+		
 		public PartyProductContractService()
 		{
+
 			ContractFromEntity += (r, c) =>
 			{
 				c.Type = Enum.GetName(typeof (ProductType), r.Type);
@@ -325,8 +446,7 @@ namespace Luxena.Travel.Domain
 				c.Order = r.Order;
 				c.Owner = r.Owner;
 
-				var ad = r as AviaDocument;
-				if (ad != null)
+				if (r is AviaDocument ad)
 					c.Itinerary = ad.Itinerary;
 
 				c.Fare = r.Fare;
@@ -340,6 +460,13 @@ namespace Luxena.Travel.Domain
 		}
 
 	}
+
+
+
+
+
+
+	//===g
 
 
 

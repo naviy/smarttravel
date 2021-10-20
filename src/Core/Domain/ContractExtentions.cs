@@ -2816,6 +2816,8 @@ namespace Luxena.Travel.Domain
 
 		public Money Vat { get; set; }
 
+		public string FileExtension { get; set; }
+
 		*/
 	}
 
@@ -2834,6 +2836,7 @@ namespace Luxena.Travel.Domain
 				c.Total = r.Total;
 				c.Vat = r.Vat;
 				c.Type = r.Type;
+				c.FileExtension = r.FileExtension;
 			};
 		
 			EntityFromContract += (r, c) =>
@@ -2846,6 +2849,7 @@ namespace Luxena.Travel.Domain
 				r.Total = c.Total + db;
 				r.Vat = c.Vat + db;
 				r.Type = (InvoiceType)c.Type + db;
+				r.FileExtension = c.FileExtension + db;
 			};
 		}
 		*/
@@ -3660,6 +3664,8 @@ namespace Luxena.Travel.Domain
 		public Money Total { get; set; }
 
 		public Money Vat { get; set; }
+
+		public string FileExtension { get; set; }
 
 		*/
 	}
@@ -5034,6 +5040,7 @@ namespace Luxena.Travel.Domain
 				c.Invoice_NumberMode = (int)r.Invoice_NumberMode;
 				c.Consignment_NumberMode = (int)r.Consignment_NumberMode;
 				c.InvoicePrinter_FooterDetails = r.InvoicePrinter_FooterDetails;
+				c.DrctWebService_LoadedOn = r.DrctWebService_LoadedOn;
 				c.GalileoWebService_LoadedOn = r.GalileoWebService_LoadedOn;
 				c.GalileoRailWebService_LoadedOn = r.GalileoRailWebService_LoadedOn;
 				c.GalileoBusWebService_LoadedOn = r.GalileoBusWebService_LoadedOn;
@@ -5077,6 +5084,7 @@ namespace Luxena.Travel.Domain
 				r.Invoice_NumberMode = (InvoiceNumberMode)c.Invoice_NumberMode + db;
 				r.Consignment_NumberMode = (InvoiceNumberMode)c.Consignment_NumberMode + db;
 				r.InvoicePrinter_FooterDetails = c.InvoicePrinter_FooterDetails + db;
+				r.DrctWebService_LoadedOn = c.DrctWebService_LoadedOn + db;
 				r.GalileoWebService_LoadedOn = c.GalileoWebService_LoadedOn + db;
 				r.GalileoRailWebService_LoadedOn = c.GalileoRailWebService_LoadedOn + db;
 				r.GalileoBusWebService_LoadedOn = c.GalileoBusWebService_LoadedOn + db;

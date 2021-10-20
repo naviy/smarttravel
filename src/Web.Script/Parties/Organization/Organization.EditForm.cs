@@ -1,20 +1,38 @@
 ﻿using Ext;
 
 
+
+
 namespace Luxena.Travel
 {
+
+
+
+	//===g
+
+
+
+
+
 
 	public partial class OrganizationEditForm
 	{
 
+		//---g
+
+
+
 		protected override void CreateControls()
 		{
+
 			Form.add(TabPanel(450, new Component[]
 			{
+
 				TabMainPane(se._title, new object[]
 				{
 					se.Name,
 					se.LegalName,
+					se.Signature.ToField(-3),
 					se.ReportsTo,
 
 					se.Code.ToField(-2, delegate(FormMember m)
@@ -33,6 +51,7 @@ namespace Luxena.Travel
 					se.WebAddress,
 				}),
 
+
 				TabPane(se.Note._title, new object[]
 				{
 					se.Note.ToField(526, delegate(FormMember m)
@@ -42,7 +61,9 @@ namespace Luxena.Travel
 					}),
 				}),
 
+
 				AddressPanel(se, 450),
+
 
 				TabMainPane("Провайдер", new object[]
 				{
@@ -56,6 +77,7 @@ namespace Luxena.Travel
 					se.IsGenericProductProvider.ToField(-3),
 				}),
 
+
 				TabMainPane(DomainRes.Airline, new object[]
 				{
 					EmptyRow(),
@@ -66,6 +88,7 @@ namespace Luxena.Travel
 					se.AirlinePassportRequirement,
 				}),
 
+
 				TabMainPane(DomainRes.Common_Misc, new object[]
 				{
 					EmptyRow(),
@@ -73,11 +96,26 @@ namespace Luxena.Travel
 					se.IsRoamingOperator.ToField(-3),
 				}),
 
+
 				BonusPanel(se),
 
 			}));
+
 		}
 
+
+
+		//---g
+
 	}
+
+
+
+
+
+
+	//===g
+
+
 
 }

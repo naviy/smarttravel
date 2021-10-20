@@ -14,6 +14,7 @@ namespace Luxena.Travel
 				se.Name,
 				se.LegalName,
 				se.Title.ToField(-3),
+				se.Signature,
 
 				se.IsCustomer,
 				se.CanNotBeCustomer,

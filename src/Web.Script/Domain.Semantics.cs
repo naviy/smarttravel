@@ -515,6 +515,12 @@ namespace Luxena.Travel
 			.Title("Официальное название")
 			.String();
 
+		/// <summary>Подпись</summary>
+		[PreserveCase]
+		public SemanticMember Signature = Member
+			.Title("Подпись")
+			.String();
+
 		/// <summary>Код</summary>
 		[PreserveCase]
 		public SemanticMember Code = Member
@@ -646,6 +652,7 @@ namespace Luxena.Travel
 	/*
 				se.Type,
 				se.LegalName,
+				se.Signature,
 				se.Code,
 				se.NameForDocuments,
 				se.BonusCardNumber,
@@ -6726,6 +6733,12 @@ namespace Luxena.Travel
 			.Title("В т.ч. НДС")
 			.Money();
 
+		/// <summary>Формат файла</summary>
+		[PreserveCase]
+		public SemanticMember FileExtension = Member
+			.Title("Формат файла")
+			.String();
+
 	}
 
 	/*
@@ -6745,6 +6758,7 @@ namespace Luxena.Travel
 				se.IssuedBy,
 				se.Total,
 				se.Vat,
+				se.FileExtension,
 	*/
 
 	public partial class InvoiceListTab : EntityListTab

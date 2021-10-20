@@ -93,6 +93,7 @@ namespace Luxena.Travel.Parsers
 			var type = xml.Value("type").ToLower();
 			var status = xml.Value("status")?.ToLower();
 
+
 			if (type == "ticket")
 			{
 

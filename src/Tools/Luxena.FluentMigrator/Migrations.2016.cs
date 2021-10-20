@@ -671,6 +671,18 @@ update lt_order o set
 	}
 
 
+	[Migration(2022102001)]
+	public class Migration_2022102001 : AutoReversingMigration
+	{
+		public override void Up()
+		{
+			Alter.Table("lt_party")
+				.AddColumn("signature").AsText().Nullable()
+			;
+		}
+	}
+
+
 
 
 }

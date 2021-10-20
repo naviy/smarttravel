@@ -1,25 +1,47 @@
 ﻿using Ext;
 
 
+
+
 namespace Luxena.Travel
 {
+
+
+
+	//===g
+
+
+
+
+
 
 	public abstract class PartyEditForm : EntityEditForm
 	{
 
+		//---g
+
+
+
 		protected override void PreInitialize()
 		{
+
 			base.PreInitialize();
+
 
 			Window.cls += " aviaDocument-edit tabbed";
 			Form.cls = "tabbed";
 			Form.labelWidth = 140;
 			Window.width = -3;
+
 		}
+
+
 
 		protected Panel AddressPanel(PartySemantic se, int height)
 		{
+
 			int itemHeight = height / 3 - 40;
+
 
 			return TabMainPane(DomainRes.Common_Addresses, new object[]
 			{
@@ -28,7 +50,10 @@ namespace Luxena.Travel
 				se.Details.SetEditor(-3, delegate(FormMember m) { m.Height(itemHeight); }),
 				se.InvoiceSuffix,
 			});
+
 		}
+
+
 
 		protected Panel BonusPanel(PartySemantic se)
 		{
@@ -40,6 +65,19 @@ namespace Luxena.Travel
 			});
 		}
 
+
+
+		//---g
+
 	}
+
+
+
+
+
+
+	//===g
+
+
 
 }

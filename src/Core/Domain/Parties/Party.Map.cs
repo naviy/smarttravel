@@ -4,13 +4,26 @@ using NHibernate;
 using NHibernate.Mapping.ByCode;
 
 
+
+
 namespace Luxena.Travel.Domain.Mapping
 {
 
+
+
+	//===g
+
+
+
+
+
+
 	public class PartyMap : Entity2Mapping<Party>
 	{
+
 		public PartyMap()
 		{
+
 			Cache(x => x.Usage(CacheUsage.ReadWrite));
 
 			Discriminator(x =>
@@ -30,6 +43,7 @@ namespace Luxena.Travel.Domain.Mapping
 			});
 
 			Property(x => x.LegalName, x => x.Length(100));
+			Property(x => x.Signature, x => x.Length(100));
 			Property(x => x.Code, m => { m.Length(50); m.Unique(true); });
 
 			Property(x => x.BonusCardNumber);
@@ -58,7 +72,18 @@ namespace Luxena.Travel.Domain.Mapping
 			Property(x => x.Note, m => m.Type(NHibernateUtil.StringClob));
 
 			BagAggregate(x => x.Files, i => i.Party, "TimeStamp desc");
+
 		}
+
 	}
+	
+
+
+
+
+
+	//===g
+
+
 
 }

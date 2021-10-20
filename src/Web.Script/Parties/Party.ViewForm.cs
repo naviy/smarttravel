@@ -21,10 +21,27 @@ using LxnBase.Net;
 using LxnTravel.Parties;
 
 
+
+
 namespace Luxena.Travel
 {
+
+
+
+	//===g
+
+
+
+
+
+
 	public abstract class PartyViewForm : Tab
 	{
+
+		//---g
+
+
+
 		protected PartyViewForm(string tabId, object id, string className) : base(
 			new PanelConfig()
 				.closable(true)
@@ -46,6 +63,8 @@ namespace Luxena.Travel
 					GetParty(id);
 				});
 		}
+
+
 
 		protected override void initComponent()
 		{
@@ -69,15 +88,21 @@ namespace Luxena.Travel
 			base.initComponent();
 		}
 
+
+
 		protected override void OnActivate(bool isFirst)
 		{
 			if (!isFirst)
 				GetParty(Dto.Id);
 		}
 
+
+
 		protected abstract PartyModel CreateModel();
 
 		protected abstract void GetParty(object id);
+
+
 
 		protected void SetParty(object result)
 		{
@@ -106,6 +131,8 @@ namespace Luxena.Travel
 			}
 		}
 
+
+
 		protected virtual void InitModel()
 		{
 			Model.Edit = EditInstance;
@@ -129,10 +156,14 @@ namespace Luxena.Travel
 			Model.OpenAllInvoices = delegate { OpenAllInvoices(); };
 		}
 
+
+
 		protected virtual void InitView()
 		{
 			InitTabs();
 		}
+
+
 
 		private static void SetButtonStatus(Button button, OperationStatus status)
 		{
@@ -143,6 +174,8 @@ namespace Luxena.Travel
 			button.setDisabled(status.IsDisabled);
 			button.setTooltip(status.DisableInfo);
 		}
+
+
 
 		private void InitTabs()
 		{
@@ -168,6 +201,8 @@ namespace Luxena.Travel
 			});
 		}
 
+
+
 		private void EditInstance()
 		{
 			FormsRegistry.EditObject(_className, Dto.Id, null,
@@ -177,6 +212,8 @@ namespace Luxena.Travel
 				},
 				null);
 		}
+
+
 
 		private void CopyInstance()
 		{
@@ -188,6 +225,9 @@ namespace Luxena.Travel
 				},
 				null, null, LoadMode.Remote, true);
 		}
+
+
+
 
 		private void RemoveInstance()
 		{
@@ -221,6 +261,8 @@ namespace Luxena.Travel
 				});
 		}
 
+
+
 		protected void AddDetail(string className, string masterField)
 		{
 			Reference party = Reference.Create(null, Dto.Name, Dto.Id);
@@ -233,10 +275,16 @@ namespace Luxena.Travel
 		}
 
 
+
 		protected void OnDeleteFailed()
 		{
 			ReplaceForm.Exec(_className, Dto.Id, this);
 		}
+
+
+
+		//---g
+
 
 
 		private void UploadFile()
@@ -253,10 +301,14 @@ namespace Luxena.Travel
 			uploadForm.Open();
 		}
 
+
+
 		private void DownloadFile(FileModel file)
 		{
 			ReportLoader.Load(string.Format("files/party/{0}", file.FileName.GetValue()), new Dictionary("file", file.Id.GetValue()));
 		}
+
+
 
 		private void DeleteFile(FileModel file)
 		{
@@ -277,6 +329,11 @@ namespace Luxena.Travel
 				});
 		}
 
+
+
+		//---g
+
+
 		
 		protected void OpenAllProducts()
 		{
@@ -294,6 +351,8 @@ namespace Luxena.Travel
 			FormsRegistry.ListObjects(ClassNames.Product, request, false);
 		}
 
+
+
 		protected void OpenAllOrders()
 		{
 
@@ -310,6 +369,8 @@ namespace Luxena.Travel
 			FormsRegistry.ListObjects(ClassNames.Order, request, false);
 		}
 		
+
+
 		protected void OpenAllInvoices()
 		{
 
@@ -325,6 +386,13 @@ namespace Luxena.Travel
 
 			FormsRegistry.ListObjects(ClassNames.Invoice, request, false);
 		}
+
+
+
+		//---g
+
+
+
 		protected string ListCaption;
 
 		protected PartyDto Dto;
@@ -336,5 +404,20 @@ namespace Luxena.Travel
 		private Button _editButton;
 		private Button _copyButton;
 		private Button _deleteButton;
+
+
+
+		//---g
+
 	}
+
+
+
+
+
+
+	//===g
+
+
+
 }

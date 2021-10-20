@@ -165,6 +165,59 @@ namespace Luxena.Travel.Domain
 
 
 
+			public Invoice IssueCompletionCertificate(Order order, string number, DateTime issueDate, bool showPaid)
+			{
+
+				db.AssertUpdate(order);
+
+
+				if (number.No())
+				{
+					var lastInvoiceNumber = order.Invoices.Where(a => a.Type == InvoiceType.Invoice).OrderByDescending(a => a.Number).Select(a => a.Number).One();
+
+					if (lastInvoiceNumber.Yes())
+						number = "A" + lastInvoiceNumber;
+					else
+						number = db.Sequence.Next("CompletionCertificate");
+				}
+
+
+				var issuedBy = db.Security.Person;
+
+
+				var printer = db.Resolve<ICompletionCertificatePrinter>() ?? new CompletionCertificatePrinter { db = db };
+
+				var bytes = printer.Build(
+					order, number, issueDate, issuedBy, showPaid, out var fileExtension
+				);
+
+
+				var invoice = new Invoice
+				{
+					Number = number,
+					IssueDate = issueDate,
+					TimeStamp = DateTime.Now.AsUtc(),
+					Type = InvoiceType.CompletionCertificate,
+					Content = bytes,
+					IssuedBy = issuedBy,
+					Total = order.TotalDue.Clone(),
+					Vat = order.VatDue.Clone(),
+					FileExtension = fileExtension,
+				};
+
+				order.AddPrintedDocument(invoice);
+
+
+				Save(invoice);
+				Export(invoice);
+
+
+				return invoice;
+
+			}
+
+
+
 			public Invoice IssueReceipt(Order order)
 			{
 				db.AssertUpdate(order);
@@ -191,51 +244,6 @@ namespace Luxena.Travel.Domain
 				return r;
 			}
 
-
-			public Invoice IssueCompletionCertificate(Order order, string number, DateTime issueDate, bool showPaid)
-			{
-				db.AssertUpdate(order);
-
-
-				if (number.No())
-				{
-					var lastInvoiceNumber = order.Invoices.Where(a => a.Type == InvoiceType.Invoice).OrderByDescending(a => a.Number).Select(a=> a.Number).One();
-
-					if (lastInvoiceNumber.Yes())
-						number = "A" + lastInvoiceNumber;
-					else
-						number = db.Sequence.Next("CompletionCertificate");
-				}
-
-
-				var issuedBy = db.Security.Person;
-
-
-				var bytes = (db.Resolve<ICompletionCertificatePrinter>() ?? new CompletionCertificatePrinter { db = db })
-					.Build(order, number, issueDate, issuedBy, showPaid);
-
-
-				var invoice = new Invoice
-				{
-					Number = number,
-					IssueDate = issueDate,
-					TimeStamp = DateTime.Now.AsUtc(),
-					Type = InvoiceType.CompletionCertificate,
-					Content = bytes,
-					IssuedBy = issuedBy,
-					Total = order.TotalDue.Clone(),
-					Vat = order.VatDue.Clone(),
-				};
-
-				order.AddPrintedDocument(invoice);
-
-
-				Save(invoice);
-				Export(invoice);
-
-
-				return invoice;
-			}
 
 
 			#endregion

@@ -5,6 +5,7 @@
 				<div class="party-header">
 					<h1 class="party-name" data-bind="text: Name" />
 					<!-- ko if: LegalName --><div class="party-legalname" data-bind="text: LegalName" /><!-- /ko -->
+					<!-- ko if: Signature --><div class="party-legalname" data-bind="text: Signature" /><!-- /ko -->
 					<!-- ko if: IsCustomer || IsSupplier -->
 					<div class="party-roles">
 						<!-- ko if: IsCustomer --><span>заказчик</span><!-- /ko -->
