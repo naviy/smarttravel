@@ -52,7 +52,9 @@ namespace Luxena.Travel.Parsers
 
 
 		public List<AviaDocument> Documents { get; }
+
 		public Currency DefaultCurrency { get; }
+
 		public string Content { get; }
 
 
