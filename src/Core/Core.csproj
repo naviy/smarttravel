@@ -765,6 +765,7 @@
     <Compile Include="Export\PersonContract.cs" />
     <Compile Include="Export\PartyContract.cs" />
     <Compile Include="Export\ProductContract.cs" />
+    <Compile Include="Parsers\SabreConsoleParser.cs" />
     <Compile Include="Parsers\DrctXmlParser.cs" />
     <Compile Include="Parsers\TravelPointXmlParser.cs" />
     <Compile Include="Parsers\GalileoBusXmlParser.cs" />
@@ -937,7 +938,7 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="Parsers\IataParser.cs" />
-    <Compile Include="Parsers\AirConsoleParser.cs" />
+    <Compile Include="Parsers\AmadeusConsoleParser.cs" />
     <Compile Include="Parsers\PaymentXmlParser.cs" />
     <Compile Include="Parsers\PrintParser.cs" />
     <Compile Include="Parsers\SirenaXmlParser.cs" />

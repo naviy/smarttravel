@@ -45,10 +45,10 @@ namespace Luxena.Travel.Domain
 		public override string PureNumber => Number.AsString();
 
 
-		public override string PassengerName { get { return GetPassengerName(); } set { SetPassengerName(value); } }
+		public override string PassengerName { get => GetPassengerName(); set => SetPassengerName(value); }
 
 		[Patterns.Passenger]
-		public virtual Person Passenger { get { return GetPassenger(); } set { SetPassenger(value); } }
+		public virtual Person Passenger { get => GetPassenger(); set => SetPassenger(value); }
 
 		public virtual string AirlineIataCode { get; set; }
 
@@ -58,7 +58,7 @@ namespace Luxena.Travel.Domain
 		[RU("Код АК")]
 		public virtual string AirlinePrefixCode
 		{
-			get { return _airlinePrefixCode; }
+			get => _airlinePrefixCode;
 			set
 			{
 				if (value.Yes() && value.Length < 3)
@@ -86,7 +86,7 @@ namespace Luxena.Travel.Domain
 		[RU("Маршрут")]
 		public virtual string Itinerary
 		{
-			get { return null; }
+			get => null;
 			// ReSharper disable once ValueParameterNotUsed
 			set { }
 		}
@@ -101,7 +101,9 @@ namespace Luxena.Travel.Domain
 
 		public virtual string Remarks { get; set; }
 
-		public virtual IList<AviaDocumentFee> Fees { get { return _fees; } set { _fees = value; } }
+		public virtual IList<AviaDocumentFee> Fees { get => _fees;
+			set => _fees = value;
+		}
 
 
 		public virtual IList<AviaDocumentVoiding> Voidings => _voidings;

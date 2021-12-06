@@ -664,7 +664,7 @@ namespace Luxena.Travel.Domain
 			public IList<AviaDocument> AddByConsoleContent(string content, string sellerId, string ownerId)
 			{
 
-				var docs = AirConsoleParser.Parse(content, db.Configuration.DefaultCurrency);
+				var docs = AmadeusConsoleParser.Parse(content, db.Configuration.DefaultCurrency).ToList();
 
 
 				var seller = db.Person.By(sellerId) ?? db.Security.Person;

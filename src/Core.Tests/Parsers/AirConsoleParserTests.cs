@@ -2031,7 +2031,7 @@ FV *F*LH
 			//	: MirConsoleParser.Parse(documentContent, new Currency("UAH"));
 			//return (IList<AviaDocument>)docs;
 
-			return AirConsoleParser.Parse(documentContent, new Currency("UAH"));
+			return AmadeusConsoleParser.Parse(documentContent, new Currency("UAH"));
 		}
 
 

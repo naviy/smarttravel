@@ -21,28 +21,27 @@ namespace Luxena.Travel.Parsers
 
 
 
-	public class AirConsoleParser
+	public class AmadeusConsoleParser
 	{
 
 		//---g
 
 
 
-		private AirConsoleParser(string content, Currency defaultCurrency)
+		private AmadeusConsoleParser(string content, Currency defaultCurrency)
 		{
-			Documents = new List<AviaDocument>();
 			Content = content;
 			DefaultCurrency = defaultCurrency;
 		}
 
 
 
-		public static IList<AviaDocument> Parse(string content, Currency defaultCurrency)
+		public static IEnumerable<AviaDocument> Parse(string content, Currency defaultCurrency)
 		{
 			if (content.No())
 				throw new GdsImportException("Empty content");
 
-			return new AirConsoleParser(content, defaultCurrency).ParseTickets();
+			return new AmadeusConsoleParser(content, defaultCurrency).ParseTickets();
 		}
 
 
@@ -50,8 +49,6 @@ namespace Luxena.Travel.Parsers
 		//---g
 
 
-
-		public List<AviaDocument> Documents { get; }
 
 		public Currency DefaultCurrency { get; }
 
@@ -63,7 +60,7 @@ namespace Luxena.Travel.Parsers
 
 
 
-		private IList<AviaDocument> ParseTickets()
+		private IEnumerable<AviaDocument> ParseTickets()
 		{
 
 
@@ -75,7 +72,7 @@ namespace Luxena.Travel.Parsers
 			var baseMatch = _reBase.Match(Content);
 
 			if (!baseMatch.Success)
-				return Documents;
+				yield break;
 
 
 
@@ -95,8 +92,9 @@ namespace Luxena.Travel.Parsers
 
 			if (passangerGroupsMatches.Count == 0 || totalMatches.Count == 0 || totalMatches.Count != fareMatches.Count)
 			{
-				return Documents;
+				yield break;
 			}
+
 
 
 			var bookingOffice = baseMatch.Groups["bookingOffice"].Value;
@@ -130,7 +128,7 @@ namespace Luxena.Travel.Parsers
 
 			var feeBlocks = feesBlocks0
 
-				.Select(a => 
+				.Select(a =>
 					_reFees.Matches(a).Cast<Match>()
 					.Select(m => new
 					{
@@ -290,64 +288,7 @@ namespace Luxena.Travel.Parsers
 
 					if (ticket && segments.Yes())
 					{
-
-						for (int j = 0, jlen = segments.Length; j < jlen; j++)
-						{
-
-							var ss = segments[j];
-
-							if (ss.No() || ss.Length < 16)
-								continue;
-
-
-							var ss2 = segments2.By(ticket.Segments.Count);
-
-							var time1 = ss.AsSubstring(14, 10).As().ToDateTimen("ddMMM HHmm");
-							var time2 = time1?.Date + ss2.AsSubstring(42, 4).As().ToTimeSpann("hhmm");
-
-
-							if (time1 != null && time1 < issueDate)
-							{
-								time1 = time1.Value.AddYears(issueDate.Year - time1.Value.Year + 1);
-							}
-
-							if (time2 != null && time2 < issueDate)
-							{
-								time2 = time2.Value.AddYears(issueDate.Year - time2.Value.Year + 1);
-							}
-
-							if (ss2.AsSubstring(46, 1) == "+")
-							{
-								time2 = time2?.AddDays(ss2.AsSubstring(47, 1).As().Int32);
-							}
-
-
-							var seg = new FlightSegment
-							{
-
-								Position = ticket.Segments.Count + 1,
-								FromAirportCode = ss.AsSubstring(0, 3).Clip(),
-								ToAirportCode = (segments.By(j + 1) ?? segments[0]).AsSubstring(0, 3).Clip(),
-								CarrierIataCode = ss.AsSubstring(4, 2).Clip(),
-								FlightNumber = ss.AsSubstring(7, 4).Clip(),
-								ServiceClassCode = ss.AsSubstring(12, 1).Clip(),
-								FareBasis = ss.AsSubstring(29, 15).Clip(),
-								DepartureTime = time1,
-								ArrivalTime = time2,
-								//Duration = time1 != null && time2 != null ? (time2.Value - time1.Value).ToString("hh\\:mm") : null,
-								Luggage = ss.AsSubstring(56, 3).Clip(),
-
-							};
-
-
-							ticket.AddSegment(seg);
-
-
-							if (doc.AirlineIataCode.No())
-								doc.AirlineIataCode = seg.CarrierIataCode;
-
-						}
-
+						ParseSegments(ticket, segments);
 					}
 
 
@@ -355,15 +296,82 @@ namespace Luxena.Travel.Parsers
 						doc.AirlineIataCode = "PS";
 
 
-					Documents.Add(doc);
 					ticketIndex++;
+
+					yield return doc;
 
 				}
 
 			}
 
 
-			return Documents;
+
+
+			void ParseSegments(AviaTicket ticket, string[] segments)
+			{
+
+				for (int j = 0, jlen = segments.Length; j < jlen; j++)
+				{
+
+					var ss = segments[j];
+
+					if (ss.No() || ss.Length < 16)
+						continue;
+
+
+					var ss2 = segments2.By(ticket.Segments.Count);
+
+
+					var time1 = ss.AsSubstring(14, 10).As().ToDateTimen("ddMMM HHmm");
+					var time2 = time1?.Date + ss2.AsSubstring(42, 4).As().ToTimeSpann("hhmm");
+
+
+					if (time1 != null && time1 < issueDate)
+					{
+						time1 = time1.Value.AddYears(issueDate.Year - time1.Value.Year + 1);
+					}
+
+
+					if (time2 != null && time2 < issueDate)
+					{
+						time2 = time2.Value.AddYears(issueDate.Year - time2.Value.Year + 1);
+					}
+
+
+					if (ss2.AsSubstring(46, 1) == "+")
+					{
+						time2 = time2?.AddDays(ss2.AsSubstring(47, 1).As().Int32);
+					}
+
+
+
+					var seg = new FlightSegment
+					{
+
+						Position = ticket.Segments.Count + 1,
+						FromAirportCode = ss.AsSubstring(0, 3).Clip(),
+						ToAirportCode = (segments.By(j + 1) ?? segments[0]).AsSubstring(0, 3).Clip(),
+						CarrierIataCode = ss.AsSubstring(4, 2).Clip(),
+						FlightNumber = ss.AsSubstring(7, 4).Clip(),
+						ServiceClassCode = ss.AsSubstring(12, 1).Clip(),
+						FareBasis = ss.AsSubstring(29, 15).Clip(),
+						DepartureTime = time1,
+						ArrivalTime = time2,
+						//Duration = time1 != null && time2 != null ? (time2.Value - time1.Value).ToString("hh\\:mm") : null,
+						Luggage = ss.AsSubstring(56, 3).Clip(),
+
+					};
+
+
+					ticket.AddSegment(seg);
+
+
+					if (ticket.AirlineIataCode.No())
+						ticket.AirlineIataCode = seg.CarrierIataCode;
+
+				}
+
+			}
 
 		}
 
