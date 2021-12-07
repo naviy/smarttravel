@@ -70,6 +70,7 @@ namespace Luxena.Travel
 				TabPane("Счета", new object[]
 				{
 					se.Invoice_NumberMode.ToField(-3),
+					se.InvoicePrinter_ShowVat,
 					se.InvoicePrinter_FooterDetails.ToField(-3),
 				}),
 

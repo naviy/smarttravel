@@ -4976,9 +4976,11 @@ namespace Luxena.Travel.Domain
 
 		public bool Order_UseServiceFeeOnlyInVat { get; set; }
 
+		public int Consignment_NumberMode { get; set; }
+
 		public int Invoice_NumberMode { get; set; }
 
-		public int Consignment_NumberMode { get; set; }
+		public bool InvoicePrinter_ShowVat { get; set; }
 
 		public string InvoicePrinter_FooterDetails { get; set; }
 
@@ -5039,6 +5041,7 @@ namespace Luxena.Travel.Domain
 				c.Order_UseServiceFeeOnlyInVat = r.Order_UseServiceFeeOnlyInVat;
 				c.Invoice_NumberMode = (int)r.Invoice_NumberMode;
 				c.Consignment_NumberMode = (int)r.Consignment_NumberMode;
+				c.InvoicePrinter_ShowVat = r.InvoicePrinter_ShowVat;
 				c.InvoicePrinter_FooterDetails = r.InvoicePrinter_FooterDetails;
 				c.DrctWebService_LoadedOn = r.DrctWebService_LoadedOn;
 				c.GalileoWebService_LoadedOn = r.GalileoWebService_LoadedOn;
@@ -5083,6 +5086,7 @@ namespace Luxena.Travel.Domain
 				r.Order_UseServiceFeeOnlyInVat = c.Order_UseServiceFeeOnlyInVat + db;
 				r.Invoice_NumberMode = (InvoiceNumberMode)c.Invoice_NumberMode + db;
 				r.Consignment_NumberMode = (InvoiceNumberMode)c.Consignment_NumberMode + db;
+				r.InvoicePrinter_ShowVat = c.InvoicePrinter_ShowVat + db;
 				r.InvoicePrinter_FooterDetails = c.InvoicePrinter_FooterDetails + db;
 				r.DrctWebService_LoadedOn = c.DrctWebService_LoadedOn + db;
 				r.GalileoWebService_LoadedOn = c.GalileoWebService_LoadedOn + db;

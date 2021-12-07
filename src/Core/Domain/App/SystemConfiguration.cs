@@ -104,11 +104,14 @@ namespace Luxena.Travel.Domain
 		[RU("Заказы: НДС только от сервисного сбора")]
 		public virtual bool Order_UseServiceFeeOnlyInVat { get; set; }
 
+		[RU("Накладные: новый номер")]
+		public virtual InvoiceNumberMode Consignment_NumberMode { get; set; }
+
 		[RU("Инвойсы: новый номер")]
 		public virtual InvoiceNumberMode Invoice_NumberMode { get; set; }
 
-		[RU("Накладные: новый номер")]
-		public virtual InvoiceNumberMode Consignment_NumberMode { get; set; }
+		[RU("Инвойсы: печатать НДС")]
+		public virtual bool InvoicePrinter_ShowVat { get; set; }
 
 		[RU("Инвойсы: важное примечание"), Text(6)]
 		public virtual string InvoicePrinter_FooterDetails { get; set; }

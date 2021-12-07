@@ -5660,6 +5660,17 @@ namespace Luxena.Travel
 			.Bool()
 			.Required();
 
+		/// <summary>Накладные: новый номер</summary>
+		[PreserveCase]
+		public SemanticMember Consignment_NumberMode = Member
+			.Title("Накладные: новый номер")
+			.EnumItems(new object[][]
+			{
+				new object[] { 1, "На основе номера заказа" }, // ByOrderNumber
+				new object[] { 0, "По умолчанию" }, // Default
+			})
+			.Required();
+
 		/// <summary>Инвойсы: новый номер</summary>
 		[PreserveCase]
 		public SemanticMember Invoice_NumberMode = Member
@@ -5671,15 +5682,11 @@ namespace Luxena.Travel
 			})
 			.Required();
 
-		/// <summary>Накладные: новый номер</summary>
+		/// <summary>Инвойсы: печатать НДС</summary>
 		[PreserveCase]
-		public SemanticMember Consignment_NumberMode = Member
-			.Title("Накладные: новый номер")
-			.EnumItems(new object[][]
-			{
-				new object[] { 1, "На основе номера заказа" }, // ByOrderNumber
-				new object[] { 0, "По умолчанию" }, // Default
-			})
+		public SemanticMember InvoicePrinter_ShowVat = Member
+			.Title("Инвойсы: печатать НДС")
+			.Bool()
 			.Required();
 
 		/// <summary>Инвойсы: важное примечание</summary>
@@ -5779,8 +5786,9 @@ namespace Luxena.Travel
 				se.McoRequiresDescription,
 				se.NeutralAirlineCode,
 				se.Order_UseServiceFeeOnlyInVat,
-				se.Invoice_NumberMode,
 				se.Consignment_NumberMode,
+				se.Invoice_NumberMode,
+				se.InvoicePrinter_ShowVat,
 				se.InvoicePrinter_FooterDetails,
 				se.DrctWebService_LoadedOn,
 				se.GalileoWebService_LoadedOn,

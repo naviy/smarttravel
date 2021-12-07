@@ -9,11 +9,26 @@ using Luxena.Travel.Reports;
 using EntityReference = Luxena.Base.Data.EntityReference;
 
 
+
+
 namespace Luxena.Travel.Domain
 {
 
+
+
+	//===g
+
+
+
+
+
+
 	partial class Invoice
 	{
+
+		//---g
+
+
 
 		public class Service : EntityService<Invoice>
 		{
@@ -116,7 +131,7 @@ namespace Luxena.Travel.Domain
 						do
 						{
 							order.InvoiceLastIndex = (order.InvoiceLastIndex ?? 0) + 1;
-							number = order.Number.Replace('O', 'I') + "-" + order.InvoiceLastIndex;
+							number = order.Number.Replace('O', 'I') + (order.InvoiceLastIndex > 1 ? "-" + order.InvoiceLastIndex : null);
 						}
 						while (Exists(a => a.Number == number));
 						db.Save(order);
@@ -260,6 +275,20 @@ namespace Luxena.Travel.Domain
 			#endregion
 
 		}
+
+
+
+		//---g
+
 	}
+
+
+
+
+
+
+	//===g
+
+
 
 }

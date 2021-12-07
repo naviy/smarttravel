@@ -683,6 +683,18 @@ update lt_order o set
 	}
 
 
+	[Migration(2021120701)]
+	public class Migration_2021120701 : AutoReversingMigration
+	{
+		public override void Up()
+		{
+			Alter.Table("lt_system_configuration")
+				.AddColumn("invoiceprinter_showvat").AsBoolean().WithDefaultValue(true).NotNullable()
+			;
+		}
+	}
+
+
 
 
 }

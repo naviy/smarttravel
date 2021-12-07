@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 using Luxena.Travel.Domain;
 using Luxena.Travel.Parsers;
@@ -1565,7 +1566,7 @@ IEVU23667/5750TV/3NOV17
   4 TK OK03NOV/IEVU23667//ETLY
   5 RM *AMA 380039793
   6 FA PAX 114-5917779498/ETLY/UAH2947/03NOV17/IEVU23667/7232349
-       5/S2
+	   5/S2
   7 FB PAX 0000000000 TTP/RT OK ETICKET/S2
   8 FE PAX /C1 FARE RESTRICTIONS APPLY/S2
   9 FM *M*1A
@@ -1578,14 +1579,14 @@ T-
 FXB/S2                                                                          
    1.NAZAROV/ERVIN MR                                                           
  1   TLV LY 2651 O 14NOV 0630  OK OLIESHBO        14NOV14NOV 0PC                
-     KBP                                                                        
+	 KBP                                                                        
 FARE  F USD      94.00                                                          
 EQUIV   UAH       2529                                                          
 TX001 X UAH      310-ILEB TX002 X UAH      108-APSE                             
 TOTAL   UAH       2947    BSR 26.895                                            
 GRAND TOTAL UAH       2947                                                      
 TLV LY IEV Q42.00 52.00NUC94.00END ROE1.000000                                  
-                                                                                
+																				
   8.FE /C1 FARE RESTRICTIONS APPLY                                              
   9.FM *M*1A                                                                    
  10.FP CASH                                                                     
@@ -1613,7 +1614,7 @@ RP/IEVPS2332/IEVPS2332            AS/SU   9FEB18/0913Z   U3R5TE
   4 AP B +38 067 224 88 84
   5 TK TL10FEB/IEVPS2332
   6 OPW-09FEB:1200/1C7/PS REQUIRES TICKET ON OR BEFORE
-        10FEB:1200/S2-3
+		10FEB:1200/S2-3
   7 OPC-10FEB:1200/1C8/PS CANCELLATION DUE TO NO TICKET/S2-3
   8 FE PAX NONEND/REF RSTR/RBK 10USD/S2
   9 FE PAX NON END/NO REF/RBK USD10/S3
@@ -1626,7 +1627,7 @@ T-
 FXB/S2/R,UP                                                                    
    1.BABYCH/MYKOLA MR                                                          
  1   KBP PS  079 V 13FEB 1040  OK VH1LUP1         13FEB13FEB 1PC               
-     IFO                                                                       
+	 IFO                                                                       
 FARE  F USD      65.00                                                         
 EQUIV   UAH       1765                                                         
 TX001 X UAH      570-YRVB TX002 X UAH      375-HFGO TX003 X UAH       41-UASE  
@@ -1634,7 +1635,7 @@ TX004 X UAH       68-YKAE
 TOTAL   UAH       2819    BSR 27.14                                            
 GRAND TOTAL UAH       2819                                                     
 IEV PS IFO Q10.00 55.00USD65.00END                                             
-                                                                               
+																			   
   8.FE NONEND/REF RSTR/RBK 10USD                                               
  10.FV PS                                                                      
 >
@@ -1644,7 +1645,7 @@ T-
 FXB/S3/R,UP                                                                    
    1.BABYCH/MYKOLA MR                                                          
  1   IFO PS  082 N 15FEB 0700  OK NH1ZUP1         15FEB15FEB 0PC               
-     KBP                                                                       
+	 KBP                                                                       
 FARE  F USD      25.00                                                         
 EQUIV   UAH        679                                                         
 TX001 X UAH      570-YRVB TX002 X UAH      164-HFGO TX003 X UAH       44-UASE  
@@ -1652,7 +1653,7 @@ TX004 X UAH       95-YKAE
 TOTAL   UAH       1552    BSR 27.14                                            
 GRAND TOTAL UAH       1552                                                     
 IFO PS IEV25.00USD25.00END                                                     
-                                                                               
+																			   
   9.FE NON END/NO REF/RBK USD10                                                
  11.FV PS
 ",
@@ -1686,9 +1687,9 @@ IEVU2273F/6868IG/26FEB20
   7 AP IEV 38044 4902888 - ARIOLA GROUP LTD - A
   8 TK OK26FEB/IEVU23561//ETTP
   9 SSR DOCS TP HK1 P/UKR/FY580650/UKR/14AUG68/M/20FEB30/DUDNYK/
-       YURIY/P1
+	   YURIY/P1
  10 SSR DOCS TP HK1 P/UKR/FL704815/UKR/14SEP78/F/08FEB28/KARPENK
-       O/OKSANA/P2
+	   O/OKSANA/P2
  11 SSR CTCE TP HK2 DIRECTOUR1//GMAIL.COM
  12 SSR CTCM TP HK1 380965785167/P1
  13 RM *AMA 380043489
@@ -1704,7 +1705,7 @@ FXB
  2 X ZRH TP  931 T 16MAR 1330  OK T53CLC0D        16MAR16MAR 1PC                
  3 O LIS TP 1040 U 21MAR 0855  OK U53CLC0D        21MAR21MAR 1PC                
  4 X BCN TP 8223 U 21MAR 1330  OK U53CLC0D        21MAR21MAR 1PC                
-     KBP                                                                        
+	 KBP                                                                        
 FARE  F USD     197.00                                                          
 EQUIV   UAH       4831                                                          
 TX001 X UAH     2182-YQAD TX002 X UAH       98-UASE TX003 X UAH       49-UDDP   
@@ -1715,7 +1716,7 @@ TOTAL   UAH       8651    BSR 24.52
 GRAND TOTAL UAH       8651                                                      
 IEV TP X/ZRH TP LIS89.00TP X/BCN TP IEV108.00NUC197.00END                       
  ROE1.000000                                                                    
-                                                                                
+																				
  17.FE FARE RESTR APPLY/NON REF                                                 
  19.FM *M*1                                                                     
  20.FP CASH
@@ -1751,38 +1752,38 @@ RP/IEVPS28GM/IEVPS28GM            VK/SU  12MAY21/1128Z   T576DF
  19 TK OK12MAY/IEVPS2356//ETPS
  20 SSR GRPF YY GWRUA
  21 SSR DOCS PS HK1 P/UA/FV330542/UA/04JAN89/M/05JUN29/BONDARENK
-       O/ANTON MR//P1
+	   O/ANTON MR//P1
  22 SSR DOCS PS HK1 P/UA/FZ464431/UA/12NOV00/F/02OCT30/HORBATIUK
-       /VERONIKA MRS//P2
+	   /VERONIKA MRS//P2
  23 SSR DOCS PS HK1 P/UA/FF131586/UA/22OCT90/M/27OCT26/IVONIN/KY
-       RYLO MR//P3
+	   RYLO MR//P3
  24 SSR DOCS PS HK1 P/UA/FF956683/UA/15MAR82/F/24MAR27/KOZAK/MYR
-       OSLAVA MRS//P4
+	   OSLAVA MRS//P4
  25 SSR DOCS PS HK1 P/UA/FV192766/UA/29MAY83/F/23MAY29/LAN/MARIA
-       NA MRS//P5
+	   NA MRS//P5
  26 SSR DOCS PS HK1 P/UA/FZ620918/UA/09MAY01/M/20NOV30/PALAMARCH
-       UK/MAKSYM MR//P8
+	   UK/MAKSYM MR//P8
  27 SSR DOCS PS HK1 P/UA/FU274193/UA/01SEP01/M/22FEB29/PARCHUK/K
-       OSTIANTYN MR//P9
+	   OSTIANTYN MR//P9
 )>
 >
 md
 --- TST TSM RLR ---
 RP/IEVPS28GM/IEVPS28GM            VK/SU  12MAY21/1128Z   T576DF
  28 SSR DOCS PS HK1 P/UA/FB492206/UA/07APR98/M/18MAY25/TYMOSHENK
-       O/ROSTYSLAV MR//P13
+	   O/ROSTYSLAV MR//P13
  29 SSR DOCS PS HK1 P/UA/FJ691865/UA/04JUN96/F/27OCT27/ZAKHARENK
-       O/KHRYSTYNA MRS//P14
+	   O/KHRYSTYNA MRS//P14
  30 SSR DOCS PS HK1 P/UA/FY507010/UA/02AUG82/M/13FEB30/TURUTA/OL
-       EKSANDR MR//P12
+	   EKSANDR MR//P12
  31 SSR DOCS PS HK1 P/UA/FS244339/UA/13AUG88/M/20AUG28/MARTYNOVY
-       CH/ANDRII MR//P6
+	   CH/ANDRII MR//P6
  32 SSR DOCS PS HK1 P/UA/FP155990/UA/22FEB94/M/07JUN28/TARCHYNSK
-       YI/PHILIP MR//P11
+	   YI/PHILIP MR//P11
  33 SSR DOCS PS HK1 P/UA/FS137726/UA/09MAY94/M/10AUG28/RUDZIK/VL
-       ADYSLAV MR//P10
+	   ADYSLAV MR//P10
  34 SSR DOCS PS HK1 P/UA/FF984456/UA/18APR98/M/29MAR27/MYKHAILIU
-       K/VADYM MR//P7
+	   K/VADYM MR//P7
  35 OSI PS GROUP ACCEPTED
  36 SK RQID PS 6604-1-20210511
  37 SK TYPE PS ADHOC
@@ -1800,40 +1801,40 @@ RP/IEVPS28GM/IEVPS28GM            VK/SU  12MAY21/1128Z   T576DF
  44 RM NON ENDO/NO REF/PS ONLY/CHNG RESTR/CHNG NAME FREE
  45 RM THIS PNR IS VALID
  46 FA PAX 566-9800031321/DTPS/UAH69958/12MAY21/IEVPS2356/723243
-       50/S16/P1
+	   50/S16/P1
  47 FA PAX 566-2407078233/ETPS/UAH4997/12MAY21/IEVPS2356/7232435
-       0/S15/P1
+	   0/S15/P1
  48 FA PAX 566-2407078234/ETPS/UAH4997/12MAY21/IEVPS2356/7232435
-       0/S15/P2
+	   0/S15/P2
  49 FA PAX 566-2407078235/ETPS/UAH4997/12MAY21/IEVPS2356/7232435
-       0/S15/P3
+	   0/S15/P3
  50 FA PAX 566-2407078236/ETPS/UAH4997/12MAY21/IEVPS2356/7232435
-       0/S15/P4
+	   0/S15/P4
  51 FA PAX 566-2407078237/ETPS/UAH4997/12MAY21/IEVPS2356/7232435
-       0/S15/P5
+	   0/S15/P5
  52 FA PAX 566-2407078238/ETPS/UAH4997/12MAY21/IEVPS2356/7232435
-       0/S15/P6
+	   0/S15/P6
  53 FA PAX 566-2407078239/ETPS/UAH4997/12MAY21/IEVPS2356/7232435
-       0/S15/P7
+	   0/S15/P7
  54 FA PAX 566-2407078240/ETPS/UAH4997/12MAY21/IEVPS2356/7232435
 )>
 >
 md
 --- TST TSM RLR ---
 RP/IEVPS28GM/IEVPS28GM            VK/SU  12MAY21/1128Z   T576DF
-       0/S15/P8
+	   0/S15/P8
  55 FA PAX 566-2407078241/ETPS/UAH4997/12MAY21/IEVPS2356/7232435
-       0/S15/P9
+	   0/S15/P9
  56 FA PAX 566-2407078242/ETPS/UAH4997/12MAY21/IEVPS2356/7232435
-       0/S15/P10
+	   0/S15/P10
  57 FA PAX 566-2407078243/ETPS/UAH4997/12MAY21/IEVPS2356/7232435
-       0/S15/P11
+	   0/S15/P11
  58 FA PAX 566-2407078244/ETPS/UAH4997/12MAY21/IEVPS2356/7232435
-       0/S15/P12
+	   0/S15/P12
  59 FA PAX 566-2407078245/ETPS/UAH4997/12MAY21/IEVPS2356/7232435
-       0/S15/P13
+	   0/S15/P13
  60 FA PAX 566-2407078246/ETPS/UAH4997/12MAY21/IEVPS2356/7232435
-       0/S15/P14
+	   0/S15/P14
  61 FB PAX 0000000000 TTM/T-PS/RT OK EMD/S16/P1
  62 FB PAX 0000000000 TTP/T-PS/RT OK ETICKET/S15/P1-14
  63 FE *M*NON ENDO/NO REF/PS ONLY/CHNG RESTR/CHNG NAME FREE
@@ -1841,7 +1842,7 @@ RP/IEVPS28GM/IEVPS28GM            VK/SU  12MAY21/1128Z   T576DF
  65 FP MO*5669800031321/UAH4997
  66 FV PS
  67 AM NA-OLEG KUCHERENKO/A1-OLEG KUCHERENKO/A2-KOPERNYKA STR 
-       29/CO-UA
+	   29/CO-UA
 
 
 tqt
@@ -1856,14 +1857,14 @@ T-
   13.TYMOSHENKO/ROSTYSLAV MR(ADT)                                              
   14.ZAKHARENKO/KHRYSTYNA MRS(ADT)                                             
  1   KBP PS  117 G 17MAY 0930  OK GWRUA           17MAY17MAY 1PC               
-     LHR                                                                       
+	 LHR                                                                       
 FARE  F USD     161.00                                                         
 EQUIV   UAH       4469                                                         
 TX001 X UAH      111-UA   TX002 X UAH       56-UD   TX003 X UAH      361-YK    
 TOTAL   UAH       4997    BSR 27.76                                            
 GRAND TOTAL UAH       4997                                                     
 IEV PS LON161.00NUC161.00END ROE1.000000                                       
-                                                                               
+																			   
  63.FE *M*NON ENDO/NO REF/PS ONLY/CHNG RESTR/CHNG NAME FREE                    
  64.FM *M*0                                                                    
  65.FP MO*5669800031321/UAH4997                                                
@@ -1898,11 +1899,11 @@ TST00001                 IOVA/15SEP    LD 16SEP21
 
 FXB
    1.HUZYK/OKSANA                                (ADT)
-     LWO-FRA LH  1539K 29SEP 1350 OK  K06LGTU8             29SEP29SEP  0PC
-     FRA-SPU LH  1412K 29SEP 1615 OK  K06LGTU8             29SEP29SEP  0PC
-     SPU-FRA LH  1413K 04OCT 1840 OK  K06LGTU8             04OCT04OCT  0PC
-     FRA-LWO LH  1536K 04OCT 2145 OK  K06LGTU8             04OCT04OCT  0PC
-     LWO
+	 LWO-FRA LH  1539K 29SEP 1350 OK  K06LGTU8             29SEP29SEP  0PC
+	 FRA-SPU LH  1412K 29SEP 1615 OK  K06LGTU8             29SEP29SEP  0PC
+	 SPU-FRA LH  1413K 04OCT 1840 OK  K06LGTU8             04OCT04OCT  0PC
+	 FRA-LWO LH  1536K 04OCT 2145 OK  K06LGTU8             04OCT04OCT  0PC
+	 LWO
 FARE    USD    30.00
 EQUIV   UAH    801.00
 TX001   UAH    158.00YQ
@@ -2031,7 +2032,7 @@ FV *F*LH
 			//	: MirConsoleParser.Parse(documentContent, new Currency("UAH"));
 			//return (IList<AviaDocument>)docs;
 
-			return AmadeusConsoleParser.Parse(documentContent, new Currency("UAH"));
+			return AmadeusConsoleParser.Parse(documentContent, new Currency("UAH")).ToList();
 		}
 
 
