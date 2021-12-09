@@ -58,8 +58,11 @@ namespace Luxena.Travel.Services
 			if (Key.No())
 				return;
 
+
 			try
 			{
+
+
 				var loadedOn = db.Configuration.DrctWebService_LoadedOn ?? DateTime.Today;
 
 				var xml = LoadXml(loadedOn, Key);
@@ -68,6 +71,7 @@ namespace Luxena.Travel.Services
 				
 
 				var files = GetFilesFromXml<DrctXmlFile>(loadedOn, xml);
+
 
 				if (files.No())
 				{
@@ -86,6 +90,7 @@ namespace Luxena.Travel.Services
 
 				foreach (var file in files)
 				{
+
 					try
 					{
 
@@ -100,17 +105,31 @@ namespace Luxena.Travel.Services
 							db.GdsFile.AddFile(file);
 
 					}
+
 					catch (Exception ex)
 					{
 						_log.Error(ex);
 					}
+
+					finally
+					{
+						db.Commit(() =>
+						{
+							db.Configuration.DrctWebService_LoadedOn = file.TimeStamp;
+							db.Save(db.Configuration);
+						});
+					}
+
 				}
 
+
 			}
+
 			catch (Exception ex)
 			{
 				_log.Error(ex);
 			}
+
 		}
 
 

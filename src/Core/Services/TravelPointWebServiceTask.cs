@@ -60,15 +60,29 @@ namespace Luxena.Travel.Services
 
 				foreach (var file in files)
 				{
+
 					try
 					{
 						_log.Info($"Import TravelPoint-file {file.Name}...");
 						db.GdsFile.AddFile(file);
 					}
+
 					catch (Exception ex)
 					{
 						_log.Error(ex);
 					}
+
+
+					finally
+					{
+						db.Commit(() =>
+						{
+							db.Configuration.TravelPointWebService_LoadedOn = file.TimeStamp;
+							db.Save(db.Configuration);
+						});
+					}
+
+
 				}
 
 			}

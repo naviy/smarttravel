@@ -8,8 +8,21 @@ using Luxena.Domain.Contracts;
 namespace Luxena.Travel.Domain
 {
 
+
+
+	//===g
+
+
+
+
+
+
 	public partial class SystemConfigurationDto : EntityContract
 	{
+
+		//---g
+
+
 
 		public DateTime? ModifiedOn { get; set; }
 
@@ -86,16 +99,38 @@ namespace Luxena.Travel.Domain
 		public int? Pasterboard_DefaultPaymentType { get; set; }
 
 		public bool Ticket_NoPrintReservations { get; set; }
+
+
+
+		//---g
+
 	}
+
+
+
+
+
+
+	//===g
+
+
+
+
 
 
 	public partial class SystemConfigurationContractService : EntityContractService<SystemConfiguration, SystemConfiguration.Service, SystemConfigurationDto>
 	{
 
+		//---g
+
+
+
 		public SystemConfigurationContractService()
 		{
+
 			ContractFromEntity += (r, c) =>
 			{
+
 				c.ModifiedOn = r.ModifiedOn;
 				c.ModifiedBy = r.ModifiedBy;
 				c.Company = r.Company;
@@ -137,10 +172,14 @@ namespace Luxena.Travel.Domain
 				c.Consignment_SeparateBookingFee = r.Consignment_SeparateBookingFee;
 				c.Pasterboard_DefaultPaymentType = (int?)r.Pasterboard_DefaultPaymentType;
 				c.Ticket_NoPrintReservations = r.Ticket_NoPrintReservations;
+
 			};
+
+
 
 			EntityFromContract += (r, c) =>
 			{
+
 				r.ModifiedOn = DateTime.Now;
 				r.ModifiedBy = db.Security.User.Name;
 
@@ -182,10 +221,24 @@ namespace Luxena.Travel.Domain
 				r.Consignment_SeparateBookingFee = c.Consignment_SeparateBookingFee + db;
 				r.Pasterboard_DefaultPaymentType = (PaymentType?)c.Pasterboard_DefaultPaymentType + db;
 				r.Ticket_NoPrintReservations = c.Ticket_NoPrintReservations + db;
+
 			};
 
 		}
 
+
+
+		//---g
+
 	}
+
+
+
+
+
+
+	//===g
+
+
 
 }
