@@ -4958,7 +4958,13 @@ namespace Luxena.Travel.Domain
 
 		public bool IsOrganizationCodeRequired { get; set; }
 
+		public bool UseConsolidatorCommission { get; set; }
+
+		public Money DefaultConsolidatorCommission { get; set; }
+
 		public bool UseAviaHandling { get; set; }
+
+		public bool UseBonuses { get; set; }
 
 		public int DaysBeforeDeparture { get; set; }
 
@@ -5030,7 +5036,10 @@ namespace Luxena.Travel.Domain
 				c.SeparateDocumentAccess = r.SeparateDocumentAccess;
 				c.AllowOtherAgentsToModifyProduct = r.AllowOtherAgentsToModifyProduct;
 				c.IsOrganizationCodeRequired = r.IsOrganizationCodeRequired;
+				c.UseConsolidatorCommission = r.UseConsolidatorCommission;
+				c.DefaultConsolidatorCommission = r.DefaultConsolidatorCommission;
 				c.UseAviaHandling = r.UseAviaHandling;
+				c.UseBonuses = r.UseBonuses;
 				c.DaysBeforeDeparture = r.DaysBeforeDeparture;
 				c.BirthdayTaskResponsible = r.BirthdayTaskResponsible;
 				c.IsOrderRequiredForProcessedDocument = r.IsOrderRequiredForProcessedDocument;
@@ -5075,7 +5084,10 @@ namespace Luxena.Travel.Domain
 				r.SeparateDocumentAccess = c.SeparateDocumentAccess + db;
 				r.AllowOtherAgentsToModifyProduct = c.AllowOtherAgentsToModifyProduct + db;
 				r.IsOrganizationCodeRequired = c.IsOrganizationCodeRequired + db;
+				r.UseConsolidatorCommission = c.UseConsolidatorCommission + db;
+				r.DefaultConsolidatorCommission = c.DefaultConsolidatorCommission + db;
 				r.UseAviaHandling = c.UseAviaHandling + db;
+				r.UseBonuses = c.UseBonuses + db;
 				r.DaysBeforeDeparture = c.DaysBeforeDeparture + db;
 				r.BirthdayTaskResponsible = c.BirthdayTaskResponsible + db;
 				r.IsOrderRequiredForProcessedDocument = c.IsOrderRequiredForProcessedDocument + db;

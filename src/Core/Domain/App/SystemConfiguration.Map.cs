@@ -6,14 +6,30 @@ using NHibernate.Mapping.ByCode;
 using NHibernate.Mapping.ByCode.Conformist;
 
 
+
+
 namespace Luxena.Travel.Domain.NHibernate.Mapping.Configuration
 {
+
+
+
+	//===g
+
+
+
+
+
 
 	public sealed class SystemConfigurationMap : ClassMapping<SystemConfiguration>
 	{
 
+		//---g
+
+
+
 		public SystemConfigurationMap()
 		{
+
 			Cache(x => x.Usage(CacheUsage.ReadWrite));
 
 			Id(x => x.Id, Uuid.Mapping);
@@ -62,7 +78,15 @@ namespace Luxena.Travel.Domain.NHibernate.Mapping.Configuration
 
 			Property(x => x.AccountantDisplayString);
 
+
+			Property(x => x.UseConsolidatorCommission, m => m.NotNullable(true));
+
+			Component(x => x.DefaultConsolidatorCommission);
+
 			Property(x => x.UseAviaHandling, m => m.NotNullable(true));
+			
+			Property(x => x.UseBonuses, m => m.NotNullable(true));
+
 
 			Property(x => x.IsOrganizationCodeRequired, m => m.NotNullable(true));
 
@@ -99,6 +123,19 @@ namespace Luxena.Travel.Domain.NHibernate.Mapping.Configuration
 
 		}
 
+
+
+		//---g
+
 	}
+
+
+
+
+
+
+	//===g
+
+
 
 }

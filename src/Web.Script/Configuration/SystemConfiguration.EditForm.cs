@@ -16,7 +16,7 @@ namespace Luxena.Travel
 //			Window.width = 1320;
 
 
-			Form.add(TabPanel(450, new Component[]
+			Form.add(TabPanel(550, new Component[]
 			{
 
 				TabPane("Турагенство", new object[]
@@ -33,7 +33,11 @@ namespace Luxena.Travel
 
 				TabPane("Услуги", new object[]
 				{
+					se.UseConsolidatorCommission,
+					se.DefaultConsolidatorCommission,
 					se.UseAviaHandling,
+					se.UseBonuses,
+					EmptyRow(),
 					se.IsPassengerPassportRequired,
 					se.AviaDocumentVatOptions,
 					se.NeutralAirlineCode,

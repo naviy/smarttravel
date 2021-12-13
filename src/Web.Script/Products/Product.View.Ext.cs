@@ -25,31 +25,70 @@ using MenuItemConfig = Ext.menu.ItemConfig;
 
 
 
+
 namespace Luxena.Travel
 {
+
+
+
+	//===g
+
+
+
+
 
 
 	partial class ProductSemantic
 	{
 
-		[PreserveCase]
-		public SemanticMember ReissuedBy = Member
+		//---g
+
+
+
+		[PreserveCase] public SemanticMember ReissuedBy = Member
 			.Reference("Product")
 			.Title(DomainRes.Common_ReissuedBy);
 
-		[PreserveCase]
-		public SemanticMember Refund = Member
+		[PreserveCase] public SemanticMember Refund = Member
 			.Reference("Product")
 			.Title(DomainRes.Product_Refund);
 
 
+
+
+		[PreserveCase] public SemanticMember PassengerRow = Member;
+
+		[PreserveCase] public SemanticMember OnePassengerRow = Member;
+
+		[PreserveCase] public SemanticMember CustomerAndOrder = Member;
+
+		[PreserveCase] public SemanticMember BookerRow = Member;
+
+		[PreserveCase] public SemanticMember TicketerRow = Member;
+
+		[PreserveCase] public SemanticMember SellerAndOwnerRow = Member;
+
+		[PreserveCase] public SemanticMember PnrAndTourCodes = Member;
+
+		[PreserveCase] public SemanticMember Finance = Member;
+
+
+
+		//---g
+
+
+
 		public override void Initialize()
 		{
+
 			CustomerAndOrder.ToEditor = new Product_CustomerAndOrderEditor(this).ToEditor;
+
 			Finance.ToEditor = new Product_FinanceEditor(this).ToEditor;
+
 
 			SellerAndOwnerRow.ToEditor = delegate
 			{
+
 				// ReSharper disable once SuspiciousTypeConversion.Global
 				ProductEditForm pform = (ProductEditForm)EditForm;
 
@@ -57,14 +96,17 @@ namespace Luxena.Travel
 
 				Field ownerField;
 
+
 				if (pform.DisplayOwnerAsLabel)
 				{
+
 					ownerField = new DisplayField(new DisplayFieldConfig()
 						.hideLabel(true)
 						.labelSeparator(string.Empty)
 						.value(pform.ProductOwners[0].Name)
 						.ToDictionary()
 					);
+
 
 					EditForm.Members.Add3(EditForm,
 						delegate { },
@@ -76,9 +118,12 @@ namespace Luxena.Travel
 							EditForm.SetValue(Owner._name, value);
 						}
 					);
+
 				}
+
 				else
 				{
+
 					ComboBoxConfig config = new ReferenceSelectorConfig(pform.ProductOwners)
 						.hideLabel(true)
 						.labelSeparator(string.Empty)
@@ -94,14 +139,17 @@ namespace Luxena.Travel
 						object value = ((ComboBox)ownerField).GetObjectInfo();
 						EditForm.SetValue("Owner", value);
 					};
+
 				}
-				
+
+
 				return RowPanel(new Component[]
 				{
 					sellerField,
 					TextComponent("/"),
 					ownerField,
 				});
+
 			};
 
 
@@ -116,6 +164,7 @@ namespace Luxena.Travel
 			Customer.SetColumn(false, 135);
 			PaymentType.SetColumn(true);
 
+
 			BookerRow.ToEditor = delegate
 			{
 				return RowPanel(new Component[]
@@ -127,6 +176,7 @@ namespace Luxena.Travel
 					BookerCode.ToField(65, HideLabel),
 				});
 			};
+
 
 			TicketerRow.ToEditor = delegate
 			{
@@ -143,6 +193,7 @@ namespace Luxena.Travel
 
 			PnrCode.SetEditor(-2);
 			TourCode.SetEditor(-2);
+
 
 			PnrAndTourCodes.ToEditor = delegate
 			{
@@ -181,14 +232,16 @@ namespace Luxena.Travel
 			IsVoid.SetColumn(true, 70);
 			RequiresProcessing.SetColumn(true, 70);
 			IsPaid.SetColumn(true, 70);
-			
+
+
 			Note
 				.SetColumn(true, 100)
 				.SetEditor(645, delegate(FormMember m)
 				{
 					m.Height(48);
 					m.ItemCls("commentField");
-				});
+				})
+				;
 
 			CreatedOn.SetColumn(true);
 			CreatedBy.SetColumn(true);
@@ -198,29 +251,10 @@ namespace Luxena.Travel
 		}
 
 
-		[PreserveCase]
-		public SemanticMember PassengerRow = Member;
 
-		[PreserveCase]
-		public SemanticMember OnePassengerRow = Member;
+		//---g
 
-		[PreserveCase]
-		public SemanticMember CustomerAndOrder = Member;
 
-		[PreserveCase]
-		public SemanticMember BookerRow = Member;
-
-		[PreserveCase]
-		public SemanticMember TicketerRow = Member;
-
-		[PreserveCase]
-		public SemanticMember SellerAndOwnerRow = Member;
-
-		[PreserveCase]
-		public SemanticMember PnrAndTourCodes = Member;
-
-		[PreserveCase]
-		public SemanticMember Finance = Member;
 
 
 		#region Passengers
@@ -288,8 +322,8 @@ namespace Luxena.Travel
 		{
 			return
 				!Script.IsValue(passenger) ? passengerName :
-					!Script.IsValue(passengerName) ? ObjectLink.RenderInfo(passenger) :
-						string.Format("{0} / {1}", passengerName, ObjectLink.RenderInfo(passenger));
+				!Script.IsValue(passengerName) ? ObjectLink.RenderInfo(passenger) :
+				string.Format("{0} / {1}", passengerName, ObjectLink.RenderInfo(passenger));
 		}
 
 		public static object OnePassengerNameRenderer(object passengerName, object metadata, Record record, int rowIndex, int colIndex, Store store)
@@ -325,7 +359,7 @@ namespace Luxena.Travel
 
 			foreach (ProductPassengerDto passenger in passengers)
 			{
-				if (s != "") 
+				if (s != "")
 					s += ", ";
 				s += GetPassengerValueHtml(passenger.Passenger, passenger.PassengerName);
 			}
@@ -336,8 +370,14 @@ namespace Luxena.Travel
 		#endregion
 
 
+
+		//---g
+
+
+
 		public GridRenderDelegate GetNumberRenderer()
 		{
+
 			return delegate(object value, object metadata, Record record, int index, int colIndex, Store store)
 			{
 				if (Script.IsNullOrUndefined(value))
@@ -351,7 +391,9 @@ namespace Luxena.Travel
 					.CreateRefrenceRenderer(_className)
 					.Invoke(value, metadata, record, index, colIndex, store);
 			};
+
 		}
+
 
 
 //		public static void SetProducerEditorsAndColumns(ViewMember provider, string className)
@@ -370,20 +412,55 @@ namespace Luxena.Travel
 //			});
 //		}
 
+
+
+		//---g
+
 	}
 
-	
+
+
+
+
+
+	//===g
+
+
+
+
+
+
 	public class Product_CustomerAndOrderEditor
 	{
+
+		//---g
+
+
+
 		public Product_CustomerAndOrderEditor(ProductSemantic v)
 		{
 			this.v = v;
 		}
 
+
+
+		//---g
+
+
+
 		protected ProductSemantic v;
+		private Field _customerField;
+		private Field _orderField;
+
+
+
+		//---g
+
+
 
 		public Component ToEditor()
 		{
+
 			return v.RowPanel(new Component[]
 			{
 				_customerField = v.Customer.ToField(-1, delegate(FormMember m)
@@ -402,12 +479,17 @@ namespace Luxena.Travel
 					m.OnChangeValue(OnOrderChanged);
 				})
 			});
+
 		}
+
+
 
 		private void OnOrderChanged(Field objthis, object newvalue, object oldvalue)
 		{
+
 			if (v.EditForm.Updating || newvalue == null)
 				return;
+
 
 			Array val = (Array)newvalue;
 
@@ -418,18 +500,24 @@ namespace Luxena.Travel
 			v.EditForm.Updating = true;
 			_customerField.setValue(customer);
 			v.EditForm.Updating = false;
+
 		}
+
+
 
 		private void OnCustomerChanged(Field objthis, object newvalue, object oldvalue)
 		{
+
 			if (v.EditForm.Updating || newvalue == oldvalue || _orderField.getValue() == null)
 				return;
+
 
 			Array oldArray = (Array)oldvalue;
 			Array newArray = (Array)newvalue;
 
 			if (oldArray != null && newArray != null && oldArray[0] == newArray[0])
 				return;
+
 
 			MessageBoxWrap.Confirm(Res.Confirmation, Res.AviaDocumentProcessForm_CustomerChanged, delegate(string button, string text)
 			{
@@ -442,31 +530,84 @@ namespace Luxena.Travel
 
 				v.EditForm.Updating = false;
 			});
+
 		}
+
+
+
+		//---g
 		
-		private Field _customerField;
-		private Field _orderField;
 	}
+
+
+
+
+
+
+	//===g
+
+
+
+
 
 
 	public class Product_FinanceEditor
 	{
+
+		//---g
+
+
+
 		public Product_FinanceEditor(ProductSemantic v)
 		{
 			this.v = v;
 		}
 
+
+
+		//---g
+
+
+
 		protected ProductSemantic v;
+
+		private Field _equalFareField;
+		private Field _feesTotalField;
+		private Field _totalField;
+		private Field _vatField;
+		private Field _commissionDiscountField;
+		private Field _serviceFeeField;
+		private Field _handlingField;
+		private Field _handlingNField;
+		private Field _discountField;
+		private Field _bonusDiscountField;
+		private Field _grandTotalField;
+		private Field _cancelFeeField;
+		private Field _refundServiceFeeField;
+		private Field _serviceFeePenaltyField;
+		private Field _cancelCommissionField;
+
+		private MoneyControlCalculator _totalCalculator;
+		private MoneyControlCalculator _grandTotalCalculator;
+
+
+		
+		//---g
+
+
 
 		public Component ToEditor()
 		{
+
 			// ReSharper disable once SuspiciousTypeConversion.Global
 			ProductEditForm f = (ProductEditForm)v.EditForm;
 
 			InitFormMemberAction recalculate = delegate(FormMember m) { m.OnChangeValue(RecalculateTotals); };
 			InitFormMemberAction recalculateBold = delegate(FormMember m) { m.OnChangeValue(RecalculateTotals); m.BoldLabel(); };
 
+
 			ArrayList totalItems = new ArrayList();
+
 			totalItems.Add(new Item(new MenuItemConfig()
 				.text(Res.AviaDocument_CalculateFare)
 				.handler(new AnonymousDelegate(delegate
@@ -476,6 +617,7 @@ namespace Luxena.Travel
 				}))
 				.ToDictionary()
 			));
+
 
 			totalItems.Add(new Item(new MenuItemConfig()
 				.text(Res.AviaDocument_CalculateFeesTotal)
@@ -487,7 +629,9 @@ namespace Luxena.Travel
 				.ToDictionary()
 			));
 
+
 			if (f.IsRefund)
+			{
 				totalItems.Add(new Item(new MenuItemConfig()
 					.text(Res.AviaDocument_CalculateCancelFee)
 					.handler(new AnonymousDelegate(delegate
@@ -497,14 +641,17 @@ namespace Luxena.Travel
 					}))
 					.ToDictionary()
 				));
+			}
 
 
 			ArrayList grandTotalItems = new ArrayList();
+
 			grandTotalItems.Add(new Item(new MenuItemConfig()
 				.text(Res.CalculateServiceFee_Text)
 				.handler(GetRecalculateGrandTotalHandler(delegate { return _serviceFeeField; }))
 				.ToDictionary()
 			));
+
 
 			if (f.UseHandling)
 			{
@@ -521,11 +668,13 @@ namespace Luxena.Travel
 				));
 			}
 
+
 			grandTotalItems.Add(new Item(new MenuItemConfig()
 				.text(Res.CalculateDiscount_Text)
 				.handler(GetRecalculateGrandTotalHandler(delegate { return _discountField; }))
 				.ToDictionary()
 			));
+
 
 			if (f.IsRefund)
 			{
@@ -544,6 +693,7 @@ namespace Luxena.Travel
 			
 
 			ArrayList list = new ArrayList();
+
 			list.AddRange(new Component[]
 			{
 				v.Fare.ToEditor(),
@@ -551,8 +701,10 @@ namespace Luxena.Travel
 				_feesTotalField = v.FeesTotal.ToField(0, recalculate)
 			});
 
+
 			if (f.IsRefund)
 				list.Add(_cancelFeeField = v.CancelFee.ToField(0, recalculate));
+
 
 			list.AddRange(new Component[]
 			{
@@ -565,10 +717,13 @@ namespace Luxena.Travel
 				v.Commission.ToField(0, delegate(FormMember m) { m.BoldLabel(); })
 			});
 
+
 			if (f.UseHandling)
 				list.Add(_commissionDiscountField = v.CommissionDiscount.ToField(0, recalculate));
 
+
 			list.Add(_serviceFeeField = v.ServiceFee.ToField(0, recalculateBold));
+
 
 			if (f.UseHandling)
 			{
@@ -576,20 +731,27 @@ namespace Luxena.Travel
 				list.Add(_handlingNField = v.HandlingN.ToField(0, recalculate));
 			}
 
+
 			list.Add(_discountField = v.Discount.ToField(0, recalculate));
 
+
 			if (f.IsRefund)
+			{
 				list.AddRange(new Component[]
 				{
 					_refundServiceFeeField = v.RefundServiceFee.ToField(0, recalculate),
 					_serviceFeePenaltyField = v.ServiceFeePenalty.ToField(0, recalculate)
 				});
+			}
+
 			else
+			{
 				list.AddRange(new Component[]
 				{
 					_bonusDiscountField = v.BonusDiscount.ToField(0, recalculate),
 					v.BonusAccumulation.ToField(0),
 				});
+			}
 
 
 			list.Add(_cancelCommissionField = v.CancelCommission.ToField(0, recalculate));
@@ -601,7 +763,9 @@ namespace Luxena.Travel
 			list.Add(v.TaxRateOfProduct.ToField(145));
 			list.Add(v.TaxRateOfServiceFee.ToField(145));
 
+
 			CreateCalculators();
+
 
 			return new Panel(new FormPanelConfig()
 				.items(list)
@@ -614,11 +778,14 @@ namespace Luxena.Travel
 		}
 
 
+
 		private void RecalculateTotals(Field decimalField, object newValue, object oldValue)
 		{
 			_totalCalculator.Recalculate(_totalField);
 			_grandTotalCalculator.Recalculate(_grandTotalField);
 		}
+
+
 
 		private AnonymousDelegate GetRecalculateGrandTotalHandler(Func<Field> control)
 		{
@@ -629,8 +796,11 @@ namespace Luxena.Travel
 			};
 		}
 
+
+
 		private void Recalculate(Field field)
 		{
+
 			MoneyControl control = (MoneyControl)field;
 
 			if (_totalCalculator.Has(control))
@@ -639,7 +809,10 @@ namespace Luxena.Travel
 				_grandTotalCalculator.Recalculate(_grandTotalField);
 			}
 			else if (_grandTotalCalculator.Has(control))
+			{
 				_grandTotalCalculator.Recalculate(control);
+			}
+
 		}
 
 		private void CreateCalculators()
@@ -664,25 +837,18 @@ namespace Luxena.Travel
 		}
 
 
-		private Field _equalFareField;
-		private Field _feesTotalField;
-		private Field _totalField;
-		private Field _vatField;
-		private Field _commissionDiscountField;
-		private Field _serviceFeeField;
-		private Field _handlingField;
-		private Field _handlingNField;
-		private Field _discountField;
-		private Field _bonusDiscountField;
-		private Field _grandTotalField;
-		private Field _cancelFeeField;
-		private Field _refundServiceFeeField;
-		private Field _serviceFeePenaltyField;
-		private Field _cancelCommissionField;
 
-		private MoneyControlCalculator _totalCalculator;
-		private MoneyControlCalculator _grandTotalCalculator;
+		//---g
 
 	}
+
+
+
+
+
+
+	//===g
+
+
 
 }

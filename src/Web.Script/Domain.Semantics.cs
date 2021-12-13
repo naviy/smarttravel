@@ -5600,10 +5600,30 @@ namespace Luxena.Travel
 			.Bool()
 			.Required();
 
+		/// <summary>Использовать комиссию консолидатора</summary>
+		[PreserveCase]
+		public SemanticMember UseConsolidatorCommission = Member
+			.Title("Использовать комиссию консолидатора")
+			.Bool()
+			.Required();
+
+		/// <summary>Комиссия консолидатора по умолчанию</summary>
+		[PreserveCase]
+		public SemanticMember DefaultConsolidatorCommission = Member
+			.Title("Комиссия консолидатора по умолчанию")
+			.Money();
+
 		/// <summary>Использовать доп. доход от АК при обработке авиадокументов</summary>
 		[PreserveCase]
 		public SemanticMember UseAviaHandling = Member
 			.Title("Использовать доп. доход от АК при обработке авиадокументов")
+			.Bool()
+			.Required();
+
+		/// <summary>Использовать бонусы</summary>
+		[PreserveCase]
+		public SemanticMember UseBonuses = Member
+			.Title("Использовать бонусы")
 			.Bool()
 			.Required();
 
@@ -5777,7 +5797,10 @@ namespace Luxena.Travel
 				se.SeparateDocumentAccess,
 				se.AllowOtherAgentsToModifyProduct,
 				se.IsOrganizationCodeRequired,
+				se.UseConsolidatorCommission,
+				se.DefaultConsolidatorCommission,
 				se.UseAviaHandling,
+				se.UseBonuses,
 				se.DaysBeforeDeparture,
 				se.BirthdayTaskResponsible,
 				se.IsOrderRequiredForProcessedDocument,

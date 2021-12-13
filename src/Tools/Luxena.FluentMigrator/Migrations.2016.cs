@@ -695,6 +695,32 @@ update lt_order o set
 	}
 
 
+	[Migration(2021121301)]
+	public class Migration_2021121301 : AutoReversingMigration
+	{
+		public override void Up()
+		{
+			Alter.Table("lt_system_configuration")
+				.AddColumn("useconsolidatorcommission").AsBoolean().WithDefaultValue(false).NotNullable()
+				.AddColumn("usebonuses").AsBoolean().WithDefaultValue(false).NotNullable()
+				.AddMoneyColumn("defaultconsolidatorcommission");
+			;
+		}
+	}
+
+
+	[Migration(2021121302)]
+	public class Migration_2021121302 : AutoReversingMigration
+	{
+		public override void Up()
+		{
+			Alter.Table("lt_product")
+				.AddMoneyColumn("consolidatorcommission");
+			;
+		}
+	}
+
+
 
 
 }

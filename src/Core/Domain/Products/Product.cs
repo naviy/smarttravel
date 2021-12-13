@@ -164,24 +164,26 @@ namespace Luxena.Travel.Domain
 		public virtual Money EqualFare_EUR => EqualFare.ToEUR(Rate);
 		public virtual Money EqualFare_USD => EqualFare.ToUSD(Rate);
 
-
-		[RU("Сбор системы бронирования")]
-		public virtual Money BookingFee { get; set; }
-
 		[RU("Таксы"), DefaultMoney]
 		public virtual Money FeesTotal { get; set; }
 		public virtual Money FeesTotal_EUR => FeesTotal.ToEUR(Rate);
 		public virtual Money FeesTotal_USD => FeesTotal.ToUSD(Rate);
 
-		[RU("Штраф за отмену"), DefaultMoney]
-		public virtual Money CancelFee { get; set; }
-		public virtual Money CancelFee_EUR => CancelFee.ToEUR(Rate);
-		public virtual Money CancelFee_USD => CancelFee.ToUSD(Rate);
+		[RU("Комиссия консолидатора")]
+		public virtual Money ConsolidatorCommission { get; set; }
 
 		[Patterns.Total, DefaultMoney]
 		public virtual Money Total { get; set; }
 		public virtual Money Total_EUR => Total.ToEUR(Rate);
 		public virtual Money Total_USD => Total.ToUSD(Rate);
+
+		[RU("Сбор системы бронирования")]
+		public virtual Money BookingFee { get; set; }
+
+		[RU("Штраф за отмену"), DefaultMoney]
+		public virtual Money CancelFee { get; set; }
+		public virtual Money CancelFee_EUR => CancelFee.ToEUR(Rate);
+		public virtual Money CancelFee_USD => CancelFee.ToUSD(Rate);
 
 		[Patterns.Vat, DefaultMoney]
 		public virtual Money Vat { get; set; }
@@ -282,7 +284,7 @@ namespace Luxena.Travel.Domain
 
 		public virtual Money GetTotal()
 		{
-			return EqualFare + FeesTotal - CancelFee;
+			return EqualFare + FeesTotal + ConsolidatorCommission - CancelFee;
 		}
 
 		public virtual Money GetGrandTotal()

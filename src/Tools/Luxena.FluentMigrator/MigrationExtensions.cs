@@ -54,16 +54,23 @@ namespace Luxena.Travel.DbMigrator
 				.AddColumn(name + "_amount").AsDecimal(19, 5).Nullable()
 				.AddColumn(name + "_currency").AsString(32).Nullable();
 		}
+
+
+
 		public static TNext AsText<TNext>(this IColumnTypeSyntax<TNext> me)
 			where TNext : IFluentSyntax
 		{
 			return me.AsCustom("citext2");
 		}
 
+
+
 		public static ICreateTableColumnOptionOrWithColumnSyntax AsRefecence(this ICreateTableColumnAsTypeSyntax me, string primaryTableName, string primaryColumnName = "id")
 		{
 			return me.AsString(32).Indexed().ForeignKey(primaryTableName, primaryColumnName);
 		}
+
+
 
 		public static IAlterTableColumnOptionOrAddColumnOrAlterColumnOrForeignKeyCascadeSyntax AsRefecence(this IAlterTableColumnAsTypeSyntax me, string primaryTableName, string primaryColumnName = "id")
 		{
@@ -73,6 +80,8 @@ namespace Luxena.Travel.DbMigrator
 				.ForeignKey(primaryTableName, primaryColumnName);
 		}
 
+
+
 		public static ICreateTableColumnOptionOrWithColumnSyntax AsEntity(this ICreateTableWithColumnSyntax me)
 		{
 			return me
@@ -80,6 +89,8 @@ namespace Luxena.Travel.DbMigrator
 				.WithColumn("version").AsInt32().NotNullable()
 			;
 		}
+
+
 
 		public static ICreateTableColumnOptionOrWithColumnSyntax AsEntity2(this ICreateTableWithColumnSyntax me)
 		{
@@ -92,6 +103,8 @@ namespace Luxena.Travel.DbMigrator
 			;
 		}
 
+
+
 		public static ICreateTableColumnOptionOrWithColumnSyntax AsEntity3(this ICreateTableWithColumnSyntax me)
 		{
 			return me
@@ -100,6 +113,8 @@ namespace Luxena.Travel.DbMigrator
 			;
 		}
 
+
+
 		public static ICreateTableColumnOptionOrWithColumnSyntax AsEntity3D(this ICreateTableWithColumnSyntax me)
 		{
 			return me
@@ -107,6 +122,8 @@ namespace Luxena.Travel.DbMigrator
 				.WithColumn("description").AsText().Nullable()
 			;
 		}
+
+
 
 		public static IInsertDataSyntax Row_Entity2(this IInsertDataSyntax me, Dictionary<string, object> values)
 		{

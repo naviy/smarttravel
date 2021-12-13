@@ -9,14 +9,27 @@ using Luxena.Travel.Reports;
 
 
 
+
 namespace Luxena.Travel.Domain
 {
+
+
+
+	//===g
+
+
+
+
 
 
 	[RU("Настройки системы"), Singleton]
 	[AdminPrivileges]
 	public partial class SystemConfiguration : Entity, IModifyAware
 	{
+
+		//---g
+
+
 
 		public virtual DateTime? ModifiedOn { get; set; }
 
@@ -77,8 +90,17 @@ namespace Luxena.Travel.Domain
 		[RU("Обязательное ЕДРПОУ для организаций")]
 		public virtual bool IsOrganizationCodeRequired { get; set; }
 
+		[RU("Использовать комиссию консолидатора")]
+		public virtual bool UseConsolidatorCommission { get; set; }
+
+		[RU("Комиссия консолидатора по умолчанию")]
+		public virtual Money DefaultConsolidatorCommission { get; set; }
+		
 		[RU("Использовать доп. доход от АК при обработке авиадокументов")]
 		public virtual bool UseAviaHandling { get; set; }
+
+		[RU("Использовать бонусы")]
+		public virtual bool UseBonuses { get; set; }
 
 		[RU("Дней до отправления")]
 		public virtual int DaysBeforeDeparture { get; set; }
@@ -142,29 +164,40 @@ namespace Luxena.Travel.Domain
 		public virtual bool Ticket_NoPrintReservations { get; set; }
 
 
-		//===
+
+		//---g
+
 
 
 		public virtual string GetSupplierDetails(Domain db, Order order = null)
 		{
+
 			var supplier = Company;
 
 			if (supplier == null)
 				return null;
 
+
 			var sb = new StringBuilder()
 				.AppendLine(supplier.NameForDocuments);
 
+
 			var bankAccount = order?.BankAccount.Do(a => sb.AppendLine(a.Description));
+
 			if (bankAccount == null)
 				db.BankAccount.Query.Where(a => a.IsDefault).ForEach(a => sb.AppendLine(a.Description));
+
 
 			if (CompanyDetails.Yes())
 				sb.AppendLine(CompanyDetails);
 
+
 			if (supplier.LegalAddress.Yes())
+			{
 				sb.AppendFormat(ReportRes.InvoicePrinter_Address, supplier.LegalAddress)
 					.AppendLine();
+			}
+
 
 			var separator = string.Empty;
 
@@ -174,26 +207,37 @@ namespace Luxena.Travel.Domain
 				separator = ", ";
 			}
 
+
 			if (supplier.Fax.Yes())
 				sb.Append(separator)
 					.AppendFormat(ReportRes.InvoicePrinter_Fax, supplier.Fax);
 
+
 			return sb.ToString().Replace("\r", string.Empty);
+
 		}
+
+
 
 		public virtual string GetCustomerDetails(Domain db, Party customer)
 		{
-			if (customer == null) return null;
+
+			if (customer == null) 
+				return null;
+
 
 			var sb = new StringBuilder()
 				.AppendLine(customer.NameForDocuments);
 
+
 			if (customer.Details.Yes())
 				sb.AppendLine(customer.Details);
+
 
 			if (customer.LegalAddress.Yes())
 				sb.AppendFormat(ReportRes.InvoicePrinter_Address, customer.LegalAddress)
 					.AppendLine();
+
 
 			var separator = string.Empty;
 
@@ -203,12 +247,19 @@ namespace Luxena.Travel.Domain
 				separator = ", ";
 			}
 
+
 			if (customer.Fax.Yes())
 				sb.Append(separator)
 					.AppendFormat(ReportRes.InvoicePrinter_Fax, customer.Fax);
 
+
 			return sb.ToString().Replace("\r", string.Empty);
+
 		}
+
+
+
+		//---g
 
 
 
@@ -217,15 +268,32 @@ namespace Luxena.Travel.Domain
 
 		}
 
+
+
+		//---g
+
 	}
+
+
+
 
 
 
 	partial class Domain
 	{
-		public SystemConfiguration Configuration {[DebuggerStepThrough] get { return ResolveSingleton(ref _configuration); } }
+
+		public SystemConfiguration Configuration {[DebuggerStepThrough] get => ResolveSingleton(ref _configuration); }
 		private SystemConfiguration _configuration;
+
 	}
+
+
+
+
+
+
+	//===g
+
 
 
 }

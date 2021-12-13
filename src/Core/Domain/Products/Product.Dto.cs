@@ -7,11 +7,27 @@ using Luxena.Domain.Contracts;
 using Luxena.Travel.Services;
 
 
+
+
 namespace Luxena.Travel.Domain
 {
 
+
+
+	//===g
+
+
+
+
+
+
 	public abstract partial class ProductDto : EntityContract
 	{
+
+		//---g
+
+
+
 		public string Name { get; set; }
 
 		public bool IsRefund { get; set; }
@@ -78,6 +94,8 @@ namespace Luxena.Travel.Domain
 
 		public MoneyDto FeesTotal { get; set; }
 
+		public MoneyDto ConsolidatorCommission { get; set; }
+
 		public MoneyDto Total { get; set; }
 
 		public MoneyDto Vat { get; set; }
@@ -124,7 +142,14 @@ namespace Luxena.Travel.Domain
 		public MoneyDto RefundServiceFee { get; set; }
 
 
+
+		//---g
+
 	}
+
+
+
+
 
 
 	public class ProductContractService<TProduct, TProductService, TProductDto>
@@ -133,10 +158,17 @@ namespace Luxena.Travel.Domain
 		where TProductService : Product.Service<TProduct>
 		where TProductDto : ProductDto,  new()
 	{
+
+		//---g
+
+
+
 		public ProductContractService()
 		{
+
 			ContractFromEntity += (r, c) =>
 			{
+
 				c.Name = r.Name;
 				c.IsRefund = r.IsRefund;
 
@@ -182,6 +214,7 @@ namespace Luxena.Travel.Domain
 				c.Fare = r.Fare;
 				c.EqualFare = r.EqualFare;
 				c.FeesTotal = r.FeesTotal;
+				c.ConsolidatorCommission = r.ConsolidatorCommission;
 				c.Total = r.Total.Else(r.GetTotal);
 
 				c.Vat = r.Vat;
@@ -225,10 +258,13 @@ namespace Luxena.Travel.Domain
 
 				c.CanUpdate = db.CanUpdate(r);
 				c.CanDelete = db.CanDelete(r);
+
 			};
+
 
 			EntityFromContract += (r, c) =>
 			{
+
 				r.IssueDate = c.IssueDate + db;
 
 				r.ReissueFor = c.ReissueFor + db;
@@ -261,6 +297,7 @@ namespace Luxena.Travel.Domain
 				r.Fare = c.Fare + db;
 				r.EqualFare = c.EqualFare + db;
 				r.FeesTotal = c.FeesTotal + db;
+				r.ConsolidatorCommission = c.ConsolidatorCommission + db;
 				r.Total = c.Total + db;
 				r.Vat = c.Vat + db;
 				r.Commission = c.Commission + db;
@@ -286,8 +323,16 @@ namespace Luxena.Travel.Domain
 				r.TaxRateOfServiceFee = (TaxRate)c.TaxRateOfServiceFee;
 
 				r.SetOrder2(db, c.Order + db);
+
 			};
+
 		}
+
+
+
+		//---g
+
+
 
 		protected override void AssertCreate(TProductDto c)
 		{
@@ -297,34 +342,55 @@ namespace Luxena.Travel.Domain
 				throw new DocumentClosedException(Exceptions.Document_Closed);
 		}
 
+
+
 		protected ProductPassengerDto[] NewPassengers(IList<ProductPassenger> passengers)
 		{
 			return dc.ProductPassenger.New(passengers, list =>
 				list.OrderBy(a => a.PassengerName ?? a.Passenger.As(b => b.Name))
 			);
 		}
+
+
+
+		//---g
+
 	}
+
+
+
+
 
 
 	public partial class ProductContractService : EntityContractService
 	{
+
+		//---g
+
+
 
 		public virtual ProductDto By(object id)
 		{
 			return New(db.Product.By(id));
 		}
 
+
+
 		public ProductDto New(Product r)
 		{
 			return r == null ? null : _newByProductType[(int)r.Type](dc, r);
 		}
 
+
+
 		public object ChangeVoidStatus(object[] ids, RangeRequest prms)
 		{
+
 			var products = db.Product.ListByIds(ids);
 
 			if (products.Count != ids.Length)
 				throw new ObjectsNotFoundException(ids.Length == 1 ? Exceptions.NoRowById_Translation : Exceptions.ObjectsNotFound_Error);
+
 
 			db.Product.AssertUpdate(products);
 
@@ -334,7 +400,9 @@ namespace Luxena.Travel.Domain
 					a.SetVoidStatus(db, !a.IsVoid);
 					return New(a);
 				})
-				.ToArray();
+				.ToArray()
+			;
+
 
 			if (prms != null)
 			{
@@ -343,12 +411,17 @@ namespace Luxena.Travel.Domain
 				result = new[] { result, db.GetRange<Product>(prms) };
 			}
 
+
 			return result;
+
 		}
+
+
 
 		// ReSharper disable once RedundantExplicitArraySize
 		private static readonly Func<Contracts, Product, ProductDto>[] _newByProductType = new Func<Contracts, Product, ProductDto>[(int)ProductTypes.MaxValue + 1]
 		{
+
 			(dc, r) => dc.AviaTicket.New((AviaTicket)r),
 			(dc, r) => dc.AviaRefund.New((AviaRefund)r),
 			(dc, r) => dc.AviaMco.New((AviaMco)r),
@@ -366,9 +439,22 @@ namespace Luxena.Travel.Domain
 			(dc, r) => dc.PasteboardRefund.New((PasteboardRefund)r),
 			(dc, r) => dc.InsuranceRefund.New((InsuranceRefund)r),
 			(dc, r) => dc.BusTicketRefund.New((BusTicketRefund)r),
+
 		};
 
+
+
+		//---g
+
 	}
+
+
+
+
+
+
+	//===g
+
 
 
 }

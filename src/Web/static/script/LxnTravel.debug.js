@@ -8970,7 +8970,10 @@ Luxena.Travel.SystemConfigurationSemantic = function Luxena_Travel_SystemConfigu
     this.SeparateDocumentAccess = Luxena.Travel.SemanticEntity.get_member().title('\u0420\u0430\u0437\u0434\u0435\u043b\u044f\u0442\u044c \u0434\u043e\u0441\u0442\u0443\u043f \u043a \u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u0430\u043c').bool().required();
     this.AllowOtherAgentsToModifyProduct = Luxena.Travel.SemanticEntity.get_member().title('\u0412\u043e\u0437\u043c\u043e\u0436\u043d\u043e\u0441\u0442\u044c \u0440\u0435\u0434\u0430\u043a\u0442\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0438 \u043e\u0431\u0440\u0430\u0431\u0430\u0442\u044b\u0432\u0430\u0442\u044c \u0431\u0438\u043b\u0435\u0442\u044b \u0434\u0440\u0443\u0433\u0438\u0445 \u0430\u0433\u0435\u043d\u0442\u043e\u0432').bool().required();
     this.IsOrganizationCodeRequired = Luxena.Travel.SemanticEntity.get_member().title('\u041e\u0431\u044f\u0437\u0430\u0442\u0435\u043b\u044c\u043d\u043e\u0435 \u0415\u0414\u0420\u041f\u041e\u0423 \u0434\u043b\u044f \u043e\u0440\u0433\u0430\u043d\u0438\u0437\u0430\u0446\u0438\u0439').bool().required();
+    this.UseConsolidatorCommission = Luxena.Travel.SemanticEntity.get_member().title('\u0418\u0441\u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u044c \u043a\u043e\u043c\u0438\u0441\u0441\u0438\u044e \u043a\u043e\u043d\u0441\u043e\u043b\u0438\u0434\u0430\u0442\u043e\u0440\u0430').bool().required();
+    this.DefaultConsolidatorCommission = Luxena.Travel.SemanticEntity.get_member().title('\u041a\u043e\u043c\u0438\u0441\u0441\u0438\u044f \u043a\u043e\u043d\u0441\u043e\u043b\u0438\u0434\u0430\u0442\u043e\u0440\u0430 \u043f\u043e \u0443\u043c\u043e\u043b\u0447\u0430\u043d\u0438\u044e').money();
     this.UseAviaHandling = Luxena.Travel.SemanticEntity.get_member().title('\u0418\u0441\u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u044c \u0434\u043e\u043f. \u0434\u043e\u0445\u043e\u0434 \u043e\u0442 \u0410\u041a \u043f\u0440\u0438 \u043e\u0431\u0440\u0430\u0431\u043e\u0442\u043a\u0435 \u0430\u0432\u0438\u0430\u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u043e\u0432').bool().required();
+    this.UseBonuses = Luxena.Travel.SemanticEntity.get_member().title('\u0418\u0441\u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u044c \u0431\u043e\u043d\u0443\u0441\u044b').bool().required();
     this.DaysBeforeDeparture = Luxena.Travel.SemanticEntity.get_member().title('\u0414\u043d\u0435\u0439 \u0434\u043e \u043e\u0442\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u044f').int32().required();
     this.BirthdayTaskResponsible = Luxena.Travel.SemanticEntity.get_member().title('\u041e\u0442\u0432\u0435\u0442\u0441\u0442\u0432\u0435\u043d\u043d\u044b\u0439 \u0437\u0430 \u043f\u043e\u0437\u0434\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u0435 \u0438\u043c\u0435\u043d\u0438\u043d\u043d\u0438\u043a\u043e\u0432').reference('Person');
     this.IsOrderRequiredForProcessedDocument = Luxena.Travel.SemanticEntity.get_member().title('\u0417\u0430\u043a\u0430\u0437 \u043e\u0431\u044f\u0437\u0430\u0442\u0435\u043b\u0435\u043d \u0434\u043b\u044f \u043e\u0431\u0440\u0430\u0431\u043e\u0442\u043a\u0438 \u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u043e\u0432').bool().required();
@@ -9021,7 +9024,7 @@ Luxena.Travel.SystemConfigurationEditForm.prototype = {
         this.get_form().cls = 'tabbed';
         this.get_window().width = 800;
         this.get_form().labelWidth = 350;
-        this.get_form().add(this.tabPanel(450, [ this.tabPane('\u0422\u0443\u0440\u0430\u0433\u0435\u043d\u0441\u0442\u0432\u043e', [ this._se$3.Company.toField(-3), this._se$3.CompanyDetails.toField(-3), this._se$3.AccountantDisplayString.toField(-3), this.emptyRow(), this._se$3.Country, this._se$3.DefaultCurrency, this._se$3.UseDefaultCurrencyForInput, this._se$3.VatRate ]), this.tabPane('\u0423\u0441\u043b\u0443\u0433\u0438', [ this._se$3.UseAviaHandling, this._se$3.IsPassengerPassportRequired, this._se$3.AviaDocumentVatOptions, this._se$3.NeutralAirlineCode, this._se$3.Ticket_NoPrintReservations, this.emptyRow(), this._se$3.DrctWebService_LoadedOn, this._se$3.GalileoWebService_LoadedOn, this._se$3.GalileoRailWebService_LoadedOn, this._se$3.GalileoBusWebService_LoadedOn, this._se$3.TravelPointWebService_LoadedOn, this.emptyRow(), this._se$3.Pasterboard_DefaultPaymentType, this.emptyRow(), this._se$3.AllowOtherAgentsToModifyProduct ]), this.tabPane('\u0417\u0430\u043a\u0430\u0437\u044b', [ this._se$3.AviaOrderItemGenerationOption.toField(-3), this._se$3.AmadeusRizUsingMode.toField(-3), this._se$3.IncomingCashOrderCorrespondentAccount, this._se$3.DaysBeforeDeparture, this._se$3.MetricsFromDate, this.emptyRow(), this._se$3.UseAviaDocumentVatInOrder, this._se$3.AllowAgentSetOrderVat, this._se$3.SeparateDocumentAccess, this._se$3.IsOrderRequiredForProcessedDocument, this._se$3.ReservationsInOfficeMetrics, this._se$3.McoRequiresDescription, this._se$3.Order_UseServiceFeeOnlyInVat ]), this.tabPane('\u0421\u0447\u0435\u0442\u0430', [ this._se$3.Invoice_NumberMode.toField(-3), this._se$3.InvoicePrinter_ShowVat, this._se$3.InvoicePrinter_FooterDetails.toField(-3) ]), this.tabPane('\u041d\u0430\u043a\u043b\u0430\u0434\u043d\u044b\u0435', [ this._se$3.Consignment_NumberMode.toField(-3), this._se$3.Consignment_SeparateBookingFee.toField(-3) ]), this.tabPane('\u041f\u0440\u043e\u0447\u0435\u0435', [ this._se$3.BirthdayTaskResponsible, this._se$3.IsOrganizationCodeRequired ]) ]));
+        this.get_form().add(this.tabPanel(550, [ this.tabPane('\u0422\u0443\u0440\u0430\u0433\u0435\u043d\u0441\u0442\u0432\u043e', [ this._se$3.Company.toField(-3), this._se$3.CompanyDetails.toField(-3), this._se$3.AccountantDisplayString.toField(-3), this.emptyRow(), this._se$3.Country, this._se$3.DefaultCurrency, this._se$3.UseDefaultCurrencyForInput, this._se$3.VatRate ]), this.tabPane('\u0423\u0441\u043b\u0443\u0433\u0438', [ this._se$3.UseConsolidatorCommission, this._se$3.DefaultConsolidatorCommission, this._se$3.UseAviaHandling, this._se$3.UseBonuses, this.emptyRow(), this._se$3.IsPassengerPassportRequired, this._se$3.AviaDocumentVatOptions, this._se$3.NeutralAirlineCode, this._se$3.Ticket_NoPrintReservations, this.emptyRow(), this._se$3.DrctWebService_LoadedOn, this._se$3.GalileoWebService_LoadedOn, this._se$3.GalileoRailWebService_LoadedOn, this._se$3.GalileoBusWebService_LoadedOn, this._se$3.TravelPointWebService_LoadedOn, this.emptyRow(), this._se$3.Pasterboard_DefaultPaymentType, this.emptyRow(), this._se$3.AllowOtherAgentsToModifyProduct ]), this.tabPane('\u0417\u0430\u043a\u0430\u0437\u044b', [ this._se$3.AviaOrderItemGenerationOption.toField(-3), this._se$3.AmadeusRizUsingMode.toField(-3), this._se$3.IncomingCashOrderCorrespondentAccount, this._se$3.DaysBeforeDeparture, this._se$3.MetricsFromDate, this.emptyRow(), this._se$3.UseAviaDocumentVatInOrder, this._se$3.AllowAgentSetOrderVat, this._se$3.SeparateDocumentAccess, this._se$3.IsOrderRequiredForProcessedDocument, this._se$3.ReservationsInOfficeMetrics, this._se$3.McoRequiresDescription, this._se$3.Order_UseServiceFeeOnlyInVat ]), this.tabPane('\u0421\u0447\u0435\u0442\u0430', [ this._se$3.Invoice_NumberMode.toField(-3), this._se$3.InvoicePrinter_ShowVat, this._se$3.InvoicePrinter_FooterDetails.toField(-3) ]), this.tabPane('\u041d\u0430\u043a\u043b\u0430\u0434\u043d\u044b\u0435', [ this._se$3.Consignment_NumberMode.toField(-3), this._se$3.Consignment_SeparateBookingFee.toField(-3) ]), this.tabPane('\u041f\u0440\u043e\u0447\u0435\u0435', [ this._se$3.BirthdayTaskResponsible, this._se$3.IsOrganizationCodeRequired ]) ]));
     }
 }
 
@@ -11324,18 +11327,6 @@ Luxena.Travel.ProductEditForm.registerEdit = function Luxena_Travel_ProductEditF
 }
 Luxena.Travel.ProductEditForm.prototype = {
     
-    preInitialize: function Luxena_Travel_ProductEditForm$preInitialize() {
-        Luxena.Travel.ProductEditForm.callBaseMethod(this, 'preInitialize');
-        var $enum1 = ss.IEnumerator.getEnumerator(this.productOwners);
-        while ($enum1.moveNext()) {
-            var owner = $enum1.current;
-            delete (owner).__type;
-        }
-        this.get_window().cls += ' aviaDocument-edit';
-        this.get_window().width = 910;
-        this.get_form().labelWidth = 140;
-    },
-    
     get_isRefund: function Luxena_Travel_ProductEditForm$get_isRefund() {
         return false;
     },
@@ -11360,11 +11351,23 @@ Luxena.Travel.ProductEditForm.prototype = {
         return this.productOwners.length === 1 && (this.initData == null || LxnBase.Data.Reference.equals((this.initData).Owner, this.productOwners[0]));
     },
     
-    getInitData: function Luxena_Travel_ProductEditForm$getInitData() {
-        return { IssueDate: Date.get_today(), TaxRateOfProduct: 0, TaxRateOfServiceFee: 0 };
+    productOwners: null,
+    
+    preInitialize: function Luxena_Travel_ProductEditForm$preInitialize() {
+        Luxena.Travel.ProductEditForm.callBaseMethod(this, 'preInitialize');
+        var $enum1 = ss.IEnumerator.getEnumerator(this.productOwners);
+        while ($enum1.moveNext()) {
+            var owner = $enum1.current;
+            delete (owner).__type;
+        }
+        this.get_window().cls += ' aviaDocument-edit';
+        this.get_window().width = 910;
+        this.get_form().labelWidth = 140;
     },
     
-    productOwners: null
+    getInitData: function Luxena_Travel_ProductEditForm$getInitData() {
+        return { IssueDate: Date.get_today(), TaxRateOfProduct: 0, TaxRateOfServiceFee: 0 };
+    }
 }
 
 
@@ -11473,6 +11476,8 @@ Luxena.Travel.Product_CustomerAndOrderEditor = function Luxena_Travel_Product_Cu
 }
 Luxena.Travel.Product_CustomerAndOrderEditor.prototype = {
     v: null,
+    _customerField: null,
+    _orderField: null,
     
     toEditor: function Luxena_Travel_Product_CustomerAndOrderEditor$toEditor() {
         return this.v.rowPanel([ this._customerField = this.v.Customer.toField(-1, ss.Delegate.create(this, function(m) {
@@ -11517,10 +11522,7 @@ Luxena.Travel.Product_CustomerAndOrderEditor.prototype = {
             }
             this.v.editForm.set_updating(false);
         }));
-    },
-    
-    _customerField: null,
-    _orderField: null
+    }
 }
 
 
@@ -11532,6 +11534,23 @@ Luxena.Travel.Product_FinanceEditor = function Luxena_Travel_Product_FinanceEdit
 }
 Luxena.Travel.Product_FinanceEditor.prototype = {
     v: null,
+    _equalFareField: null,
+    _feesTotalField: null,
+    _totalField: null,
+    _vatField: null,
+    _commissionDiscountField: null,
+    _serviceFeeField: null,
+    _handlingField: null,
+    _handlingNField: null,
+    _discountField: null,
+    _bonusDiscountField: null,
+    _grandTotalField: null,
+    _cancelFeeField: null,
+    _refundServiceFeeField: null,
+    _serviceFeePenaltyField: null,
+    _cancelCommissionField: null,
+    _totalCalculator: null,
+    _grandTotalCalculator: null,
     
     toEditor: function Luxena_Travel_Product_FinanceEditor$toEditor() {
         var f = this.v.editForm;
@@ -11644,25 +11663,7 @@ Luxena.Travel.Product_FinanceEditor.prototype = {
     _createCalculators: function Luxena_Travel_Product_FinanceEditor$_createCalculators() {
         this._totalCalculator = new Luxena.Travel.Controls.MoneyControlCalculator().add(this._equalFareField, 1).add(this._feesTotalField, 1).add(this._cancelFeeField, -1).add(this._totalField, -1);
         this._grandTotalCalculator = new Luxena.Travel.Controls.MoneyControlCalculator().add(this._totalField, 1).add(this._serviceFeeField, 1).add(this._handlingField, 1).add(this._handlingNField, -1).add(this._commissionDiscountField, -1).add(this._discountField, -1).add(this._bonusDiscountField, -1).add(this._refundServiceFeeField, -1).add(this._serviceFeePenaltyField, -1).add(this._grandTotalField, -1);
-    },
-    
-    _equalFareField: null,
-    _feesTotalField: null,
-    _totalField: null,
-    _vatField: null,
-    _commissionDiscountField: null,
-    _serviceFeeField: null,
-    _handlingField: null,
-    _handlingNField: null,
-    _discountField: null,
-    _bonusDiscountField: null,
-    _grandTotalField: null,
-    _cancelFeeField: null,
-    _refundServiceFeeField: null,
-    _serviceFeePenaltyField: null,
-    _cancelCommissionField: null,
-    _totalCalculator: null,
-    _grandTotalCalculator: null
+    }
 }
 
 

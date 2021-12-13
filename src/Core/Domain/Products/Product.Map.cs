@@ -73,6 +73,7 @@ namespace Luxena.Travel.Domain
 
 			Component(x => x.Fare);
 			Component(x => x.EqualFare);
+			Component(x => x.ConsolidatorCommission);
 			Component(x => x.BookingFee);
 			Component(x => x.FeesTotal);
 			Component(x => x.CancelFee);
