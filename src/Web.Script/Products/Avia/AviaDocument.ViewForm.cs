@@ -388,6 +388,8 @@ HasValue(r.AirlinePnrCode, delegate { return string.Format(" ({0})", r.AirlinePn
 				) +
 				Fees() +
 
+				v.ConsolidatorCommission.ToHtmlTr4(r, false) +
+
 				v.CancelFee.ToHtmlTr4(r, false)+
 
 				v.Total.ToHtmlTr4(r, true, false, true) +

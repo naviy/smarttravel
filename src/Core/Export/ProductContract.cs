@@ -5,12 +5,27 @@ using System.Runtime.Serialization;
 using Luxena.Travel.Domain;
 
 
+
+
 namespace Luxena.Travel.Export
 {
+
+
+
+	//===g
+
+
+
+
+
 
 	[DataContract]
 	public class ProductContract : EntityContract
 	{
+
+		//---g
+
+
 
 		[DataMember]
 		public string Type { get; set; }
@@ -82,14 +97,18 @@ namespace Luxena.Travel.Export
 		public bool IsPaid { get; set; }
 
 
-		//===
 
+		//---g
+
+	
 
 		public ProductContract() { }
 
 
+
 		public ProductContract(Product r) : base(r)
 		{
+
 			Type = r.Type.ToString();
 			IssueDate = r.IssueDate;
 			Name = r.Name;
@@ -117,21 +136,25 @@ namespace Luxena.Travel.Export
 			PaymentType = r.PaymentType;
 			Seller = r.Seller;
 			Owner = r.Owner;
-			Intermediary = r.Intermediary;
+			Intermediary = r.Intermediary ?? r.Order?.Intermediary;
 			Customer = r.Customer;
 			Order = r.Order;
 			PnrCode = r.PnrCode;
 			TourCode = r.TourCode;
 			Note = r.Note;
 			IsPaid = r.IsPaid;
+
 		}
 
 
-		//===
+
+		//---g
+		
 
 
 		public virtual void AssignTo(Domain.Domain db, Product r)
 		{
+
 			r.IssueDate = IssueDate;
 			r.Name = Name;
 			r.IsVoid = IsVoid;
@@ -142,6 +165,7 @@ namespace Luxena.Travel.Export
 				Passenger = db.Person.ByName(a.Text),
 				PassengerName = a.Text
 			}).ToList();
+
 			r.PassengerName = PassengerName;
 
 			r.Fare = Fare;
@@ -165,10 +189,22 @@ namespace Luxena.Travel.Export
 			r.PnrCode = PnrCode;
 			r.TourCode = TourCode;
 			r.Note = Note;
+
 		}
 
 
 
+		//---g
+
 	}
+
+
+
+
+
+
+	//===g
+
+
 
 }

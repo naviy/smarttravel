@@ -6,11 +6,26 @@ using Luxena.Base.Metamodel;
 using Luxena.Travel.Export;
 
 
+
+
 namespace Luxena.Travel.Domain
 {
 
+
+
+	//===g
+
+
+
+
+
+
 	partial class Product
 	{
+
+		//---g
+
+
 
 		public override Entity Resolve(Domain db)
 		{
@@ -25,8 +40,10 @@ namespace Luxena.Travel.Domain
 			if (r.Ticketer == null && ticketer != null)
 				r.Ticketer = ticketer.Person;
 
+
 			if (r.BookerOffice != null && r.BookerCode != null)
 			{
+
 				if (r.BookerOffice == r.TicketerOffice && r.BookerCode == r.TicketerCode)
 				{
 					booker = ticketer;
@@ -41,9 +58,12 @@ namespace Luxena.Travel.Domain
 					if (r.Booker == null && booker != null)
 						r.Booker = booker.Person;
 				}
+
 			}
 
+
 			var seller = r.Seller ?? r.IsTicketerRobot ? booker : ticketer;
+
 			if (seller != null)
 			{
 				r.Seller = seller.Person;
@@ -51,6 +71,7 @@ namespace Luxena.Travel.Domain
 				r.Do((AviaDocument a) => a.Provider = seller.Provider);
 				r.LegalEntity = seller.LegalEntity;
 			}
+
 
 			if (r.Customer != null)
 				r.SetCustomer(db, db.Party.ByLegalName(r.Customer.LegalName));
@@ -61,6 +82,8 @@ namespace Luxena.Travel.Domain
 			r.Commission += db;
 			r.BookingFee += db;
 			r.FeesTotal += db;
+			r.ConsolidatorCommission += db;
+
 			r.Vat += db;
 			r.Total += db;
 			r.ServiceFee += db;
@@ -83,10 +106,18 @@ namespace Luxena.Travel.Domain
 
 
 
+		//---g
+
+
+
 
 		public abstract class Service<TProduct> : Entity3Service<TProduct>
 			where TProduct : Product
 		{
+
+			//---g
+
+
 
 			#region Permissions
 
@@ -125,7 +156,7 @@ namespace Luxena.Travel.Domain
 				var user = db.Security.User;
 
 				bool fullDocumentControl;
-				
+
 				return db.Granted(
 					db.DocumentAccess.HasAccess(r.Owner, out fullDocumentControl) &&
 					(fullDocumentControl || Equals(r.Seller, user.Person))
@@ -137,18 +168,26 @@ namespace Luxena.Travel.Domain
 			#endregion
 
 
+
+			//---g
+
+
+
 			protected Service()
 			{
 
 				Modifing += r =>
 				{
+
 					if (r.Customer != null)
 						r.Customer.IsCustomer = true;
+
 				};
 
 
 				Calculating += r =>
 				{
+
 					r.IsProcessed = !r.MustBeUnprocessed && GetIsProcessed(r);
 
 					if (r.EqualFare == null && r.Fare != null && r.Fare.Currency.Code == db.Configuration.DefaultCurrency.Code)
@@ -161,11 +200,15 @@ namespace Luxena.Travel.Domain
 						if (!OldValue(r, a => a.IsProcessed)
 							|| IsDirty(r, a => new { a.GrandTotal, a.Total, a.ServiceFee, a.Commission, a.CancelCommission })
 						)
+						{
 							db.OnCommit(r, Export);
+						}
 					}
+
 				};
 
 			}
+
 
 
 			protected virtual bool GetIsProcessed(TProduct r)
@@ -176,7 +219,8 @@ namespace Luxena.Travel.Domain
 					(!db.Configuration.UseDefaultCurrencyForInput || r.EqualFare != null) &&
 					r.ServiceFee != null &&
 					r.GrandTotal != null &&
-					(!r.IsRefund || (r.ServiceFeePenalty != null && r.RefundServiceFee != null));
+					(!r.IsRefund || (r.ServiceFeePenalty != null && r.RefundServiceFee != null))
+				;
 			}
 
 
@@ -187,34 +231,44 @@ namespace Luxena.Travel.Domain
 			}
 
 
+
 			public int GetCountForUpdate(string className, object[] ids, object dateFrom, object dateTo)
 			{
+
 				var count = 0;
 
 				var cls = Class.Of(className);
+
 
 				if (cls.Is<Organization>())
 				{
 					count = ids.Sum(id => db.Airline.GetNoAirlineDocumentCount(db.Airline.By(id), (DateTime?)dateFrom, (DateTime?)dateTo));
 				}
+
 				else if (cls.Is<AirlineServiceClass>())
 				{
 					count = ids.Sum(id => db.Airline.GetNoServiceClassTicketCount(db.AirlineServiceClass.By(id), (DateTime?)dateFrom, (DateTime?)dateTo));
 				}
+
 				else if (cls.Is<GdsAgent>())
 				{
 					count = ids.Sum(id => db.GdsAgent.GetNoGdsAgentProductCount(db.GdsAgent.By(id), (DateTime?)dateFrom, (DateTime?)dateTo));
 				}
 
+
 				return count;
+
 			}
+
 
 
 			public int ApplyData(string className, object[] ids, DateTime? dateFrom, DateTime? dateTo)
 			{
+
 				var count = 0;
 
 				var cls = Class.Of(className);
+
 
 				if (cls.Is<Organization>())
 				{
@@ -222,12 +276,14 @@ namespace Luxena.Travel.Domain
 
 					count += ids.Sum(id => db.Airline.Apply(db.Airline.By(id), dateFrom, dateTo));
 				}
+
 				else if (cls.Is<AirlineServiceClass>())
 				{
 					db.AirlineServiceClass.CanApply().Assert("Operation is not permitted");
 
 					count += ids.Sum(id => db.AirlineServiceClass.Apply(db.AirlineServiceClass.By(id), dateFrom, dateTo));
 				}
+
 				else if (cls.Is<GdsAgent>())
 				{
 					db.GdsAgent.CanApply().Assert("Operation is not permitted");
@@ -235,11 +291,22 @@ namespace Luxena.Travel.Domain
 					count += ids.Sum(id => db.GdsAgent.Apply(db.GdsAgent.By(id), dateFrom, dateTo));
 				}
 
+
 				return count;
+
 			}
 
 
+
+			//---g
+
 		}
+
+
+
+
+		//---g
+
 
 
 		public partial class Service : Service<Product>
@@ -247,15 +314,30 @@ namespace Luxena.Travel.Domain
 
 			public override void Export(Product r)
 			{
-				var doc = r as AviaDocument;
-				if (doc != null)
+
+				if (r is AviaDocument doc)
 					db.AviaDocument.Export(doc);
 				else
 					base.Export(r);
+
 			}
 
 		}
 
+
+
+
+		//---g
+
 	}
+
+
+
+
+
+
+	//===g
+
+
 
 }

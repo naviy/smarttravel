@@ -76,7 +76,7 @@ namespace Luxena.Travel.Parsers
 
 
 
-			var passangerGroupsMatches = _rePassangerGroups.Matches(Content);
+			var passengerGroupsMatches = _rePassengerGroups.Matches(Content);
 
 			var fareMatches = _reFare.Matches(Content);
 
@@ -90,7 +90,7 @@ namespace Luxena.Travel.Parsers
 
 
 
-			if (passangerGroupsMatches.Count == 0 || totalMatches.Count == 0 || totalMatches.Count != fareMatches.Count)
+			if (passengerGroupsMatches.Count == 0 || totalMatches.Count == 0 || totalMatches.Count != fareMatches.Count)
 			{
 				yield break;
 			}
@@ -144,10 +144,10 @@ namespace Luxena.Travel.Parsers
 			;
 
 
-			//var passangerNames = baseMatch.Groups["passanger"].Captures.Select(a => a.Value.Trim()).ToArray();
+			//var passengerNames = baseMatch.Groups["passenger"].Captures.Select(a => a.Value.Trim()).ToArray();
 
-			var passangerGroups = passangerGroupsMatches.Cast<Match>().Select(a =>
-				a.Groups["passanger"].Captures.Select(b => b.Value.Trim()).ToArray()
+			var passengerGroups = passengerGroupsMatches.Cast<Match>().Select(a =>
+				a.Groups["passenger"].Captures.Select(b => b.Value.Trim()).ToArray()
 			).ToArray();
 
 
@@ -182,10 +182,10 @@ namespace Luxena.Travel.Parsers
 			var ticketIndex = 0;
 
 
-			for (int i = 0, len = passangerGroups.Length; i < len; i++)
+			for (int i = 0, len = passengerGroups.Length; i < len; i++)
 			{
 
-				var passangerGroup = passangerGroups[i];
+				var passengerGroup = passengerGroups[i];
 
 				var fareCurrency = fares.By(i).As(a => a.Item1);
 				var fareAmount = fares.By(i).As(a => a.Item2);
@@ -200,7 +200,7 @@ namespace Luxena.Travel.Parsers
 				var airlineIataCode = airlines.By(i);// ?? "PS";
 
 
-				foreach (var passangerName in passangerGroup)
+				foreach (var passengerName in passengerGroup)
 				{
 
 					AviaDocument doc = null;
@@ -226,7 +226,7 @@ namespace Luxena.Travel.Parsers
 
 					doc.IssueDate = issueDate;
 					doc.PnrCode = pnrCode;
-					doc.PassengerName = passangerName;
+					doc.PassengerName = passengerName;
 					doc.AirlineIataCode = airlineIataCode;
 
 					doc.Fare = fareCurrency != null ? new Money(fareCurrency, fareAmount) : null;
@@ -387,10 +387,10 @@ namespace Luxena.Travel.Parsers
 		);
 
 
-		static readonly Regex _rePassangerGroups = new Regex(
+		static readonly Regex _rePassengerGroups = new Regex(
 			@"(^|\n)\s*T-\w?\s*\n+" +
 			@"(?:.+?\n+)??" +
-			@"(?:\s*\d+\.(?'passanger'[A-Z/\s]+)(\([A-Z\d/\s]+\))*?)+\s*\n",
+			@"(?:\s*\d+\.(?'passenger'[A-Z/\s]+)(\([A-Z\d/\s]+\))*?)+\s*\n",
 			RegexOptions.Compiled
 		);
 

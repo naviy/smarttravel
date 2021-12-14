@@ -169,6 +169,7 @@ namespace Luxena.Travel.Domain
 		public virtual Money FeesTotal_EUR => FeesTotal.ToEUR(Rate);
 		public virtual Money FeesTotal_USD => FeesTotal.ToUSD(Rate);
 
+		//TODO: переименовать на ConsolidatorFee: сбор консолидатора
 		[RU("Комиссия консолидатора")]
 		public virtual Money ConsolidatorCommission { get; set; }
 

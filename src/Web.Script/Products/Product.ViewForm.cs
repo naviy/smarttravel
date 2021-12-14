@@ -299,6 +299,7 @@ namespace Luxena.Travel
 					v.Fare.ToHtmlTr4(r, true) +
 					v.EqualFare.ToHtmlTr4(r, false, true) +
 					v.FeesTotal.ToHtmlTr4(r) +
+					v.ConsolidatorCommission.ToHtmlTr4(r) +
 
 					v.Total.ToHtmlTr4(r, true, false, true) +
 

@@ -75,6 +75,12 @@ namespace Luxena.Travel
 		}
 
 
+		public bool UseConsolidatorCommission
+		{
+			get { return AppManager.SystemConfiguration.UseConsolidatorCommission; }
+		}
+
+
 		public bool UseHandling
 		{
 			get { return AppManager.SystemConfiguration.UseAviaHandling && CanUseHandling(); }
@@ -84,6 +90,12 @@ namespace Luxena.Travel
 		public virtual bool CanUseHandling()
 		{
 			return true;
+		}
+
+
+		public bool UseBonuses
+		{
+			get { return AppManager.SystemConfiguration.UseBonuses; }
 		}
 
 

@@ -63,6 +63,9 @@
     <Compile Include="DataAnnotations\LocalizationTests.cs" />
     <Compile Include="Domain.Core\StringExtentions.Tests.cs" />
     <Compile Include="Parsers\AirBufferParserTests.cs" />
+    <Compile Include="Parsers\SabreConsoleParserTests.cs" />
+    <Compile Include="Parsers\AviaDocumentAsserter.cs" />
+    <Compile Include="Parsers\ProductAsserter.cs" />
     <Compile Include="Parsers\TravelPointXmlParserTests.cs" />
     <Compile Include="Parsers\AirParserTests.cs" />
     <Compile Include="Parsers\SabreFilParserTests.cs" />
@@ -72,7 +75,7 @@
     <Compile Include="Parsers\TktParserTests.cs" />
     <Compile Include="Parsers\MirParserTests.cs" />
     <Compile Include="Parsers\IataParserTests.cs" />
-    <Compile Include="Parsers\AirConsoleParserTests.cs" />
+    <Compile Include="Parsers\AmadeusConsoleParserTests.cs" />
     <Compile Include="Reports\AgentReportTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reports\CustomerReportTest.cs" />

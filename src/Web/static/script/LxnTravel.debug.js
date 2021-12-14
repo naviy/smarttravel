@@ -8028,16 +8028,17 @@ Luxena.Travel.ProductSemantic = function Luxena_Travel_ProductSemantic() {
     this.EqualFare = Luxena.Travel.SemanticEntity.get_member().title('\u042d\u043a\u0432. \u0442\u0430\u0440\u0438\u0444').defaultMoney();
     this.EqualFare_EUR = Luxena.Travel.SemanticEntity.get_member().money();
     this.EqualFare_USD = Luxena.Travel.SemanticEntity.get_member().money();
-    this.BookingFee = Luxena.Travel.SemanticEntity.get_member().title('\u0421\u0431\u043e\u0440 \u0441\u0438\u0441\u0442\u0435\u043c\u044b \u0431\u0440\u043e\u043d\u0438\u0440\u043e\u0432\u0430\u043d\u0438\u044f').money();
     this.FeesTotal = Luxena.Travel.SemanticEntity.get_member().title('\u0422\u0430\u043a\u0441\u044b').defaultMoney();
     this.FeesTotal_EUR = Luxena.Travel.SemanticEntity.get_member().money();
     this.FeesTotal_USD = Luxena.Travel.SemanticEntity.get_member().money();
-    this.CancelFee = Luxena.Travel.SemanticEntity.get_member().title('\u0428\u0442\u0440\u0430\u0444 \u0437\u0430 \u043e\u0442\u043c\u0435\u043d\u0443').defaultMoney();
-    this.CancelFee_EUR = Luxena.Travel.SemanticEntity.get_member().money();
-    this.CancelFee_USD = Luxena.Travel.SemanticEntity.get_member().money();
+    this.ConsolidatorCommission = Luxena.Travel.SemanticEntity.get_member().title('\u041a\u043e\u043c\u0438\u0441\u0441\u0438\u044f \u043a\u043e\u043d\u0441\u043e\u043b\u0438\u0434\u0430\u0442\u043e\u0440\u0430').money();
     this.Total = Luxena.Travel.SemanticEntity.get_member().title('\u0418\u0442\u043e\u0433\u043e').defaultMoney();
     this.Total_EUR = Luxena.Travel.SemanticEntity.get_member().money();
     this.Total_USD = Luxena.Travel.SemanticEntity.get_member().money();
+    this.BookingFee = Luxena.Travel.SemanticEntity.get_member().title('\u0421\u0431\u043e\u0440 \u0441\u0438\u0441\u0442\u0435\u043c\u044b \u0431\u0440\u043e\u043d\u0438\u0440\u043e\u0432\u0430\u043d\u0438\u044f').money();
+    this.CancelFee = Luxena.Travel.SemanticEntity.get_member().title('\u0428\u0442\u0440\u0430\u0444 \u0437\u0430 \u043e\u0442\u043c\u0435\u043d\u0443').defaultMoney();
+    this.CancelFee_EUR = Luxena.Travel.SemanticEntity.get_member().money();
+    this.CancelFee_USD = Luxena.Travel.SemanticEntity.get_member().money();
     this.Vat = Luxena.Travel.SemanticEntity.get_member().title('\u0412 \u0442.\u0447. \u041d\u0414\u0421').defaultMoney();
     this.Vat_EUR = Luxena.Travel.SemanticEntity.get_member().money();
     this.Vat_USD = Luxena.Travel.SemanticEntity.get_member().money();
@@ -8358,7 +8359,7 @@ Luxena.Travel.AviaTicketEditForm.prototype = {
     createControls: function Luxena_Travel_AviaTicketEditForm$createControls() {
         var pnlMain = this.columnPanel([ this.mainDataPanel([ this._se$5.IssueDate, this._se$5.FullNumber, this._se$5.ReissueFor, this._se$5.PassengerRow, this._se$5.GdsPassportStatus, this._se$5.Provider.toField(-3), this._se$5.CustomerAndOrder, this._se$5.Intermediary, this._se$5.Country, this._se$5.Originator, this._se$5.PnrAndTourCodes, this._se$5.BookerRow, this._se$5.TicketerRow, this._se$5.TicketingIataOffice, this._se$5.SellerAndOwnerRow, this._se$5.LegalEntity ]), this._se$5.Finance ]);
         pnlMain.title = Luxena.Travel.DomainRes.productType_AviaTicket;
-        this.get_form().add(this.tabPanel(535, [ pnlMain, this.tabFitPane(Luxena.Travel.DomainRes.aviaTicket_FlightSegment, this._se$5.gridMember('Segments', new Luxena.Travel.FlightSegmentGridControl())) ]));
+        this.get_form().add(this.tabPanel(600, [ pnlMain, this.tabFitPane(Luxena.Travel.DomainRes.aviaTicket_FlightSegment, this._se$5.gridMember('Segments', new Luxena.Travel.FlightSegmentGridControl())) ]));
         this.get_form().add(this._se$5.Note.toEditor());
     },
     
@@ -11167,7 +11168,7 @@ Luxena.Travel.ProductViewForm.prototype = {
     getFinanceDataHtml: function Luxena_Travel_ProductViewForm$getFinanceDataHtml() {
         var r = this.get_product();
         var v = new Luxena.Travel.SemanticDomain(this).Product;
-        return "<div class='financeData'><table>" + v.Fare.toHtmlTr4(r, true) + v.EqualFare.toHtmlTr4(r, false, true) + v.FeesTotal.toHtmlTr4(r) + v.Total.toHtmlTr4(r, true, false, true) + v.Vat.toHtmlTr4(r, false) + v.Commission.toHtmlTr4(r, false, false, false, LxnBase.UI.BasicViewForm.hasValue(r.CommissionPercent, function() {
+        return "<div class='financeData'><table>" + v.Fare.toHtmlTr4(r, true) + v.EqualFare.toHtmlTr4(r, false, true) + v.FeesTotal.toHtmlTr4(r) + v.ConsolidatorCommission.toHtmlTr4(r) + v.Total.toHtmlTr4(r, true, false, true) + v.Vat.toHtmlTr4(r, false) + v.Commission.toHtmlTr4(r, false, false, false, LxnBase.UI.BasicViewForm.hasValue(r.CommissionPercent, function() {
             return "<td class='fieldValue gray'>(" + r.CommissionPercent.format('N2') + '%)</td>';
         })) + v.ServiceFee.toHtmlTr4(r, true, false, true) + v.CommissionDiscount.toHtmlTr4(r) + v.Handling.toHtmlTr4(r) + v.HandlingN.toHtmlTr4(r) + v.Discount.toHtmlTr4(r) + v.BonusDiscount.toHtmlTr4(r) + v.BonusAccumulation.toHtmlTr4(r) + ((!this.get_isRefund()) ? '' : v.RefundServiceFee.toHtmlTr4(r, true) + v.ServiceFeePenalty.toHtmlTr4(r, true)) + v.GrandTotal.toHtmlTr4(r, true) + v.PaymentType.toHtmlTr4(r) + '</table></div>';
     },
@@ -11339,12 +11340,20 @@ Luxena.Travel.ProductEditForm.prototype = {
         return this._args.type === 'AviaMco';
     },
     
+    get_useConsolidatorCommission: function Luxena_Travel_ProductEditForm$get_useConsolidatorCommission() {
+        return Luxena.Travel.AppManager.get_systemConfiguration().UseConsolidatorCommission;
+    },
+    
     get_useHandling: function Luxena_Travel_ProductEditForm$get_useHandling() {
         return Luxena.Travel.AppManager.get_systemConfiguration().UseAviaHandling && this.canUseHandling();
     },
     
     canUseHandling: function Luxena_Travel_ProductEditForm$canUseHandling() {
         return true;
+    },
+    
+    get_useBonuses: function Luxena_Travel_ProductEditForm$get_useBonuses() {
+        return Luxena.Travel.AppManager.get_systemConfiguration().UseBonuses;
     },
     
     get_displayOwnerAsLabel: function Luxena_Travel_ProductEditForm$get_displayOwnerAsLabel() {
@@ -11536,6 +11545,7 @@ Luxena.Travel.Product_FinanceEditor.prototype = {
     v: null,
     _equalFareField: null,
     _feesTotalField: null,
+    _consolidatorCommissionField: null,
     _totalField: null,
     _vatField: null,
     _commissionDiscountField: null,
@@ -11601,6 +11611,9 @@ Luxena.Travel.Product_FinanceEditor.prototype = {
         }
         var list = [];
         list.addRange([ this.v.Fare.toEditor(), this._equalFareField = this.v.EqualFare.toField(0, recalculateBold), this._feesTotalField = this.v.FeesTotal.toField(0, recalculate) ]);
+        if (f.get_useConsolidatorCommission()) {
+            list.add(this._consolidatorCommissionField = this.v.ConsolidatorCommission.toField(0, recalculate));
+        }
         if (f.get_isRefund()) {
             list.add(this._cancelFeeField = this.v.CancelFee.toField(0, recalculate));
         }
@@ -11622,7 +11635,7 @@ Luxena.Travel.Product_FinanceEditor.prototype = {
         if (f.get_isRefund()) {
             list.addRange([ this._refundServiceFeeField = this.v.RefundServiceFee.toField(0, recalculate), this._serviceFeePenaltyField = this.v.ServiceFeePenalty.toField(0, recalculate) ]);
         }
-        else {
+        else if (f.get_useBonuses()) {
             list.addRange([ this._bonusDiscountField = this.v.BonusDiscount.toField(0, recalculate), this.v.BonusAccumulation.toField(0) ]);
         }
         list.add(this._cancelCommissionField = this.v.CancelCommission.toField(0, recalculate));
@@ -11661,7 +11674,7 @@ Luxena.Travel.Product_FinanceEditor.prototype = {
     },
     
     _createCalculators: function Luxena_Travel_Product_FinanceEditor$_createCalculators() {
-        this._totalCalculator = new Luxena.Travel.Controls.MoneyControlCalculator().add(this._equalFareField, 1).add(this._feesTotalField, 1).add(this._cancelFeeField, -1).add(this._totalField, -1);
+        this._totalCalculator = new Luxena.Travel.Controls.MoneyControlCalculator().add(this._equalFareField, 1).add(this._feesTotalField, 1).add(this._consolidatorCommissionField, 1).add(this._cancelFeeField, -1).add(this._totalField, -1);
         this._grandTotalCalculator = new Luxena.Travel.Controls.MoneyControlCalculator().add(this._totalField, 1).add(this._serviceFeeField, 1).add(this._handlingField, 1).add(this._handlingNField, -1).add(this._commissionDiscountField, -1).add(this._discountField, -1).add(this._bonusDiscountField, -1).add(this._refundServiceFeeField, -1).add(this._serviceFeePenaltyField, -1).add(this._grandTotalField, -1);
     }
 }
@@ -13884,6 +13897,12 @@ Luxena.Travel.ProductListTab.get_useHandling = function Luxena_Travel_ProductLis
     return Luxena.Travel.AppManager.get_systemConfiguration().UseAviaHandling;
 }
 Luxena.Travel.ProductListTab.prototype = {
+    _voidButton: null,
+    _createOrderButton: null,
+    _createPaymentButton: null,
+    _separateServiceFee: null,
+    isTickets: false,
+    isVoid: false,
     
     isRefund: function Luxena_Travel_ProductListTab$isRefund() {
         return false;
@@ -13936,7 +13955,7 @@ Luxena.Travel.ProductListTab.prototype = {
         var se = new Luxena.Travel.SemanticDomain(this).Product;
         this.addColumns([ se.IssueDate, this.columnCfg('Type') ]);
         this.createCustomColumnConfigs();
-        this.addColumns([ se.ReissueFor.toColumn(true), se.Customer, se.PaymentType, se.Fare, se.EqualFare, se.Commission, se.Total, se.ServiceFee, se.BookingFee.toColumn(true) ]);
+        this.addColumns([ se.ReissueFor.toColumn(true), se.Customer, se.PaymentType, se.Fare, se.EqualFare, se.ConsolidatorCommission.toColumn(true), se.Commission, se.Total, se.ServiceFee, se.BookingFee.toColumn(true) ]);
         if (this.isRefund()) {
             this.addColumns([ se.CancelFee ]);
         }
@@ -14119,14 +14138,7 @@ Luxena.Travel.ProductListTab.prototype = {
     
     getSelectedIds: function Luxena_Travel_ProductListTab$getSelectedIds() {
         return this.get_autoGrid().getSelectedIds();
-    },
-    
-    _voidButton: null,
-    _createOrderButton: null,
-    _createPaymentButton: null,
-    _separateServiceFee: null,
-    isTickets: false,
-    isVoid: false
+    }
 }
 
 
@@ -15191,7 +15203,9 @@ Luxena.Travel.SystemConfigurationDto.prototype = {
     VatRate: 0,
     DefaultCurrency: null,
     UseDefaultCurrencyForInput: false,
+    UseConsolidatorCommission: false,
     UseAviaHandling: false,
+    UseBonuses: false,
     AviaOrderItemGenerationOption: 0,
     IsOrganizationCodeRequired: false,
     IsOrderRequiredForProcessedDocument: false,
@@ -16858,7 +16872,7 @@ Luxena.Travel.AviaDocumentViewForm.prototype = {
     _getFinanceDataHtml$7: function Luxena_Travel_AviaDocumentViewForm$_getFinanceDataHtml$7() {
         var v = new Luxena.Travel.SemanticDomain(this).AviaDocument;
         var r = this._document$7;
-        return "<div class='financeData'><table>" + v.Fare.toHtmlTr4(r, true) + v.EqualFare.toHtmlTr4(r, false, true) + v.FeesTotal.toHtmlTr4(r, true, false, false, (ss.isNullOrUndefined(r.Fees)) ? null : (Luxena.Travel.AviaDocumentViewForm).get_fullName() + '.showFees()') + this._fees$7() + v.CancelFee.toHtmlTr4(r, false) + v.Total.toHtmlTr4(r, true, false, true) + v.Vat.toHtmlTr4(r, false) + v.Commission.toHtmlTr4(r, false, false, false, LxnBase.UI.BasicViewForm.hasValue(r.CommissionPercent, function() {
+        return "<div class='financeData'><table>" + v.Fare.toHtmlTr4(r, true) + v.EqualFare.toHtmlTr4(r, false, true) + v.FeesTotal.toHtmlTr4(r, true, false, false, (ss.isNullOrUndefined(r.Fees)) ? null : (Luxena.Travel.AviaDocumentViewForm).get_fullName() + '.showFees()') + this._fees$7() + v.ConsolidatorCommission.toHtmlTr4(r, false) + v.CancelFee.toHtmlTr4(r, false) + v.Total.toHtmlTr4(r, true, false, true) + v.Vat.toHtmlTr4(r, false) + v.Commission.toHtmlTr4(r, false, false, false, LxnBase.UI.BasicViewForm.hasValue(r.CommissionPercent, function() {
             return "<td class='fieldValue gray'>(" + r.CommissionPercent.format('N2') + '%)</td>';
         })) + v.ServiceFee.toHtmlTr4(r, true, false, true) + v.CommissionDiscount.toHtmlTr4(r) + v.Handling.toHtmlTr4(r) + v.HandlingN.toHtmlTr4(r) + v.Discount.toHtmlTr4(r) + v.BonusDiscount.toHtmlTr4(r) + v.BonusAccumulation.toHtmlTr4(r) + v.RefundServiceFee.toHtmlTr4(r, ss.isValue(this._refund$7)) + v.ServiceFeePenalty.toHtmlTr4(r, ss.isValue(this._refund$7)) + v.CancelCommission.toHtmlTr4(r) + v.PaymentType.toHtmlTr4(r) + ((String.isNullOrEmpty(r.PaymentDetails)) ? '' : "<tr><td class='fieldValue gray rightAlign' colspan='2'>" + r.PaymentDetails + '</td><td/><td/></tr>') + v.GrandTotal.toHtmlTr4(r, true) + '</table></div>';
     },

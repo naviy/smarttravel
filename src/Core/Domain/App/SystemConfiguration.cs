@@ -90,9 +90,11 @@ namespace Luxena.Travel.Domain
 		[RU("Обязательное ЕДРПОУ для организаций")]
 		public virtual bool IsOrganizationCodeRequired { get; set; }
 
+		//TODO: переименовать на UseConsolidator
 		[RU("Использовать комиссию консолидатора")]
 		public virtual bool UseConsolidatorCommission { get; set; }
 
+		//TODO: переименовать на DefaultConsolidatorFee
 		[RU("Комиссия консолидатора по умолчанию")]
 		public virtual Money DefaultConsolidatorCommission { get; set; }
 		

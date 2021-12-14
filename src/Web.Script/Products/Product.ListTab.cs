@@ -21,45 +21,100 @@ using Action = Ext.Action;
 using Record = Ext.data.Record;
 
 
+
+
 namespace Luxena.Travel
 {
 
+
+
+	//===g
+
+
+
+
+
+
 	public delegate void ServiceCanUpdateAction(Object[] ids, AjaxCallback onSuccess, WebServiceFailure onError);
 
+
+
 	public delegate void ServiceChangeVoidStatusAction(Object[] ids, RangeRequest @params, AjaxCallback onSuccess, WebServiceFailure onError);
+
+
+
+
+
+
+	//===g
+
+
+
+
 
 
 	public abstract class ProductListTab : EntityListTab
 	{
 
+		//---g
+
+
+
 		protected ProductListTab(string tabId, ListArgs args) : base(tabId, args) { }
+
+
+
+		//---g
+
+
+
+		protected Action _voidButton;
+		protected Action _createOrderButton;
+		protected Action _createPaymentButton;
+		protected CheckItem _separateServiceFee;
+
+		protected bool IsTickets;
+		protected bool IsVoid;
 
 		protected virtual bool IsRefund() { return false; }
 
 		protected virtual bool UseManyPassengers() { return false; }
 
+
+
+		//---g
+
+
+
 		protected override void OnInitGrid(AutoGridArgs args, EditorGridPanelConfig config)
 		{
+
 			base.OnInitGrid(args, config);
 
 			args.ListConfig.IsCreationAllowed.Visible = true;
 
-			args.ForcedProperties = new string[]{"Name", "RequiresProcessing", "IsRefund", "IsVoid", UseManyPassengers() ? "PassengerDtos" : "Passenger" };
+			args.ForcedProperties = new string[] { "Name", "RequiresProcessing", "IsRefund", "IsVoid", UseManyPassengers() ? "PassengerDtos" : "Passenger" };
 
 			args.BaseRequest.SetDefaultSort("IssueDate");
 
 			config.view(new ProductGridView(null));
+
 		}
+
 
 
 		protected override void OnAddToolbarButtons(ArrayList toolbarItems, AutoGrid autoGrid)
 		{
+
 			CreateVoidAction(VoidProducts);
 
 			CreateStdToolbarActions();
 
 			toolbarItems.InsertRange(0, (object[])toolbarActions);
+
 		}
+
+
 
 		protected virtual void CreateVoidAction(AnonymousDelegate voidAction)
 		{
@@ -70,8 +125,10 @@ namespace Luxena.Travel
 		}
 
 
+
 		protected void CreateStdToolbarActions()
 		{
+
 			ArrayList createOrderMenuItems = new ArrayList();
 
 			createOrderMenuItems.AddRange(new object[]
@@ -99,14 +156,19 @@ namespace Luxena.Travel
 		}
 
 
+
 		protected virtual void CreateCustomColumnConfigs()
 		{
 			throw new Exception("NotImplemented");
 		}
 
+
+
 		protected override void CreateColumnConfigs()
 		{
+
 			ProductSemantic se = new SemanticDomain(this).Product;
+
 
 			AddColumns(new object[]
 			{
@@ -114,7 +176,9 @@ namespace Luxena.Travel
 				ColumnCfg("Type"),
 			});
 
+
 			CreateCustomColumnConfigs();
+
 
 			AddColumns(new object[]
 			{
@@ -123,17 +187,22 @@ namespace Luxena.Travel
 				se.PaymentType,
 				se.Fare,
 				se.EqualFare,
+				se.ConsolidatorCommission.ToColumn(true),
 				se.Commission,
 				se.Total,
 				se.ServiceFee,
 				se.BookingFee.ToColumn(true),
 			});
 
+
 			if (IsRefund())
+			{
 				AddColumns(new object[]
 				{
 					se.CancelFee,
 				});
+			}
+
 
 			AddColumns(new object[]
 			{
@@ -151,11 +220,16 @@ namespace Luxena.Travel
 				se.IsPaid,
 			});
 
-			if (UseHandling) AddColumns(new object[]
+
+			if (UseHandling)
 			{
-				se.Handling.ToColumn(true),
-				se.CommissionDiscount.ToColumn(true),
-			});
+				AddColumns(new object[]
+				{
+					se.Handling.ToColumn(true),
+					se.CommissionDiscount.ToColumn(true),
+				});
+			}
+
 
 			AddColumns(new object[]
 			{
@@ -177,19 +251,26 @@ namespace Luxena.Travel
 
 				new ColumnConfig().header("Id").dataIndex("Id").hidden(true).ToDictionary(),
 			});
+
 		}
+
 
 
 		protected override void OnSelectionChange(AbstractSelectionModel selectionModel)
 		{
+
 			RowSelectionModel model = (RowSelectionModel)selectionModel;
 
 			Record[] selections = (Record[])model.getSelections();
 
+
 			if (_voidButton != null && !ListConfig.IsEditAllowed.IsDisabled)
 			{
+
 				if (selections.Length == 0)
+				{
 					_voidButton.disable();
+				}
 				else
 				{
 					bool isVoid = (bool)Type.GetField(selections[0].data, "IsVoid");
@@ -207,7 +288,9 @@ namespace Luxena.Travel
 					else
 						_voidButton.disable();
 				}
+
 			}
+
 
 			if (selections.Length == 0)
 			{
@@ -215,34 +298,49 @@ namespace Luxena.Travel
 				_createOrderButton.disable();
 				_createPaymentButton.disable();
 			}
+
 			else
 			{
+
 				IsTickets = true;
 				IsVoid = false;
 				bool isRefund = false;
 
+
 				foreach (Record row in selections)
 				{
+
 					if ((string)Type.GetField(row.data, ObjectPropertyNames.ObjectClass) != ClassNames.AviaTicket)
 						IsTickets = false;
+
 					if ((bool)Type.GetField(row.data, "IsRefund"))
 						isRefund = true;
+
 					if ((bool)Type.GetField(row.data, "IsVoid"))
 						IsVoid = true;
+
 				}
+
+
 				if (IsVoid)
 					_createOrderButton.disable();
 				else
 					_createOrderButton.enable();
 
+
 				if (IsVoid || isRefund)
 					_createPaymentButton.disable();
 				else
 					_createPaymentButton.enable();
+
 			}
 
+
 			OnRowChange(selections);
+
 		}
+
+
 
 		protected virtual void OnRowChange(Record[] selections)
 		{
@@ -250,17 +348,23 @@ namespace Luxena.Travel
 		}
 
 
+
 		protected virtual void VoidProducts()
 		{
 			VoidObjects(ProductService.CanUpdate, ProductService.ChangeVoidStatus);
 		}
 
+
+
 		protected void VoidObjects(ServiceCanUpdateAction canUpdate, ServiceChangeVoidStatusAction changeVoidStatus)
 		{
+
 			RowSelectionModel selectionModel = AutoGrid.SelectionModel;
+
 
 			if (selectionModel.getSelections().Length == 0)
 				return;
+
 
 			Record[] records = (Record[])selectionModel.getSelections();
 
@@ -269,10 +373,14 @@ namespace Luxena.Travel
 			foreach (Record r in records)
 				ids.Add(r.id);
 
+
 			canUpdate((object[])ids,
-				delegate(object res)
+
+				delegate (object res)
 				{
+
 					OperationStatus status = (OperationStatus)res;
+
 
 					if (!status.IsEnabled)
 					{
@@ -284,20 +392,28 @@ namespace Luxena.Travel
 							"icon", MessageBox.ERROR,
 							"buttons", MessageBox.OK
 						));
+
 						return;
 					}
 
+
 					bool isVoid = (bool)Type.GetField(records[0].data, "IsVoid");
 
+
 					MessageBoxWrap.Confirm(
+
 						BaseRes.Confirmation, GetVoidingConfirmationText(isVoid, records.Length),
-						delegate(string button, string text)
+
+						delegate (string button, string text)
 						{
+
 							if (button != "yes")
 								return;
 
+
 							changeVoidStatus((object[])ids, _baseParams,
-								delegate(object result)
+
+								delegate (object result)
 								{
 									ProductDto[] dtos = (ProductDto[])((object[])result)[0];
 									RangeResponse response = (RangeResponse)((object[])result)[1];
@@ -306,35 +422,54 @@ namespace Luxena.Travel
 
 									AutoGrid.Reload(false);
 
+
 									string message;
+
 
 									if (dtos[0].IsVoid)
 									{
 										_voidButton.setText(Res.Restore_Action.ToLowerCase());
 
-										message = dtos.Length == 1 ? string.Format(Res.Document_VoidDocument_Msg, dtos[0].Name) :
-											string.Format(Res.Document_VoidDocuments_Msg, dtos.Length);
+										message = dtos.Length == 1 
+											? string.Format(Res.Document_VoidDocument_Msg, dtos[0].Name) :
+											string.Format(Res.Document_VoidDocuments_Msg, dtos.Length)
+										;
 									}
+
 									else
 									{
 										_voidButton.setText(Res.Void_Action.ToLowerCase());
 
-										message = dtos.Length == 1 ? string.Format(Res.Document_RestoreDocument_Msg, dtos[0].Name) :
-											string.Format(Res.Document_RestoreDocuments_Msg, dtos.Length);
+										message = dtos.Length == 1 
+											? string.Format(Res.Document_RestoreDocument_Msg, dtos[0].Name) 
+											: string.Format(Res.Document_RestoreDocuments_Msg, dtos.Length)
+										;
 									}
 
+
 									if (Script.IsNullOrUndefined(response.SelectedRow))
+									{
 										MessageRegister.Info(DomainRes.AviaDocument_Caption_List, message, BaseRes.AutoGrid_NotDisplay_Msg);
+									}
 									else
 									{
 										MessageRegister.Info(DomainRes.AviaDocument_Caption_List, message);
 
 										AutoGrid.SelectionModel.selectRow(response.SelectedRow);
 									}
-								}, null);
+
+								}, null
+							);
+
 						});
-				}, null);
+
+				}, null
+
+			);
+
 		}
+
+
 
 		private static string GetVoidingConfirmationText(bool isVoid, int number)
 		{
@@ -345,14 +480,18 @@ namespace Luxena.Travel
 			return StringUtility.GetNumberText(number, msg1, msg2, msg3);
 		}
 
+
+
 		private void CreateNewOrder()
 		{
+
 			Dictionary values = new Dictionary("AviaDocuments", AutoGrid.GetSelectedIds());
 
 			if (_separateServiceFee != null)
 				values["SeparateServiceFee"] = Type.GetField(_separateServiceFee, "checked");
 
-			FormsRegistry.EditObject(ClassNames.Order, null, values, delegate(object arg)
+
+			FormsRegistry.EditObject(ClassNames.Order, null, values, delegate (object arg)
 			{
 				AutoGrid.Reload(false);
 
@@ -360,14 +499,19 @@ namespace Luxena.Travel
 
 				FormsRegistry.ViewObject(ClassNames.Order, ((OrderDto)response.Item).Id);
 			}, null);
+
 		}
+
+
 
 		private void TryCreateCashPayment()
 		{
+
 			object[] documentIds = GetSelectedIds();
 
 			PaymentService.CanCreatePayment(documentIds,
-				delegate(object result)
+
+				delegate (object result)
 				{
 					AviaPaymentResponse response = (AviaPaymentResponse)result;
 
@@ -386,8 +530,12 @@ namespace Luxena.Travel
 							MessageFactory.DocumentsAlreadyAddedToOrder(Res.AviaDocumentList_CreateCashPayment_Title,
 								Res.AviaDocumentList_CannotCreatePayment, response.OrderItems);
 					}
-				}, null);
+				}, null
+			);
+
 		}
+
+
 
 		private void CreateCashPayment(object[] documents, Reference payer, MoneyDto amount, MoneyDto vat)
 		{
@@ -397,23 +545,27 @@ namespace Luxena.Travel
 		}
 
 
+
 		private void TryAddToExistingOrder()
 		{
+
 			Record[] records = SelectedRecords;
 
 			Dictionary documents = new Dictionary();
 
 			foreach (Record r in records)
-				documents[(string) r.id] = ((AviaDocumentDto) r.data).Name;
+				documents[(string)r.id] = ((AviaDocumentDto)r.data).Name;
 
 
 			ProductDto.TryAddToExistingOrder(
 				documents,
-				_separateServiceFee != null && (bool) Type.GetField(_separateServiceFee, "checked"),
+				_separateServiceFee != null && (bool)Type.GetField(_separateServiceFee, "checked"),
 				ListConfig.Caption,
 				delegate { AutoGrid.Reload(false); }
 			);
+
 		}
+
 
 
 		protected object[] GetSelectedIds()
@@ -421,19 +573,26 @@ namespace Luxena.Travel
 			return AutoGrid.GetSelectedIds();
 		}
 
+
+
 		protected static bool UseHandling
 		{
 			get { return AppManager.SystemConfiguration.UseAviaHandling; }
 		}
 
 
-		protected Action _voidButton;
-		protected Action _createOrderButton;
-		protected Action _createPaymentButton;
-		protected CheckItem _separateServiceFee;
 
-		protected bool IsTickets;
-		protected bool IsVoid;
+		//---g
+
 	}
+
+
+
+
+
+
+	//===g
+
+
 
 }

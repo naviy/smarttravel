@@ -573,6 +573,7 @@ namespace Luxena.Travel
 
 		private Field _equalFareField;
 		private Field _feesTotalField;
+		private Field _consolidatorCommissionField;
 		private Field _totalField;
 		private Field _vatField;
 		private Field _commissionDiscountField;
@@ -702,6 +703,10 @@ namespace Luxena.Travel
 			});
 
 
+			if (f.UseConsolidatorCommission)
+				list.Add(_consolidatorCommissionField = v.ConsolidatorCommission.ToField(0, recalculate));
+
+
 			if (f.IsRefund)
 				list.Add(_cancelFeeField = v.CancelFee.ToField(0, recalculate));
 
@@ -744,7 +749,7 @@ namespace Luxena.Travel
 				});
 			}
 
-			else
+			else if (f.UseBonuses)
 			{
 				list.AddRange(new Component[]
 				{
@@ -808,6 +813,7 @@ namespace Luxena.Travel
 				_totalCalculator.Recalculate(control);
 				_grandTotalCalculator.Recalculate(_grandTotalField);
 			}
+
 			else if (_grandTotalCalculator.Has(control))
 			{
 				_grandTotalCalculator.Recalculate(control);
@@ -815,13 +821,18 @@ namespace Luxena.Travel
 
 		}
 
+
+
 		private void CreateCalculators()
 		{
+
 			_totalCalculator = new MoneyControlCalculator()
 				.Add(_equalFareField, 1)
 				.Add(_feesTotalField, 1)
+				.Add(_consolidatorCommissionField, 1)
 				.Add(_cancelFeeField, -1)
-				.Add(_totalField, -1);
+				.Add(_totalField, -1)
+			;
 
 			_grandTotalCalculator = new MoneyControlCalculator()
 				.Add(_totalField, 1)
@@ -833,7 +844,9 @@ namespace Luxena.Travel
 				.Add(_bonusDiscountField, -1)
 				.Add(_refundServiceFeeField, -1)
 				.Add(_serviceFeePenaltyField, -1)
-				.Add(_grandTotalField, -1);
+				.Add(_grandTotalField, -1)
+			;
+
 		}
 
 

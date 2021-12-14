@@ -3709,12 +3709,6 @@ namespace Luxena.Travel
 		public SemanticMember EqualFare_USD = Member
 			.Money();
 
-		/// <summary>Сбор системы бронирования</summary>
-		[PreserveCase]
-		public SemanticMember BookingFee = Member
-			.Title("Сбор системы бронирования")
-			.Money();
-
 		/// <summary>Таксы</summary>
 		[PreserveCase]
 		public SemanticMember FeesTotal = Member
@@ -3729,18 +3723,10 @@ namespace Luxena.Travel
 		public SemanticMember FeesTotal_USD = Member
 			.Money();
 
-		/// <summary>Штраф за отмену</summary>
+		/// <summary>Комиссия консолидатора</summary>
 		[PreserveCase]
-		public SemanticMember CancelFee = Member
-			.Title("Штраф за отмену")
-			.DefaultMoney();
-
-		[PreserveCase]
-		public SemanticMember CancelFee_EUR = Member
-			.Money();
-
-		[PreserveCase]
-		public SemanticMember CancelFee_USD = Member
+		public SemanticMember ConsolidatorCommission = Member
+			.Title("Комиссия консолидатора")
 			.Money();
 
 		/// <summary>Итого</summary>
@@ -3755,6 +3741,26 @@ namespace Luxena.Travel
 
 		[PreserveCase]
 		public SemanticMember Total_USD = Member
+			.Money();
+
+		/// <summary>Сбор системы бронирования</summary>
+		[PreserveCase]
+		public SemanticMember BookingFee = Member
+			.Title("Сбор системы бронирования")
+			.Money();
+
+		/// <summary>Штраф за отмену</summary>
+		[PreserveCase]
+		public SemanticMember CancelFee = Member
+			.Title("Штраф за отмену")
+			.DefaultMoney();
+
+		[PreserveCase]
+		public SemanticMember CancelFee_EUR = Member
+			.Money();
+
+		[PreserveCase]
+		public SemanticMember CancelFee_USD = Member
 			.Money();
 
 		/// <summary>В т.ч. НДС</summary>
@@ -4221,16 +4227,17 @@ namespace Luxena.Travel
 				se.EqualFare,
 				se.EqualFare_EUR,
 				se.EqualFare_USD,
-				se.BookingFee,
 				se.FeesTotal,
 				se.FeesTotal_EUR,
 				se.FeesTotal_USD,
-				se.CancelFee,
-				se.CancelFee_EUR,
-				se.CancelFee_USD,
+				se.ConsolidatorCommission,
 				se.Total,
 				se.Total_EUR,
 				se.Total_USD,
+				se.BookingFee,
+				se.CancelFee,
+				se.CancelFee_EUR,
+				se.CancelFee_USD,
 				se.Vat,
 				se.Vat_EUR,
 				se.Vat_USD,

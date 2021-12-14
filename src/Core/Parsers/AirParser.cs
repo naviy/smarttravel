@@ -7,13 +7,35 @@ using System.Text;
 using Luxena.Travel.Domain;
 
 
+
+
 namespace Luxena.Travel.Parsers
 {
 
+
+
+	//===g
+
+
+
+
+
+
 	public class AirParser
 	{
-		private AirParser(string air, AmadeusRizUsingMode rizUsingMode, Currency defaultCurrency)
+
+		//---g
+
+
+
+		private AirParser(
+			string air,
+			AmadeusRizUsingMode rizUsingMode,
+			Currency defaultCurrency,
+			Money defaultConsolidatorCommission
+		)
 		{
+
 			_lines = new LinesEnumerator(new StringReader(air));
 
 			_documents = new List<Entity2>();
@@ -21,23 +43,54 @@ namespace Luxena.Travel.Parsers
 			_rizUsingMode = rizUsingMode;
 
 			_defaultCurrency = defaultCurrency;
+
+			_defaultConsolidatorCommission = defaultConsolidatorCommission;
+
 		}
+
+
+
+		//---g
+
+
 
 		public static IList<Entity2> Parse(string air, Currency defaultCurrency)
 		{
 			return Parse(air, AmadeusRizUsingMode.All, defaultCurrency);
 		}
 
-		public static IList<Entity2> Parse(string air, AmadeusRizUsingMode rizUsingMode, Currency defaultCurrency)
+
+
+		public static IList<Entity2> Parse(
+			string air,
+			AmadeusRizUsingMode rizUsingMode,
+			Currency defaultCurrency,
+			Money defaultConsolidatorCommission = null
+		)
 		{
+
 			if (air.No())
 				throw new GdsImportException("Empty AIR");
 
-			return new AirParser(air, rizUsingMode, defaultCurrency).Parse();
+
+			return new AirParser(
+				air, 
+				rizUsingMode,
+				defaultCurrency,
+				defaultConsolidatorCommission
+			).Parse();
+
 		}
+
+
+
+		//---g
+
+
 
 		private IList<Entity2> Parse()
 		{
+
 			ReadLine("AIR-BLK");
 
 			var airOption = _lines.Current.Split(';')[1];
@@ -99,11 +152,16 @@ namespace Luxena.Travel.Parsers
 					throw CreateAirException("Unknown AIR option");
 			}
 
+
 			return _documents;
+
 		}
+
+
 
 		private void ParseTicket()
 		{
+
 			var templateTicket = new AviaTicket { Originator = GdsOriginator.Amadeus, Origin = ProductOrigin.AmadeusAir };
 
 			var parser = new LinesSequenceParser(_ticketPattern, _lines, null);
@@ -151,16 +209,21 @@ namespace Luxena.Travel.Parsers
 
 			ParseTicketFare(templateTicket, servicingCarrier[1][24], fare, taxData, sellingFare, sellingTaxData);
 
+
 			if (ticketFares != null && ticketFares.Length >= 2)
 			{
 				var fares = ticketFares[1];
 				IataParser.ParseTicketFares(templateTicket, fares);
 			}
 
-			if (passengersGroup.No()) return;
+
+			if (passengersGroup.No())
+				return;
+
 
 			for (var i = 0; i < passengersGroup.Length; ++i)
 			{
+
 				var passengerName = (string[])passengersGroup[i][1];
 				var seatNumbers = (string[])passengersGroup[i][2];
 				var gdsPassport = (string[])passengersGroup[i][3];
@@ -179,6 +242,7 @@ namespace Luxena.Travel.Parsers
 				if (gdsPassport != null && gdsPassport.Length > 1)
 					ticket.GdsPassport = gdsPassport[1].Substring(4);
 
+
 				ticket.AirlinePrefixCode = ticketNumber[1].Substring(1, 3);
 
 				var numbers = ticketNumber[1].Substring(5).Split(new[] { '-' }, 2);
@@ -187,6 +251,7 @@ namespace Luxena.Travel.Parsers
 				if (numbers.Length > 1)
 					ticket.ConjunctionNumbers = numbers[1];
 
+
 				if (ticket.AirlinePrefixCode == airline.AirlinePrefixCode)
 				{
 					ticket.AirlineName = airline.Name;
@@ -194,19 +259,24 @@ namespace Luxena.Travel.Parsers
 					ticket.Producer = airline;
 				}
 
+
 				ParseSeats(ticket, seatNumbers, segments);
+
 
 				ticket.PaymentForm = formOfPayment[1];
 
 				ticket.PaymentType = ParsePaymentType(formOfPayment[1]);
 
+
 				if (remarks != null)
 					ticket.Remarks = ParseRemarks(remarks);
+
 
 				ProcessRizData(ticket, rizGroup, i);
 
 				if (tourCode != null)
 					ticket.TourCode = tourCode[1];
+
 
 				if (originalIssue != null)
 				{
@@ -216,17 +286,25 @@ namespace Luxena.Travel.Parsers
 						Number = originalIssue[1].Substring(4, 10).Clip()
 					};
 				}
+
+
 				ProcessCommission(ticket, fareCommission);
+
 
 				if (endorsement != null)
 					ticket.Endorsement = endorsement[1].Trim('*');
 
 				_documents.Add(ticket);
+
 			}
+
 		}
+
+
 
 		private void ParseReservation()
 		{
+
 			var templateTicket = new AviaTicket { Originator = GdsOriginator.Amadeus, Origin = ProductOrigin.AmadeusAir };
 
 			var parser = new LinesSequenceParser(_reservationPattern, _lines, null);
@@ -255,8 +333,10 @@ namespace Luxena.Travel.Parsers
 
 			var segments = ParseSegments(templateTicket, segmentsGroup, null, null, null);
 
+
 			for (var i = 0; i < passengersGroup.Length; ++i)
 			{
+
 				var passengerName = (string[])passengersGroup[i][1];
 
 				var fare = (string[])passengersGroup[i][2];
@@ -279,14 +359,19 @@ namespace Luxena.Travel.Parsers
 
 				ticket.PassengerName = passengerName[2].Substring(2);
 
+
 				if (carrier != null)
 					ticket.AirlineIataCode = carrier[1].Substring(carrier[1].Length - 2);
 
+
 				var pricingCode = servicingCarrier[1].Split('-')[2];
+
 
 				ParseTicketFare(ticket, pricingCode.No() ? (char?)null : pricingCode[0], fare, taxData, sellingFare, sellingTaxData);
 
+
 				ParseSeats(ticket, seatNumbers, segments);
+
 
 				if (ticketNumbers != null)
 				{
@@ -303,19 +388,24 @@ namespace Luxena.Travel.Parsers
 					}
 				}
 
+
 				if (formOfPayment != null)
 				{
 					ticket.PaymentForm = formOfPayment[1];
 					ticket.PaymentType = ParsePaymentType(formOfPayment[1]);
 				}
 
+
 				ProcessRizData(ticket, rizGroup, i);
+
 
 				if (tourCode != null)
 					ticket.TourCode = tourCode[1];
 
+
 				if (remarks != null)
 					ticket.Remarks = ParseRemarks(remarks);
+
 
 				if (originalIssue != null)
 				{
@@ -326,14 +416,21 @@ namespace Luxena.Travel.Parsers
 					};
 				}
 
+
 				ProcessCommission(ticket, fareCommission);
+
 
 				if (endorsement != null)
 					ticket.Endorsement = endorsement[1].Trim('*');
 
+
 				_documents.Add(ticket);
+
 			}
+
 		}
+
+
 
 		private static List<FlightSegment> ParseSegments(
 			AviaTicket templateTicket,
@@ -343,14 +440,17 @@ namespace Luxena.Travel.Parsers
 			Organization airline
 		)
 		{
+
 			var segments = new List<FlightSegment>();
 
 			if (segmentsGroup == null)
 				return segments;
 
+
 			var ticketedSegments = new List<FlightSegment>();
 
 			string couponCurrency = null;
+
 
 			if (couponAmounts != null && couponAmounts.Count > 1)
 			{
@@ -370,6 +470,7 @@ namespace Luxena.Travel.Parsers
 
 			foreach (var t in segmentsGroup)
 			{
+
 				var segmentLine = (string[])t[0];
 
 				if (segmentLine[2].Length < AviaSegmentNumberPartMinLength || segmentLine[2].Length > AviaSegmentNumberPartMaxLength)
@@ -399,11 +500,14 @@ namespace Luxena.Travel.Parsers
 					Name = segment.ToAirportName
 				};
 
+
 				if (segment.Position == VoidSegmentNumber)
 					continue;
 
+
 				if (segmentLine[0] == "H-")
 				{
+
 					ticketedSegments.Add(segment);
 
 					segment.Type = FlightSegmentType.Ticketed;
@@ -428,19 +532,25 @@ namespace Luxena.Travel.Parsers
 					segment.Type = FlightSegmentType.Unticketed;
 				}
 
+
 				var segmentPartsLine = segmentLine[6];
+
 				var segmentParts =
 					segmentPartsLine.Length == 43 ? segmentPartsLine.Split(6, 5, 2, 2, 5, 8, 5, 6) :
-					segmentPartsLine.Split(6, 5, 2, 2, 5, 5, 5, 5);
+					segmentPartsLine.Split(6, 5, 2, 2, 5, 5, 5, 5)
+				;
+
 
 				segment.CarrierIataCode = segmentParts[0];
 
 				if (airline != null && segment.CarrierIataCode == airline.AirlineIataCode)
 					segment.Carrier = airline;
 
+
 				segment.FlightNumber = segmentParts[1];
 
 				segment.ServiceClassCode = segmentParts[3].Trim();
+
 
 				if (segment.FlightNumber == OpenSegment)
 				{
@@ -474,20 +584,26 @@ namespace Luxena.Travel.Parsers
 					segment.ArrivalTerminal = segmentLine.TrimOrNull(segment.Type == FlightSegmentType.Ticketed ? 23 : 25);
 				}
 
+
 				int j;
+
 
 				for (j = 0; j < templateTicket.Segments.Count; ++j)
 					if (segment.Position < templateTicket.Segments[j].Position)
 						break;
 
+
 				if (j < templateTicket.Segments.Count)
 					templateTicket.InsertSegment(j, segment);
 				else
 					templateTicket.AddSegment(segment);
+
 			}
+
 
 			for (var i = 0; i < templateTicket.Segments.Count; ++i)
 			{
+
 				templateTicket.Segments[i].Position = i;
 
 				if (!templateTicket.Segments[i].Stopover && i > 0)
@@ -495,13 +611,19 @@ namespace Luxena.Travel.Parsers
 					templateTicket.Segments[i - 1].Stopover = false;
 					templateTicket.Segments[i].Stopover = true;
 				}
+
 			}
 
+
 			return segments;
+
 		}
 
-		private static void ParseTicketFare(AviaTicket ticket, char? pricingCode, string[] fare, string[] taxData, string[] sellingFare, string[] sellingTaxData)
+
+
+		private void ParseTicketFare(AviaTicket ticket, char? pricingCode, string[] fare, string[] taxData, string[] sellingFare, string[] sellingTaxData)
 		{
+
 			string[] fareToUse, taxDataToUse;
 
 			if (fare[1].Yes() && pricingCode != 'B' && pricingCode != 'F')
@@ -519,29 +641,48 @@ namespace Luxena.Travel.Parsers
 				return;
 			}
 
+
 			ticket.Fare = ParseMoney(fareToUse[1].Substring(1));
 			ticket.EqualFare = ParseMoney(fareToUse[2]);
-			ticket.Total = ParseMoney(fareToUse[13]);
+			ticket.Total = ParseMoney(fareToUse[13]) + ticket.ConsolidatorCommission;
+
 
 			if (taxDataToUse != null)
 			{
+
 				ticket.FeesTotal = new Money(ticket.Total.Currency, 0);
 
 				for (var index = 2; index < taxDataToUse.Length; ++index)
+				{
 					ParseAndAddFee(ticket, taxDataToUse[index]);
+				}
+
 			}
+
 
 			if (ticket.EqualFare == null && ticket.Total != null)
 				ticket.EqualFare = ticket.Total - ticket.FeesTotal;
+
+
+			ticket.ConsolidatorCommission = _defaultConsolidatorCommission;
+			
+			ticket.Total += ticket.ConsolidatorCommission;
+
+
 		}
+
+
 
 		private static void ParseSeats(AviaTicket ticket, string[] seatNumbers, List<FlightSegment> segments)
 		{
+
 			if (seatNumbers == null)
 				return;
 
+
 			for (var j = 1; j < seatNumbers.Length; ++j)
 			{
+
 				var seat = seatNumbers[j].Split('/')[1].Split('.')[0];
 
 				if (seat.No())
@@ -552,11 +693,16 @@ namespace Luxena.Travel.Parsers
 				var segment = ticket.Segments.Find(seg => seg.Position == previous.Position);
 
 				segment.Seat = seat.Substring(1).Split('+')[0];
+
 			}
+
 		}
+
+
 
 		public static PaymentType ParsePaymentType(string str)
 		{
+
 			if (str.StartsWith("O/"))
 				str = str.Substring(str.LastIndexOf('/') + 1);
 
@@ -569,11 +715,16 @@ namespace Luxena.Travel.Parsers
 			if (str == "CHECK")
 				return PaymentType.Check;
 
+
 			return PaymentType.Unknown;
+
 		}
+
+
 
 		private void ParseMco(bool emd)
 		{
+
 			var templateMco = new AviaMco
 			{
 				Originator = GdsOriginator.Amadeus,
@@ -605,8 +756,10 @@ namespace Luxena.Travel.Parsers
 
 			var mcoMap = new Dictionary<int, AviaMco>();
 
+
 			for (var i = 0; i < segmentsGroup.Length; ++i)
 			{
+
 				var segmentLine = (string[])segmentsGroup[i][0];
 				var connectedWith = (string[])segmentsGroup[i][1];
 
@@ -624,6 +777,7 @@ namespace Luxena.Travel.Parsers
 					AirlinePrefixCode = mco.AirlinePrefixCode,
 					Name = mco.AirlineName
 				};
+
 
 				if (emd)
 				{
@@ -650,8 +804,10 @@ namespace Luxena.Travel.Parsers
 						};
 					}
 				}
+
 				else
 				{
+
 					mco.Fare = ParseMoney(segmentLine[15]);
 
 					if (segmentLine[17].Length != 0)
@@ -665,17 +821,23 @@ namespace Luxena.Travel.Parsers
 						ParseAndAddFee(mco, segmentLine[j]);
 
 					mco.ServiceFee = ParseMoney(segmentLine[58]);
+
 				}
 
+
 				mcoMap[lineNumber] = mco;
+
 			}
+
 
 			foreach (var psgGroup in passengersGroup)
 			{
+
 				var mcoNumbers = (object[][])psgGroup[2];
 
 				if (mcoNumbers == null)
 					continue;
+
 
 				var passengerName = (string[])psgGroup[1];
 				var fareCommissions = (object[][])psgGroup[3];
@@ -685,8 +847,10 @@ namespace Luxena.Travel.Parsers
 
 				var passenger = passengerName[2].Substring(2);
 
+
 				foreach (var mcoNumber_ in mcoNumbers)
 				{
+
 					var mcoNumber = (string[])mcoNumber_[0];
 
 					var lineNumber = mcoNumber[3].AsSubstring(1).As().Int;
@@ -705,7 +869,9 @@ namespace Luxena.Travel.Parsers
 						};
 
 					_documents.Add(mco);
+
 				}
+
 
 				if (formOfPayments != null)
 				{
@@ -722,6 +888,7 @@ namespace Luxena.Travel.Parsers
 					}
 				}
 
+
 				if (fareCommissions != null)
 				{
 					foreach (var fareCommission_ in fareCommissions)
@@ -735,6 +902,7 @@ namespace Luxena.Travel.Parsers
 					}
 				}
 
+
 				if (tourCodes != null)
 				{
 					foreach (var tourCode_ in tourCodes)
@@ -746,13 +914,17 @@ namespace Luxena.Travel.Parsers
 					}
 				}
 
+
 				if (originalIssues != null)
 				{
+
 					foreach (var originalIssue_ in originalIssues)
 					{
+
 						var originalIssue = (string[])originalIssue_[0];
 
 						var lineNumber = originalIssue[2].AsSubstring(1).As().Int;
+
 						mcoMap.By(lineNumber).Do(mco =>
 							mco.ReissueFor = new AviaMco
 							{
@@ -760,15 +932,20 @@ namespace Luxena.Travel.Parsers
 								Number = originalIssue[1].AsSubstring(4, 10).Clip()
 							}
 						);
+
 					}
+
 				}
 
 			}
 
 		}
 
+
+
 		private void ParseRefund()
 		{
+
 			var r = new AviaRefund
 			{
 				Originator = GdsOriginator.Amadeus,
@@ -799,8 +976,10 @@ namespace Luxena.Travel.Parsers
 
 			r.IssueDate = Utility.ParseExactDateTime(pnrDate[3], "yyMMdd");
 
+
 			if (refundNotice != null)
 			{
+
 				var currency = new Currency(refundNotice[4].Substring(0, 3));
 
 				var fare = refundNotice[6];
@@ -814,6 +993,7 @@ namespace Luxena.Travel.Parsers
 
 				var feesTotal = refundNotice[12];
 				r.FeesTotal = new Money(currency, feesTotal == "" ? 0 : Utility.ParseDecimal(feesTotal.Substring(2)));
+			
 
 				var total = refundNotice[13];
 
@@ -821,10 +1001,13 @@ namespace Luxena.Travel.Parsers
 					r.Total = r.Fare - r.CancelFee.Amount + r.FeesTotal.Amount;
 				else
 					r.Total = new Money(currency, Utility.ParseDecimal(total));
+
 			}
+
 
 			if (refundableTaxes != null)
 			{
+
 				for (var i = 2; i < refundableTaxes.Length; ++i)
 				{
 					if (refundableTaxes[i].Length == 0)
@@ -843,10 +1026,13 @@ namespace Luxena.Travel.Parsers
 						},
 						false);
 				}
+
 			}
+
 
 			for (var i = 0; i < passengersGroup.Length; ++i)
 			{
+
 				var passengerName = (string[])passengersGroup[i][1];
 				var refundNumber = (string[])passengersGroup[i][2];
 				var fareCommission = (string[])passengersGroup[i][3];
@@ -877,11 +1063,16 @@ namespace Luxena.Travel.Parsers
 					refund.Remarks = ParseRemarks(remarks);
 
 				_documents.Add(refund);
+
 			}
+
 		}
+
+
 
 		private void ParseVoid()
 		{
+
 			var parser = new LinesSequenceParser(_voidPattern, _lines, null);
 
 			parser.Parse();
@@ -946,22 +1137,31 @@ namespace Luxena.Travel.Parsers
 			}
 		}
 
+
+
 		private static void ParseAndAddFee(AviaDocument document, string tax)
 		{
+
 			if (tax.Length == 0 || tax[0] == OldTaxIndicator)
 				return;
+
 
 			document.AddFee(new AviaDocumentFee
 			{
 				Code = tax.AsSubstring(13, 3)?.Trim(),
 				Amount = ParseMoney(tax.AsSubstring(1, 12))
 			});
+
 		}
+
+
 
 		private void ProcessCommission(AviaDocument document, string[] commissionLine)
 		{
+
 			if (commissionLine == null)
 				return;
+
 
 			var valueParts = commissionLine[1].Split('*');
 
@@ -969,17 +1169,22 @@ namespace Luxena.Travel.Parsers
 
 			var documentCurrency = document.Total == null ? _defaultCurrency : document.Total.Currency;
 
+
 			if (value.Length == 0)
 			{
 				document.Commission = new Money(documentCurrency, 0);
 			}
+
 			else if (value.EndsWith("A"))
 			{
 				document.Commission = new Money(documentCurrency, Utility.ParseDecimal(value.TrimEnd('A')));
 			}
+
 			else
 			{
+
 				document.CommissionPercent = Utility.ParseDecimal(value);
+
 
 				if ((document.IsAviaTicket || document.IsAviaMco) && document.ReissueFor != null)
 				{
@@ -989,15 +1194,22 @@ namespace Luxena.Travel.Parsers
 				{
 					document.Commission = ((document.EqualFare ?? document.Fare) * document.CommissionPercent.Value) / 100;
 				}
+
 			}
+
 		}
+
+
 
 		private static void ProcessRefundCommission(AviaDocument document, string[] commissionLine)
 		{
+
 			if (commissionLine == null)
 				return;
 
+
 			var valueParts = commissionLine[1].Split('/');
+
 
 			if (valueParts[0].EndsWith("A"))
 			{
@@ -1005,6 +1217,7 @@ namespace Luxena.Travel.Parsers
 				if (valueAmount.Length != 0)
 					document.Commission = new Money(document.Fare.Currency, Utility.ParseDecimal(valueAmount));
 			}
+
 			else if (valueParts[0].EndsWith("P") || valueParts[0].EndsWith("N"))
 			{
 				var valuePercent = valueParts[0].TrimEnd('P', 'N');
@@ -1012,25 +1225,37 @@ namespace Luxena.Travel.Parsers
 					document.CommissionPercent = Utility.ParseDecimal(valuePercent);
 			}
 
+
 			if (valueParts.Length > 1)
+			{
 				document.Commission = new Money(document.Fare.Currency, Utility.ParseDecimal(valueParts[1].TrimEnd('A')));
+			}
 			else if (document.CommissionPercent.HasValue)
+			{
 				document.Commission = (document.Fare * document.CommissionPercent.Value) / 100;
+			}
+
 		}
+
+
 
 		private void ProcessRizData(AviaDocument document, object[][] rizGroup, int i)
 		{
+
 			if (_rizUsingMode == AmadeusRizUsingMode.None || rizGroup == null)
 				return;
 
+
 			if (i >= rizGroup.Length)
 				i = rizGroup.Length - 1;
+
 
 			var rizFare = (string[])rizGroup[i][0];
 			var rizTax = (string[])rizGroup[i][1];
 			var rizTotal = (string[])rizGroup[i][2];
 			var rizServiceFee = (string[])rizGroup[i][3];
 			var rizGrandTotal = (string[])rizGroup[i][4];
+
 
 			if (rizServiceFee != null)
 			{
@@ -1046,8 +1271,10 @@ namespace Luxena.Travel.Parsers
 				}
 			}
 
+
 			if (_rizUsingMode == AmadeusRizUsingMode.All)
 			{
+
 				if (rizFare != null)
 					document.EqualFare = ParseRizMoney(rizFare[1]);
 
@@ -1059,13 +1286,19 @@ namespace Luxena.Travel.Parsers
 
 				if (rizGrandTotal != null)
 					document.GrandTotal = ParseRizMoney(rizGrandTotal[1]);
+
 			}
+
 		}
+
+
 
 		private static string ParseRemarks(IEnumerable<object> remarks)
 		{
+
 			var builder = new StringBuilder();
 			var separator = string.Empty;
+
 
 			foreach (object[] remark in remarks)
 			{
@@ -1076,53 +1309,72 @@ namespace Luxena.Travel.Parsers
 				separator = Environment.NewLine;
 			}
 
+
 			return builder.ToString();
+
 		}
+
+
 
 		private static Money ParseMoney(string value)
 		{
-			if (value.No()) return null;
 
-			decimal amount;
+			if (value.No()) 
+				return null;
 
-			return Utility.TryParseDecimal(value.AsSubstring(3), out amount)
+
+			return Utility.TryParseDecimal(value.AsSubstring(3), out var amount)
 				? new Money(value.Substring(0, 3), amount)
-				: null;
+				: null
+			;
+
 		}
+
+
 
 		private static Money ParseRizMoney(string value)
 		{
+
 			var parts = value.Split(' ', '/');
 
 			if (parts.Length == 1)
 				return null;
 
-			decimal amount;
 
-			string currency;
-
-			if (!_rizCurrencyMisprints.TryGetValue(parts[0], out currency))
+			if (!_rizCurrencyMisprints.TryGetValue(parts[0], out var currency))
 				currency = parts[0];
 
-			if (Utility.TryParseDecimal(parts[1], out amount))
+
+			if (Utility.TryParseDecimal(parts[1], out var amount))
 				return new Money(currency, amount);
 
+
 			return null;
+
 		}
+
+
 
 		private void ReadLine(string type)
 		{
+
 			if (!_lines.MoveNext())
 				throw new GdsImportException("Unexpected end of AIR");
 
+
 			if (!_lines.Current.StartsWith(type))
 				throw CreateAirException(type + " missing");
+
 		}
+
+
 
 		private GdsImportException CreateAirException(string message)
 		{
 			return new GdsImportException(_lines.Number, message);
 		}
+
+
 
 		private static readonly object[] _ticketPattern = 
 		{
@@ -1168,6 +1420,8 @@ namespace Luxena.Travel.Parsers
 				"?RIZGRAND TOTAL "
 			}
 		};
+
+
 
 		private static readonly object[] _reservationPattern = 
 		{
@@ -1229,6 +1483,8 @@ namespace Luxena.Travel.Parsers
 			}
 		};
 
+
+
 		private static readonly object[] _refundPattern = 
 		{
 			"MUC1A ",
@@ -1249,6 +1505,8 @@ namespace Luxena.Travel.Parsers
 			}
 		};
 
+
+
 		private static readonly object[] _voidPattern = 
 		{
 			"AMD",
@@ -1263,11 +1521,14 @@ namespace Luxena.Travel.Parsers
 			}
 		};
 
+
+
 		private const int VoidSegmentNumber = 0;
 		private const int AviaSegmentNumberPartMinLength = 7;
 		private const int AviaSegmentNumberPartMaxLength = 9;
 		private const string OpenSegment = "OPEN";
 		private const char OldTaxIndicator = 'O';
+
 
 		private static readonly Dictionary<string, string> _rizCurrencyMisprints = new Dictionary<string, string>
 		{
@@ -1277,6 +1538,7 @@ namespace Luxena.Travel.Parsers
 			{ "UAJ", "UAH" }
 		};
 
+
 		private static readonly string[] _robots = { "9997WS", "9998WS", "9999WS", "2017SS" };
 
 		private readonly LinesEnumerator _lines;
@@ -1285,5 +1547,21 @@ namespace Luxena.Travel.Parsers
 
 		private readonly AmadeusRizUsingMode _rizUsingMode;
 		private readonly Currency _defaultCurrency;
+		private readonly Money _defaultConsolidatorCommission;
+
+
+
+		//---g
+
 	}
+
+
+
+
+
+
+	//===g
+
+
+
 }

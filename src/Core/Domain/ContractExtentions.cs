@@ -3959,25 +3959,27 @@ namespace Luxena.Travel.Domain
 
 		public Money EqualFare_USD { get; set; }
 
-		public Money BookingFee { get; set; }
-
 		public Money FeesTotal { get; set; }
 
 		public Money FeesTotal_EUR { get; set; }
 
 		public Money FeesTotal_USD { get; set; }
 
-		public Money CancelFee { get; set; }
-
-		public Money CancelFee_EUR { get; set; }
-
-		public Money CancelFee_USD { get; set; }
+		public Money ConsolidatorCommission { get; set; }
 
 		public Money Total { get; set; }
 
 		public Money Total_EUR { get; set; }
 
 		public Money Total_USD { get; set; }
+
+		public Money BookingFee { get; set; }
+
+		public Money CancelFee { get; set; }
+
+		public Money CancelFee_EUR { get; set; }
+
+		public Money CancelFee_USD { get; set; }
 
 		public Money Vat { get; set; }
 

@@ -18,6 +18,7 @@ namespace Luxena.Travel
 
 		protected override void CreateControls()
 		{
+
 			Panel pnlMain = ColumnPanel(new object[]
 			{
 				MainDataPanel(new object[]
@@ -49,13 +50,16 @@ namespace Luxena.Travel
 			//_segmentGrid = new SegmentGridControl(295);
 			//_segmentGrid.Widget.addClass("Segments");
 
-			Form.add(TabPanel(535, new Component[]
+
+			Form.add(TabPanel(600, new Component[]
 			{
 				pnlMain,
 				TabFitPane(DomainRes.AviaTicket_FlightSegment, se.GridMember("Segments", new FlightSegmentGridControl())),
 			}));
 
+
 			Form.add(se.Note.ToEditor());
+
 		}
 
 		//protected override void OnLoad(object result)

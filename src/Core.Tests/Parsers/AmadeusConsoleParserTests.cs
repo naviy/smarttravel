@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -8,21 +7,56 @@ using Luxena.Travel.Parsers;
 using NUnit.Framework;
 
 
+
+
 namespace Luxena.Travel.Tests.Parsers
 {
 
 
+
+	using static Assert;
+
+
+
+
+
+
+	//===g
+
+
+
+
+
+
 	[TestFixture]
-	public class AirConsoleParserTests
+	public class AmadeusConsoleParserTests
 	{
 
+		//---g
+
+
+
+		private List<AviaDocument> Parse(string content)
+		{
+			return AmadeusConsoleParser
+				.Parse(content, new Currency("UAH"))
+				.ToList()
+			;
+		}
+
+
+
+		//---g
+
+
+
 		[Test]
-		public void TestParseTicket1()
+		public void TestParseTicket01()
 		{
 
-			AssertDocuments(@"
+			var docs = Parse(@"
 --- TST RLR ---                                                                 
-RP/IEVU23401/IEVU23401            MA/SU  20JUN13/0752Z   4RDSMO                 
+RP/IEVU23401/IEVU23401            MA/SU  20JUN13/0752Z   4RDSMO              
 IEVU23401/1988MA/20JUN13                                                        
   1.CHEREPANOVA/DARIA MRS   2.KUBRUSHKO/IURII MR                                
   3  OS 661 E 21JUN 5 VIEKBP HK2  0900    0945 1240   *1A/E*                    
@@ -52,20 +86,41 @@ GRAND TOTAL UAH       5444
 VIE OS IEV306.36OS VIE241.17NUC547.53END ROE0.767069                            
 																				
   8.FE REF NOT PERM/CHNGS NOT PER NONENDO                                       
-  9.FV OS",
-
-				"4RDSMO",
-				a => a("CHEREPANOVA/DARIA MRS", "EUR", 420m, "UAH", 4501m, "UAH", 5444m),
-				a => a("KUBRUSHKO/IURII MR", "EUR", 420m, "UAH", 4501m, "UAH", 5444m)
+  9.FV OS"
 			);
+
+
+
+			docs.AssertAll(
+
+				a => a
+					.PnrCode("4RDSMO")
+
+			);
+
+
+			docs.Assert(
+
+				a => a
+					.PassengerName("CHEREPANOVA/DARIA MRS")
+					.Fares("EUR", 420m, "UAH", 4501m, "UAH", 5444m)
+				,
+
+				a => a
+					.PassengerName("KUBRUSHKO/IURII MR")
+					.Fares("EUR", 420m, "UAH", 4501m, "UAH", 5444m)
+
+			);
+
 		}
 
 
+
 		[Test]
-		public void TestParseTicket2()
+		public void TestParseTicket02()
 		{
 
-			AssertDocuments(@"
+			var docs = Parse(@"
 --- TST RLR ---                                                                 
 RP/IEVU23561/IEVU23561            HG/SU  23MAY13/1431Z   ZY7W6B                 
 IEVU23561/1984LX/18MAY13                                                        
@@ -138,19 +193,34 @@ ZRH HG VIE119.72NUC119.72END ROE0.943800
  25.FM *M*1                                                                     
  26.FP INVOICE                                                                  
  28.FV AB                                             
-",
-				"ZY7W6B",
-				a => a("DOVHANYUK/TARAS MR", "USD", 283m, "UAH", 2262m, "UAH", 3690m),
-				a => a("DOVHANYUK/TARAS MR", "CHF", 113m, "UAH", 944m, "UAH", 1702m)
+"
 			);
+
+
+			docs.AssertAll(a => a.PnrCode("ZY7W6B"));
+
+			docs.Assert(
+
+				a => a
+					.PassengerName("DOVHANYUK/TARAS MR")
+					.Fares("USD", 283m, "UAH", 2262m, "UAH", 3690m)
+				,
+
+				a => a
+					.PassengerName("DOVHANYUK/TARAS MR")
+					.Fares("CHF", 113m, "UAH", 944m, "UAH", 1702m)
+
+			);
+
 		}
 
 
+
 		[Test]
-		public void TestParseTicket3()
+		public void TestParseTicket03()
 		{
 
-			AssertDocuments(@"
+			var docs = Parse(@"
 rt 2tk7ye
 --- TST RLR ---                                                                 
 RP/LEDR2233B/LEDR2233B            AZ/RM   1JUL13/1304Z   2TK7YE                 
@@ -238,121 +308,45 @@ VCE AZ LED131.48NUC131.48END ROE0.760562
  21.FM *M*43A                                                                   
  23.FP INVOICE                                                                  
  25.FV AZ                                                                       
->",
-				"2TK7YE",
-				a => a(
-					"PALCHENOK/ELENA MRS", "EUR",
-					55m, "RUB", 2365m, "RUB", 4171m,
-					airlinePrefixCode: "195",
-					number: "3919562552",
-					iataOffice: "92224985",
-					airlineIataCode: "FV"
-				),
-				a => a(
-					"PALCHENOK/ELENA MRS",
-					"EUR", 100m, "RUB", 4300m, "RUB", 6214m,
-					airlinePrefixCode: "055",
-					number: "3919562553",
-					iataOffice: "92224985",
-					airlineIataCode: "AZ"
-				)
+>"
+			);
+
+
+			docs.AssertAll(
+				a => a
+					.PnrCode("2TK7YE")
+					.PassengerName("PALCHENOK/ELENA MRS")
+			);
+
+
+			docs.Assert(
+
+				a => a
+					.Fares("EUR", 55m, "RUB", 2365m, "RUB", 4171m)
+					.AirlinePrefixCode("195")
+					.Number("3919562552")
+					.IataOffice("92224985")
+					.AirlineIataCode("FV")
+				,
+
+				a => a
+					.Fares("EUR", 100m, "RUB", 4300m, "RUB", 6214m)
+					.AirlinePrefixCode("055")
+					.Number("3919562553")
+					.IataOffice("92224985")
+					.AirlineIataCode("AZ")
+
 			);
 
 		}
 
 
-		//		[Test]
-		//		public void TestParseTicket4()
-		//		{
-
-		//			AssertDocuments(
-		//@"RP/IEVU23561/IEVU23561            ZX/SU   5JUL13/0821Z   4VH34J                 
-		//IEVU23561/9999OP/4JUL13                                                         
-		//  1.ANDRYUSHCHENKOGONCHARENKO/ANDRIY MR   2.DARGEL/ANDRIY MR                    
-		//  3  9U 136 W 26JUL 5 KBPKIV HK2       D  1240 1350   *1A/E*                    
-		//  4  9U 135 W 30JUL 2 KIVKBP HK2          1040 1150   *1A/E*                    
-		//  5 AP IEV 38044-4902888 - ARIOLA GROUP LTD - A                                 
-		//  6 AP 8098-30-10-168                                                           
-		//  7 TK TL06JUL/IEVU23561                                                        
-		//  8 SSR OTHS 1A AUTO XX IF SSR TKNA/E/M/C NOT RCVD BY 1120/06JUL                
-		//	   /KIV LT                                                                  
-		//  9 RC IEVU23561-W/**REBOOK ANY PRICE TILL 24 JUN                               
-		// 10 FE PAX 9UONLY/ECON BASIC/NONEND/S3-4/P1-2                                   
-		// 11 FV PAX 9U/S3-4/P1-2                                                         
-		//>tqt
-		//TST00003     IEVU23561 ZX/05JUL I 0 LD 06JUL13 OD IEVIEV SI                     
-		//T-                                                                              
-		//FXB                                                                             
-		//   1.ANDRYUSHCHENKOGONCHARENKO/ANDRIY MR   2.DARGEL/ANDRIY MR                   
-		// 1   KBP 9U  136 W 26JUL 1240  OK WRT             26JUL26JUL 0PC                
-		// 2 O KIV 9U  135 W 30JUL 1040  OK WRT             30JUL30JUL 0PC                
-		//	 KBP                                                                        
-		//FARE  F USD     156.00                                                          
-		//EQUIV   UAH       1247                                                          
-		//TX001 X UAH      416YQAC TX002 X UAH      104YRVB TX003 X UAH      136YKAE      
-		//TX004 X UAH       16UDDP TX005 X UAH       32UASE TX006 X UAH      130WWDP      
-		//TX007 X UAH       26JQSE TX008 X UAH       94MDTI                               
-		//TOTAL   UAH       2201    BSR 7.9930                                            
-		//GRAND TOTAL UAH       2201                                                      
-		//IEV 9U KIV78.00 9U IEV78.00NUC156.00END ROE1.000000",
-		//				"4VH34J",
-		//				a => a("ANDRYUSHCHENKOGONCHARENKO/ANDRIY MR", 1247m, 2201m),
-		//				a => a("DARGEL/ANDRIY MR", 1247m, 2201m)
-		//			);
-
-		//		}
-
-
-		//		[Test]
-		//		public void TestParseTicket5()
-		//		{
-
-		//			AssertDocuments(
-		//@"RP/IEVU23561/IEVU23561            AL/GS   8JUL13/0618Z   4AMQX7                 
-		//IEVU23561/1982AL/3JUL13                                                         
-		//  1.AKHVERDIYEVA/LUYIZA MRS                                                     
-		//  2  PS 113 L 12JUL 5 KBPLGW HK1       D  2005 2135   *1A/E*                    
-		//  3  PS 114 P 20JUL 6 LGWKBP HK1       S  0010 0530   *1A/E*                    
-		//  4 AP IEV 38044-4902888 - ARIOLA GROUP LTD - A                                 
-		//  5 AP 067 245 14 14 VLADIMIR                                                   
-		//  6 AP 067 540 80 01                                                            
-		//  7 APE JAN197321@YAHOO.COM                                                     
-		//  8 TK TL10JUL/IEVU23561                                                        
-		//  9 SSR OTHS 1A AUTO XX IF SSR TKNA/E/M/C NOT RCVD BY 0916/10JUL                
-		//	   /IEV LT                                                                  
-		// 10 RC IEVU23561-W/***EMB ONLY                                                  
-		// 11 FE PAX NONEND/REF AND RBKG RSTR/S2-3                                        
-		// 12 FV PAX PS/S2-3                                                              
-		//>tqt
-		//TST00004     IEVU23561 AL/08JUL I 0 LD 12JUL13 OD IEVIEV SI                     
-		//T-                                                                              
-		//FXB/R,UP                                                                        
-		//   1.AKHVERDIYEVA/LUYIZA MRS                                                    
-		// 1   KBP PS  113 L 12JUL 2005  OK LSXUA           12JUL12JUL 1PC                
-		// 2 O LGW PS  114 P 20JUL 0010  OK PRTUA           20JUL20JUL 1PC                
-		//	 KBP                                                                        
-		//FARE  F USD     395.00                                                          
-		//EQUIV   UAH       3158                                                          
-		//TX001 X UAH      464YQAC TX002 X UAH      136YKAE TX003 X UAH       16UDDP      
-		//TX004 X UAH       32UASE TX005 X UAH      159GBAD TX006 X UAH      156UBAS      
-		//TOTAL   UAH       4121    BSR 7.9930                                            
-		//GRAND TOTAL UAH       4121                                                      
-		//IEV PS LON140.00PS IEV255.00NUC395.00END ROE1.000000                            
-		//																				
-		// 11.FE NONEND/REF AND RBKG RSTR                                                 
-		// 12.FV PS",
-		//				"4AMQX7",
-		//				a => a("AKHVERDIYEVA/LUYIZA MRS", 3158m, 4121m)
-		//			);
-
-		//		}
-
 
 		[Test]
-		public void TestParseTicket6()
+		public void TestParseTicket06()
 		{
 
-			AssertDocuments(@"
+			var docs = Parse(@"
 --- TST RLR ---                                                                 
 RP/LEDR2233B/LEDR2233B            AS/SU  12SEP13/1143Z   ZTV8KB                 
   1.TIRSKIY/NIKOLAY MR                                                          
@@ -376,19 +370,25 @@ SVX SU MOW3500.00RUB3500.00END
 																				
   5.FE VALID ON SU/FARE RESTR APL                                               
   6.FV SU                                                                       
->
-",
-				"ZTV8KB",
-				a => a("TIRSKIY/NIKOLAY MR", "RUB", 3500m, null, null, "RUB", 5163m)
+>"
 			);
+
+
+			docs.Assert(a => a
+				.PnrCode("ZTV8KB")
+				.PassengerName("TIRSKIY/NIKOLAY MR")
+				.Fares("RUB", 3500m, null, null, "RUB", 5163m)
+			);
+
 		}
 
 
+
 		[Test]
-		public void TestParseTicket7()
+		public void TestParseTicket07()
 		{
 
-			AssertDocuments(@"
+			var docs = Parse(@"
 --- TST RLR ---                                                                 
 RP/IEVU23561/IEVU23561            PS/RM   7OCT13/0645Z   7YC3W9                 
 IEVU23561/1962VZ/22SEP13                                                        
@@ -422,22 +422,25 @@ GRAND TOTAL UAH       3586
 IEV PS IST94.50PS IEV Q50.00 154.50NUC299.00END ROE1.000000                     
 																				
  10.FE NONEND/NO REF/RBKG RSTR                                                  
- 11.FV PS",
-				"7YC3W9",
-				a => a(
-					"BLONSKA/YAROSLAVNA MRS",
-					"USD", 299m, "UAH", 2390m, "UAH", 3586m,
-					airlineIataCode: "PS"
-				)
+ 11.FV PS"
+			);
+
+
+			docs.Assert(a => a
+				.PnrCode("7YC3W9")
+				.PassengerName("BLONSKA/YAROSLAVNA MRS")
+				.Fares("USD", 299m, "UAH", 2390m, "UAH", 3586m)
+				.AirlineIataCode("PS")
 			);
 
 		}
 
 
 		[Test]
-		public void TestParseTicket8()
+		public void TestParseTicket08()
 		{
-			AssertDocuments(@"
+
+			var docs = Parse(@"
 --- TST RLR ---                                                                 
 RP/IEVU23561/IEVU23561            AL/GS  20MAR15/0835Z   3AMQ2J                 
 IEVU23561/1982AL/19MAR15                                                        
@@ -491,26 +494,39 @@ GRAND TOTAL UAH       1928
 VNO PS IEV63.71NUC63.71END ROE0.878934                                          
 																				
  13.FE NONEND/NO REF/RBK 75EUR                                                  
- 15.FV PS ",
-				"3AMQ2J",
-				a => a(
-					"PLYNOKOS/MARYNA MISS",
-					"EUR", 42m, "UAH", 1043m, "UAH", 1580m,
-					airlineIataCode: "PS"
-				),
-				a => a(
-					"USIKOVA/GALYNA MRS",
-					"EUR", 56m, "UAH", 1391m, "UAH", 1928m,
-					airlineIataCode: "PS"
-				)
+ 15.FV PS "
 			);
+
+
+			docs.AssertAll(a => a
+				.PnrCode("3AMQ2J")
+			);
+
+
+			docs.Assert(
+
+				a => a
+					.PassengerName("PLYNOKOS/MARYNA MISS")
+					.Fares("EUR", 42m, "UAH", 1043m, "UAH", 1580m)
+					.AirlineIataCode("PS")
+				,
+
+				a => a
+					.PassengerName("USIKOVA/GALYNA MRS")
+					.Fares("EUR", 56m, "UAH", 1391m, "UAH", 1928m)
+					.AirlineIataCode("PS")
+
+			);
+
 		}
 
 
+
 		[Test]
-		public void TestParseTicket9()
+		public void TestParseTicket09()
 		{
-			AssertDocuments(@"
+
+			var docs = Parse(@"
 --- TST RLR ---                                                                 
 RP/IEVU23561/IEVU23561            AL/GS  20MAR15/0835Z   3AMQ2J                 
 IEVU23561/1982AL/19MAR15                                                        
@@ -570,26 +586,39 @@ GRAND TOTAL UAH       1928
 VNO PS IEV63.71NUC63.71END ROE0.878934                                          
 																				
  13.FE NONEND/NO REF/RBK 75EUR                                                  
- 15.FV PS ",
-				"3AMQ2J",
-				a => a(
-					"PLYNOKOS/MARYNA MISS",
-					"EUR", 42m, "UAH", 1043m, "UAH", 1580m,
-					airlineIataCode: "PS"
-				),
-				a => a(
-					"USIKOVA/GALYNA MRS",
-					"EUR", 56m, "UAH", 1391m, "UAH", 1928m,
-					airlineIataCode: "PS"
-				)
+ 15.FV PS "
 			);
+
+
+			docs.AssertAll(a => a
+				.PnrCode("3AMQ2J")
+			);
+
+
+			docs.Assert(
+
+				a => a
+					.PassengerName("PLYNOKOS/MARYNA MISS")
+					.Fares("EUR", 42m, "UAH", 1043m, "UAH", 1580m)
+					.AirlineIataCode("PS")
+				,
+
+				a => a
+					.PassengerName("USIKOVA/GALYNA MRS")
+					.Fares("EUR", 56m, "UAH", 1391m, "UAH", 1928m)
+					.AirlineIataCode("PS")
+
+			);
+
 		}
+
 
 
 		[Test]
 		public void TestParseTicket10()
 		{
-			AssertDocuments(@"
+
+			var docs = Parse(@"
 TICKET REVALIDATION/REISSUE IS RECOMMENDED
 --- TST RLR ---
 RP/IEVPS2311/IEVPS2311            UF/SU  10MAY17/1347Z   TYFJD7
@@ -877,66 +906,74 @@ BJS PS IEV225.87PS BJS225.87NUC451.74END ROE6.906520
  63.FM *M*1.5                                                                  
  72.FO 566-2404581226IEV08MAY17/72320220/566-24045812265E1                     
  73.FP O/CASH+/CASH                                                            
- 82.FV PS   ",
-				"TYFJD7",
-				a => a(
-					"CHEN/PEILUN MR",
-					"CNY", 3120m, null, null, "UAH", 1995m,
-					airlineIataCode: "PS"
-				),
-				a => a(
-					"GONG/PING MR",
-					"CNY", 3120m, null, null, "UAH", 1995m,
-					airlineIataCode: "PS"
-				),
-				a => a(
-					"LUO/QIN MR",
-					"CNY", 3120m, null, null, "UAH", 1995m,
-					airlineIataCode: "PS"
-				),
-				a => a(
-					"QIANG/BO MR",
-					"CNY", 3120m, null, null, "UAH", 1995m,
-					airlineIataCode: "PS"
-				),
-				a => a(
-					"WANG/CHENGDIAN MR",
-					"CNY", 3120m, null, null, "UAH", 1995m,
-					airlineIataCode: "PS"
-				),
-				a => a(
-					"WEI/AN MR",
-					"CNY", 3120m, null, null, "UAH", 1995m,
-					airlineIataCode: "PS"
-				),
-				a => a(
-					"YU/LI MR",
-					"CNY", 3120m, null, null, "UAH", 1995m,
-					airlineIataCode: "PS"
-				),
-				a => a(
-					"ZHAI/JIANQUN MR",
-					"CNY", 3120m, null, null, "UAH", 1995m,
-					airlineIataCode: "PS"
-				),
-				a => a(
-					"ZHANG/XIAOYONG MR",
-					"CNY", 3120m, null, null, "UAH", 1995m,
-					airlineIataCode: "PS"
-				)
+ 82.FV PS   "
 			);
 
-			//TYFJD7
-			//1.CHEN / PEILUN MR   2.GONG / PING MR   3.LUO / QIN MR
-			//4.QIANG / BO MR   5.WANG / CHENGDIAN MR   6.WEI / AN MR
-			//7.YU / LI MR   8.ZHAI / JIANQUN MR   9.ZHANG / XIAOYONG MR
+
+			docs.AssertAll(a => a
+				.PnrCode("TYFJD7")
+				.AirlineIataCode("PS")
+			);
+
+
+			docs.Assert(
+
+				a => a
+					.PassengerName("CHEN/PEILUN MR")
+					.Fares("CNY", 3120m, null, null, "UAH", 1995m)
+						,
+
+				a => a
+					.PassengerName("GONG/PING MR")
+					.Fares("CNY", 3120m, null, null, "UAH", 1995m)
+				,
+
+				a => a
+					.PassengerName("LUO/QIN MR")
+					.Fares("CNY", 3120m, null, null, "UAH", 1995m)
+				,
+
+				a => a
+					.PassengerName("QIANG/BO MR")
+					.Fares("CNY", 3120m, null, null, "UAH", 1995m)
+				,
+
+				a => a
+					.PassengerName("WANG/CHENGDIAN MR")
+					.Fares("CNY", 3120m, null, null, "UAH", 1995m)
+				,
+
+				a => a
+					.PassengerName("WEI/AN MR")
+					.Fares("CNY", 3120m, null, null, "UAH", 1995m)
+				,
+
+				a => a
+					.PassengerName("YU/LI MR")
+					.Fares("CNY", 3120m, null, null, "UAH", 1995m)
+				,
+
+				a => a
+					.PassengerName("ZHAI/JIANQUN MR")
+					.Fares("CNY", 3120m, null, null, "UAH", 1995m)
+				,
+
+				a => a
+					.PassengerName("ZHANG/XIAOYONG MR")
+					.Fares("CNY", 3120m, null, null, "UAH", 1995m)
+
+			);
+
 		}
+
 
 
 		[Test]
 		public void TestParseTicket11()
 		{
-			AssertDocuments(@"
+
+
+			var docs = Parse(@"
 --- TST TSM RLR MSC ---
 RP/IEVPS2316/IEVPS2316            KB/SU  15MAY17/0709Z   TLXDUG
   1.STOLITNIY/DMYTRO MSTR(CHD)(IDDOB27SEP10)
@@ -979,21 +1016,26 @@ HRK PS X/IEV PS GVA235.50NUC235.50END ROE1.000000
  18.FE NONEND/REF RSTR/RBK 50USD                                               
  19.FM *M*1.5                                                                  
  20.FP CASH                                                                    
- 21.FV PS",
-				"TLXDUG",
-				a => a(
-					"STOLITNIY/DMYTRO MSTR",
-					"USD", 236m, "UAH", 6240m, "UAH", 7498m,
-					airlineIataCode: "PS"
-				)
+ 21.FV PS"
 			);
+
+
+			docs.Assert(a => a
+				.PnrCode("TLXDUG")
+				.PassengerName("STOLITNIY/DMYTRO MSTR")
+				.Fares("USD", 236m, "UAH", 6240m, "UAH", 7498m)
+				.AirlineIataCode("PS")
+			);
+
 		}
+
 
 
 		[Test]
 		public void TestParseTicket12()
 		{
-			AssertDocuments(@"
+
+			var docs = Parse(@"
 --- TST RLR RLP SFP ---
 RP/IEVPS2326/IEVPS2326            LS/SU  30MAY17/0715Z   U9JAE9
   1.MAKHINIA/OLENA MRS   2.MOKHON/ALISA MISS(CHD)(IDDOB14DEC14)
@@ -1090,29 +1132,39 @@ IEV PS NYC211.50PS IEV211.50NUC423.00END ROE1.000000 XF JFK4.5
  33.FE NONENDO/NO REF/RBK USD200 -BG:PS                                        
  34.FM *M*1A                                                                   
  35.FP CASH                                                                    
- 37.FV PS",
-				"U9JAE9",
-				a => a(
-					"MAKHINIA/OLENA MRS",
-					"USD", 564m, "UAH", 14839m, "UAH", 23831m,
-					airlineIataCode: "PS"
-				),
-				a => a(
-					"MOKHON/TARAS MR",
-					"USD", 564m, "UAH", 14839m, "UAH", 23831m,
-					airlineIataCode: "PS"
-				),
-				a => a(
-					"MOKHON/ALISA MISS",
-					"USD", 423m, "UAH", 11130m, "UAH", 20122m,
-					airlineIataCode: "PS"
-				),
-				a => a(
-					"MOKHON/ANTON MSTR",
-					"USD", 423m, "UAH", 11130m, "UAH", 20122m,
-					airlineIataCode: "PS"
-				)
+ 37.FV PS"
 			);
+
+
+			docs.AssertAll(a => a
+				.PnrCode("U9JAE9")
+				.AirlineIataCode("PS")
+			);
+
+
+			docs.Assert(
+
+				a => a
+					.PassengerName("MAKHINIA/OLENA MRS")
+					.Fares("USD", 564m, "UAH", 14839m, "UAH", 23831m)
+				,
+
+				a => a
+					.PassengerName("MOKHON/TARAS MR")
+					.Fares("USD", 564m, "UAH", 14839m, "UAH", 23831m)
+				,
+
+				a => a
+					.PassengerName("MOKHON/ALISA MISS")
+					.Fares("USD", 423m, "UAH", 11130m, "UAH", 20122m)
+				,
+
+				a => a
+					.PassengerName("MOKHON/ANTON MSTR")
+					.Fares("USD", 423m, "UAH", 11130m, "UAH", 20122m)
+
+			);
+
 		}
 
 
@@ -1121,7 +1173,8 @@ IEV PS NYC211.50PS IEV211.50NUC423.00END ROE1.000000 XF JFK4.5
 		[Test]
 		public void TestParseTicket13()
 		{
-			AssertDocuments(@"
+
+			var docs = Parse(@"
 RP/IEVPS2326/IEVPS2326            TV/SU  31MAY17/0647Z   JW5EXP
   1.DANYLIUK/VALENTYN MR(ID DOB20FEB50)
   2.PRISHCHENKO/LIUDMYLA MRS(ID DOB31DEC50)
@@ -1167,26 +1220,38 @@ IEV PS MIL45.00PS IEV45.00NUC90.00END ROE1.000000
  15.FE NONEND/NON REF/CHNG USD50                                               
  16.FM *M*1A                                                                   
  17.FP CASH                                                                    
- 18.FV PS",
-				"JW5EXP",
-				a => a(
-					"DANYLIUK/VALENTYN MR",
-					"USD", 90m, "UAH", 2374m, "UAH", 4628m,
-					airlineIataCode: "PS"
-				),
-				a => a(
-					"PRISHCHENKO/LIUDMYLA MRS",
-					"USD", 90m, "UAH", 2374m, "UAH", 4628m,
-					airlineIataCode: "PS"
-				)
+ 18.FV PS"
 			);
+
+
+			docs.AssertAll(a => a
+				.PnrCode("JW5EXP")
+				.AirlineIataCode("PS")
+			);
+
+
+			docs.Assert(
+
+				a => a
+					.PassengerName("DANYLIUK/VALENTYN MR")
+					.Fares("USD", 90m, "UAH", 2374m, "UAH", 4628m)
+				,
+
+				a => a
+					.PassengerName("PRISHCHENKO/LIUDMYLA MRS")
+					.Fares("USD", 90m, "UAH", 2374m, "UAH", 4628m)
+
+			);
+
 		}
+
 
 
 		[Test]
 		public void TestParseTicket14()
 		{
-			AssertDocuments(@"
+
+			var docs = Parse(@"
 --- TST RLR ---
 RP/IEVPS2326/IEVPS2326            YS/SU  14JUN17/1006Z   WDHI2J
   1.HERASIMOVA/NATALIIA MRS
@@ -1227,21 +1292,26 @@ IEV PS IST M/IT PS IEV M/IT END
  13.FP CASH                                                                    
  14.FT *F*TP20017                                                              
  15.FV *F*PS
-",
-				"WDHI2J",
-				a => a(
-					"HERASIMOVA/NATALIIA MRS",
-					"USD", 125m, "UAH", 3257m, "UAH", 5290m,
-					airlineIataCode: "PS"
-				)
+"
 			);
+
+
+			docs.Assert(a => a
+				.PnrCode("WDHI2J")
+				.PassengerName("HERASIMOVA/NATALIIA MRS")
+				.Fares("USD", 125m, "UAH", 3257m, "UAH", 5290m)
+				.AirlineIataCode("PS")
+			);
+
 		}
+
 
 
 		[Test]
 		public void TestParseTicket15()
 		{
-			AssertDocuments(@"
+
+			var docs = Parse(@"
 --- TST RLR ---
 RP/IEVPS2311/IEVPS2311            YR/SU  15JUN17/1008Z   MKNFGI
   1.FAN/XINNAN MS
@@ -1290,93 +1360,27 @@ BJS PS X/IEV PS MIL170.12PS X/IEV PS BJS131.03NUC301.15END
  14.FE NONEND/NO REF/RBK 100EUR                                                
  15.FM *M*1.5                                                                  
  16.FP CASH
-",
-				"MKNFGI",
-				a => a(
-					"FAN/XINNAN MS",
-					"CNY", 2080m, "UAH", 7963m, "UAH", 17088m,
-					airlineIataCode: "PS"
-				)
+"
 			);
+
+
+			docs.Assert(a => a
+				.PnrCode("MKNFGI")
+				.PassengerName("FAN/XINNAN MS")
+				.Fares("CNY", 2080m, "UAH", 7963m, "UAH", 17088m)
+				.AirlineIataCode("PS")
+			);
+
 		}
 
-
-//		[Test]
-//		public void TestParseTicket16()
-//		{
-
-//			AssertDocuments(@"
-//-- TST TSM RLR ---
-//RP/IEVPS2326/IEVPS2326            TV/SU  27JUN17/0958Z   Q7UN4Q
-//  1.BILOUS/ZOIA MRS   2.IVANOVA/OLGA MRS
-//  3  PS 793 L 19JUL 3 HRKTLV HK2          2115 0030+1 1A/E
-//  4  PS 794 E 25JUL 2 TLVHRK HK2       3  0115 0440   1A/E
-//  5 SVC PS HK1 PENF/P1
-//  6 SVC PS HK1 PENF/P2
-//  7 SVC PS HK1 RSVR/P1
-//  8 SVC PS HK1 RSVR/P2
-//  9 AP IEV 38 044 300 01 75 - FLAMINGO TRAVEL - A
-// 10 TK PAX OK27JUN/IEVPS2326//ETPS/S3-4/P1
-// 11 TK OK27JUN/IEVPS2326//ETPS
-// 12 SSR DOCS PS HK1 P/UKR/FA680792/UKR/31JAN65/F/05AUG25/BILOUS/
-//	   ZOIA/P1
-// 13 SSR DOCS PS HK1 P/UKR/EH083931/UKR/27SEP68/F/24JUN20/IVANOVA
-//	   /OLGA/P2
-// 14 OSI PS CTCM 380509593574
-// 15 RC IEVPS2326-W/NOTAR2009@UKR.NET
-// 16 FA PAX 566-2404751582/ETPS/UAH0/27JUN17/IEVPS2326/72323495
-//	   /S3-4/P1
-// 17 FA PAX 566-2404751583/ETPS/UAH0/27JUN17/IEVPS2326/72323495
-//	   /S3-4/P2
-// 18 FA PAX 566-8207025133/DTPS/UAH1823/27JUN17/IEVPS2326/7232349
-//)>
-//>
-//md
-//--- TST TSM RLR ---
-//RP/IEVPS2326/IEVPS2326            TV/SU  27JUN17/0958Z   Q7UN4Q
-//	   5/S5/P1
-// 19 FA PAX 566-8207025134/DTPS/UAH1823/27JUN17/IEVPS2326/7232349
-//	   5/S6/P2
-// 20 FHE PAX 566-2404687167/P1
-// 21 FHE PAX 566-2404687168/P2
-// 22 FB PAX 0000000000 TTP/S3-4/P1/T-PS OK ETICKET - WARNING:
-//	   TICKET QUOTA LOW/S3-4/P1
-// 23 FB PAX 0000000000 TTP/S3-4/P2/T-PS OK ETICKET - WARNING:
-//	   TICKET QUOTA LOW/S3-4/P2
-// 24 FB PAX 0000000000 TTM/M1/RT/T-PS OK EMD/S5/P1
-// 25 FB PAX 0000000000 TTM/M3/RT/T-PS OK EMD/S6/P2
-// 26 FE PAX NONEND/REFRSTR/NO RBK/UPGD/S3-4/P1
-// 27 FE PAX NONEND/REFRSTR/NO RBK/UPGD/S3-4/P2
-// 28 FM *M*0
-// 29 FO PAX 566-2404687167IEV12JUN17/72323495/566-24046871671E1
-//	   /S3-4/P1
-// 30 FO PAX 566-2404687168IEV12JUN17/72323495/566-24046871682E1
-//	   /S3-4/P2
-// 31 FP O/CASH
-// 32 FV PAX PS/S3-4/P1
-// 33 FV PAX PS/S3-4/P2
-//",
-//				"Q7UN4Q",
-//				a => a(
-//					"BILOUS/ZOIA MRS",
-//					"CNY", 2080m, "UAH", 7963m, "UAH", 17088m,
-//					airlineIataCode: "PS"
-//				),
-//				a => a(
-//					"IVANOVA/OLGA MRS",
-//					"CNY", 2080m, "UAH", 7963m, "UAH", 17088m,
-//					airlineIataCode: "PS"
-//				)
-//			);
-
-//		}
 
 
 
 		[Test]
 		public void TestParseTicket17()
 		{
-			AssertDocuments(@"
+
+			var docs = Parse(@"
 --- TST RLR MSC SFP ---                                                         
 RP/IEVU23561/IEVU23561            AA/SU   3JUL17/1128Z   UINW8L                 
 IEVU23561/2005SV/3JUL17                                                         
@@ -1417,21 +1421,26 @@ IEV AC X/FRA AC YTO300.00LH X/MUC LH IEV120.00NUC420.00END
 																				
  12.FE NONREF/FL/CHG RESTRICTED CHECK FARE NOTE -BG:AC                          
  13.FV LH
-",
-				"UINW8L",
-				a => a(
-					"KUDRENKO/MARYNA MRS",
-					"USD", 420m, "UAH", 10967m, "UAH", 20419m,
-					airlineIataCode: "LH"
-				)
+"
 			);
+
+
+			docs.Assert(a => a
+				.PnrCode("UINW8L")
+				.PassengerName("KUDRENKO/MARYNA MRS")
+				.Fares("USD", 420m, "UAH", 10967m, "UAH", 20419m)
+				.AirlineIataCode("LH")
+			);
+
 		}
+
 
 
 		[Test]
 		public void TestParseTicket18()
 		{
-			AssertDocuments(@"
+
+			var docs = Parse(@"
 --- TST RLR RLP ---
 RP/IEVPS2332/IEVPS2332            SD/GS  18SEP17/0850Z   OPEDS5
   1.GRIGA/MATVII MSTR
@@ -1476,21 +1485,26 @@ IEV PS LON94.50PS IEV65.00NUC159.50END ROE1.000000
  16.FM *M*1A                                                                   
  17.FP CASH                                                                    
  18.FV PS
-",
-				"OPEDS5",
-				a => a(
-					"GRIGA/MATVII MSTR",
-					"USD", 160m, "UAH", 4189m, "UAH", 6647m,
-					airlineIataCode: "PS"
-				)
+"
 			);
+
+
+			docs.Assert(a => a
+				.PnrCode("OPEDS5")
+				.PassengerName("GRIGA/MATVII MSTR")
+				.Fares("USD", 160m, "UAH", 4189m, "UAH", 6647m)
+				.AirlineIataCode("PS")
+			);
+
 		}
+
 
 
 		[Test]
 		public void TestParseTicket19()
 		{
-			AssertDocuments(@"
+
+			var docs = Parse(@"
 --- TST RLR DCS ---
 RP/IEVPS2332/IEVPS2332            WS/GS  21SEP17/0911Z   KV8XYR
   1.SAVCHENKO/OLEKSII MR   2.TATARCHENKO/KOSTIANTYN MR
@@ -1537,26 +1551,38 @@ IEV PS VIE Q4.00 380.00PS IEV Q4.00 155.00NUC543.00END
  23.FM *M*1A                                                                   
  24.FP INV                                                                     
  25.FV PS
-",
-				"KV8XYR",
-				a => a(
-					"SAVCHENKO/OLEKSII MR",
-					"USD", 543m, "UAH", 14211m, "UAH", 17394m,
-					airlineIataCode: "PS"
-				),
-				a => a(
-					"TATARCHENKO/KOSTIANTYN MR",
-					"USD", 543m, "UAH", 14211m, "UAH", 17394m,
-					airlineIataCode: "PS"
-				)
+"
 			);
+
+
+			docs.AssertAll(a => a
+				.PnrCode("KV8XYR")
+				.AirlineIataCode("PS")
+			);
+
+
+			docs.Assert(
+
+				a => a
+					.PassengerName("SAVCHENKO/OLEKSII MR")
+					.Fares("USD", 543m, "UAH", 14211m, "UAH", 17394m)
+				,
+
+				a => a
+					.PassengerName("TATARCHENKO/KOSTIANTYN MR")
+					.Fares("USD", 543m, "UAH", 14211m, "UAH", 17394m)
+
+			);
+
 		}
+
 
 
 		[Test]
 		public void TestParseTicket20()
 		{
-			AssertDocuments(@"
+
+			var docs = Parse(@"
 --- TST RLR ---
 RP/IEVU23667/IEVU23667            TV/SU   3NOV17/0856Z   QCPZGP
 IEVU23667/5750TV/3NOV17
@@ -1591,21 +1617,26 @@ TLV LY IEV Q42.00 52.00NUC94.00END ROE1.000000
   9.FM *M*1A                                                                    
  10.FP CASH                                                                     
  11.FV LY
-",
-				"QCPZGP",
-				a => a(
-					"NAZAROV/ERVIN MR",
-					"USD", 94m, "UAH", 2529m, "UAH", 2947m,
-					airlineIataCode: "LY"
-				)
+"
 			);
+
+
+			docs.Assert(a => a
+				.PnrCode("QCPZGP")
+				.PassengerName("NAZAROV/ERVIN MR")
+				.Fares("USD", 94m, "UAH", 2529m, "UAH", 2947m)
+				.AirlineIataCode("LY")
+			);
+
 		}
+
 
 
 		[Test]
 		public void TestParseTicket21()
 		{
-			AssertDocuments(@"
+
+			var docs = Parse(@"
 --- TST RLR ---
 RP/IEVPS2332/IEVPS2332            AS/SU   9FEB18/0913Z   U3R5TE
   1.BABYCH/MYKOLA MR
@@ -1656,26 +1687,37 @@ IFO PS IEV25.00USD25.00END
 																			   
   9.FE NON END/NO REF/RBK USD10                                                
  11.FV PS
-",
-				"U3R5TE",
-				a => a(
-					"BABYCH/MYKOLA MR",
-					"USD", 65m, "UAH", 1765m, "UAH", 2819m,
-					airlineIataCode: "PS"
-				),
-				a => a(
-					"BABYCH/MYKOLA MR",
-					"USD", 25m, "UAH", 679m, "UAH", 1552m,
-					airlineIataCode: "PS"
-				)
+"
 			);
+
+
+			docs.AssertAll(a => a
+				.PnrCode("U3R5TE")
+				.PassengerName("BABYCH/MYKOLA MR")
+				.AirlineIataCode("PS")
+			);
+
+
+			docs.Assert(
+
+				a => a
+					.Fares("USD", 65m, "UAH", 1765m, "UAH", 2819m)
+				,
+
+				a => a
+					.Fares("USD", 25m, "UAH", 679m, "UAH", 1552m)
+
+			);
+
 		}
+
 
 
 		[Test]
 		public void TestParseTicket22()
 		{
-			AssertDocuments(@"
+
+			var docs = Parse(@"
 --- TST RLR MSC ---
 RP/IEVU2273F/IEVU2273F            AN/SU  26FEB20/1433Z   STXMSB
 IEVU2273F/6868IG/26FEB20
@@ -1720,19 +1762,28 @@ IEV TP X/ZRH TP LIS89.00TP X/BCN TP IEV108.00NUC197.00END
  17.FE FARE RESTR APPLY/NON REF                                                 
  19.FM *M*1                                                                     
  20.FP CASH
-",
-				"STXMSB",
-				a => a(
-					"DUDNYK/YURIY MR",
-					"USD", 197m, "UAH", 4831m, "UAH", 8651m,
-					airlineIataCode: "TP"
-				),
-				a => a(
-					"KARPENKO/OKSANA MRS",
-					"USD", 197m, "UAH", 4831m, "UAH", 8651m,
-					airlineIataCode: "TP"
-				)
+"
 			);
+
+
+			docs.AssertAll(a => a
+				.PnrCode("STXMSB")
+				.AirlineIataCode("TP")
+				.Fares("USD", 197m, "UAH", 4831m, "UAH", 8651m)
+			);
+
+
+			docs.Assert(
+
+				a => a
+					.PassengerName("DUDNYK/YURIY MR")
+				,
+
+				a => a
+					.PassengerName("KARPENKO/OKSANA MRS")
+
+			);
+
 		}
 
 
@@ -1741,7 +1792,7 @@ IEV TP X/ZRH TP LIS89.00TP X/BCN TP IEV108.00NUC197.00END
 		public void TestParseTicket23()
 		{
 
-			var docs = ParseDocuments(@"
+			var docs = Parse(@"
 --- TST TSM RLR ---
 RP/IEVPS28GM/IEVPS28GM            VK/SU  12MAY21/1128Z   T576DF
 0.  0PERSEY  NM:14
@@ -1873,7 +1924,7 @@ IEV PS LON161.00NUC161.00END ROE1.000000
 			);
 
 
-			Assert.AreEqual(14, docs.Count);
+			AreEqual(14, docs.Count);
 
 		}
 
@@ -1883,7 +1934,7 @@ IEV PS LON161.00NUC161.00END ROE1.000000
 		public void TestParseTicket24()
 		{
 
-			var docs = ParseDocuments(@"
+			var docs = Parse(@"
 RP/FLXMIA/                       F1/AGMW       F1:R6WQ8T   LH:W466RZ
 RF AGMX_ASMIRNOVA      15SEP2021 1635Z
   1. HUZYK/OKSANA
@@ -1928,7 +1979,7 @@ FV *F*LH
 			);
 
 
-			Assert.AreEqual(1, docs.Count);
+			AreEqual(1, docs.Count);
 
 		}
 
@@ -1937,110 +1988,15 @@ FV *F*LH
 		//---g
 
 
-
-		#region Utils
-
-		public delegate AviaDocument DocumentAssertEvent(
-			string passengerName,
-			string fareCurrency = null,
-			decimal? fare = null,
-			string equalFareCurrency = null,
-			decimal? equalFare = null,
-			string totalCurrency = null,
-			decimal? total = null,
-			string airlinePrefixCode = null,
-			string number = null,
-			string iataOffice = null,
-			string airlineIataCode = null
-		);
-
-		private AviaDocument AssertDocument(
-			string passengerName,
-			string fareCurrency = null,
-			decimal? fare = null,
-			string equalFareCurrency = null,
-			decimal? equalFare = null,
-			string totalCurrency = null,
-			decimal? total = null,
-			string airlinePrefixCode = null,
-			string number = null,
-			string iataOffice = null,
-			string airlineIataCode = null
-		)
-		{
-			Assert.AreEqual(_pnrCode, _doc.PnrCode);
-			Assert.AreEqual(passengerName, _doc.PassengerName);
-
-			if (fareCurrency != null)
-				Assert.AreEqual(fareCurrency, _doc.Fare.Currency.Code);
-			if (fare != null)
-				Assert.AreEqual(fare.Value, _doc.Fare.Amount);
-
-			if (equalFareCurrency != null)
-				Assert.AreEqual(equalFareCurrency, _doc.EqualFare?.Currency?.Code);
-			if (equalFare != null)
-				Assert.AreEqual(equalFare.Value, _doc.EqualFare?.Amount);
-
-			if (totalCurrency != null)
-				Assert.AreEqual(totalCurrency, _doc.Total.Currency.Code);
-			if (total != null)
-				Assert.AreEqual(total.Value, _doc.Total.Amount);
-
-			if (airlinePrefixCode != null)
-				Assert.AreEqual(airlinePrefixCode, _doc.AirlinePrefixCode);
-			if (number != null)
-				Assert.AreEqual(number, _doc.Number);
-
-			if (iataOffice != null)
-				Assert.AreEqual(iataOffice, _doc.TicketingIataOffice);
-
-			if (airlineIataCode != null)
-				Assert.AreEqual(airlineIataCode, _doc.AirlineIataCode);
-
-			return _doc;
-		}
-
-		public void AssertDocuments(
-			IList<AviaDocument> docs,
-			string pnrCode,
-			params Action<DocumentAssertEvent>[] asserts)
-		{
-			_pnrCode = pnrCode;
-
-			Assert.AreEqual(asserts.Length, docs.Count, "Document Count");
-
-			var i = 0;
-			foreach (var assert in asserts)
-			{
-				_doc = docs[i++];
-				assert(AssertDocument);
-			}
-		}
-
-		public void AssertDocuments(
-			string content,
-			string pnrCode,
-			params Action<DocumentAssertEvent>[] asserts)
-		{
-			AssertDocuments(ParseDocuments(content), pnrCode, asserts);
-		}
-
-		public IList<AviaDocument> ParseDocuments(string documentContent)
-		{
-			//var docs = documentContent.StartsWith("AIR-")
-			//	? AirConsoleParser.Parse(documentContent, new Currency("UAH"))
-			//	: MirConsoleParser.Parse(documentContent, new Currency("UAH"));
-			//return (IList<AviaDocument>)docs;
-
-			return AmadeusConsoleParser.Parse(documentContent, new Currency("UAH")).ToList();
-		}
-
-
-		private AviaDocument _doc;
-		private string _pnrCode;
-
-		#endregion
 	}
+
+
+
+
+
+
+	//===g
+
 
 
 }

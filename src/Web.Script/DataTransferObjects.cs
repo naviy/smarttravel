@@ -1687,10 +1687,16 @@ namespace Luxena.Travel
 		
 		[PreserveCase()]
 		public bool UseDefaultCurrencyForInput;
-		
+
+		[PreserveCase()]
+		public bool UseConsolidatorCommission;
+
 		[PreserveCase()]
 		public bool UseAviaHandling;
-		
+
+		[PreserveCase()]
+		public bool UseBonuses;
+
 		[PreserveCase()]
 		public AviaOrderItemGenerationOption AviaOrderItemGenerationOption;
 		
