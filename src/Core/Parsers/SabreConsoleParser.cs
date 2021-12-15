@@ -79,7 +79,7 @@ namespace Luxena.Travel.Parsers
 				yield break;
 
 
-			var pnpCode = headerMatch.Groups["pnpCode"].Value;
+			var pnrCode = headerMatch.Groups["pnrCode"].Value;
 
 
 
@@ -92,7 +92,7 @@ namespace Luxena.Travel.Parsers
 			var passengers = passengersMatches
 				.Select(a => new
 				{
-					No = a.Groups["passengerNo1"].Value + a.Groups["passengerNo1"].Value,
+					No = a.Groups["passengerNo1"].Value + a.Groups["passengerNo2"].Value,
 					Name = a.Groups["passenger"].Value,
 				})
 				.ToArray()
@@ -123,14 +123,71 @@ namespace Luxena.Travel.Parsers
 				yield break;
 
 
-			var masks = masksMatches
-				.Select(a => new
+			var masks = masksMatches.ToArray(maskMatch =>
+			{
+
+				var body = maskMatch.Groups["body"].Value.Trim();
+
+				var issueMatch = _reIssue.Match(body);
+
+				var faresMatch = _reFares.Match(body);
+
+
+				var feeListMatch = _reFeeList.Match(body);
+
+				var feeAmounts = feeListMatch.Groups["amount"].Captures.ToArray();
+				
+				var feeCodes = feeListMatch.Groups["code"].Captures.ToArray();
+
+
+				var fees = feeAmounts.ToArray((amount, i) => new
 				{
-					No = a.Groups["maskNo"].Value,
-					body = a.Groups["body"].Value,
-				})
-				.ToArray()
-			;
+					Code = feeCodes.By(i).Value,
+					Amount = amount.Value.As().Decimal,
+				});
+
+
+
+				return new
+				{
+
+					No = maskMatch.Groups["maskNo"].Value,
+
+
+					IssueDate = issueMatch.Groups["issueDate"].Value.As().ToDateTime("ddMMMyy"),
+
+					Office = issueMatch.Groups["office"].Value,
+
+					Agent = issueMatch.Groups["agent"].Value,
+
+
+					Fare = new Money(
+						faresMatch.Groups["fareCurrency"].Value,
+						faresMatch.Groups["fare"].Value.As().Decimal
+					),
+
+					EqualFare = new Money(
+						faresMatch.Groups["equalFareCurrency"].Value,
+						faresMatch.Groups["equalFare"].Value.As().Decimal
+					),
+
+					FeesTotal = new Money(
+						faresMatch.Groups["equalFareCurrency"].Value,
+						faresMatch.Groups["feesTotal"].Value.As().Decimal
+					),
+
+					Total = new Money(
+						faresMatch.Groups["totalCurrency"].Value,
+						faresMatch.Groups["total"].Value.As().Decimal
+					),
+
+
+					Fees = fees,
+
+				};
+
+			});
+
 
 
 			foreach (var passengerMask in maskList)
@@ -142,9 +199,27 @@ namespace Luxena.Travel.Parsers
 
 				var doc = new AviaTicket
 				{
-					PassengerName = passenger.Name,
+
+					IssueDate = mask.IssueDate,
+
+					PnrCode = pnrCode,
+					PassengerName = passenger.Name.Trim(),
+
+					BookerOffice = mask.Office,
+					BookerCode = mask.Agent,
+
+					Fare = mask.Fare.Clone(),
+					EqualFare = mask.EqualFare.Clone(),
+					FeesTotal = mask.FeesTotal.Clone(),
+					Total = mask.Total.Clone(),
 
 				};
+
+
+				foreach (var fee in mask.Fees)
+				{
+					doc.AddFee(fee.Code, new Money(doc.EqualFare.Currency, fee.Amount));
+				}
 
 
 				yield return doc;
@@ -189,20 +264,20 @@ namespace Luxena.Travel.Parsers
 		);
 
 
-		static readonly Regex _reAmounts = new Regex(
-			@"^\s*(?<fareCurrency>\w\w\w)(?<fare>\d+(?:\.\d+)?)\s+(?<equalFareCurrency>\w\w\w)(?<equalFare>\d+(?:\.\d+)?)\s+(?<fees>\d+(?:\.\d+)?)XT\s+(?<totalCurrency>\w\w\w)(?<total>\d+(?:\.\d+)?)",
+		static readonly Regex _reFares = new Regex(
+			@"^\s*(?<fareCurrency>\w\w\w)(?<fare>\d+(?:\.\d+)?)\s+(?<equalFareCurrency>\w\w\w)(?<equalFare>\d+(?:\.\d+)?)\s+(?<feesTotal>\d+(?:\.\d+)?)XT\s+(?<totalCurrency>\w\w\w)(?<total>\d+(?:\.\d+)?)",
 			RegexOptions.Multiline | RegexOptions.Compiled
 		);
 
 		static readonly Regex _reFeeList = new Regex(
-			@"XT BREAKDOWN(?<fees>(?:\s+(?<amount>\d+(\.\d+)?)(?<code>\w+))+)",
+			@"XT BREAKDOWN(?:\s+(?<amount>\d+(\.\d+)?)(?<code>\w+))+",
 			RegexOptions.Multiline | RegexOptions.Compiled
 		);
 
-		static readonly Regex _reFees = new Regex(
-			@"\s+(?<amount>\d+(\.\d+)?)(?<code>\w+)",
-			RegexOptions.Singleline | RegexOptions.Compiled
-		);
+		//static readonly Regex _reFees = new Regex(
+		//	@"\s+(?<amount>\d+(\.\d+)?)(?<code>\w+)",
+		//	RegexOptions.Singleline | RegexOptions.Compiled
+		//);
 
 
 		static readonly Regex _reSegments = new Regex(
@@ -210,6 +285,11 @@ namespace Luxena.Travel.Parsers
 			RegexOptions.Multiline | RegexOptions.Compiled
 		);
 
+
+		static readonly Regex _reIssue = new Regex(
+			@"(?<office>\w+?)\s+\w+?\s\*A(?<agent>\w+)\s(?<issueTime>\d\d\d\d)\/(?<issueDate>\d\d\w\w\w\d\d)\s.+?\Z",
+			RegexOptions.Multiline | RegexOptions.Compiled
+		);
 
 
 

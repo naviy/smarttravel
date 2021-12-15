@@ -53,6 +53,7 @@
     <Compile Include="CodePatterns\OneAs.cs" />
     <Compile Include="CodePatterns\Sure.cs" />
     <Compile Include="CodePatterns\YesNo.cs" />
+    <Compile Include="Extensions\ToArrayExtensions.cs" />
     <Compile Include="Extensions\LinqExtensions.cs" />
     <Compile Include="Extensions\ReflectionExtensions.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />

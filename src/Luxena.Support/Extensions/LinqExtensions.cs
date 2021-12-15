@@ -7,11 +7,26 @@ using System.Linq.Expressions;
 using System.Reflection;
 
 
+
+
 namespace Luxena
 {
 
+
+
+	//===g
+
+
+
+
+
+
 	public static class LinqExtensions
 	{
+
+		//---g
+
+
 
 		#region Enumerable
 
@@ -70,6 +85,11 @@ namespace Luxena
 		#endregion
 
 
+
+		//---g
+
+
+
 		#region ICollection
 
 		[DebuggerStepThrough]
@@ -98,6 +118,11 @@ namespace Luxena
 		}
 
 		#endregion
+
+
+
+		//---g
+
 
 
 		#region IList
@@ -137,6 +162,11 @@ namespace Luxena
 		#endregion
 
 
+
+		//---g
+
+
+
 		#region IQueriable
 
 		public static List<TEntity> ToList<TEntity>(this IQueryable<TEntity> query)
@@ -170,6 +200,11 @@ namespace Luxena
 		//}
 
 		#endregion
+
+
+
+		//---g
+
 
 
 		#region GetMembers
@@ -218,6 +253,11 @@ namespace Luxena
 		}
 
 		#endregion
+
+
+
+		//---g
+
 
 
 		#region TextSearch
@@ -271,6 +311,11 @@ namespace Luxena
 		static readonly MethodInfo _stringContainsMethod = typeof(string).GetMethod("Contains", new[] { typeof(string) });
 
 		#endregion
+
+
+
+		//---g
+
 
 
 		#region OrderBy
@@ -387,6 +432,11 @@ namespace Luxena
 		#endregion
 
 
+
+		//---g
+
+
+
 		#region Limit
 
 		public static IQueryable<T> Limit<T>(this IQueryable<T> query, int skipCount, int takeCount)
@@ -420,6 +470,11 @@ namespace Luxena
 		#endregion
 
 
+
+		//---g
+
+
+
 		public static IDictionary<TKey, TValue> AddRange<TKey, TValue>(this IDictionary<TKey, TValue> x, IDictionary<TKey, TValue> y)
 		{
 			if (y == null) return x;
@@ -439,7 +494,20 @@ namespace Luxena
 			return result.AddRange(x).AddRange(y);
 		}
 
+
+
+		//---g
+
 	}
+
+
+
+
+
+
+	//===g
+
+
 
 }
 

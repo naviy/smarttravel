@@ -211,11 +211,19 @@ TZEZYU
 			docs.Assert(
 
 				a => a
-					.PassengerName("1TKACH/OLEKSANDR MR")
+					.PassengerName("TKACH/OLEKSANDR MR")
 				,
 
 				a => a
-					.PassengerName("1TKACH/NADIIA MISS")
+					.PassengerName("TKACH/OLEKSANDR MR")
+				,
+
+				a => a
+					.PassengerName("TKACH/NADIIA MISS")
+                ,
+
+				a => a
+					.PassengerName("TKACH/NADIIA MISS")
 
 			);
 
