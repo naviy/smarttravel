@@ -28,20 +28,22 @@ namespace Luxena.Travel.Parsers
 
 
 
-		private AmadeusConsoleParser(string content, Currency defaultCurrency)
-		{
-			Content = content;
-			DefaultCurrency = defaultCurrency;
-		}
-
-
-
 		public static IEnumerable<AviaDocument> Parse(string content, Currency defaultCurrency)
 		{
+
 			if (content.No())
 				throw new GdsImportException("Empty content");
 
-			return new AmadeusConsoleParser(content, defaultCurrency).ParseTickets();
+
+			return
+				new AmadeusConsoleParser
+				{
+					Content = content,
+					DefaultCurrency = defaultCurrency,
+				}
+				.ParseTickets()
+			;
+
 		}
 
 
@@ -50,9 +52,9 @@ namespace Luxena.Travel.Parsers
 
 
 
-		public Currency DefaultCurrency { get; }
+		public Currency DefaultCurrency { get; set; }
 
-		public string Content { get; }
+		public string Content { get; set; }
 
 
 
@@ -110,56 +112,49 @@ namespace Luxena.Travel.Parsers
 
 			var tickets = _reTicket.Matches(Content);
 
-			var airlines = _reAirline.Matches(Content).Cast<Match>().Select(a => a.Groups["iataCode"].Value.Clip()).ToArray();
+			var airlines = _reAirline.Matches(Content).ToArray(a => a.Groups["iataCode"].Value.Clip());
 
 
-			var segments2 = _reSegments2.Matches(Content).Cast<Match>().Select(a => a.Groups["line"].Value).ToArray();
+			var segments2 = _reSegments2.Matches(Content).ToArray(a => a.Groups["line"].Value);
 
 
-			var ticketBlocks = _reTicketBlocks.Matches(Content + "\nTST99999").Cast<Match>().ToArray();
+			var ticketBlocks = _reTicketBlocks.Matches(Content + "\nTST99999").ToArray();
 
-			var segmentBlocks0 = ticketBlocks.Select(a => a.Groups["segments"].Value).ToArray();
+			var segmentBlocks0 = ticketBlocks.ToArray(a => a.Groups["segments"].Value);
 
-			var segmentBlocks = segmentBlocks0.Select(g1 => _reSegments.Matches(g1).Cast<Match>().Select(a => a.Groups["line"].Value.Clip()).ToArray()).ToArray();
+			var segmentBlocks = segmentBlocks0.ToArray(g1 =>
+				_reSegments.Matches(g1).ToArray(a => a.Groups["line"].Value.Clip())
+			);
 
 
 			var feesBlocks0 = ticketBlocks.Select(a => a.Groups["sums"].Value).ToArray();
 
 
-			var feeBlocks = feesBlocks0
+			var feeBlocks = feesBlocks0.ToArray(a =>
 
-				.Select(a =>
-					_reFees.Matches(a).Cast<Match>()
-					.Select(m => new
-					{
-						Code = m.Groups["code"].Value,
-						Amount = m.Groups["amount"].Value.As().Decimal,
-						Currency = m.Groups["currency"].Value,
-					})
-					.ToArray()
-				)
+				_reFees.Matches(a).ToArray(m => new
+				{
+					Code = m.Groups["code"].Value,
+					Amount = m.Groups["amount"].Value.As().Decimal,
+					Currency = m.Groups["currency"].Value,
+				})
 
-				.ToArray()
-
-			;
+			);
 
 
 			//var passengerNames = baseMatch.Groups["passenger"].Captures.Select(a => a.Value.Trim()).ToArray();
 
-			var passengerGroups = passengerGroupsMatches.Cast<Match>().Select(a =>
-				a.Groups["passenger"].Captures.Select(b => b.Value.Trim()).ToArray()
-			).ToArray();
+			var passengerGroups = passengerGroupsMatches.ToArray(a =>
+				a.Groups["passenger"].Captures.Select(b => b.Value.Trim())
+			);
 
 
 			Tuple<string, decimal>[] SelectSum(MatchCollection matches)
 			{
-				return matches
-					.Select(a => new Tuple<string, decimal>(
-						a.Groups["currency"].Value,
-						decimal.Parse(a.Groups["amount"].Value, CultureInfo.InvariantCulture)
-					))
-					.ToArray()
-				;
+				return matches.ToArray(a => new Tuple<string, decimal>(
+					a.Groups["currency"].Value,
+					decimal.Parse(a.Groups["amount"].Value, CultureInfo.InvariantCulture)
+				));
 			}
 
 
@@ -169,14 +164,16 @@ namespace Luxena.Travel.Parsers
 
 			var totals = SelectSum(totalMatches);
 
-			var commissions = commissionMatches.Select(a => new
+			var commissions = commissionMatches.ToArray(a => new
 			{
 				Amount = a.Groups["amount"].Value.As().Decimaln,
 				IsMoney = a.Groups["ismoney"].Success,
-			}).ToArray();
+			});
 
 
-			var paymentTypes = paymentTypeMatches.Select(a => AirParser.ParsePaymentType(a.Groups["type"].Value)).ToArray();
+			var paymentTypes = paymentTypeMatches.ToArray(a => 
+				AirParser.ParsePaymentType(a.Groups["type"].Value)
+			);
 
 
 			var ticketIndex = 0;
@@ -204,6 +201,7 @@ namespace Luxena.Travel.Parsers
 				{
 
 					AviaDocument doc = null;
+
 
 					if (ticketIndex < tickets.Count)
 					{
@@ -235,9 +233,14 @@ namespace Luxena.Travel.Parsers
 
 					doc.FeesTotal = totalCurrency == equalFareCurrency && totalAmount >= equalFareAmount
 						? new Money(totalCurrency, totalAmount - equalFareAmount)
-						: null;
+						: null
+					;
 
-					doc.Total = totalCurrency != null ? new Money(totalCurrency, totalAmount) : null;
+					doc.Total = totalCurrency != null 
+						? new Money(totalCurrency, totalAmount) 
+						: null
+					;
+
 
 					doc.PaymentType = paymentType;
 
@@ -297,6 +300,7 @@ namespace Luxena.Travel.Parsers
 
 
 					ticketIndex++;
+
 
 					yield return doc;
 

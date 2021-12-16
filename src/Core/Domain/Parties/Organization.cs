@@ -3,12 +3,27 @@
 using Luxena.Domain;
 
 
+
+
 namespace Luxena.Travel.Domain
 {
+
+
+
+	//===g
+
+
+
+
+
 
 	[RU("Организация", "Организации")]
 	public partial class Organization : Party
 	{
+
+		//---g
+
+
 
 		[SemanticSetup]
 		public static void AnnotationSetup(SemanticSetup<Organization> sm)
@@ -17,6 +32,12 @@ namespace Luxena.Travel.Domain
 				.RU("Код предприятия (ЕДРПОУ)")
 				.MaxLength(10);
 		}
+
+
+
+		//---g
+
+
 
 		public override PartyType Type => PartyType.Organization;
 
@@ -58,15 +79,9 @@ namespace Luxena.Travel.Domain
 		public virtual bool IsGenericProductProvider { get; set; }
 
 		[RU("Данная организация является Провайдером услуг")]
-		public virtual bool IsProvider
-		{
-			get
-			{
-				return
-					IsAccommodationProvider || IsBusTicketProvider || IsCarRentalProvider || //IsInsuranceProvider ||
-					IsPasteboardProvider || IsTourProvider || IsTransferProvider || IsGenericProductProvider;
-			}
-		}
+		public virtual bool IsProvider => 
+			IsAccommodationProvider || IsBusTicketProvider || IsCarRentalProvider || //IsInsuranceProvider ||
+			IsPasteboardProvider || IsTourProvider || IsTransferProvider || IsGenericProductProvider;
 
 
 		[RU("Данная организация является Страховой компанией")]
@@ -76,17 +91,41 @@ namespace Luxena.Travel.Domain
 		public virtual bool IsRoamingOperator { get; set; }
 
 
+
+		//---g
+
+
+
 		public virtual string ToAirlineString()
 		{
 			return $"{AirlineIataCode} - {Name}";
 		}
 
 
+
+		//---g
+
+		
+
 		public new class Service : Service<Organization>
 		{
 
 		}
 
+
+
+
+		//---g
+
 	}
+
+
+
+
+
+
+	//===g
+
+
 
 }

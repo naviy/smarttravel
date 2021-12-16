@@ -5,13 +5,28 @@ using Luxena.Base.Data;
 using Luxena.Domain;
 
 
+
+
 namespace Luxena.Travel.Domain
 {
+
+
+
+	//===g
+
+
+
+
+
 
 	[RU("Аэропорт", "Аэропорты")]
 	[SupervisorPrivileges]
 	public partial class Airport : Entity3
 	{
+
+		//---g
+
+
 
 		[Patterns.Code, EntityName2]
 		public virtual string Code { get; set; }
@@ -31,10 +46,21 @@ namespace Luxena.Travel.Domain
 		public virtual double? Longitude { get; set; }
 
 
+
+		//---g
+
+
+
 		public override string ToString()
 		{
 			return Name.No() ? Code : string.Format(DomainRes.Airport_Format_ToString, Code, Name);
 		}
+
+
+
+		//---g
+
+
 
 		/// <summary>
 		/// Расстояние в километрах
@@ -57,16 +83,28 @@ namespace Luxena.Travel.Domain
 		}
 
 
+
+		//---g
+
+
+
 		public class Service : Entity3Service<Airport>
 		{
+
+			//---g
+
+
 
 			public Airport ByCode(string code)
 			{
 				return code.No() ? null : By(a => a.Code == code);
 			}
 
+
+
 			public override RangeResponse Suggest(RangeRequest prms)
 			{
+
 				var list = (
 					from a in Query
 					where
@@ -78,11 +116,30 @@ namespace Luxena.Travel.Domain
 				)
 				.ToArray();
 
+
 				return new RangeResponse(list);
+
 			}
 
+
+
+			//---g
+
 		}
+		
+
+
+		//---g
 
 	}
+
+
+
+
+
+
+	//===g
+
+
 
 }

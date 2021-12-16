@@ -115,6 +115,93 @@ namespace Luxena
 
 
 		public static TResult[] ToArray<TSource, TResult>(
+			this List<TSource> source,
+			Func<TSource, TResult> selector
+		)
+		{
+
+			if (source == null)
+				return null;
+
+
+			var len = source.Count;
+
+			var result = new TResult[len];
+
+
+			for (var i = 0; i < len; i++)
+			{
+				result[i] = selector(source[i]);
+			}
+
+
+			return result;
+
+		}
+
+
+
+		public static TResult[] ToArray<TSource, TResult>(
+			this List<TSource> source,
+			Func<TSource, int, TResult> selector
+		)
+		{
+
+			if (source == null)
+				return null;
+
+
+			var len = source.Count;
+
+			var result = new TResult[len];
+
+
+			for (var i = 0; i < len; i++)
+			{
+				result[i] = selector(source[i], i);
+			}
+
+
+			return result;
+
+		}
+
+
+
+		public static TResult[] ToArray<TSource, TResult>(
+			this List<TSource> source,
+			Func<TSource, int, List<TSource>, TResult> selector
+		)
+		{
+
+			if (source == null)
+				return null;
+
+
+			var len = source.Count;
+
+			var result = new TResult[len];
+
+
+			for (var i = 0; i < len; i++)
+			{
+				result[i] = selector(source[i], i, source);
+			}
+
+
+			return result;
+
+		}
+
+
+
+
+
+		//---g
+
+
+
+		public static TResult[] ToArray<TSource, TResult>(
 			this IList<TSource> source,
 			Func<TSource, TResult> selector
 		)

@@ -168,6 +168,7 @@ namespace Luxena.Travel.Parsers
 
 			parser.Parse();
 
+
 			var airRecordHeader = (string[])parser.Result[0];
 			var validatingAirline = (string[])parser.Result[1];
 			var servicingCarrier = (string[])parser.Result[2];
@@ -183,6 +184,7 @@ namespace Luxena.Travel.Parsers
 			var passengersGroup = (object[][])parser.Result[13];
 			var rizGroup = (object[][])parser.Result[14];
 
+
 			templateTicket.PnrCode = airRecordHeader[1].Substring(0, 6).TrimOrNull();
 
 			templateTicket.BookerOffice = airRecordHeader[3];
@@ -196,6 +198,7 @@ namespace Luxena.Travel.Parsers
 
 			templateTicket.AirlinePnrCode = airRecordHeader[32].TrimOrNull();
 
+
 			var airline = new Organization
 			{
 				Name = validatingAirline[1],
@@ -203,9 +206,12 @@ namespace Luxena.Travel.Parsers
 				AirlinePrefixCode = validatingAirline[2].Substring(3, 3)
 			};
 
+
 			templateTicket.IssueDate = Utility.ParseExactDateTime(pnrDate[3], "yyMMdd");
 
+
 			var segments = ParseSegments(templateTicket, segmentsGroup, fareBasisCodes, couponAmounts, airline);
+
 
 			ParseTicketFare(templateTicket, servicingCarrier[1][24], fare, taxData, sellingFare, sellingTaxData);
 
@@ -235,21 +241,33 @@ namespace Luxena.Travel.Parsers
 				var tourCode = (string[])passengersGroup[i][9];
 				var remarks = (object[])passengersGroup[i][10];
 
-				var ticket = i == passengersGroup.Length - 1 ? templateTicket : (AviaTicket)templateTicket.Clone();
+
+				var ticket = i == passengersGroup.Length - 1 
+					? templateTicket 
+					: (AviaTicket)templateTicket.Clone()
+				;
+
 
 				ticket.PassengerName = passengerName[2].Substring(2);
 
+
 				if (gdsPassport != null && gdsPassport.Length > 1)
+				{
 					ticket.GdsPassport = gdsPassport[1].Substring(4);
+				}
 
 
 				ticket.AirlinePrefixCode = ticketNumber[1].Substring(1, 3);
 
+
 				var numbers = ticketNumber[1].Substring(5).Split(new[] { '-' }, 2);
+				
 				ticket.Number = numbers[0].Clip();
 
 				if (numbers.Length > 1)
+				{
 					ticket.ConjunctionNumbers = numbers[1];
+				}
 
 
 				if (ticket.AirlinePrefixCode == airline.AirlinePrefixCode)
@@ -274,6 +292,7 @@ namespace Luxena.Travel.Parsers
 
 				ProcessRizData(ticket, rizGroup, i);
 
+
 				if (tourCode != null)
 					ticket.TourCode = tourCode[1];
 
@@ -293,6 +312,7 @@ namespace Luxena.Travel.Parsers
 
 				if (endorsement != null)
 					ticket.Endorsement = endorsement[1].Trim('*');
+
 
 				_documents.Add(ticket);
 
@@ -355,6 +375,7 @@ namespace Luxena.Travel.Parsers
 				var carrier = (string[])passengersGroup[i][14];
 				var remarks = (object[])passengersGroup[i][15];
 
+
 				var ticket = i == passengersGroup.Length - 1 ? templateTicket : (AviaTicket)templateTicket.Clone();
 
 				ticket.PassengerName = passengerName[2].Substring(2);
@@ -375,17 +396,20 @@ namespace Luxena.Travel.Parsers
 
 				if (ticketNumbers != null)
 				{
+
 					var number = ticketNumbers[1].Split('-');
 
 					ticket.AirlinePrefixCode = number[0];
 					ticket.Number = number[1].Clip();
 					ticket.IsManual = true;
 
+
 					foreach (var segment in ticket.Segments)
 					{
 						if (segment.Type == FlightSegmentType.Unticketed)
 							segment.Type = FlightSegmentType.Ticketed;
 					}
+
 				}
 
 
@@ -473,27 +497,38 @@ namespace Luxena.Travel.Parsers
 
 				var segmentLine = (string[])t[0];
 
-				if (segmentLine[2].Length < AviaSegmentNumberPartMinLength || segmentLine[2].Length > AviaSegmentNumberPartMaxLength)
+
+				if (segmentLine[2].Length < AviaSegmentNumberPartMinLength || 
+					segmentLine[2].Length > AviaSegmentNumberPartMaxLength
+				)
+				{
 					continue;
+				}
+
 
 				var segment = new FlightSegment();
 
 				segments.Add(segment);
 
+
 				segment.Position = int.Parse(segmentLine[2].Substring(0, 3));
 
 				segment.Stopover = segmentLine[2][3] == 'O';
 
+
 				segment.FromAirportCode = segmentLine[2].Substring(4, 3);
 				segment.FromAirportName = segmentLine[3].Trim();
+
 				segment.FromAirport = new Airport
 				{
 					Code = segment.FromAirportCode,
 					Name = segment.FromAirportName
 				};
 
+
 				segment.ToAirportCode = segmentLine[4];
 				segment.ToAirportName = segmentLine[5].Trim();
+
 				segment.ToAirport = new Airport
 				{
 					Code = segment.ToAirportCode,
@@ -554,15 +589,23 @@ namespace Luxena.Travel.Parsers
 
 				if (segment.FlightNumber == OpenSegment)
 				{
+
 					if (segmentLine[7].Length != 0)
+					{
 						segment.DepartureTime = Utility.ParseSegmentDateTime(segmentLine[7] + "0000", templateTicket.IssueDate);
+					}
+
 
 					segment.Luggage = segmentLine.TrimOrNull(13);
 
+
 					templateTicket.AddSegment(segment);
+
 				}
+
 				else
 				{
+
 					segment.DepartureTime = Utility.ParseSegmentDateTime(segmentParts[4] + segmentParts[5], templateTicket.IssueDate);
 
 					segment.ArrivalTime = Utility.ParseSegmentDateTime(segmentParts[7] + segmentParts[6], templateTicket.IssueDate);
@@ -575,13 +618,20 @@ namespace Luxena.Travel.Parsers
 
 					segment.CheckInTerminal = segmentLine[15].TrimOrNull();
 
+
 					if (segmentLine[16].Length != 0)
+					{
 						segment.CheckInTime = segmentLine[16].Substring(0, 2) + ":" + segmentLine[16].Substring(2, 2);
+					}
 
 					if (segmentLine[18].Length != 0)
+					{
 						segment.Duration = segmentLine[18].Substring(0, 2) + ":" + segmentLine[18].Substring(2, 2);
+					}
+
 
 					segment.ArrivalTerminal = segmentLine.TrimOrNull(segment.Type == FlightSegmentType.Ticketed ? 23 : 25);
+
 				}
 
 
@@ -589,14 +639,20 @@ namespace Luxena.Travel.Parsers
 
 
 				for (j = 0; j < templateTicket.Segments.Count; ++j)
+				{
 					if (segment.Position < templateTicket.Segments[j].Position)
 						break;
+				}
 
 
 				if (j < templateTicket.Segments.Count)
+				{
 					templateTicket.InsertSegment(j, segment);
+				}
 				else
+				{
 					templateTicket.AddSegment(segment);
+				}
 
 			}
 
@@ -605,6 +661,7 @@ namespace Luxena.Travel.Parsers
 			{
 
 				templateTicket.Segments[i].Position = i;
+
 
 				if (!templateTicket.Segments[i].Stopover && i > 0)
 				{
@@ -731,15 +788,18 @@ namespace Luxena.Travel.Parsers
 				Origin = ProductOrigin.AmadeusAir
 			};
 
+
 			var parser = new LinesSequenceParser(_mcoPattern, _lines, null);
 
 			parser.Parse();
+
 
 			var airRecordHeader = (string[])parser.Result[0];
 			var servicingCarrier = (string[])parser.Result[1];
 			var pnrDate = (string[])parser.Result[2];
 			var segmentsGroup = (object[][])parser.Result[3];
 			var passengersGroup = (object[][])parser.Result[4];
+
 
 			templateMco.PnrCode = airRecordHeader[1].Substring(0, 6).TrimOrNull();
 
@@ -761,15 +821,28 @@ namespace Luxena.Travel.Parsers
 			{
 
 				var segmentLine = (string[])segmentsGroup[i][0];
+
 				var connectedWith = (string[])segmentsGroup[i][1];
 
-				var lineNumber = emd ? int.Parse(segmentLine[6].Substring(1)) : int.Parse(segmentLine[2].Substring(0, 3));
 
-				var mco = i == segmentsGroup.Length - 1 ? templateMco : (AviaMco)templateMco.Clone();
+				var lineNumber = emd 
+					? int.Parse(segmentLine[6].Substring(1)) 
+					: int.Parse(segmentLine[2].Substring(0, 3))
+				;
+
+
+				var mco = i == segmentsGroup.Length - 1 
+					? templateMco 
+					: (AviaMco)templateMco.Clone()
+				;
+
 
 				mco.AirlineIataCode = segmentLine[2].Substring(3).TrimOrNull();
+
 				mco.AirlinePrefixCode = segmentLine[3].Substring(0, 3);
+
 				mco.AirlineName = segmentLine[4].TrimOrNull();
+
 
 				mco.Producer = new Organization
 				{
@@ -856,17 +929,24 @@ namespace Luxena.Travel.Parsers
 					var lineNumber = mcoNumber[3].AsSubstring(1).As().Int;
 
 					var mco = mcoMap.By(lineNumber);
-					if (mco == null) continue;
+
+					if (mco == null) 
+						continue;
+
 
 					mco.Number = mcoNumber[1].Substring(5).Clip();
 					mco.PassengerName = passenger;
 
+
 					if (mcoNumber[2].Length != 0)
+					{
 						mco.InConnectionWith = new AviaTicket
 						{
 							AirlinePrefixCode = mcoNumber[2].Substring(0, 3),
 							Number = mcoNumber[2].Substring(4, 10).Clip()
 						};
+					}
+
 
 					_documents.Add(mco);
 
@@ -875,43 +955,63 @@ namespace Luxena.Travel.Parsers
 
 				if (formOfPayments != null)
 				{
+
 					foreach (var formOfPayment_ in formOfPayments)
 					{
+
 						var formOfPayment = (string[])formOfPayment_[0];
 
 						var lineNumber = formOfPayment[emd ? 4 : 2].AsSubstring(1).As().Int;
+
 						mcoMap.By(lineNumber).Do(mco =>
 						{
 							mco.PaymentForm = formOfPayment[1];
 							mco.PaymentType = ParsePaymentType(formOfPayment[1]);
 						});
+
 					}
+
 				}
 
 
 				if (fareCommissions != null)
 				{
+
 					foreach (var fareCommission_ in fareCommissions)
 					{
+
 						var fareCommission = (string[])fareCommission_[0];
 
-						if (fareCommission[2].Length <= 0) continue;
+						if (fareCommission[2].Length <= 0) 
+							continue;
+
 
 						var lineNumber = fareCommission[2].AsSubstring(1).As().Int;
+
 						mcoMap.By(lineNumber).Do(mco => ProcessCommission(mco, fareCommission));
+
 					}
+
 				}
 
 
 				if (tourCodes != null)
 				{
+
 					foreach (var tourCode_ in tourCodes)
 					{
+
 						var tourCode = (string[])tourCode_[0];
 
 						var lineNumber = tourCode[2].AsSubstring(1).As().Int;
-						mcoMap.By(lineNumber).Do(mco => mco.TourCode = tourCode[1]);
+
+						mcoMap.By(lineNumber).Do(mco =>
+						{
+							mco.TourCode = tourCode[1];
+						});
+
 					}
+
 				}
 
 
@@ -926,12 +1026,13 @@ namespace Luxena.Travel.Parsers
 						var lineNumber = originalIssue[2].AsSubstring(1).As().Int;
 
 						mcoMap.By(lineNumber).Do(mco =>
+						{
 							mco.ReissueFor = new AviaMco
 							{
 								AirlinePrefixCode = originalIssue[1].AsSubstring(0, 3),
 								Number = originalIssue[1].AsSubstring(4, 10).Clip()
-							}
-						);
+							};
+						});
 
 					}
 

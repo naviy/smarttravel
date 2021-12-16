@@ -7,13 +7,28 @@ using System.Text.RegularExpressions;
 using Luxena.Domain;
 
 
+
+
 namespace Luxena.Travel.Domain
 {
+
+
+
+	//===g
+
+
+
+
+
 
 	[GenericPrivileges]
 	[RU("Полётный сегмент", "Полётные сегменты")]
 	public partial class FlightSegment : Entity2
 	{
+
+		//---g
+
+
 
 		[RU("Авиабилет")]
 		public virtual AviaTicket Ticket { get; set; }
@@ -81,32 +96,6 @@ namespace Luxena.Travel.Domain
 		[RU("Питание")]
 		public virtual MealType? MealTypes { get; set; }
 
-		public virtual string MealNames(string separator = ", ")
-		{
-			if (MealTypes == null)
-				return MealCodes;
-
-			var mealTypes = (int)MealTypes.Value;
-			if (mealTypes == 0)
-				return null;
-
-			var sb = new StringWrapper();
-
-			var re1 = new Regex(@"[A-Z]");
-
-			foreach (var type in Enum.GetValues(typeof(MealType)))
-			{
-				if ((mealTypes & (int)type) == 0) continue;
-
-				if (sb > 0)
-					sb += separator;
-				sb += re1.Replace(type.ToString(), m => " " + m.Value.ToLower()).Trim();
-			}
-
-			return sb;
-		}
-
-
 
 		[RU("Кол-во остановок")]
 		public virtual int? NumberOfStops { get; set; }
@@ -159,18 +148,74 @@ namespace Luxena.Travel.Domain
 		public virtual Money CouponAmount { get; set; }
 
 
+
+		//---g
+
+
+
+		public override string ToString()
+		{
+			return $"{Ticket} #{Position}: {FromAirportCode} {CarrierIataCode} {ToAirportCode} ({Distance:0.0} km, {Surcharges:0.00} + {Fare:0.00} + {StopoverOrTransferCharge:0.00} = {Amount:0.00})";
+		}
+
+
+
+		public virtual string MealNames(string separator = ", ")
+		{
+
+			if (MealTypes == null)
+				return MealCodes;
+
+
+			var mealTypes = (int)MealTypes.Value;
+
+			if (mealTypes == 0)
+				return null;
+
+
+			var sb = new StringWrapper();
+
+			var re1 = new Regex(@"[A-Z]");
+
+
+			foreach (var type in Enum.GetValues(typeof(MealType)))
+			{
+
+				if ((mealTypes & (int)type) == 0) 
+					continue;
+
+
+				if (sb > 0)
+					sb += separator;
+
+				sb += re1.Replace(type.ToString(), m => " " + m.Value.ToLower()).Trim();
+
+			}
+
+
+			return sb;
+
+		}
+
+
+
 		public virtual string GetFromAirportCode()
 		{
 			return FromAirport != null ? FromAirport.Code : FromAirportCode;
 		}
+
+
 
 		public virtual string GetToAirportCode()
 		{
 			return ToAirport != null ? ToAirport.Code : ToAirportCode;
 		}
 
+
+
 		public static void Copy(FlightSegment source, FlightSegment target)
 		{
+
 			target.Position = source.Position;
 			target.Type = source.Type;
 			target.FromAirportCode = source.FromAirportCode;
@@ -202,27 +247,37 @@ namespace Luxena.Travel.Domain
 			target.FareBasis = source.FareBasis;
 			target.Stopover = source.Stopover;
 			target.CouponAmount = source.CouponAmount;
+
 		}
 
-		public override string ToString()
-		{
-			return $"{Ticket} #{Position}: {FromAirportCode} {CarrierIataCode} {ToAirportCode} ({Distance:0.0} km, {Surcharges:0.00} + {Fare:0.00} + {StopoverOrTransferCharge:0.00} = {Amount:0.00})";
-		}
+
+
+		//---g
+
 
 
 		public override Entity Resolve(Domain db)
 		{
+
 			var r = this;
+
 
 			if (r.Carrier == null)
 			{
 				if (r.CarrierIataCode.Yes())
+				{
 					r.Carrier = db.Airline.ByIataCode(r.CarrierIataCode);
+				}
 				else if (r.CarrierPrefixCode.Yes())
+				{
 					r.Carrier = db.Airline.ByPrefixCode(r.CarrierPrefixCode);
+				}
 			}
 			else
+			{
 				r.Carrier += db.Airline;
+			}
+
 
 			r.Operator += db.Airline;
 
@@ -233,7 +288,10 @@ namespace Luxena.Travel.Domain
 					r.FromAirport = db.Airport.ByCode(r.FromAirportCode);
 			}
 			else
+			{
 				r.FromAirport += db;
+			}
+
 
 			if (r.ToAirport == null)
 			{
@@ -241,15 +299,21 @@ namespace Luxena.Travel.Domain
 					r.ToAirport = db.Airport.ByCode(r.ToAirportCode);
 			}
 			else
+			{
 				r.ToAirport += db;
+			}
 
 
 			if (r.Carrier != null && r.ServiceClassCode.Yes())
+			{
 				r.ServiceClass = db.AirlineServiceClass.GetServiceClass(r.ServiceClassCode, r.Carrier);
+			}
+
 
 			r.Equipment += db.AirplaneModel;
 
 			r.Distance = Airport.GetDistance(r.FromAirport, r.ToAirport);
+
 
 			if (r.MealCodes.Yes())
 			{
@@ -259,10 +323,19 @@ namespace Luxena.Travel.Domain
 				}
 			}
 
+
 			CouponAmount += db;
 
+
 			return r;
+
 		}
+
+
+
+		//---g
+
+
 
 		private static readonly IDictionary<char, MealType> _mealCodeMapping = new Dictionary<char, MealType>
 		{
@@ -282,17 +355,26 @@ namespace Luxena.Travel.Domain
 		};
 
 
+
+		//---g
+
+
+
 		public class Service : Entity2Service<FlightSegment>
 		{
+
 			public Service()
 			{
+
 				Modifing += r =>
 				{
+
 					r.FromAirport.Do(a =>
 					{
 						r.FromAirportCode = a.Code;
 						r.FromAirportName = a.Name;
 					});
+
 					r.ToAirport.Do(a =>
 					{
 						r.ToAirportCode = a.Code;
@@ -305,10 +387,25 @@ namespace Luxena.Travel.Domain
 						r.CarrierName = a.Name;
 						r.CarrierPrefixCode = a.AirlinePrefixCode;
 					});
+
 				};
+
 			}
 		}
+		
+
+
+		//---g
 
 	}
+
+
+
+
+
+
+	//===g
+
+
 
 }

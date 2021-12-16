@@ -203,12 +203,13 @@ namespace Luxena.Travel.Web.Services
 		[WebMethod]
 		public EntityReference[] AddDocumentsByConsoleContent(string content, string sellerId, string ownerId)
 		{
-			return db.Commit(() => 
-				db.AviaDocument
+			return db.Commit(() =>
+			{
+				return db.AviaDocument
 					.AddByConsoleContent(content, sellerId, ownerId)
-					.Select(a => new EntityReference(a.Type.ToString(), a.Id, a.Name))
-					.ToArray()
-			);
+					.ToArray(a => new EntityReference(a.Type.ToString(), a.Id, a.Name))
+				;
+			});
 		}
 
 

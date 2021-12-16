@@ -232,7 +232,7 @@ namespace Luxena.Travel.Domain
 
 
 				AviaDocument ticket = db.AviaTicket.ByNumber(doc);
-				
+
 				AviaDocument mco = db.AviaMco.ByNumber(doc);
 
 
@@ -267,7 +267,7 @@ namespace Luxena.Travel.Domain
 
 				var status = base.CanDelete(r);
 
-				if (!status) 
+				if (!status)
 					return status;
 
 
@@ -365,7 +365,7 @@ namespace Luxena.Travel.Domain
 
 				var passport = document.ParseGdsPassport();
 
-				if (passport == null) 
+				if (passport == null)
 					return null;
 
 
@@ -661,10 +661,18 @@ namespace Luxena.Travel.Domain
 
 
 
-			public IList<AviaDocument> AddByConsoleContent(string content, string sellerId, string ownerId)
+			public List<AviaDocument> AddByConsoleContent(string content, string sellerId, string ownerId)
 			{
 
-				var docs = AmadeusConsoleParser.Parse(content, db.Configuration.DefaultCurrency).ToList();
+				var docs =
+					AmadeusConsoleParser
+						.Parse(content, db.Configuration.DefaultCurrency)
+						.ToList()
+						.Else(() => SabreConsoleParser
+							.Parse(content, db.Configuration.DefaultCurrency)
+							.ToList()
+						)
+				;
 
 
 				var seller = db.Person.By(sellerId) ?? db.Security.Person;
@@ -678,10 +686,17 @@ namespace Luxena.Travel.Domain
 					doc.Owner = owner;
 					doc.Seller = seller;
 
-					if (doc.TicketerCode.No() || doc.TicketerOffice.No())
+
+					if ((doc.BookerCode.No() || doc.BookerOffice.No()) &&
+						(doc.TicketerCode.No() || doc.TicketerOffice.No())
+					)
+					{
 						doc.Ticketer = seller;
+					}
+
 
 					doc.Resolve(db);
+
 					Save(doc);
 
 				}
@@ -758,7 +773,7 @@ namespace Luxena.Travel.Domain
 		}
 
 
-		
+
 		//---g
 
 	}

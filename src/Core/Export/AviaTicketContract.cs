@@ -6,14 +6,28 @@ using System.Xml.Serialization;
 using Luxena.Travel.Domain;
 
 
+
+
 namespace Luxena.Travel.Export
 {
+
+
+
+	//===g
+
+
+
+
 
 
 	[DataContract(Name = "AviaTicket", Namespace = "")]
 	[XmlType(TypeName = "AviaTicket")]
 	public class AviaTicketContract : AviaDocumentContract
 	{
+
+		//---g
+
+
 
 		[DataMember]
 		public DateTime? Departure { get; set; }
@@ -47,13 +61,17 @@ namespace Luxena.Travel.Export
 		public string Direction { get; set; }
 
 
-		//===
 
+		//---g
+
+		
 
 		public AviaTicketContract() { }
 
+
 		public AviaTicketContract(AviaTicket r) : base(r)
 		{
+
 			Departure = r.Departure;
 			LastDeparture = r.LastDeparture;
 			Arrival = r.Arrival;
@@ -70,15 +88,20 @@ namespace Luxena.Travel.Export
 			FromAirport = r.Segments.One()?.FromAirport;
 			ToAirport = r.GetDirection();
 			Direction = ToAirport?.Code;
+
 		}
 
 
-		//===
+
+		//---g
+
 
 
 		public override void AssignTo(Domain.Domain db, Product rr)
 		{
+
 			base.AssignTo(db, rr);
+
 			var r = (AviaTicket)rr;
 
 
@@ -91,7 +114,12 @@ namespace Luxena.Travel.Export
 			r.Endorsement = Endorsement;
 			r.IsManual = IsManual;
 
-			Segments.ForEach(a => r.AddSegment(new FlightSegment().Do(seg => a.AssignTo(db, seg))));
+			Segments.ForEach(cseg =>
+			{
+				var seg = new FlightSegment();
+				cseg.AssignTo(db, seg);
+				r.AddSegment(seg);
+			});
 
 			r.PenalizeOperations = Penalties.Select(a => new PenalizeOperation
 			{
@@ -104,9 +132,22 @@ namespace Luxena.Travel.Export
 			//r.FromAirport = Segments.One()?.FromAirport;
 			//r.ToAirport = GetDirection();
 			//r.Direction = ToAirport?.Code;
+
 		}
 
+
+
+		//---g
+
 	}
+
+
+
+
+
+
+	//===g
+
 
 
 }

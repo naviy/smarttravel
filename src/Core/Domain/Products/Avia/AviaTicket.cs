@@ -3,31 +3,52 @@ using System.Collections.Generic;
 using System.Linq;
 
 
+
+
 namespace Luxena.Travel.Domain
 {
+
+
+
+	//===g
+
+
+
+
+
 
 	[RU("Авиабилет", "Авиабилеты")]
 	public partial class AviaTicket : AviaDocument
 	{
+
+		//---g
+
+
 
 		public AviaTicket()
 		{
 			SetupCalculations();
 		}
 
+
+
+		//---g
+
+
+
 		public override ProductType Type => ProductType.AviaTicket;
 
 		public override string Itinerary
 		{
-			get { return _itinerary.Get(); }
-			set { _itinerary.Set(value); }
+			get => _itinerary.Get();
+			set => _itinerary.Set(value);
 		}
 
 		[Patterns.DepartureDate]
 		public virtual DateTime? Departure
 		{
-			get { return _departure.Get(); }
-			set { _departure.Set(value); }
+			get => _departure.Get();
+			set => _departure.Set(value);
 		}
 
 		[Patterns.ArrivalDate]
@@ -46,15 +67,15 @@ namespace Luxena.Travel.Domain
 
 		public virtual bool Interline
 		{
-			get { return _interline.Get(); }
-			set { _interline.Set(value); }
+			get => _interline.Get();
+			set => _interline.Set(value);
 		}
 
 		[RU("Классы сегментов")]
 		public virtual string SegmentClasses
 		{
-			get { return _segmentClasses.Get(); }
-			set { _segmentClasses.Set(value); }
+			get => _segmentClasses.Get();
+			set => _segmentClasses.Set(value);
 		}
 
 		public virtual string Endorsement { get; set; }
@@ -63,14 +84,14 @@ namespace Luxena.Travel.Domain
 
 		public virtual IList<FlightSegment> Segments
 		{
-			get { return _segments; }
-			set { _segments = value; }
+			get => _segments;
+			set => _segments = value;
 		}
 
 		public virtual Money FareTotal
 		{
-			get { return _fareTotal; }
-			set { _fareTotal = value; }
+			get => _fareTotal;
+			set => _fareTotal = value;
 		}
 
 		public virtual IList<FlightSegment> GetTicketedSegments()
@@ -80,13 +101,19 @@ namespace Luxena.Travel.Domain
 
 		public virtual IList<PenalizeOperation> PenalizeOperations
 		{
-			get { return _penalizeOperations; }
-			set { _penalizeOperations = value; }
+			get => _penalizeOperations;
+			set => _penalizeOperations = value;
 		}
+
+
+
+		//---g
+
 
 
 		public override object Clone()
 		{
+
 			var ticket = (AviaTicket)base.Clone();
 
 			ticket._fareTotal = _fareTotal.Clone();
@@ -96,30 +123,44 @@ namespace Luxena.Travel.Domain
 			ticket._segments = new List<FlightSegment>();
 			ticket._penalizeOperations = new List<PenalizeOperation>();
 
+
 			foreach (var segment in _segments)
 				ticket.AddSegment((FlightSegment)segment.Clone());
+
 
 			foreach (var operation in _penalizeOperations)
 				ticket.AddPenalizeOperation((PenalizeOperation)operation.Clone());
 
+
 			return ticket;
+
 		}
+
+
 
 		public virtual void AddSegment(FlightSegment segment)
 		{
+
 			segment.Ticket = this;
 
 			_segments.Add(segment);
 
 			OnItineraryChange();
+
 		}
+
+
 
 		public virtual void RemoveSegment(FlightSegment segment)
 		{
+
 			_segments.Remove(segment);
 
 			OnItineraryChange();
+
 		}
+
+
 
 		//public virtual void UpdateSegmentPosition(FlightSegment segment, int position)
 		//{
@@ -131,16 +172,22 @@ namespace Luxena.Travel.Domain
 		//	OnItineraryChange();
 		//}
 
+
+
 		public virtual void UpdateSegment(FlightSegment segment)
 		{
 			segment.Ticket = this;
 			OnItineraryChange();
 		}
 
+
+
 		public virtual PenalizeOperation FindPenalizeOperation(PenalizeOperationType type)
 		{
 			return _penalizeOperations.Find(op => op.Type == type);
 		}
+
+
 
 		public virtual void AddPenalizeOperation(PenalizeOperation operation)
 		{
@@ -148,6 +195,8 @@ namespace Luxena.Travel.Domain
 
 			_penalizeOperations.Add(operation);
 		}
+
+
 
 		public virtual void InsertSegment(int index, FlightSegment segment)
 		{
@@ -158,20 +207,27 @@ namespace Luxena.Travel.Domain
 			OnItineraryChange();
 		}
 
+
+
 		public override string GetItinerary(Func<Airport, string> airportToString, bool withSpaces, bool withDates)
 		{
+
 			var segments = _ticketedSegments.Get();
 
 			if (segments.No())
 				return string.Empty;
 
+
 			var sb = new StringWrapper();
 			var separator = string.Empty;
 			string lastAirportCode = null;
 
+
 			foreach (var segment in segments)
 			{
+
 				var airportString = airportToString(segment.FromAirport) ?? segment.FromAirportCode;
+
 
 				if ((lastAirportCode.No() || lastAirportCode != segment.GetFromAirportCode()) &&
 					airportString.Yes())
@@ -185,7 +241,9 @@ namespace Luxena.Travel.Domain
 					separator = withSpaces ? " - " : "-";
 				}
 
+
 				airportString = airportToString(segment.ToAirport) ?? segment.ToAirportCode;
+
 
 				if (airportString.Yes())
 				{
@@ -193,11 +251,15 @@ namespace Luxena.Travel.Domain
 					sb += airportString;
 				}
 
+
 				lastAirportCode = segment.GetToAirportCode();
+
 			}
+
 
 			if (withDates)
 			{
+
 				var departure = segments.One(a => a.DepartureTime) ?? Departure;
 
 				if (departure != null)
@@ -214,20 +276,29 @@ namespace Luxena.Travel.Domain
 						sb += arrival.AsDateString();
 					}
 				}
+
 			}
 
+
 			return sb;
+
 		}
+
+
 
 		public virtual void SetDomestic()
 		{
 			Domestic = Vat != null && Vat.Amount != 0;
 		}
 
+
+
 		//		public virtual void SetInterline()
 		//		{
 		//			Interline = _ticketedSegments.Get().Any(segment => !Equals(segment.Carrier, Producer));
 		//		}
+
+
 
 		public virtual void RemovePenalizeOperation(PenalizeOperation operation)
 		{
@@ -235,9 +306,13 @@ namespace Luxena.Travel.Domain
 		}
 
 
+
 		public virtual Airport GetDirection()
 		{
-			if (_segments.No()) return null;
+
+			if (_segments.No()) 
+				return null;
+
 
 			return (
 				from s in Segments
@@ -256,12 +331,17 @@ namespace Luxena.Travel.Domain
 					)?.FromAirport
 
 			).One();
+
 		}
+
 
 
 		public virtual void CalculateFares()
 		{
-			if (_segments.Count == 0) return;
+
+			if (_segments.Count == 0)
+				return;
+
 
 			if (!CalculateFaresByFareTotal())
 			{
@@ -270,22 +350,30 @@ namespace Luxena.Travel.Domain
 
 		}
 
+
+
 		public virtual bool CalculateFaresByTotal()
 		{
+
 			var useFare = Fare != null && Fare.Amount > 0 && Fare.Currency != null;
 			var useTotal = Total != null && Total.Amount > 0 && Total.Currency != null;
+
 
 			if (!useFare && !useTotal)
 				return false;
 
-			var totalAmount = useFare ? Fare.Amount : Total.Amount - (FeesTotal != null ? FeesTotal.Amount : 0);
+
+			var totalAmount = useFare ? Fare.Amount : Total.Amount - (FeesTotal?.Amount ?? 0);
 			var totalCurrency = useFare ? Fare.Currency : Total.Currency;
 
 			var fareSegments = _segments.Where(a => a.Type == 0).ToList();
 			var normalFareSegments = fareSegments.Where(a => !a.IsSideTrip).ToList();
 
 			var totalDistance = normalFareSegments.Sum(a => a.Distance);
-			if (totalDistance < 0.01) return false;
+
+			if (totalDistance < 0.01)
+				return false;
+
 
 			var farePerMeter = (double)totalAmount / totalDistance;
 			var remaining = totalAmount;
@@ -298,6 +386,7 @@ namespace Luxena.Travel.Domain
 
 			fareSegments[0].Amount.Amount += remaining;
 
+
 			foreach (var seg in fareSegments.Where(a => a.IsSideTrip))
 			{
 				seg.Amount = new Money(
@@ -306,27 +395,39 @@ namespace Luxena.Travel.Domain
 				);
 			}
 
+
 			return true;
+
 		}
+
+
 
 		public virtual bool CalculateFaresByFareTotal()
 		{
+
 			if (FareTotal == null || FareTotal.Amount <= 0 || FareTotal.Currency == null)
 				return false;
 
+
 			var fareSegments = _segments.Where(a => a.Type == 0).ToList();
 
+
 			var unusedFareTotal = FareTotal.Amount - fareSegments.Sum(a => (a.Surcharges ?? 0) + (a.Fare ?? 0) + (a.StopoverOrTransferCharge ?? 0));
+			
 			if (unusedFareTotal < 0)
 				unusedFareTotal = 0;
 
+
 			var normalFareSegments = fareSegments.Where(a => !a.IsSideTrip).ToList();
+
 
 			// Общая дистанция inclusives (т.е. без fare), для которых будет необходимо распределить остаток от FareTotal
 			var unusedDistanceTotal = 0.0;
 			var fareDistance = 0.0;
+
 			for (int i = 0, len = normalFareSegments.Count; i < len; i++)
 			{
+
 				var seg = normalFareSegments[i];
 				fareDistance += seg.Distance;
 
@@ -337,25 +438,33 @@ namespace Luxena.Travel.Domain
 					fareDistance = 0;
 			}
 
+
 			var startFareIndex = 0;
 			var lastInclusiveFareIndex = -1;
 			var unusedRamining = unusedFareTotal;
 			fareDistance = 0.0;
 
+
 			for (int i = 0, len = normalFareSegments.Count; i < len; i++)
 			{
+
 				var seg0 = normalFareSegments[i];
 				fareDistance += seg0.Distance;
 
-				if (!seg0.IsInclusive && !(seg0.Fare > 0) && i != len - 1) continue;
+				if (!seg0.IsInclusive && !(seg0.Fare > 0) && i != len - 1)
+					continue;
+
 
 				var useUnused = seg0.Fare == null || seg0.Fare == 0;
 
 				if (useUnused && unusedDistanceTotal > 0.01 || !useUnused && fareDistance > 0.01)
 				{
+
 					var farePerMeter = useUnused ? (double)unusedFareTotal / unusedDistanceTotal : (double)seg0.Fare.Value / fareDistance;
 
+
 					var sumFare = 0m;
+
 					for (var j = startFareIndex; j <= i; j++)
 					{
 						var seg = normalFareSegments[j];
@@ -365,6 +474,7 @@ namespace Luxena.Travel.Domain
 						sumFare += fare;
 					}
 
+
 					if (useUnused)
 					{
 						lastInclusiveFareIndex = startFareIndex;
@@ -372,11 +482,14 @@ namespace Luxena.Travel.Domain
 					}
 					else
 						normalFareSegments[startFareIndex].Amount.Amount += seg0.Fare.Value - sumFare;
+
 				}
 
 				startFareIndex = i + 1;
 				fareDistance = 0;
+
 			}
+
 
 			if (lastInclusiveFareIndex >= 0)
 				normalFareSegments[lastInclusiveFareIndex].Amount.Amount += unusedRamining;
@@ -389,11 +502,16 @@ namespace Luxena.Travel.Domain
 				);
 			}
 
+
 			return true;
+
 		}
+
+
 
 		private void SetupCalculations()
 		{
+
 			_ticketedSegments = new Calculated<List<FlightSegment>>(() =>
 			{
 				var value = Segments.ToList();
@@ -408,11 +526,15 @@ namespace Luxena.Travel.Domain
 				_ticketedSegments.Set(value);
 			});
 
+
 			_itinerary = new Calculated<string>(UpdateCalculated);
 			_departure = new Calculated<DateTime?>(UpdateCalculated);
 			_interline = new Calculated<bool>(UpdateCalculated);
 			_segmentClasses = new Calculated<string>(UpdateCalculated);
+
 		}
+
+
 
 		private void OnItineraryChange()
 		{
@@ -424,8 +546,10 @@ namespace Luxena.Travel.Domain
 		}
 
 
+
 		private void UpdateCalculated()
 		{
+
 			Itinerary = GetItinerary(airport => airport?.Code, false, false);
 
 			var segments = _ticketedSegments.Get();
@@ -435,7 +559,13 @@ namespace Luxena.Travel.Domain
 			Departure = segments.Count > 0 ? segments[0].DepartureTime : null;
 
 			Interline = segments.Any(segment => !Equals(segment.Carrier, Producer));
+
 		}
+
+
+
+		//---g
+
 
 
 		private IList<FlightSegment> _segments = new List<FlightSegment>();
@@ -448,6 +578,20 @@ namespace Luxena.Travel.Domain
 		private Calculated<string> _segmentClasses;
 
 		private Money _fareTotal;
+
+
+
+		//---g
+
 	}
+
+
+
+
+
+
+	//===g
+
+
 
 }

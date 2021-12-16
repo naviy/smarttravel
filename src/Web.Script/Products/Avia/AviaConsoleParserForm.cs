@@ -29,6 +29,7 @@ namespace Luxena.Travel
 
 
 
+
 	public class AviaConsoleParserForm : BaseEditForm
 	{
 
@@ -60,7 +61,14 @@ namespace Luxena.Travel
 @"Для создания авиа-документов на основании данных из терминала систем Amadeus, Galileo и Sabre:<br/>
 <br/>
 1) в терминале системы поочерёдно введите следующие команды:<br/>
+<br/>
    - для системы <b>Amadeus</b>: rt[номер бронировки] и tqt; в случае, если просчётов несколько - tqt/T1, tqt/T2 ... соответственно; <br/>
+<br/>
+   - для системы <b>Sabre</b>: <br/>
+&nbsp; &nbsp; *SPAXAV команда-запрос открытия бронировки по номеру или <br/>
+&nbsp; &nbsp; *R отобразить текущую бронировку или <br/>
+&nbsp; &nbsp; *-TKACH открыть по фамилии; <br/>
+
 <br/>
 2) полностью скопируйте с экрана терминала текст данных комманд в буфер обмена;<br/>
 <br/>
@@ -73,7 +81,7 @@ namespace Luxena.Travel
 
 			_contentField = new TextArea(new TextAreaConfig()
 				.width(756)
-				.height(460)
+				.height(400)
 				.hideLabel(true)
 				.allowBlank(false)
 				.style("font-family: Consolas, Courier New, courier")
@@ -121,9 +129,11 @@ namespace Luxena.Travel
 
 
 			AviaService.AddDocumentsByConsoleContent(
+
 				(string)_contentField.getValue(),
 				(string)_seller.GetObjectId(),
 				(string)_owner.GetSelectedId(),
+
 				delegate (object result)
 				{
 					Reference[] docrRefs = (Reference[])result;
@@ -133,7 +143,9 @@ namespace Luxena.Travel
 					}
 					Window.close();
 				},
+
 				null
+
 			);
 
 		}
