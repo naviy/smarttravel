@@ -7,19 +7,41 @@ using System.Linq;
 using Luxena.Domain;
 
 
+
+
 namespace Luxena.Travel.Domain
 {
 
+
+
+	//===g
+
+
+
+
+
+
 	public interface IItineraryContainer
 	{
+
 		string Itinerary { get; set; }
+
 		string GetItinerary(Func<Airport, string> airportToString, bool withSpaces, bool withDates);
+
 	}
+
+
+
+
 
 
 	[RU("Авиадокумент", "Авиадокументы")]
 	public abstract partial class AviaDocument : Product, IItineraryContainer
 	{
+
+		//---g
+
+
 
 		[SemanticSetup]
 		public static void AnnotationSetup(SemanticSetup<AviaDocument> se)
@@ -34,11 +56,23 @@ namespace Luxena.Travel.Domain
 				.RU("Поставщик");
 		}
 
+
+
+		//---g
+
+
+
 		protected AviaDocument()
 		{
 			Originator = GdsOriginator.Unknown;
 			Origin = ProductOrigin.Manual;
 		}
+
+
+
+		//---g
+
+
 
 		public override string Name => IsReservation ? $"{PnrCode}-{PassengerName}" : FullNumber;
 
@@ -52,8 +86,10 @@ namespace Luxena.Travel.Domain
 
 		public virtual string AirlineIataCode { get; set; }
 
+
 		public override string ProducerOrProviderAirlineIataCode =>
 			base.ProducerOrProviderAirlineIataCode ?? AirlineIataCode;
+
 
 		[RU("Код АК")]
 		public virtual string AirlinePrefixCode
@@ -67,6 +103,9 @@ namespace Luxena.Travel.Domain
 				_airlinePrefixCode = value;
 			}
 		}
+
+		private string _airlinePrefixCode;
+
 
 		public virtual string AirlineName { get; set; }
 
@@ -101,12 +140,14 @@ namespace Luxena.Travel.Domain
 
 		public virtual string Remarks { get; set; }
 
-		public virtual IList<AviaDocumentFee> Fees { get => _fees;
-			set => _fees = value;
-		}
+
+		public virtual IList<AviaDocumentFee> Fees { get => _fees; set => _fees = value; }
+		private IList<AviaDocumentFee> _fees = new List<AviaDocumentFee>();
 
 
 		public virtual IList<AviaDocumentVoiding> Voidings => _voidings;
+		private IList<AviaDocumentVoiding> _voidings = new List<AviaDocumentVoiding>();
+
 
 		public virtual string FullNumber =>
 			IsReservation ? null : $"{AirlinePrefixCode}-{Number:0000000000}";
@@ -115,40 +156,66 @@ namespace Luxena.Travel.Domain
 		public virtual bool GdsFileIsExported { get; set; }
 
 
-
-
 		//		[RU("Печатать все сегменты бронировки")]
 		//		public virtual bool PrintUnticketedFlightSegments { get; set; }
 
+
+
+		//---g
+
+
+
 		public override object Clone()
 		{
+
 			var clone = (AviaDocument)base.Clone();
+
 
 			clone._fees = _fees
 				.Select(a => a.Clone<AviaDocumentFee>())
 				.ToList()
-				.Do(list => list.ForEach(a => a.Document = clone));
+				.Do(list => list.ForEach(a => a.Document = clone))
+			;
 
 			clone._voidings = _voidings
 				.Select(a => a.Clone<AviaDocumentVoiding>())
 				.ToList()
-				.Do(list => list.ForEach(a => a.Document = clone));
+				.Do(list => list.ForEach(a => a.Document = clone))
+			;
+
 
 			return clone;
+
 		}
+
+
 
 		public virtual void AddFee(string code, Money amount, bool updateTotal = true, bool ignoreOtherCode = true)
 		{
-			if (code.Yes())
-				AddFee(new AviaDocumentFee { Code = code, Amount = amount }, updateTotal, ignoreOtherCode);
+
+			if (code.No()) 
+				return;
+
+
+			AddFee(
+				new AviaDocumentFee { Code = code, Amount = amount },
+				updateTotal, 
+				ignoreOtherCode
+			);
+
 		}
+
+
 
 		public virtual void AddFee(AviaDocumentFee fee, bool updateTotal = true, bool ignoreOtherCode = true)
 		{
+
 			if (ignoreOtherCode && fee.Code == AviaDocumentFee.OtherCode)
 				return;
 
+
 			fee.Document = this;
+
 
 			if (fee.Code == AviaDocumentFee.ServiceCode)
 			{
@@ -156,15 +223,22 @@ namespace Luxena.Travel.Domain
 			}
 			else
 			{
+
 				if (updateTotal)
 					FeesTotal += fee.Amount;
+
 
 				if (_fees == null)
 					_fees = new List<AviaDocumentFee>();
 
+
 				_fees.Add(fee);
+
 			}
+
 		}
+
+
 
 		public virtual void AddVoiding(AviaDocumentVoiding voiding)
 		{
@@ -175,47 +249,78 @@ namespace Luxena.Travel.Domain
 			IsVoid = voiding.IsVoid;
 		}
 
+
+
 		public virtual string GetItinerary(Func<Airport, string> airportToString, bool withSpaces, bool withDates)
 		{
 			return null;
 		}
 
+
+
 		public virtual Passport ParseGdsPassport()
 		{
+
 			if (GdsPassport.No() || Origin == ProductOrigin.SirenaXml)
 				return null;
 
-			DateTime birthday;
-			DateTime expiredOn;
 
 			var gdsPassport = GdsPassport.Split('/', '-');
 
-			DateTime.TryParseExact(gdsPassport.By(5), "ddMMMyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out birthday);
-			DateTime.TryParseExact(gdsPassport.By(7), "ddMMMyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out expiredOn);
+
+			DateTime.TryParseExact(
+				gdsPassport.By(5),
+				"ddMMMyy",
+				CultureInfo.InvariantCulture,
+				DateTimeStyles.None, 
+				out var birthday
+			);
+
+
+			DateTime.TryParseExact(
+				gdsPassport.By(7), 
+				"ddMMMyy", 
+				CultureInfo.InvariantCulture, 
+				DateTimeStyles.None, 
+				out var expiredOn
+			);
+
 
 			Gender? gender = null;
 
 			if (gdsPassport.By(6).Yes())
 				gender = gdsPassport.By(6) == "M" ? Gender.Male : Gender.Female;
 
-			if (gdsPassport.Length > 1)
-				return new Passport
-				{
-					LastName = gdsPassport.By(8),
-					FirstName = gdsPassport.By(9),
-					Number = gdsPassport.By(3),
-					Citizenship = new Country { TwoCharCode = gdsPassport.By(2) },
-					IssuedBy = new Country { TwoCharCode = gdsPassport.By(4) },
-					Gender = gender,
-					Birthday = birthday == DateTime.MinValue ? (DateTime?)null : birthday.AsUtc(),
-					ExpiredOn = expiredOn == DateTime.MinValue ? (DateTime?)null : expiredOn.AsUtc(),
-				};
 
-			return null;
+			if (gdsPassport.Length <= 1)
+				return null;
+
+
+			return new Passport
+			{
+
+				Number = gdsPassport.By(3),
+				LastName = gdsPassport.By(8),
+				FirstName = gdsPassport.By(9),
+				Gender = gender,
+
+				Citizenship = new Country { TwoCharCode = gdsPassport.By(2) },
+
+				IssuedBy = new Country { TwoCharCode = gdsPassport.By(4) },
+
+				Birthday = birthday == DateTime.MinValue ? (DateTime?)null : birthday.AsUtc(),
+
+				ExpiredOn = expiredOn == DateTime.MinValue ? (DateTime?)null : expiredOn.AsUtc(),
+
+			};
+			
 		}
 
-		public override void SetVoidStatus(Domain db, bool value)
+
+
+		public override void AddVoidStatus(Domain db, bool value)
 		{
+
 			var voiding = new AviaDocumentVoiding
 			{
 				Agent = db.Security.Person,
@@ -225,20 +330,31 @@ namespace Luxena.Travel.Domain
 				TimeStamp = DateTime.Now.AsUtc()
 			};
 
+
 			AddVoiding(voiding);
+
 
 			db.Save(voiding);
 
+
 			if (value)
 				Order?.Remove(db, this);
+
 		}
 
 
 
-		private string _airlinePrefixCode;
+		//---g
 
-		private IList<AviaDocumentFee> _fees = new List<AviaDocumentFee>();
-		private IList<AviaDocumentVoiding> _voidings = new List<AviaDocumentVoiding>();
 	}
+
+
+
+
+
+
+	//===g
+
+
 
 }

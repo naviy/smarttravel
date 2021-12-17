@@ -27,7 +27,7 @@ namespace Luxena.Travel.Tests
 
 
 
-	public class ProductAsserter: ProductAsserter<Product, ProductAsserter> 
+	public class ProductAsserter : ProductAsserter<Product, ProductAsserter>
 	{
 
 		public ProductAsserter(Product r) : base(r) { }
@@ -59,7 +59,7 @@ namespace Luxena.Travel.Tests
 
 
 
-		protected TProduct r;
+		protected readonly TProduct r;
 
 
 
@@ -80,6 +80,10 @@ namespace Luxena.Travel.Tests
 			AreEqual(expected, r.PassengerName);
 			return (TThis)this;
 		}
+
+
+
+		//---g
 
 
 
@@ -120,6 +124,58 @@ namespace Luxena.Travel.Tests
 
 
 
+		public TThis Fare(
+			string fareCurrency,
+			decimal fare
+		)
+		{
+			AreEqual(fareCurrency, r.Fare.Currency.Code);
+			AreEqual(fare, r.Fare.Amount);
+			return (TThis)this;
+		}
+
+
+
+		public TThis EqualFare(
+			string equalFareCurrency,
+			decimal equalFare
+		)
+		{
+			AreEqual(equalFareCurrency, r.EqualFare?.Currency?.Code);
+			AreEqual(equalFare, r.EqualFare?.Amount);
+			return (TThis)this;
+		}
+
+
+
+		public TThis Total(
+			string totalCurrency,
+			decimal total
+		)
+		{
+			AreEqual(totalCurrency, r.Total.Currency.Code);
+			AreEqual(total, r.Total.Amount);
+			return (TThis)this;
+		}
+
+
+
+		public TThis FeesTotal(
+			string feesTotalCurrency,
+			decimal feesTotal
+		)
+		{
+			AreEqual(feesTotalCurrency, r.FeesTotal.Currency.Code);
+			AreEqual(feesTotal, r.FeesTotal.Amount);
+			return (TThis)this;
+		}
+
+
+
+		//---g
+
+		
+
 		public TThis TicketingIataOffice(string expected)
 		{
 			AreEqual(expected, r.TicketingIataOffice);
@@ -131,6 +187,22 @@ namespace Luxena.Travel.Tests
 		public TThis IataOffice(string expected)
 		{
 			AreEqual(expected, r.TicketingIataOffice);
+			return (TThis)this;
+		}
+
+
+
+		public TThis BookerOffice(string expected)
+		{
+			AreEqual(expected, r.BookerOffice);
+			return (TThis)this;
+		}
+
+
+
+		public TThis BookerCode(string expected)
+		{
+			AreEqual(expected, r.BookerCode);
 			return (TThis)this;
 		}
 
@@ -170,6 +242,28 @@ namespace Luxena.Travel.Tests
 		{
 			products.ForEach(r => assert(new ProductAsserter(r)));
 			return products;
+		}
+
+
+
+
+		public static List<Product> Assert(
+			this List<Product> products,
+			params Action<ProductAsserter>[] asserts
+		)
+		{
+
+			AreEqual(asserts.Length, products.Count);
+
+
+			for (int i = 0, len = asserts.Length; i < len; i++)
+			{
+				asserts[i](new ProductAsserter(products[i]));
+			}
+
+
+			return products;
+
 		}
 
 

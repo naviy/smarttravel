@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
-using System.Linq.Expressions;
-using System.Reflection;
 using System.Text.RegularExpressions;
 
 
@@ -22,29 +19,29 @@ namespace Luxena
 
 
 
-	public static class ToArrayExtensions
+	public static class ToListExtensions
 	{
 
 		//---g
 
 
 
-		public static TResult[] ToArray<TSource, TResult>(
+		public static List<TResult> ToList<TSource, TResult>(
 			this IEnumerable<TSource> source,
 			Func<TSource, TResult> selector
 		)
 		{
-			return source?.Select(selector).ToArray();
+			return source?.Select(selector).ToList();
 		}
 
 
 
-		public static TResult[] ToArray<TSource, TResult>(
+		public static List<TResult> ToList<TSource, TResult>(
 			this IEnumerable<TSource> source,
 			Func<TSource, int, TResult> selector
 		)
 		{
-			return source?.Select(selector).ToArray();
+			return source?.Select(selector).ToList();
 		}
 
 
@@ -53,22 +50,22 @@ namespace Luxena
 
 
 
-		public static TResult[] ToArray<TSource, TResult>(
+		public static List<TResult> ToList<TSource, TResult>(
 			this IEnumerable source,
 			Func<TSource, TResult> selector
 		)
 		{
-			return source?.Cast<TSource>().Select(selector).ToArray();
+			return source?.Cast<TSource>().Select(selector).ToList();
 		}
 
 
 
-		public static TResult[] ToArray<TSource, TResult>(
+		public static List<TResult> ToList<TSource, TResult>(
 			this IEnumerable source,
 			Func<TSource, int, TResult> selector
 		)
 		{
-			return source?.Cast<TSource>().Select(selector).ToArray();
+			return source?.Cast<TSource>().Select(selector).ToList();
 		}
 
 
@@ -77,7 +74,7 @@ namespace Luxena
 
 
 
-		public static TResult[] ToArray<TSource, TResult>(
+		public static List<TResult> ToList<TSource, TResult>(
 			this ICollection source,
 			Func<TSource, TResult> selector
 		)
@@ -89,7 +86,7 @@ namespace Luxena
 
 			var len = source.Count;
 
-			var result = new TResult[len];
+			var result = new List<TResult>(len);
 
 
 			var i = 0;
@@ -106,7 +103,7 @@ namespace Luxena
 
 
 
-		public static TResult[] ToArray<TSource, TResult>(
+		public static List<TResult> ToList<TSource, TResult>(
 			this ICollection source,
 			Func<TSource, int, TResult> selector
 		)
@@ -118,7 +115,7 @@ namespace Luxena
 
 			var len = source.Count;
 
-			var result = new TResult[len];
+			var result = new List<TResult>(len);
 
 
 			var i = 0;
@@ -135,7 +132,7 @@ namespace Luxena
 
 
 
-		public static TResult[] ToArray<TSource, TResult>(
+		public static List<TResult> ToList<TSource, TResult>(
 			this ICollection source,
 			Func<TSource, int, ICollection, TResult> selector
 		)
@@ -147,7 +144,7 @@ namespace Luxena
 
 			var len = source.Count;
 
-			var result = new TResult[len];
+			var result = new List<TResult>(len);
 
 
 			var i = 0;
@@ -168,7 +165,7 @@ namespace Luxena
 
 
 
-		public static TResult[] ToArray<TSource, TResult>(
+		public static List<TResult> ToList<TSource, TResult>(
 			this ICollection<TSource> source,
 			Func<TSource, TResult> selector
 		)
@@ -180,7 +177,7 @@ namespace Luxena
 
 			var len = source.Count;
 
-			var result = new TResult[len];
+			var result = new List<TResult>(len);
 
 
 			var i = 0;
@@ -197,7 +194,7 @@ namespace Luxena
 
 
 
-		public static TResult[] ToArray<TSource, TResult>(
+		public static List<TResult> ToList<TSource, TResult>(
 			this ICollection<TSource> source,
 			Func<TSource, int, TResult> selector
 		)
@@ -209,7 +206,7 @@ namespace Luxena
 
 			var len = source.Count;
 
-			var result = new TResult[len];
+			var result = new List<TResult>(len);
 
 
 			var i = 0;
@@ -226,7 +223,7 @@ namespace Luxena
 
 
 
-		public static TResult[] ToArray<TSource, TResult>(
+		public static List<TResult> ToList<TSource, TResult>(
 			this ICollection<TSource> source,
 			Func<TSource, int, ICollection<TSource>, TResult> selector
 		)
@@ -238,7 +235,7 @@ namespace Luxena
 
 			var len = source.Count;
 
-			var result = new TResult[len];
+			var result = new List<TResult>(len);
 
 
 			var i = 0;
@@ -259,7 +256,7 @@ namespace Luxena
 
 
 
-		public static TResult[] ToArray<TSource, TResult>(
+		public static List<TResult> ToList<TSource, TResult>(
 			this IReadOnlyList<TSource> source,
 			Func<TSource, TResult> selector
 		)
@@ -271,7 +268,7 @@ namespace Luxena
 
 			var len = source.Count;
 
-			var result = new TResult[len];
+			var result = new List<TResult>(len);
 
 
 			for (var i = 0; i < len; i++)
@@ -286,7 +283,7 @@ namespace Luxena
 
 
 
-		public static TResult[] ToArray<TSource, TResult>(
+		public static List<TResult> ToList<TSource, TResult>(
 			this IReadOnlyList<TSource> source,
 			Func<TSource, int, TResult> selector
 		)
@@ -298,7 +295,7 @@ namespace Luxena
 
 			var len = source.Count;
 
-			var result = new TResult[len];
+			var result = new List<TResult>(len);
 
 
 			for (var i = 0; i < len; i++)
@@ -313,7 +310,7 @@ namespace Luxena
 
 
 
-		public static TResult[] ToArray<TSource, TResult>(
+		public static List<TResult> ToList<TSource, TResult>(
 			this IReadOnlyList<TSource> source,
 			Func<TSource, int, IReadOnlyList<TSource>, TResult> selector
 		)
@@ -325,7 +322,7 @@ namespace Luxena
 
 			var len = source.Count;
 
-			var result = new TResult[len];
+			var result = new List<TResult>(len);
 
 
 			for (var i = 0; i < len; i++)
@@ -344,7 +341,7 @@ namespace Luxena
 
 
 
-		public static TResult[] ToArray<TSource, TResult>(
+		public static List<TResult> ToList<TSource, TResult>(
 			this IList<TSource> source,
 			Func<TSource, TResult> selector
 		)
@@ -356,7 +353,7 @@ namespace Luxena
 
 			var len = source.Count;
 
-			var result = new TResult[len];
+			var result = new List<TResult>(len);
 
 
 			for (var i = 0; i < len; i++)
@@ -371,7 +368,7 @@ namespace Luxena
 
 
 
-		public static TResult[] ToArray<TSource, TResult>(
+		public static List<TResult> ToList<TSource, TResult>(
 			this IList<TSource> source,
 			Func<TSource, int, TResult> selector
 		)
@@ -383,7 +380,7 @@ namespace Luxena
 
 			var len = source.Count;
 
-			var result = new TResult[len];
+			var result = new List<TResult>(len);
 
 
 			for (var i = 0; i < len; i++)
@@ -398,7 +395,7 @@ namespace Luxena
 
 
 
-		public static TResult[] ToArray<TSource, TResult>(
+		public static List<TResult> ToList<TSource, TResult>(
 			this IList<TSource> source,
 			Func<TSource, int, IList<TSource>, TResult> selector
 		)
@@ -410,7 +407,7 @@ namespace Luxena
 
 			var len = source.Count;
 
-			var result = new TResult[len];
+			var result = new List<TResult>(len);
 
 
 			for (var i = 0; i < len; i++)
@@ -429,7 +426,7 @@ namespace Luxena
 
 
 
-		public static TResult[] ToArray<TSource, TResult>(
+		public static List<TResult> ToList<TSource, TResult>(
 			this List<TSource> source,
 			Func<TSource, TResult> selector
 		)
@@ -441,7 +438,7 @@ namespace Luxena
 
 			var len = source.Count;
 
-			var result = new TResult[len];
+			var result = new List<TResult>(len);
 
 
 			for (var i = 0; i < len; i++)
@@ -456,7 +453,7 @@ namespace Luxena
 
 
 
-		public static TResult[] ToArray<TSource, TResult>(
+		public static List<TResult> ToList<TSource, TResult>(
 			this List<TSource> source,
 			Func<TSource, int, TResult> selector
 		)
@@ -468,7 +465,7 @@ namespace Luxena
 
 			var len = source.Count;
 
-			var result = new TResult[len];
+			var result = new List<TResult>(len);
 
 
 			for (var i = 0; i < len; i++)
@@ -483,7 +480,7 @@ namespace Luxena
 
 
 
-		public static TResult[] ToArray<TSource, TResult>(
+		public static List<TResult> ToList<TSource, TResult>(
 			this List<TSource> source,
 			Func<TSource, int, List<TSource>, TResult> selector
 		)
@@ -495,7 +492,7 @@ namespace Luxena
 
 			var len = source.Count;
 
-			var result = new TResult[len];
+			var result = new List<TResult>(len);
 
 
 			for (var i = 0; i < len; i++)
@@ -514,7 +511,7 @@ namespace Luxena
 
 
 
-		public static TResult[] ToArray<TSource, TResult>(
+		public static List<TResult> ToList<TSource, TResult>(
 			this TSource[] source,
 			Func<TSource, TResult> selector
 		)
@@ -526,7 +523,7 @@ namespace Luxena
 
 			var len = source.Length;
 
-			var result = new TResult[len];
+			var result = new List<TResult>(len);
 
 
 			for (var i = 0; i < len; i++)
@@ -541,7 +538,7 @@ namespace Luxena
 
 
 
-		public static TResult[] ToArray<TSource, TResult>(
+		public static List<TResult> ToList<TSource, TResult>(
 			this TSource[] source,
 			Func<TSource, int, TResult> selector
 		)
@@ -553,7 +550,7 @@ namespace Luxena
 
 			var len = source.Length;
 
-			var result = new TResult[len];
+			var result = new List<TResult>(len);
 
 
 			for (var i = 0; i < len; i++)
@@ -568,7 +565,7 @@ namespace Luxena
 
 
 
-		public static TResult[] ToArray<TSource, TResult>(
+		public static List<TResult> ToList<TSource, TResult>(
 			this TSource[] source,
 			Func<TSource, int, TSource[], TResult> selector
 		)
@@ -580,7 +577,7 @@ namespace Luxena
 
 			var len = source.Length;
 
-			var result = new TResult[len];
+			var result = new List<TResult>(len);
 
 
 			for (var i = 0; i < len; i++)
@@ -599,7 +596,7 @@ namespace Luxena
 
 
 
-		public static Match[] ToArray(this MatchCollection col)
+		public static Match[] ToList(this MatchCollection col)
 		{
 
 			var arr = new Match[col.Count];
@@ -612,7 +609,7 @@ namespace Luxena
 
 
 
-		public static TResult[] ToArray<TResult>(
+		public static List<TResult> ToList<TResult>(
 			this MatchCollection source,
 			Func<Match, TResult> selector
 		)
@@ -624,7 +621,7 @@ namespace Luxena
 
 			var len = source.Count;
 
-			var result = new TResult[len];
+			var result = new List<TResult>(len);
 
 
 			for (var i = 0; i < len; i++)
@@ -639,7 +636,7 @@ namespace Luxena
 
 
 
-		public static TResult[] ToArray<TResult>(
+		public static List<TResult> ToList<TResult>(
 			this MatchCollection source,
 			Func<Match, int, TResult> selector
 		)
@@ -651,7 +648,7 @@ namespace Luxena
 
 			var len = source.Count;
 
-			var result = new TResult[len];
+			var result = new List<TResult>(len);
 
 
 			for (var i = 0; i < len; i++)
@@ -666,7 +663,7 @@ namespace Luxena
 
 
 
-		public static TResult[] ToArray<TResult>(
+		public static List<TResult> ToList<TResult>(
 			this MatchCollection source,
 			Func<Match, int, MatchCollection, TResult> selector
 		)
@@ -678,7 +675,7 @@ namespace Luxena
 
 			var len = source.Count;
 
-			var result = new TResult[len];
+			var result = new List<TResult>(len);
 
 
 			for (var i = 0; i < len; i++)
@@ -697,7 +694,7 @@ namespace Luxena
 
 
 
-		public static Capture[] ToArray(this CaptureCollection col)
+		public static Capture[] ToList(this CaptureCollection col)
 		{
 
 			var arr = new Capture[col.Count];
@@ -710,7 +707,7 @@ namespace Luxena
 
 
 
-		public static TResult[] ToArray<TResult>(
+		public static List<TResult> ToList<TResult>(
 			this CaptureCollection source,
 			Func<Capture, TResult> selector
 		)
@@ -722,7 +719,7 @@ namespace Luxena
 
 			var len = source.Count;
 
-			var result = new TResult[len];
+			var result = new List<TResult>(len);
 
 
 			for (var i = 0; i < len; i++)
@@ -737,7 +734,7 @@ namespace Luxena
 
 
 
-		public static TResult[] ToArray<TResult>(
+		public static List<TResult> ToList<TResult>(
 			this CaptureCollection source,
 			Func<Capture, int, TResult> selector
 		)
@@ -749,7 +746,7 @@ namespace Luxena
 
 			var len = source.Count;
 
-			var result = new TResult[len];
+			var result = new List<TResult>(len);
 
 
 			for (var i = 0; i < len; i++)
@@ -764,7 +761,7 @@ namespace Luxena
 
 
 
-		public static TResult[] ToArray<TResult>(
+		public static List<TResult> ToList<TResult>(
 			this CaptureCollection source,
 			Func<Capture, int, CaptureCollection, TResult> selector
 		)
@@ -776,7 +773,7 @@ namespace Luxena
 
 			var len = source.Count;
 
-			var result = new TResult[len];
+			var result = new List<TResult>(len);
 
 
 			for (var i = 0; i < len; i++)

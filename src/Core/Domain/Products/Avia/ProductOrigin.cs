@@ -1,13 +1,24 @@
 using Luxena.Base.Serialization;
 
 
+
+
 namespace Luxena.Travel.Domain
 {
+
+
+
+	//===g
+
+
+
+
 
 
 	[DataContract]
 	public enum ProductOrigin
 	{
+
 		AmadeusAir,
 		AmadeusPrint,
 		GalileoMir,
@@ -23,7 +34,17 @@ namespace Luxena.Travel.Domain
 		GalileoBusXml,
 		TravelPointXml,
 		Drct,
+		SabreTerminal,
+
 	}
+
+
+
+
+
+
+	//===g
+
 
 
 }

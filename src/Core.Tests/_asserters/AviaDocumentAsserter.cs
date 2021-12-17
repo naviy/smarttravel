@@ -50,7 +50,7 @@ namespace Luxena.Travel.Tests
 
 
 
-		public AviaDocumentAsserter(TProduct r) : base(r) { }
+		protected AviaDocumentAsserter(TProduct r) : base(r) { }
 
 
 
@@ -80,6 +80,46 @@ namespace Luxena.Travel.Tests
 			return (TThis)this;
 		}
 
+
+
+		//---g
+
+
+
+
+
+
+		//---g
+
+
+
+		public TThis FlightSegments(params Action<FlightSegmentAsserter>[] asserts)
+		{
+
+			var segments = (r as AviaTicket)?.Segments;
+
+
+			if (segments == null)
+			{
+				if (asserts.Length > 0)
+					AreEqual(asserts.Length, null);
+				else
+					return (TThis)this;
+			}
+
+
+			AreEqual(asserts.Length, segments.Count);
+
+
+			for (int i = 0, len = asserts.Length; i < len; i++)
+			{
+				asserts[i](new FlightSegmentAsserter(segments[i]));
+			}
+
+
+			return (TThis)this;
+
+		}
 
 
 		//---g
@@ -142,6 +182,7 @@ namespace Luxena.Travel.Tests
 			return products;
 
 		}
+
 
 
 		//---g

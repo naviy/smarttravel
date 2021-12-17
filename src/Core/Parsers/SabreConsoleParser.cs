@@ -250,12 +250,15 @@ namespace Luxena.Travel.Parsers
 					PnrCode = pnrCode,
 					PassengerName = passenger.Name.Trim(),
 
+					Origin = ProductOrigin.SabreTerminal,
+					Originator = GdsOriginator.Sabre,
+
 					BookerOffice = mask.Office,
 					BookerCode = mask.Agent,
 
 					Fare = mask.Fare.Clone(),
 					EqualFare = mask.EqualFare.Clone(),
-					FeesTotal = mask.FeesTotal.Clone(),
+					//FeesTotal = mask.FeesTotal.Clone(),
 					Total = mask.Total.Clone(),
 
 				};
@@ -369,7 +372,7 @@ namespace Luxena.Travel.Parsers
 
 
 		static readonly Regex _reMaskSegments = new Regex(
-			@"\s*(?<segmentNo>\d\d)\s+(?<stopover>\w)\s+(?<airport>[\w\d]{3})\s+(?<airline>[\w\d]{2})\s+(?<flightNo>\d+)(?<class>\w)\s+(?<date>\d\d\w\w\w)\s+(?<time>\d+)\s+(?<fareBasis>[\w\d]+)\s+(?<departureDate>\d\d\w\w\w\d\d)(?<arrivalDate>\d\d\w\w\w\d\d)\s+(?<luggage>[\w\d]+)",
+			@"^\s*(?<segmentNo>\d\d)\s+(?<stopover>\w)\s+(?<airport>[\w\d]{3})\s+(?<airline>[\w\d]{2})\s*(?<flightNo>\d+)(?<class>\w)\s+(?<date>\d\d\w\w\w)\s+(?<time>\d+)\s+(?<fareBasis>[\w\d\/]+)\s+(?<departureDate>\d\d\w\w\w\d\d)(?<arrivalDate>\d\d\w\w\w\d\d)\s+(?<luggage>[\w\d]+)",
 			RegexOptions.Multiline | RegexOptions.Compiled
 		);
 

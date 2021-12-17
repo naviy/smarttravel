@@ -64,8 +64,9 @@
     <Compile Include="Domain.Core\StringExtentions.Tests.cs" />
     <Compile Include="Parsers\AirBufferParserTests.cs" />
     <Compile Include="Parsers\SabreConsoleParserTests.cs" />
-    <Compile Include="Parsers\AviaDocumentAsserter.cs" />
-    <Compile Include="Parsers\ProductAsserter.cs" />
+    <Compile Include="_asserters\AviaDocumentAsserter.cs" />
+    <Compile Include="_asserters\FlightSegmentAsserter.cs" />
+    <Compile Include="_asserters\ProductAsserter.cs" />
     <Compile Include="Parsers\TravelPointXmlParserTests.cs" />
     <Compile Include="Parsers\AirParserTests.cs" />
     <Compile Include="Parsers\SabreFilParserTests.cs" />
@@ -159,6 +160,7 @@
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

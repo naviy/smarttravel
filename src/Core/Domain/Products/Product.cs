@@ -489,7 +489,7 @@ namespace Luxena.Travel.Domain
 			}
 		}
 
-		public virtual void SetVoidStatus(Domain db, bool value)
+		public virtual void AddVoidStatus(Domain db, bool value)
 		{
 			IsVoid = value;
 

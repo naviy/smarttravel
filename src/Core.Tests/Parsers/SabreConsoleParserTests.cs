@@ -204,29 +204,126 @@ TZEZYU
 
 				a => a
 					.PnrCode("TZEZYU")
+					.BookerOffice("S1OI")
+					.BookerCode("OR")
 
-			);
+            );
+
 
 
 			docs.Assert(
 
-				a => a
-					.PassengerName("TKACH/OLEKSANDR MR")
-				,
 
 				a => a
+
 					.PassengerName("TKACH/OLEKSANDR MR")
+
+					.Fare("USD", 65m)
+					.EqualFare("UAH", 1738m)
+					.FeesTotal("UAH", 944m)
+					.Total("UAH", 2682m)
+
+					.FlightSegments(
+
+                        seg => seg
+	                        .Position(0)
+	                        //.Stopover(true)
+	                        .FromAirport("HRK")
+	                        .ToAirport("KBP")
+	                        .CarrierIataCode("7W")
+	                        .FlightNumber("146")
+	                        .ServiceClassCode("K")
+	                        .FareBasis("KP2POW")
+	                        .Luggage("23K")
+							
+					)
+
 				,
 
+
 				a => a
+
+					.PassengerName("TKACH/OLEKSANDR MR")
+
+					.Fare("USD", 232m)
+					.EqualFare("UAH", 6203m)
+					.FeesTotal("UAH", 3116m)
+					.Total("UAH", 9319m)
+
+					.FlightSegments(
+
+						seg => seg
+							.Position(0)
+							.FromAirport("KBP")
+							.ToAirport("CDG")
+						,
+
+						seg => seg
+							.Position(1)
+							.FromAirport("CDG")
+							.ToAirport("KBP")
+
+                    )
+
+				,
+
+
+                a => a
+
 					.PassengerName("TKACH/NADIIA MISS")
+
+					.Fare("USD", 49m)
+					.EqualFare("UAH", 1310m)
+					.FeesTotal("UAH", 859m)
+					.Total("UAH", 2169m)
+
+
+					.FlightSegments(
+
+						seg => seg
+							.Position(0)
+							//.Stopover(true)
+							.FromAirport("HRK")
+							.ToAirport("KBP")
+							.CarrierIataCode("7W")
+							.FlightNumber("146")
+							.ServiceClassCode("K")
+							.FareBasis("KP2POW/CH25")
+							.Luggage("23K")
+
+					)
+
                 ,
 
-				a => a
+
+                a => a
+
 					.PassengerName("TKACH/NADIIA MISS")
 
-			);
+					.Fare("USD", 186m)
+					.EqualFare("UAH", 4973m)
+					.FeesTotal("UAH", 3116m)
+					.Total("UAH", 8089m)
 
+					.FlightSegments(
+
+						seg => seg
+							.Position(0)
+							.FromAirport("KBP")
+							.ToAirport("CDG")
+						,
+
+						seg => seg
+							.Position(1)
+							.FromAirport("CDG")
+							.ToAirport("KBP")
+
+					)
+
+
+            );
+
+            
 		}
 
 
@@ -411,24 +508,32 @@ Copy as textPrint"
             );
 
 
+
 			docs.AssertAll(a => a
 				.PnrCode("SPAXAV")
+				.BookerOffice("S1OI")
+				.BookerCode("OI")
 			);
 
 
+
 			docs.Assert(
+
 
 				a => a
 					.PassengerName("TKACH/OLEKSANDR MR")
 				,
 
+
 				a => a
 					.PassengerName("TKACH/MARYNA MRS")
 				,
 
+
 				a => a
 					.PassengerName("TKACH/POLINA MISS")
 				,
+
 
 				a => a
 					.PassengerName("STOROZHUK/OLENA MRS")

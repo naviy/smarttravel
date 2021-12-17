@@ -397,7 +397,7 @@ namespace Luxena.Travel.Domain
 			object result = products
 				.Select(a =>
 				{
-					a.SetVoidStatus(db, !a.IsVoid);
+					a.AddVoidStatus(db, !a.IsVoid);
 					return New(a);
 				})
 				.ToArray()
