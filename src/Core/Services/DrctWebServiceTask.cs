@@ -79,7 +79,7 @@ namespace Luxena.Travel.Services
 					{
 						db.Commit(() =>
 						{
-							db.Configuration.DrctWebService_LoadedOn = loadedOn.AddDays(1);
+							db.Configuration.DrctWebService_LoadedOn = loadedOn.Date.AddDays(1);
 							db.Save(db.Configuration);
 						});
 					}
@@ -115,7 +115,7 @@ namespace Luxena.Travel.Services
 					{
 						db.Commit(() =>
 						{
-							db.Configuration.DrctWebService_LoadedOn = file.TimeStamp;
+							db.Configuration.DrctWebService_LoadedOn = file.TimeStamp.AddSeconds(1);
 							db.Save(db.Configuration);
 						});
 					}
@@ -153,8 +153,8 @@ namespace Luxena.Travel.Services
 
 			var url =
 				"https://api.drct.aero/reporting/tickets"
-				+ $"?date_from={importDate:yyyy-MM-dd}"
-				+ $"&date_to={importDate.AddDays(1):yyyy-MM-dd}"
+				+ $"?date_from={importDate:s}"
+				+ $"&date_to={importDate.AddDays(1):s}"
 			;
 
 			// https://api.drct.aero/reporting/tickets?date_from=20211007&date_to=20211008
