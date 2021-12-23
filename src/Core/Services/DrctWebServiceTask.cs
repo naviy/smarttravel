@@ -64,6 +64,8 @@ namespace Luxena.Travel.Services
 
 
 				var loadedOn = db.Configuration.DrctWebService_LoadedOn ?? DateTime.Today;
+				loadedOn = loadedOn.Date;
+
 
 				var xml = LoadXml(loadedOn, Key);
 				
@@ -100,9 +102,16 @@ namespace Luxena.Travel.Services
 						var reimport = Reimports.By(a => file.Content.Contains(a.OfficeCode));
 
 						if (reimport != null)
-							file.SaveToInboxFolder(reimport.InboxPath);
-						else
-							db.GdsFile.AddFile(file);
+						{
+							var reimportPath = file.SaveToInboxFolder(reimport.InboxPath);
+							
+							file.AppendOutput("Реимпорт: " + reimportPath);
+							
+							file.ImportResult = ImportResult.Reimported;
+						}
+
+
+						db.GdsFile.AddFile(file);
 
 					}
 
@@ -111,14 +120,14 @@ namespace Luxena.Travel.Services
 						_log.Error(ex);
 					}
 
-					finally
-					{
-						db.Commit(() =>
-						{
-							db.Configuration.DrctWebService_LoadedOn = file.TimeStamp.AddSeconds(1);
-							db.Save(db.Configuration);
-						});
-					}
+					//finally
+					//{
+					//	db.Commit(() =>
+					//	{
+					//		db.Configuration.DrctWebService_LoadedOn = file.TimeStamp.AddSeconds(1);
+					//		db.Save(db.Configuration);
+					//	});
+					//}
 
 				}
 

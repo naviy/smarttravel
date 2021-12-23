@@ -118,13 +118,16 @@ namespace Luxena.Travel.Services
 			return true;
 		}
 
+
+
 		private bool Import(string userName, string office, string importPath, out string output)
 		{
+
 			output = null;
 
 			var backupPath = BackupFiles(importPath, userName, false);
 
-			_log.Info(string.Format("Import print file {0}...", importPath));
+			_log.Info($"Import print file {importPath}...");
 
 			var file = GetPrintFile(backupPath, userName, office);
 
@@ -143,8 +146,12 @@ namespace Luxena.Travel.Services
 				DeleteFiles(importPath);
 			}
 
+
 			return true;
+
 		}
+
+
 
 		private static string GetImportPath(string user)
 		{

@@ -87,8 +87,10 @@ namespace Luxena.Travel.Export
 				if (docs.By(a => a.Owner.Id.AsString() == dest1.OwnerId) == null) 
 					continue;
 
+
 				var path = file.SaveToInboxFolder(dest.InboxPath);
 				_log.Info(path);
+
 
 				if (dest.UseAppendingToOrder && !appendedToOrder)
 				{

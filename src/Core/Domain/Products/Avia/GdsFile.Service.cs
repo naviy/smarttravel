@@ -18,11 +18,26 @@ using Exception = System.Exception;
 using StringBuilder = System.Text.StringBuilder;
 
 
+
+
 namespace Luxena.Travel.Domain
 {
 
+
+
+	//===g
+
+
+
+
+
+
 	partial class GdsFile
 	{
+
+		//---g
+
+
 
 		public abstract class Service<TGdsFile> : Entity2Service<TGdsFile>
 			where TGdsFile : GdsFile
@@ -31,106 +46,86 @@ namespace Luxena.Travel.Domain
 		}
 
 
+
+
+		//---g
+
+
+
 		public partial class Service : Service<GdsFile>
 		{
+
+			//---g
+
+
+
+			private static readonly ILog _log = LogManager.GetLogger(typeof(Service));
+
+
+
+			//---g
+
+
 
 			public OperationStatus CanReimport()
 			{
 				return db.Granted(UserRole.Administrator);
 			}
 
+
+
 			public void AddFile(GdsFile file = null)
 			{
-				string output;
-
-				AddFile(file, out output);
+				AddFile(file, out _);
 			}
+
+
 
 			public void AddFile(GdsFile file, out string userOutput)
 			{
+
 				db.Commit(() =>
 				{
+
 					try
 					{
-						file.Content = file.Content.As(a => a.Replace((char)0, ' '));
+						file.Content = file.Content?.Replace((char)0, ' ');
+
 						Save(file);
 					}
 					catch (Exception ex)
 					{
 						throw new GdsFileSaveException($"Can't save Gds file {file.Name}", ex);
 					}
+
 				});
 
-				string userOutput_;
 
-				Import(file, out userOutput_);
-
-				userOutput = userOutput_;
-			}
-
-
-			public object Reimport(object[] ids, RangeRequest prms)
-			{
-				if (!CanReimport())
-					throw new SecurityException("Reimport operation is not permitted");
-
-				var data = new ArrayList();
-				object firstId = null;
-
-				foreach (var id_ in ids)
+				if (file.ImportResult != ImportResult.Reimported)
 				{
-					var id = id_;
-					var file = By(id);
-
-					if (file.FileType == GdsFileType.PrintFile)
-					{
-						var printFile = (PrintFile)file;
-						if (!printFile.ExtractPrintZip()) continue;
-
-						Import(file);
-
-						Directory.Delete(printFile.FilePath.Replace(".zip", null), true);
-					}
-					else
-					{
-						Import(file);
-					}
-
-					if (firstId == null)
-						firstId = file.Id;
-
-					data.Add(new ObjectSerializer().Serialize(file));
-				}
-
-				object result;
-
-				if (prms != null)
-				{
-					prms.PositionableObjectId = firstId;
-
-					result = new object[]
-				{
-					data,
-					db.GetRange<GdsFile>(prms)
-				};
+					Import(file, out userOutput);
 				}
 				else
 				{
-					result = data[0];
+					userOutput = null;
 				}
 
-				return result;
 			}
 
-			private void Import(GdsFile file)
-			{
-				string output;
 
-				Import(file, out output);
-			}
+
+			//---g
+
 
 
 			private static readonly Regex _reImportDelete = new Regex(@"^DELETE (.+)$", RegexOptions.Compiled);
+
+
+
+			private void Import(GdsFile file)
+			{
+				Import(file, out _);
+			}
 
 
 
@@ -138,6 +133,7 @@ namespace Luxena.Travel.Domain
 			{
 
 				string userOutput = null;
+
 
 				try
 				{
@@ -150,7 +146,7 @@ namespace Luxena.Travel.Domain
 						try
 						{
 							var number = deleteMath.Groups[1].Value;
-							db.Commit(() => 
+							db.Commit(() =>
 								db.Session.Delete($"from AviaTicket a where a.Number = '{number}'")
 							);
 
@@ -170,7 +166,7 @@ namespace Luxena.Travel.Domain
 					{
 						db.Commit(() => file.Import(db, out userOutput));
 					}
-					
+
 				}
 				catch (Exception ex)
 				{
@@ -212,50 +208,65 @@ namespace Luxena.Travel.Domain
 					product.OriginalDocument = file;
 				}
 
+
 				var importedDocuments = new Dictionary<Entity2, ImportStatus>();
+
 
 				db.AviaDocument.Import(documents, importedDocuments);
 
-				ImportResult result;
 
-				file.AppendOutput(GetImportOutput(documents, importedDocuments, out result, out userOutput));
+				file.AppendOutput(GetImportOutput(documents, importedDocuments, out var result, out userOutput));
+
+
 				file.ImportResult = result;
+
 
 				db.Resolve<GdsFileExporter>()?.Export(file, importedDocuments.Keys.ToList());
 
 			}
 
 
+
 			public string GetImportOutput(IEnumerable<Entity2> documents, Dictionary<Entity2, ImportStatus> importedDocuments, out ImportResult result, out string userOutput)
 			{
+
 				result = ImportResult.None;
+
 
 				var importLog = new StringBuilder();
 				var userLog = new StringBuilder();
 
+
 				foreach (var document in documents)
 				{
+
 					var importStatus = importedDocuments[document];
 
+
 					result = GetImportResult(result, importStatus.Result);
+
 
 					var product = document as Product;
 					var voiding = document as AviaDocumentVoiding;
 
 					string type;
 
-					if (product != null)
+					if (product == null)
+					{
+						type = "Void";
+					}
+					else
 					{
 						type = product.Type.ToDisplayString();
 
 						if (!product.Name.Yes())
 							type = DomainRes.Common_Reservation;
 					}
-					else
-						type = "Void";
+
 
 					switch (importStatus.Result)
 					{
+
 						case ImportResult.Success:
 
 							var str = string.Format(CommonRes.ImportGdsFiles_DocumentImported, type, product ?? voiding.As(a => a.Document));
@@ -281,32 +292,137 @@ namespace Luxena.Travel.Domain
 							importLog.AppendLine(importStatus.ToString());
 
 							break;
+
 					}
+
 				}
+
 
 				userOutput = userLog.ToString();
 
+
 				return importLog.ToString();
+
 			}
+
+
 
 			private static ImportResult GetImportResult(ImportResult res1, ImportResult res2)
 			{
+
 				if (res1 == ImportResult.Error || res2 == ImportResult.Error)
 					return ImportResult.Error;
+
 
 				if (res1 == ImportResult.Warn || res2 == ImportResult.Warn)
 					return ImportResult.Warn;
 
+
 				if (res1 == ImportResult.Success || res2 == ImportResult.Success)
 					return ImportResult.Success;
 
+
 				return ImportResult.None;
+
 			}
 
 
-			private static readonly ILog _log = LogManager.GetLogger(typeof(Service));
+
+			//---g
+
+			
+
+			public object Reimport(object[] ids, RangeRequest prms)
+			{
+
+				if (!CanReimport())
+					throw new SecurityException("Reimport operation is not permitted");
+
+
+				var data = new ArrayList();
+				object firstId = null;
+
+
+				foreach (var id_ in ids)
+				{
+
+					var id = id_;
+					var file = By(id);
+
+
+					if (file.FileType == GdsFileType.PrintFile)
+					{
+
+						var printFile = (PrintFile)file;
+
+						if (!printFile.ExtractPrintZip())
+							continue;
+
+
+						Import(file);
+
+						Directory.Delete(printFile.FilePath.Replace(".zip", null), true);
+
+					}
+
+					else
+					{
+						Import(file);
+					}
+
+
+					if (firstId == null)
+						firstId = file.Id;
+
+
+					data.Add(new ObjectSerializer().Serialize(file));
+
+				}
+
+
+				object result;
+
+				if (prms != null)
+				{
+
+					prms.PositionableObjectId = firstId;
+
+					result = new object[]
+					{
+						data,
+						db.GetRange<GdsFile>(prms)
+					};
+
+				}
+				else
+				{
+					result = data[0];
+				}
+
+
+				return result;
+
+			}
+
+
+
+			//---g
+
 		}
 
+
+
+		//---g
+
 	}
+
+
+
+
+
+
+	//===g
+
+
 
 }

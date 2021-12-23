@@ -4073,6 +4073,7 @@ namespace Luxena.Travel
 				new object[] { 11, "LuxenaXml" }, // LuxenaXml
 				new object[] { 5, "Manual" }, // Manual
 				new object[] { 9, "SabreFil" }, // SabreFil
+				new object[] { 15, "SabreTerminal" }, // SabreTerminal
 				new object[] { 6, "SirenaXml" }, // SirenaXml
 				new object[] { 13, "TravelPointXml" }, // TravelPointXml
 			})
@@ -6471,6 +6472,7 @@ namespace Luxena.Travel
 				new object[] { 11, "LuxenaXml" }, // LuxenaXml
 				new object[] { 5, "Manual" }, // Manual
 				new object[] { 9, "SabreFil" }, // SabreFil
+				new object[] { 15, "SabreTerminal" }, // SabreTerminal
 				new object[] { 6, "SirenaXml" }, // SirenaXml
 				new object[] { 13, "TravelPointXml" }, // TravelPointXml
 			})
@@ -6624,6 +6626,7 @@ namespace Luxena.Travel
 			{
 				new object[] { 2, "Error" }, // Error
 				new object[] { 0, "None" }, // None
+				new object[] { 4, "Reimported" }, // Reimported
 				new object[] { 1, "Success" }, // Success
 				new object[] { 3, "Warn" }, // Warn
 			})

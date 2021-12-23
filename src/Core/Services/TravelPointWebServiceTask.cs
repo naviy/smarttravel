@@ -8,12 +8,36 @@ using Common.Logging;
 using Luxena.Travel.Domain;
 
 
+
+
 namespace Luxena.Travel.Services
 {
 
 
+
+	//===g
+
+
+
+
+
+
 	public class TravelPointWebServiceTask : ITask
 	{
+
+		//---g
+
+
+
+		public static string GlobalRobots { get; set; }
+
+		private static readonly ILog _log = LogManager.GetLogger(typeof(TravelPointWebServiceTask));
+
+
+
+		//---g
+
+
 
 		//bool ITask.IsStarted { get; set; }
 
@@ -23,17 +47,24 @@ namespace Luxena.Travel.Services
 		public string Password { get; set; }
 		public string Key { get; set; }
 
-		public string Robots { get { return GlobalRobots; } set { GlobalRobots = value; } }
+		public string Robots { get => GlobalRobots; set => GlobalRobots = value; }
 
-		public static string GlobalRobots { get; set; }
+
+
+		//---g
+
 
 
 		public void Execute()
 		{
-			if (UserName.No() || Password.No() || Key.No()) return;
+
+			if (UserName.No() || Password.No() || Key.No())
+				return;
+
 
 			try
 			{
+
 				var loadedOn = db.Configuration.TravelPointWebService_LoadedOn ?? DateTime.Today.AddDays(-30);
 
 				var sxml = LoadXml(loadedOn);
@@ -45,6 +76,7 @@ namespace Luxena.Travel.Services
 
 				if (files.No())
 				{
+
 					if (loadedOn < DateTime.Today)
 					{
 						db.Commit(() =>
@@ -54,7 +86,9 @@ namespace Luxena.Travel.Services
 						});
 					}
 
+
 					return;
+
 				}
 
 
@@ -73,14 +107,14 @@ namespace Luxena.Travel.Services
 					}
 
 
-					finally
-					{
-						db.Commit(() =>
-						{
-							db.Configuration.TravelPointWebService_LoadedOn = file.TimeStamp;
-							db.Save(db.Configuration);
-						});
-					}
+					//finally
+					//{
+					//	db.Commit(() =>
+					//	{
+					//		db.Configuration.TravelPointWebService_LoadedOn = file.TimeStamp;
+					//		db.Save(db.Configuration);
+					//	});
+					//}
 
 
 				}
@@ -90,11 +124,14 @@ namespace Luxena.Travel.Services
 			{
 				_log.Error(ex);
 			}
+
 		}
+
 
 
 		string LoadXml(DateTime importDate)
 		{
+
 			var client = new TravelPointWebService.ImportServiceXMLPortTypeClient(
 				new BasicHttpBinding
 				{
@@ -112,6 +149,7 @@ namespace Luxena.Travel.Services
 				new EndpointAddress("http://46.4.91.251/TC/ws/ImportServiceXML.1cws")
 			);
 
+
 			client.ClientCredentials.UserName.UserName = UserName;
 			client.ClientCredentials.UserName.Password = Password;
 
@@ -120,6 +158,7 @@ namespace Luxena.Travel.Services
 
 			if (base64.No())
 				return null;
+
 
 			string sxml = null;
 
@@ -136,7 +175,9 @@ namespace Luxena.Travel.Services
 				_log.Error("TravelPointWebServiceTask: ошибка при чтении из сервиса.\r\n" + base64);
 			}
 
+
 			return sxml;
+
 		}
 
 
@@ -200,11 +241,20 @@ namespace Luxena.Travel.Services
 			return files;
 
 		}
-		
 
-		private static readonly ILog _log = LogManager.GetLogger(typeof(TravelPointWebServiceTask));
+
+
+		//---g
 
 	}
+
+
+
+
+
+
+	//===g
+
 
 
 }
