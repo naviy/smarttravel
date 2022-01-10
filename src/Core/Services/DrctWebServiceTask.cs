@@ -32,8 +32,6 @@ namespace Luxena.Travel.Services
 
 
 
-		//bool ITask.IsStarted { get; set; }
-
 		public Domain.Domain db { get; set; }
 
 

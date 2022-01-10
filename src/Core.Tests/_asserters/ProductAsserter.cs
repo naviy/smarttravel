@@ -67,6 +67,28 @@ namespace Luxena.Travel.Tests
 
 
 
+		public TThis IssueDate(DateTime expected)
+		{
+			AreEqual(expected, r.IssueDate);
+			return (TThis)this;
+		}
+
+
+		public TThis IssueDate(string expected)
+		{
+			AreEqual(DateTime.Parse(expected), r.IssueDate);
+			return (TThis)this;
+		}
+
+
+		public TThis IssueDate(string expected, IFormatProvider provider)
+		{
+			AreEqual(DateTime.Parse(expected, provider), r.IssueDate);
+			return (TThis)this;
+		}
+
+
+
 		public TThis PnrCode(string expected)
 		{
 			AreEqual(expected, r.PnrCode);

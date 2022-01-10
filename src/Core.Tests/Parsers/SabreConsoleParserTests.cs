@@ -544,16 +544,124 @@ Copy as textPrint"
 
 
 
-		//---g
+        [Test]
+        public void TestParseTicket03()
+        {
 
-	}
+            var docs = Parse(@"
+CMWLOH
+     1.1YOSEF/GADIEL MR  2.1YOSEF/SHLOMO MR
+     1 LY2651Z 23JAN 7 TLVKBP HK2  0630  0955  SPM HRS /DCLY*KMT82G
+                                                                /E
+     2 LY2652Z 25JAN 2 KBPTLV HK2  1100  1415  SPM HRS /DCLY*KMT82G
+                                                                /E
+    TKT/TIME LIMIT
+      1.TAW/
+    PHONES
+      1.IEV380442067576-A
+    PASSENGER EMAIL DATA EXISTS  *PE TO DISPLAY ALL
+    PRICE QUOTE RECORD EXISTS - SYSTEM
+    PROFILE,POLICY,AND/OR PREFERENCE INDEX DATA EXIST 
+    *PI TO DISPLAY ALL
+    AA FACTS
+      1.SSR OTHS 1S MISSING SSR CTCM MOBILE OR SSR CTCE EMAIL OR SS
+        R CTCR NON-CONSENT FOR LY
+      2.SSR ADTK 1S TO LY BY 13JAN 2300 IEV TIME ZONE OTHERWISE WIL
+        L BE XLD
+      3.SSR KSML LY NO1 TLVKBP2651Z23JAN/ALL LY MEALS ARE KOSHER ME
+        ALS
+      4.SSR KSML LY NO1 KBPTLV2652Z25JAN/ALL LY MEALS ARE KOSHER ME
+        ALS
+      5.SSR KSML LY NO1 TLVKBP2651Z23JAN/ALL LY MEALS ARE KOSHER ME
+        ALS
+      6.SSR KSML LY NO1 KBPTLV2652Z25JAN/ALL LY MEALS ARE KOSHER ME
+        ALS
+    GENERAL FACTS
+      1.SSR KSML LY NN1 TLVKBP2651Z23JAN
+      2.SSR KSML LY NN1 KBPTLV2652Z25JAN
+      3.SSR KSML LY NN1 TLVKBP2651Z23JAN
+      4.SSR KSML LY NN1 KBPTLV2652Z25JAN
+      5.SSR KSML LY NO1 TLVKBP2651Z23JAN/ALL LY MEALS ARE KOSHER ME
+        ALS
+      6.SSR KSML LY NO1 KBPTLV2652Z25JAN/ALL LY MEALS ARE KOSHER ME
+        ALS
+      7.SSR KSML LY NO1 TLVKBP2651Z23JAN/ALL LY MEALS ARE KOSHER ME
+        ALS
+      8.SSR KSML LY NO1 KBPTLV2652Z25JAN/ALL LY MEALS ARE KOSHER ME
+        ALS
+    REMARKS
+      1.Z?ID-NF
+    RECEIVED FROM - AR
+    S1OI.S1OI*AOR 0657/06JAN22 CMWLOH H B
+
+*PQS«
+
+            PRICE QUOTE RECORD - SUMMARY BY NAME NUMBER            
+                      RETAINED FARE                                
+    NAME    PQ TYPE TKT DES        M/S/A CREATED       TKT TTL     
+     1.1     1  ADT                  S    06JAN UAH     32554      
+     2.1     1  ADT                  S    06JAN UAH     32554
+
+*PQ1«
+
+                     PRICE QUOTE RECORD - DETAILS                  
+    FARE NOT GUARANTEED UNTIL TICKETED                             
+    PQ 1                                                           
+    BASE FARE       EQUIV AMT     TAXES/FEES/CHARGES          TOTAL
+    USD1130.00      UAH30979        1575XT              UAH32554ADT
+    XT BREAKDOWN                                                   
+              110UA            55UD           357YK           833IL
+              220AP                                                
+    ADT-01  ZFIPEU                                                 
+    LAST DAY TO PURCHASE 13JAN/2359                                
+    TLV LY IEV565.00LY TLV565.00NUC1130.00END ROE1.00
+    VALIDATING CARRIER - LY                                        
+    FARE RESTRICTIONS APPLY                                        
+    01 O TLV LY2651Z 23JAN  630  ZFIPEU          23JAN2223JAN22 02P
+    02 O KBP LY2652Z 25JAN 1100  ZFIPEU          25JAN2225JAN22 02P
+         TLV                                                       
+    FARE SOURCE - ATPC                                             
+    S1OI S1OI *AOR 1458/06JAN22                        PRICE-SYSTEM
+Copy as textPrint
+Copy as textPrint"
+            );
+
+
+
+            docs.AssertAll(a => a
+	            .IssueDate("2022-01-06")
+	            .PnrCode("CMWLOH")
+                .BookerOffice("S1OI")
+                .BookerCode("OR")
+            );
+
+
+
+            docs.Assert(
+
+                a => a
+                    .PassengerName("YOSEF/GADIEL MR")
+                
+                
+                , a => a
+                    .PassengerName("YOSEF/SHLOMO MR")
+               
+            );
+
+        }
+
+
+
+        //---g
+
+    }
 
 
 
 
 
 
-	//===g
+    //===g
 
 
 

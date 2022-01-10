@@ -378,7 +378,7 @@ namespace Luxena.Travel.Parsers
 
 
 		static readonly Regex _reMaskIssue = new Regex(
-			@"(?<office>\w+?)\s+\w+?\s\*A(?<agent>\w+)\s(?<issueTime>\d\d\d\d)\/(?<issueDate>\d\d\w\w\w\d\d)\s.+?\Z",
+			@"^\s*(?<office>\w+?)\s+\w+?\s\*A(?<agent>\w+)\s(?<issueTime>\d\d\d\d)\/(?<issueDate>\d\d\w\w\w\d\d)\s",
 			RegexOptions.Multiline | RegexOptions.Compiled
 		);
 
