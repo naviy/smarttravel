@@ -8,14 +8,29 @@ using Luxena.Base.Domain;
 using Luxena.Domain;
 
 
+
+
 namespace Luxena.Travel.Domain
 {
+
+
+
+	//===g
+
+
+
+
+
 
 	[RU("Заказ", "Заказы")]
 	[AgentPrivileges(Copy = new object[] { })]
 	[DebuggerDisplay("Order {Number}")]
 	public partial class Order : Entity2
 	{
+
+		//---g
+
+
 
 		[Patterns.Number, EntityName]
 		public virtual string Number { get; set; }
@@ -205,10 +220,13 @@ namespace Luxena.Travel.Domain
 
 
 
+		//---g
+
 
 
 		public virtual void AddOrderItem(Domain db, OrderItem item)
 		{
+
 			item.Order = this;
 
 			item.SetOrderReference(db);
@@ -216,28 +234,38 @@ namespace Luxena.Travel.Domain
 			item.Position = _items.Count;
 
 			_items.Add(item);
+
 		}
+
 
 
 		public virtual void RemoveOrderItem(Domain db, OrderItem item)
 		{
+
 			_items.Remove(item);
 
 			item.ClearOrderReference(db);
 			//item.Update(db);
+
 		}
+
 
 
 		public virtual IList<OrderItem> ItemsBy(Product doc, Func<OrderItem, bool> match = null)
 		{
-			if (Items == null) return new OrderItem[0];
+
+			if (Items == null) 
+				return Array.Empty<OrderItem>();
+
 
 			return (
 				from item in Items
 				where Equals(item.Product, doc) && (match == null || match(item))
 				select item
 			).ToList();
+
 		}
+
 
 
 		public virtual void AddPrintedDocument(Invoice item)
@@ -246,6 +274,8 @@ namespace Luxena.Travel.Domain
 
 			_invoices.Add(item);
 		}
+
+
 
 		public virtual void AddPayment(Payment payment)
 		{
@@ -256,6 +286,8 @@ namespace Luxena.Travel.Domain
 			Refresh();
 		}
 
+
+
 		public virtual void RemovePayment(Payment payment)
 		{
 			_payments.Remove(payment);
@@ -265,6 +297,8 @@ namespace Luxena.Travel.Domain
 			Refresh();
 		}
 
+
+
 		public virtual void AddTask(Task task)
 		{
 			_tasks.Add(task);
@@ -272,12 +306,16 @@ namespace Luxena.Travel.Domain
 			task.SetOrder(this);
 		}
 
+
+
 		public virtual void RemoveTask(Task task)
 		{
 			_tasks.Remove(task);
 
 			task.SetOrder(null);
 		}
+
+
 
 		public virtual void AddOutgoingTransfer(InternalTransfer transfer)
 		{
@@ -288,6 +326,8 @@ namespace Luxena.Travel.Domain
 			Refresh();
 		}
 
+
+
 		public virtual void RemoveOutgoingTransfer(InternalTransfer transfer)
 		{
 			_outgoingTransfers.Remove(transfer);
@@ -296,6 +336,8 @@ namespace Luxena.Travel.Domain
 
 			Refresh();
 		}
+
+
 
 		public virtual void AddIncomingTransfer(InternalTransfer transfer)
 		{
@@ -315,15 +357,21 @@ namespace Luxena.Travel.Domain
 			Refresh();
 		}
 
+
+
 		public virtual bool HasSource(Entity2 entity)
 		{
 			return Items.Any(item => item.IsLinkedWith(entity));
 		}
 
+
+
 		public virtual void SetOrderReferences(Domain db)
 		{
 			_items.ForEach(item => item.SetOrderReference(db));
 		}
+
+
 
 		public virtual void ClearOrderReferences(Domain db)
 		{
@@ -335,15 +383,21 @@ namespace Luxena.Travel.Domain
 		//			_items.ForEach(item => item.Update(db));
 		//		}
 
+
+
 		public override string ToString()
 		{
 			return Number;
 		}
 
+
+
 		public virtual void Refresh()
 		{
 			_refreshPending = true;
 		}
+
+
 
 		public virtual Money EnsureRefresh(ref Money moneyField)
 		{
@@ -351,9 +405,14 @@ namespace Luxena.Travel.Domain
 			return moneyField;
 		}
 
+
+
 		public virtual void EnsureRefresh()
 		{
-			if (!_refreshPending) return;
+
+			if (!_refreshPending) 
+				return;
+
 
 			if (Total == null)
 			{
@@ -363,6 +422,7 @@ namespace Luxena.Travel.Domain
 			}
 			else
 			{
+
 				var currency = Total.Currency;
 
 				_paid = new Money(currency);
@@ -372,11 +432,14 @@ namespace Luxena.Travel.Domain
 				_restPaid = new Money(currency);
 				var vat = new Money(currency);
 
+
 				foreach (var payment in _payments.Where(a => !a.IsVoid && a.IsPosted))
 				{
+
 					var money = payment.Sign * payment.Amount;
 
 					_paid += money;
+
 
 					if (payment.IsCheck)
 						_checkPaid += money;
@@ -387,10 +450,14 @@ namespace Luxena.Travel.Domain
 					else
 						_restPaid += money;
 
+
 					vat += payment.Sign * payment.Vat;
+
 				}
 
+
 				var trasfer = _incomingTransfers.Sum(a => a.Amount) - _outgoingTransfers.Sum(a => a.Amount);
+
 
 				_paid = _paid + trasfer;
 				_restPaid = _restPaid + trasfer;
@@ -399,16 +466,24 @@ namespace Luxena.Travel.Domain
 
 				_vatDue = Vat - vat;
 
+
 				var balance = _paid.Clone();
 
+
 				foreach (var item in _items)
+				{
 					if (item.IsDelivered)
 						balance -= item.GrandTotal;
+				}
+
 
 				_deliveryBalance = balance?.Amount ?? 0;
+
 			}
 
+
 			_refreshPending = false;
+
 		}
 
 
@@ -422,6 +497,7 @@ namespace Luxena.Travel.Domain
 		{
 			Add(db, new[] { document }, serviceFeeMode);
 		}
+
 
 
 		public virtual void Add<TProduct>(
@@ -452,6 +528,7 @@ namespace Luxena.Travel.Domain
 
 				if (items.Yes())
 				{
+
 					foreach (var item in items)
 					{
 						AddOrderItem(db, item);
@@ -459,8 +536,10 @@ namespace Luxena.Travel.Domain
 						db.Save(item);
 					}
 
+
 					if (saveDocuments)
 						db.OnCommit(this, document, r => db.Save(r));
+
 				}
 
 			}
@@ -496,6 +575,8 @@ namespace Luxena.Travel.Domain
 			db.Export(this);
 		}
 
+
+
 		public virtual void Recalculate(Domain db)
 		{
 			foreach (var item in Items)
@@ -504,25 +585,32 @@ namespace Luxena.Travel.Domain
 			RecalculateFinanceData(db);
 		}
 
+
+
 		public virtual void RecalculateFinanceData(Domain db)
 		{
-			Money total;
-			Money discount;
-			Money vat;
+
 			var currency = Total.AsCurrency() ?? db.Configuration.DefaultCurrency;
 
-			db.Order.CalcFinanceData(Items, currency, out total, out discount, out vat);
+			db.Order.CalcFinanceData(Items, currency, out var total, out var discount, out var vat);
 
 
 			SetTotal(total);
 			SetDiscount(discount);
 			SetVat(vat);
+
 			db.Save(this);
+
 		}
+
+
 
 		public virtual void SetIsVoid(Domain db, bool value)
 		{
-			if (IsVoid == value) return;
+
+			if (IsVoid == value)
+				return;
+
 
 			if (value)
 			{
@@ -530,17 +618,22 @@ namespace Luxena.Travel.Domain
 			}
 			else
 			{
-				IList<Product> docs;
-
-				if (db.Order.CanRestore(this, out docs))
+				if (db.Order.CanRestore(this, out _))
 					SetOrderReferences(db);
 				else
 					throw new DomainException(Exceptions.Order_CannotRestoreOrder_Msg, Number);
 			}
 
+
 			IsVoid = value;
 			//Update(db);
+
 		}
+
+
+
+		//---g
+
 
 
 		private bool _refreshPending;
@@ -560,6 +653,20 @@ namespace Luxena.Travel.Domain
 		private readonly IList<Task> _tasks = new List<Task>();
 		private readonly IList<InternalTransfer> _outgoingTransfers = new List<InternalTransfer>();
 		private readonly IList<InternalTransfer> _incomingTransfers = new List<InternalTransfer>();
+
+
+
+		//---g
+
 	}
+
+
+
+
+
+
+	//===g
+
+
 
 }

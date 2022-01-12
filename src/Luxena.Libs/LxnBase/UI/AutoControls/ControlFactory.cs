@@ -32,22 +32,22 @@ namespace LxnBase.UI.AutoControls
 				return new RenderDelegate(BoolRenderer);
 
 			if (columnConfig.Type == TypeEnum.Number)
-				return GetNumberRenderer((NumberColumnConfig) columnConfig, 2);
+				return GetNumberRenderer((NumberColumnConfig)columnConfig, 2);
 
 			if (columnConfig.Type == TypeEnum.Date)
-				return GetDateRenderer((DateTimeColumnConfig) columnConfig);
+				return GetDateRenderer((DateTimeColumnConfig)columnConfig);
 
 			if (columnConfig.Type == TypeEnum.List)
-				return GetListRenderer((ListColumnConfig) columnConfig);
+				return GetListRenderer((ListColumnConfig)columnConfig);
 
 			if (columnConfig.Type == TypeEnum.Object)
-				return GetClassRenderer((ClassColumnConfig) columnConfig);
+				return GetClassRenderer((ClassColumnConfig)columnConfig);
 
 			if (columnConfig.Type == TypeEnum.Custom)
 			{
-				CustomTypeColumnConfig config = (CustomTypeColumnConfig) columnConfig;
+				CustomTypeColumnConfig config = (CustomTypeColumnConfig)columnConfig;
 
-				return (Delegate) _customRenderers[config.TypeName];
+				return (Delegate)_customRenderers[config.TypeName];
 			}
 
 			return null;
@@ -73,18 +73,18 @@ namespace LxnBase.UI.AutoControls
 			switch (columnConfig.Type)
 			{
 				case TypeEnum.Number:
-				{
-					NumberColumnConfig cfg = (NumberColumnConfig) columnConfig;
+					{
+						NumberColumnConfig cfg = (NumberColumnConfig)columnConfig;
 
-					NumberFieldConfig config = new NumberFieldConfig()
-						.width(DefaultNumberFieldWidth)
-						.allowDecimals(!cfg.IsInteger)
-						.decimalPrecision(2)
-						.allowBlank(!columnConfig.IsRequired)
-						.selectOnFocus(true);
+						NumberFieldConfig config = new NumberFieldConfig()
+							.width(DefaultNumberFieldWidth)
+							.allowDecimals(!cfg.IsInteger)
+							.decimalPrecision(2)
+							.allowBlank(!columnConfig.IsRequired)
+							.selectOnFocus(true);
 
-					field = cfg.IsInteger ? new NumberField(config.ToDictionary()) : new DecimalField(config.ToDictionary());
-				}
+						field = cfg.IsInteger ? new NumberField(config.ToDictionary()) : new DecimalField(config.ToDictionary());
+					}
 					break;
 
 				case TypeEnum.Bool:
@@ -115,61 +115,61 @@ namespace LxnBase.UI.AutoControls
 					break;
 
 				case TypeEnum.String:
-				{
-					TextFieldConfig config = new TextFieldConfig()
-						.selectOnFocus(true)
-						.allowBlank(!columnConfig.IsRequired);
-
-					int maxLength = ((TextColumnConfig) columnConfig).Length;
-
-					if (maxLength > 0)
 					{
-						config.maxLength(maxLength);
+						TextFieldConfig config = new TextFieldConfig()
+							.selectOnFocus(true)
+							.allowBlank(!columnConfig.IsRequired);
 
-						if (((TextColumnConfig) columnConfig).Lines == 0)
+						int maxLength = ((TextColumnConfig)columnConfig).Length;
+
+						if (maxLength > 0)
 						{
-							int width = maxLength*6;
+							config.maxLength(maxLength);
 
-							if (width < MinWidth)
-								width = MinWidth;
-							else if (width > MaxWidth)
-								width = MaxWidth;
+							if (((TextColumnConfig)columnConfig).Lines == 0)
+							{
+								int width = maxLength * 6;
 
-							config.width(width);
+								if (width < MinWidth)
+									width = MinWidth;
+								else if (width > MaxWidth)
+									width = MaxWidth;
+
+								config.width(width);
+							}
 						}
-					}
-					else
-						config.width(DefaultTextFieldWidth);
+						else
+							config.width(DefaultTextFieldWidth);
 
-					if (((TextColumnConfig) columnConfig).Lines != 0)
-					{
-						config.width(MaxWidth);
-						config.height(100);
+						if (((TextColumnConfig)columnConfig).Lines != 0)
+						{
+							config.width(MaxWidth);
+							config.height(100);
 
-						field = new TextArea(config.ToDictionary());
+							field = new TextArea(config.ToDictionary());
+						}
+						else
+							field = new TextField(config.ToDictionary());
 					}
-					else
-						field = new TextField(config.ToDictionary());
-				}
 					break;
 
 				case TypeEnum.Date:
-				{
-					DateFieldConfig config = new DateFieldConfig()
-						.allowBlank(!columnConfig.IsRequired)
-						.selectOnFocus(true);
+					{
+						DateFieldConfig config = new DateFieldConfig()
+							.allowBlank(!columnConfig.IsRequired)
+							.selectOnFocus(true);
 
-					if (string.IsNullOrEmpty(((DateTimeColumnConfig) columnConfig).FormatString))
-						config.format("d.m.Y");
-					else
-						config.format(((DateTimeColumnConfig) columnConfig).FormatString);
+						if (string.IsNullOrEmpty(((DateTimeColumnConfig)columnConfig).FormatString))
+							config.format("d.m.Y");
+						else
+							config.format(((DateTimeColumnConfig)columnConfig).FormatString);
 
-					field = new DateField(config.ToDictionary());
-				}
+						field = new DateField(config.ToDictionary());
+					}
 					break;
 
 				case TypeEnum.Object:
-					field = GetPersistentEditor((ClassColumnConfig) columnConfig).Widget;
+					field = GetPersistentEditor((ClassColumnConfig)columnConfig).Widget;
 					break;
 
 				case TypeEnum.List:
@@ -193,11 +193,11 @@ namespace LxnBase.UI.AutoControls
 					break;
 				case TypeEnum.Custom:
 
-					string typeName = ((CustomTypeColumnConfig) columnConfig).TypeName;
+					string typeName = ((CustomTypeColumnConfig)columnConfig).TypeName;
 
 					if (_customEditors.ContainsKey(typeName))
 					{
-						CreateEditorDelegate editor = (CreateEditorDelegate) _customEditors[typeName];
+						CreateEditorDelegate editor = (CreateEditorDelegate)_customEditors[typeName];
 
 						field = editor.Invoke(columnConfig, isListMode);
 					}
@@ -224,7 +224,7 @@ namespace LxnBase.UI.AutoControls
 
 		public static GridRenderDelegate CreateRefrenceRenderer(string type)
 		{
-			return delegate(object value, object metadata, Record record, int rowIndex, int colIndex, Store store)
+			return delegate (object value, object metadata, Record record, int rowIndex, int colIndex, Store store)
 			{
 				if (value == null)
 					return null;
@@ -257,7 +257,7 @@ namespace LxnBase.UI.AutoControls
 					width = MaxWidth;
 			}
 
-			ObjectSelectorConfig config = (ObjectSelectorConfig) new ObjectSelectorConfig()
+			ObjectSelectorConfig config = (ObjectSelectorConfig)new ObjectSelectorConfig()
 				.setClass(cfg.Clazz)
 				.hideLabel(false)
 				.width(width)
@@ -281,7 +281,7 @@ namespace LxnBase.UI.AutoControls
 
 		private static object BoolRenderer(object value)
 		{
-			if ((bool) value)
+			if ((bool)value)
 				return @"<div class='checkBoxDisabled checked'></div>";
 
 			return string.Empty;
@@ -289,12 +289,12 @@ namespace LxnBase.UI.AutoControls
 
 		private static RenderDelegate GetDateRenderer(DateTimeColumnConfig config)
 		{
-			return delegate(object value) { return Format.date(value, config.FormatString); };
+			return delegate (object value) { return Format.date(value, config.FormatString); };
 		}
 
 		private static RenderDelegate GetClassRenderer(ClassColumnConfig config)
 		{
-			return delegate(object value)
+			return delegate (object value)
 			{
 				if (value == null)
 					return null;
@@ -312,7 +312,7 @@ namespace LxnBase.UI.AutoControls
 					return ObjectLink.RenderArray(values);
 				}
 
-				Reference info = (Reference) value;
+				Reference info = (Reference)value;
 
 				if (config.RenderAsString)
 					return info.Name;
@@ -326,17 +326,17 @@ namespace LxnBase.UI.AutoControls
 
 		private static RenderDelegate GetListRenderer(ListColumnConfig config)
 		{
-			return delegate(object value)
+			return delegate (object value)
 			{
 				if (Script.IsNullOrUndefined(value))
 					return null;
 
 				if (value is Array)
-					return ((Array) value)[Reference.NamePos];
+					return ((Array)value)[Reference.NamePos];
 
 				for (int i = 0; i < config.Items.Length; i++)
 				{
-					object[] values = (object[]) config.Items[i];
+					object[] values = (object[])config.Items[i];
 
 					if (!Script.IsNullOrUndefined(values[Reference.IdPos]) && values[Reference.IdPos] == value)
 						return values[Reference.NamePos];
@@ -349,7 +349,7 @@ namespace LxnBase.UI.AutoControls
 		public static RenderDelegate GetNumberRenderer(NumberColumnConfig config, int precision)
 		{
 			return
-				delegate(object value)
+				delegate (object value)
 				{
 					if (Script.IsNullOrUndefined(value))
 						return string.Empty;

@@ -4268,7 +4268,7 @@ Luxena.Travel.OrderEditForm.prototype = {
         this._initFields$2();
         this._initLayout$2();
         var fields = [];
-        fields.addRange([ this._issueDate$2, this._customer$2.get_widget(), this._billTo$2.get_widget(), this._shipTo$2.get_widget(), this._intermediary$2.get_widget(), this._owner$2, this._assignedTo$2.get_widget(), this._bankAccount$2, this._bonusDate$2, this._bonusSpentAmount$2, this._bonusRecipient$2.get_widget(), this._isPublic$2, this._allowAddProductsInClosedPeriod$2, this._isSubjectOfPaymentsControl$2, this._note$2, this._discount$2, this._total$2 ]);
+        fields.addRange([ this._issueDate$2, this._number$2, this._customer$2.get_widget(), this._billTo$2.get_widget(), this._shipTo$2.get_widget(), this._intermediary$2.get_widget(), this._owner$2, this._assignedTo$2.get_widget(), this._bankAccount$2, this._bonusDate$2, this._bonusSpentAmount$2, this._bonusRecipient$2.get_widget(), this._isPublic$2, this._allowAddProductsInClosedPeriod$2, this._isSubjectOfPaymentsControl$2, this._note$2, this._discount$2, this._total$2 ]);
         if (this.get_canChangeVat()) {
             fields.add(this._vat$2);
             fields.add(this._useServiceFeeOnlyInVat$2);
@@ -4279,6 +4279,7 @@ Luxena.Travel.OrderEditForm.prototype = {
     _initFields$2: function Luxena_Travel_OrderEditForm$_initFields$2() {
         this._issueDate$2 = this.createEditor('IssueDate');
         this._issueDate$2.setValue(Date.get_today());
+        this._number$2 = this.createEditor('Number');
         this._customer$2 = Luxena.Travel.Controls.ControlFactoryExt.createCustomerControl(Luxena.Travel.DomainRes.common_Customer, 200, false);
         this._billTo$2 = Luxena.Travel.Controls.ControlFactoryExt.createCustomerControlWithText(Luxena.Travel.DomainRes.common_BillTo, 200, true);
         this._shipTo$2 = Luxena.Travel.Controls.ControlFactoryExt.createCustomerControl(Luxena.Travel.DomainRes.common_ShipTo, 200, true);
@@ -4316,7 +4317,7 @@ Luxena.Travel.OrderEditForm.prototype = {
     },
     
     _initLayout$2: function Luxena_Travel_OrderEditForm$_initLayout$2() {
-        var attributes = new Ext.Panel(new Ext.PanelConfig().items([ new Ext.Panel(new Ext.PanelConfig().items([ this._issueDate$2, this._customer$2.get_widget(), this._billTo$2.get_widget(), this._shipTo$2.get_widget(), this._intermediary$2.get_widget(), this._note$2 ]).layout('form').cls('attributes').toDictionary()), new Ext.Panel(new Ext.PanelConfig().items([ this._owner$2, this._assignedTo$2.get_widget(), this._bankAccount$2, this._isPublic$2, this._allowAddProductsInClosedPeriod$2, this._isSubjectOfPaymentsControl$2, this._separateServiceFee$2, this._bonusSpentAmount$2, this._bonusRecipient$2.get_widget(), this._bonusDate$2 ]).layout('form').cls('attributes').toDictionary()) ]).layout('column').toDictionary());
+        var attributes = new Ext.Panel(new Ext.PanelConfig().items([ new Ext.Panel(new Ext.PanelConfig().items([ this._issueDate$2, this._number$2, this._customer$2.get_widget(), this._billTo$2.get_widget(), this._shipTo$2.get_widget(), this._intermediary$2.get_widget(), this._note$2 ]).layout('form').cls('attributes').toDictionary()), new Ext.Panel(new Ext.PanelConfig().items([ this._owner$2, this._assignedTo$2.get_widget(), this._bankAccount$2, this._isPublic$2, this._allowAddProductsInClosedPeriod$2, this._isSubjectOfPaymentsControl$2, this._separateServiceFee$2, this._bonusSpentAmount$2, this._bonusRecipient$2.get_widget(), this._bonusDate$2 ]).layout('form').cls('attributes').toDictionary()) ]).layout('column').toDictionary());
         var orderItems = new Ext.Panel(new Ext.PanelConfig().items([ this._itemsControl$2 ]).cls('items').toDictionary());
         var financeItems = [this._discount$2, this._total$2];
         if (this.get_canChangeVat()) {
@@ -4346,6 +4347,7 @@ Luxena.Travel.OrderEditForm.prototype = {
             return;
         }
         this._issueDate$2.setValue(this.get__order$2().IssueDate);
+        this._number$2.setValue(this.get__order$2().Number);
         this._customer$2.setValue(this.get__order$2().Customer);
         if (this.get__order$2().BillTo != null && this.get__order$2().BillTo.Id == null) {
             this.get__order$2().BillTo.Id = '';
@@ -4411,6 +4413,7 @@ Luxena.Travel.OrderEditForm.prototype = {
             dto.Version = this.get__order$2().Version;
         }
         dto.IssueDate = this._issueDate$2.getValue();
+        dto.Number = this._number$2.getValue().toString();
         dto.Customer = this._customer$2.getObjectInfo();
         dto.BillTo = this._billTo$2.getObjectInfo();
         if (dto.BillTo == null && !String.isNullOrEmpty(this._billTo$2.get_text())) {
@@ -4463,6 +4466,7 @@ Luxena.Travel.OrderEditForm.prototype = {
     
     _itemsControl$2: null,
     _issueDate$2: null,
+    _number$2: null,
     _customer$2: null,
     _billTo$2: null,
     _shipTo$2: null,

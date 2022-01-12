@@ -6,13 +6,33 @@ using Luxena.Base.Data;
 using Luxena.Travel.Export;
 
 
+
+
 namespace Luxena.Travel.Domain
 {
 
+
+
+	//===g
+
+
+
+
+
 	partial class Order
 	{
+
+		//---g
+
+
+
+
 		public class Service : Entity2Service<Order>
 		{
+
+			//---g
+
+
 
 			#region Read
 
@@ -22,6 +42,11 @@ namespace Luxena.Travel.Domain
 			}
 
 			#endregion
+
+
+
+			//---g
+
 
 
 			#region Permissions
@@ -58,26 +83,34 @@ namespace Luxena.Travel.Domain
 
 
 
-			#region Modify
+			//---g
+
+
 
 
 			public Service()
 			{
+
 
 				Validating += r =>
 				{
 				};
 
 
+
 				Calculating += r =>
 				{
+
 					if (r.Number.No())
 						r.Number = NewSequence();
 
+
 					r.AssignedTo |= db.Security.Person;
+
 
 					if (r.IssueDate == DateTime.MinValue)
 						r.IssueDate = DateTime.Today;
+
 
 					if (r.Owner == null)
 					{
@@ -86,22 +119,31 @@ namespace Luxena.Travel.Domain
 						if (owners.Count == 1)
 							r.Owner = owners[0];
 					}
+
 				};
+
 
 
 				Updating += r =>
 				{
+
 					if (IsDirty(r, a => a.Customer))
 					{
+
 						r.Items
 							.Select(a => a.Product)
 							.Where(a => a != null && a.SetCustomer(db, r.Customer))
-							.ForEach(a => db.Save(r, a));
+							.ForEach(a => db.Save(r, a))
+						;
 
 						r.Payments
-							.ForEach(a => a.SetPayer(r.Customer));
+							.ForEach(a => a.SetPayer(r.Customer))
+						;
+
 					}
+
 				};
+
 
 
 				Modifing += r =>
@@ -114,7 +156,9 @@ namespace Luxena.Travel.Domain
 				};
 
 
+
 				Deleting += r => r.ClearOrderReferences(db);
+
 
 			}
 
@@ -122,6 +166,7 @@ namespace Luxena.Travel.Domain
 
 			public void CalcFinanceData(IList<OrderItem> items, Currency currency, out Money total, out Money discount, out Money vat)
 			{
+
 				var givenVat = new Money(currency);
 				var taxedTotal = new Money(currency);
 
@@ -129,27 +174,38 @@ namespace Luxena.Travel.Domain
 				total = new Money(currency);
 				vat = new Money(currency);
 
+
 				foreach (var item in items)
 				{
+
 					if (item.HasVat)
 					{
 						givenVat += item.GivenVat ?? new Money(currency);
 						taxedTotal += item.TaxedTotal ?? new Money(currency);
 					}
 
+
 					discount += item.Discount ?? new Money(currency);
 					total += item.GrandTotal;
+
 				}
 
+
 				if (taxedTotal != null && taxedTotal.Amount > 0)
+				{
 					vat = (taxedTotal - discount) * db.Configuration.VatRate / (100 + db.Configuration.VatRate);
+				}
+
 
 				if (givenVat != null && givenVat.Amount > 0)
 					vat += givenVat;
 
+
 				if (vat != null && vat.Amount < 0)
 					vat.Amount = 0;
+
 			}
+
 
 
 			public void SetIsVoid(object orderId, bool value)
@@ -157,7 +213,10 @@ namespace Luxena.Travel.Domain
 				By(orderId).SetIsVoid(db, value);
 			}
 
-			#endregion
+
+
+			//---g
+
 
 
 			public void Export(Order r)
@@ -165,9 +224,26 @@ namespace Luxena.Travel.Domain
 				db.Resolve<IExporter>().Do(a => a.Export(r));
 			}
 
+
+
+			//---g
+
 		}
 
 
+
+
+		//---g
+
 	}
+
+
+
+
+
+
+	//===g
+
+
 
 }

@@ -6,11 +6,26 @@ using Luxena.Base.Metamodel;
 using Luxena.Domain.Contracts;
 
 
+
+
 namespace Luxena.Travel.Domain
 {
 
+
+
+	//===g
+
+
+
+
+
+
 	public partial class OrderDto : EntityContract
 	{
+
+		//---g
+
+
 
 		public string Type => Class.Of<Order>().Id;
 
@@ -87,15 +102,30 @@ namespace Luxena.Travel.Domain
 
 		public bool CanChangeAssignedTo { get; set; }
 
+
+
+		//---g
+
 	}
+
+
+
+
 
 
 	public partial class OrderContractService : EntityContractService<Order, Order.Service, OrderDto>
 	{
+
+		//---g
+
+
+
 		public OrderContractService()
 		{
+
 			ContractFromEntity += (r, c) =>
 			{
+
 				c.Number = r.Number;
 				c.IssueDate = r.IssueDate;
 
@@ -105,8 +135,10 @@ namespace Luxena.Travel.Domain
 				c.ShipTo = r.ShipTo;
 
 				c.BillTo = r.BillTo;
+
 				if (c.BillTo == null && r.BillToName.Yes())
 					c.BillTo = new Party.Reference { Name = r.BillToName };
+
 
 				c.Intermediary = r.Intermediary;
 
@@ -144,7 +176,9 @@ namespace Luxena.Travel.Domain
 				c.Transfers = r.IncomingTransfers.Select(a => new OrderTransferDto(a, true))
 					.Concat(r.OutgoingTransfers.Select(a => new OrderTransferDto(a, false)))
 					.OrderBy(a => a.Date)
-					.ToArray();
+					.ToArray()
+				;
+
 
 				c.Permissions = new OperationPermissions
 				{
@@ -154,10 +188,14 @@ namespace Luxena.Travel.Domain
 
 				c.CanCreateTransfer = db.InternalTransfer.CanCreate();
 				c.CanChangeAssignedTo = db.IsGranted(UserRole.Supervisor);
+
 			};
+
+
 
 			EntityFromContract += (r, c) =>
 			{
+
 				r.IssueDate = c.IssueDate + db;
 				r.Number = (c.Number + db) ?? r.Number;
 
@@ -165,10 +203,12 @@ namespace Luxena.Travel.Domain
 				r.ShipTo = c.ShipTo + db;
 
 				r.BillTo = c.BillTo + db;
+
 				if (r.BillTo != null && c.BillTo != null && c.BillTo.Name.Yes() && r.BillTo.Name != c.BillTo.Name)
 				{
 					r.BillTo = null;
 				}
+
 				r.BillToName = r.BillTo != null || c.BillTo == null ? null : c.BillTo.Name + db;
 
 				r.Intermediary = c.Intermediary + db;
@@ -197,11 +237,15 @@ namespace Luxena.Travel.Domain
 
 				r.Refresh();
 				//r.Update(db);
+
 			};
 		}
 
+
+
 		public override ItemResponse Update(OrderDto c, RangeRequest prms)
 		{
+
 			var alreadyOrderedDocs = (
 				from item in c.Items
 				let p = item.Product + db
@@ -209,15 +253,20 @@ namespace Luxena.Travel.Domain
 				select item
 			).ToArray();
 
+
 			if (alreadyOrderedDocs.Yes())
 				return new ItemResponse { Errors = alreadyOrderedDocs };
 
+
 			return base.Update(c, prms);
+
 		}
+
 
 
 		public ItemResponse AddProducts(object orderId, object[] productIds, bool separateServiceFee)
 		{
+
 			var order = db.Order.By(orderId);
 			db.AssertUpdate(order);
 
@@ -231,12 +280,25 @@ namespace Luxena.Travel.Domain
 			if (links.Yes())
 				return new ItemResponse { Errors = links };
 
+
 			order.Add(db, products, separateServiceFee ? ServiceFeeMode.Separate : ServiceFeeMode.Join);
 
 			return new ItemResponse { Item = New(order) };
+
 		}
 
+
+
+		//---g
+
 	}
+
+
+
+
+
+
+	//===g
 
 
 

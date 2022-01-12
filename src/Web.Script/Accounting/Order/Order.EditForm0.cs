@@ -21,26 +21,52 @@ using ComboBox = LxnBase.UI.Controls.ComboBox;
 using Field = Ext.form.Field;
 
 
+
+
 namespace Luxena.Travel
 {
 
+
+
+	//===g
+
+
+
+
+
+
 	public class OrderEditForm : BaseClassEditForm
 	{
+
+		//---g
+
+
 
 		static OrderEditForm()
 		{
 			FormsRegistry.RegisterEdit(ClassNames.Order, EditObject);
 		}
 
+
+
 		public static void EditObject(EditFormArgs args)
 		{
+
 			ConfigManager.GetEditConfig(args.Type,
 				delegate (ItemConfig config)
 				{
 					OrderEditForm form = new OrderEditForm(args, config);
 					form.Open();
-				});
+				})
+			;
+
 		}
+
+
+
+		//---g
+
+
 
 		private OrderEditForm(EditFormArgs args, ItemConfig config)
 			: base(args, config)
@@ -48,10 +74,17 @@ namespace Luxena.Travel
 			Window.addClass("order-edit");
 		}
 
+
+
+		//---g
+
+
+
 		public bool SeparateServiceFee
 		{
 			get { return _separateServiceFee.getValue(); }
 		}
+
 
 		public Reference Customer
 		{
@@ -59,32 +92,50 @@ namespace Luxena.Travel
 			set { _customer.SetValue(value); }
 		}
 
+
 		public bool CanChangeVat
 		{
 			get { return GetCustomActionStatus("ChangeVat").Visible; }
 		}
+
 
 		private OrderDto Order
 		{
 			get { return (OrderDto)Instance; }
 		}
 
+
+
+		//---g
+
+
+
 		protected override void LoadInstance(AjaxCallback onLoaded)
 		{
 			OrderService.GetOrder(Args.IdToLoad, onLoaded, null);
 		}
 
+
+
+		//---g
+
+
+
 		protected override Field[] AddFields()
 		{
+
 			InitFields();
 
 			InitLayout();
 
+
 			ArrayList fields = new ArrayList();
+
 
 			fields.AddRange(new object[]
 			{
 				_issueDate,
+				_number,
 				_customer.Widget,
 				_billTo.Widget,
 				_shipTo.Widget,
@@ -103,27 +154,40 @@ namespace Luxena.Travel
 				_total
 			});
 
+
 			if (CanChangeVat)
 			{
 				fields.Add(_vat);
 				fields.Add(_useServiceFeeOnlyInVat);
 			}
 
+
 			return (Field[])fields;
+
 		}
+
+
 
 		private void InitFields()
 		{
+
 			_issueDate = (DateField)CreateEditor("IssueDate");
 			_issueDate.setValue(Date.Today);
-
+			
+			_number = (TextField)CreateEditor("Number");
+			
 			_customer = ControlFactoryExt.CreateCustomerControl(DomainRes.Common_Customer, 200, false);
+
 			_billTo = ControlFactoryExt.CreateCustomerControlWithText(DomainRes.Common_BillTo, 200, true);
+
 			_shipTo = ControlFactoryExt.CreateCustomerControl(DomainRes.Common_ShipTo, 200, true);
+
 			_intermediary = ControlFactoryExt.CreateCustomerControl(DomainRes.Common_Intermediary, 200, true);
 
 			_owner = ControlFactoryExt.CreateOwnerControl(200);
+
 			_assignedTo = ControlFactoryExt.CreateAssignedToControl(DomainRes.Common_AssignedTo, 200, false);
+
 			_assignedTo.SetValue(AppManager.CurrentPerson);
 
 			_bankAccount = ControlFactoryExt.CreateBankAccountControl(200);
@@ -189,15 +253,21 @@ namespace Luxena.Travel
 				.width(220)
 				.height(98)
 				.ToDictionary());
+
 		}
+
+
 
 		private void OnUseServiceFeeOnlyInVatChange(Field field, bool newValue)
 		{
 			_itemsControl.UseServiceFeeOnlyInVat = newValue;
 		}
 
+
+
 		private void InitLayout()
 		{
+
 			Panel attributes = new Panel(new PanelConfig()
 				.items(new Component[]
 					{
@@ -205,6 +275,7 @@ namespace Luxena.Travel
 							.items(new object[]
 							{
 								_issueDate,
+								_number,
 								_customer.Widget,
 								_billTo.Widget,
 								_shipTo.Widget,
@@ -236,13 +307,17 @@ namespace Luxena.Travel
 				.layout("column")
 				.ToDictionary());
 
+
 			Panel orderItems = new Panel(new PanelConfig()
 				.items(new Component[] { _itemsControl })
 				.cls("items")
 				.ToDictionary()
 			);
 
+
 			List<Component> financeItems = new List<Component>(_discount, _total);
+
+
 			if (CanChangeVat)
 			{
 				financeItems.Add(_vat);
@@ -261,35 +336,55 @@ namespace Luxena.Travel
 			Form.add(attributes);
 			Form.add(orderItems);
 			Form.add(finances);
+
 		}
+
+
 
 		protected override void SetFieldValues()
 		{
+
 			if (Order == null)
 			{
+
 				if (!Script.IsNullOrUndefined(Args.FieldValues))
 				{
+
 					if (Args.FieldValues.ContainsKey("SeparateServiceFee"))
+					{
 						_separateServiceFee.setValue((bool)Args.FieldValues["SeparateServiceFee"]);
+					}
+
 
 					if (Args.FieldValues.ContainsKey("AviaDocuments"))
+					{
 						_itemsControl.TryAddDocuments((object[])Args.FieldValues["AviaDocuments"]);
+					}
+
 
 					if (Args.FieldValues.ContainsKey("Customer"))
+					{
 						_customer.SetValue(Args.FieldValues["Customer"]);
+					}
+
 				}
 
+
 				_issueDate.setValue(Date.Today);
+
 
 				return;
 			}
 
+
 			_issueDate.setValue(Order.IssueDate);
+			_number.setValue(Order.Number);
 
 			_customer.SetValue(Order.Customer);
 
 			if (Order.BillTo != null && Order.BillTo.Id == null)
 				Order.BillTo.Id = "";
+
 			_billTo.SetValue(Order.BillTo);
 
 			_shipTo.SetValue(Order.ShipTo);
@@ -299,6 +394,7 @@ namespace Luxena.Travel
 			_discount.setValue(Order.Discount);
 			_total.setValue(Order.Total);
 
+
 			if (CanChangeVat)
 			{
 				_vat.setValue(Order.Vat);
@@ -307,11 +403,15 @@ namespace Luxena.Travel
 			else
 				UpdateVatString(Order.Vat);
 
+
 			_owner.setValue(Order.Owner);
 			_assignedTo.SetValue(Order.AssignedTo);
 			_bankAccount.setValue(Order.BankAccount);
+
+
 			if (!Order.CanChangeAssignedTo)
 				_assignedTo.Widget.setDisabled(true);
+
 
 			_bonusDate.setValue(Order.BonusDate);
 			_bonusSpentAmount.setValue(Order.BonusSpentAmount);
@@ -323,13 +423,14 @@ namespace Luxena.Travel
 
 			_note.setValue(Order.Note);
 
-
 		}
+
+
 
 		protected override void OnSave()
 		{
-			if (IsModified() || _itemsControl.IsModified
-				|| Order.BillTo != null && _billTo.Text != Order.BillTo.Name)
+
+			if (IsModified() || _itemsControl.IsModified || Order.BillTo != null && _billTo.Text != Order.BillTo.Name)
 			{
 				OrderService.UpdateOrder(GetOrder(), Args.RangeRequest, OnSaveComplete, null);
 			}
@@ -337,10 +438,14 @@ namespace Luxena.Travel
 			{
 				Cancel();
 			}
+
 		}
+
+
 
 		private void OnSaveComplete(object result)
 		{
+
 			ItemResponse response = (ItemResponse)result;
 
 			if (response.Errors == null)
@@ -350,11 +455,16 @@ namespace Luxena.Travel
 				return;
 			}
 
+
 			MessageFactory.DocumentsAlreadyAddedToOrder(Res.Order_SaveError_Msg_Title, Res.Order_CannotRestoreOrder_Msg, (OrderItemDto[])response.Errors);
+
 		}
+
+
 
 		protected override void OnSaved(object result)
 		{
+
 			if (Script.IsNullOrUndefined(Args.RangeRequest))
 			{
 				OrderDto dto = (OrderDto)((ItemResponse)result).Item;
@@ -363,12 +473,18 @@ namespace Luxena.Travel
 					string.Format("{0} {1}", (Args.IsNew ? BaseRes.Created : BaseRes.Updated), ObjectLink.Render(dto.Id, dto.Number, ClassNames.Order)));
 			}
 
+
 			base.OnSaved(result);
+
 		}
+
+
 
 		private OrderDto GetOrder()
 		{
+
 			OrderDto dto = new OrderDto();
+
 
 			if (Order != null)
 			{
@@ -376,14 +492,20 @@ namespace Luxena.Travel
 				dto.Version = Order.Version;
 			}
 
+
 			dto.IssueDate = _issueDate.getValue();
+			dto.Number = _number.getValue().ToString();
 
 			dto.Customer = _customer.GetObjectInfo();
 			dto.BillTo = _billTo.GetObjectInfo();
+
+
 			if (dto.BillTo == null && !string.IsNullOrEmpty(_billTo.Text))
 				dto.BillTo = new Reference();
+
 			if (dto.BillTo != null)
 				dto.BillTo.Name = _billTo.Text;
+
 
 			dto.ShipTo = _shipTo.GetObjectInfo();
 			dto.Intermediary = _intermediary.GetObjectInfo();
@@ -411,11 +533,16 @@ namespace Luxena.Travel
 			string note = (string)_note.getValue();
 			dto.Note = string.IsNullOrEmpty(note) ? null : note;
 
+
 			return dto;
+
 		}
+
+
 
 		private void OrderFinanceDataChanged()
 		{
+
 			_discount.setValue(_itemsControl.Discount);
 			_total.setValue(_itemsControl.GrandTotal);
 
@@ -423,10 +550,14 @@ namespace Luxena.Travel
 				_vat.setValue(_itemsControl.Vat);
 			else
 				UpdateVatString(_itemsControl.Vat);
+
 		}
+
+
 
 		private void UpdateVatString(MoneyDto vat)
 		{
+
 			string html = string.Format(
 				@"<label class='x-form-item-label'>{0}:</label>
 				<div class='x-form-element'>
@@ -438,15 +569,24 @@ namespace Luxena.Travel
 				<div class='x-form-clear-left'></div>",
 				DomainRes.Order_Vat, vat.Amount.Format("N2"), vat.Currency.Name);
 
+
 			if (_vatString.rendered)
 				_vatString.getEl().update(html);
 			else
 				_vatString.autoEl = new Dictionary("html", html);
+
 		}
+
+
+
+		//---g
+
+
 
 		private OrderItemGridControl _itemsControl;
 
 		private DateField _issueDate;
+		private TextField _number;
 
 		private ObjectSelector _customer;
 		private ObjectSelector _billTo;
@@ -472,6 +612,20 @@ namespace Luxena.Travel
 		private DateField _bonusDate;
 		private DecimalField _bonusSpentAmount;
 		private ObjectSelector _bonusRecipient;
+
+
+
+		//---g
+
 	}
+
+
+
+
+
+
+	//===g
+
+
 
 }
