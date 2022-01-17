@@ -721,6 +721,18 @@ update lt_order o set
 	}
 
 
+	[Migration(2022011701)]
+	public class Migration_2022011701 : AutoReversingMigration
+	{
+		public override void Up()
+		{
+			Alter.Table("lt_order_item")
+				.AddColumn("isforcedelivered").AsBoolean().NotNullable().WithDefaultValue(false);
+			;
+		}
+	}
+
+
 
 
 }

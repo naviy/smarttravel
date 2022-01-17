@@ -13,14 +13,22 @@ using LxnBase.UI;
 using Luxena.Travel.Controls;
 
 
+
+
 namespace Luxena.Travel
 {
+
+
+
 	public class OrderItemEditForm : BaseClassEditForm
 	{
+
 		static OrderItemEditForm()
 		{
 			FormsRegistry.RegisterEdit(ClassNames.OrderItem, EditObject);
 		}
+
+
 
 		private OrderItemEditForm(EditFormArgs args, ItemConfig itemConfig)
 			: base(args, itemConfig)
@@ -28,6 +36,8 @@ namespace Luxena.Travel
 			args.Mode = LoadMode.Local;
 			Window.addClass("orderitem-edit");
 		}
+
+
 
 		public static void EditObject(EditFormArgs args)
 		{
@@ -40,11 +50,14 @@ namespace Luxena.Travel
 		}
 
 
+
 		public OrderItemDto r { get { return (OrderItemDto)Instance; } }
+
 
 
 		protected override Field[] AddFields()
 		{
+
 			_textField = CreateEditor("Text");
 
 			Button addProductTextButton = Form.addButton("Добавить название услуги", new AnonymousDelegate(AddProductText));
@@ -86,7 +99,15 @@ namespace Luxena.Travel
 				.ToDictionary());
 
 
-			_hasVatField = CreateEditor("HasVat");
+			_hasVatField = new Checkbox(new CheckboxConfig()
+				.boxLabel(DomainRes.OrderItem_HasVat)
+				.ToDictionary());
+			;
+
+			_isForceDelivered = new Checkbox(new CheckboxConfig()
+				.boxLabel(DomainRes.OrderItem_IsForceDelivered)
+				.ToDictionary());
+			;
 
 
 			Field[] fields =
@@ -96,7 +117,8 @@ namespace Luxena.Travel
 				_quantityField,
 				_discountField,
 				_grandTotalField,
-				_hasVatField
+				_hasVatField,
+				_isForceDelivered
 			};
 
 
@@ -107,25 +129,33 @@ namespace Luxena.Travel
 				_quantityField,
 				_discountField,
 				_grandTotalField,
-				_hasVatField
+				_hasVatField,
+				_isForceDelivered
 			});
 
 
 			return fields;
+
 		}
+
 
 
 		private void AddProductText()
 		{
+
 			string value = _textField.getValue() as string;
+
 
 			if (string.IsNullOrEmpty(value))
 				value = "";
 			else
 				value += " ";
 
+
 			_textField.setValue(value + r.ProductText);
+
 		}
+
 
 
 		private void OnAmountChange(Field field, object newvalue, object oldvalue)
@@ -135,17 +165,25 @@ namespace Luxena.Travel
 			_grandTotalField.setValue(MoneyDto.ToMoneyFullString(money));
 		}
 
+
+
 		private void OnCurrencyChange(Field objthis, object newvalue, object oldvalue)
 		{
+
 			if (objthis == _priceField.CurrencySelector.Widget)
 				_discountField.CurrencySelector.SetValue(_priceField.Currency);
 			else
 				_priceField.CurrencySelector.SetValue(_discountField.Currency);
 
+
 			MoneyDto money = CalculateGrandTotal();
 
+
 			_grandTotalField.setValue(MoneyDto.ToMoneyFullString(money));
+
 		}
+
+
 
 		private bool CanCaluculate()
 		{
@@ -157,10 +195,14 @@ namespace Luxena.Travel
 
 
 			return res && Reference.Equals(_priceField.Currency, _discountField.Currency);
+
 		}
+
+
 
 		private MoneyDto CalculateGrandTotal()
 		{
+
 			if (!CanCaluculate())
 				return MoneyDto.GetZeroMoney();
 
@@ -169,15 +211,23 @@ namespace Luxena.Travel
 			money.Currency = _priceField.Currency;
 
 			return money;
+
 		}
+
+
 
 		protected override void LoadInstance(AjaxCallback onLoaded)
 		{
 		}
 
+
+
 		protected override void SetFieldValues()
 		{
-			if (r == null) return;
+
+			if (r == null)
+				return;
+
 
 			_textField.setValue(r.Text);
 			_priceField.setValue(r.Price);
@@ -186,16 +236,24 @@ namespace Luxena.Travel
 			_grandTotalField.setValue(MoneyDto.ToMoneyFullString(r.GrandTotal));
 
 			_hasVatField.setValue(r.HasVat);
+			_isForceDelivered.setValue(r.IsForceDelivered);
+
 		}
+
+
 
 		protected override void OnSave()
 		{
+
 			OrderItemDto dto = new OrderItemDto();
+
 			if (r != null)
 			{
 				dto.LinkType = r.LinkType;
 				dto.Product = r.Product;
 			}
+
+
 			dto.Text = (string)_textField.getValue();
 			dto.Price = _priceField.getValue() ?? MoneyDto.GetZeroMoney();
 			dto.Quantity = (int)_quantityField.getValue();
@@ -207,9 +265,14 @@ namespace Luxena.Travel
 			dto.TaxedTotal = MoneyDto.CopyMoney(dto.Total);
 
 			dto.HasVat = (bool)_hasVatField.getValue();
+			dto.IsForceDelivered = (bool)_isForceDelivered.getValue();
+
 
 			CompleteSave(ItemResponse.Create(dto));
+
 		}
+
+
 
 		private Field _textField;
 		private MoneyControl _priceField;
@@ -217,5 +280,10 @@ namespace Luxena.Travel
 		private MoneyControl _discountField;
 		private DisplayField _grandTotalField;
 		private Field _hasVatField;
+		private Field _isForceDelivered;
+
 	}
+
+
+
 }

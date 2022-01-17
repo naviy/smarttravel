@@ -277,11 +277,18 @@ namespace Luxena.Travel
 
 		private Store InitStore()
 		{
+
 			_store = new JsonStore(new JsonStoreConfig()
-				.fields(new string[] { "Id", "Version", "LinkType", "Product", "Text", "ProductText", "Price", "Quantity", "Total", "Discount", "GrandTotal", "GivenVat", "TaxedTotal", "HasVat", "Consignment" })
-				.ToDictionary());
+				.fields(new string[]
+				{
+					"Id", "Version", "LinkType", "Product", "Text", "ProductText", "Price", "Quantity", "Total",
+					"Discount", "GrandTotal", "GivenVat", "TaxedTotal", "HasVat", "IsForceDelivered", "Consignment"
+				})
+				.ToDictionary()
+			);
 
 			return _store;
+
 		}
 
 		private AbstractSelectionModel InitSelectionModel()

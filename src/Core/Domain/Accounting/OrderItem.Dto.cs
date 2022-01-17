@@ -12,6 +12,7 @@ namespace Luxena.Travel.Domain
 	[DataContract]
 	public partial class OrderItemDto : EntityContract
 	{
+		
 		public OrderItemDto() { }
 
 		public OrderItemDto(Order.Reference order, Product.Reference product)
@@ -50,15 +51,36 @@ namespace Luxena.Travel.Domain
 
 		public bool HasVat { get; set; }
 
+		public bool IsForceDelivered { get; set; }
+
+
 	}
+
+
+
+
+
+
+	//===g
+
+
+
+
 
 
 	public partial class OrderItemContractService : EntityContractService<OrderItem, OrderItem.Service, OrderItemDto>
 	{
+
+		//---g
+
+
+
 		public OrderItemContractService()
 		{
+
 			ContractFromEntity += (r, c) =>
 			{
+
 				c.Order = r.Order;
 				c.Consignment = r.Consignment;
 
@@ -77,10 +99,14 @@ namespace Luxena.Travel.Domain
 				c.TaxedTotal = r.TaxedTotal;
 
 				c.HasVat = r.HasVat;
+				c.IsForceDelivered = r.IsForceDelivered;
+
 			};
+
 
 			EntityFromContract += (r, c) =>
 			{
+
 				r.Product = c.Product + db;
 				r.LinkType = c.LinkType + db;
 
@@ -93,17 +119,30 @@ namespace Luxena.Travel.Domain
 				r.TaxedTotal = c.TaxedTotal + db;
 
 				r.HasVat = c.HasVat + db;
+				r.IsForceDelivered = c.IsForceDelivered + db;
+
 			};
+
 		}
+
+
+
+		//---g
+
+
 
 		public OrderItemDto[] ListByOrderNumber(string number)
 		{
 			return New(db.OrderItem.ListByOrderNumber(number));
 		}
 
+
+
 		public OrderItemDto[] ListByProducts(object[] productIds)
 		{
+
 			var docs = db.Product.ListByIds(productIds);
+
 
 			if (docs.Count != productIds.Length)
 				throw new ObjectsNotFoundException(productIds.Length == 1 ? Exceptions.NoRowById_Translation : Exceptions.ObjectsNotFound_Error);
@@ -111,37 +150,61 @@ namespace Luxena.Travel.Domain
 			return docs
 				.Where(a => a.Order != null)
 				.Select(a => new OrderItemDto(a.Order, a))
-				.ToArray();
+				.ToArray()
+			;
+
 		}
+
 
 
 		public GenerateOrderItemsResponse Generate(object[] productIds, bool separateServiceFee, string orderId)
 		{
+
 			var order = orderId != null ? db.Order.By(orderId) : null;
+
 			var products = db.Product.ListByIds(productIds);
 
+
 			if (products.Count != productIds.Length)
+			{
 				throw new ObjectsNotFoundException(productIds.Length == 1 ? Exceptions.NoRowById_Translation : Exceptions.ObjectsNotFound_Error);
+			}
+
 
 			var dtos = new List<OrderItemDto>();
 			var links = new List<OrderItemDto>();
 
 			Party customer = null;
 
+
 			foreach (var product in products)
 			{
+
 				if (product.Order == null)
 				{
+
 					if (dtos.Count == 0 || customer == null)
+					{
 						customer = product.Customer;
+					}
 					else if (!Equals(product.Customer, customer))
+					{
 						customer = null;
+					}
+
 
 					dtos.AddRange(New(db.OrderItem.New(product, separateServiceFee ? ServiceFeeMode.Separate : ServiceFeeMode.Join)));
+
 				}
+
 				else if (!Equals(product.Order, order))
+				{
 					links.Add(new OrderItemDto(product.Order, product));
+				}
+
 			}
+
+
 			var response = new GenerateOrderItemsResponse
 			{
 				Customer = customer,
@@ -149,10 +212,20 @@ namespace Luxena.Travel.Domain
 				OrderItems = links.ToArray()
 			};
 
+
 			return response;
+
 		}
 
+
+
+		//---g
+
 	}
+
+
+
+
 
 
 	[DataContract]
@@ -164,5 +237,14 @@ namespace Luxena.Travel.Domain
 
 		public OrderItemDto[] OrderItems { get; set; }
 	}
+
+
+
+
+
+
+	//===g
+
+
 
 }

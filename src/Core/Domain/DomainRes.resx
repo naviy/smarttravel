@@ -1029,6 +1029,9 @@
   <data name="OrderItem_HasVat" xml:space="preserve">
 	<value>Облагать НДС</value>
   </data>
+  <data name="OrderItem_IsForceDelivered" xml:space="preserve">
+	<value>Принудительно учитывать в балансе взаимозачётов</value>
+  </data>
   <data name="Person_MilesCardsString" xml:space="preserve">
 	<value>Мильные карточки</value>
   </data>

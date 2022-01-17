@@ -11,6 +11,7 @@ namespace Luxena.Travel.Domain.Accounting
 	{
 		public OrderItemMap()
 		{
+
 			ManyToOne(x => x.Order, m => m.NotNullable(true));
 
 			ManyToOne(x => x.Consignment);
@@ -36,6 +37,9 @@ namespace Luxena.Travel.Domain.Accounting
 			Component(x => x.TaxedTotal);
 
 			Property(x => x.HasVat, m => m.NotNullable(true));
+
+			Property(x => x.IsForceDelivered, m => m.NotNullable(true));
+
 		}
 	}
 

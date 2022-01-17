@@ -175,7 +175,8 @@ namespace Luxena.Travel
 			_issueDate.setValue(Date.Today);
 			
 			_number = (TextField)CreateEditor("Number");
-			
+			_number.allowBlank = true;
+
 			_customer = ControlFactoryExt.CreateCustomerControl(DomainRes.Common_Customer, 200, false);
 
 			_billTo = ControlFactoryExt.CreateCustomerControlWithText(DomainRes.Common_BillTo, 200, true);

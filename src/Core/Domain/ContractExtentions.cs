@@ -3244,9 +3244,9 @@ namespace Luxena.Travel.Domain
 
 		public Money TotalDue { get; set; }
 
-		public bool IsPaid { get; set; }
-
 		public Money VatDue { get; set; }
+
+		public bool IsPaid { get; set; }
 
 		public Decimal DeliveryBalance { get; set; }
 
@@ -3425,6 +3425,8 @@ namespace Luxena.Travel.Domain
 
 		public Product.Reference Product { get; set; }
 
+		public Consignment.Reference Consignment { get; set; }
+
 		public int Position { get; set; }
 
 		public string Text { get; set; }
@@ -3449,9 +3451,9 @@ namespace Luxena.Travel.Domain
 
 		public Money ServiceFee { get; set; }
 
-		public Consignment.Reference Consignment { get; set; }
-
 		public bool IsDelivered { get; set; }
+
+		public bool IsForceDelivered { get; set; }
 
 		*/
 	}
@@ -3477,6 +3479,7 @@ namespace Luxena.Travel.Domain
 				c.GivenVat = r.GivenVat;
 				c.TaxedTotal = r.TaxedTotal;
 				c.HasVat = r.HasVat;
+				c.IsForceDelivered = r.IsForceDelivered;
 			};
 		
 			EntityFromContract += (r, c) =>
@@ -3495,6 +3498,7 @@ namespace Luxena.Travel.Domain
 				r.GivenVat = c.GivenVat + db;
 				r.TaxedTotal = c.TaxedTotal + db;
 				r.HasVat = c.HasVat + db;
+				r.IsForceDelivered = c.IsForceDelivered + db;
 			};
 		}
 		*/
@@ -3762,9 +3766,9 @@ namespace Luxena.Travel.Domain
 
 		public Money TotalDue { get; set; }
 
-		public bool IsPaid { get; set; }
-
 		public Money VatDue { get; set; }
+
+		public bool IsPaid { get; set; }
 
 		public Decimal DeliveryBalance { get; set; }
 

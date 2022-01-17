@@ -41,11 +41,14 @@ namespace Luxena.Travel.Domain
 		[Patterns.IsVoid]
 		public virtual bool IsVoid { get; set; }
 
+
 		[Patterns.Customer]
 		public virtual Party Customer { get; protected set; }
 
+
 		public virtual void SetCustomer(Domain db, Party value)
 		{
+
 			Customer = value;
 
 			_items.ForEach(a => a.SetOrderReference(db));
@@ -55,7 +58,9 @@ namespace Luxena.Travel.Domain
 			_incomingTransfers.ForEach(a => a.Refresh());
 
 			_outgoingTransfers.ForEach(a => a.Refresh());
+
 		}
+
 
 		[RU("Плательщик"), Suggest(typeof(Customer))]
 		public virtual Party BillTo { get; set; }
@@ -80,6 +85,7 @@ namespace Luxena.Travel.Domain
 			Refresh();
 		}
 
+
 		[Patterns.Vat]
 		public virtual Money Vat { get; protected set; }
 
@@ -88,6 +94,7 @@ namespace Luxena.Travel.Domain
 			Vat = value;
 			Refresh();
 		}
+
 
 		[RU("НДС только от сервисного сбора")]
 		public virtual bool UseServiceFeeOnlyInVat { get; set; }
@@ -101,6 +108,7 @@ namespace Luxena.Travel.Domain
 
 			Refresh();
 		}
+
 
 		[RU("Оплачено")]
 		public virtual Money Paid => EnsureRefresh(ref _paid);
@@ -120,13 +128,17 @@ namespace Luxena.Travel.Domain
 		[RU("К оплате")]
 		public virtual Money TotalDue => EnsureRefresh(ref _totalDue);
 
-		[RU("Оплачен")]
-		public virtual bool IsPaid =>
-			TotalDue != null && Total != null &&
-			(Total.Amount > 0 && TotalDue.Amount <= 0 || Total.Amount < 0 && TotalDue.Amount >= 0);
 
 		[RU("НДС к оплате")]
 		public virtual Money VatDue => EnsureRefresh(ref _vatDue);
+
+
+		[RU("Оплачен")]
+		public virtual bool IsPaid =>
+			TotalDue != null && Total != null &&
+			(Total.Amount > 0 && TotalDue.Amount <= 0 || Total.Amount < 0 && TotalDue.Amount >= 0)
+		;
+
 
 		[RU("Баланс взаиморасчетов")]
 		public virtual decimal DeliveryBalance
@@ -137,6 +149,7 @@ namespace Luxena.Travel.Domain
 				return _deliveryBalance;
 			}
 		}
+
 
 		[RU("Дата начисления бонусов")]
 		public virtual DateTime? BonusDate { get; set; }
@@ -182,6 +195,7 @@ namespace Luxena.Travel.Domain
 		public virtual IList<Payment> Payments => _payments;
 
 		public virtual IList<Task> Tasks => _tasks;
+
 
 		[Patterns.ServiceFee]
 		public virtual Money ServiceFee
@@ -254,7 +268,7 @@ namespace Luxena.Travel.Domain
 		public virtual IList<OrderItem> ItemsBy(Product doc, Func<OrderItem, bool> match = null)
 		{
 
-			if (Items == null) 
+			if (Items == null)
 				return Array.Empty<OrderItem>();
 
 
@@ -410,7 +424,7 @@ namespace Luxena.Travel.Domain
 		public virtual void EnsureRefresh()
 		{
 
-			if (!_refreshPending) 
+			if (!_refreshPending)
 				return;
 
 
@@ -512,7 +526,7 @@ namespace Luxena.Travel.Domain
 			var changed = false;
 
 			var orderIsClosed = !db.ClosedPeriod.IsOpened(IssueDate) && !AllowAddProductsInClosedPeriod;
-			
+
 
 			foreach (var document in documents)
 			{

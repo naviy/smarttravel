@@ -524,9 +524,13 @@ namespace Luxena.Travel {
 
 		public static readonly string Airport_LocalizedSettlement = null;
 
+
 		public static readonly string OrderItem_GrandTotal = null;
 
 		public static readonly string OrderItem_HasVat = null;
+
+		public static readonly string OrderItem_IsForceDelivered = null;
+		
 
 		public static readonly string Person_MilesCardsString = null;
 

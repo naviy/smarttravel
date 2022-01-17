@@ -193,17 +193,25 @@ namespace Luxena.Travel
 			return new Toolbar(new object[] { "->", addButton, _removeButton });
 		}
 
+
+
 		private Store InitStore()
 		{
+
 			_store = new JsonStore(new JsonStoreConfig()
 				.fields(new string[] { "Id", "Version", "Text", "Price", "Quantity", "Total", "Discount", "GrandTotal", "GivenVat", "TaxedTotal", "HasVat", "Source", "Order" })
 				.ToDictionary());
 
+
 			return _store;
+
 		}
+
+
 
 		private AbstractSelectionModel InitSelectionModel()
 		{
+
 			_selectionModel = new CheckboxSelectionModel();
 			_selectionModel.singleSelect = false;
 			_selectionModel.on("selectionchange", new SelectionChangedDelegate(

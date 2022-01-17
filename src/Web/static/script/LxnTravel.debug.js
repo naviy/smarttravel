@@ -489,6 +489,7 @@ Luxena.Travel.DomainRes = {
     airport_LocalizedSettlement: '\u041d\u0430\u0441\u0435\u043b\u0435\u043d\u043d\u044b\u0439 \u043f\u0443\u043d\u043a\u0442',
     orderItem_GrandTotal: '\u0418\u0442\u043e\u0433\u043e',
     orderItem_HasVat: '\u041e\u0431\u043b\u0430\u0433\u0430\u0442\u044c \u041d\u0414\u0421',
+    orderItem_IsForceDelivered: '\u041f\u0440\u0438\u043d\u0443\u0434\u0438\u0442\u0435\u043b\u044c\u043d\u043e \u0443\u0447\u0438\u0442\u044b\u0432\u0430\u0442\u044c \u0432 \u0431\u0430\u043b\u0430\u043d\u0441\u0435 \u0432\u0437\u0430\u0438\u043c\u043e\u0437\u0430\u0447\u0451\u0442\u043e\u0432',
     person_MilesCardsString: '\u041c\u0438\u043b\u044c\u043d\u044b\u0435 \u043a\u0430\u0440\u0442\u043e\u0447\u043a\u0438',
     gdsAgent_Office: '\u041e\u0444\u0438\u0441',
     tktFile_OfficeCode: '\u041a\u043e\u0434 \u043e\u0444\u0438\u0441\u0430',
@@ -4280,6 +4281,7 @@ Luxena.Travel.OrderEditForm.prototype = {
         this._issueDate$2 = this.createEditor('IssueDate');
         this._issueDate$2.setValue(Date.get_today());
         this._number$2 = this.createEditor('Number');
+        this._number$2.allowBlank = true;
         this._customer$2 = Luxena.Travel.Controls.ControlFactoryExt.createCustomerControl(Luxena.Travel.DomainRes.common_Customer, 200, false);
         this._billTo$2 = Luxena.Travel.Controls.ControlFactoryExt.createCustomerControlWithText(Luxena.Travel.DomainRes.common_BillTo, 200, true);
         this._shipTo$2 = Luxena.Travel.Controls.ControlFactoryExt.createCustomerControl(Luxena.Travel.DomainRes.common_ShipTo, 200, true);
@@ -4532,9 +4534,10 @@ Luxena.Travel.OrderItemEditForm.prototype = {
         var money = new Luxena.Travel.MoneyDto();
         money.Currency = Luxena.Travel.AppManager.get_systemConfiguration().DefaultCurrency;
         this._grandTotalField$2 = new Ext.form.DisplayField(new Ext.form.DateFieldConfig().fieldLabel(Luxena.Travel.DomainRes.orderItem_GrandTotal).value(Luxena.Travel.MoneyDto.toMoneyFullString(money)).toDictionary());
-        this._hasVatField$2 = this.createEditor('HasVat');
-        var fields = [ this._textField$2, this._priceField$2, this._quantityField$2, this._discountField$2, this._grandTotalField$2, this._hasVatField$2 ];
-        this.get_form().add([ this._textField$2, panel1, this._priceField$2, this._quantityField$2, this._discountField$2, this._grandTotalField$2, this._hasVatField$2 ]);
+        this._hasVatField$2 = new Ext.form.Checkbox(new Ext.form.CheckboxConfig().boxLabel(Luxena.Travel.DomainRes.orderItem_HasVat).toDictionary());
+        this._isForceDelivered$2 = new Ext.form.Checkbox(new Ext.form.CheckboxConfig().boxLabel(Luxena.Travel.DomainRes.orderItem_IsForceDelivered).toDictionary());
+        var fields = [ this._textField$2, this._priceField$2, this._quantityField$2, this._discountField$2, this._grandTotalField$2, this._hasVatField$2, this._isForceDelivered$2 ];
+        this.get_form().add([ this._textField$2, panel1, this._priceField$2, this._quantityField$2, this._discountField$2, this._grandTotalField$2, this._hasVatField$2, this._isForceDelivered$2 ]);
         return fields;
     },
     
@@ -4593,6 +4596,7 @@ Luxena.Travel.OrderItemEditForm.prototype = {
         this._discountField$2.setValue(this.get_r().Discount);
         this._grandTotalField$2.setValue(Luxena.Travel.MoneyDto.toMoneyFullString(this.get_r().GrandTotal));
         this._hasVatField$2.setValue(this.get_r().HasVat);
+        this._isForceDelivered$2.setValue(this.get_r().IsForceDelivered);
     },
     
     onSave: function Luxena_Travel_OrderItemEditForm$onSave() {
@@ -4610,6 +4614,7 @@ Luxena.Travel.OrderItemEditForm.prototype = {
         dto.Total.Amount = dto.Price.Amount * dto.Quantity;
         dto.TaxedTotal = Luxena.Travel.MoneyDto.copyMoney(dto.Total);
         dto.HasVat = this._hasVatField$2.getValue();
+        dto.IsForceDelivered = this._isForceDelivered$2.getValue();
         this.completeSave(LxnBase.Data.ItemResponse.create(dto));
     },
     
@@ -4618,7 +4623,8 @@ Luxena.Travel.OrderItemEditForm.prototype = {
     _quantityField$2: null,
     _discountField$2: null,
     _grandTotalField$2: null,
-    _hasVatField$2: null
+    _hasVatField$2: null,
+    _isForceDelivered$2: null
 }
 
 
@@ -4799,7 +4805,7 @@ Luxena.Travel.OrderItemGridControl.prototype = {
     },
     
     _initStore$7: function Luxena_Travel_OrderItemGridControl$_initStore$7() {
-        this._store$7 = new Ext.data.JsonStore(new Ext.data.JsonStoreConfig().fields([ 'Id', 'Version', 'LinkType', 'Product', 'Text', 'ProductText', 'Price', 'Quantity', 'Total', 'Discount', 'GrandTotal', 'GivenVat', 'TaxedTotal', 'HasVat', 'Consignment' ]).toDictionary());
+        this._store$7 = new Ext.data.JsonStore(new Ext.data.JsonStoreConfig().fields([ 'Id', 'Version', 'LinkType', 'Product', 'Text', 'ProductText', 'Price', 'Quantity', 'Total', 'Discount', 'GrandTotal', 'GivenVat', 'TaxedTotal', 'HasVat', 'IsForceDelivered', 'Consignment' ]).toDictionary());
         return this._store$7;
     },
     
@@ -5028,16 +5034,6 @@ Luxena.Travel.OrderViewForm.viewObject = function Luxena_Travel_OrderViewForm$vi
         return new Luxena.Travel.OrderViewForm(tabId, id, type);
     });
 }
-Luxena.Travel.OrderViewForm._getOrderFinancesControl$7 = function Luxena_Travel_OrderViewForm$_getOrderFinancesControl$7() {
-    var config = new Luxena.Travel.Controls.PropertyListControlConfig().setListItems([ new Luxena.Travel.Controls.PropertyItem(Luxena.Travel.DomainRes.common_Discount, 'Discount').setPropertyType(4), new Luxena.Travel.Controls.PropertyItem(Luxena.Travel.DomainRes.common_Total, 'Total').setPropertyType(4), new Luxena.Travel.Controls.PropertyItem(Luxena.Travel.DomainRes.order_Vat, 'Vat').setPropertyType(4), new Luxena.Travel.Controls.PropertyItem(Luxena.Travel.DomainRes.order_Paid, 'Paid').setPropertyType(4), new Luxena.Travel.Controls.PropertyItem(Luxena.Travel.DomainRes.order_TotalDue, 'TotalDue').setPropertyType(4).setRowCssClass(function(item, value) {
-        var moneyDto = value;
-        if (moneyDto != null && !!moneyDto.Amount) {
-            return 'unpaid-amount';
-        }
-        return null;
-    }) ]).setCssClass('common-finances');
-    return new Luxena.Travel.Controls.PropertyListControl(config);
-}
 Luxena.Travel.OrderViewForm._getOrderItemsControl$7 = function Luxena_Travel_OrderViewForm$_getOrderItemsControl$7() {
     var propertyItems = [ new Luxena.Travel.Controls.PropertyItem(Luxena.Travel.Res.orderItem_Text, 'Text').setWidth(500).setRenderer(Luxena.Travel.OrderViewForm._renderItemText$7), new Luxena.Travel.Controls.PropertyItem(Luxena.Travel.Res.common_Quantity, 'Quantity').setPropertyType(3).setWidth(80).setCssClass('center-align'), new Luxena.Travel.Controls.PropertyItem(Luxena.Travel.Res.common_Price, 'Price').setPropertyType(4).setWidth(100).setCssClass('right-align'), new Luxena.Travel.Controls.PropertyItem(Luxena.Travel.DomainRes.common_Amount, 'Total').setPropertyType(4).setWidth(100).setCssClass('right-align'), new Luxena.Travel.Controls.PropertyItem(Luxena.Travel.DomainRes.orderItem_Consignment, 'Consignment').setPropertyType(5).setCssClass('center-align') ];
     var config = new Luxena.Travel.Controls.PropertyGridControlConfig().setListItems(propertyItems).setUseListCountColumn(true).setCssClass('order-items').setGridTitle(Luxena.Travel.Res.orderItems);
@@ -5158,7 +5154,7 @@ Luxena.Travel.OrderViewForm.prototype = {
         Luxena.Travel.OrderViewForm.callBaseMethod(this, 'initComponent');
         this._titleLabel$7 = new Ext.form.Label(new Ext.form.LabelConfig().cls('title').toDictionary());
         this._orderProperties$7 = this._getOrderProperiesControl$7();
-        this._orderFinances$7 = Luxena.Travel.OrderViewForm._getOrderFinancesControl$7();
+        this._orderFinances$7 = this._getOrderFinancesControl$7();
         this._orderItems$7 = Luxena.Travel.OrderViewForm._getOrderItemsControl$7();
         this._payments$7 = Luxena.Travel.OrderViewForm._getPaymentsControl$7();
         this._transfers$7 = Luxena.Travel.OrderViewForm._getTransfersControl$7();
@@ -5261,6 +5257,32 @@ Luxena.Travel.OrderViewForm.prototype = {
         })), new Luxena.Travel.Controls.PropertyItem(Luxena.Travel.DomainRes.task_Caption_List, 'Tasks').setHideIsEmpty(true).setRenderer(ss.Delegate.create(this, function(propertyItem, value, container) {
             this._renderTasks$7(value, container);
         })) ]).setCssClass('order-properties');
+        return new Luxena.Travel.Controls.PropertyListControl(config);
+    },
+    
+    _getOrderFinancesControl$7: function Luxena_Travel_OrderViewForm$_getOrderFinancesControl$7() {
+        var config = new Luxena.Travel.Controls.PropertyListControlConfig().setListItems([ new Luxena.Travel.Controls.PropertyItem(Luxena.Travel.DomainRes.common_Discount, 'Discount').setPropertyType(4), new Luxena.Travel.Controls.PropertyItem(Luxena.Travel.DomainRes.common_Total, 'Total').setPropertyType(4), new Luxena.Travel.Controls.PropertyItem(Luxena.Travel.DomainRes.order_Vat, 'Vat').setPropertyType(4), new Luxena.Travel.Controls.PropertyItem(Luxena.Travel.DomainRes.order_Paid, 'Paid').setPropertyType(4), new Luxena.Travel.Controls.PropertyItem(Luxena.Travel.DomainRes.order_TotalDue, 'TotalDue').setPropertyType(4).setRowCssClass(function(item, value) {
+            var moneyDto = value;
+            if (moneyDto != null && !!moneyDto.Amount) {
+                return 'unpaid-amount';
+            }
+            return null;
+        }), new Luxena.Travel.Controls.PropertyItem(Luxena.Travel.DomainRes.order_DeliveryBalance, 'DeliveryBalance').setPropertyType(3).setRowCssClass(ss.Delegate.create(this, function(item, value) {
+            var balance = value;
+            if (balance < 0) {
+                return 'text-red';
+            }
+            var totalDue = this.get__order$7().TotalDue;
+            if (ss.isValue(totalDue) && totalDue.Amount > 0) {
+                return 'text-orange';
+            }
+            return (balance > 0) ? 'text-green' : null;
+        })).setRenderer(ss.Delegate.create(this, function(propertyItem, value, container) {
+            var balance = value;
+            var total = this.get__order$7().Total;
+            var currency = (total != null) ? total.Currency.Name : '';
+            container.html(balance.format('N2') + ' ' + currency);
+        })) ]).setCssClass('common-finances');
         return new Luxena.Travel.Controls.PropertyListControl(config);
     },
     
@@ -6748,8 +6770,8 @@ Luxena.Travel.OrderSemantic = function Luxena_Travel_OrderSemantic() {
     this.CreditPaid = Luxena.Travel.SemanticEntity.get_member().title('\u041e\u043f\u043b\u0430\u0447\u0435\u043d\u043e \u041a\u041a').money();
     this.RestPaid = Luxena.Travel.SemanticEntity.get_member().title('\u041e\u043f\u043b\u0430\u0447\u0435\u043d\u043e \u043f\u0440\u043e\u0447\u0435\u0435').money();
     this.TotalDue = Luxena.Travel.SemanticEntity.get_member().title('\u041a \u043e\u043f\u043b\u0430\u0442\u0435').money();
-    this.IsPaid = Luxena.Travel.SemanticEntity.get_member().title('\u041e\u043f\u043b\u0430\u0447\u0435\u043d').bool().required();
     this.VatDue = Luxena.Travel.SemanticEntity.get_member().title('\u041d\u0414\u0421 \u043a \u043e\u043f\u043b\u0430\u0442\u0435').money();
+    this.IsPaid = Luxena.Travel.SemanticEntity.get_member().title('\u041e\u043f\u043b\u0430\u0447\u0435\u043d').bool().required();
     this.DeliveryBalance = Luxena.Travel.SemanticEntity.get_member().title('\u0411\u0430\u043b\u0430\u043d\u0441 \u0432\u0437\u0430\u0438\u043c\u043e\u0440\u0430\u0441\u0447\u0435\u0442\u043e\u0432').float2().required();
     this.BonusDate = Luxena.Travel.SemanticEntity.get_member().title('\u0414\u0430\u0442\u0430 \u043d\u0430\u0447\u0438\u0441\u043b\u0435\u043d\u0438\u044f \u0431\u043e\u043d\u0443\u0441\u043e\u0432').date();
     this.BonusSpentAmount = Luxena.Travel.SemanticEntity.get_member().title('\u0421\u043f\u0438\u0441\u0430\u043d\u043e \u0431\u043e\u043d\u0443\u0441\u043e\u0432').float2();
@@ -14624,6 +14646,7 @@ Luxena.Travel.OrderItemDto.prototype = {
     GivenVat: null,
     TaxedTotal: null,
     HasVat: false,
+    IsForceDelivered: false,
     Consignment: null
 }
 

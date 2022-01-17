@@ -335,10 +335,13 @@ namespace Luxena.Travel
 		
 		[PreserveCase()]
 		public MoneyDto TaxedTotal;
-		
+
 		[PreserveCase()]
 		public bool HasVat;
-		
+
+		[PreserveCase()]
+		public bool IsForceDelivered;
+
 		[PreserveCase()]
 		public Reference Consignment;
 	}

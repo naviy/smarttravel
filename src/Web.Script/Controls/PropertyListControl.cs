@@ -67,8 +67,11 @@ namespace Luxena.Travel.Controls
 			return cont.GetElement(0);
 		}
 
+
+
 		private static void RenderValue(PropertyItem propertyItem, object value, jQueryObject container)
 		{
+
 			string text = string.Empty;
 
 			if (!Script.IsNullOrUndefined(propertyItem.Renderer))

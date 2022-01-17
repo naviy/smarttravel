@@ -1,21 +1,41 @@
 namespace Luxena.Travel.Domain
 {
 
+
+
+	//===g
+
+
+
+
+
+
 	[GenericPrivileges(Copy = new object[] { })]
 	public partial class OrderItem : Entity2
 	{
+
+		//---g
+
+
+
 		[ReadOnly]
 		public virtual Order Order { get; set; }
-
+		
 		public virtual Product Product { get; set; }
+
+		public virtual Consignment Consignment { get; set; }
+
 
 		[ReadOnly]
 		public virtual int Position { get; set; }
 
+
 		[EntityName]
 		public virtual string Text { get; set; }
 
+
 		public virtual OrderItemLinkType? LinkType { get; set; }
+
 
 		public virtual Money Price { get; set; }
 
@@ -45,38 +65,64 @@ namespace Luxena.Travel.Domain
 		}
 
 
-		public virtual Consignment Consignment { get; set; }
+		public virtual bool IsDelivered
+			=> IsForceDelivered || Product != null && Product.IsDelivered;
 
-		public virtual bool IsDelivered => Product != null && Product.IsDelivered;
+
+		[RU("Принудительно учитывать в балансе взаимозачётов")]
+		public virtual bool IsForceDelivered { get; set; }
+
+
+
+		//---g
+
+
 
 		public virtual bool IsLinkedWith(Entity2 entity)
 		{
 			return Equals(Product, entity);
 		}
 
+
+
+		//---g
+
+
+
 		public virtual void Recalculate(Domain db)
 		{
+
 			if (Quantity == 0)
 				Quantity = 1;
 
-			if (Product == null) return;
+
+			if (Product == null) 
+				return;
+
 
 			Product = db.Unproxy(Product);
 
+
 			switch (LinkType)
 			{
+
+
 				case OrderItemLinkType.ProductData:
+
 
 					Text = Product.TextForOrderItem;
 
 					var price1 = Product.Total;
+
 
 					if (db.Configuration.UseAviaHandling)
 					{
 						price1 += Product.Handling - Product.HandlingN;
 					}
 
+
 					Price = price1.Clone();
+
 
 					if (Product.ServiceFee != null && Product.ServiceFee.Amount != 0)
 					{
@@ -89,15 +135,19 @@ namespace Luxena.Travel.Domain
 						Discount = Product.Discount.Clone();
 					}
 
+
 					GivenVat = CalculateGivenVat(db);
 
 					TaxedTotal = new Money(Product.Total.Currency);
 
 					HasVat = GivenVat.Amount > 0;
 
+
 					break;
 
+
 				case OrderItemLinkType.ServiceFee:
+
 
 					var serviceFee = !Product.IsRefund ? Product.ServiceFee : Product.ServiceTotal;
 
@@ -106,6 +156,7 @@ namespace Luxena.Travel.Domain
 					Discount = Product.Discount.Clone();
 					GrandTotal = Product.ExtraCharge.Clone();
 
+
 					if (db.Configuration.UseAviaHandling)
 					{
 						GrandTotal -= Product.Handling - Product.HandlingN;
@@ -113,25 +164,32 @@ namespace Luxena.Travel.Domain
 						Discount += Product.CommissionDiscount;
 					}
 
+
 					TaxedTotal = serviceFee.Clone();
 
 					GivenVat = new Money(Product.Total.Currency);
 
 					HasVat = true;
 
+
 					break;
+
 
 				case OrderItemLinkType.FullDocument:
 
+
 					var price = Product.GrandTotal;
+
 
 					if (Product.Discount != null)
 						price += Product.Discount;
+
 
 					Text = Product.TextForOrderItem;
 					Price = price.Clone();
 					Discount = Product.Discount.Clone();
 					GrandTotal = Product.GrandTotal.Clone();
+
 
 					if (Product.Total.Yes())
 					{
@@ -144,8 +202,13 @@ namespace Luxena.Travel.Domain
 
 						HasVat = GivenVat.Amount > 0 || TaxedTotal.Amount > 0;
 					}
+
+
 					break;
+
+
 			}
+
 
 			if (Product.IsRefund)
 			{
@@ -155,40 +218,76 @@ namespace Luxena.Travel.Domain
 				GivenVat *= -1;
 				TaxedTotal *= -1;
 			}
+
 		}
+
+
 
 		public virtual void SetOrderReference(Domain db)
 		{
-			if (Product == null) return;
+
+			if (Product == null)
+				return;
+
 
 			Product.SetOrder(db, Order);
+
 			db.OnCommit(Order, Product, r => db.Save(r));
+
 		}
+
+
 
 		public virtual void ClearOrderReference(Domain db)
 		{
+
 			if (Product != null && Equals(Order, Product.Order) &&
 				(!IsServiceFee || Product.Order.ItemsBy(Product, a => !a.IsServiceFee).No()))
 			{
+
 				Product.SetOrder(db, null);
+
 				db.OnCommit(Product, r => db.Save(r));
+
 			}
+
 		}
+
+
 
 		public override string ToString()
 		{
 			return Order + " #" + Position;
 		}
 
+
 		
 		private Money CalculateGivenVat(Domain db)
 		{
+
 			if (db.Configuration.UseAviaDocumentVatInOrder && Product.Vat != null)
+			{
 				return Product.Vat.Clone();
+			}
+
 
 			return new Money(Product.Total.AsCurrency());
+
 		}
 
+
+
+		//---g
+
 	}
+
+
+
+
+
+
+	//===g
+
+
 
 }

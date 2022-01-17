@@ -14,9 +14,11 @@ using Record = Ext.data.Record;
 namespace Luxena.Travel
 {
 
+
+
 	partial class OrderListTab
 	{
-
+		
 		protected override void OnInitGrid(AutoGridArgs args, EditorGridPanelConfig config)
 		{
 			base.OnInitGrid(args, config);
@@ -32,10 +34,13 @@ namespace Luxena.Travel
 		}
 
 
+
 		protected override void CreateColumnConfigs()
 		{
+
 			AddColumns(new object[]
 			{
+
 				se.IssueDate,
 				se.Number,
 
@@ -80,8 +85,11 @@ namespace Luxena.Travel
 				se.CreatedBy,
 				se.ModifiedOn,
 				se.ModifiedBy,
+
 			});
+
 		}
+
 
 
 		protected override void OnAddToolbarButtons(ArrayList toolbarItems, AutoGrid autoGrid)
@@ -91,6 +99,8 @@ namespace Luxena.Travel
 			toolbarItems.InsertRange(0, (object[])toolbarActions);
 		}
 
+
+
 		protected override void OnSelectionChange(AbstractSelectionModel selectionModel)
 		{
 			Record[] selections = (Record[])((RowSelectionModel)selectionModel).getSelections();
@@ -98,8 +108,11 @@ namespace Luxena.Travel
 			_printButton.setDisabled(selections.Length == 0);
 		}
 
+
+
 		private void PrintOrders()
 		{
+
 			Record[] records = (Record[])AutoGrid.SelectionModel.getSelections();
 
 			ArrayList ids = new ArrayList();
@@ -110,11 +123,15 @@ namespace Luxena.Travel
 			string value = Json.Stringify(ids);
 
 			ReportLoader.Load(string.Format("print/order/Order_{0}.pdf", Date.Now.Format("Y-m-d_H-i-s")), new Dictionary("orders", value));
+
 		}
+
 
 		
 		private Ext.Action _printButton;
 
 	}
+
+
 
 }

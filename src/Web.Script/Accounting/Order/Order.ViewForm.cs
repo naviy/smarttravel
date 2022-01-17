@@ -20,11 +20,27 @@ using Item = Ext.menu.Item;
 using OrderClass = LxnTravel.Accounting.Order.Order;
 
 
+
+
 namespace Luxena.Travel
 {
 
+
+
+	//===g
+
+
+
+
+
+
 	public class OrderViewForm : BaseClassViewForm
 	{
+
+		//---g
+
+
+
 		static OrderViewForm()
 		{
 			FormsRegistry.RegisterView(ClassNames.Order, ViewObject);
@@ -39,27 +55,47 @@ namespace Luxena.Travel
 		{
 		}
 
+
+
+		//---g
+
+
+
 		private OrderDto Order
 		{
 			get { return (OrderDto)Instance; }
 		}
 
+
+
+		//---g
+
+
+
 		protected override void initComponent()
 		{
+
 			cls = "order-view";
 			layout = null;
 
 			base.initComponent();
 
+
 			_titleLabel = new Label(new LabelConfig()
 				.cls("title")
 				.ToDictionary());
 
+
 			_orderProperties = GetOrderProperiesControl();
+
 			_orderFinances = GetOrderFinancesControl();
+
 			_orderItems = GetOrderItemsControl();
+
 			_payments = GetPaymentsControl();
+
 			_transfers = GetTransfersControl();
+
 
 			Panel contentPanel = new Panel(new PanelConfig()
 				.items(new object[]
@@ -76,10 +112,14 @@ namespace Luxena.Travel
 				.ToDictionary());
 
 			add(contentPanel);
+
 		}
+
+
 
 		protected override void OnLoad()
 		{
+
 			setTitle(Order.Number);
 
 			RefreshOrderTitle();
@@ -90,12 +130,17 @@ namespace Luxena.Travel
 			_payments.LoadCollection(Order.Payments);
 			_transfers.LoadCollection(Order.Transfers);
 
+
 			if (!Order.CanCreateTransfer)
 				_createInternalTransferItem.hide();
+
 		}
+
+
 
 		private void RefreshOrderTitle()
 		{
+
 			_voidButton.setText(Order.IsVoid ? Res.Restore_Action.ToLowerCase() : Res.Void_Action.ToLowerCase());
 
 			string str = DomainRes.Order;
@@ -124,15 +169,21 @@ namespace Luxena.Travel
 				_titleLabel.addClass(labelClass);
 
 			_registerPaymentButton.setDisabled(Order.IsVoid);
+
 		}
+
+
 
 		protected override void GetInstance()
 		{
 			OrderService.GetOrder(Id, Load, delegate { Tabs.Close(this); });
 		}
 
+
+
 		protected override void OnInitToolBar(ArrayList toolbarItems)
 		{
+
 			_issueInvoiceButton = new Button(new ButtonConfig()
 				.text(Res.Order_IssueInvoice_Action.ToLowerCase())
 				.handler(new AnonymousDelegate(IssueInvoice))
@@ -220,11 +271,15 @@ namespace Luxena.Travel
 		}
 
 
+
 		private PropertyListControl GetOrderProperiesControl()
 		{
+
 			PropertyListControlConfig config = new PropertyListControlConfig()
+
 				.SetListItems(new PropertyItem[]
 				{
+
 					new PropertyItem(DomainRes.Common_Number, "Number"),
 					new PropertyItem(DomainRes.Order_IssueDate, "IssueDate").SetPropertyType(PropertyType.Date),
 					new PropertyItem(DomainRes.Common_Customer, "Customer").SetPropertyType(PropertyType.ObjectInfo),
@@ -260,41 +315,102 @@ namespace Luxena.Travel
 								RenderTasks((TaskDto[]) value, container);
 							}))
 				})
-				.SetCssClass("order-properties");
+
+				.SetCssClass("order-properties")
+
+			;
+
 
 			return new PropertyListControl(config);
+
 		}
 
 
 
-		private static PropertyListControl GetOrderFinancesControl()
+		private PropertyListControl GetOrderFinancesControl()
 		{
+
 			PropertyListControlConfig config = new PropertyListControlConfig()
+
 				.SetListItems(new PropertyItem[]
 				{
+
 					new PropertyItem(DomainRes.Common_Discount, "Discount").SetPropertyType(PropertyType.Money),
+
 					new PropertyItem(DomainRes.Common_Total, "Total").SetPropertyType(PropertyType.Money),
+
 					new PropertyItem(DomainRes.Order_Vat, "Vat").SetPropertyType(PropertyType.Money),
+
 					new PropertyItem(DomainRes.Order_Paid, "Paid").SetPropertyType(PropertyType.Money),
+
 					new PropertyItem(DomainRes.Order_TotalDue, "TotalDue").SetPropertyType(PropertyType.Money)
-						.SetRowCssClass(
-							delegate(PropertyItem item, object value)
-							{
-								MoneyDto moneyDto = (MoneyDto) value;
+						.SetRowCssClass(delegate(PropertyItem item, object value)
+						{
+							MoneyDto moneyDto = (MoneyDto) value;
 
-								if (moneyDto != null && moneyDto.Amount != 0)
-									return "unpaid-amount";
+							if (moneyDto != null && moneyDto.Amount != 0)
+								return "unpaid-amount";
 
-								return null;
-							})
+							return null;
+						})
+					,
+
+
+					new PropertyItem(DomainRes.Order_DeliveryBalance, "DeliveryBalance")
+					
+						.SetPropertyType(PropertyType.Number)
+
+						.SetRowCssClass(delegate(PropertyItem item, object value)
+						{
+
+							decimal balance = (decimal)value;
+
+
+							if (balance < 0)
+								return "text-red";
+
+
+							MoneyDto totalDue = Order.TotalDue;
+
+
+							if (Script.IsValue(totalDue) && totalDue.Amount > 0)
+								return "text-orange";
+
+
+							return balance > 0 ? "text-green" : null;
+
+						})
+
+
+						.SetRenderer(new PropertyItemRenderDelegate(delegate(PropertyItem propertyItem, object value, jQueryObject container)
+						{
+
+							decimal balance = (decimal)value;
+
+							MoneyDto total = Order.Total;
+
+							string currency = total != null ? total.Currency.Name : "";
+
+
+							container.Html(balance.Format("N2") + " " + currency);
+
+						})),
+
 				})
-				.SetCssClass("common-finances");
+
+				.SetCssClass("common-finances")
+			;
+
 
 			return new PropertyListControl(config);
+
 		}
+
+
 
 		private static PropertyGridControl GetOrderItemsControl()
 		{
+
 			PropertyItem[] propertyItems =
 			{
 				new PropertyItem(Res.OrderItem_Text, "Text").SetWidth(500).SetRenderer(new PropertyGridRenderDelegate(RenderItemText)),
@@ -304,19 +420,23 @@ namespace Luxena.Travel
 				new PropertyItem(DomainRes.OrderItem_Consignment, "Consignment").SetPropertyType(PropertyType.ObjectInfo).SetCssClass("center-align")
 			};
 
+
 			PropertyGridControlConfig config = new PropertyGridControlConfig()
 				.SetListItems(propertyItems)
 				.SetUseListCountColumn(true)
 				.SetCssClass("order-items")
 				.SetGridTitle(Res.OrderItems);
 
+
 			return new PropertyGridControl(config);
+
 		}
 
 
 
 		private static PropertyGridControl GetPaymentsControl()
 		{
+
 			PropertyItem[] propertyItems =
 			{
 				new PropertyItem(DomainRes.Payment, "Number").SetCssClass("center-align").SetRenderer(new PropertyGridRenderDelegate(
@@ -399,6 +519,7 @@ namespace Luxena.Travel
 
 		private static PropertyGridControl GetTransfersControl()
 		{
+
 			PropertyItem[] propertyItems =
 			{
 				new PropertyItem(DomainRes.Common_Number, "Transfer").SetPropertyType(PropertyType.ObjectInfo),
@@ -414,12 +535,14 @@ namespace Luxena.Travel
 				.SetGridTitle(DomainRes.InternalTransfer_Caption_List);
 
 			return new PropertyGridControl(config);
+
 		}
 
 
 
 		private static string GetPaymentClassName(PaymentDto payment)
 		{
+
 			switch (payment.PaymentForm)
 			{
 				case PaymentForm.CashInOrder:
@@ -438,22 +561,29 @@ namespace Luxena.Travel
 					return ClassNames.ElectronicPayment;
 			}
 
+
 			return null;
+
 		}
 
 
 
 		private static string GetPaymentCss(object value)
 		{
+
 			PaymentDto dto = (PaymentDto)value;
+
 
 			if (dto.IsVoid)
 				return "textColor-gray";
 
+
 			if (!Script.IsValue(dto.PostedOn))
 				return "textColor-red";
 
+
 			return null;
+
 		}
 
 
@@ -466,8 +596,10 @@ namespace Luxena.Travel
 
 			Reference source = null;
 
+
 			if (item.Product != null)
 				source = Reference.Copy(item.Product);
+
 
 			if (source != null && Script.IsValue(source.Name))
 			{
@@ -484,6 +616,7 @@ namespace Luxena.Travel
 				else
 					text = text.Replace(source.Name, ObjectLink.RenderInfo(source));
 			}
+
 
 			container.Append(text);
 
@@ -536,7 +669,7 @@ namespace Luxena.Travel
 			{
 
 				container.Append(
-						
+
 					jQuery.FromHtml("<div class='issued-invoice'></div>")
 
 					.Data("invoice", invoice)
@@ -551,14 +684,14 @@ namespace Luxena.Travel
 							ReportPrinter.GetOrderDocument(dto.Id, dto.Number, dto.Type, dto.FileExtension);
 						})
 					)
-					
+
 					.Append(string.Format(
 						Res.OrderView_IssuedInvoice_Html, invoice.IssueDate.Format("d.m.y"),
 						MoneyDto.ToMoneyFullString(invoice.Total)
 					))
-					
+
 					.Append(
-						
+
 						jQuery.FromHtml(@"<a href='javascript:void(0)' class='delete-action'></a>")
 
 						.Click(delegate (jQueryEvent e)
@@ -574,10 +707,10 @@ namespace Luxena.Travel
 								Res.Confirmation,
 
 								string.Format(
-									dto.Type == InvoiceType.Invoice ? Res.Invoice_Delete_Confirmation : Res.Receipt_Delete_Confirmation, 
+									dto.Type == InvoiceType.Invoice ? Res.Invoice_Delete_Confirmation : Res.Receipt_Delete_Confirmation,
 									dto.Number
 								),
-								
+
 								delegate (string button, string text)
 								{
 
@@ -605,7 +738,7 @@ namespace Luxena.Travel
 
 					.Append(string.Format(
 						"<div class='invoice-details'><span class='timestamp'>{0}</span><span class='issued-by'>{1}</span></div>",
-						invoice.TimeStamp.Format("d.m.y H:i"), 
+						invoice.TimeStamp.Format("d.m.y H:i"),
 						invoice.IssuedBy.Name)
 					))
 				;
@@ -639,6 +772,7 @@ namespace Luxena.Travel
 
 		private void IssueCompletionCertificate()
 		{
+
 			ArrayList numbers = new ArrayList();
 
 			foreach (InvoiceDto dto in Order.Invoices)
@@ -647,11 +781,14 @@ namespace Luxena.Travel
 					numbers.Add(dto.Number);
 			}
 
+
 			InvoiceIssueForm form = new InvoiceIssueForm(Order.Id, (string[])numbers, InvoiceType.CompletionCertificate);
 
 			form.Saved += delegate (object result) { OnIssueDocument((InvoiceDto)result); };
 
+
 			form.Open();
+
 		}
 
 

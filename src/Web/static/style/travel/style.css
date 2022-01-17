@@ -636,6 +636,20 @@ div.selectorEditDisabled {
 	color: #e76c0c;
 }
 
+
+.text-red {
+	color: red;
+}
+
+.text-green {
+	color: green;
+}
+
+.text-orange {
+	color: #e76c0c;
+}
+
+
 .aviaDocumentView {
 	font-family: arial;
 	font-size: 12px;
@@ -1309,6 +1323,7 @@ div.selectorEditDisabled {
 	text-align: right;
 	font-weight: bold;
 	width: 100px;
+	white-space: nowrap;
 }
 
 .property-grid-control .grid-title {

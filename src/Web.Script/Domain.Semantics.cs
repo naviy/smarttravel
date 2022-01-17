@@ -1408,18 +1408,18 @@ namespace Luxena.Travel
 			.Title("К оплате")
 			.Money();
 
+		/// <summary>НДС к оплате</summary>
+		[PreserveCase]
+		public SemanticMember VatDue = Member
+			.Title("НДС к оплате")
+			.Money();
+
 		/// <summary>Оплачен</summary>
 		[PreserveCase]
 		public SemanticMember IsPaid = Member
 			.Title("Оплачен")
 			.Bool()
 			.Required();
-
-		/// <summary>НДС к оплате</summary>
-		[PreserveCase]
-		public SemanticMember VatDue = Member
-			.Title("НДС к оплате")
-			.Money();
 
 		/// <summary>Баланс взаиморасчетов</summary>
 		[PreserveCase]
@@ -1579,8 +1579,8 @@ namespace Luxena.Travel
 				se.CreditPaid,
 				se.RestPaid,
 				se.TotalDue,
-				se.IsPaid,
 				se.VatDue,
+				se.IsPaid,
 				se.DeliveryBalance,
 				se.BonusDate,
 				se.BonusSpentAmount,

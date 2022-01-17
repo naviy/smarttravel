@@ -122,20 +122,30 @@ namespace Luxena.Travel.Reports
 				Totals = new TotalSums().Do(totals =>
 				{
 
-					totals
-						.Add(order.Discount, ReportRes.InvoicePrinter_Discount, skipIfEmpty: true)
-						.Add(order.Total, ReportRes.InvoicePrinter_InvoiceTotalWithVat)
-						.Add(order.Vat, ReportRes.InvoicePrinter_Vat)
-					;
+					totals.Add(order.Discount, ReportRes.InvoicePrinter_Discount, skipIfEmpty: true);
+
+					totals.Add(order.Total, ReportRes.InvoicePrinter_InvoiceTotalWithVat);
 
 
+					if (db.Configuration.InvoicePrinter_ShowVat)
+					{
+						totals.Add(order.Vat, ReportRes.InvoicePrinter_Vat);
+					}
+
+					
 					if (showPaid && !Equals(order.Total, order.TotalDue))
 					{
-						totals
-							.Add(order.Paid, ReportRes.InvoicePrinter_Paid)
-							.Add(order.TotalDue, ReportRes.InvoicePrinter_TotalDue)
-							.Add(order.VatDue, ReportRes.InvoicePrinter_Vat)
-						;
+
+						totals.Add(order.Paid, ReportRes.InvoicePrinter_Paid);
+
+						totals.Add(order.TotalDue, ReportRes.InvoicePrinter_TotalDue);
+
+
+						if (db.Configuration.InvoicePrinter_ShowVat)
+						{
+							totals.Add(order.VatDue, ReportRes.InvoicePrinter_Vat);
+						}
+
 					}
 
 				}),
