@@ -134,19 +134,23 @@ namespace Luxena.Travel.Parsers
 			var masks = masksMatches.ToArray(maskMatch =>
 			{
 
-				var body = maskMatch.Groups["body"].Value.Trim();
+				var maskBody = maskMatch.Groups["body"].Value.Trim();
 
-				var issueMatch = _reMaskIssue.Match(body);
+				var issueMatch = _reMaskIssue.Match(maskBody);
 
-				var faresMatch = _reMaskFares.Match(body);
+				var airlineIataCodeMatch = _reMaskAirlineIataCode.Match(maskBody);
+				
+				var faresMatch = _reMaskFares.Match(maskBody);
 
-				var feeListMatch = _reMaskFeeList.Match(body);
+
+				var feeListMatch = _reMaskFeeList.Match(maskBody);
 
 				var feeAmounts = feeListMatch.Groups["amount"].Captures.ToArray();
 
 				var feeCodes = feeListMatch.Groups["code"].Captures.ToArray();
 
-				var segmentsMatches = _reMaskSegments.Matches(body);
+
+				var segmentsMatches = _reMaskSegments.Matches(maskBody);
 
 
 				return new
@@ -161,6 +165,8 @@ namespace Luxena.Travel.Parsers
 					Office = issueMatch.Groups["office"].Value,
 
 					Agent = issueMatch.Groups["agent"].Value,
+
+					AirlineIataCode = airlineIataCodeMatch.Groups["airlineIataCode"].Value,
 
 
 					Fare = new Money(
@@ -245,6 +251,8 @@ namespace Luxena.Travel.Parsers
 				{
 
 					IssueDate = mask.IssueDate,
+
+					AirlineIataCode = mask.AirlineIataCode,
 
 					PnrCode = pnrCode,
 					PassengerName = passenger.Name.Trim(),
@@ -353,6 +361,11 @@ namespace Luxena.Travel.Parsers
 			RegexOptions.Singleline | RegexOptions.Compiled
 		);
 
+
+		static readonly Regex _reMaskAirlineIataCode = new Regex(
+			@"^\s*VALIDATING CARRIER\s*-\s*(?<airlineIataCode>[\d\w]+)",
+			RegexOptions.Multiline | RegexOptions.Compiled
+		);
 
 		static readonly Regex _reMaskFares = new Regex(
 			@"^\s*(?<fareCurrency>\w\w\w)(?<fare>\d+(?:\.\d+)?)\s+(?<equalFareCurrency>\w\w\w)(?<equalFare>\d+(?:\.\d+)?)\s+(?<feesTotal>\d+(?:\.\d+)?)XT\s+(?<totalCurrency>\w\w\w)(?<total>\d+(?:\.\d+)?)",

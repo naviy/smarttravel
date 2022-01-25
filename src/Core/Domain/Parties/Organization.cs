@@ -45,12 +45,10 @@ namespace Luxena.Travel.Domain
 		[RU("Данная организация является Авиакомпанией")]
 		public virtual bool IsAirline { get; set; }
 
-		[RU("IATA код")]
-		[MaxLength(2)]
+		[RU("IATA код"), MaxLength(2)]
 		public virtual string AirlineIataCode { get; set; }
 
-		[RU("Prefix код")]
-		[MaxLength(3)]
+		[RU("Prefix код"), MaxLength(3)]
 		public virtual string AirlinePrefixCode { get; set; }
 
 		[RU("Требование паспортных данных")]

@@ -58,17 +58,17 @@ namespace Luxena.Travel.Tests
 
 
 
-		public TThis AirlinePrefixCode(string expected)
+		public TThis AirlineIataCode(string expected)
 		{
-			AreEqual(expected, r.AirlinePrefixCode);
+			AreEqual(expected, r.AirlineIataCode);
 			return (TThis)this;
 		}
 
 
 
-		public TThis AirlineIataCode(string expected)
+		public TThis AirlinePrefixCode(string expected)
 		{
-			AreEqual(expected, r.AirlineIataCode);
+			AreEqual(expected, r.AirlinePrefixCode);
 			return (TThis)this;
 		}
 
@@ -79,13 +79,6 @@ namespace Luxena.Travel.Tests
 			AreEqual(expected, r.Number);
 			return (TThis)this;
 		}
-
-
-
-		//---g
-
-
-
 
 
 

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Globalization;
 using System.Linq;
 
@@ -84,6 +85,8 @@ namespace Luxena.Travel.Domain
 		[Patterns.Passenger]
 		public virtual Person Passenger { get => GetPassenger(); set => SetPassenger(value); }
 
+		//VALIDATING CARRIER
+		[MaxLength(2)]
 		public virtual string AirlineIataCode { get; set; }
 
 
@@ -91,7 +94,7 @@ namespace Luxena.Travel.Domain
 			base.ProducerOrProviderAirlineIataCode ?? AirlineIataCode;
 
 
-		[RU("Код АК")]
+		[RU("Код АК"), MaxLength(3)]
 		public virtual string AirlinePrefixCode
 		{
 			get => _airlinePrefixCode;

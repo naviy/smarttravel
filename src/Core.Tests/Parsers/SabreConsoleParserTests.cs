@@ -512,7 +512,7 @@ Copy as textPrint"
 			docs.AssertAll(a => a
 				.PnrCode("SPAXAV")
 				.BookerOffice("S1OI")
-				.BookerCode("OI")
+				.BookerCode("OR")
 			);
 
 
@@ -765,30 +765,29 @@ QLIKEN
      OBFDAX    - CC NBR BEGINS WITH 37                0       33598
      OBFDAX    - CC NBR BEGINS WITH 1112              0       33598
     S1OI S1OI *AOR 1331/19JAN22                        PRICE-SYSTEM"
-            );
-
-
-
-			docs.AssertAll(a => a
-				.IssueDate("2022-01-19")
-				.PnrCode("QLIKEN")
-				.BookerOffice("S1OI")
-				.BookerCode("OR")
 			);
 
 
 
 			docs.Assert(
-
+				
 				a => a
-					.PassengerName("CILA/OLENA MRS")
 
-					.Fare("USD", 592m)
+					.IssueDate("2022-01-19")
+					.AirlineIataCode("LH")
+	                .PassengerName("CILA/OLENA MRS")
+
+					.PnrCode("QLIKEN")
+					.BookerOffice("S1OI")
+					.BookerCode("OR")
+
+
+	                .Fare("USD", 592m)
 					.EqualFare("UAH", 16745m)
 					.FeesTotal("UAH", 16853m)
 					.Total("UAH", 33598m)
 
-					.FlightSegments(
+	                .FlightSegments(
 
 						seg => seg
 							.Position(0)
@@ -799,7 +798,7 @@ QLIKEN
 							.ArrivalTime("2022-02-16T20:05")
 						,
 
-                        seg => seg
+						seg => seg
 							.Position(1)
 							.FromAirport("FRA")
 							.ToAirport("GRU")
@@ -808,7 +807,7 @@ QLIKEN
 							.ArrivalTime("2022-02-17T05:55")
 						,
 
-                        seg => seg
+						seg => seg
 							.Position(2)
 							.FromAirport("GRU")
 							.ToAirport("VVI")
@@ -817,7 +816,7 @@ QLIKEN
 							.ArrivalTime("2022-02-17T15:30")
 						,
 
-                        seg => seg
+						seg => seg
 							.Position(3)
 							.FromAirport("VVI")
 							.ToAirport("GRU")
@@ -837,9 +836,9 @@ QLIKEN
 							.ToAirport("KBP")
 							.CarrierIataCode("LH")
 
-                    )
+					)
 
-            );
+			);
 
 		}
 
