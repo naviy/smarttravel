@@ -106,22 +106,30 @@ namespace Luxena.Travel.Domain
 				var passengerMatch = _reFindReservation.Match(passenger);
 
 				if (passengerMatch.Yes())
-					passenger = passengerMatch.Groups["passenger"].Value;// + "%";
+				{
+					passenger = passengerMatch.Groups["passenger"].Value;
+				}
 
 
 				var list = ListBy(a =>
+
 					a.PnrCode == ticket.PnrCode &&
 					a.AirlinePrefixCode == ticket.AirlinePrefixCode &&
 					a.Number == null &&
+
 					!a.IsVoid &&
+
 					a.Passengers.FirstOrDefault(b =>
 						passengerMatch.Yes() ? b.PassengerName.StartsWith(passenger) : b.PassengerName == passenger
 					) != null
+
 				);
 
 
 				if (list?.Count > 1 && ticket.EqualFare.Yes())
-					list = list.Where(a => Equals(a.EqualFare, ticket.EqualFare)).ToList();
+				{
+					list = list.Where(a => Equals(a.EqualFare, ticket.EqualFare)).ToArray();
+				}
 
 
 				return list;
