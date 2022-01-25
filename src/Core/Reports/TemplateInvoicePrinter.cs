@@ -70,18 +70,29 @@ namespace Luxena.Travel.Reports
 		private Stream GetStream1(Order order, string number, DateTime issueDate, Person issuedBy, bool showPaid, out string fileExtension)
 		{
 
+
+			var configuration = db.Configuration;
+
+
 			var pos = 1;
 
 			var shipTo = (order.ShipTo ?? order.Customer).As(a => a.NameForDocuments);
 
 			var billTo = order.BillTo == null && order.BillToName.Yes()
 				? order.BillToName
-				: (order.BillTo ?? order.Customer).As(a => a.NameForDocuments);
+				: (order.BillTo ?? order.Customer).As(a => a.NameForDocuments)
+			;
 
 
 			if (shipTo == billTo)
+			{
 				billTo = ReportRes.InvoicePrinter_Same;
+			}
 
+
+			var supplierDetails = configuration.GetSupplierDetails(db, order, multiline: true);
+			
+			var customerDetails = configuration.GetCustomerDetails(db, order.ShipTo ?? order.Customer, multiline: true);
 
 
 			var data = new
@@ -91,9 +102,13 @@ namespace Luxena.Travel.Reports
 				IssueDate = issueDate,
 				OrderNo = order.Number,
 
-				Supplier = db.Configuration.GetSupplierDetails(db, order),
+				Supplier = supplierDetails,
 				ShipTo = shipTo,
 				BillTo = billTo,
+
+				SupplierDetails = supplierDetails,
+				CustomerDetails = customerDetails,
+
 
 				ItemCount = order.Items.Count,
 
@@ -120,7 +135,7 @@ namespace Luxena.Travel.Reports
 					totals.Add(order.Total, ReportRes.InvoicePrinter_InvoiceTotalWithVat);
 
 					
-					if (db.Configuration.InvoicePrinter_ShowVat)
+					if (configuration.InvoicePrinter_ShowVat)
 					{
 						totals.Add(order.Vat, ReportRes.InvoicePrinter_Vat);
 					}
@@ -134,7 +149,7 @@ namespace Luxena.Travel.Reports
 						totals.Add(order.TotalDue, ReportRes.InvoicePrinter_TotalDue);
 
 
-						if (db.Configuration.InvoicePrinter_ShowVat)
+						if (configuration.InvoicePrinter_ShowVat)
 						{
 							totals.Add(order.VatDue, ReportRes.InvoicePrinter_Vat);
 						}
@@ -146,11 +161,11 @@ namespace Luxena.Travel.Reports
 
 				TotalWords = (showPaid ? order.TotalDue : order.Total).ToWords(),
 
-				Warning1 = db.Configuration.VatRate > 0 ? ReportRes.InvoicePrinter_VatLawChanged : null,
+				Warning1 = configuration.VatRate > 0 ? ReportRes.InvoicePrinter_VatLawChanged : null,
 
 				IssuedBy = issuedBy.NameForDocuments,
 
-				FooterDetails = db.Configuration.InvoicePrinter_FooterDetails,
+				FooterDetails = configuration.InvoicePrinter_FooterDetails,
 
 			};
 

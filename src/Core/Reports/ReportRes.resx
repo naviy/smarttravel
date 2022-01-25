@@ -465,7 +465,10 @@ Luggage
 	<value>Скидка:</value>
   </data>
   <data name="InvoicePrinter_Fax" xml:space="preserve">
-	<value>факс {0}</value>
+	<value>факс: {0}</value>
+  </data>
+  <data name="InvoicePrinter_Email" xml:space="preserve">
+	<value>email: {0}</value>
   </data>
   <data name="InvoicePrinter_Invoice" xml:space="preserve">
 	<value>Счет-фактура № {0}</value>

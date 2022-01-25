@@ -39,11 +39,11 @@ namespace Luxena.Travel.Tests.Parsers
 
 
 
-        //---g
+		//---g
 
 
 
-        [Test]
+		[Test]
 		public void TestParseTicket01()
 		{
 
@@ -196,7 +196,7 @@ TZEZYU
      OBFDAX    - CC NBR BEGINS WITH 900024            0        8089
     S1OI S1OI *AOR 1518/28SEP21                        PRICE-SYSTEM
 "
-            );
+			);
 
 
 
@@ -207,7 +207,7 @@ TZEZYU
 					.BookerOffice("S1OI")
 					.BookerCode("OR")
 
-            );
+			);
 
 
 
@@ -225,17 +225,17 @@ TZEZYU
 
 					.FlightSegments(
 
-                        seg => seg
-	                        .Position(0)
-	                        //.Stopover(true)
-	                        .FromAirport("HRK")
-	                        .ToAirport("KBP")
-	                        .CarrierIataCode("7W")
-	                        .FlightNumber("146")
-	                        .ServiceClassCode("K")
-	                        .FareBasis("KP2POW")
-	                        .Luggage("23K")
-							
+						seg => seg
+							.Position(0)
+							//.Stopover(true)
+							.FromAirport("HRK")
+							.ToAirport("KBP")
+							.CarrierIataCode("7W")
+							.FlightNumber("146")
+							.ServiceClassCode("K")
+							.FareBasis("KP2POW")
+							.Luggage("23K")
+
 					)
 
 				,
@@ -263,12 +263,12 @@ TZEZYU
 							.FromAirport("CDG")
 							.ToAirport("KBP")
 
-                    )
+					)
 
 				,
 
 
-                a => a
+				a => a
 
 					.PassengerName("TKACH/NADIIA MISS")
 
@@ -293,10 +293,10 @@ TZEZYU
 
 					)
 
-                ,
+				,
 
 
-                a => a
+				a => a
 
 					.PassengerName("TKACH/NADIIA MISS")
 
@@ -321,9 +321,9 @@ TZEZYU
 					)
 
 
-            );
+			);
 
-            
+
 		}
 
 
@@ -505,7 +505,7 @@ NAME    PQ TYPE TKT DES        M/S/A CREATED       TKT TTL
     CREDIT CARD FORM OF PAYMENT/EARLY PURCHASE OVER INTERNET,ETC./ 
     S1OI S1OI *AOR 1501/03DEC21                        PRICE-SYSTEM
 Copy as textPrint"
-            );
+			);
 
 
 
@@ -544,11 +544,11 @@ Copy as textPrint"
 
 
 
-        [Test]
-        public void TestParseTicket03()
-        {
+		[Test]
+		public void TestParseTicket03()
+		{
 
-            var docs = Parse(@"
+			var docs = Parse(@"
 CMWLOH
      1.1YOSEF/GADIEL MR  2.1YOSEF/SHLOMO MR
      1 LY2651Z 23JAN 7 TLVKBP HK2  0630  0955  SPM HRS /DCLY*KMT82G
@@ -624,44 +624,237 @@ CMWLOH
     S1OI S1OI *AOR 1458/06JAN22                        PRICE-SYSTEM
 Copy as textPrint
 Copy as textPrint"
+			);
+
+
+
+			docs.AssertAll(a => a
+				.IssueDate("2022-01-06")
+				.PnrCode("CMWLOH")
+				.BookerOffice("S1OI")
+				.BookerCode("OR")
+			);
+
+
+
+			docs.Assert(
+
+				a => a
+					.PassengerName("YOSEF/GADIEL MR")
+
+
+				, a => a
+					.PassengerName("YOSEF/SHLOMO MR")
+
+			);
+
+		}
+
+
+
+
+		[Test]
+		public void TestParseTicket04()
+		{
+
+			var docs = Parse(@"
+QLIKEN
+     1.1CILA/OLENA MRS
+     1 LH1495T 16FEB 3 KBPFRA*HK1  1815  2005  /DCLH*S35GTH /E
+     2 LH 506T 16FEB 3 FRAGRU*HK1  2155  0555   17FEB 4
+                                                   /DCLH*S35GTH /E
+     3 OB 735X 17FEB 4 GRUVVI HK1  1340  1530  /DCOB*S35GTH /E
+     4 OB 736X 01MAR 2 VVIGRU HK1  0830  1210  /DCOB*S35GTH /E
+     5 LH 507T 01MAR 2 GRUFRA*HK1  1845  1015   02MAR 3
+                                                   /DCLH*S35GTH /E
+     6 LH1492T 02MAR 3 FRAKBP*HK1  1710  2035  /DCLH*S35GTH /E
+    TKT/TIME LIMIT
+      1.T-19JAN-S1OI*AOR
+    PHONES
+      1.IEV380442067576-A
+    PASSENGER EMAIL DATA EXISTS  *PE TO DISPLAY ALL
+    INVOICED 
+    PRICE QUOTE RECORD EXISTS - SYSTEM
+    PROFILE,POLICY,AND/OR PREFERENCE INDEX DATA EXIST 
+    *PI TO DISPLAY ALL
+    SECURITY INFO EXISTS *P3D OR *P4D TO DISPLAY
+    AA FACTS
+      1.SSR OTHS 1S MISSING SSR CTCM MOBILE OR SSR CTCE EMAIL OR SS
+        R CTCR NON-CONSENT FOR LH
+      2.SSR OTHS 1S MISSING SSR CTCM MOBILE OR SSR CTCE EMAIL OR SS
+        R CTCR NON-CONSENT FOR OB
+      3.SSR ADTK 1S TO OB BY 21JAN 2300 IEV TIME ZONE OTHERWISE WIL
+        L BE XLD
+      4.SSR OTHS 1S PLS ADV TKT NBR BY 21JAN22/0833Z OR LH OPTG/MKT
+        G FLTS WILL BE CANX / APPLIC FARE RULE APPLIES IF IT DEMAND
+        S EARLIER TKTG
+    GENERAL FACTS
+      3.SSR CTCM LH HK1/380678137416
+      4.SSR CTCM OB HK1/380678137416
+    REMARKS
+      1.Z?ID-NF
+      2.XXTAW/
+     RECEIVED FROM - AR
+    S1OI.S1OI*AOR 0233/18JAN22 QLIKEN H
+
+*PQS«
+
+            PRICE QUOTE RECORD - SUMMARY BY NAME NUMBER            
+                      RETAINED FARE                                
+    NAME    PQ TYPE TKT DES        M/S/A CREATED       TKT TTL     
+     1.1     1  ADT                  S    19JAN UAH     33598      
+    DELETED RECORD EXISTS - *PQD
+
+*PQ1«
+
+                     PRICE QUOTE RECORD - DETAILS                  
+    FARE NOT GUARANTEED UNTIL TICKETED                             
+    PQ 1                                                           
+    BASE FARE       EQUIV AMT     TAXES/FEES/CHARGES          TOTAL
+    USD592.00       UAH16745        16853XT             UAH33598ADT
+    XT BREAKDOWN                                                   
+            12912YQ           614YR           114UA            57UD
+              368YK           644DE          1436RA           708A7
+    ADT-01  TNCUA                                                  
+    LAST DAY TO PURCHASE 21JAN/1033                                
+    IEV LH X/FRA LH X/SAO OB SRZ296.00OB X/SAO LH X/FRA LH IEV296.0
+    0NUC592.00END ROE1.00
+    VALIDATING CARRIER - LH                                        
+    FARE RESTRICTION MAY APPLY                                     
+    01 O KBP LH1495T 16FEB 1815  TNCUA                  16FEB23 01P
+    02 X FRA LH 506T 16FEB 2155  TNCUA                  16FEB23 01P
+    03 X GRU OB 735X 17FEB 1340  TNCUA                  16FEB23 01P
+    04 O VVI OB 736X 01MAR  830  TNCUA           23FEB2216FEB23 01P
+    05 X GRU LH 507T 01MAR 1845  TNCUA           23FEB2216FEB23 01P
+    06 X FRA LH1492T 02MAR 1710  TNCUA           23FEB2216FEB23 01P
+         KBP                                                       
+    FARE SOURCE - ATPC                                             
+    ONE OR MORE FORM OF PAYMENT FEES MAY APPLY                     
+    ACTUAL TOTAL WILL BE BASED ON FORM OF PAYMENT USED             
+    FEE CODE     DESCRIPTION                        FEE   TKT TOTAL
+     OBFCAX    - CC NBR BEGINS WITH 122088            0       33598
+     OBFCAX    - CC NBR BEGINS WITH 14121             0       33598
+     OBFCAX    - CC NBR BEGINS WITH 14122             0       33598
+     OBFCAX    - CC NBR BEGINS WITH 14123             0       33598
+     OBFCAX    - CC NBR BEGINS WITH 1611              0       33598
+     OBFCAX    - CC NBR BEGINS WITH 1620              0       33598
+     OBFCAX    - CC NBR BEGINS WITH 192088            0       33598
+     OBFCAX    - CC NBR BEGINS WITH 516470            0       33598
+     OBFCAX    - CC NBR BEGINS WITH 528159            0       33598
+     OBFCAX    - CC NBR BEGINS WITH 532728            0       33598
+     OBFCAX    - CC NBR BEGINS WITH 542527            0       33598
+     OBFCAX    - CC NBR BEGINS WITH 559867            0       33598
+     OBFCAX    - CC NBR BEGINS WITH 900024            0       33598
+     OBFCAX    - CC NBR BEGINS WITH 34                0       33598
+     OBFCAX    - CC NBR BEGINS WITH 37                0       33598
+     OBFCAX    - CC NBR BEGINS WITH 1112              0       33598
+     OBFDAX    - CC NBR BEGINS WITH 122088            0       33598
+     OBFDAX    - CC NBR BEGINS WITH 14121             0       33598
+     OBFDAX    - CC NBR BEGINS WITH 14122             0       33598
+     OBFDAX    - CC NBR BEGINS WITH 14123             0       33598
+     OBFDAX    - CC NBR BEGINS WITH 1611              0       33598
+     OBFDAX    - CC NBR BEGINS WITH 1620              0       33598
+     OBFDAX    - CC NBR BEGINS WITH 192088            0       33598
+     OBFDAX    - CC NBR BEGINS WITH 516470            0       33598
+     OBFDAX    - CC NBR BEGINS WITH 528159            0       33598
+     OBFDAX    - CC NBR BEGINS WITH 532728            0       33598
+     OBFDAX    - CC NBR BEGINS WITH 542527            0       33598
+     OBFDAX    - CC NBR BEGINS WITH 559867            0       33598
+     OBFDAX    - CC NBR BEGINS WITH 900024            0       33598
+     OBFDAX    - CC NBR BEGINS WITH 34                0       33598
+     OBFDAX    - CC NBR BEGINS WITH 37                0       33598
+     OBFDAX    - CC NBR BEGINS WITH 1112              0       33598
+    S1OI S1OI *AOR 1331/19JAN22                        PRICE-SYSTEM"
             );
 
 
 
-            docs.AssertAll(a => a
-	            .IssueDate("2022-01-06")
-	            .PnrCode("CMWLOH")
-                .BookerOffice("S1OI")
-                .BookerCode("OR")
+			docs.AssertAll(a => a
+				.IssueDate("2022-01-19")
+				.PnrCode("QLIKEN")
+				.BookerOffice("S1OI")
+				.BookerCode("OR")
+			);
+
+
+
+			docs.Assert(
+
+				a => a
+					.PassengerName("CILA/OLENA MRS")
+
+					.Fare("USD", 592m)
+					.EqualFare("UAH", 16745m)
+					.FeesTotal("UAH", 16853m)
+					.Total("UAH", 33598m)
+
+					.FlightSegments(
+
+						seg => seg
+							.Position(0)
+							.FromAirport("KBP")
+							.ToAirport("FRA")
+							.CarrierIataCode("LH")
+							.DepartureTime("2022-02-16T18:15")
+							.ArrivalTime("2022-02-16T20:05")
+						,
+
+                        seg => seg
+							.Position(1)
+							.FromAirport("FRA")
+							.ToAirport("GRU")
+							.CarrierIataCode("LH")
+							.DepartureTime("2022-02-16T21:55")
+							.ArrivalTime("2022-02-17T05:55")
+						,
+
+                        seg => seg
+							.Position(2)
+							.FromAirport("GRU")
+							.ToAirport("VVI")
+							.CarrierIataCode("OB")
+							.DepartureTime("2022-02-17T13:40")
+							.ArrivalTime("2022-02-17T15:30")
+						,
+
+                        seg => seg
+							.Position(3)
+							.FromAirport("VVI")
+							.ToAirport("GRU")
+							.CarrierIataCode("OB")
+						,
+
+						seg => seg
+							.Position(4)
+							.FromAirport("GRU")
+							.ToAirport("FRA")
+							.CarrierIataCode("LH")
+						,
+
+						seg => seg
+							.Position(5)
+							.FromAirport("FRA")
+							.ToAirport("KBP")
+							.CarrierIataCode("LH")
+
+                    )
+
             );
 
-
-
-            docs.Assert(
-
-                a => a
-                    .PassengerName("YOSEF/GADIEL MR")
-                
-                
-                , a => a
-                    .PassengerName("YOSEF/SHLOMO MR")
-               
-            );
-
-        }
+		}
 
 
 
-        //---g
+		//---g
 
-    }
+	}
 
 
 
 
 
 
-    //===g
+	//===g
 
 
 

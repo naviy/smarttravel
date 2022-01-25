@@ -53,6 +53,7 @@ namespace Luxena.Travel.Domain
 
 		public virtual bool HasVat { get; set; }
 
+
 		public virtual Money ServiceFee
 		{
 			get
@@ -71,6 +72,17 @@ namespace Luxena.Travel.Domain
 
 		[RU("Принудительно учитывать в балансе взаимозачётов")]
 		public virtual bool IsForceDelivered { get; set; }
+
+
+
+		//---g
+
+
+
+		public override string ToString()
+		{
+			return Order + " #" + Position;
+		}
 
 
 
@@ -251,13 +263,6 @@ namespace Luxena.Travel.Domain
 
 			}
 
-		}
-
-
-
-		public override string ToString()
-		{
-			return Order + " #" + Position;
 		}
 
 

@@ -3,16 +3,34 @@ using System.Linq;
 using System.Text.RegularExpressions;
 
 
+
+
 namespace Luxena.Travel.Domain
 {
+
+
+
+	//===g
+
+
+
+
+
 
 	partial class AviaTicket
 	{
 
+		//---g
+
+
+
 		public override Entity Resolve(Domain db)
 		{
+
 			base.Resolve(db);
+
 			var r = this;
+
 
 			r.ReissueFor = db.AviaDocument.ByFullNumber(r.ReissueFor);
 			
@@ -20,12 +38,16 @@ namespace Luxena.Travel.Domain
 
 			Segments.ForEach(a => a.Resolve(db));
 
+
 			r.CalculateFares();
+
 
 			if (r.Origin == ProductOrigin.AmadeusAir && r.IsManual)
 				r.Origin = ProductOrigin.AmadeusPrint;
 
+
 			r.SetDomestic();
+
 
 			if (r.Origin == ProductOrigin.AmadeusPrint)
 				db.AviaDocument.ResolvePrintDocumentCommission(r);
@@ -34,36 +56,58 @@ namespace Luxena.Travel.Domain
 			if (r.OriginalDocument == null)
 				return r;
 
+
 			var reservations = db.AviaTicket.FindReservation(r);
 
 			if (reservations == null || reservations.Count != 1)
 				return r;
 
-			var reservation = reservations[0];
 
+			var reservation = reservations[0];
+			
 			r = db.Unproxy(r);
+
 			db.AviaTicket.UpdateReservation(reservation, r);
 
 			db.AviaTicket.Save(reservation);
 
+
 			reservation.Order?.Recalculate(db);
 
+
 			return reservation;
+
 		}
+
+
+
+
+		//---g
+
+
 
 
 		public new class Service : Service<AviaTicket>
 		{
 
+			//---g
+
+
+
 			public IList<AviaTicket> FindReservation(AviaTicket ticket)
 			{
+
 				var passenger = ticket.Passengers.One(a => a.PassengerName);
 
-				if (passenger.No()) return null;
+				if (passenger.No()) 
+					return null;
 
-				var match = _reFindReservation.Match(passenger);
-				if (match.Yes())
-					passenger = match.Groups["passenger"].Value;// + "%";
+
+				var passengerMatch = _reFindReservation.Match(passenger);
+
+				if (passengerMatch.Yes())
+					passenger = passengerMatch.Groups["passenger"].Value;// + "%";
+
 
 				var list = ListBy(a =>
 					a.PnrCode == ticket.PnrCode &&
@@ -71,21 +115,32 @@ namespace Luxena.Travel.Domain
 					a.Number == null &&
 					!a.IsVoid &&
 					a.Passengers.FirstOrDefault(b =>
-						match.Yes() ? b.PassengerName.StartsWith(passenger) : b.PassengerName == passenger
+						passengerMatch.Yes() ? b.PassengerName.StartsWith(passenger) : b.PassengerName == passenger
 					) != null
 				);
+
 
 				if (list?.Count > 1 && ticket.EqualFare.Yes())
 					list = list.Where(a => Equals(a.EqualFare, ticket.EqualFare)).ToList();
 
+
 				return list;
+
 			}
+
+
 
 			private static readonly Regex _reFindReservation = new Regex(@"(?<passenger>.*[^\s])\s?(MR|MRS|MSTR|MISS)$", RegexOptions.Compiled);
 
 
+
+			//---g
+
+
+
 			public void UpdateReservation(AviaTicket reservation, AviaTicket ticket)
 			{
+
 				reservation.IssueDate = ticket.IssueDate;
 				reservation.Number = ticket.Number;
 				reservation.PassengerName = ticket.PassengerName;
@@ -135,6 +190,7 @@ namespace Luxena.Travel.Domain
 				reservation.Domestic = ticket.Domestic;
 				reservation.Interline = ticket.Interline;
 
+
 				if (!Equals(reservation.Total, ticket.Total))
 				{
 					//reservation.Total = ticket.Total;
@@ -144,14 +200,18 @@ namespace Luxena.Travel.Domain
 					reservation.GrandTotal = null;
 				}
 
+
 				if (ticket.Customer != null)
 					reservation.SetCustomer(db, ticket.Customer);
+
 
 				if (ticket.ServiceFee != null)
 					reservation.ServiceFee = ticket.ServiceFee;
 
+
 				if (ticket.Discount != null)
 					reservation.Discount = ticket.Discount;
+
 
 				//if (ticket.GrandTotal != null)
 				//	reservation.GrandTotal = ticket.GrandTotal;
@@ -162,13 +222,19 @@ namespace Luxena.Travel.Domain
 
 				CopyFees(reservation, ticket);
 				CopySegments(reservation, ticket);
+
 			}
+
+
 
 			private static void CopyFees(AviaTicket reservation, AviaTicket ticket)
 			{
+
 				for (var i = 0; i < ticket.Fees.Count; i++)
 				{
+
 					var fee = ticket.Fees[i];
+
 
 					if (reservation.Fees.Count <= i)
 					{
@@ -178,18 +244,30 @@ namespace Luxena.Travel.Domain
 						reservation.Fees.Add(clone);
 					}
 					else
+					{
 						AviaDocumentFee.Copy(fee, reservation.Fees[i]);
+					}
+
 				}
 
+
 				while (reservation.Fees.Count > ticket.Fees.Count)
+				{
 					reservation.Fees.RemoveAt(reservation.Fees.Count - 1);
+				}
+
 			}
+
+
 
 			private static void CopySegments(AviaTicket reservation, AviaTicket ticket)
 			{
+
 				for (var i = 0; i < ticket.Segments.Count; i++)
 				{
+
 					var segment = ticket.Segments[i];
+
 
 					if (reservation.Segments.Count <= i)
 					{
@@ -199,11 +277,18 @@ namespace Luxena.Travel.Domain
 						reservation.AddSegment(clone);
 					}
 					else
+					{
 						FlightSegment.Copy(segment, reservation.Segments[i]);
+					}
+
 				}
 
+
 				while (reservation.Segments.Count > ticket.Segments.Count)
+				{
 					reservation.Segments.RemoveAt(reservation.Segments.Count - 1);
+				}
+
 			}
 
 

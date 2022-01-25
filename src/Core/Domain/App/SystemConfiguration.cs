@@ -97,7 +97,7 @@ namespace Luxena.Travel.Domain
 		//TODO: переименовать на DefaultConsolidatorFee
 		[RU("Комиссия консолидатора по умолчанию")]
 		public virtual Money DefaultConsolidatorCommission { get; set; }
-		
+
 		[RU("Использовать доп. доход от АК при обработке авиадокументов")]
 		public virtual bool UseAviaHandling { get; set; }
 
@@ -171,7 +171,7 @@ namespace Luxena.Travel.Domain
 
 
 
-		public virtual string GetSupplierDetails(Domain db, Order order = null)
+		public virtual string GetSupplierDetails(Domain db, Order order = null, bool multiline = false)
 		{
 
 			var supplier = Company;
@@ -180,82 +180,118 @@ namespace Luxena.Travel.Domain
 				return null;
 
 
-			var sb = new StringBuilder()
-				.AppendLine(supplier.NameForDocuments);
+			var sb = new StringBuilder();
 
 
-			var bankAccount = order?.BankAccount.Do(a => sb.AppendLine(a.Description));
-
-			if (bankAccount == null)
-				db.BankAccount.Query.Where(a => a.IsDefault).ForEach(a => sb.AppendLine(a.Description));
+			sb.AppendLine(supplier.NameForDocuments);
 
 
 			if (CompanyDetails.Yes())
+			{
 				sb.AppendLine(CompanyDetails);
+			}
 
 
 			if (supplier.LegalAddress.Yes())
 			{
-				sb.AppendFormat(ReportRes.InvoicePrinter_Address, supplier.LegalAddress)
-					.AppendLine();
+				sb.AppendFormat(ReportRes.InvoicePrinter_Address, supplier.LegalAddress);
+				sb.AppendLine();
 			}
 
 
-			var separator = string.Empty;
+			AppendPartyContacts(sb, supplier);
 
-			if (supplier.Phone1.Yes())
+
+			var bankAccount = (order?.BankAccount ?? db.BankAccount.Query.Where(a => a.IsDefault).One());
+
+			if (bankAccount != null)
 			{
-				sb.AppendFormat(ReportRes.InvoicePrinter_Phone, supplier.Phone1);
-				separator = ", ";
+				sb.AppendLine(bankAccount.Description);
 			}
 
 
-			if (supplier.Fax.Yes())
-				sb.Append(separator)
-					.AppendFormat(ReportRes.InvoicePrinter_Fax, supplier.Fax);
 
-
-			return sb.ToString().Replace("\r", string.Empty);
+			return multiline ? sb.ToString() : sb.ToString().Replace("\r", string.Empty);
 
 		}
 
 
 
-		public virtual string GetCustomerDetails(Domain db, Party customer)
+		public virtual string GetCustomerDetails(Domain db, Party customer, bool multiline = false)
 		{
 
-			if (customer == null) 
+			if (customer == null)
 				return null;
 
 
-			var sb = new StringBuilder()
-				.AppendLine(customer.NameForDocuments);
+			var sb = new StringBuilder();
+
+
+			sb.AppendLine(customer.NameForDocuments);
 
 
 			if (customer.Details.Yes())
-				sb.AppendLine(customer.Details);
-
-
-			if (customer.LegalAddress.Yes())
-				sb.AppendFormat(ReportRes.InvoicePrinter_Address, customer.LegalAddress)
-					.AppendLine();
-
-
-			var separator = string.Empty;
-
-			if (customer.Phone1.Yes())
 			{
-				sb.AppendFormat(ReportRes.InvoicePrinter_Phone, customer.Phone1);
-				separator = ", ";
+				sb.AppendLine(customer.Details);
 			}
 
 
-			if (customer.Fax.Yes())
-				sb.Append(separator)
-					.AppendFormat(ReportRes.InvoicePrinter_Fax, customer.Fax);
+			if (customer.LegalAddress.Yes())
+			{
+				sb.AppendFormat(ReportRes.InvoicePrinter_Address, customer.LegalAddress);
+				sb.AppendLine();
+			}
 
 
-			return sb.ToString().Replace("\r", string.Empty);
+			AppendPartyContacts(sb, customer);
+			
+
+			return multiline ? sb.ToString() : sb.ToString().Replace("\r", string.Empty);
+
+		}
+		
+
+
+		private void AppendPartyContacts(StringBuilder sb, Party party)
+		{
+
+			var hasContacts = false;
+
+
+			appendContact(ReportRes.InvoicePrinter_Phone, party.Phone1);
+			appendContact(null, party.Phone2);
+
+			appendContact(ReportRes.InvoicePrinter_Fax, party.Fax);
+
+			appendContact(ReportRes.InvoicePrinter_Email, party.Email1);
+			appendContact(null, party.Email2);
+
+
+			if (hasContacts)
+				sb.AppendLine();
+
+
+
+			void appendContact(string fmt, string contact)
+			{
+
+				if (contact.No())
+					return;
+
+
+				if (hasContacts)
+					sb.Append(", ");
+
+
+				if (fmt != null)
+					sb.AppendFormat(fmt, contact);
+				else
+					sb.Append(contact);
+
+
+				hasContacts = true;
+
+			}
 
 		}
 
@@ -284,7 +320,7 @@ namespace Luxena.Travel.Domain
 	partial class Domain
 	{
 
-		public SystemConfiguration Configuration {[DebuggerStepThrough] get => ResolveSingleton(ref _configuration); }
+		public SystemConfiguration Configuration { [DebuggerStepThrough] get => ResolveSingleton(ref _configuration); }
 		private SystemConfiguration _configuration;
 
 	}

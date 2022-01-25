@@ -112,12 +112,12 @@ namespace Luxena.Travel.Parsers
 				FlightNo = a.Groups["flightNo"].Value,
 				ServiceClassCode = a.Groups["class"].Value,
 
-				Date = a.Groups["date"].Value,
-
 				FromAirportCode = a.Groups["fromAirport"].Value,
 				ToAirportCode = a.Groups["toAirport"].Value,
 
+				DepartureDate = a.Groups["departureDate"].Value,
 				DepartureTime = a.Groups["departureTime"].Value,
+				ArrivalDate = a.Groups["arrivalDate"].Value.Clip(),
 				ArrivalTime = a.Groups["arrivalTime"].Value,
 
 			});
@@ -203,10 +203,9 @@ namespace Luxena.Travel.Parsers
 						FlightNumber = a.Groups["flightNo"].Value,
 						ServiceClassCode = a.Groups["class"].Value,
 
-						Date = a.Groups["date"].Value,
-						DepartureTime = a.Groups["time"].Value.PadLeft(4, '0'),
+						DepartureTime = a.Groups["departureTime"].Value.PadLeft(4, '0'),
 						DepartureDate = a.Groups["departureDate"].Value,
-						ArrivalDate = a.Groups["arrivalDate"].Value,
+						//ArrivalDate = a.Groups["arrivalDate"].Value,
 
 						FareBasis = a.Groups["fareBasis"].Value,
 						Luggage = a.Groups["luggage"].Value,
@@ -277,7 +276,7 @@ namespace Luxena.Travel.Parsers
 
 					var hseg = headerSegments.By(a =>
 						a.FromAirportCode == mseg.FromAirportCode &&
-						a.Date == mseg.Date &&
+						a.DepartureDate == mseg.DepartureDate &&
 						a.DepartureTime == mseg.DepartureTime
 					);
 
@@ -295,8 +294,8 @@ namespace Luxena.Travel.Parsers
 
 						FromAirportCode = mseg.FromAirportCode,
 						ToAirportCode = hseg.ToAirportCode,
-						DepartureTime = (mseg.DepartureDate + hseg.DepartureTime).As().ToDateTimen("ddMMMyyHHmm"),
-						ArrivalTime = (mseg.ArrivalDate + hseg.ArrivalTime).As().ToDateTimen("ddMMMyyHHmm"),
+						DepartureTime = (mseg.DepartureDate + mseg.DepartureTime).As().ToDateTimen("ddMMMHHmm"),
+						ArrivalTime = ((hseg.ArrivalDate ?? mseg.DepartureDate) + hseg.ArrivalTime).As().ToDateTimen("ddMMMHHmm"),
 
 						FareBasis = mseg.FareBasis,
 						Luggage = mseg.Luggage,
@@ -339,7 +338,7 @@ namespace Luxena.Travel.Parsers
 		);
 
 		static readonly Regex _reHeaderSegments = new Regex(
-			@"\s*(?<segmentNo>\d)\s+(?<airline>[\w\d]{2})\s*(?<flightNo>\d+)(?<class>\w)\s+(?<date>\d\d\w\w\w)\s+\d+\s+(?<fromAirport>\w\w\w)(?<toAirport>\w\w\w).+?\s(?<departureTime>\d\d\d\d)\s+(?<arrivalTime>\d\d\d\d)",
+			@"\s*(?<segmentNo>\d)\s+(?<airline>[\w\d]{2})\s*(?<flightNo>\d+)(?<class>\w)\s+(?<departureDate>\d\d\w\w\w)\s+\d+\s+(?<fromAirport>\w\w\w)(?<toAirport>\w\w\w).+?\s(?<departureTime>\d\d\d\d)\s+(?<arrivalTime>\d\d\d\d)\s+(?<arrivalDate>\d\d\w\w\w)?",
 			RegexOptions.Multiline | RegexOptions.Compiled
 		);
 
@@ -372,7 +371,7 @@ namespace Luxena.Travel.Parsers
 
 
 		static readonly Regex _reMaskSegments = new Regex(
-			@"^\s*(?<segmentNo>\d\d)\s+(?<stopover>\w)\s+(?<airport>[\w\d]{3})\s+(?<airline>[\w\d]{2})\s*(?<flightNo>\d+)(?<class>\w)\s+(?<date>\d\d\w\w\w)\s+(?<time>\d+)\s+(?<fareBasis>[\w\d\/]+)\s+(?<departureDate>\d\d\w\w\w\d\d)(?<arrivalDate>\d\d\w\w\w\d\d)\s+(?<luggage>[\w\d]+)",
+			@"^\s*(?<segmentNo>\d\d)\s+(?<stopover>\w)\s+(?<airport>[\w\d]{3})\s+(?<airline>[\w\d]{2})\s*(?<flightNo>\d+)(?<class>\w)\s+(?<departureDate>\d\d\w\w\w)\s+(?<departureTime>\d+)\s+(?<fareBasis>[\w\d\/]+)\s+(?:\d\d\w\w\w\d\d)?(?:\d\d\w\w\w\d\d)\s+(?<luggage>[\w\d]+)",
 			RegexOptions.Multiline | RegexOptions.Compiled
 		);
 

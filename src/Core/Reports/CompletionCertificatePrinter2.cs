@@ -66,6 +66,13 @@ namespace Luxena.Travel.Reports
 			var orderHasVat = order.Vat.Yes();
 
 
+			var invoice = order.Invoices
+				.Where(a=> a.Type == InvoiceType.Invoice)
+				.OrderByDescending(a => a.TimeStamp)
+				.One()
+			;
+
+
 			var data = new
 			{
 
@@ -74,10 +81,14 @@ namespace Luxena.Travel.Reports
 				OrderNo = order.Number,
 
 				Supplier = db.Configuration.Company,
+				SupplierDetails = db.Configuration.GetSupplierDetails(db, order),
+
 				Customer = (order.ShipTo ?? order.Customer)?.Name,
 				CustomerSignature = (order.ShipTo ?? order.Customer).As(a => a.Signature ?? a.Name),
-				SupplierDetails = db.Configuration.GetSupplierDetails(db, order),
 				CustomerDetails = db.Configuration.GetCustomerDetails(db, order.ShipTo ?? order.Customer),
+
+				InvoiceNo = invoice?.Number,
+				InvoiceDate = invoice?.IssueDate,
 
 				ShipTo = shipTo,
 				BillTo = billTo,

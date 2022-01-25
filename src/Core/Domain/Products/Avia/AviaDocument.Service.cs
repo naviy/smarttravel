@@ -40,6 +40,21 @@ namespace Luxena.Travel.Domain
 			var r = this;
 
 
+			if (r.Producer == null)
+			{
+
+				if (r.AirlineIataCode.Yes())
+				{
+					r.Producer = db.Airline.ByIataCode(r.AirlineIataCode);
+				}
+				else if (r.AirlinePrefixCode.Yes())
+				{
+					r.Producer = db.Airline.ByPrefixCode(r.AirlinePrefixCode);
+				}
+
+			}
+
+
 			if (r.Producer != null)
 			{
 				r.AirlineIataCode = r.Producer.AirlineIataCode ?? r.AirlineIataCode;
@@ -51,23 +66,26 @@ namespace Luxena.Travel.Domain
 				r.AirlinePrefixCode = r.Producer?.AirlinePrefixCode ?? r.AirlinePrefixCode;
 			}
 
-			else if (r.AirlineIataCode.Yes())
-			{
-				r.Producer = db.Airline.ByIataCode(r.AirlineIataCode);
+			//else if (r.AirlineIataCode.Yes())
+			//{
+			//	r.Producer = db.Airline.ByIataCode(r.AirlineIataCode);
 
-				if (r.Producer != null && r.Producer.AirlinePrefixCode.Yes())
-					r.AirlinePrefixCode = r.Producer.AirlinePrefixCode;
-			}
+			//	if (r.Producer != null && r.Producer.AirlinePrefixCode.Yes())
+			//		r.AirlinePrefixCode = r.Producer.AirlinePrefixCode;
+			//}
 
-			else if (r.AirlinePrefixCode.Yes())
-			{
-				r.Producer = db.Airline.ByPrefixCode(r.AirlinePrefixCode);
-			}
+			//else if (r.AirlinePrefixCode.Yes())
+			//{
+			//	r.Producer = db.Airline.ByPrefixCode(r.AirlinePrefixCode);
+			//	r.AirlineIataCode = r.Producer?.AirlineIataCode ?? r.AirlineIataCode;
+			//}
 
 
 			//!!! to be replaced by an unique constraint
 			if (db.AviaDocument.IsExists(r))
+			{
 				throw new DomainException(string.Format(Exceptions.ImportGdsFile_DocumentAlreadyExists, r));
+			}
 
 
 			var vatFee = r.Fees.By(fee => fee.Code == AviaDocumentFee.VatCode);
@@ -89,7 +107,9 @@ namespace Luxena.Travel.Domain
 
 
 			if (r.Customer != null)
+			{
 				r.SetCustomer(db, db.Party.ByLegalName(r.Customer.LegalName));
+			}
 
 
 			if (r.GdsPassport.No())
@@ -98,16 +118,24 @@ namespace Luxena.Travel.Domain
 			}
 			else
 			{
+
 				r.GdsPassportStatus = GdsPassportStatus.Exist;
 
+
 				var passportNumber = r.ParseGdsPassport().Number;
+
 				if (passportNumber.Yes())
 				{
+
 					var passport = db.Passport.ByNumber(passportNumber);
 
 					if (passport != null && db.AviaDocument.ValidatePassengerPassport(r, passport, false) == PassportValidationResult.Valid)
+					{
 						r.Passenger = passport.Owner;
+					}
+
 				}
+
 			}
 
 

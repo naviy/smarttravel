@@ -53,6 +53,62 @@ namespace Luxena.Travel.Tests
 
 
 
+		public FlightSegmentAsserter ArrivalTime(string expected)
+		{
+			AreEqual(DateTime.Parse(expected), r.ArrivalTime);
+			return this;
+		}
+
+
+
+		public FlightSegmentAsserter CarrierIataCode(string expected)
+		{
+			AreEqual(expected, r.CarrierIataCode);
+			return this;
+		}
+
+
+
+		public FlightSegmentAsserter DepartureTime(string expected)
+		{
+			AreEqual(DateTime.Parse(expected), r.DepartureTime);
+			return this;
+		}
+
+
+
+		public FlightSegmentAsserter FareBasis(string expected)
+		{
+			AreEqual(expected, r.FareBasis);
+			return this;
+		}
+
+
+
+		public FlightSegmentAsserter FlightNumber(string expected)
+		{
+			AreEqual(expected, r.FlightNumber);
+			return this;
+		}
+
+
+
+		public FlightSegmentAsserter FromAirport(string expected)
+		{
+			AreEqual(expected, r.FromAirportCode);
+			return this;
+		}
+
+
+
+		public FlightSegmentAsserter Luggage(string expected)
+		{
+			AreEqual(expected, r.Luggage);
+			return this;
+		}
+
+
+
 		public FlightSegmentAsserter Position(int expected)
 		{
 			AreEqual(expected, r.Position);
@@ -69,22 +125,6 @@ namespace Luxena.Travel.Tests
 
 
 
-		public FlightSegmentAsserter CarrierIataCode(string expected)
-		{
-			AreEqual(expected, r.CarrierIataCode);
-			return this;
-		}
-
-
-
-		public FlightSegmentAsserter FlightNumber(string expected)
-		{
-			AreEqual(expected, r.FlightNumber);
-			return this;
-		}
-
-
-
 		public FlightSegmentAsserter ServiceClassCode(string expected)
 		{
 			AreEqual(expected, r.ServiceClassCode);
@@ -93,33 +133,9 @@ namespace Luxena.Travel.Tests
 
 
 
-		public FlightSegmentAsserter FromAirport(string expected)
-		{
-			AreEqual(expected, r.FromAirportCode);
-			return this;
-		}
-
-
-
 		public FlightSegmentAsserter ToAirport(string expected)
 		{
 			AreEqual(expected, r.ToAirportCode);
-			return this;
-		}
-
-
-
-		public FlightSegmentAsserter FareBasis(string expected)
-		{
-			AreEqual(expected, r.FareBasis);
-			return this;
-		}
-
-
-
-		public FlightSegmentAsserter Luggage(string expected)
-		{
-			AreEqual(expected, r.Luggage);
 			return this;
 		}
 

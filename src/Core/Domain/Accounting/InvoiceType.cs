@@ -1,6 +1,15 @@
 ﻿namespace Luxena.Travel.Domain
 {
 
+
+
+	//===g
+
+
+
+
+
+
 	public enum InvoiceType
 	{
 
@@ -14,5 +23,14 @@
 		CompletionCertificate = 2,
 
 	}
+
+
+
+
+
+
+	//===g
+
+
 
 }

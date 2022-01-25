@@ -32,6 +32,7 @@ namespace Luxena.Travel.Domain
 
 			var r = this;
 
+
 			GdsAgent booker = null;
 
 

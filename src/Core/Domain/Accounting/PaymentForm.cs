@@ -2,8 +2,19 @@
 using Luxena.Domain;
 
 
+
+
 namespace Luxena.Travel.Domain
 {
+
+
+
+	//===g
+
+
+
+
+
 
 	[RU("Форма оплаты")]
 	public enum PaymentForm
@@ -27,8 +38,13 @@ namespace Luxena.Travel.Domain
 	}
 
 
+
+
+
+
 	partial class Payment
 	{
+
 		[Utility, Hidden]
 		public virtual bool IsCashOrder => PaymentForm == PaymentForm.CashInOrder || PaymentForm == PaymentForm.CashOutOrder;
 
@@ -46,6 +62,16 @@ namespace Luxena.Travel.Domain
 
 		[Utility, Hidden]
 		public virtual bool IsWireTransfer => PaymentForm == PaymentForm.WireTransfer;
+
 	}
+
+
+
+
+
+
+	//===g
+
+
 
 }

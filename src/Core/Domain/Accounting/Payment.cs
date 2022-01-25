@@ -8,8 +8,19 @@ using Luxena.Base.Metamodel;
 using Luxena.Domain;
 
 
+
+
 namespace Luxena.Travel.Domain
 {
+
+
+
+	//===g
+
+
+
+
+
 
 	[RU("Платёж", "Платежи"), DebuggerDisplay("{PaymentForm} {Number}")]
 	[AgentPrivileges(
@@ -19,8 +30,13 @@ namespace Luxena.Travel.Domain
 	public abstract partial class Payment : Entity2
 	{
 
+		//---g
+
+
+
 		[Patterns.Number, EntityName]
 		public virtual string Number { get; set; }
+
 
 		[Patterns.Date]
 		public virtual DateTime Date { get; protected set; }
@@ -35,6 +51,7 @@ namespace Luxena.Travel.Domain
 			Date = value;
 		}
 
+
 		public virtual PaymentForm PaymentForm { get; set; }
 
 		[RU("Номер документа")]
@@ -42,6 +59,7 @@ namespace Luxena.Travel.Domain
 
 		[Hidden(false)]
 		public virtual string DocumentUniqueCode => null;
+
 
 		[Patterns.Payer, Required]
 		public virtual Party Payer { get; set; }
@@ -52,12 +70,14 @@ namespace Luxena.Travel.Domain
 				SetOrderInternal(null);
 		}
 
+
 		public virtual Order Order { get; protected set; }
 
 		public virtual void SetOrder(Order value)
 		{
 			WrapSetter(() => SetOrderInternal(value));
 		}
+
 
 		[RU("Квитанция"), Suggest(typeof(Receipt))]
 		public virtual Invoice Invoice { get; protected set; }
@@ -73,12 +93,14 @@ namespace Luxena.Travel.Domain
 				SetOrderInternal(value.Order);
 		}
 
+
 		[RU("Дата счета/квитанции")]
 		[DataPath("Invoice.IssueDate")]
 		public virtual DateTime? InvoiceDate => Invoice?.IssueDate;
 
 		[Hidden]
 		public virtual int Sign => 1;
+
 
 		[RU("Сумма")]
 		public virtual Money Amount { get; protected set; }
@@ -93,6 +115,7 @@ namespace Luxena.Travel.Domain
 			Order?.Refresh();
 		}
 
+
 		[Patterns.Vat]
 		public virtual Money Vat { get; protected set; }
 
@@ -106,16 +129,19 @@ namespace Luxena.Travel.Domain
 			Order?.Refresh();
 		}
 
+
 		[RU("Получен от"), Hidden(true)]
 		public virtual string ReceivedFrom { get; set; }
 
 		[RU("Дата проводки")]
 		public virtual DateTime? PostedOn { get; protected set; }
 
+
 		public virtual void Post()
 		{
 			SetPostedOn(DateTime.Today.AsUtc());
 		}
+
 
 		public virtual void SetPostedOn(DateTime? value)
 		{
@@ -127,10 +153,11 @@ namespace Luxena.Travel.Domain
 			Order?.Refresh();
 		}
 
+
 		[RU("Сохранить проведенным"), NotMapped]
 		public virtual bool SavePosted
 		{
-			get { return _savePosted; }
+			get => _savePosted;
 			set
 			{
 				_savePosted = value;
@@ -145,8 +172,10 @@ namespace Luxena.Travel.Domain
 			Post();
 		}
 
+
 		[Patterns.Note, Hidden(true)]
 		public virtual string Note { get; set; }
+
 
 		[Patterns.IsVoid, Hidden(true)]
 		public virtual bool IsVoid { get; protected set; }
@@ -160,6 +189,7 @@ namespace Luxena.Travel.Domain
 
 			Order?.Refresh();
 		}
+
 
 		[Patterns.AssignedTo]
 		public virtual Person AssignedTo { get; set; }
@@ -178,19 +208,42 @@ namespace Luxena.Travel.Domain
 		public virtual PaymentSystem PaymentSystem { get; set; }
 
 
-		public virtual void Refresh()
-		{
-			if (Order != null)
-				SetPayerInternal(Order.Customer);
-		}
+
+		private bool _updating;
+
+		private bool _canModifyChecked;
+		private bool _savePosted;
+
+
+
+		//---g
+
+
 
 		public override string ToString()
 		{
 			return Number;
 		}
 
+
+
+		//---g
+
+
+
+		public virtual void Refresh()
+		{
+
+			if (Order != null)
+				SetPayerInternal(Order.Customer);
+
+		}
+
+
+
 		private bool SetPayerInternal(Party value)
 		{
+
 			if (Equals(Payer, value))
 				return false;
 
@@ -198,32 +251,46 @@ namespace Luxena.Travel.Domain
 
 			Payer = value;
 
+
 			return true;
+
 		}
+
+
 
 		private void SetOrderInternal(Order value)
 		{
+
 			if (Equals(Order, value))
 				return;
+
 
 			Order?.RemovePayment(this);
 
 			Order = value;
 
+
 			if (value == null)
 				return;
+
 
 			Payer = value.Customer;
 
 			value.AddPayment(this);
+
 		}
+
+
 
 		private void WrapSetter(Action action)
 		{
+
 			if (_updating)
 				return;
 
+
 			_updating = true;
+
 			try
 			{
 				action();
@@ -232,21 +299,37 @@ namespace Luxena.Travel.Domain
 			{
 				_updating = false;
 			}
+
 		}
+
+
 
 		private void CheckCanModify(Domain db = null)
 		{
+
 			if (_canModifyChecked || db == null)
 				return;
+
 
 			db.Payment.CheckCanUpdate(this);
 
 			_canModifyChecked = true;
+
 		}
 
-		private bool _updating;
 
-		private bool _canModifyChecked;
-		private bool _savePosted;
+
+		//---g
+
 	}
+
+
+
+
+
+
+	//===g
+
+
+
 }
