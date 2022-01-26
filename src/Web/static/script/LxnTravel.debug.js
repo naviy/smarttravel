@@ -12107,7 +12107,7 @@ Luxena.Travel.PartyViewForm.prototype = {
     },
     
     onDeleteFailed: function Luxena_Travel_PartyViewForm$onDeleteFailed() {
-        LxnBase.UI.ReplaceForm.exec(this._className$6, this.dto.Id, this);
+        LxnBase.UI.ReplaceForm.exec('Party', this.dto.Id, this);
     },
     
     _uploadFile$6: function Luxena_Travel_PartyViewForm$_uploadFile$6() {

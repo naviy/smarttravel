@@ -11,15 +11,38 @@ using Luxena.Base.Serialization;
 using Luxena.Base.Text;
 
 
+
+
 namespace Luxena.Base.Services
 {
+
+
+
+	//===g
+
+
+
+
+
+
 	public class GenericService : BaseService
 	{
+
+		//---g
+
+
+
 		public GenericManager GenericManager { get; set; }
 
 		public IClassManagerProvider ClassManagerProvider { get; set; }
 
 		public IErrorTranslator ErrorTranslator { get; set; }
+
+
+
+		//---g
+
+
 
 		public virtual RangeResponse GetRange<T>(RangeRequest prms, bool useCommit)
 		{
@@ -34,10 +57,14 @@ namespace Luxena.Base.Services
 			return result;
 		}
 
+
+
 		public virtual RangeResponse GetRange<T>(RangeRequest prms)
 		{
 			return GetRange<T>(prms, true);
 		}
+
+
 
 		public virtual RangeResponse GetRange(string className, RangeRequest @params, bool useCommit)
 		{
@@ -51,23 +78,14 @@ namespace Luxena.Base.Services
 			return result;
 		}
 
+
+
 		public virtual RangeResponse GetRange(string className, RangeRequest @params)
 		{
 			return GetRange(className, @params, true);
 		}
 
-		public virtual object[] Refresh(string className, object[] ids, string[] visibleProperties, string[] hiddenProperties)
-		{
-			SetClass(className);
 
-			CanDoAction(() => _classManager.CanList(), Resources.ListOperationDenied_Msg);
-
-			var result = _classManager.Refresh(_class, ids, visibleProperties, hiddenProperties, GetRecordConfig());
-
-			TransactionManager.Commit();
-
-			return result;
-		}
 
 		public virtual ListConfig GetRangeConfig(string className)
 		{
@@ -90,12 +108,35 @@ namespace Luxena.Base.Services
 			};
 		}
 
+
+
+		//---g
+
+
+
+		public virtual object[] Refresh(string className, object[] ids, string[] visibleProperties, string[] hiddenProperties)
+		{
+			SetClass(className);
+
+			CanDoAction(() => _classManager.CanList(), Resources.ListOperationDenied_Msg);
+
+			var result = _classManager.Refresh(_class, ids, visibleProperties, hiddenProperties, GetRecordConfig());
+
+			TransactionManager.Commit();
+
+			return result;
+		}
+
+
+
 		public virtual object Get(string className, object id, bool viewMode)
 		{
 			SetClass(className);
 
 			return MakeGetResult(TransactionManager.Get(_class.Type, id), viewMode);
 		}
+
+
 
 		public virtual ItemConfig GetItemConfig(string className, bool viewMode)
 		{
@@ -118,28 +159,34 @@ namespace Luxena.Base.Services
 			};
 		}
 
+
+
 		[ContractMember(Ignore = true)]
 		public virtual bool CanUpdate<T>()
 		{
 			SetClass(Class.Of<T>());
 
-			OperationStatus status = _classManager.CanUpdate();
+			var status = _classManager.CanUpdate();
 
 			TransactionManager.Commit();
 
 			return status.IsEnabled;
 		}
 
+
+
 		public virtual OperationStatus CanUpdate(string className, object id)
 		{
 			SetClass(className);
 
-			OperationStatus status = _classManager.CanUpdate(TransactionManager.Refer(_class.Type, id));
+			var status = _classManager.CanUpdate(TransactionManager.Refer(_class.Type, id));
 
 			TransactionManager.Commit();
 
 			return status;
 		}
+
+
 
 		public virtual ItemResponse Update(string className, object id, object version, object data, RangeRequest @params)
 		{
@@ -169,15 +216,19 @@ namespace Luxena.Base.Services
 			return response;
 		}
 
+
+
 		public virtual OperationStatus CanDelete(string className, object[] ids)
 		{
+
 			SetClass(className);
 
-			OperationStatus result = OperationStatus.Enabled();
+			var result = OperationStatus.Enabled();
 
-			foreach (object id in ids)
+
+			foreach (var id in ids)
 			{
-				object obj = TransactionManager.Refer(_class.Type, id);
+				var obj = TransactionManager.Refer(_class.Type, id);
 
 				var status = _classManager.CanDelete(obj);
 
@@ -189,64 +240,96 @@ namespace Luxena.Base.Services
 				}
 			}
 
+
 			return result;
+
 		}
+
+
 
 		public virtual DeleteOperationResponse Delete(string className, object[] ids, RangeRequest @params)
 		{
+
 			SetClass(className);
+
 
 			var response = new DeleteOperationResponse();
 
+
 			try
 			{
-				foreach (object id in ids)
+
+				foreach (var id in ids)
 				{
-					object obj = TransactionManager.Get(_class.Type, id);
+
+					var obj = TransactionManager.Get(_class.Type, id);
 
 					CanDoAction(() => _classManager.CanDelete(obj), Resources.DeleteOperationDenied_Msg);
-
+					
 					_classManager.Delete(obj);
+
 				}
+
 
 				TransactionManager.Commit();
 
+
 				response.Success = true;
+
 			}
+
 			catch (Exception ex)
 			{
+
 				if (ErrorTranslator.Translate(ex) is ForeignKeyViolation)
 				{
+
 					TransactionManager.Rollback();
 
 					response.Success = false;
 
 					response.UndeletableObjects = ids.Length == 1
 						? EntityReference.ToArray((IEntity)TransactionManager.Get(_class.Type, ids[0]))
-						: _classManager.GetUndeletableObjects(ids);
+						: _classManager.GetUndeletableObjects(ids)
+					;
+
 
 					return response;
+
 				}
 
+
 				throw;
+
 			}
+
 
 			if (@params != null)
 				response.RangeResponse = GetRange(className, @params);
 
+
 			return response;
+
 		}
+
+
 
 		public virtual OperationStatus CanList(string className)
 		{
+
 			SetClass(className);
 
 			return _classManager.CanList();
+
 		}
+
+
 
 		public virtual RangeResponse Suggest(string className, RangeRequest @params)
 		{
+
 			SetClass(className);
+
 
 			var config = new RecordConfig
 			{
@@ -255,35 +338,55 @@ namespace Luxena.Base.Services
 				IncludeType = true
 			};
 
+
 			if (_class.EntityNameProperty != null)
 				@params.Sort = _class.EntityNameProperty.DataPath;
+
 
 			if (@params.Limit == 0)
 				@params.Limit = 100;
 
+
 			return _classManager.Suggest(@params, config);
+
 		}
+
+
 
 		public virtual object GetDependencies(string className, object id)
 		{
+
 			SetClass(className);
+
 
 			var result = new EntityReference((IEntity)TransactionManager.Get(_class.Type, id));
 
 			TransactionManager.Commit();
 
+
 			return result;
+
 		}
+
+
 
 		public virtual bool CanReplace(string className, object id)
 		{
+
 			SetClass(className);
 
-			return _classManager.CanReplace(TransactionManager.Refer(_class.Type, id)).IsEnabled;
+			return _classManager
+				.CanReplace(TransactionManager.Refer(_class.Type, id))
+				.IsEnabled
+			;
+
 		}
+
+
 
 		public virtual void Replace(string className, object oldId, object newId, bool deleteOld)
 		{
+
 			SetClass(className);
 
 			var oldObject = TransactionManager.Refer(_class.Type, oldId);
@@ -303,6 +406,8 @@ namespace Luxena.Base.Services
 			TransactionManager.Commit();
 		}
 
+
+
 		public virtual byte[] Export(string className, DocumentExportArgs args)
 		{
 			SetClass(Class.Of(className));
@@ -316,10 +421,14 @@ namespace Luxena.Base.Services
 			return _classManager.Export(className, args, config);
 		}
 
+
+
 		private void SetClass(string className)
 		{
 			SetClass(Class.Of(className));
 		}
+
+
 
 		private void SetClass(Class clazz)
 		{
@@ -329,6 +438,8 @@ namespace Luxena.Base.Services
 
 			_classManager.Class = _class;
 		}
+
+
 
 		private object MakeGetResult(object obj, bool viewMode)
 		{
@@ -354,12 +465,16 @@ namespace Luxena.Base.Services
 			return result;
 		}
 
+
+
 		private RangeResponse GetRange(RangeRequest rangeRequest)
 		{
 			CanDoAction(() => _classManager.CanList(), Resources.ListOperationDenied_Msg);
 
 			return _classManager.List(rangeRequest, GetRecordConfig());
 		}
+
+
 
 		private RecordConfig GetRecordConfig()
 		{
@@ -391,6 +506,8 @@ namespace Luxena.Base.Services
 			return config;
 		}
 
+
+
 		private IList<Property> GetListableProperties()
 		{
 			return _class.Properties
@@ -400,6 +517,8 @@ namespace Luxena.Base.Services
 				)
 				.ToList();
 		}
+
+
 
 		private IList<Property> GetEditableProperties()
 		{
@@ -424,6 +543,8 @@ namespace Luxena.Base.Services
 			return properties;
 		}
 
+
+
 		private Dictionary<string, object> GetInstance(object obj, IList<Property> properties)
 		{
 			var result = new ObjectSerializer { Properties = properties }.Serialize(obj);
@@ -440,6 +561,8 @@ namespace Luxena.Base.Services
 			return result;
 		}
 
+
+
 		private object Create(object data)
 		{
 			CanDoAction(() => _classManager.CanCreate(data), Resources.UpdateOperationDenied_Msg);
@@ -450,6 +573,8 @@ namespace Luxena.Base.Services
 
 			return obj;
 		}
+
+
 
 		private object Update(object id, object version, object data)
 		{
@@ -464,12 +589,17 @@ namespace Luxena.Base.Services
 			return obj;
 		}
 
+
+
 		private static ColumnConfig GetColumnConfig(Property property, bool listMode)
 		{
+
 			if (property.HiddenOptions == HiddenOptions.Hidden)
 				return null;
 
+
 			ColumnConfig columnConfig;
+
 
 			if (property.IsString)
 			{
@@ -483,6 +613,7 @@ namespace Luxena.Base.Services
 				if (property.Length > 255)
 					((TextColumnConfig)columnConfig).Lines = 3;
 			}
+
 			else if (property.IsTypePersistent)
 			{
 				columnConfig = new ClassColumnConfig
@@ -496,6 +627,7 @@ namespace Luxena.Base.Services
 				config.FilterType = GetPropertyType(property.Class.EntityNameProperty);
 				config.Length = property.Class.EntityNameProperty.Length;
 			}
+
 			else if (property.IsNumber)
 			{
 				columnConfig = new NumberColumnConfig
@@ -504,6 +636,7 @@ namespace Luxena.Base.Services
 				};
 				((NumberColumnConfig)columnConfig).IsInteger = (property.Type == typeof(int) || property.Type == typeof(long));
 			}
+
 			else if (property.IsEnum)
 			{
 				columnConfig = new ListColumnConfig
@@ -511,9 +644,9 @@ namespace Luxena.Base.Services
 					Type = TypeEnum.List
 				};
 
-				Array enumItems = Enum.GetValues(property.Type);
+				var enumItems = Enum.GetValues(property.Type);
 				var listColumnConfigItems = new object[enumItems.Length];
-				int i = 0;
+				var i = 0;
 
 				foreach (Enum enumItem in enumItems)
 					listColumnConfigItems[i++] = new object[]
@@ -523,6 +656,7 @@ namespace Luxena.Base.Services
 
 				((ListColumnConfig)columnConfig).Items = listColumnConfigItems;
 			}
+
 			else if (property.IsDateTime)
 			{
 				columnConfig = new DateTimeColumnConfig
@@ -532,6 +666,7 @@ namespace Luxena.Base.Services
 
 				((DateTimeColumnConfig)columnConfig).FormatString = property.DisplayFormat;
 			}
+
 			else if (property.IsBool)
 			{
 				columnConfig = new ColumnConfig
@@ -539,6 +674,7 @@ namespace Luxena.Base.Services
 					Type = TypeEnum.Bool
 				};
 			}
+
 			else
 			{
 				columnConfig = new CustomTypeColumnConfig
@@ -547,6 +683,8 @@ namespace Luxena.Base.Services
 				};
 				((CustomTypeColumnConfig)columnConfig).TypeName = property.Type.Name;
 			}
+
+
 
 			columnConfig.Name = property.Name;
 			columnConfig.Caption = property.Caption;
@@ -557,25 +695,36 @@ namespace Luxena.Base.Services
 			columnConfig.Hidden = property.HiddenOptions != HiddenOptions.Visible;
 			columnConfig.DefaultValue = property.HasDefaultValue ? property.DefaultValue : null;
 
+
 			if (listMode)
 			{
-				foreach (PropertyInfo propertyInfo in typeof(ICreateAware).GetProperties())
-					if (propertyInfo.Name == property.Name)
-					{
-						columnConfig.Hidden = true;
-						columnConfig.IsReadOnly = true;
-					}
 
-				foreach (PropertyInfo propertyInfo in typeof(IModifyAware).GetProperties())
+				foreach (var propertyInfo in typeof(ICreateAware).GetProperties())
+				{
 					if (propertyInfo.Name == property.Name)
 					{
 						columnConfig.Hidden = true;
 						columnConfig.IsReadOnly = true;
 					}
+				}
+
+				foreach (var propertyInfo in typeof(IModifyAware).GetProperties())
+				{
+					if (propertyInfo.Name == property.Name)
+					{
+						columnConfig.Hidden = true;
+						columnConfig.IsReadOnly = true;
+					}
+				}
+
 			}
 
+
 			return columnConfig;
+
 		}
+
+
 
 		private static TypeEnum GetPropertyType(Property property)
 		{
@@ -600,15 +749,38 @@ namespace Luxena.Base.Services
 			throw new ArgumentException();
 		}
 
+
+
 		private static void CanDoAction(Func<OperationStatus> canDo, string exceptionMsg)
 		{
-			OperationStatus operationStatus = canDo();
+			var operationStatus = canDo();
 
 			if (!operationStatus.IsEnabled)
 				throw new OperationDeniedException(operationStatus.DisableInfo ?? exceptionMsg);
 		}
 
+
+
+		//---g
+
+
+
 		private Class _class;
 		private GenericManager _classManager;
+
+
+
+		//---g
+
 	}
+
+
+
+
+
+
+	//===g
+
+
+
 }

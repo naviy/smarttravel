@@ -5,20 +5,57 @@ using System.Serialization;
 using jQueryApi;
 
 
+
+
 namespace LxnBase.Net
 {
+
+
+
+	//===g
+
+
+
+
+
+
 	public delegate void WebServiceFailure(WebServiceFailureArgs args);
+
+
+
+
+
+
+	//===g
+
+
+
+
+
 
 	public class WebService
 	{
+
+		//---g
+
+
+
 		public WebService(string path)
 		{
 			_path = path;
 		}
 
+
+
+		//---g
+
+
+
 		public static string Root;
 
+
 		public static event WebServiceFailure Failure;
+
 
 		public int TimeOut
 		{
@@ -26,20 +63,29 @@ namespace LxnBase.Net
 			set { _timeOut = value; }
 		}
 
+
 		public string Wrapper
 		{
 			get { return _wrapper; }
 			set { _wrapper = value; }
 		}
 
+
+
+		//---g
+
+
+
 		public void Invoke(string method, Dictionary args, bool useGet, string wrapper, AjaxCallback onSuccess, WebServiceFailure onError)
 		{
+
 			jQueryAjaxOptions options = new jQueryAjaxOptions();
 
 			options.Url = Root + _path + "/" + method;
 			options.Data = Json.Stringify(args);
 			options.DataType = "text";
 			options.Timeout = _timeOut;
+
 
 			if (useGet)
 			{
@@ -51,68 +97,106 @@ namespace LxnBase.Net
 				options.ContentType = "application/json; charset=utf-8";
 			}
 
+
 			jQuery.Ajax(options)
-				.Success(
-					delegate (object data) {
-						if (Script.IsNullOrUndefined(onSuccess))
-							return;
 
-						object result = Json.Parse((string) data);
+				.Success(delegate (object data) 
+				{
 
-						wrapper = Script.Value(wrapper, _wrapper);
+					if (Script.IsNullOrUndefined(onSuccess))
+						return;
 
-						onSuccess(wrapper == "" ? result : Type.GetField(result, wrapper));
-					})
-				.Error(
-					delegate(jQueryXmlHttpRequest request, string textStatus, Exception e)
+					object result = Json.Parse((string) data);
+
+					wrapper = Script.Value(wrapper, _wrapper);
+
+					onSuccess(wrapper == "" ? result : Type.GetField(result, wrapper));
+
+				})
+
+				.Error(delegate(jQueryXmlHttpRequest request, string textStatus, Exception e)
+				{
+
+					WebServiceError error = new WebServiceError();
+
+
+					switch (textStatus)
 					{
-						WebServiceError error = new WebServiceError();
 
-						switch (textStatus)
-						{
-							case "abort":
+						case "abort":
 
-								error.Message = String.Format(BaseRes.WebServiceAborted, method);
-								break;
+							error.Message = String.Format(BaseRes.WebServiceAborted, method);
+							break;
 
-							case "timeout":
+						case "timeout":
 
-								error.Message = String.Format(BaseRes.WebServiceTimedOut, method);
-								break;
+							error.Message = String.Format(BaseRes.WebServiceTimedOut, method);
+							break;
 
-							case "parsererror":
+						case "parsererror":
 
-								error.Message = String.Format(BaseRes.WebServiceResponse_Error_Msg, method);
-								break;
+							error.Message = String.Format(BaseRes.WebServiceResponse_Error_Msg, method);
+							break;
 
-							case "error":
+						case "error":
 
-								if (!string.IsNullOrEmpty(request.ResponseText))
-									error = (WebServiceError) Json.Parse(request.ResponseText);
-								else
-									error.Message = String.Format(BaseRes.WebServiceFailedNoMsg, method);
+							if (!string.IsNullOrEmpty(request.ResponseText))
+								error = (WebServiceError) Json.Parse(request.ResponseText);
+							else
+								error.Message = String.Format(BaseRes.WebServiceFailedNoMsg, method);
 
-								break;
-						}
+							break;
 
-						error.StatusCode = request.Status;
-						error.StatusText = textStatus;
+					}
 
-						WebServiceFailureArgs failureArgs = new WebServiceFailureArgs(error, method);
 
-						if (Failure != null)
-							Failure(failureArgs);
+					error.StatusCode = request.Status;
+					error.StatusText = textStatus;
 
-						if (onError != null)
-							onError(failureArgs);
+					WebServiceFailureArgs failureArgs = new WebServiceFailureArgs(error, method);
 
-						if (textStatus != "abort")
-							MessageRegister.Error(failureArgs.ToString(), failureArgs.Error.ExceptionType, failureArgs.Handled);
-					});
+
+					if (Failure != null)
+						Failure(failureArgs);
+
+
+					if (onError != null)
+						onError(failureArgs);
+
+
+					if (textStatus != "abort")
+					{
+						MessageRegister.Error(failureArgs.ToString(), failureArgs.Error.ExceptionType, failureArgs.Handled);
+					}
+
+				})
+
+			;
 		}
+
+
+
+		//---g
+
+
 
 		private readonly string _path;
 		private int _timeOut = 60000;
 		private string _wrapper = "d";
+
+
+
+		//---g
+
 	}
+
+
+
+
+
+
+	//===g
+
+
+
 }
