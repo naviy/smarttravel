@@ -10,11 +10,13 @@ namespace Luxena.Travel
 			{
 				MainDataPanel(new object[]
 				{
-					se.IssueDate,
+					se.RowPanel2v(se.IssueDate, null, se.ReissueFor, null),
+					se.Number,
+					se.PnrAndTourCodes,
+
 					se.ReissueFor,
 					se.PassengerRow,
 
-					se.Number,
 					se.Producer,
 					se.IsSale,
 				

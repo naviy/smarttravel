@@ -31,10 +31,7 @@ namespace Luxena.Travel.Reports
 			AddReceipt();
 		}
 
-		private Organization Company
-		{
-			get { return db.Configuration.Company; }
-		}
+		private Organization Company => db.Configuration.Company;
 
 		private void AddCashOrder()
 		{

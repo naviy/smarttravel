@@ -1,3 +1,5 @@
+using Ext.util;
+
 
 
 
@@ -19,15 +21,19 @@ namespace Luxena.Travel
 
 		protected override string GetCommonDataHtml()
 		{
+
 			BusTicketSemantic v = new SemanticDomain(this).BusTicket;
 
-			string commonDataHtml =
+
+			return 
+
 				@"<div class='commonData'><table><col style='width: 135px' />" +
 
 				v.IssueDate.ToHtmlTr2(r, true) +
 
 
 				v.Number.ToHtmlTr2(r, true) +
+				GetPnrCodeAndTourCodeHtml() + 
 
 				v.ReissueFor.ToHtmlTr2(r) +
 				v.ReissuedBy.ToHtmlTr2(r) +
@@ -42,15 +48,21 @@ namespace Luxena.Travel
 
 				GetOriginHtml(r) +
 
+				@"<tr><td class='fieldLabel'>" + DomainRes.Common_Departure + @":</td><td class='fieldValue'>" + r.DeparturePlace + " / " + Format.date(r.DepartureDate, "d.m.Y") + " " + r.DepartureTime + @"</td></tr>" +
+				@"<tr><td class='fieldLabel'>" + DomainRes.Common_Arrival + @":</td><td class='fieldValue'>" + r.ArrivalPlace + " / " + Format.date(r.ArrivalDate, "d.m.Y") + " " + r.ArrivalTime + @"</td></tr>" +
+				v.SeatNumber.ToHtmlTr2(r) +
+
 				v.Seller.ToHtmlTr2(r, true) +
 				v.Owner.ToHtmlTr2(r, true) +
 				v.LegalEntity.ToHtmlTr2(r) +
 				v.Order.ToHtmlTr2(r, true) +
 
-				@"</table></div>";
+				@"</table></div>"
+			;
 
-			return commonDataHtml;
 		}
+
+
 
 
 		protected override void AddRefund()
@@ -67,11 +79,18 @@ namespace Luxena.Travel
 
 		private BusTicketDto r;
 		public override ProductDto Product { get { return r; } set { r = (BusTicketDto)value; } }
+
 	}
+
+
+
+
+
 
 
 	public class BusTicketRefundViewForm : BusTicketViewForm
 	{
+
 		public new static void ViewObject(string type, object id, bool newTab)
 		{
 			ViewProduct(typeof(BusTicketRefundViewForm), type, id, newTab);
@@ -84,6 +103,7 @@ namespace Luxena.Travel
 		protected override string GetClassTitle() { return DomainRes.BusTicketRefund; }
 
 		public override bool IsRefund { get { return true; } }
+
 
 	}
 

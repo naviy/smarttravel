@@ -17,7 +17,9 @@ namespace Luxena.Travel.Domain
 		}
 
 
-		public override PaymentForm PaymentForm { get { return PaymentForm.Check; } }
+		public override PaymentForm PaymentForm => PaymentForm.Check;
+
+
 
 
 		public new class Service : Service<CheckPayment>

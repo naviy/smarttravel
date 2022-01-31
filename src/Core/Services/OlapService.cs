@@ -28,7 +28,7 @@ namespace Luxena.Travel.Domain
 
 	partial class Domain
 	{
-		public OlapService Olap { get { return Resolve(ref _olap); } }
+		public OlapService Olap => Resolve(ref _olap);
 		private OlapService _olap;
 	}
 

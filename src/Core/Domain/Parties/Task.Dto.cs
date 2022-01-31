@@ -12,7 +12,7 @@ namespace Luxena.Travel.Domain
 
 		public string Type { get; set; }
 
-		public string Text { get { return Number; } }
+		public string Text => Number;
 
 		public string Number { get; set; }
 

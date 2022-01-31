@@ -242,10 +242,14 @@ namespace Luxena.Travel
 
 		protected string GetCompositeFieldHtml(object r, SemanticMember view1, object value1, SemanticMember view2, object value2, SemanticMember view3, object value3)
 		{
-			if (Script.IsNullOrUndefined(r)) return "";
+
+			if (Script.IsNullOrUndefined(r))
+				return "";
+
 
 			string labels = view1._title + " / " + view2._title;
 			string values = view1.GetValueHtml(r, value1) + " / " + view2.GetValueHtml(r, value2);
+
 
 			if (!Script.IsNullOrUndefined(view3))
 			{
@@ -253,10 +257,37 @@ namespace Luxena.Travel
 				values += " / " + view3.GetValueHtml(r, value3);
 			}
 
+
 			return
 				@"<tr><td class='fieldLabel'>" + labels + @":</td>" +
-				@"<td class='fieldValue'>" + values + @"</td></tr>";
+				@"<td class='fieldValue'>" + values + @"</td></tr>"
+			;
+
 		}
+
+
+
+		protected string GetPnrCodeAndTourCodeHtml()
+		{
+
+			ProductDto r = Product;
+
+			return HasValue(new object[] { r.PnrCode, r.TourCode }, delegate
+			{
+
+				string codes = NotEmpty(r.PnrCode);
+
+				if (Script.IsValue(r.TourCode))
+					codes += " / " + (r.TourCode ?? "");
+				
+				return
+					@"<tr><td class='fieldLabel'>" + DomainRes.AviaDocument_PnrCode + " / " + DomainRes.AviaDocument_TourCode + @":</td>" +
+					@"<td class='fieldValue'>" + NotEmpty(codes) + "</td></tr>"
+				;
+
+			});
+		}
+
 
 
 		protected string GetPassengerHtml(Reference passenger, string passengerName)
@@ -278,16 +309,44 @@ namespace Luxena.Travel
 			return "<tr><td class='fieldLabel'>" + DomainRes.AviaDocument_Passenger + ":</td><td class='fieldValue'>" + text + @"</td></tr>";
 		}
 
+
+
 		protected string GetCustomerAndIntermediaryHtml(Reference customer, Reference intermediary)
 		{
+
 			ProductDto r = Product;
+
 			return
 				"<tr name='Customer'><td class='fieldLabel " + (r.Customer == null ? "error" : string.Empty) + @"'>" + DomainRes.Common_Customer + " / " + DomainRes.Common_Intermediary + @":</td>" +
 				HasValue(new object[] { r.Customer, r.Intermediary }, delegate
 				{
 					return @"<td class='fieldValue'>" + Link(r.Customer) + " / " + Link(r.Intermediary) + @"</td></tr>";
-				}, "<td/></tr>");
+				}, "<td/></tr>")
+			;
+
 		}
+
+
+
+		protected string GetHotelHtml(SemanticMember nameMember, string name, string office, string code)
+		{
+
+			return HasValue(new object[] { name, office, code }, delegate
+			{
+
+				if (Script.IsValue(office) || Script.IsValue(code))
+					name += " / " + (office ?? "") + " - " + (code ?? "");
+
+				return
+					@"<tr><td class='fieldLabel'>" + nameMember._title + @":</td>" +
+					@"<td class='fieldValue'>" + NotEmpty(name) + "</td></tr>"
+				;
+
+			});
+
+		}
+
+
 
 		protected virtual string GetFinanceDataHtml()
 		{

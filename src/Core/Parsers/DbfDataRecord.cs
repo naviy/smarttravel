@@ -11,10 +11,7 @@ namespace Luxena.Travel.Parsers
 			_values = values;
 		}
 
-		public object this[string name]
-		{
-			get { return _values[_indices[name.ToLower()]]; }
-		}
+		public object this[string name] => _values[_indices[name.ToLower()]];
 
 		public bool HasValue(string name)
 		{

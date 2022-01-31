@@ -171,6 +171,56 @@ namespace Luxena.Travel.Domain
 
 
 
+		//public virtual string GetSupplierDetails(Domain db, Order order = null, bool multiline = false)
+		//{
+
+		//	var supplier = Company;
+
+		//	if (supplier == null)
+		//		return null;
+
+
+		//	var sb = new StringBuilder()
+		//		.AppendLine(supplier.NameForDocuments);
+
+
+		//	var bankAccount = order?.BankAccount.Do(a => sb.AppendLine(a.Description));
+
+		//	if (bankAccount == null)
+		//		db.BankAccount.Query.Where(a => a.IsDefault).ForEach(a => sb.AppendLine(a.Description));
+
+
+		//	if (CompanyDetails.Yes())
+		//		sb.AppendLine(CompanyDetails);
+
+
+		//	if (supplier.LegalAddress.Yes())
+		//	{
+		//		sb.AppendFormat(ReportRes.InvoicePrinter_Address, supplier.LegalAddress)
+		//			.AppendLine();
+		//	}
+
+
+		//	var separator = string.Empty;
+
+		//	if (supplier.Phone1.Yes())
+		//	{
+		//		sb.AppendFormat(ReportRes.InvoicePrinter_Phone, supplier.Phone1);
+		//		separator = ", ";
+		//	}
+
+
+		//	if (supplier.Fax.Yes())
+		//		sb.Append(separator)
+		//			.AppendFormat(ReportRes.InvoicePrinter_Fax, supplier.Fax);
+
+
+		//	return sb.ToString().Replace("\r", string.Empty);
+
+		//}
+
+
+
 		public virtual string GetSupplierDetails(Domain db, Order order = null, bool multiline = false)
 		{
 
@@ -202,13 +252,21 @@ namespace Luxena.Travel.Domain
 			AppendPartyContacts(sb, supplier);
 
 
-			var bankAccount = (order?.BankAccount ?? db.BankAccount.Query.Where(a => a.IsDefault).One());
-
-			if (bankAccount != null)
+			if (order?.BankAccount != null)
 			{
-				sb.AppendLine(bankAccount.Description);
+				sb.AppendLine(order.BankAccount.Description);
 			}
+			else
+			{
 
+				var bankAccounts = db.BankAccount.Query.Where(a => a.IsDefault).ToArray();
+
+				foreach (var bankAccount in bankAccounts)
+				{
+					sb.AppendLine(bankAccount.Description);
+				}
+
+			}
 
 
 			return multiline ? sb.ToString() : sb.ToString().Replace("\r", string.Empty);

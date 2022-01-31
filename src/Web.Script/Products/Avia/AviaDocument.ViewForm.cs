@@ -237,6 +237,15 @@ namespace Luxena.Travel
 				@"<tr><td class='fieldLabel'>" + DomainRes.Common_Number + " / " + DomainRes.Airline + @":</td>" +
 				@"<td class='fieldValue'>" + GetNumber() + " / " + HasValue(_document.Producer, delegate { return Link(_document.Producer); }, _document.AirlinePrefixCode) + @"</td></tr>" +
 
+				HasValue(new object[] { r.PnrCode, r.AirlinePnrCode, r.TourCode }, delegate
+				{
+					return @"
+					<tr><td class='fieldLabel'>" + v.PnrCode._title + " / " + v.TourCode._title + @":</td>
+					<td class='fieldValue'>" + NotEmpty(r.PnrCode) +
+						HasValue(r.AirlinePnrCode, delegate { return string.Format(" ({0})", r.AirlinePnrCode); }) +
+						" / " + NotEmpty(r.TourCode) + "</td></tr>";
+				}) +
+
 				v.ReissueFor.ToHtmlTr2(r) +
 				v.ReissuedBy.ToHtmlTr2(r) +
 				//
@@ -261,15 +270,6 @@ namespace Luxena.Travel
 				}, "<td/></tr>") +
 
 				ProductViewForm.GetOriginHtml(r) +
-
-				HasValue(new object[] { r.PnrCode, r.AirlinePnrCode, r.TourCode }, delegate
-				{
-					return @"
-					<tr><td class='fieldLabel'>" + v.PnrCode._title + " / " + v.TourCode._title + @":</td>
-					<td class='fieldValue'>" + NotEmpty(r.PnrCode) +
-HasValue(r.AirlinePnrCode, delegate { return string.Format(" ({0})", r.AirlinePnrCode); }) +
-" / " + NotEmpty(r.TourCode) + "</td></tr>";
-				}) +
 
 				ProductViewForm.GetBookerAndTicketerHtml(v, r) +
 

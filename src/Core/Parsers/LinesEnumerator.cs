@@ -33,10 +33,7 @@ namespace Luxena.Travel.Parsers
 
 		public string Current { get; private set; }
 
-		public bool EndOfFile
-		{
-			get { return Current == null; }
-		}
+		public bool EndOfFile => Current == null;
 
 		private readonly TextReader _reader;
 	}

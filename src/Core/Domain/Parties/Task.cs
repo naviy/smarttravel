@@ -94,7 +94,9 @@ namespace Luxena.Travel.Domain
 
 		private readonly IList<TaskComment> _comments = new List<TaskComment>();
 
-		Domain IDomainContainer.Domain { get { return db; } set { db = value; } }
+		Domain IDomainContainer.Domain { get => db;
+			set => db = value;
+		}
 		protected Domain db;
 
 	}

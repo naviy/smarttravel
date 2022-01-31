@@ -14,40 +14,40 @@ namespace Luxena.Travel.Domain
 	partial class Domain
 	{
 			
-		public AccommodationProvider.Service AccommodationProvider { [DebuggerStepThrough] get { return ResolveService(ref _accommodationProvider); } }
+		public AccommodationProvider.Service AccommodationProvider { [DebuggerStepThrough] get => ResolveService(ref _accommodationProvider); }
 		private AccommodationProvider.Service _accommodationProvider;
 			
-		public Airline.Service Airline { [DebuggerStepThrough] get { return ResolveService(ref _airline); } }
+		public Airline.Service Airline { [DebuggerStepThrough] get => ResolveService(ref _airline); }
 		private Airline.Service _airline;
 			
-		public BusTicketProvider.Service BusTicketProvider { [DebuggerStepThrough] get { return ResolveService(ref _busTicketProvider); } }
+		public BusTicketProvider.Service BusTicketProvider { [DebuggerStepThrough] get => ResolveService(ref _busTicketProvider); }
 		private BusTicketProvider.Service _busTicketProvider;
 			
-		public CarRentalProvider.Service CarRentalProvider { [DebuggerStepThrough] get { return ResolveService(ref _carRentalProvider); } }
+		public CarRentalProvider.Service CarRentalProvider { [DebuggerStepThrough] get => ResolveService(ref _carRentalProvider); }
 		private CarRentalProvider.Service _carRentalProvider;
 			
-		public Customer.Service Customer { [DebuggerStepThrough] get { return ResolveService(ref _customer); } }
+		public Customer.Service Customer { [DebuggerStepThrough] get => ResolveService(ref _customer); }
 		private Customer.Service _customer;
 			
-		public GenericProductProvider.Service GenericProductProvider { [DebuggerStepThrough] get { return ResolveService(ref _genericProductProvider); } }
+		public GenericProductProvider.Service GenericProductProvider { [DebuggerStepThrough] get => ResolveService(ref _genericProductProvider); }
 		private GenericProductProvider.Service _genericProductProvider;
 			
-		public InsuranceCompany.Service InsuranceCompany { [DebuggerStepThrough] get { return ResolveService(ref _insuranceCompany); } }
+		public InsuranceCompany.Service InsuranceCompany { [DebuggerStepThrough] get => ResolveService(ref _insuranceCompany); }
 		private InsuranceCompany.Service _insuranceCompany;
 			
-		public PasteboardProvider.Service PasteboardProvider { [DebuggerStepThrough] get { return ResolveService(ref _pasteboardProvider); } }
+		public PasteboardProvider.Service PasteboardProvider { [DebuggerStepThrough] get => ResolveService(ref _pasteboardProvider); }
 		private PasteboardProvider.Service _pasteboardProvider;
 			
-		public Receipt.Service Receipt { [DebuggerStepThrough] get { return ResolveService(ref _receipt); } }
+		public Receipt.Service Receipt { [DebuggerStepThrough] get => ResolveService(ref _receipt); }
 		private Receipt.Service _receipt;
 			
-		public RoamingOperator.Service RoamingOperator { [DebuggerStepThrough] get { return ResolveService(ref _roamingOperator); } }
+		public RoamingOperator.Service RoamingOperator { [DebuggerStepThrough] get => ResolveService(ref _roamingOperator); }
 		private RoamingOperator.Service _roamingOperator;
 			
-		public TourProvider.Service TourProvider { [DebuggerStepThrough] get { return ResolveService(ref _tourProvider); } }
+		public TourProvider.Service TourProvider { [DebuggerStepThrough] get => ResolveService(ref _tourProvider); }
 		private TourProvider.Service _tourProvider;
 			
-		public TransferProvider.Service TransferProvider { [DebuggerStepThrough] get { return ResolveService(ref _transferProvider); } }
+		public TransferProvider.Service TransferProvider { [DebuggerStepThrough] get => ResolveService(ref _transferProvider); }
 		private TransferProvider.Service _transferProvider;
 
 	}
@@ -82,19 +82,19 @@ namespace Luxena.Travel.Domain
 	partial class Domain
 	{
 			
-		public AppService App { [DebuggerStepThrough] get { return ResolveService(ref _app); } }
+		public AppService App { [DebuggerStepThrough] get => ResolveService(ref _app); }
 		private AppService _app;
 			
-		public AppStateService AppState { [DebuggerStepThrough] get { return ResolveService(ref _appState); } }
+		public AppStateService AppState { [DebuggerStepThrough] get => ResolveService(ref _appState); }
 		private AppStateService _appState;
 			
-		public ReportService Report { [DebuggerStepThrough] get { return ResolveService(ref _report); } }
+		public ReportService Report { [DebuggerStepThrough] get => ResolveService(ref _report); }
 		private ReportService _report;
 			
-		public SecurityService Security { [DebuggerStepThrough] get { return ResolveService(ref _security); } }
+		public SecurityService Security { [DebuggerStepThrough] get => ResolveService(ref _security); }
 		private SecurityService _security;
 			
-		public SequenceService Sequence { [DebuggerStepThrough] get { return ResolveService(ref _sequence); } }
+		public SequenceService Sequence { [DebuggerStepThrough] get => ResolveService(ref _sequence); }
 		private SequenceService _sequence;
 
 	}
@@ -105,7 +105,7 @@ namespace Luxena.Travel.Domain
 	partial class Domain : IEntityServiceContainer<Domain, Accommodation>
 	{
 
-		public Accommodation.Service Accommodation { [DebuggerStepThrough] get { return ResolveService(ref _accommodation); } }
+		public Accommodation.Service Accommodation { [DebuggerStepThrough] get => ResolveService(ref _accommodation); }
 		private Accommodation.Service _accommodation;
 
 		EntityService<Domain, Accommodation> IEntityServiceContainer<Domain, Accommodation>.Service => Accommodation;
@@ -184,7 +184,7 @@ namespace Luxena.Travel.Domain
 	partial class Domain : IEntityServiceContainer<Domain, AccommodationType>
 	{
 
-		public AccommodationType.Service AccommodationType { [DebuggerStepThrough] get { return ResolveService(ref _accommodationType); } }
+		public AccommodationType.Service AccommodationType { [DebuggerStepThrough] get => ResolveService(ref _accommodationType); }
 		private AccommodationType.Service _accommodationType;
 
 		EntityService<Domain, AccommodationType> IEntityServiceContainer<Domain, AccommodationType>.Service => AccommodationType;
@@ -249,7 +249,7 @@ namespace Luxena.Travel.Domain
 	partial class Domain : IEntityServiceContainer<Domain, AirFile>
 	{
 
-		public AirFile.Service AirFile { [DebuggerStepThrough] get { return ResolveService(ref _airFile); } }
+		public AirFile.Service AirFile { [DebuggerStepThrough] get => ResolveService(ref _airFile); }
 		private AirFile.Service _airFile;
 
 		EntityService<Domain, AirFile> IEntityServiceContainer<Domain, AirFile>.Service => AirFile;
@@ -314,7 +314,7 @@ namespace Luxena.Travel.Domain
 	partial class Domain : IEntityServiceContainer<Domain, AirlineCommissionPercents>
 	{
 
-		public AirlineCommissionPercents.Service AirlineCommissionPercents { [DebuggerStepThrough] get { return ResolveService(ref _airlineCommissionPercents); } }
+		public AirlineCommissionPercents.Service AirlineCommissionPercents { [DebuggerStepThrough] get => ResolveService(ref _airlineCommissionPercents); }
 		private AirlineCommissionPercents.Service _airlineCommissionPercents;
 
 		EntityService<Domain, AirlineCommissionPercents> IEntityServiceContainer<Domain, AirlineCommissionPercents>.Service => AirlineCommissionPercents;
@@ -379,7 +379,7 @@ namespace Luxena.Travel.Domain
 	partial class Domain : IEntityServiceContainer<Domain, AirlineMonthCommission>
 	{
 
-		public AirlineMonthCommission.Service AirlineMonthCommission { [DebuggerStepThrough] get { return ResolveService(ref _airlineMonthCommission); } }
+		public AirlineMonthCommission.Service AirlineMonthCommission { [DebuggerStepThrough] get => ResolveService(ref _airlineMonthCommission); }
 		private AirlineMonthCommission.Service _airlineMonthCommission;
 
 		EntityService<Domain, AirlineMonthCommission> IEntityServiceContainer<Domain, AirlineMonthCommission>.Service => AirlineMonthCommission;
@@ -444,7 +444,7 @@ namespace Luxena.Travel.Domain
 	partial class Domain : IEntityServiceContainer<Domain, AirlineServiceClass>
 	{
 
-		public AirlineServiceClass.Service AirlineServiceClass { [DebuggerStepThrough] get { return ResolveService(ref _airlineServiceClass); } }
+		public AirlineServiceClass.Service AirlineServiceClass { [DebuggerStepThrough] get => ResolveService(ref _airlineServiceClass); }
 		private AirlineServiceClass.Service _airlineServiceClass;
 
 		EntityService<Domain, AirlineServiceClass> IEntityServiceContainer<Domain, AirlineServiceClass>.Service => AirlineServiceClass;
@@ -509,7 +509,7 @@ namespace Luxena.Travel.Domain
 	partial class Domain : IEntityServiceContainer<Domain, AirplaneModel>
 	{
 
-		public AirplaneModel.Service AirplaneModel { [DebuggerStepThrough] get { return ResolveService(ref _airplaneModel); } }
+		public AirplaneModel.Service AirplaneModel { [DebuggerStepThrough] get => ResolveService(ref _airplaneModel); }
 		private AirplaneModel.Service _airplaneModel;
 
 		EntityService<Domain, AirplaneModel> IEntityServiceContainer<Domain, AirplaneModel>.Service => AirplaneModel;
@@ -574,7 +574,7 @@ namespace Luxena.Travel.Domain
 	partial class Domain : IEntityServiceContainer<Domain, Airport>
 	{
 
-		public Airport.Service Airport { [DebuggerStepThrough] get { return ResolveService(ref _airport); } }
+		public Airport.Service Airport { [DebuggerStepThrough] get => ResolveService(ref _airport); }
 		private Airport.Service _airport;
 
 		EntityService<Domain, Airport> IEntityServiceContainer<Domain, Airport>.Service => Airport;
@@ -639,7 +639,7 @@ namespace Luxena.Travel.Domain
 	partial class Domain : IEntityServiceContainer<Domain, AmadeusXmlFile>
 	{
 
-		public AmadeusXmlFile.Service AmadeusXmlFile { [DebuggerStepThrough] get { return ResolveService(ref _amadeusXmlFile); } }
+		public AmadeusXmlFile.Service AmadeusXmlFile { [DebuggerStepThrough] get => ResolveService(ref _amadeusXmlFile); }
 		private AmadeusXmlFile.Service _amadeusXmlFile;
 
 		EntityService<Domain, AmadeusXmlFile> IEntityServiceContainer<Domain, AmadeusXmlFile>.Service => AmadeusXmlFile;
@@ -704,7 +704,7 @@ namespace Luxena.Travel.Domain
 	partial class Domain : IEntityServiceContainer<Domain, AviaDocument>
 	{
 
-		public AviaDocument.Service AviaDocument { [DebuggerStepThrough] get { return ResolveService(ref _aviaDocument); } }
+		public AviaDocument.Service AviaDocument { [DebuggerStepThrough] get => ResolveService(ref _aviaDocument); }
 		private AviaDocument.Service _aviaDocument;
 
 		EntityService<Domain, AviaDocument> IEntityServiceContainer<Domain, AviaDocument>.Service => AviaDocument;
@@ -832,7 +832,7 @@ namespace Luxena.Travel.Domain
 	partial class Domain : IEntityServiceContainer<Domain, AviaDocumentFee>
 	{
 
-		public AviaDocumentFee.Service AviaDocumentFee { [DebuggerStepThrough] get { return ResolveService(ref _aviaDocumentFee); } }
+		public AviaDocumentFee.Service AviaDocumentFee { [DebuggerStepThrough] get => ResolveService(ref _aviaDocumentFee); }
 		private AviaDocumentFee.Service _aviaDocumentFee;
 
 		EntityService<Domain, AviaDocumentFee> IEntityServiceContainer<Domain, AviaDocumentFee>.Service => AviaDocumentFee;
@@ -871,7 +871,7 @@ namespace Luxena.Travel.Domain
 	partial class Domain : IEntityServiceContainer<Domain, AviaDocumentVoiding>
 	{
 
-		public AviaDocumentVoiding.Service AviaDocumentVoiding { [DebuggerStepThrough] get { return ResolveService(ref _aviaDocumentVoiding); } }
+		public AviaDocumentVoiding.Service AviaDocumentVoiding { [DebuggerStepThrough] get => ResolveService(ref _aviaDocumentVoiding); }
 		private AviaDocumentVoiding.Service _aviaDocumentVoiding;
 
 		EntityService<Domain, AviaDocumentVoiding> IEntityServiceContainer<Domain, AviaDocumentVoiding>.Service => AviaDocumentVoiding;
@@ -936,7 +936,7 @@ namespace Luxena.Travel.Domain
 	partial class Domain : IEntityServiceContainer<Domain, AviaMco>
 	{
 
-		public AviaMco.Service AviaMco { [DebuggerStepThrough] get { return ResolveService(ref _aviaMco); } }
+		public AviaMco.Service AviaMco { [DebuggerStepThrough] get => ResolveService(ref _aviaMco); }
 		private AviaMco.Service _aviaMco;
 
 		EntityService<Domain, AviaMco> IEntityServiceContainer<Domain, AviaMco>.Service => AviaMco;
@@ -1015,7 +1015,7 @@ namespace Luxena.Travel.Domain
 	partial class Domain : IEntityServiceContainer<Domain, AviaRefund>
 	{
 
-		public AviaRefund.Service AviaRefund { [DebuggerStepThrough] get { return ResolveService(ref _aviaRefund); } }
+		public AviaRefund.Service AviaRefund { [DebuggerStepThrough] get => ResolveService(ref _aviaRefund); }
 		private AviaRefund.Service _aviaRefund;
 
 		EntityService<Domain, AviaRefund> IEntityServiceContainer<Domain, AviaRefund>.Service => AviaRefund;
@@ -1094,7 +1094,7 @@ namespace Luxena.Travel.Domain
 	partial class Domain : IEntityServiceContainer<Domain, AviaTicket>
 	{
 
-		public AviaTicket.Service AviaTicket { [DebuggerStepThrough] get { return ResolveService(ref _aviaTicket); } }
+		public AviaTicket.Service AviaTicket { [DebuggerStepThrough] get => ResolveService(ref _aviaTicket); }
 		private AviaTicket.Service _aviaTicket;
 
 		EntityService<Domain, AviaTicket> IEntityServiceContainer<Domain, AviaTicket>.Service => AviaTicket;
@@ -1173,7 +1173,7 @@ namespace Luxena.Travel.Domain
 	partial class Domain : IEntityServiceContainer<Domain, BankAccount>
 	{
 
-		public BankAccount.Service BankAccount { [DebuggerStepThrough] get { return ResolveService(ref _bankAccount); } }
+		public BankAccount.Service BankAccount { [DebuggerStepThrough] get => ResolveService(ref _bankAccount); }
 		private BankAccount.Service _bankAccount;
 
 		EntityService<Domain, BankAccount> IEntityServiceContainer<Domain, BankAccount>.Service => BankAccount;
@@ -1238,7 +1238,7 @@ namespace Luxena.Travel.Domain
 	partial class Domain : IEntityServiceContainer<Domain, BusTicket>
 	{
 
-		public BusTicket.Service BusTicket { [DebuggerStepThrough] get { return ResolveService(ref _busTicket); } }
+		public BusTicket.Service BusTicket { [DebuggerStepThrough] get => ResolveService(ref _busTicket); }
 		private BusTicket.Service _busTicket;
 
 		EntityService<Domain, BusTicket> IEntityServiceContainer<Domain, BusTicket>.Service => BusTicket;
@@ -1317,7 +1317,7 @@ namespace Luxena.Travel.Domain
 	partial class Domain : IEntityServiceContainer<Domain, BusTicketRefund>
 	{
 
-		public BusTicketRefund.Service BusTicketRefund { [DebuggerStepThrough] get { return ResolveService(ref _busTicketRefund); } }
+		public BusTicketRefund.Service BusTicketRefund { [DebuggerStepThrough] get => ResolveService(ref _busTicketRefund); }
 		private BusTicketRefund.Service _busTicketRefund;
 
 		EntityService<Domain, BusTicketRefund> IEntityServiceContainer<Domain, BusTicketRefund>.Service => BusTicketRefund;
@@ -1396,7 +1396,7 @@ namespace Luxena.Travel.Domain
 	partial class Domain : IEntityServiceContainer<Domain, CarRental>
 	{
 
-		public CarRental.Service CarRental { [DebuggerStepThrough] get { return ResolveService(ref _carRental); } }
+		public CarRental.Service CarRental { [DebuggerStepThrough] get => ResolveService(ref _carRental); }
 		private CarRental.Service _carRental;
 
 		EntityService<Domain, CarRental> IEntityServiceContainer<Domain, CarRental>.Service => CarRental;
@@ -1475,7 +1475,7 @@ namespace Luxena.Travel.Domain
 	partial class Domain : IEntityServiceContainer<Domain, CashInOrderPayment>
 	{
 
-		public CashInOrderPayment.Service CashInOrderPayment { [DebuggerStepThrough] get { return ResolveService(ref _cashInOrderPayment); } }
+		public CashInOrderPayment.Service CashInOrderPayment { [DebuggerStepThrough] get => ResolveService(ref _cashInOrderPayment); }
 		private CashInOrderPayment.Service _cashInOrderPayment;
 
 		EntityService<Domain, CashInOrderPayment> IEntityServiceContainer<Domain, CashInOrderPayment>.Service => CashInOrderPayment;
@@ -1574,7 +1574,7 @@ namespace Luxena.Travel.Domain
 	partial class Domain : IEntityServiceContainer<Domain, CashOutOrderPayment>
 	{
 
-		public CashOutOrderPayment.Service CashOutOrderPayment { [DebuggerStepThrough] get { return ResolveService(ref _cashOutOrderPayment); } }
+		public CashOutOrderPayment.Service CashOutOrderPayment { [DebuggerStepThrough] get => ResolveService(ref _cashOutOrderPayment); }
 		private CashOutOrderPayment.Service _cashOutOrderPayment;
 
 		EntityService<Domain, CashOutOrderPayment> IEntityServiceContainer<Domain, CashOutOrderPayment>.Service => CashOutOrderPayment;
@@ -1666,7 +1666,7 @@ namespace Luxena.Travel.Domain
 	partial class Domain : IEntityServiceContainer<Domain, CateringType>
 	{
 
-		public CateringType.Service CateringType { [DebuggerStepThrough] get { return ResolveService(ref _cateringType); } }
+		public CateringType.Service CateringType { [DebuggerStepThrough] get => ResolveService(ref _cateringType); }
 		private CateringType.Service _cateringType;
 
 		EntityService<Domain, CateringType> IEntityServiceContainer<Domain, CateringType>.Service => CateringType;
@@ -1731,7 +1731,7 @@ namespace Luxena.Travel.Domain
 	partial class Domain : IEntityServiceContainer<Domain, CheckPayment>
 	{
 
-		public CheckPayment.Service CheckPayment { [DebuggerStepThrough] get { return ResolveService(ref _checkPayment); } }
+		public CheckPayment.Service CheckPayment { [DebuggerStepThrough] get => ResolveService(ref _checkPayment); }
 		private CheckPayment.Service _checkPayment;
 
 		EntityService<Domain, CheckPayment> IEntityServiceContainer<Domain, CheckPayment>.Service => CheckPayment;
@@ -1823,7 +1823,7 @@ namespace Luxena.Travel.Domain
 	partial class Domain : IEntityServiceContainer<Domain, ClosedPeriod>
 	{
 
-		public ClosedPeriod.Service ClosedPeriod { [DebuggerStepThrough] get { return ResolveService(ref _closedPeriod); } }
+		public ClosedPeriod.Service ClosedPeriod { [DebuggerStepThrough] get => ResolveService(ref _closedPeriod); }
 		private ClosedPeriod.Service _closedPeriod;
 
 		EntityService<Domain, ClosedPeriod> IEntityServiceContainer<Domain, ClosedPeriod>.Service => ClosedPeriod;
@@ -1862,7 +1862,7 @@ namespace Luxena.Travel.Domain
 	partial class Domain : IEntityServiceContainer<Domain, Consignment>
 	{
 
-		public Consignment.Service Consignment { [DebuggerStepThrough] get { return ResolveService(ref _consignment); } }
+		public Consignment.Service Consignment { [DebuggerStepThrough] get => ResolveService(ref _consignment); }
 		private Consignment.Service _consignment;
 
 		EntityService<Domain, Consignment> IEntityServiceContainer<Domain, Consignment>.Service => Consignment;
@@ -1934,7 +1934,7 @@ namespace Luxena.Travel.Domain
 	partial class Domain : IEntityServiceContainer<Domain, Contract>
 	{
 
-		public Contract.Service Contract { [DebuggerStepThrough] get { return ResolveService(ref _contract); } }
+		public Contract.Service Contract { [DebuggerStepThrough] get => ResolveService(ref _contract); }
 		private Contract.Service _contract;
 
 		EntityService<Domain, Contract> IEntityServiceContainer<Domain, Contract>.Service => Contract;
@@ -1999,7 +1999,7 @@ namespace Luxena.Travel.Domain
 	partial class Domain : IEntityServiceContainer<Domain, Country>
 	{
 
-		public Country.Service Country { [DebuggerStepThrough] get { return ResolveService(ref _country); } }
+		public Country.Service Country { [DebuggerStepThrough] get => ResolveService(ref _country); }
 		private Country.Service _country;
 
 		EntityService<Domain, Country> IEntityServiceContainer<Domain, Country>.Service => Country;
@@ -2064,7 +2064,7 @@ namespace Luxena.Travel.Domain
 	partial class Domain : IEntityServiceContainer<Domain, CrazyllamaPnrFile>
 	{
 
-		public CrazyllamaPnrFile.Service CrazyllamaPnrFile { [DebuggerStepThrough] get { return ResolveService(ref _crazyllamaPnrFile); } }
+		public CrazyllamaPnrFile.Service CrazyllamaPnrFile { [DebuggerStepThrough] get => ResolveService(ref _crazyllamaPnrFile); }
 		private CrazyllamaPnrFile.Service _crazyllamaPnrFile;
 
 		EntityService<Domain, CrazyllamaPnrFile> IEntityServiceContainer<Domain, CrazyllamaPnrFile>.Service => CrazyllamaPnrFile;
@@ -2129,7 +2129,7 @@ namespace Luxena.Travel.Domain
 	partial class Domain : IEntityServiceContainer<Domain, Currency>
 	{
 
-		public Currency.Service Currency { [DebuggerStepThrough] get { return ResolveService(ref _currency); } }
+		public Currency.Service Currency { [DebuggerStepThrough] get => ResolveService(ref _currency); }
 		private Currency.Service _currency;
 
 		EntityService<Domain, Currency> IEntityServiceContainer<Domain, Currency>.Service => Currency;
@@ -2194,7 +2194,7 @@ namespace Luxena.Travel.Domain
 	partial class Domain : IEntityServiceContainer<Domain, CurrencyDailyRate>
 	{
 
-		public CurrencyDailyRate.Service CurrencyDailyRate { [DebuggerStepThrough] get { return ResolveService(ref _currencyDailyRate); } }
+		public CurrencyDailyRate.Service CurrencyDailyRate { [DebuggerStepThrough] get => ResolveService(ref _currencyDailyRate); }
 		private CurrencyDailyRate.Service _currencyDailyRate;
 
 		EntityService<Domain, CurrencyDailyRate> IEntityServiceContainer<Domain, CurrencyDailyRate>.Service => CurrencyDailyRate;
@@ -2259,7 +2259,7 @@ namespace Luxena.Travel.Domain
 	partial class Domain : IEntityServiceContainer<Domain, Department>
 	{
 
-		public Department.Service Department { [DebuggerStepThrough] get { return ResolveService(ref _department); } }
+		public Department.Service Department { [DebuggerStepThrough] get => ResolveService(ref _department); }
 		private Department.Service _department;
 
 		EntityService<Domain, Department> IEntityServiceContainer<Domain, Department>.Service => Department;
@@ -2338,7 +2338,7 @@ namespace Luxena.Travel.Domain
 	partial class Domain : IEntityServiceContainer<Domain, DocumentAccess>
 	{
 
-		public DocumentAccess.Service DocumentAccess { [DebuggerStepThrough] get { return ResolveService(ref _documentAccess); } }
+		public DocumentAccess.Service DocumentAccess { [DebuggerStepThrough] get => ResolveService(ref _documentAccess); }
 		private DocumentAccess.Service _documentAccess;
 
 		EntityService<Domain, DocumentAccess> IEntityServiceContainer<Domain, DocumentAccess>.Service => DocumentAccess;
@@ -2403,7 +2403,7 @@ namespace Luxena.Travel.Domain
 	partial class Domain : IEntityServiceContainer<Domain, DocumentOwner>
 	{
 
-		public DocumentOwner.Service DocumentOwner { [DebuggerStepThrough] get { return ResolveService(ref _documentOwner); } }
+		public DocumentOwner.Service DocumentOwner { [DebuggerStepThrough] get => ResolveService(ref _documentOwner); }
 		private DocumentOwner.Service _documentOwner;
 
 		EntityService<Domain, DocumentOwner> IEntityServiceContainer<Domain, DocumentOwner>.Service => DocumentOwner;
@@ -2468,7 +2468,7 @@ namespace Luxena.Travel.Domain
 	partial class Domain : IEntityServiceContainer<Domain, DrctXmlFile>
 	{
 
-		public DrctXmlFile.Service DrctXmlFile { [DebuggerStepThrough] get { return ResolveService(ref _drctXmlFile); } }
+		public DrctXmlFile.Service DrctXmlFile { [DebuggerStepThrough] get => ResolveService(ref _drctXmlFile); }
 		private DrctXmlFile.Service _drctXmlFile;
 
 		EntityService<Domain, DrctXmlFile> IEntityServiceContainer<Domain, DrctXmlFile>.Service => DrctXmlFile;
@@ -2533,7 +2533,7 @@ namespace Luxena.Travel.Domain
 	partial class Domain : IEntityServiceContainer<Domain, ElectronicPayment>
 	{
 
-		public ElectronicPayment.Service ElectronicPayment { [DebuggerStepThrough] get { return ResolveService(ref _electronicPayment); } }
+		public ElectronicPayment.Service ElectronicPayment { [DebuggerStepThrough] get => ResolveService(ref _electronicPayment); }
 		private ElectronicPayment.Service _electronicPayment;
 
 		EntityService<Domain, ElectronicPayment> IEntityServiceContainer<Domain, ElectronicPayment>.Service => ElectronicPayment;
@@ -2625,7 +2625,7 @@ namespace Luxena.Travel.Domain
 	partial class Domain : IEntityServiceContainer<Domain, Excursion>
 	{
 
-		public Excursion.Service Excursion { [DebuggerStepThrough] get { return ResolveService(ref _excursion); } }
+		public Excursion.Service Excursion { [DebuggerStepThrough] get => ResolveService(ref _excursion); }
 		private Excursion.Service _excursion;
 
 		EntityService<Domain, Excursion> IEntityServiceContainer<Domain, Excursion>.Service => Excursion;
@@ -2704,7 +2704,7 @@ namespace Luxena.Travel.Domain
 	partial class Domain : IEntityServiceContainer<Domain, File>
 	{
 
-		public File.Service File { [DebuggerStepThrough] get { return ResolveService(ref _file); } }
+		public File.Service File { [DebuggerStepThrough] get => ResolveService(ref _file); }
 		private File.Service _file;
 
 		EntityService<Domain, File> IEntityServiceContainer<Domain, File>.Service => File;
@@ -2743,7 +2743,7 @@ namespace Luxena.Travel.Domain
 	partial class Domain : IEntityServiceContainer<Domain, FlightSegment>
 	{
 
-		public FlightSegment.Service FlightSegment { [DebuggerStepThrough] get { return ResolveService(ref _flightSegment); } }
+		public FlightSegment.Service FlightSegment { [DebuggerStepThrough] get => ResolveService(ref _flightSegment); }
 		private FlightSegment.Service _flightSegment;
 
 		EntityService<Domain, FlightSegment> IEntityServiceContainer<Domain, FlightSegment>.Service => FlightSegment;
@@ -2808,7 +2808,7 @@ namespace Luxena.Travel.Domain
 	partial class Domain : IEntityServiceContainer<Domain, GalileoBusXmlFile>
 	{
 
-		public GalileoBusXmlFile.Service GalileoBusXmlFile { [DebuggerStepThrough] get { return ResolveService(ref _galileoBusXmlFile); } }
+		public GalileoBusXmlFile.Service GalileoBusXmlFile { [DebuggerStepThrough] get => ResolveService(ref _galileoBusXmlFile); }
 		private GalileoBusXmlFile.Service _galileoBusXmlFile;
 
 		EntityService<Domain, GalileoBusXmlFile> IEntityServiceContainer<Domain, GalileoBusXmlFile>.Service => GalileoBusXmlFile;
@@ -2873,7 +2873,7 @@ namespace Luxena.Travel.Domain
 	partial class Domain : IEntityServiceContainer<Domain, GalileoRailXmlFile>
 	{
 
-		public GalileoRailXmlFile.Service GalileoRailXmlFile { [DebuggerStepThrough] get { return ResolveService(ref _galileoRailXmlFile); } }
+		public GalileoRailXmlFile.Service GalileoRailXmlFile { [DebuggerStepThrough] get => ResolveService(ref _galileoRailXmlFile); }
 		private GalileoRailXmlFile.Service _galileoRailXmlFile;
 
 		EntityService<Domain, GalileoRailXmlFile> IEntityServiceContainer<Domain, GalileoRailXmlFile>.Service => GalileoRailXmlFile;
@@ -2938,7 +2938,7 @@ namespace Luxena.Travel.Domain
 	partial class Domain : IEntityServiceContainer<Domain, GalileoXmlFile>
 	{
 
-		public GalileoXmlFile.Service GalileoXmlFile { [DebuggerStepThrough] get { return ResolveService(ref _galileoXmlFile); } }
+		public GalileoXmlFile.Service GalileoXmlFile { [DebuggerStepThrough] get => ResolveService(ref _galileoXmlFile); }
 		private GalileoXmlFile.Service _galileoXmlFile;
 
 		EntityService<Domain, GalileoXmlFile> IEntityServiceContainer<Domain, GalileoXmlFile>.Service => GalileoXmlFile;
@@ -3003,7 +3003,7 @@ namespace Luxena.Travel.Domain
 	partial class Domain : IEntityServiceContainer<Domain, GdsAgent>
 	{
 
-		public GdsAgent.Service GdsAgent { [DebuggerStepThrough] get { return ResolveService(ref _gdsAgent); } }
+		public GdsAgent.Service GdsAgent { [DebuggerStepThrough] get => ResolveService(ref _gdsAgent); }
 		private GdsAgent.Service _gdsAgent;
 
 		EntityService<Domain, GdsAgent> IEntityServiceContainer<Domain, GdsAgent>.Service => GdsAgent;
@@ -3068,7 +3068,7 @@ namespace Luxena.Travel.Domain
 	partial class Domain : IEntityServiceContainer<Domain, GdsFile>
 	{
 
-		public GdsFile.Service GdsFile { [DebuggerStepThrough] get { return ResolveService(ref _gdsFile); } }
+		public GdsFile.Service GdsFile { [DebuggerStepThrough] get => ResolveService(ref _gdsFile); }
 		private GdsFile.Service _gdsFile;
 
 		EntityService<Domain, GdsFile> IEntityServiceContainer<Domain, GdsFile>.Service => GdsFile;
@@ -3270,7 +3270,7 @@ namespace Luxena.Travel.Domain
 	partial class Domain : IEntityServiceContainer<Domain, GenericProduct>
 	{
 
-		public GenericProduct.Service GenericProduct { [DebuggerStepThrough] get { return ResolveService(ref _genericProduct); } }
+		public GenericProduct.Service GenericProduct { [DebuggerStepThrough] get => ResolveService(ref _genericProduct); }
 		private GenericProduct.Service _genericProduct;
 
 		EntityService<Domain, GenericProduct> IEntityServiceContainer<Domain, GenericProduct>.Service => GenericProduct;
@@ -3349,7 +3349,7 @@ namespace Luxena.Travel.Domain
 	partial class Domain : IEntityServiceContainer<Domain, GenericProductType>
 	{
 
-		public GenericProductType.Service GenericProductType { [DebuggerStepThrough] get { return ResolveService(ref _genericProductType); } }
+		public GenericProductType.Service GenericProductType { [DebuggerStepThrough] get => ResolveService(ref _genericProductType); }
 		private GenericProductType.Service _genericProductType;
 
 		EntityService<Domain, GenericProductType> IEntityServiceContainer<Domain, GenericProductType>.Service => GenericProductType;
@@ -3414,7 +3414,7 @@ namespace Luxena.Travel.Domain
 	partial class Domain : IEntityServiceContainer<Domain, GlobalSearchEntity>
 	{
 
-		public GlobalSearchEntity.Service GlobalSearchEntity { [DebuggerStepThrough] get { return ResolveService(ref _globalSearchEntity); } }
+		public GlobalSearchEntity.Service GlobalSearchEntity { [DebuggerStepThrough] get => ResolveService(ref _globalSearchEntity); }
 		private GlobalSearchEntity.Service _globalSearchEntity;
 
 		EntityService<Domain, GlobalSearchEntity> IEntityServiceContainer<Domain, GlobalSearchEntity>.Service => GlobalSearchEntity;
@@ -3453,7 +3453,7 @@ namespace Luxena.Travel.Domain
 	partial class Domain : IEntityServiceContainer<Domain, Identity>
 	{
 
-		public Identity.Service Identity { [DebuggerStepThrough] get { return ResolveService(ref _identity); } }
+		public Identity.Service Identity { [DebuggerStepThrough] get => ResolveService(ref _identity); }
 		private Identity.Service _identity;
 
 		EntityService<Domain, Identity> IEntityServiceContainer<Domain, Identity>.Service => Identity;
@@ -3559,7 +3559,7 @@ namespace Luxena.Travel.Domain
 	partial class Domain : IEntityServiceContainer<Domain, Insurance>
 	{
 
-		public Insurance.Service Insurance { [DebuggerStepThrough] get { return ResolveService(ref _insurance); } }
+		public Insurance.Service Insurance { [DebuggerStepThrough] get => ResolveService(ref _insurance); }
 		private Insurance.Service _insurance;
 
 		EntityService<Domain, Insurance> IEntityServiceContainer<Domain, Insurance>.Service => Insurance;
@@ -3638,7 +3638,7 @@ namespace Luxena.Travel.Domain
 	partial class Domain : IEntityServiceContainer<Domain, InsuranceRefund>
 	{
 
-		public InsuranceRefund.Service InsuranceRefund { [DebuggerStepThrough] get { return ResolveService(ref _insuranceRefund); } }
+		public InsuranceRefund.Service InsuranceRefund { [DebuggerStepThrough] get => ResolveService(ref _insuranceRefund); }
 		private InsuranceRefund.Service _insuranceRefund;
 
 		EntityService<Domain, InsuranceRefund> IEntityServiceContainer<Domain, InsuranceRefund>.Service => InsuranceRefund;
@@ -3717,7 +3717,7 @@ namespace Luxena.Travel.Domain
 	partial class Domain : IEntityServiceContainer<Domain, InternalIdentity>
 	{
 
-		public InternalIdentity.Service InternalIdentity { [DebuggerStepThrough] get { return ResolveService(ref _internalIdentity); } }
+		public InternalIdentity.Service InternalIdentity { [DebuggerStepThrough] get => ResolveService(ref _internalIdentity); }
 		private InternalIdentity.Service _internalIdentity;
 
 		EntityService<Domain, InternalIdentity> IEntityServiceContainer<Domain, InternalIdentity>.Service => InternalIdentity;
@@ -3782,7 +3782,7 @@ namespace Luxena.Travel.Domain
 	partial class Domain : IEntityServiceContainer<Domain, InternalTransfer>
 	{
 
-		public InternalTransfer.Service InternalTransfer { [DebuggerStepThrough] get { return ResolveService(ref _internalTransfer); } }
+		public InternalTransfer.Service InternalTransfer { [DebuggerStepThrough] get => ResolveService(ref _internalTransfer); }
 		private InternalTransfer.Service _internalTransfer;
 
 		EntityService<Domain, InternalTransfer> IEntityServiceContainer<Domain, InternalTransfer>.Service => InternalTransfer;
@@ -3847,7 +3847,7 @@ namespace Luxena.Travel.Domain
 	partial class Domain : IEntityServiceContainer<Domain, Invoice>
 	{
 
-		public Invoice.Service Invoice { [DebuggerStepThrough] get { return ResolveService(ref _invoice); } }
+		public Invoice.Service Invoice { [DebuggerStepThrough] get => ResolveService(ref _invoice); }
 		private Invoice.Service _invoice;
 
 		EntityService<Domain, Invoice> IEntityServiceContainer<Domain, Invoice>.Service => Invoice;
@@ -3926,7 +3926,7 @@ namespace Luxena.Travel.Domain
 	partial class Domain : IEntityServiceContainer<Domain, Isic>
 	{
 
-		public Isic.Service Isic { [DebuggerStepThrough] get { return ResolveService(ref _isic); } }
+		public Isic.Service Isic { [DebuggerStepThrough] get => ResolveService(ref _isic); }
 		private Isic.Service _isic;
 
 		EntityService<Domain, Isic> IEntityServiceContainer<Domain, Isic>.Service => Isic;
@@ -4005,7 +4005,7 @@ namespace Luxena.Travel.Domain
 	partial class Domain : IEntityServiceContainer<Domain, IssuedConsignment>
 	{
 
-		public IssuedConsignment.Service IssuedConsignment { [DebuggerStepThrough] get { return ResolveService(ref _issuedConsignment); } }
+		public IssuedConsignment.Service IssuedConsignment { [DebuggerStepThrough] get => ResolveService(ref _issuedConsignment); }
 		private IssuedConsignment.Service _issuedConsignment;
 
 		EntityService<Domain, IssuedConsignment> IEntityServiceContainer<Domain, IssuedConsignment>.Service => IssuedConsignment;
@@ -4070,7 +4070,7 @@ namespace Luxena.Travel.Domain
 	partial class Domain : IEntityServiceContainer<Domain, LuxenaXmlFile>
 	{
 
-		public LuxenaXmlFile.Service LuxenaXmlFile { [DebuggerStepThrough] get { return ResolveService(ref _luxenaXmlFile); } }
+		public LuxenaXmlFile.Service LuxenaXmlFile { [DebuggerStepThrough] get => ResolveService(ref _luxenaXmlFile); }
 		private LuxenaXmlFile.Service _luxenaXmlFile;
 
 		EntityService<Domain, LuxenaXmlFile> IEntityServiceContainer<Domain, LuxenaXmlFile>.Service => LuxenaXmlFile;
@@ -4135,7 +4135,7 @@ namespace Luxena.Travel.Domain
 	partial class Domain : IEntityServiceContainer<Domain, MilesCard>
 	{
 
-		public MilesCard.Service MilesCard { [DebuggerStepThrough] get { return ResolveService(ref _milesCard); } }
+		public MilesCard.Service MilesCard { [DebuggerStepThrough] get => ResolveService(ref _milesCard); }
 		private MilesCard.Service _milesCard;
 
 		EntityService<Domain, MilesCard> IEntityServiceContainer<Domain, MilesCard>.Service => MilesCard;
@@ -4200,7 +4200,7 @@ namespace Luxena.Travel.Domain
 	partial class Domain : IEntityServiceContainer<Domain, MirFile>
 	{
 
-		public MirFile.Service MirFile { [DebuggerStepThrough] get { return ResolveService(ref _mirFile); } }
+		public MirFile.Service MirFile { [DebuggerStepThrough] get => ResolveService(ref _mirFile); }
 		private MirFile.Service _mirFile;
 
 		EntityService<Domain, MirFile> IEntityServiceContainer<Domain, MirFile>.Service => MirFile;
@@ -4265,7 +4265,7 @@ namespace Luxena.Travel.Domain
 	partial class Domain : IEntityServiceContainer<Domain, Modification>
 	{
 
-		public Modification.Service Modification { [DebuggerStepThrough] get { return ResolveService(ref _modification); } }
+		public Modification.Service Modification { [DebuggerStepThrough] get => ResolveService(ref _modification); }
 		private Modification.Service _modification;
 
 		EntityService<Domain, Modification> IEntityServiceContainer<Domain, Modification>.Service => Modification;
@@ -4304,7 +4304,7 @@ namespace Luxena.Travel.Domain
 	partial class Domain : IEntityServiceContainer<Domain, OpeningBalance>
 	{
 
-		public OpeningBalance.Service OpeningBalance { [DebuggerStepThrough] get { return ResolveService(ref _openingBalance); } }
+		public OpeningBalance.Service OpeningBalance { [DebuggerStepThrough] get => ResolveService(ref _openingBalance); }
 		private OpeningBalance.Service _openingBalance;
 
 		EntityService<Domain, OpeningBalance> IEntityServiceContainer<Domain, OpeningBalance>.Service => OpeningBalance;
@@ -4369,7 +4369,7 @@ namespace Luxena.Travel.Domain
 	partial class Domain : IEntityServiceContainer<Domain, Order>
 	{
 
-		public Order.Service Order { [DebuggerStepThrough] get { return ResolveService(ref _order); } }
+		public Order.Service Order { [DebuggerStepThrough] get => ResolveService(ref _order); }
 		private Order.Service _order;
 
 		EntityService<Domain, Order> IEntityServiceContainer<Domain, Order>.Service => Order;
@@ -4448,7 +4448,7 @@ namespace Luxena.Travel.Domain
 	partial class Domain : IEntityServiceContainer<Domain, OrderItem>
 	{
 
-		public OrderItem.Service OrderItem { [DebuggerStepThrough] get { return ResolveService(ref _orderItem); } }
+		public OrderItem.Service OrderItem { [DebuggerStepThrough] get => ResolveService(ref _orderItem); }
 		private OrderItem.Service _orderItem;
 
 		EntityService<Domain, OrderItem> IEntityServiceContainer<Domain, OrderItem>.Service => OrderItem;
@@ -4513,7 +4513,7 @@ namespace Luxena.Travel.Domain
 	partial class Domain : IEntityServiceContainer<Domain, Organization>
 	{
 
-		public Organization.Service Organization { [DebuggerStepThrough] get { return ResolveService(ref _organization); } }
+		public Organization.Service Organization { [DebuggerStepThrough] get => ResolveService(ref _organization); }
 		private Organization.Service _organization;
 
 		EntityService<Domain, Organization> IEntityServiceContainer<Domain, Organization>.Service => Organization;
@@ -4592,7 +4592,7 @@ namespace Luxena.Travel.Domain
 	partial class Domain : IEntityServiceContainer<Domain, Party>
 	{
 
-		public Party.Service Party { [DebuggerStepThrough] get { return ResolveService(ref _party); } }
+		public Party.Service Party { [DebuggerStepThrough] get => ResolveService(ref _party); }
 		private Party.Service _party;
 
 		EntityService<Domain, Party> IEntityServiceContainer<Domain, Party>.Service => Party;
@@ -4720,7 +4720,7 @@ namespace Luxena.Travel.Domain
 	partial class Domain : IEntityServiceContainer<Domain, Passport>
 	{
 
-		public Passport.Service Passport { [DebuggerStepThrough] get { return ResolveService(ref _passport); } }
+		public Passport.Service Passport { [DebuggerStepThrough] get => ResolveService(ref _passport); }
 		private Passport.Service _passport;
 
 		EntityService<Domain, Passport> IEntityServiceContainer<Domain, Passport>.Service => Passport;
@@ -4785,7 +4785,7 @@ namespace Luxena.Travel.Domain
 	partial class Domain : IEntityServiceContainer<Domain, Pasteboard>
 	{
 
-		public Pasteboard.Service Pasteboard { [DebuggerStepThrough] get { return ResolveService(ref _pasteboard); } }
+		public Pasteboard.Service Pasteboard { [DebuggerStepThrough] get => ResolveService(ref _pasteboard); }
 		private Pasteboard.Service _pasteboard;
 
 		EntityService<Domain, Pasteboard> IEntityServiceContainer<Domain, Pasteboard>.Service => Pasteboard;
@@ -4864,7 +4864,7 @@ namespace Luxena.Travel.Domain
 	partial class Domain : IEntityServiceContainer<Domain, PasteboardRefund>
 	{
 
-		public PasteboardRefund.Service PasteboardRefund { [DebuggerStepThrough] get { return ResolveService(ref _pasteboardRefund); } }
+		public PasteboardRefund.Service PasteboardRefund { [DebuggerStepThrough] get => ResolveService(ref _pasteboardRefund); }
 		private PasteboardRefund.Service _pasteboardRefund;
 
 		EntityService<Domain, PasteboardRefund> IEntityServiceContainer<Domain, PasteboardRefund>.Service => PasteboardRefund;
@@ -4943,7 +4943,7 @@ namespace Luxena.Travel.Domain
 	partial class Domain : IEntityServiceContainer<Domain, Payment>
 	{
 
-		public Payment.Service Payment { [DebuggerStepThrough] get { return ResolveService(ref _payment); } }
+		public Payment.Service Payment { [DebuggerStepThrough] get => ResolveService(ref _payment); }
 		private Payment.Service _payment;
 
 		EntityService<Domain, Payment> IEntityServiceContainer<Domain, Payment>.Service => Payment;
@@ -5100,7 +5100,7 @@ namespace Luxena.Travel.Domain
 	partial class Domain : IEntityServiceContainer<Domain, PaymentSystem>
 	{
 
-		public PaymentSystem.Service PaymentSystem { [DebuggerStepThrough] get { return ResolveService(ref _paymentSystem); } }
+		public PaymentSystem.Service PaymentSystem { [DebuggerStepThrough] get => ResolveService(ref _paymentSystem); }
 		private PaymentSystem.Service _paymentSystem;
 
 		EntityService<Domain, PaymentSystem> IEntityServiceContainer<Domain, PaymentSystem>.Service => PaymentSystem;
@@ -5165,7 +5165,7 @@ namespace Luxena.Travel.Domain
 	partial class Domain : IEntityServiceContainer<Domain, PenalizeOperation>
 	{
 
-		public PenalizeOperation.Service PenalizeOperation { [DebuggerStepThrough] get { return ResolveService(ref _penalizeOperation); } }
+		public PenalizeOperation.Service PenalizeOperation { [DebuggerStepThrough] get => ResolveService(ref _penalizeOperation); }
 		private PenalizeOperation.Service _penalizeOperation;
 
 		EntityService<Domain, PenalizeOperation> IEntityServiceContainer<Domain, PenalizeOperation>.Service => PenalizeOperation;
@@ -5204,7 +5204,7 @@ namespace Luxena.Travel.Domain
 	partial class Domain : IEntityServiceContainer<Domain, Person>
 	{
 
-		public Person.Service Person { [DebuggerStepThrough] get { return ResolveService(ref _person); } }
+		public Person.Service Person { [DebuggerStepThrough] get => ResolveService(ref _person); }
 		private Person.Service _person;
 
 		EntityService<Domain, Person> IEntityServiceContainer<Domain, Person>.Service => Person;
@@ -5283,7 +5283,7 @@ namespace Luxena.Travel.Domain
 	partial class Domain : IEntityServiceContainer<Domain, Preferences>
 	{
 
-		public Preferences.Service Preferences { [DebuggerStepThrough] get { return ResolveService(ref _preferences); } }
+		public Preferences.Service Preferences { [DebuggerStepThrough] get => ResolveService(ref _preferences); }
 		private Preferences.Service _preferences;
 
 		EntityService<Domain, Preferences> IEntityServiceContainer<Domain, Preferences>.Service => Preferences;
@@ -5340,7 +5340,7 @@ namespace Luxena.Travel.Domain
 	partial class Domain : IEntityServiceContainer<Domain, PrintFile>
 	{
 
-		public PrintFile.Service PrintFile { [DebuggerStepThrough] get { return ResolveService(ref _printFile); } }
+		public PrintFile.Service PrintFile { [DebuggerStepThrough] get => ResolveService(ref _printFile); }
 		private PrintFile.Service _printFile;
 
 		EntityService<Domain, PrintFile> IEntityServiceContainer<Domain, PrintFile>.Service => PrintFile;
@@ -5405,7 +5405,7 @@ namespace Luxena.Travel.Domain
 	partial class Domain : IEntityServiceContainer<Domain, Product>
 	{
 
-		public Product.Service Product { [DebuggerStepThrough] get { return ResolveService(ref _product); } }
+		public Product.Service Product { [DebuggerStepThrough] get => ResolveService(ref _product); }
 		private Product.Service _product;
 
 		EntityService<Domain, Product> IEntityServiceContainer<Domain, Product>.Service => Product;
@@ -5645,7 +5645,7 @@ namespace Luxena.Travel.Domain
 	partial class Domain : IEntityServiceContainer<Domain, ProductPassenger>
 	{
 
-		public ProductPassenger.Service ProductPassenger { [DebuggerStepThrough] get { return ResolveService(ref _productPassenger); } }
+		public ProductPassenger.Service ProductPassenger { [DebuggerStepThrough] get => ResolveService(ref _productPassenger); }
 		private ProductPassenger.Service _productPassenger;
 
 		EntityService<Domain, ProductPassenger> IEntityServiceContainer<Domain, ProductPassenger>.Service => ProductPassenger;
@@ -5684,7 +5684,7 @@ namespace Luxena.Travel.Domain
 	partial class Domain : IEntityServiceContainer<Domain, SabreFilFile>
 	{
 
-		public SabreFilFile.Service SabreFilFile { [DebuggerStepThrough] get { return ResolveService(ref _sabreFilFile); } }
+		public SabreFilFile.Service SabreFilFile { [DebuggerStepThrough] get => ResolveService(ref _sabreFilFile); }
 		private SabreFilFile.Service _sabreFilFile;
 
 		EntityService<Domain, SabreFilFile> IEntityServiceContainer<Domain, SabreFilFile>.Service => SabreFilFile;
@@ -5749,7 +5749,7 @@ namespace Luxena.Travel.Domain
 	partial class Domain : IEntityServiceContainer<Domain, SimCard>
 	{
 
-		public SimCard.Service SimCard { [DebuggerStepThrough] get { return ResolveService(ref _simCard); } }
+		public SimCard.Service SimCard { [DebuggerStepThrough] get => ResolveService(ref _simCard); }
 		private SimCard.Service _simCard;
 
 		EntityService<Domain, SimCard> IEntityServiceContainer<Domain, SimCard>.Service => SimCard;
@@ -5828,7 +5828,7 @@ namespace Luxena.Travel.Domain
 	partial class Domain : IEntityServiceContainer<Domain, SirenaFile>
 	{
 
-		public SirenaFile.Service SirenaFile { [DebuggerStepThrough] get { return ResolveService(ref _sirenaFile); } }
+		public SirenaFile.Service SirenaFile { [DebuggerStepThrough] get => ResolveService(ref _sirenaFile); }
 		private SirenaFile.Service _sirenaFile;
 
 		EntityService<Domain, SirenaFile> IEntityServiceContainer<Domain, SirenaFile>.Service => SirenaFile;
@@ -5893,7 +5893,7 @@ namespace Luxena.Travel.Domain
 	partial class Domain : IEntityServiceContainer<Domain, SystemConfiguration>
 	{
 
-		public SystemConfiguration.Service SystemConfiguration { [DebuggerStepThrough] get { return ResolveService(ref _systemConfiguration); } }
+		public SystemConfiguration.Service SystemConfiguration { [DebuggerStepThrough] get => ResolveService(ref _systemConfiguration); }
 		private SystemConfiguration.Service _systemConfiguration;
 
 		EntityService<Domain, SystemConfiguration> IEntityServiceContainer<Domain, SystemConfiguration>.Service => SystemConfiguration;
@@ -5932,7 +5932,7 @@ namespace Luxena.Travel.Domain
 	partial class Domain : IEntityServiceContainer<Domain, Task>
 	{
 
-		public Task.Service Task { [DebuggerStepThrough] get { return ResolveService(ref _task); } }
+		public Task.Service Task { [DebuggerStepThrough] get => ResolveService(ref _task); }
 		private Task.Service _task;
 
 		EntityService<Domain, Task> IEntityServiceContainer<Domain, Task>.Service => Task;
@@ -5997,7 +5997,7 @@ namespace Luxena.Travel.Domain
 	partial class Domain : IEntityServiceContainer<Domain, TaskComment>
 	{
 
-		public TaskComment.Service TaskComment { [DebuggerStepThrough] get { return ResolveService(ref _taskComment); } }
+		public TaskComment.Service TaskComment { [DebuggerStepThrough] get => ResolveService(ref _taskComment); }
 		private TaskComment.Service _taskComment;
 
 		EntityService<Domain, TaskComment> IEntityServiceContainer<Domain, TaskComment>.Service => TaskComment;
@@ -6036,7 +6036,7 @@ namespace Luxena.Travel.Domain
 	partial class Domain : IEntityServiceContainer<Domain, TktFile>
 	{
 
-		public TktFile.Service TktFile { [DebuggerStepThrough] get { return ResolveService(ref _tktFile); } }
+		public TktFile.Service TktFile { [DebuggerStepThrough] get => ResolveService(ref _tktFile); }
 		private TktFile.Service _tktFile;
 
 		EntityService<Domain, TktFile> IEntityServiceContainer<Domain, TktFile>.Service => TktFile;
@@ -6101,7 +6101,7 @@ namespace Luxena.Travel.Domain
 	partial class Domain : IEntityServiceContainer<Domain, Tour>
 	{
 
-		public Tour.Service Tour { [DebuggerStepThrough] get { return ResolveService(ref _tour); } }
+		public Tour.Service Tour { [DebuggerStepThrough] get => ResolveService(ref _tour); }
 		private Tour.Service _tour;
 
 		EntityService<Domain, Tour> IEntityServiceContainer<Domain, Tour>.Service => Tour;
@@ -6180,7 +6180,7 @@ namespace Luxena.Travel.Domain
 	partial class Domain : IEntityServiceContainer<Domain, Transfer>
 	{
 
-		public Transfer.Service Transfer { [DebuggerStepThrough] get { return ResolveService(ref _transfer); } }
+		public Transfer.Service Transfer { [DebuggerStepThrough] get => ResolveService(ref _transfer); }
 		private Transfer.Service _transfer;
 
 		EntityService<Domain, Transfer> IEntityServiceContainer<Domain, Transfer>.Service => Transfer;
@@ -6259,7 +6259,7 @@ namespace Luxena.Travel.Domain
 	partial class Domain : IEntityServiceContainer<Domain, TravelPointXmlFile>
 	{
 
-		public TravelPointXmlFile.Service TravelPointXmlFile { [DebuggerStepThrough] get { return ResolveService(ref _travelPointXmlFile); } }
+		public TravelPointXmlFile.Service TravelPointXmlFile { [DebuggerStepThrough] get => ResolveService(ref _travelPointXmlFile); }
 		private TravelPointXmlFile.Service _travelPointXmlFile;
 
 		EntityService<Domain, TravelPointXmlFile> IEntityServiceContainer<Domain, TravelPointXmlFile>.Service => TravelPointXmlFile;
@@ -6324,7 +6324,7 @@ namespace Luxena.Travel.Domain
 	partial class Domain : IEntityServiceContainer<Domain, User>
 	{
 
-		public User.Service User { [DebuggerStepThrough] get { return ResolveService(ref _user); } }
+		public User.Service User { [DebuggerStepThrough] get => ResolveService(ref _user); }
 		private User.Service _user;
 
 		EntityService<Domain, User> IEntityServiceContainer<Domain, User>.Service => User;
@@ -6389,7 +6389,7 @@ namespace Luxena.Travel.Domain
 	partial class Domain : IEntityServiceContainer<Domain, UserVisit>
 	{
 
-		public UserVisit.Service UserVisit { [DebuggerStepThrough] get { return ResolveService(ref _userVisit); } }
+		public UserVisit.Service UserVisit { [DebuggerStepThrough] get => ResolveService(ref _userVisit); }
 		private UserVisit.Service _userVisit;
 
 		EntityService<Domain, UserVisit> IEntityServiceContainer<Domain, UserVisit>.Service => UserVisit;
@@ -6428,7 +6428,7 @@ namespace Luxena.Travel.Domain
 	partial class Domain : IEntityServiceContainer<Domain, WireTransfer>
 	{
 
-		public WireTransfer.Service WireTransfer { [DebuggerStepThrough] get { return ResolveService(ref _wireTransfer); } }
+		public WireTransfer.Service WireTransfer { [DebuggerStepThrough] get => ResolveService(ref _wireTransfer); }
 		private WireTransfer.Service _wireTransfer;
 
 		EntityService<Domain, WireTransfer> IEntityServiceContainer<Domain, WireTransfer>.Service => WireTransfer;

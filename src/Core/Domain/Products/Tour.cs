@@ -3,28 +3,53 @@
 using Luxena.Domain;
 
 
+
+
 namespace Luxena.Travel.Domain
 {
+
+
+
+	//===g
+
+
+
+
+
 
 	[RU("Тур (готовый)", "Туры (готовые)")]
 	public partial class Tour : Product
 	{
 
+		//---g
+
+
+
 		[SemanticSetup]
 		public static void AnnotationSetup(SemanticSetup<Tour> se)
 		{
+
 			se.For(a => a.ReissueFor)
 				.Suggest<Tour>();
 
+
 			se.For(a => a.Provider)
 				.Suggest<TourProvider>();
+
 		}
 
-		public override ProductType Type { get { return ProductType.Tour; } }
 
-		public override string Name { get { return DomainRes.Tour; } }
 
-		public override string PassengerName { get { return GetPassengerNames(); } }
+		//---g
+
+
+
+		public override ProductType Type => ProductType.Tour;
+
+		public override string Name => PnrCode ?? "";
+
+		public override string PassengerName => GetPassengerNames();
+
 
 		[Patterns.StartDate]
 		public virtual DateTime StartDate { get; set; }
@@ -63,13 +88,32 @@ namespace Luxena.Travel.Domain
 
 		[RU("Трансфер (описание)")]
 		public virtual string TransferDescription { get; set; }
-		
+
+
+
+		//---g
+
+
 
 		public new partial class Service : Service<Tour>
 		{
 
 		}
 
+
+
+
+		//---g
+
 	}
+
+
+
+
+
+
+	//===g
+
+
 
 }

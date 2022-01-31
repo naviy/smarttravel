@@ -19,16 +19,17 @@ namespace Luxena.Travel
 
 		protected override string GetCommonDataHtml()
 		{
+
 			IsicSemantic v = new SemanticDomain(this).Isic;
 
-			string commonDataHtml = 
+			return
+
 				@"<div class='commonData'><table><col style='width: 135px' />" +
 
 				v.IssueDate.ToHtmlTr2(r, true) +
 
-				v.CardType.ToHtmlTr2(r, true) +
-
 				v.Name.ToHtmlTr2(r, true) +
+				GetPnrCodeAndTourCodeHtml() +
 
 				v.ReissueFor.ToHtmlTr2(r) +
 				v.ReissuedBy.ToHtmlTr2(r) +
@@ -40,14 +41,19 @@ namespace Luxena.Travel
 
 				GetCustomerAndIntermediaryHtml(r.Customer, r.Intermediary) +
 
+				v.CardType.ToHtmlTr2(r, true) +
+				v.Number1.ToHtmlTr2(r) +
+				v.Number2.ToHtmlTr2(r) +
+
 				v.Seller.ToHtmlTr2(r, true) +
 				v.Owner.ToHtmlTr2(r, true) +
 				v.LegalEntity.ToHtmlTr2(r) +
 				v.Order.ToHtmlTr2(r, true) +
 																
-				@"</table></div>";
+				@"</table></div>"
+				
+			;
 
-			return commonDataHtml;
 		}
 
 

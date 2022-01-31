@@ -3,10 +3,7 @@ namespace Luxena.Travel.Domain
 
 	public partial class PrintFile : GdsFile
 	{
-		public override GdsFileType FileType
-		{
-			get { return GdsFileType.PrintFile; }
-		}
+		public override GdsFileType FileType => GdsFileType.PrintFile;
 
 		public virtual string FilePath { get; set; }
 

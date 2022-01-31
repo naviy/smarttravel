@@ -23,14 +23,18 @@ namespace Luxena.Travel.Domain
 		}
 
 
-		public override ProductType Type { get { return ProductType.SimCard; } }
+		public override ProductType Type => ProductType.SimCard;
 
-		public override string Name { get { return Number; } }
+		public override string Name => Number ?? PnrCode;
 
-		public override string PassengerName { get { return GetPassengerName(); } set { SetPassengerName(value); } }
+		public override string PassengerName { get => GetPassengerName();
+			set => SetPassengerName(value);
+		}
 
 		[Patterns.Passenger]
-		public virtual Person Passenger { get { return GetPassenger(); } set { SetPassenger(value); } }
+		public virtual Person Passenger { get => GetPassenger();
+			set => SetPassenger(value);
+		}
 
 		[Patterns.Number, EntityName2, Required, MaxLength(16)]
 		public virtual string Number { get; set; }

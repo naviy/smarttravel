@@ -27,7 +27,7 @@ namespace Luxena.Travel.Domain
 
 	partial class Domain
 	{
-		public SystemVariables SystemVariables { get { return ResolveSingleton(ref _systemVariables); } }
+		public SystemVariables SystemVariables => ResolveSingleton(ref _systemVariables);
 		private SystemVariables _systemVariables;
 	}
 

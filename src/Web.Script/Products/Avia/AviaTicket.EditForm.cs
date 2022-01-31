@@ -25,16 +25,18 @@ namespace Luxena.Travel
 				{
 					se.IssueDate,
 					se.FullNumber,
+					se.PnrAndTourCodes,
+
 					se.ReissueFor,
+
 					se.PassengerRow,
 					se.GdsPassportStatus,
-					
+
 					se.Provider.ToField(-3),
 					se.CustomerAndOrder,
 					se.Intermediary,
 					se.Country,
 					se.Originator,
-					se.PnrAndTourCodes,
 					se.BookerRow,
 					se.TicketerRow,
 					se.TicketingIataOffice,

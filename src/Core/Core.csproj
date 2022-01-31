@@ -765,6 +765,7 @@
     <Compile Include="Export\PersonContract.cs" />
     <Compile Include="Export\PartyContract.cs" />
     <Compile Include="Export\ProductContract.cs" />
+    <Compile Include="Parsers\GalileoConsoleParser.cs" />
     <Compile Include="Parsers\SabreConsoleParser.cs" />
     <Compile Include="Parsers\DrctXmlParser.cs" />
     <Compile Include="Parsers\TravelPointXmlParser.cs" />

@@ -25,15 +25,17 @@ namespace Luxena.Travel
 		{
 			AddColumns(new object[]
 			{
+				se.Name,
+				se.Number.ToColumn(true, 150, se.GetNameRenderer()),
+				se.PnrCode.ToColumn(true, 150, se.GetNameRenderer()),
+				se.TourCode.ToColumn(true),
+
 				se.PassengerName,
 				se.Provider,
 				se.GenericType,
-				se.Number,
 				se.StartDate,
 				se.FinishDate,
 				se.Country.ToColumn(true),
-				se.PnrCode.ToColumn(true),
-				se.TourCode.ToColumn(true),
 			});
 		}
 

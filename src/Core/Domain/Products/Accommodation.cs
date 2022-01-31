@@ -23,7 +23,7 @@ namespace Luxena.Travel.Domain
 
 		public override ProductType Type => ProductType.Accommodation;
 
-		public override string Name => DomainRes.Accommodation;
+		public override string Name => PnrCode ?? DomainRes.Accommodation;
 
 		public override string PassengerName => GetPassengerNames();
 

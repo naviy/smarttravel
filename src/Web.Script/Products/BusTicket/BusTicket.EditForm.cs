@@ -13,10 +13,10 @@ namespace Luxena.Travel
 			{
 				MainDataPanel(new object[]
 				{
-					se.IssueDate,
+					se.RowPanel2v(se.IssueDate, null, se.ReissueFor, null),
 					se.Number,
+					se.PnrAndTourCodes,
 
-					se.ReissueFor,
 					IsRefund ? se.RefundedProduct : null,
 					se.PassengerRow,
 

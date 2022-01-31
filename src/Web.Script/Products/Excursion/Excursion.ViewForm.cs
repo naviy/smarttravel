@@ -16,20 +16,21 @@ namespace Luxena.Travel
 		protected override string GetClassName() { return ClassNames.Excursion; }
 		protected override string GetClassTitle() { return DomainRes.Excursion; }
 
+
+
 		protected override string GetCommonDataHtml()
 		{
+
 			ExcursionSemantic v = new SemanticDomain(this).Excursion;
 
-			string commonDataHtml = 
+			return
+
 				@"<div class='commonData'><table><col style='width: 135px' />" +
 
 				v.IssueDate.ToHtmlTr2(r, true) +
 
-				v.StartDate.ToHtmlTr2(r) +
-				v.FinishDate.ToHtmlTr2(r) +
-
-
 				v.Name.ToHtmlTr2(r, true) +
+				GetPnrCodeAndTourCodeHtml() +
 
 				v.ReissueFor.ToHtmlTr2(r) +
 				v.ReissuedBy.ToHtmlTr2(r) +
@@ -41,19 +42,22 @@ namespace Luxena.Travel
 
 				GetCustomerAndIntermediaryHtml(r.Customer, r.Intermediary) +
 
-				v.TourName.ToHtmlTr2(r) +
 				v.Country.ToHtmlTr2(r) +
-				v.TourCode.ToHtmlTr2(r) +
+
+				v.TourName.ToHtmlTr2(r) +
+				v.StartDate.ToHtmlTr2(r) +
+				v.FinishDate.ToHtmlTr2(r) +
 
 				v.Seller.ToHtmlTr2(r, true) +
 				v.Owner.ToHtmlTr2(r, true) +
 				v.LegalEntity.ToHtmlTr2(r) +
 				v.Order.ToHtmlTr2(r, true) +
 																
-				@"</table></div>";
+				@"</table></div>"
+			;
 
-			return commonDataHtml;
 		}
+
 
 
 		private ExcursionDto r;

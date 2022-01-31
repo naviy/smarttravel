@@ -3,10 +3,8 @@
 
 	public partial class SirenaFile : GdsFile
 	{
-		public override GdsFileType FileType
-		{
-			get { return GdsFileType.SirenaFile; }
-		}
+		public override GdsFileType FileType => GdsFileType.SirenaFile;
+
 	}
 
 }

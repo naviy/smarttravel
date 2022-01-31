@@ -7098,7 +7098,7 @@ Luxena.Travel.BusTicketListTab.prototype = {
     _se$11: null,
     
     createCustomColumnConfigs: function Luxena_Travel_BusTicketListTab$createCustomColumnConfigs() {
-        this.addColumns([ this._se$11.Number, this._se$11.PassengerName, this._se$11.Provider, this._se$11.DeparturePlace, this._se$11.DepartureDate.toColumn(true), this._se$11.DepartureTime.toColumn(true), this._se$11.ArrivalPlace, this._se$11.ArrivalDate.toColumn(true), this._se$11.ArrivalTime.toColumn(true), this._se$11.SeatNumber.toColumn(true) ]);
+        this.addColumns([ this._se$11.Name, this._se$11.Number.toColumn(true, 150, this._se$11.getNameRenderer()), this._se$11.PnrCode.toColumn(true, 150, this._se$11.getNameRenderer()), this._se$11.TourCode.toColumn(true), this._se$11.PassengerName, this._se$11.Provider, this._se$11.DeparturePlace, this._se$11.DepartureDate.toColumn(true), this._se$11.DepartureTime.toColumn(true), this._se$11.ArrivalPlace, this._se$11.ArrivalDate.toColumn(true), this._se$11.ArrivalTime.toColumn(true), this._se$11.SeatNumber.toColumn(true) ]);
     }
 }
 
@@ -7119,7 +7119,7 @@ Luxena.Travel.BusTicketEditForm.prototype = {
     _se$4: null,
     
     createControls: function Luxena_Travel_BusTicketEditForm$createControls() {
-        this.get_form().add(this.columnPanel([ this.mainDataPanel([ this._se$4.IssueDate, this._se$4.Number, this._se$4.ReissueFor, (this.get_isRefund()) ? this._se$4.RefundedProduct : null, this._se$4.PassengerRow, this._se$4.Provider, LxnBase.UI.BaseEditForm.rowPanel([ this._se$4.DeparturePlace.toField(-1, function(m) {
+        this.get_form().add(this.columnPanel([ this.mainDataPanel([ this._se$4.rowPanel2v(this._se$4.IssueDate, null, this._se$4.ReissueFor, null), this._se$4.Number, this._se$4.PnrAndTourCodes, (this.get_isRefund()) ? this._se$4.RefundedProduct : null, this._se$4.PassengerRow, this._se$4.Provider, LxnBase.UI.BaseEditForm.rowPanel([ this._se$4.DeparturePlace.toField(-1, function(m) {
             m.label(Luxena.Travel.DomainRes.common_Departure);
         }), LxnBase.UI.BaseEditForm.textComponent('/'), this._se$4.DepartureDate.toField(-2, function(m) {
             m.hideLabel();
@@ -7182,7 +7182,7 @@ Luxena.Travel.ExcursionListTab.prototype = {
     },
     
     createCustomColumnConfigs: function Luxena_Travel_ExcursionListTab$createCustomColumnConfigs() {
-        this.addColumns([ this._se$11.PassengerName, this._se$11.StartDate, this._se$11.FinishDate, this._se$11.TourName, this._se$11.Country, this._se$11.TourCode.toColumn(true) ]);
+        this.addColumns([ this._se$11.Name, this._se$11.PnrCode.toColumn(true, 150, this._se$11.getNameRenderer()), this._se$11.TourCode.toColumn(true), this._se$11.PassengerName, this._se$11.Country, this._se$11.TourName, this._se$11.StartDate, this._se$11.FinishDate ]);
     }
 }
 
@@ -7203,7 +7203,7 @@ Luxena.Travel.ExcursionEditForm.prototype = {
     _se$4: null,
     
     createControls: function Luxena_Travel_ExcursionEditForm$createControls() {
-        this.get_form().add(this.columnPanel([ this.mainDataPanel([ this._se$4.IssueDate, this._se$4.ReissueFor, this._se$4.PassengerRow, this._se$4.StartDate, this._se$4.FinishDate, this._se$4.CustomerAndOrder, this._se$4.Intermediary, this._se$4.TourName, this._se$4.Country, this._se$4.PnrAndTourCodes, this._se$4.SellerAndOwnerRow, this._se$4.LegalEntity ]), this._se$4.Finance ]));
+        this.get_form().add(this.columnPanel([ this.mainDataPanel([ this._se$4.rowPanel2v(this._se$4.IssueDate, null, this._se$4.ReissueFor, null), this._se$4.PnrAndTourCodes, this._se$4.PassengerRow, this._se$4.CustomerAndOrder, this._se$4.Intermediary, this._se$4.Country, this._se$4.TourName, this._se$4.StartDate, this._se$4.FinishDate, this._se$4.SellerAndOwnerRow, this._se$4.LegalEntity ]), this._se$4.Finance ]));
         this.get_form().add(this.mainDataPanel([ this._se$4.Note ]));
     }
 }
@@ -7253,7 +7253,7 @@ Luxena.Travel.IsicListTab.prototype = {
     _se$11: null,
     
     createCustomColumnConfigs: function Luxena_Travel_IsicListTab$createCustomColumnConfigs() {
-        this.addColumns([ this._se$11.CardType, this._se$11.Number1, this._se$11.Number2, this._se$11.PassengerName ]);
+        this.addColumns([ this._se$11.Name, this._se$11.PnrCode.toColumn(true, 150, this._se$11.getNameRenderer()), this._se$11.TourCode.toColumn(true), this._se$11.PassengerName, this._se$11.CardType, this._se$11.Number1, this._se$11.Number2 ]);
     }
 }
 
@@ -7279,9 +7279,9 @@ Luxena.Travel.IsicEditForm.prototype = {
     },
     
     createControls: function Luxena_Travel_IsicEditForm$createControls() {
-        this.get_form().add(this.columnPanel([ this.mainDataPanel([ this._se$4.IssueDate, this._se$4.ReissueFor, this._se$4.PassengerRow, this._se$4.CardType, LxnBase.UI.BaseEditForm.rowPanel([ this._se$4.Number1.toField(114), this._se$4.Number2.toField(40, function(m) {
+        this.get_form().add(this.columnPanel([ this.mainDataPanel([ this._se$4.rowPanel2v(this._se$4.IssueDate, null, this._se$4.ReissueFor, null), this._se$4.PnrAndTourCodes, this._se$4.PassengerRow, this._se$4.CustomerAndOrder, this._se$4.Intermediary, this._se$4.CardType, LxnBase.UI.BaseEditForm.rowPanel([ this._se$4.Number1.toField(114), this._se$4.Number2.toField(40, function(m) {
             m.hideLabel();
-        }) ]), this._se$4.CustomerAndOrder, this._se$4.Intermediary, this._se$4.SellerAndOwnerRow, this._se$4.LegalEntity ]), this._se$4.Finance ]));
+        }) ]), this._se$4.SellerAndOwnerRow, this._se$4.LegalEntity ]), this._se$4.Finance ]));
         this.get_form().add(this.mainDataPanel([ this._se$4.Note ]));
     }
 }
@@ -7342,7 +7342,7 @@ Luxena.Travel.PasteboardListTab.prototype = {
     _se$11: null,
     
     createCustomColumnConfigs: function Luxena_Travel_PasteboardListTab$createCustomColumnConfigs() {
-        this.addColumns([ this._se$11.Number, this._se$11.PassengerName, this._se$11.Provider, this._se$11.DeparturePlace, this._se$11.DepartureDate.toColumn(true), this._se$11.DepartureTime.toColumn(true), this._se$11.ArrivalPlace, this._se$11.ArrivalDate.toColumn(true), this._se$11.ArrivalTime.toColumn(true), this._se$11.Itinerary.toColumn(true) ]);
+        this.addColumns([ this._se$11.Name, this._se$11.Number.toColumn(true, 150, this._se$11.getNameRenderer()), this._se$11.PnrCode.toColumn(true, 150, this._se$11.getNameRenderer()), this._se$11.TourCode.toColumn(true), this._se$11.PassengerName, this._se$11.Provider, this._se$11.DeparturePlace, this._se$11.DepartureDate.toColumn(true), this._se$11.DepartureTime.toColumn(true), this._se$11.ArrivalPlace, this._se$11.ArrivalDate.toColumn(true), this._se$11.ArrivalTime.toColumn(true), this._se$11.Itinerary.toColumn(true) ]);
     }
 }
 
@@ -7363,7 +7363,7 @@ Luxena.Travel.PasteboardEditForm.prototype = {
     _se$4: null,
     
     createControls: function Luxena_Travel_PasteboardEditForm$createControls() {
-        this.get_form().add(this.columnPanel([ this.mainDataPanel([ this._se$4.IssueDate, this._se$4.ReissueFor, (this.get_isRefund()) ? this._se$4.RefundedProduct : null, this._se$4.PassengerRow, this._se$4.Provider.toField(-3), this._se$4.Number, LxnBase.UI.BaseEditForm.rowPanel([ this._se$4.DeparturePlace.toField(-1, function(m) {
+        this.get_form().add(this.columnPanel([ this.mainDataPanel([ this._se$4.rowPanel2v(this._se$4.IssueDate, null, this._se$4.ReissueFor, null), this._se$4.Number, this._se$4.PnrAndTourCodes, (this.get_isRefund()) ? this._se$4.RefundedProduct : null, this._se$4.PassengerRow, this._se$4.Provider.toField(-3), LxnBase.UI.BaseEditForm.rowPanel([ this._se$4.DeparturePlace.toField(-1, function(m) {
             m.label(Luxena.Travel.DomainRes.common_Departure);
         }), LxnBase.UI.BaseEditForm.textComponent('/'), this._se$4.DepartureDate.toField(-2, function(m) {
             m.hideLabel();
@@ -7425,7 +7425,7 @@ Luxena.Travel.TransferListTab.prototype = {
     },
     
     createCustomColumnConfigs: function Luxena_Travel_TransferListTab$createCustomColumnConfigs() {
-        this.addColumns([ this._se$11.PassengerName, this._se$11.Provider, this._se$11.StartDate, this._se$11.Country.toColumn(true), this._se$11.PnrCode.toColumn(true), this._se$11.TourCode.toColumn(true) ]);
+        this.addColumns([ this._se$11.Name, this._se$11.PnrCode.toColumn(true, 150, this._se$11.getNameRenderer()), this._se$11.TourCode.toColumn(true), this._se$11.PassengerName, this._se$11.Provider, this._se$11.Country.toColumn(true), this._se$11.StartDate ]);
     }
 }
 
@@ -7446,7 +7446,7 @@ Luxena.Travel.TransferEditForm.prototype = {
     _se$4: null,
     
     createControls: function Luxena_Travel_TransferEditForm$createControls() {
-        this.get_form().add(this.columnPanel([ this.mainDataPanel([ this._se$4.IssueDate, this._se$4.ReissueFor, this._se$4.PassengerRow, this._se$4.Provider, this._se$4.StartDate, this._se$4.CustomerAndOrder, this._se$4.Intermediary, this._se$4.Country, this._se$4.PnrAndTourCodes, this._se$4.SellerAndOwnerRow, this._se$4.LegalEntity ]), this._se$4.Finance ]));
+        this.get_form().add(this.columnPanel([ this.mainDataPanel([ this._se$4.IssueDate, this._se$4.PnrAndTourCodes, this._se$4.ReissueFor, this._se$4.PassengerRow, this._se$4.Provider, this._se$4.CustomerAndOrder, this._se$4.Intermediary, this._se$4.Country, this._se$4.StartDate, this._se$4.SellerAndOwnerRow, this._se$4.LegalEntity ]), this._se$4.Finance ]));
         this.get_form().add(this.mainDataPanel([ this._se$4.Note ]));
     }
 }
@@ -7504,7 +7504,7 @@ Luxena.Travel.GenericProductListTab.prototype = {
     },
     
     createCustomColumnConfigs: function Luxena_Travel_GenericProductListTab$createCustomColumnConfigs() {
-        this.addColumns([ this._se$11.PassengerName, this._se$11.Provider, this._se$11.GenericType, this._se$11.Number, this._se$11.StartDate, this._se$11.FinishDate, this._se$11.Country.toColumn(true), this._se$11.PnrCode.toColumn(true), this._se$11.TourCode.toColumn(true) ]);
+        this.addColumns([ this._se$11.Name, this._se$11.Number.toColumn(true, 150, this._se$11.getNameRenderer()), this._se$11.PnrCode.toColumn(true, 150, this._se$11.getNameRenderer()), this._se$11.TourCode.toColumn(true), this._se$11.PassengerName, this._se$11.Provider, this._se$11.GenericType, this._se$11.StartDate, this._se$11.FinishDate, this._se$11.Country.toColumn(true) ]);
     }
 }
 
@@ -7530,7 +7530,7 @@ Luxena.Travel.GenericProductEditForm.prototype = {
     },
     
     createControls: function Luxena_Travel_GenericProductEditForm$createControls() {
-        this.get_form().add(this.columnPanel([ this.mainDataPanel([ this._se$4.IssueDate, this._se$4.ReissueFor, this._se$4.PassengerRow, this._se$4.Provider, this._se$4.GenericType, this._se$4.Number, this._se$4.rowPanel2v(this._se$4.StartDate, null, this._se$4.FinishDate, null), this._se$4.CustomerAndOrder, this._se$4.Intermediary, this._se$4.Country, this._se$4.PnrAndTourCodes, this._se$4.SellerAndOwnerRow, this._se$4.LegalEntity ]), this._se$4.Finance ]));
+        this.get_form().add(this.columnPanel([ this.mainDataPanel([ this._se$4.rowPanel2v(this._se$4.IssueDate, null, this._se$4.ReissueFor, null), this._se$4.Number, this._se$4.PnrAndTourCodes, this._se$4.PassengerRow, this._se$4.Provider, this._se$4.GenericType, this._se$4.CustomerAndOrder, this._se$4.Intermediary, this._se$4.Country, this._se$4.rowPanel2v(this._se$4.StartDate, null, this._se$4.FinishDate, null), this._se$4.SellerAndOwnerRow, this._se$4.LegalEntity ]), this._se$4.Finance ]));
         this.get_form().add(this.mainDataPanel([ this._se$4.Note ]));
     }
 }
@@ -7583,7 +7583,7 @@ Luxena.Travel.CarRentalListTab.prototype = {
     },
     
     createCustomColumnConfigs: function Luxena_Travel_CarRentalListTab$createCustomColumnConfigs() {
-        this.addColumns([ this._se$11.PassengerName, this._se$11.Provider, this._se$11.StartDate, this._se$11.FinishDate, this._se$11.Country.toColumn(true), this._se$11.PnrCode.toColumn(true), this._se$11.TourCode.toColumn(true) ]);
+        this.addColumns([ this._se$11.Name, this._se$11.PnrCode.toColumn(true, 150, this._se$11.getNameRenderer()), this._se$11.TourCode.toColumn(true), this._se$11.PassengerName, this._se$11.Provider, this._se$11.StartDate, this._se$11.FinishDate, this._se$11.Country.toColumn(true) ]);
     }
 }
 
@@ -7604,7 +7604,7 @@ Luxena.Travel.CarRentalEditForm.prototype = {
     _se$4: null,
     
     createControls: function Luxena_Travel_CarRentalEditForm$createControls() {
-        this.get_form().add(this.columnPanel([ this.mainDataPanel([ this._se$4.IssueDate, this._se$4.ReissueFor, this._se$4.PassengerRow, this._se$4.Provider, this._se$4.rowPanel2v(this._se$4.StartDate, null, this._se$4.FinishDate, null), this._se$4.CustomerAndOrder, this._se$4.Intermediary, this._se$4.CarBrand, this._se$4.Country, this._se$4.PnrAndTourCodes, this._se$4.SellerAndOwnerRow, this._se$4.LegalEntity ]), this._se$4.Finance ]));
+        this.get_form().add(this.columnPanel([ this.mainDataPanel([ this._se$4.rowPanel2v(this._se$4.IssueDate, null, this._se$4.ReissueFor, null), this._se$4.PnrAndTourCodes, this._se$4.PassengerRow, this._se$4.Provider, this._se$4.CustomerAndOrder, this._se$4.Intermediary, this._se$4.Country, this._se$4.rowPanel2v(this._se$4.StartDate, null, this._se$4.FinishDate, null), this._se$4.CarBrand, this._se$4.SellerAndOwnerRow, this._se$4.LegalEntity ]), this._se$4.Finance ]));
         this.get_form().add(this.mainDataPanel([ this._se$4.Note ]));
     }
 }
@@ -7698,7 +7698,7 @@ Luxena.Travel.TourListTab.prototype = {
     },
     
     createCustomColumnConfigs: function Luxena_Travel_TourListTab$createCustomColumnConfigs() {
-        this.addColumns([ this._se$11.PassengerName, this._se$11.Provider, this._se$11.StartDate, this._se$11.FinishDate, this._se$11.Country.toColumn(true), this._se$11.PnrCode.toColumn(false, 150, this._se$11.getNameRenderer()), this._se$11.TourCode.toColumn(true), this._se$11.HotelName, this._se$11.HotelOffice.toColumn(true), this._se$11.HotelCode.toColumn(true), this._se$11.PlacementName, this._se$11.PlacementOffice.toColumn(true), this._se$11.PlacementCode.toColumn(true) ]);
+        this.addColumns([ this._se$11.Name, this._se$11.PnrCode.toColumn(true, 150, this._se$11.getNameRenderer()), this._se$11.TourCode.toColumn(true), this._se$11.PassengerName, this._se$11.Provider, this._se$11.Country.toColumn(true), this._se$11.StartDate, this._se$11.FinishDate, this._se$11.HotelName, this._se$11.HotelOffice.toColumn(true), this._se$11.HotelCode.toColumn(true), this._se$11.PlacementName, this._se$11.PlacementOffice.toColumn(true), this._se$11.PlacementCode.toColumn(true) ]);
     }
 }
 
@@ -7719,7 +7719,7 @@ Luxena.Travel.TourEditForm.prototype = {
     _se$4: null,
     
     createControls: function Luxena_Travel_TourEditForm$createControls() {
-        this.get_form().add(this.columnPanel([ this.mainDataPanel([ this._se$4.rowPanel2v(this._se$4.IssueDate, null, this._se$4.ReissueFor, null), this._se$4.PassengerRow, this._se$4.Provider, this._se$4.rowPanel2v(this._se$4.StartDate, null, this._se$4.FinishDate, null), this._se$4.CustomerAndOrder, this._se$4.Intermediary, this._se$4.Country, this._se$4.PnrAndTourCodes, this._se$4.HotelRow, this._se$4.PlacementRow, this._se$4.rowPanel2(this._se$4.AccommodationType, null, this._se$4.CateringType, null), this._se$4.AviaDescription, this._se$4.TransferDescription, this._se$4.SellerAndOwnerRow, this._se$4.LegalEntity ]), this._se$4.Finance ]));
+        this.get_form().add(this.columnPanel([ this.mainDataPanel([ this._se$4.rowPanel2v(this._se$4.IssueDate, null, this._se$4.ReissueFor, null), this._se$4.PnrAndTourCodes, this._se$4.PassengerRow, this._se$4.Provider, this._se$4.CustomerAndOrder, this._se$4.Intermediary, this._se$4.Country, this._se$4.rowPanel2v(this._se$4.StartDate, null, this._se$4.FinishDate, null), this._se$4.HotelRow, this._se$4.PlacementRow, this._se$4.rowPanel2(this._se$4.AccommodationType, null, this._se$4.CateringType, null), this._se$4.AviaDescription, this._se$4.TransferDescription, this._se$4.SellerAndOwnerRow, this._se$4.LegalEntity ]), this._se$4.Finance ]));
         this.get_form().add(this.mainDataPanel([ this._se$4.Note ]));
     }
 }
@@ -7785,7 +7785,7 @@ Luxena.Travel.AccommodationListTab.prototype = {
     },
     
     createCustomColumnConfigs: function Luxena_Travel_AccommodationListTab$createCustomColumnConfigs() {
-        this.addColumns([ this._se$11.PassengerName, this._se$11.Provider, this._se$11.StartDate, this._se$11.FinishDate, this._se$11.Country.toColumn(true), this._se$11.PnrCode.toColumn(false, 150, this._se$11.getNameRenderer()), this._se$11.TourCode.toColumn(true), this._se$11.HotelName, this._se$11.HotelOffice.toColumn(true), this._se$11.HotelCode.toColumn(true), this._se$11.PlacementName, this._se$11.PlacementOffice.toColumn(true), this._se$11.PlacementCode.toColumn(true) ]);
+        this.addColumns([ this._se$11.Name, this._se$11.PnrCode.toColumn(true, 150, this._se$11.getNameRenderer()), this._se$11.TourCode.toColumn(true), this._se$11.PassengerName, this._se$11.Provider, this._se$11.Country.toColumn(true), this._se$11.StartDate, this._se$11.FinishDate, this._se$11.HotelName, this._se$11.HotelOffice.toColumn(true), this._se$11.HotelCode.toColumn(true), this._se$11.PlacementName, this._se$11.PlacementOffice.toColumn(true), this._se$11.PlacementCode.toColumn(true) ]);
     }
 }
 
@@ -7806,7 +7806,7 @@ Luxena.Travel.AccommodationEditForm.prototype = {
     _se$4: null,
     
     createControls: function Luxena_Travel_AccommodationEditForm$createControls() {
-        this.get_form().add(this.columnPanel([ this.mainDataPanel([ this._se$4.rowPanel2v(this._se$4.IssueDate, null, this._se$4.ReissueFor, null), this._se$4.PassengerRow, this._se$4.Provider, this._se$4.rowPanel2v(this._se$4.StartDate, null, this._se$4.FinishDate, null), this._se$4.CustomerAndOrder, this._se$4.Intermediary, this._se$4.Country, this._se$4.PnrAndTourCodes, this._se$4.HotelRow, this._se$4.PlacementRow, this._se$4.rowPanel2(this._se$4.AccommodationType, null, this._se$4.CateringType, null), this._se$4.SellerAndOwnerRow, this._se$4.LegalEntity ]), this._se$4.Finance ]));
+        this.get_form().add(this.columnPanel([ this.mainDataPanel([ this._se$4.rowPanel2v(this._se$4.IssueDate, null, this._se$4.ReissueFor, null), this._se$4.PnrAndTourCodes, this._se$4.PassengerRow, this._se$4.Provider, this._se$4.CustomerAndOrder, this._se$4.Intermediary, this._se$4.Country, this._se$4.rowPanel2v(this._se$4.StartDate, null, this._se$4.FinishDate, null), this._se$4.HotelRow, this._se$4.PlacementRow, this._se$4.rowPanel2(this._se$4.AccommodationType, null, this._se$4.CateringType, null), this._se$4.SellerAndOwnerRow, this._se$4.LegalEntity ]), this._se$4.Finance ]));
         this.get_form().add(this.mainDataPanel([ this._se$4.Note ]));
     }
 }
@@ -7856,7 +7856,7 @@ Luxena.Travel.SimCardListTab.prototype = {
     _se$11: null,
     
     createCustomColumnConfigs: function Luxena_Travel_SimCardListTab$createCustomColumnConfigs() {
-        this.addColumns([ this._se$11.Number, this._se$11.Producer, this._se$11.PassengerName ]);
+        this.addColumns([ this._se$11.Name, this._se$11.Number.toColumn(true, 150, this._se$11.getNameRenderer()), this._se$11.PnrCode.toColumn(true, 150, this._se$11.getNameRenderer()), this._se$11.TourCode.toColumn(true), this._se$11.Producer, this._se$11.PassengerName ]);
     }
 }
 
@@ -7877,7 +7877,7 @@ Luxena.Travel.SimCardEditForm.prototype = {
     _se$4: null,
     
     createControls: function Luxena_Travel_SimCardEditForm$createControls() {
-        this.get_form().add(this.columnPanel([ this.mainDataPanel([ this._se$4.IssueDate, this._se$4.ReissueFor, this._se$4.PassengerRow, this._se$4.Number, this._se$4.Producer, this._se$4.IsSale, this._se$4.CustomerAndOrder, this._se$4.Intermediary, this._se$4.SellerAndOwnerRow, this._se$4.LegalEntity ]), this._se$4.Finance ]));
+        this.get_form().add(this.columnPanel([ this.mainDataPanel([ this._se$4.rowPanel2v(this._se$4.IssueDate, null, this._se$4.ReissueFor, null), this._se$4.Number, this._se$4.PnrAndTourCodes, this._se$4.ReissueFor, this._se$4.PassengerRow, this._se$4.Producer, this._se$4.IsSale, this._se$4.CustomerAndOrder, this._se$4.Intermediary, this._se$4.SellerAndOwnerRow, this._se$4.LegalEntity ]), this._se$4.Finance ]));
         this.get_form().add(this.mainDataPanel([ this._se$4.Note ]));
     }
 }
@@ -7932,7 +7932,7 @@ Luxena.Travel.InsuranceListTab.prototype = {
     },
     
     createCustomColumnConfigs: function Luxena_Travel_InsuranceListTab$createCustomColumnConfigs() {
-        this.addColumns([ this._se$11.PassengerName, this._se$11.Producer, this._se$11.Provider, this._se$11.Number, this._se$11.StartDate, this._se$11.FinishDate, this._se$11.Country.toColumn(true), this._se$11.PnrCode.toColumn(true), this._se$11.TourCode.toColumn(true) ]);
+        this.addColumns([ this._se$11.Name, this._se$11.Number.toColumn(true, 150, this._se$11.getNameRenderer()), this._se$11.PnrCode.toColumn(true, 150, this._se$11.getNameRenderer()), this._se$11.TourCode.toColumn(true), this._se$11.PassengerName, this._se$11.Producer, this._se$11.Provider, this._se$11.Country.toColumn(true), this._se$11.StartDate, this._se$11.FinishDate ]);
     }
 }
 
@@ -7953,7 +7953,7 @@ Luxena.Travel.InsuranceEditForm.prototype = {
     _se$4: null,
     
     createControls: function Luxena_Travel_InsuranceEditForm$createControls() {
-        this.get_form().add(this.columnPanel([ this.mainDataPanel([ this._se$4.IssueDate, this._se$4.ReissueFor, (this.get_isRefund()) ? this._se$4.RefundedProduct : null, this._se$4.PassengerRow, this._se$4.Producer, this._se$4.Number, this._se$4.rowPanel2v(this._se$4.StartDate, null, this._se$4.FinishDate, null), this._se$4.CustomerAndOrder, this._se$4.Intermediary, this._se$4.Country, this._se$4.PnrAndTourCodes, this._se$4.SellerAndOwnerRow, this._se$4.LegalEntity ]), this._se$4.Finance ]));
+        this.get_form().add(this.columnPanel([ this.mainDataPanel([ this._se$4.rowPanel2v(this._se$4.IssueDate, null, this._se$4.ReissueFor, null), this._se$4.Number, this._se$4.PnrAndTourCodes, (this.get_isRefund()) ? this._se$4.RefundedProduct : null, this._se$4.PassengerRow, this._se$4.Producer, this._se$4.CustomerAndOrder, this._se$4.Intermediary, this._se$4.Country, this._se$4.rowPanel2v(this._se$4.StartDate, null, this._se$4.FinishDate, null), this._se$4.SellerAndOwnerRow, this._se$4.LegalEntity ]), this._se$4.Finance ]));
         this.get_form().add(this.mainDataPanel([ this._se$4.Note ]));
     }
 }
@@ -8383,7 +8383,7 @@ Luxena.Travel.AviaTicketEditForm.prototype = {
     },
     
     createControls: function Luxena_Travel_AviaTicketEditForm$createControls() {
-        var pnlMain = this.columnPanel([ this.mainDataPanel([ this._se$5.IssueDate, this._se$5.FullNumber, this._se$5.ReissueFor, this._se$5.PassengerRow, this._se$5.GdsPassportStatus, this._se$5.Provider.toField(-3), this._se$5.CustomerAndOrder, this._se$5.Intermediary, this._se$5.Country, this._se$5.Originator, this._se$5.PnrAndTourCodes, this._se$5.BookerRow, this._se$5.TicketerRow, this._se$5.TicketingIataOffice, this._se$5.SellerAndOwnerRow, this._se$5.LegalEntity ]), this._se$5.Finance ]);
+        var pnlMain = this.columnPanel([ this.mainDataPanel([ this._se$5.IssueDate, this._se$5.FullNumber, this._se$5.PnrAndTourCodes, this._se$5.ReissueFor, this._se$5.PassengerRow, this._se$5.GdsPassportStatus, this._se$5.Provider.toField(-3), this._se$5.CustomerAndOrder, this._se$5.Intermediary, this._se$5.Country, this._se$5.Originator, this._se$5.BookerRow, this._se$5.TicketerRow, this._se$5.TicketingIataOffice, this._se$5.SellerAndOwnerRow, this._se$5.LegalEntity ]), this._se$5.Finance ]);
         pnlMain.title = Luxena.Travel.DomainRes.productType_AviaTicket;
         this.get_form().add(this.tabPanel(600, [ pnlMain, this.tabFitPane(Luxena.Travel.DomainRes.aviaTicket_FlightSegment, this._se$5.gridMember('Segments', new Luxena.Travel.FlightSegmentGridControl())) ]));
         this.get_form().add(this._se$5.Note.toEditor());
@@ -8444,7 +8444,7 @@ Luxena.Travel.AviaMcoEditForm.prototype = {
     _se$5: null,
     
     createControls: function Luxena_Travel_AviaMcoEditForm$createControls() {
-        this.get_form().add(this.columnPanel([ this.mainDataPanel([ this._se$5.IssueDate, this._se$5.FullNumber, this._se$5.ReissueFor, this._se$5.PassengerName, this._se$5.Provider.toField(-3), this._se$5.CustomerAndOrder, this._se$5.Intermediary, this._se$5.Country, this._se$5.Originator, this._se$5.PnrAndTourCodes, this._se$5.BookerRow, this._se$5.TicketerRow, this._se$5.TicketingIataOffice, this._se$5.SellerAndOwnerRow, this._se$5.LegalEntity, this._se$5.Description.toField(350, function(m) {
+        this.get_form().add(this.columnPanel([ this.mainDataPanel([ this._se$5.IssueDate, this._se$5.FullNumber, this._se$5.PnrAndTourCodes, this._se$5.ReissueFor, this._se$5.PassengerName, this._se$5.Provider.toField(-3), this._se$5.CustomerAndOrder, this._se$5.Intermediary, this._se$5.Country, this._se$5.Originator, this._se$5.BookerRow, this._se$5.TicketerRow, this._se$5.TicketingIataOffice, this._se$5.SellerAndOwnerRow, this._se$5.LegalEntity, this._se$5.Description.toField(350, function(m) {
             m.height(35);
         }) ]), this._se$5.Finance ]));
         this.get_form().add(this.mainDataPanel([ this._se$5.Note ]));
@@ -8504,7 +8504,7 @@ Luxena.Travel.AviaRefundEditForm.prototype = {
     },
     
     createControls: function Luxena_Travel_AviaRefundEditForm$createControls() {
-        this.get_form().add(this.columnPanel([ this.mainDataPanel([ this._se$5.IssueDate, this._se$5.FullNumber, this._se$5.RefundedProduct, this._se$5.PassengerName, this._se$5.Provider.toField(-3), this._se$5.CustomerAndOrder, this._se$5.Intermediary, this._se$5.Country, this._se$5.Originator, this._se$5.PnrAndTourCodes, this._se$5.BookerRow, this._se$5.TicketerRow, this._se$5.TicketingIataOffice, this._se$5.SellerAndOwnerRow, this._se$5.LegalEntity ]), this._se$5.Finance ]));
+        this.get_form().add(this.columnPanel([ this.mainDataPanel([ this._se$5.IssueDate, this._se$5.FullNumber, this._se$5.PnrAndTourCodes, this._se$5.RefundedProduct, this._se$5.PassengerName, this._se$5.Provider.toField(-3), this._se$5.CustomerAndOrder, this._se$5.Intermediary, this._se$5.Country, this._se$5.Originator, this._se$5.BookerRow, this._se$5.TicketerRow, this._se$5.TicketingIataOffice, this._se$5.SellerAndOwnerRow, this._se$5.LegalEntity ]), this._se$5.Finance ]));
         this.get_form().add(this.mainDataPanel([ this._se$5.Note ]));
     }
 }
@@ -9984,7 +9984,7 @@ Luxena.Travel.AccommodationViewForm.prototype = {
     
     getCommonDataHtml: function Luxena_Travel_AccommodationViewForm$getCommonDataHtml() {
         var v = new Luxena.Travel.SemanticDomain(this).Accommodation;
-        var commonDataHtml = "<div class='commonData'><table><col style='width: 135px' />" + v.IssueDate.toHtmlTr2(this._r$8, true) + v.StartDate.toHtmlTr2(this._r$8) + v.FinishDate.toHtmlTr2(this._r$8) + v.Name.toHtmlTr2(this._r$8, true) + v.ReissueFor.toHtmlTr2(this._r$8) + v.ReissuedBy.toHtmlTr2(this._r$8) + v.Refund.toHtmlTr2(this._r$8) + v.RefundedProduct.toHtmlTr2(this._r$8) + this.getPassengersHtml(this._r$8.Passengers) + v.Provider.toHtmlTr2(this._r$8) + this.getCustomerAndIntermediaryHtml(this._r$8.Customer, this._r$8.Intermediary) + v.Country.toHtmlTr2(this._r$8) + v.TourCode.toHtmlTr2(this._r$8) + v.Seller.toHtmlTr2(this._r$8, true) + v.Owner.toHtmlTr2(this._r$8, true) + v.LegalEntity.toHtmlTr2(this._r$8) + v.Order.toHtmlTr2(this._r$8, true) + '</table></div>';
+        var commonDataHtml = "<div class='commonData'><table><col style='width: 135px' />" + v.IssueDate.toHtmlTr2(this._r$8, true) + v.Name.toHtmlTr2(this._r$8, true) + this.getPnrCodeAndTourCodeHtml() + v.ReissueFor.toHtmlTr2(this._r$8) + v.ReissuedBy.toHtmlTr2(this._r$8) + v.Refund.toHtmlTr2(this._r$8) + v.RefundedProduct.toHtmlTr2(this._r$8) + this.getPassengersHtml(this._r$8.Passengers) + v.Provider.toHtmlTr2(this._r$8) + this.getCustomerAndIntermediaryHtml(this._r$8.Customer, this._r$8.Intermediary) + v.Country.toHtmlTr2(this._r$8) + v.StartDate.toHtmlTr2(this._r$8) + v.FinishDate.toHtmlTr2(this._r$8) + this.getHotelHtml(v.HotelName, this._r$8.HotelName, this._r$8.HotelOffice, this._r$8.HotelCode) + this.getHotelHtml(v.PlacementName, this._r$8.PlacementName, this._r$8.PlacementOffice, this._r$8.PlacementCode) + v.AccommodationType.toHtmlTr2(this._r$8) + v.CateringType.toHtmlTr2(this._r$8) + v.Seller.toHtmlTr2(this._r$8, true) + v.Owner.toHtmlTr2(this._r$8, true) + v.LegalEntity.toHtmlTr2(this._r$8) + v.Order.toHtmlTr2(this._r$8, true) + '</table></div>';
         return commonDataHtml;
     },
     
@@ -10360,8 +10360,7 @@ Luxena.Travel.CarRentalViewForm.prototype = {
     
     getCommonDataHtml: function Luxena_Travel_CarRentalViewForm$getCommonDataHtml() {
         var v = new Luxena.Travel.SemanticDomain(this).CarRental;
-        var commonDataHtml = "<div class='commonData'><table><col style='width: 135px' />" + v.IssueDate.toHtmlTr2(this._r$8, true) + v.StartDate.toHtmlTr2(this._r$8) + v.FinishDate.toHtmlTr2(this._r$8) + v.Name.toHtmlTr2(this._r$8, true) + v.ReissueFor.toHtmlTr2(this._r$8) + v.ReissuedBy.toHtmlTr2(this._r$8) + v.Refund.toHtmlTr2(this._r$8) + v.RefundedProduct.toHtmlTr2(this._r$8) + this.getPassengersHtml(this._r$8.Passengers) + v.Provider.toHtmlTr2(this._r$8) + this.getCustomerAndIntermediaryHtml(this._r$8.Customer, this._r$8.Intermediary) + v.Country.toHtmlTr2(this._r$8) + v.TourCode.toHtmlTr2(this._r$8) + v.Seller.toHtmlTr2(this._r$8, true) + v.Owner.toHtmlTr2(this._r$8, true) + v.LegalEntity.toHtmlTr2(this._r$8) + v.Order.toHtmlTr2(this._r$8, true) + '</table></div>';
-        return commonDataHtml;
+        return "<div class='commonData'><table><col style='width: 135px' />" + v.IssueDate.toHtmlTr2(this._r$8, true) + v.Name.toHtmlTr2(this._r$8, true) + this.getPnrCodeAndTourCodeHtml() + v.ReissueFor.toHtmlTr2(this._r$8) + v.ReissuedBy.toHtmlTr2(this._r$8) + v.Refund.toHtmlTr2(this._r$8) + v.RefundedProduct.toHtmlTr2(this._r$8) + this.getPassengersHtml(this._r$8.Passengers) + v.Provider.toHtmlTr2(this._r$8) + this.getCustomerAndIntermediaryHtml(this._r$8.Customer, this._r$8.Intermediary) + v.Country.toHtmlTr2(this._r$8) + v.StartDate.toHtmlTr2(this._r$8) + v.FinishDate.toHtmlTr2(this._r$8) + v.CarBrand.toHtmlTr2(this._r$8) + v.Seller.toHtmlTr2(this._r$8, true) + v.Owner.toHtmlTr2(this._r$8, true) + v.LegalEntity.toHtmlTr2(this._r$8) + v.Order.toHtmlTr2(this._r$8, true) + '</table></div>';
     },
     
     _r$8: null,
@@ -10415,8 +10414,7 @@ Luxena.Travel.BusTicketViewForm.prototype = {
     
     getCommonDataHtml: function Luxena_Travel_BusTicketViewForm$getCommonDataHtml() {
         var v = new Luxena.Travel.SemanticDomain(this).BusTicket;
-        var commonDataHtml = "<div class='commonData'><table><col style='width: 135px' />" + v.IssueDate.toHtmlTr2(this._r$8, true) + v.Number.toHtmlTr2(this._r$8, true) + v.ReissueFor.toHtmlTr2(this._r$8) + v.ReissuedBy.toHtmlTr2(this._r$8) + v.Refund.toHtmlTr2(this._r$8) + v.RefundedProduct.toHtmlTr2(this._r$8) + this.getPassengerHtml(this._r$8.Passenger, this._r$8.PassengerName) + v.Provider.toHtmlTr2(this._r$8) + this.getCustomerAndIntermediaryHtml(this._r$8.Customer, this._r$8.Intermediary) + Luxena.Travel.ProductViewForm.getOriginHtml(this._r$8) + v.Seller.toHtmlTr2(this._r$8, true) + v.Owner.toHtmlTr2(this._r$8, true) + v.LegalEntity.toHtmlTr2(this._r$8) + v.Order.toHtmlTr2(this._r$8, true) + '</table></div>';
-        return commonDataHtml;
+        return "<div class='commonData'><table><col style='width: 135px' />" + v.IssueDate.toHtmlTr2(this._r$8, true) + v.Number.toHtmlTr2(this._r$8, true) + this.getPnrCodeAndTourCodeHtml() + v.ReissueFor.toHtmlTr2(this._r$8) + v.ReissuedBy.toHtmlTr2(this._r$8) + v.Refund.toHtmlTr2(this._r$8) + v.RefundedProduct.toHtmlTr2(this._r$8) + this.getPassengerHtml(this._r$8.Passenger, this._r$8.PassengerName) + v.Provider.toHtmlTr2(this._r$8) + this.getCustomerAndIntermediaryHtml(this._r$8.Customer, this._r$8.Intermediary) + Luxena.Travel.ProductViewForm.getOriginHtml(this._r$8) + "<tr><td class='fieldLabel'>" + Luxena.Travel.DomainRes.common_Departure + ":</td><td class='fieldValue'>" + this._r$8.DeparturePlace + ' / ' + Ext.util.Format.date(this._r$8.DepartureDate, 'd.m.Y') + ' ' + this._r$8.DepartureTime + '</td></tr>' + "<tr><td class='fieldLabel'>" + Luxena.Travel.DomainRes.common_Arrival + ":</td><td class='fieldValue'>" + this._r$8.ArrivalPlace + ' / ' + Ext.util.Format.date(this._r$8.ArrivalDate, 'd.m.Y') + ' ' + this._r$8.ArrivalTime + '</td></tr>' + v.SeatNumber.toHtmlTr2(this._r$8) + v.Seller.toHtmlTr2(this._r$8, true) + v.Owner.toHtmlTr2(this._r$8, true) + v.LegalEntity.toHtmlTr2(this._r$8) + v.Order.toHtmlTr2(this._r$8, true) + '</table></div>';
     },
     
     addRefund: function Luxena_Travel_BusTicketViewForm$addRefund() {
@@ -10481,8 +10479,7 @@ Luxena.Travel.GenericProductViewForm.prototype = {
     
     getCommonDataHtml: function Luxena_Travel_GenericProductViewForm$getCommonDataHtml() {
         var v = new Luxena.Travel.SemanticDomain(this).GenericProduct;
-        var commonDataHtml = "<div class='commonData'><table><col style='width: 135px' />" + v.IssueDate.toHtmlTr2(this._r$8, true) + v.Name.toHtmlTr2(this._r$8, true) + v.ReissueFor.toHtmlTr2(this._r$8) + v.ReissuedBy.toHtmlTr2(this._r$8) + v.Refund.toHtmlTr2(this._r$8) + v.RefundedProduct.toHtmlTr2(this._r$8) + this.getPassengersHtml(this._r$8.Passengers) + v.Provider.toHtmlTr2(this._r$8) + v.StartDate.toHtmlTr2(this._r$8) + v.FinishDate.toHtmlTr2(this._r$8) + this.getCustomerAndIntermediaryHtml(this._r$8.Customer, this._r$8.Intermediary) + v.Country.toHtmlTr2(this._r$8) + v.TourCode.toHtmlTr2(this._r$8) + v.Seller.toHtmlTr2(this._r$8, true) + v.Owner.toHtmlTr2(this._r$8, true) + v.LegalEntity.toHtmlTr2(this._r$8) + v.Order.toHtmlTr2(this._r$8, true) + '</table></div>';
-        return commonDataHtml;
+        return "<div class='commonData'><table><col style='width: 135px' />" + v.IssueDate.toHtmlTr2(this._r$8, true) + v.Name.toHtmlTr2(this._r$8, true) + this.getPnrCodeAndTourCodeHtml() + v.ReissueFor.toHtmlTr2(this._r$8) + v.ReissuedBy.toHtmlTr2(this._r$8) + v.Refund.toHtmlTr2(this._r$8) + v.RefundedProduct.toHtmlTr2(this._r$8) + this.getPassengersHtml(this._r$8.Passengers) + v.Provider.toHtmlTr2(this._r$8) + this.getCustomerAndIntermediaryHtml(this._r$8.Customer, this._r$8.Intermediary) + v.Country.toHtmlTr2(this._r$8) + v.StartDate.toHtmlTr2(this._r$8) + v.FinishDate.toHtmlTr2(this._r$8) + v.TourCode.toHtmlTr2(this._r$8) + v.Seller.toHtmlTr2(this._r$8, true) + v.Owner.toHtmlTr2(this._r$8, true) + v.LegalEntity.toHtmlTr2(this._r$8) + v.Order.toHtmlTr2(this._r$8, true) + '</table></div>';
     },
     
     _r$8: null,
@@ -10536,8 +10533,7 @@ Luxena.Travel.InsuranceViewForm.prototype = {
     
     getCommonDataHtml: function Luxena_Travel_InsuranceViewForm$getCommonDataHtml() {
         var v = new Luxena.Travel.SemanticDomain(this).Insurance;
-        var commonDataHtml = "<div class='commonData'><table><col style='width: 135px' />" + v.IssueDate.toHtmlTr2(this._r$8, true) + v.Name.toHtmlTr2(this._r$8, true) + v.ReissueFor.toHtmlTr2(this._r$8) + v.ReissuedBy.toHtmlTr2(this._r$8) + v.Refund.toHtmlTr2(this._r$8) + v.RefundedProduct.toHtmlTr2(this._r$8) + this.getPassengersHtml(this._r$8.Passengers) + v.Producer.toHtmlTr2(this._r$8) + v.Provider.toHtmlTr2(this._r$8) + v.StartDate.toHtmlTr2(this._r$8) + v.FinishDate.toHtmlTr2(this._r$8) + this.getCustomerAndIntermediaryHtml(this._r$8.Customer, this._r$8.Intermediary) + v.Country.toHtmlTr2(this._r$8) + v.TourCode.toHtmlTr2(this._r$8) + v.Seller.toHtmlTr2(this._r$8, true) + v.Owner.toHtmlTr2(this._r$8, true) + v.LegalEntity.toHtmlTr2(this._r$8) + v.Order.toHtmlTr2(this._r$8, true) + '</table></div>';
-        return commonDataHtml;
+        return "<div class='commonData'><table><col style='width: 135px' />" + v.IssueDate.toHtmlTr2(this._r$8, true) + v.Name.toHtmlTr2(this._r$8, true) + this.getPnrCodeAndTourCodeHtml() + v.ReissueFor.toHtmlTr2(this._r$8) + v.ReissuedBy.toHtmlTr2(this._r$8) + v.Refund.toHtmlTr2(this._r$8) + v.RefundedProduct.toHtmlTr2(this._r$8) + this.getPassengersHtml(this._r$8.Passengers) + v.Producer.toHtmlTr2(this._r$8) + v.Provider.toHtmlTr2(this._r$8) + this.getCustomerAndIntermediaryHtml(this._r$8.Customer, this._r$8.Intermediary) + v.Country.toHtmlTr2(this._r$8) + v.StartDate.toHtmlTr2(this._r$8) + v.FinishDate.toHtmlTr2(this._r$8) + v.Seller.toHtmlTr2(this._r$8, true) + v.Owner.toHtmlTr2(this._r$8, true) + v.LegalEntity.toHtmlTr2(this._r$8) + v.Order.toHtmlTr2(this._r$8, true) + '</table></div>';
     },
     
     addRefund: function Luxena_Travel_InsuranceViewForm$addRefund() {
@@ -10677,8 +10673,7 @@ Luxena.Travel.TransferViewForm.prototype = {
     
     getCommonDataHtml: function Luxena_Travel_TransferViewForm$getCommonDataHtml() {
         var v = new Luxena.Travel.SemanticDomain(this).Transfer;
-        var commonDataHtml = "<div class='commonData'><table><col style='width: 135px' />" + v.IssueDate.toHtmlTr2(this._r$8, true) + v.StartDate.toHtmlTr2(this._r$8) + v.Name.toHtmlTr2(this._r$8, true) + v.ReissueFor.toHtmlTr2(this._r$8) + v.ReissuedBy.toHtmlTr2(this._r$8) + v.Refund.toHtmlTr2(this._r$8) + v.RefundedProduct.toHtmlTr2(this._r$8) + this.getPassengersHtml(this._r$8.Passengers) + this.getCustomerAndIntermediaryHtml(this._r$8.Customer, this._r$8.Intermediary) + v.Country.toHtmlTr2(this._r$8) + v.TourCode.toHtmlTr2(this._r$8) + v.Seller.toHtmlTr2(this._r$8, true) + v.Owner.toHtmlTr2(this._r$8, true) + v.LegalEntity.toHtmlTr2(this._r$8) + v.Order.toHtmlTr2(this._r$8, true) + '</table></div>';
-        return commonDataHtml;
+        return "<div class='commonData'><table><col style='width: 135px' />" + v.IssueDate.toHtmlTr2(this._r$8, true) + v.Name.toHtmlTr2(this._r$8, true) + this.getPnrCodeAndTourCodeHtml() + v.ReissueFor.toHtmlTr2(this._r$8) + v.ReissuedBy.toHtmlTr2(this._r$8) + v.Refund.toHtmlTr2(this._r$8) + v.RefundedProduct.toHtmlTr2(this._r$8) + this.getPassengersHtml(this._r$8.Passengers) + this.getCustomerAndIntermediaryHtml(this._r$8.Customer, this._r$8.Intermediary) + v.Country.toHtmlTr2(this._r$8) + v.StartDate.toHtmlTr2(this._r$8) + v.Seller.toHtmlTr2(this._r$8, true) + v.Owner.toHtmlTr2(this._r$8, true) + v.LegalEntity.toHtmlTr2(this._r$8) + v.Order.toHtmlTr2(this._r$8, true) + '</table></div>';
     },
     
     _r$8: null,
@@ -10714,8 +10709,7 @@ Luxena.Travel.TourViewForm.prototype = {
     
     getCommonDataHtml: function Luxena_Travel_TourViewForm$getCommonDataHtml() {
         var v = new Luxena.Travel.SemanticDomain(this).Tour;
-        var commonDataHtml = "<div class='commonData'><table><col style='width: 135px' />" + v.IssueDate.toHtmlTr2(this._r$8, true) + v.StartDate.toHtmlTr2(this._r$8) + v.FinishDate.toHtmlTr2(this._r$8) + v.Name.toHtmlTr2(this._r$8, true) + v.ReissueFor.toHtmlTr2(this._r$8) + v.ReissuedBy.toHtmlTr2(this._r$8) + v.Refund.toHtmlTr2(this._r$8) + v.RefundedProduct.toHtmlTr2(this._r$8) + this.getPassengersHtml(this._r$8.Passengers) + v.Provider.toHtmlTr2(this._r$8) + this.getCustomerAndIntermediaryHtml(this._r$8.Customer, this._r$8.Intermediary) + v.Country.toHtmlTr2(this._r$8) + v.TourCode.toHtmlTr2(this._r$8) + v.Seller.toHtmlTr2(this._r$8, true) + v.Owner.toHtmlTr2(this._r$8, true) + v.LegalEntity.toHtmlTr2(this._r$8) + v.Order.toHtmlTr2(this._r$8, true) + '</table></div>';
-        return commonDataHtml;
+        return "<div class='commonData'><table><col style='width: 135px' />" + v.IssueDate.toHtmlTr2(this._r$8, true) + v.Name.toHtmlTr2(this._r$8, true) + this.getPnrCodeAndTourCodeHtml() + v.ReissueFor.toHtmlTr2(this._r$8) + v.ReissuedBy.toHtmlTr2(this._r$8) + v.Refund.toHtmlTr2(this._r$8) + v.RefundedProduct.toHtmlTr2(this._r$8) + this.getPassengersHtml(this._r$8.Passengers) + v.Provider.toHtmlTr2(this._r$8) + this.getCustomerAndIntermediaryHtml(this._r$8.Customer, this._r$8.Intermediary) + v.Country.toHtmlTr2(this._r$8) + v.StartDate.toHtmlTr2(this._r$8) + v.FinishDate.toHtmlTr2(this._r$8) + this.getHotelHtml(v.HotelName, this._r$8.HotelName, this._r$8.HotelOffice, this._r$8.HotelCode) + this.getHotelHtml(v.PlacementName, this._r$8.PlacementName, this._r$8.PlacementOffice, this._r$8.PlacementCode) + v.AccommodationType.toHtmlTr2(this._r$8) + v.CateringType.toHtmlTr2(this._r$8) + v.Seller.toHtmlTr2(this._r$8, true) + v.Owner.toHtmlTr2(this._r$8, true) + v.LegalEntity.toHtmlTr2(this._r$8) + v.Order.toHtmlTr2(this._r$8, true) + '</table></div>';
     },
     
     _r$8: null,
@@ -10751,8 +10745,7 @@ Luxena.Travel.ExcursionViewForm.prototype = {
     
     getCommonDataHtml: function Luxena_Travel_ExcursionViewForm$getCommonDataHtml() {
         var v = new Luxena.Travel.SemanticDomain(this).Excursion;
-        var commonDataHtml = "<div class='commonData'><table><col style='width: 135px' />" + v.IssueDate.toHtmlTr2(this._r$8, true) + v.StartDate.toHtmlTr2(this._r$8) + v.FinishDate.toHtmlTr2(this._r$8) + v.Name.toHtmlTr2(this._r$8, true) + v.ReissueFor.toHtmlTr2(this._r$8) + v.ReissuedBy.toHtmlTr2(this._r$8) + v.Refund.toHtmlTr2(this._r$8) + v.RefundedProduct.toHtmlTr2(this._r$8) + this.getPassengersHtml(this._r$8.Passengers) + this.getCustomerAndIntermediaryHtml(this._r$8.Customer, this._r$8.Intermediary) + v.TourName.toHtmlTr2(this._r$8) + v.Country.toHtmlTr2(this._r$8) + v.TourCode.toHtmlTr2(this._r$8) + v.Seller.toHtmlTr2(this._r$8, true) + v.Owner.toHtmlTr2(this._r$8, true) + v.LegalEntity.toHtmlTr2(this._r$8) + v.Order.toHtmlTr2(this._r$8, true) + '</table></div>';
-        return commonDataHtml;
+        return "<div class='commonData'><table><col style='width: 135px' />" + v.IssueDate.toHtmlTr2(this._r$8, true) + v.Name.toHtmlTr2(this._r$8, true) + this.getPnrCodeAndTourCodeHtml() + v.ReissueFor.toHtmlTr2(this._r$8) + v.ReissuedBy.toHtmlTr2(this._r$8) + v.Refund.toHtmlTr2(this._r$8) + v.RefundedProduct.toHtmlTr2(this._r$8) + this.getPassengersHtml(this._r$8.Passengers) + this.getCustomerAndIntermediaryHtml(this._r$8.Customer, this._r$8.Intermediary) + v.Country.toHtmlTr2(this._r$8) + v.TourName.toHtmlTr2(this._r$8) + v.StartDate.toHtmlTr2(this._r$8) + v.FinishDate.toHtmlTr2(this._r$8) + v.Seller.toHtmlTr2(this._r$8, true) + v.Owner.toHtmlTr2(this._r$8, true) + v.LegalEntity.toHtmlTr2(this._r$8) + v.Order.toHtmlTr2(this._r$8, true) + '</table></div>';
     },
     
     _r$8: null,
@@ -10788,8 +10781,7 @@ Luxena.Travel.IsicViewForm.prototype = {
     
     getCommonDataHtml: function Luxena_Travel_IsicViewForm$getCommonDataHtml() {
         var v = new Luxena.Travel.SemanticDomain(this).Isic;
-        var commonDataHtml = "<div class='commonData'><table><col style='width: 135px' />" + v.IssueDate.toHtmlTr2(this._r$8, true) + v.CardType.toHtmlTr2(this._r$8, true) + v.Name.toHtmlTr2(this._r$8, true) + v.ReissueFor.toHtmlTr2(this._r$8) + v.ReissuedBy.toHtmlTr2(this._r$8) + v.Refund.toHtmlTr2(this._r$8) + v.RefundedProduct.toHtmlTr2(this._r$8) + this.getPassengerHtml(this._r$8.Passenger, this._r$8.PassengerName) + this.getCustomerAndIntermediaryHtml(this._r$8.Customer, this._r$8.Intermediary) + v.Seller.toHtmlTr2(this._r$8, true) + v.Owner.toHtmlTr2(this._r$8, true) + v.LegalEntity.toHtmlTr2(this._r$8) + v.Order.toHtmlTr2(this._r$8, true) + '</table></div>';
-        return commonDataHtml;
+        return "<div class='commonData'><table><col style='width: 135px' />" + v.IssueDate.toHtmlTr2(this._r$8, true) + v.Name.toHtmlTr2(this._r$8, true) + this.getPnrCodeAndTourCodeHtml() + v.ReissueFor.toHtmlTr2(this._r$8) + v.ReissuedBy.toHtmlTr2(this._r$8) + v.Refund.toHtmlTr2(this._r$8) + v.RefundedProduct.toHtmlTr2(this._r$8) + this.getPassengerHtml(this._r$8.Passenger, this._r$8.PassengerName) + this.getCustomerAndIntermediaryHtml(this._r$8.Customer, this._r$8.Intermediary) + v.CardType.toHtmlTr2(this._r$8, true) + v.Number1.toHtmlTr2(this._r$8) + v.Number2.toHtmlTr2(this._r$8) + v.Seller.toHtmlTr2(this._r$8, true) + v.Owner.toHtmlTr2(this._r$8, true) + v.LegalEntity.toHtmlTr2(this._r$8) + v.Order.toHtmlTr2(this._r$8, true) + '</table></div>';
     },
     
     _r$8: null,
@@ -10972,8 +10964,7 @@ Luxena.Travel.SimCardViewForm.prototype = {
     
     getCommonDataHtml: function Luxena_Travel_SimCardViewForm$getCommonDataHtml() {
         var v = new Luxena.Travel.SemanticDomain(this).SimCard;
-        var commonDataHtml = "<div class='commonData'><table><col style='width: 135px' />" + v.IssueDate.toHtmlTr2(this._r$8, true) + v.Number.toHtmlTr2(this._r$8, true) + v.ReissueFor.toHtmlTr2(this._r$8) + v.ReissuedBy.toHtmlTr2(this._r$8) + v.Refund.toHtmlTr2(this._r$8) + v.RefundedProduct.toHtmlTr2(this._r$8) + v.Producer.toHtmlTr2(this._r$8, true) + v.IsSale.toHtmlTr2(this._r$8) + this.getPassengerHtml(this._r$8.Passenger, this._r$8.PassengerName) + this.getCustomerAndIntermediaryHtml(this._r$8.Customer, this._r$8.Intermediary) + v.Seller.toHtmlTr2(this._r$8, true) + v.Owner.toHtmlTr2(this._r$8, true) + v.LegalEntity.toHtmlTr2(this._r$8) + v.Order.toHtmlTr2(this._r$8, true) + '</table></div>';
-        return commonDataHtml;
+        return "<div class='commonData'><table><col style='width: 135px' />" + v.IssueDate.toHtmlTr2(this._r$8, true) + v.Number.toHtmlTr2(this._r$8, true) + this.getPnrCodeAndTourCodeHtml() + v.ReissueFor.toHtmlTr2(this._r$8) + v.ReissuedBy.toHtmlTr2(this._r$8) + v.Refund.toHtmlTr2(this._r$8) + v.RefundedProduct.toHtmlTr2(this._r$8) + this.getPassengerHtml(this._r$8.Passenger, this._r$8.PassengerName) + v.Producer.toHtmlTr2(this._r$8, true) + v.IsSale.toHtmlTr2(this._r$8) + this.getCustomerAndIntermediaryHtml(this._r$8.Customer, this._r$8.Intermediary) + v.Seller.toHtmlTr2(this._r$8, true) + v.Owner.toHtmlTr2(this._r$8, true) + v.LegalEntity.toHtmlTr2(this._r$8) + v.Order.toHtmlTr2(this._r$8, true) + '</table></div>';
     },
     
     _r$8: null,
@@ -11169,6 +11160,17 @@ Luxena.Travel.ProductViewForm.prototype = {
         return "<tr><td class='fieldLabel'>" + labels + ':</td>' + "<td class='fieldValue'>" + values + '</td></tr>';
     },
     
+    getPnrCodeAndTourCodeHtml: function Luxena_Travel_ProductViewForm$getPnrCodeAndTourCodeHtml() {
+        var r = this.get_product();
+        return LxnBase.UI.BasicViewForm.hasValue([ r.PnrCode, r.TourCode ], function() {
+            var codes = LxnBase.UI.BasicViewForm.notEmpty(r.PnrCode);
+            if (ss.isValue(r.TourCode)) {
+                codes += ' / ' + (r.TourCode || '');
+            }
+            return "<tr><td class='fieldLabel'>" + Luxena.Travel.DomainRes.aviaDocument_PnrCode + ' / ' + Luxena.Travel.DomainRes.aviaDocument_TourCode + ':</td>' + "<td class='fieldValue'>" + LxnBase.UI.BasicViewForm.notEmpty(codes) + '</td></tr>';
+        });
+    },
+    
     getPassengerHtml: function Luxena_Travel_ProductViewForm$getPassengerHtml(passenger, passengerName) {
         var text = Luxena.Travel.ProductSemantic.getPassengerValueHtml(passenger, passengerName);
         return "<tr><td class='fieldLabel'>" + Luxena.Travel.DomainRes.aviaDocument_Passenger + ":</td><td class='fieldValue'>" + text + '</td></tr>';
@@ -11189,6 +11191,15 @@ Luxena.Travel.ProductViewForm.prototype = {
         return "<tr name='Customer'><td class='fieldLabel " + ((r.Customer == null) ? 'error' : '') + "'>" + Luxena.Travel.DomainRes.common_Customer + ' / ' + Luxena.Travel.DomainRes.common_Intermediary + ':</td>' + LxnBase.UI.BasicViewForm.hasValue([ r.Customer, r.Intermediary ], function() {
             return "<td class='fieldValue'>" + LxnBase.UI.BasicViewForm.link(r.Customer) + ' / ' + LxnBase.UI.BasicViewForm.link(r.Intermediary) + '</td></tr>';
         }, '<td/></tr>');
+    },
+    
+    getHotelHtml: function Luxena_Travel_ProductViewForm$getHotelHtml(nameMember, name, office, code) {
+        return LxnBase.UI.BasicViewForm.hasValue([ name, office, code ], function() {
+            if (ss.isValue(office) || ss.isValue(code)) {
+                name += ' / ' + (office || '') + ' - ' + (code || '');
+            }
+            return "<tr><td class='fieldLabel'>" + nameMember._title + ':</td>' + "<td class='fieldValue'>" + LxnBase.UI.BasicViewForm.notEmpty(name) + '</td></tr>';
+        });
     },
     
     getFinanceDataHtml: function Luxena_Travel_ProductViewForm$getFinanceDataHtml() {
@@ -11289,8 +11300,7 @@ Luxena.Travel.PasteboardViewForm.prototype = {
     
     getCommonDataHtml: function Luxena_Travel_PasteboardViewForm$getCommonDataHtml() {
         var v = new Luxena.Travel.SemanticDomain(this).Pasteboard;
-        var commonDataHtml = "<div class='commonData'><table><col style='width: 135px' />" + v.IssueDate.toHtmlTr2(this._r$8, true) + v.Number.toHtmlTr2(this._r$8, true) + v.ReissueFor.toHtmlTr2(this._r$8) + v.ReissuedBy.toHtmlTr2(this._r$8) + v.Refund.toHtmlTr2(this._r$8) + v.RefundedProduct.toHtmlTr2(this._r$8) + this.getPassengerHtml(this._r$8.Passenger, this._r$8.PassengerName) + v.Provider.toHtmlTr2(this._r$8) + "<tr><td class='fieldLabel'>" + Luxena.Travel.DomainRes.common_Departure + ":</td><td class='fieldValue'>" + this._r$8.DeparturePlace + ' / ' + Ext.util.Format.date(this._r$8.DepartureDate, 'd.m.Y') + ' ' + this._r$8.DepartureTime + '</td></tr>' + "<tr><td class='fieldLabel'>" + Luxena.Travel.DomainRes.common_Arrival + ":</td><td class='fieldValue'>" + this._r$8.ArrivalPlace + ' / ' + Ext.util.Format.date(this._r$8.ArrivalDate, 'd.m.Y') + ' ' + this._r$8.ArrivalTime + '</td></tr>' + v.ServiceClass.toHtmlTr2(this._r$8) + v.TrainNumber.toHtmlTr2(this._r$8) + v.CarNumber.toHtmlTr2(this._r$8) + v.SeatNumber.toHtmlTr2(this._r$8) + this.getCustomerAndIntermediaryHtml(this._r$8.Customer, this._r$8.Intermediary) + Luxena.Travel.ProductViewForm.getOriginHtml(this._r$8) + Luxena.Travel.ProductViewForm.getBookerAndTicketerHtml(v, this._r$8) + v.Seller.toHtmlTr2(this._r$8, true) + v.Owner.toHtmlTr2(this._r$8, true) + v.LegalEntity.toHtmlTr2(this._r$8) + v.Order.toHtmlTr2(this._r$8, true) + '</table></div>';
-        return commonDataHtml;
+        return "<div class='commonData'><table><col style='width: 135px' />" + v.IssueDate.toHtmlTr2(this._r$8, true) + v.Number.toHtmlTr2(this._r$8, true) + this.getPnrCodeAndTourCodeHtml() + v.ReissueFor.toHtmlTr2(this._r$8) + v.ReissuedBy.toHtmlTr2(this._r$8) + v.Refund.toHtmlTr2(this._r$8) + v.RefundedProduct.toHtmlTr2(this._r$8) + this.getPassengerHtml(this._r$8.Passenger, this._r$8.PassengerName) + v.Provider.toHtmlTr2(this._r$8) + "<tr><td class='fieldLabel'>" + Luxena.Travel.DomainRes.common_Departure + ":</td><td class='fieldValue'>" + this._r$8.DeparturePlace + ' / ' + Ext.util.Format.date(this._r$8.DepartureDate, 'd.m.Y') + ' ' + this._r$8.DepartureTime + '</td></tr>' + "<tr><td class='fieldLabel'>" + Luxena.Travel.DomainRes.common_Arrival + ":</td><td class='fieldValue'>" + this._r$8.ArrivalPlace + ' / ' + Ext.util.Format.date(this._r$8.ArrivalDate, 'd.m.Y') + ' ' + this._r$8.ArrivalTime + '</td></tr>' + v.ServiceClass.toHtmlTr2(this._r$8) + v.TrainNumber.toHtmlTr2(this._r$8) + v.CarNumber.toHtmlTr2(this._r$8) + v.SeatNumber.toHtmlTr2(this._r$8) + this.getCustomerAndIntermediaryHtml(this._r$8.Customer, this._r$8.Intermediary) + Luxena.Travel.ProductViewForm.getOriginHtml(this._r$8) + Luxena.Travel.ProductViewForm.getBookerAndTicketerHtml(v, this._r$8) + v.Seller.toHtmlTr2(this._r$8, true) + v.Owner.toHtmlTr2(this._r$8, true) + v.LegalEntity.toHtmlTr2(this._r$8) + v.Order.toHtmlTr2(this._r$8, true) + '</table></div>';
     },
     
     addRefund: function Luxena_Travel_PasteboardViewForm$addRefund() {
@@ -16830,13 +16840,13 @@ Luxena.Travel.AviaDocumentViewForm.prototype = {
         var r = this._document$7;
         var commonDataHtml = "<div class='commonData'><table><col style='width: 135px' />" + v.IssueDate.toHtmlTr2(r, true) + "<tr><td class='fieldLabel'>" + Luxena.Travel.DomainRes.common_Number + ' / ' + Luxena.Travel.DomainRes.airline + ':</td>' + "<td class='fieldValue'>" + this._getNumber$7() + ' / ' + LxnBase.UI.BasicViewForm.hasValue(this._document$7.Producer, ss.Delegate.create(this, function() {
             return LxnBase.UI.BasicViewForm.link(this._document$7.Producer);
-        }), this._document$7.AirlinePrefixCode) + '</td></tr>' + v.ReissueFor.toHtmlTr2(r) + v.ReissuedBy.toHtmlTr2(r) + v.Refund.toHtmlTr2(r) + v.RefundedProduct.toHtmlTr2(r) + this._getPassengerHtml$7() + this._getGdsPassportStatus$7() + v.Provider.toHtmlTr2(r) + "<tr name='Customer'><td class='fieldLabel " + ((this._document$7.Customer == null) ? 'error' : '') + "'>" + Luxena.Travel.DomainRes.common_Customer + ' / ' + Luxena.Travel.DomainRes.common_Intermediary + ':</td>' + LxnBase.UI.BasicViewForm.hasValue([ this._document$7.Customer, this._document$7.Intermediary ], ss.Delegate.create(this, function() {
-            return "\r\n\t\t\t\t\t<td class='fieldValue'>" + LxnBase.UI.BasicViewForm.link(this._document$7.Customer) + ' / ' + LxnBase.UI.BasicViewForm.link(this._document$7.Intermediary) + '</td></tr>';
-        }), '<td/></tr>') + Luxena.Travel.ProductViewForm.getOriginHtml(r) + LxnBase.UI.BasicViewForm.hasValue([ r.PnrCode, r.AirlinePnrCode, r.TourCode ], function() {
+        }), this._document$7.AirlinePrefixCode) + '</td></tr>' + LxnBase.UI.BasicViewForm.hasValue([ r.PnrCode, r.AirlinePnrCode, r.TourCode ], function() {
             return "\r\n\t\t\t\t\t<tr><td class='fieldLabel'>" + v.PnrCode._title + ' / ' + v.TourCode._title + ":</td>\r\n\t\t\t\t\t<td class='fieldValue'>" + LxnBase.UI.BasicViewForm.notEmpty(r.PnrCode) + LxnBase.UI.BasicViewForm.hasValue(r.AirlinePnrCode, function() {
                 return String.format(' ({0})', r.AirlinePnrCode);
             }) + ' / ' + LxnBase.UI.BasicViewForm.notEmpty(r.TourCode) + '</td></tr>';
-        }) + Luxena.Travel.ProductViewForm.getBookerAndTicketerHtml(v, r) + v.TicketingIataOffice.toHtmlTr2(r, true) + v.Seller.toHtmlTr2(r, true) + v.Owner.toHtmlTr2(r, true) + v.LegalEntity.toHtmlTr2(r) + v.Order.toHtmlTr2(r, true) + LxnBase.UI.BasicViewForm.hasValue(this._document$7.Voidings, ss.Delegate.create(this, function() {
+        }) + v.ReissueFor.toHtmlTr2(r) + v.ReissuedBy.toHtmlTr2(r) + v.Refund.toHtmlTr2(r) + v.RefundedProduct.toHtmlTr2(r) + this._getPassengerHtml$7() + this._getGdsPassportStatus$7() + v.Provider.toHtmlTr2(r) + "<tr name='Customer'><td class='fieldLabel " + ((this._document$7.Customer == null) ? 'error' : '') + "'>" + Luxena.Travel.DomainRes.common_Customer + ' / ' + Luxena.Travel.DomainRes.common_Intermediary + ':</td>' + LxnBase.UI.BasicViewForm.hasValue([ this._document$7.Customer, this._document$7.Intermediary ], ss.Delegate.create(this, function() {
+            return "\r\n\t\t\t\t\t<td class='fieldValue'>" + LxnBase.UI.BasicViewForm.link(this._document$7.Customer) + ' / ' + LxnBase.UI.BasicViewForm.link(this._document$7.Intermediary) + '</td></tr>';
+        }), '<td/></tr>') + Luxena.Travel.ProductViewForm.getOriginHtml(r) + Luxena.Travel.ProductViewForm.getBookerAndTicketerHtml(v, r) + v.TicketingIataOffice.toHtmlTr2(r, true) + v.Seller.toHtmlTr2(r, true) + v.Owner.toHtmlTr2(r, true) + v.LegalEntity.toHtmlTr2(r) + v.Order.toHtmlTr2(r, true) + LxnBase.UI.BasicViewForm.hasValue(this._document$7.Voidings, ss.Delegate.create(this, function() {
             return "\r\n\t\t\t\t\t<tr><td class='fieldLabel'>" + Luxena.Travel.Res.aviaDocument_Voidings + ":</td>\r\n\t\t\t\t\t<td class='fieldValue'>" + Luxena.Travel.AviaDocumentViewForm._voidings$7(this._document$7.Voidings) + '</td></tr>';
         })) + '</table></div>';
         return commonDataHtml;

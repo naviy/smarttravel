@@ -18,16 +18,17 @@ namespace Luxena.Travel
 
 		protected override string GetCommonDataHtml()
 		{
+
 			TransferSemantic v = new SemanticDomain(this).Transfer;
 
-			string commonDataHtml = 
+			return
+
 				@"<div class='commonData'><table><col style='width: 135px' />" +
 
 				v.IssueDate.ToHtmlTr2(r, true) +
 
-				v.StartDate.ToHtmlTr2(r) +
-
 				v.Name.ToHtmlTr2(r, true) +
+				GetPnrCodeAndTourCodeHtml() +
 
 				v.ReissueFor.ToHtmlTr2(r) +
 				v.ReissuedBy.ToHtmlTr2(r) +
@@ -40,16 +41,17 @@ namespace Luxena.Travel
 				GetCustomerAndIntermediaryHtml(r.Customer, r.Intermediary) +
 
 				v.Country.ToHtmlTr2(r) +
-				v.TourCode.ToHtmlTr2(r) +
+				v.StartDate.ToHtmlTr2(r) +
 
 				v.Seller.ToHtmlTr2(r, true) +
 				v.Owner.ToHtmlTr2(r, true) +
 				v.LegalEntity.ToHtmlTr2(r) +
 				v.Order.ToHtmlTr2(r, true) +
 																
-				@"</table></div>";
+				@"</table></div>"
+				
+			;
 
-			return commonDataHtml;
 		}
 
 

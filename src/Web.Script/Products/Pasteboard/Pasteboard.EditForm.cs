@@ -13,13 +13,16 @@ namespace Luxena.Travel
 			{
 				MainDataPanel(new object[]
 				{
-					se.IssueDate,
-					se.ReissueFor,
-					IsRefund ? se.RefundedProduct : null,
-					se.PassengerRow,
-					se.Provider.ToField(-3),
+					se.RowPanel2v(se.IssueDate, null, se.ReissueFor, null),
 
 					se.Number,
+					se.PnrAndTourCodes,
+
+					IsRefund ? se.RefundedProduct : null,
+
+					se.PassengerRow,
+					
+					se.Provider.ToField(-3),
 
 					RowPanel(new Component[]
 					{
@@ -38,6 +41,7 @@ namespace Luxena.Travel
 					}),
 
 					se.ServiceClass.ToField(-2),
+
 					se.RowPanel3c(
 						"Поезд / вагон / место",
 						se.TrainNumber, null,

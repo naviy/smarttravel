@@ -28,12 +28,20 @@ namespace Luxena.Travel.Domain
 
 		public override ProductType Type => ProductType.BusTicket;
 
-		public override string Name => Number ?? DomainRes.BusTicket;
+		public override string Name => Number ?? PnrCode ?? DomainRes.BusTicket;
 
-		public override string PassengerName { get { return GetPassengerName(); } set { SetPassengerName(value); } }
+		public override string PassengerName
+		{
+			get => GetPassengerName();
+			set => SetPassengerName(value);
+		}
 
 		[Patterns.Passenger]
-		public virtual Person Passenger { get { return GetPassenger(); } set { SetPassenger(value); } }
+		public virtual Person Passenger
+		{
+			get => GetPassenger();
+			set => SetPassenger(value);
+		}
 
 
 		[Patterns.Number, EntityName2]

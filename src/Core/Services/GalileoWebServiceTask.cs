@@ -23,7 +23,9 @@ namespace Luxena.Travel.Services
 
 		public string Password { get; set; }
 
-		public string Robots { get { return GlobalRobots; } set { GlobalRobots = value; } }
+		public string Robots { get => GlobalRobots;
+			set => GlobalRobots = value;
+		}
 
 		public static string GlobalRobots { get; set; }
 

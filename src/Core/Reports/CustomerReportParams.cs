@@ -11,7 +11,7 @@ namespace Luxena.Travel.Reports
 
 		public Party BillTo { get; set; }
 
-		public Party Client { get { return Customer ?? BillTo; } }
+		public Party Client => Customer ?? BillTo;
 
 		public string Passenger { get; set; }
 

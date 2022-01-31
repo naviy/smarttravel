@@ -45,11 +45,13 @@ namespace Luxena.Travel.Domain
 		[Patterns.Passenger]
 		public virtual string PassengerName
 		{
-			get { return null; }
-			set { throw new NotImplementedException(); }
+			get => null;
+			set => throw new NotImplementedException();
 		}
 
-		public virtual IList<ProductPassenger> Passengers { get { return _passengers; } set { _passengers = value; } }
+		public virtual IList<ProductPassenger> Passengers { get => _passengers;
+			set => _passengers = value;
+		}
 
 		public virtual ProductPassengerDto[] PassengerDtos
 		{

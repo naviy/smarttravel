@@ -12,10 +12,14 @@ namespace Luxena.Travel
 
 	partial class TourSemantic
 	{
+
+
 		public override void Initialize()
 		{
+
 			base.Initialize();
 			
+
 			SetManyPassengerEditorsAndColumns(PassengerName, PassengerRow);
 
 			SetHotelEditorsAndColumns(HotelName, HotelOffice, HotelCode, HotelRow);
@@ -26,7 +30,9 @@ namespace Luxena.Travel
 
 			AviaDescription.SetEditor(-3);
 			TransferDescription.SetEditor(-3);
+
 		}
+
 
 
 		public static void SetHotelEditorsAndColumns(SemanticMember name, SemanticMember office, SemanticMember code, SemanticMember row)
@@ -34,6 +40,7 @@ namespace Luxena.Travel
 
 			SemanticEntity v = name;
 			row._name = name._name;
+
 
 			row.SetColumn(true, 100, delegate(object value, object metadata, Record record, int index, int colIndex, Store store)
 			{
@@ -46,6 +53,7 @@ namespace Luxena.Travel
 
 				return nameValue;
 			});
+
 
 			row.ToEditor = delegate
 			{

@@ -15,10 +15,7 @@ namespace Luxena.Travel.Domain
 
 		public IServiceResolver ServiceResolver { get; set; }
 
-		public static IList<Type> Managers
-		{
-			get { return _managers; }
-		}
+		public static IList<Type> Managers => _managers;
 
 		public GenericManager GetClassManager(Class cls)
 		{

@@ -21,19 +21,12 @@ namespace Luxena.Travel.Domain
 				.Suggest<GenericProductProvider>();
 		}
 
-		public override ProductType Type { get { return ProductType.GenericProduct; } }
+		public override ProductType Type => ProductType.GenericProduct;
 
-		public override string Name
-		{
-			get
-			{
-				return 
-					(GenericType != null ? GenericType.Name : DomainRes.GenericProduct) +
-					(Number.Yes() ? " #" + Number : "");
-			}
-		}
+		public override string Name => (GenericType != null ? GenericType.Name : DomainRes.GenericProduct) +
+			(Number.Yes() ? " #" + Number : "");
 
-		public override string PassengerName { get { return GetPassengerNames(); } }
+		public override string PassengerName => GetPassengerNames();
 
 		[RU("Вид услуги"), Required]
 		public virtual GenericProductType GenericType { get; set; }

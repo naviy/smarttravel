@@ -21,11 +21,11 @@ namespace Luxena.Travel.Domain
 				.Suggest<TransferProvider>();
 		}
 
-		public override ProductType Type { get { return ProductType.Transfer; } }
+		public override ProductType Type => ProductType.Transfer;
 
-		public override string Name { get { return DomainRes.Transfer; } }
+		public override string Name => PnrCode ?? DomainRes.Transfer;
 
-		public override string PassengerName { get { return GetPassengerNames(); } }
+		public override string PassengerName => GetPassengerNames();
 
 
 		[Patterns.StartDate, Required]

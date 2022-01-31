@@ -269,11 +269,13 @@ namespace Luxena.Travel
 				m.BoldLabel();
 			});
 
+
 			passenger.SetEditor(-1, delegate(FormMember m)
 			{
 				m.DataProxy(GenericService.SuggestProxy("Person"));
 				m.HideLabel();
 			});
+
 
 			passengerRow.ToEditor = delegate
 			{
@@ -284,25 +286,36 @@ namespace Luxena.Travel
 					passenger.ToEditor(),
 				});
 			};
+
 		}
+
+
 
 		public static void SetManyPassengerEditorsAndColumns(SemanticMember passengerName, SemanticMember passengerRow)
 		{
+
 			passengerName.SetColumn(false, 165, ManyPassengerNameRenderer);
 
 			IEditForm form = passengerRow.EditForm;
 
+
 			passengerRow.ToEditor = delegate
 			{
+
 				ProductPassengerGridControl grid = new ProductPassengerGridControl(16 + 2 * form.FieldMaxWidth, 160);
+
 				grid.fieldLabel = "<br><br><br><b>" + DomainRes.Common_Passenger + "</b>";
 
+
 				FormMember member = new FormMember(form, passengerRow, null);
+
+
 				member.OnLoadValue += delegate
 				{
 					ProductPassengerDto[] passengers = (ProductPassengerDto[])form.GetValue("Passengers");
 					grid.SetInitialData(form, passengers);
 				};
+
 
 				member.OnSaveValue += delegate
 				{
@@ -310,12 +323,17 @@ namespace Luxena.Travel
 					form.SetValue("Passengers", passengers);
 				};
 
+
 				member.OnIsModified += delegate { return grid.IsModified; };
+
 
 				form.Members.Add(member);
 
+
 				return grid;
+
 			};
+
 		}
 
 		public static string GetPassengerValueHtml(Reference passenger, string passengerName)

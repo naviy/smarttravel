@@ -14,21 +14,25 @@ namespace Luxena.Travel.Domain
 		[SemanticSetup]
 		public static void SemanticSetup(SemanticSetup<Insurance> se)
 		{
+
 			se.For(a => a.ReissueFor)
 				.Suggest<Insurance>();
+
 
 			se.For(a => a.Producer)
 				.Suggest<InsuranceCompany>()
 				.RU("Страховая компания")
 				.Required();
 
+
 //			se.For(a => a.Provider)
 //				.Suggest<InsuranceProvider>();
+
 		}
 
 		public override ProductType Type => ProductType.Insurance;
 
-		public override string Name => Number;
+		public override string Name => Number ?? PnrCode;
 
 		public override string PassengerName => GetPassengerNames();
 
@@ -52,14 +56,14 @@ namespace Luxena.Travel.Domain
 
 	public partial class InsuranceRefund : Insurance
 	{
-		public override ProductType Type { get { return ProductType.InsuranceRefund; } }
+		public override ProductType Type => ProductType.InsuranceRefund;
 
-		public override bool IsRefund { get { return true; } }
+		public override bool IsRefund => true;
 
-		public override string Name
-		{
-			get { return string.Format(DomainRes.ProductRefund_NameFormat, base.Name); }
-		}
+		public override string Name => string.Format(DomainRes.ProductRefund_NameFormat, base.Name);
+
+
+
 
 		public new partial class Service : Service<InsuranceRefund> { }
 	}

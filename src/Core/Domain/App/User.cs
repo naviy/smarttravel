@@ -27,8 +27,8 @@ namespace Luxena.Travel.Domain
 		[Patterns.Password, Hidden(false)]
 		public virtual string Password
 		{
-			get { return _password; }
-			set { _password = _password == null ? value : value == null ? _password : EncryptPassword(value); }
+			get => _password;
+			set => _password = _password == null ? value : value == null ? _password : EncryptPassword(value);
 		}
 		private string _password;
 

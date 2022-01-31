@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
 using Luxena.Travel.Domain;
@@ -66,6 +63,9 @@ namespace Luxena.Travel.Parsers
 		private IEnumerable<AviaDocument> ParseTickets()
 		{
 
+			//---g
+			
+
 			var headerAndMaskListMatch = _reHeaderAndMaskList.Match(Content);
 
 			if (!headerAndMaskListMatch.Success)
@@ -122,7 +122,9 @@ namespace Luxena.Travel.Parsers
 
 			});
 
-
+			
+			//---g
+			
 
 			var masksMatches = _reMasks.Matches(headerAndMaskListMatch.Groups["masks"].Value);
 
@@ -139,7 +141,7 @@ namespace Luxena.Travel.Parsers
 				var issueMatch = _reMaskIssue.Match(maskBody);
 
 				var airlineIataCodeMatch = _reMaskAirlineIataCode.Match(maskBody);
-				
+
 				var faresMatch = _reMaskFares.Match(maskBody);
 
 
@@ -225,7 +227,9 @@ namespace Luxena.Travel.Parsers
 			});
 
 
+			//---g
 
+			
 			var maskListMatches = _reMaskList.Matches(headerAndMaskListMatch.Groups["maskList"].Value);
 
 			if (maskListMatches.No())
@@ -257,8 +261,8 @@ namespace Luxena.Travel.Parsers
 					PnrCode = pnrCode,
 					PassengerName = passenger.Name.Trim(),
 
-					Origin = ProductOrigin.SabreTerminal,
-					Originator = GdsOriginator.Sabre,
+					Origin = ProductOrigin.GalileoTerminal,
+					Originator = GdsOriginator.Galileo,
 
 					BookerOffice = mask.Office,
 					BookerCode = mask.Agent,
@@ -319,7 +323,9 @@ namespace Luxena.Travel.Parsers
 				yield return doc;
 
 			}
+			
 
+			//---g
 
 		}
 

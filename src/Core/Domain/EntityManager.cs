@@ -24,7 +24,7 @@ namespace Luxena.Travel.Domain
 
 		public Domain db { get; set; }
 
-		protected TEntityService Service { [DebuggerStepThrough] get { return _service ?? (_service = db.Service<TEntityService>()); } }
+		protected TEntityService Service { [DebuggerStepThrough] get => _service ?? (_service = db.Service<TEntityService>()); }
 		private TEntityService _service;
 
 

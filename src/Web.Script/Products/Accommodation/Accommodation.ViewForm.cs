@@ -16,19 +16,20 @@ namespace Luxena.Travel
 		protected override string GetClassName() { return ClassNames.Accommodation; }
 		protected override string GetClassTitle() { return DomainRes.Accommodation; }
 
+
+
 		protected override string GetCommonDataHtml()
 		{
 			AccommodationSemantic v = new SemanticDomain(this).Accommodation;
 
 			string commonDataHtml = 
+
 				@"<div class='commonData'><table><col style='width: 135px' />" +
 
 				v.IssueDate.ToHtmlTr2(r, true) +
 
-				v.StartDate.ToHtmlTr2(r) +
-				v.FinishDate.ToHtmlTr2(r) +
-
 				v.Name.ToHtmlTr2(r, true) +
+				GetPnrCodeAndTourCodeHtml() +
 
 				v.ReissueFor.ToHtmlTr2(r) +
 				v.ReissuedBy.ToHtmlTr2(r) +
@@ -42,7 +43,15 @@ namespace Luxena.Travel
 				GetCustomerAndIntermediaryHtml(r.Customer, r.Intermediary) +
 
 				v.Country.ToHtmlTr2(r) +
-				v.TourCode.ToHtmlTr2(r) +
+
+				v.StartDate.ToHtmlTr2(r) +
+				v.FinishDate.ToHtmlTr2(r) +
+
+				GetHotelHtml(v.HotelName, r.HotelName, r.HotelOffice, r.HotelCode) +
+				GetHotelHtml(v.PlacementName, r.PlacementName, r.PlacementOffice, r.PlacementCode) +
+
+				v.AccommodationType.ToHtmlTr2(r) +
+				v.CateringType.ToHtmlTr2(r) +
 
 				v.Seller.ToHtmlTr2(r, true) +
 				v.Owner.ToHtmlTr2(r, true) +

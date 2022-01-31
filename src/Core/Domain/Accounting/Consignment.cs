@@ -27,7 +27,7 @@ namespace Luxena.Travel.Domain
 		public virtual Order Order
 		{
 			get { return _orderItems?.Select(a => a.Order).One() ?? _order; }
-			set { _order = value; }
+			set => _order = value;
 		}
 
 		private Order _order;

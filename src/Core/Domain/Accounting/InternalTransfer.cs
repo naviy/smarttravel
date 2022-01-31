@@ -21,14 +21,14 @@ namespace Luxena.Travel.Domain
 		[RU("Из заказа")]
 		public virtual Order FromOrder
 		{
-			get { return _fromOrder; }
+			get => _fromOrder;
 			set { WrapSetter(() => SetFromOrder(value)); }
 		}
 
 		[RU("От контрагента"), Suggest(typeof(Customer)), Required]
 		public virtual Party FromParty
 		{
-			get { return _fromParty; }
+			get => _fromParty;
 			set
 			{
 				if (Equals(_fromParty, value))
@@ -44,14 +44,14 @@ namespace Luxena.Travel.Domain
 		[RU("В заказ")]
 		public virtual Order ToOrder
 		{
-			get { return _toOrder; }
+			get => _toOrder;
 			set { WrapSetter(() => SetToOrder(value)); }
 		}
 
 		[RU("К контрагенту"), Suggest(typeof(Customer)), Required]
 		public virtual Party ToParty
 		{
-			get { return _toParty; }
+			get => _toParty;
 			set
 			{
 				if (Equals(_toParty, value))
@@ -67,7 +67,7 @@ namespace Luxena.Travel.Domain
 		[RU("Сумма")]
 		public virtual decimal Amount
 		{
-			get { return _amount; }
+			get => _amount;
 			set
 			{
 				if (_amount == value)

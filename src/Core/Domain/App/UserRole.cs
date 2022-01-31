@@ -34,38 +34,38 @@ namespace Luxena.Travel.Domain
 
 		public UserRole List2
 		{
-			get { throw new NotImplementedException(); }
-			set { List = GetUserRolesByMin(value); }
+			get => throw new NotImplementedException();
+			set => List = GetUserRolesByMin(value);
 		}
 
 		public UserRole Create2
 		{
-			get { throw new NotImplementedException(); }
-			set { Create = GetUserRolesByMin(value); }
+			get => throw new NotImplementedException();
+			set => Create = GetUserRolesByMin(value);
 		}
 
 		public UserRole Copy2
 		{
-			get { throw new NotImplementedException(); }
-			set { Copy = GetUserRolesByMin(value); }
+			get => throw new NotImplementedException();
+			set => Copy = GetUserRolesByMin(value);
 		}
 
 		public UserRole Update2
 		{
-			get { throw new NotImplementedException(); }
-			set { Update = GetUserRolesByMin(value); }
+			get => throw new NotImplementedException();
+			set => Update = GetUserRolesByMin(value);
 		}
 
 		public UserRole Delete2
 		{
-			get { throw new NotImplementedException(); }
-			set { Delete = GetUserRolesByMin(value); }
+			get => throw new NotImplementedException();
+			set => Delete = GetUserRolesByMin(value);
 		}
 
 		public UserRole Replace2
 		{
-			get { throw new NotImplementedException(); }
-			set { Replace = GetUserRolesByMin(value); }
+			get => throw new NotImplementedException();
+			set => Replace = GetUserRolesByMin(value);
 		}
 
 

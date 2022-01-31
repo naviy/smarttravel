@@ -11,17 +11,17 @@ namespace Luxena.Travel
 				MainDataPanel(new object[]
 				{
 					se.IssueDate,
+					se.PnrAndTourCodes,
 					se.ReissueFor,
 					se.PassengerRow,
 					se.Provider,
-
-					se.StartDate,
 			
 					se.CustomerAndOrder,
 					se.Intermediary,
 
 					se.Country,
-					se.PnrAndTourCodes,
+
+					se.StartDate,
 
 					se.SellerAndOwnerRow,
 					se.LegalEntity,

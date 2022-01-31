@@ -4,12 +4,27 @@ using System.ComponentModel.DataAnnotations;
 using Luxena.Domain;
 
 
+
+
 namespace Luxena.Travel.Domain
 {
+
+
+
+	//===g
+
+
+
+
+
 
 	[RU("Аренда автомобиля", "Аренды автомобилей")]
 	public partial class CarRental : Product
 	{
+
+		//---g
+
+
 
 		[SemanticSetup]
 		public static void AnnotationSetup(SemanticSetup<CarRental> se)
@@ -21,11 +36,17 @@ namespace Luxena.Travel.Domain
 				.Suggest<CarRentalProvider>();
 		}
 
-		public override ProductType Type { get { return ProductType.CarRental; } }
 
-		public override string Name { get { return DomainRes.CarRental; } }
 
-		public override string PassengerName { get { return GetPassengerNames(); } }
+		//---g
+
+
+
+		public override ProductType Type => ProductType.CarRental;
+
+		public override string Name => DomainRes.CarRental;
+
+		public override string PassengerName => GetPassengerNames();
 
 		[Patterns.StartDate, Required]
 		public virtual DateTime? StartDate { get; set; }
@@ -37,11 +58,29 @@ namespace Luxena.Travel.Domain
 		public virtual string CarBrand { get; set; }
 
 
+
+		//---g
+
+
 		public new partial class Service : Service<CarRental>
 		{
 
 		}
 
+
+
+
+		//---g
+
 	}
+
+
+
+
+
+
+	//===g
+
+
 
 }

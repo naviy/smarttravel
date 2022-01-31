@@ -1,7 +1,6 @@
-
-
-
 using Ext.util;
+
+
 
 
 namespace Luxena.Travel
@@ -20,16 +19,19 @@ namespace Luxena.Travel
 		protected override string GetClassTitle() { return DomainRes.Pasteboard; }
 
 
+
 		protected override string GetCommonDataHtml()
 		{
 			PasteboardSemantic v = new SemanticDomain(this).Pasteboard;
 
-			string commonDataHtml = 
+			return
+
 				@"<div class='commonData'><table><col style='width: 135px' />" +
 
 				v.IssueDate.ToHtmlTr2(r, true) +
 
 				v.Number.ToHtmlTr2(r, true) +
+				GetPnrCodeAndTourCodeHtml() +
 
 				v.ReissueFor.ToHtmlTr2(r) +
 				v.ReissuedBy.ToHtmlTr2(r) +
@@ -59,10 +61,12 @@ namespace Luxena.Travel
 				v.LegalEntity.ToHtmlTr2(r) +
 				v.Order.ToHtmlTr2(r, true) +
 																
-				@"</table></div>";
+				@"</table></div>"
+				
+			;
 
-			return commonDataHtml;
 		}
+
 
 
 		protected override void AddRefund()

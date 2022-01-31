@@ -8,15 +8,9 @@
 			_sessionId = sessionId;
 		}
 
-		public string UserName
-		{
-			get { return _userName; }
-		}
+		public string UserName => _userName;
 
-		public string SessionId
-		{
-			get { return _sessionId; }
-		}
+		public string SessionId => _sessionId;
 
 		public static AuthenticationToken Parse(string str)
 		{

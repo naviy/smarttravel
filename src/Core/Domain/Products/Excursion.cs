@@ -18,11 +18,11 @@ namespace Luxena.Travel.Domain
 				.Suggest<Excursion>();
 		}
 
-		public override ProductType Type { get { return ProductType.Excursion; } }
+		public override ProductType Type => ProductType.Excursion;
 
-		public override string Name { get { return DomainRes.Excursion; } }
+		public override string Name => DomainRes.Excursion;
 
-		public override string PassengerName { get { return GetPassengerNames(); } }
+		public override string PassengerName => GetPassengerNames();
 
 
 		[Patterns.StartDate]

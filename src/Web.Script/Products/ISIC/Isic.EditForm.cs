@@ -13,15 +13,25 @@ namespace Luxena.Travel
 			return dto.Number1 + " " + dto.Number2;
 		}
 
+
+
 		protected override void CreateControls()
 		{
+
 			Form.add(ColumnPanel(new object[]
 			{
+
 				MainDataPanel(new object[]
 				{
-					se.IssueDate,
-					se.ReissueFor,
+
+					se.RowPanel2v(se.IssueDate, null, se.ReissueFor, null),
+
+					se.PnrAndTourCodes,
+
 					se.PassengerRow,
+
+					se.CustomerAndOrder,
+					se.Intermediary,
 
 					se.CardType,
 
@@ -30,18 +40,19 @@ namespace Luxena.Travel
 						se.Number1.ToField(114),
 						se.Number2.ToField(40, delegate(FormMember m) { m.HideLabel(); }),
 					}),
-				
-					se.CustomerAndOrder,
-					se.Intermediary,
 
 					se.SellerAndOwnerRow,
 					se.LegalEntity,
+
 				}),
 
 				se.Finance,
+
 			}));
 
+
 			Form.add(MainDataPanel(new object[] { se.Note }));
+
 		}
 
 	}

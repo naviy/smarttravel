@@ -16,7 +16,7 @@ namespace Luxena.Travel.Domain
 
 		public override string Itinerary
 		{
-			get { return RefundedDocument?.Itinerary; }
+			get => RefundedDocument?.Itinerary;
 			set { }
 		}
 

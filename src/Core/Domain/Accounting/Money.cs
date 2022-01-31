@@ -45,7 +45,9 @@ namespace Luxena.Travel.Domain
 
 		public Currency Currency { get; set; }
 
-		public decimal Amount { [DebuggerStepThrough] get { return _amount; } set { _amount = Math.Round(value + 0.0001m, 2); } }
+		public decimal Amount { [DebuggerStepThrough] get => _amount;
+			set => _amount = Math.Round(value + 0.0001m, 2);
+		}
 		private decimal _amount;
 
 		public string MoneyString => ToMoneyString(Amount, Currency);

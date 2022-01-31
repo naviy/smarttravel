@@ -10,7 +10,7 @@ namespace Luxena.Travel.Domain
 
 	public class AppStateService : DomainService
 	{
-		public AppStateChangesHolding AppStateChangesHolding { get { return db.Resolve(ref _appStateChangesHolding); } }
+		public AppStateChangesHolding AppStateChangesHolding => db.Resolve(ref _appStateChangesHolding);
 		private AppStateChangesHolding _appStateChangesHolding;
 
 		public void RegisterEntity(Entity2 document)

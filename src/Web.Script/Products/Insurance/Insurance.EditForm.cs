@@ -6,36 +6,43 @@ namespace Luxena.Travel
 
 		protected override void CreateControls()
 		{
+
 			Form.add(ColumnPanel(new object[]
 			{
+
 				MainDataPanel(new object[]
 				{
-					se.IssueDate,
 
-					se.ReissueFor,
+					se.RowPanel2v(se.IssueDate, null, se.ReissueFor, null),
+					se.Number,
+					se.PnrAndTourCodes,
+
 					IsRefund ? se.RefundedProduct : null,
+
 					se.PassengerRow,
 
 					se.Producer,
 //					se.Provider,
-					se.Number,
 
-					se.RowPanel2v(se.StartDate, null, se.FinishDate, null),
-			
 					se.CustomerAndOrder,
 					se.Intermediary,
 
 					se.Country,
-					se.PnrAndTourCodes,
+					se.RowPanel2v(se.StartDate, null, se.FinishDate, null),
 
 					se.SellerAndOwnerRow,
 					se.LegalEntity,
+
 				}), 
 
+
 				se.Finance,
+
 			}));
 
+
 			Form.add(MainDataPanel(new object[] { se.Note }));
+
 		}
 
 	}

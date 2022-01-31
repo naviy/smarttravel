@@ -12,6 +12,8 @@ namespace Luxena.Travel
 				{
 					se.IssueDate,
 					se.FullNumber,
+					se.PnrAndTourCodes,
+
 					se.ReissueFor,
 					se.PassengerName,
 
@@ -20,7 +22,6 @@ namespace Luxena.Travel
 					se.Intermediary,
 					se.Country,
 					se.Originator,
-					se.PnrAndTourCodes,
 					se.BookerRow,
 					se.TicketerRow,
 					se.TicketingIataOffice,

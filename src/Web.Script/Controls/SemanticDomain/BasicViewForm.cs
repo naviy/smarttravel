@@ -211,18 +211,23 @@ namespace LxnBase.UI
 
 		public static string Link(Reference obj, string text)
 		{
+
 			if (Script.IsNullOrUndefined(obj) && Script.IsNullOrUndefined(text))
 				return string.Empty;
 
+
 			if (Script.IsNullOrUndefined(obj) && !Script.IsNullOrUndefined(text))
 				return text;
+
 
 			Reference info = new Reference();
 			info.Id = obj.Id;
 			info.Name = text ?? obj.Name;
 			info.Type = obj.Type;
 
+
 			return ObjectLink.RenderInfo(info);
+
 		}
 
 

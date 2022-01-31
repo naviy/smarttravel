@@ -14,11 +14,27 @@ using Action = Ext.Action;
 using Record = Ext.data.Record;
 
 
+
+
 namespace Luxena.Travel
 {
 
+
+
+	//===g
+
+
+
+
+
+
 	public class SemanticEntity
 	{
+
+		//---g
+
+
+
 		public IEditForm EditForm;
 		public IGridForm GridForm;
 
@@ -43,6 +59,11 @@ namespace Luxena.Travel
 		protected static SemanticMember Member { get { return new SemanticMember(); } }
 
 
+
+		//---g
+
+
+
 		public virtual void Initialize()
 		{
 			// ReSharper disable once SuspiciousTypeConversion.Global
@@ -57,6 +78,8 @@ namespace Luxena.Travel
 			return Script.IsValue(_nameMember) ? _nameMember.GetString(data) : _title ?? _className;
 		}
 
+
+
 		public Reference getReference(object data, string className)
 		{
 			return Reference.Create(
@@ -68,11 +91,18 @@ namespace Luxena.Travel
 
 
 
+		//---g
+
+
+
 		protected ToEditorFormMemberAction ToGridEditor(SemanticMember semantic, IGridControl grid)
 		{
+
 			return delegate
 			{
+
 				FormMember member = new FormMember(EditForm, semantic, null);
+
 				member.OnLoadValue += delegate
 				{
 					Dictionary data = EditForm.Data;
@@ -80,18 +110,26 @@ namespace Luxena.Travel
 						grid.LoadData((object[])data[semantic._name]);
 				};
 
+
 				member.OnSaveValue += delegate
 				{
 					EditForm.SetValue(semantic._name, grid.GetData());
 				};
 
+
 				member.OnIsModified += delegate { return grid.IsModified(); };
+
 
 				EditForm.Members.Add(member);
 
+
 				return grid.Widget;
+
 			};
+
 		}
+
+
 
 		public SemanticMember GridMember(string name, IGridControl grid)
 		{
@@ -109,19 +147,29 @@ namespace Luxena.Travel
 		{
 			m.BoldLabel();
 		}
+
+
+
 		protected static void HideLabel(FormMember m)
 		{
 			m.HideLabel();
 		}
 
 
+
 		public Action ToListAction()
 		{
+
 			OperationPermissions permissions = (OperationPermissions)AppManager.AllowedActions[_className];
+
 			OperationStatus status = permissions != null ? permissions.CanList : null;
 
+
 			if (status == null || (!status.Visible && string.IsNullOrEmpty(status.DisableInfo)))
+			{
 				return null;
+			}
+
 
 			Action action = new Action(new ActionConfig()
 				.text(_titles ?? _title ?? _className)
@@ -129,19 +177,30 @@ namespace Luxena.Travel
 				.ToDictionary()
 			);
 
+
 			if (Script.IsValue(status.DisableInfo))
 				action.disable();
 
+
 			return action;
+
 		}
+
+
 
 		public Action ToViewAction(object id)
 		{
+
 			OperationPermissions permissions = (OperationPermissions)AppManager.AllowedActions[_className];
+
 			OperationStatus status = permissions != null ? permissions.CanList : null;
 
+
 			if (status == null || (!status.Visible && string.IsNullOrEmpty(status.DisableInfo)))
+			{
 				return null;
+			}
+
 
 			Action action = new Action(new ActionConfig()
 				.text(_title ?? _titles ?? _className)
@@ -149,33 +208,49 @@ namespace Luxena.Travel
 				.ToDictionary()
 			);
 
+
 			if (Script.IsValue(status.DisableInfo))
 				action.disable();
 
+
 			return action;
+
 		}
+
+
 
 		[AlternateSignature]
 		public static extern BoxComponent TextComponent_(string html);
 
+
 		public static BoxComponent TextComponent_(string html, int width)
 		{
+
 			BoxComponentConfig config = new BoxComponentConfig()
 				.autoEl(new Dictionary("tag", "div", "html", html))
-				.cls("x-form-item float-left box-label");
+				.cls("x-form-item float-left box-label")
+			;
+
 
 			if (Script.IsValue(width))
 			{
+
 				if (width == -4)
 				{
 					width = 122;
 					config.style("text-align: right;");
 				}
+
 				config.width(width);
+
 			}
 
+
 			return new BoxComponent(config.ToDictionary());
+
 		}
+
+
 
 		[AlternateSignature]
 		public extern BoxComponent TextComponent(string html);
@@ -185,8 +260,11 @@ namespace Luxena.Travel
 			return TextComponent_(html, width);
 		}
 
+
+
 		public static Panel RowPanel_(object[] items)
 		{
+
 			for (int i = 0; i < items.Length; i++)
 			{
 				SemanticMember semantic = items[i] as SemanticMember;
@@ -194,13 +272,17 @@ namespace Luxena.Travel
 					items[i] = semantic.ToEditor();
 			}
 
+
 			return new Panel(new PanelConfig()
 				.layout("form")
 				.itemCls("float-left")
 				.items(items)
 				.ToDictionary()
 			);
+
 		}
+
+
 
 		public Panel RowPanel(object[] items)
 		{
@@ -208,10 +290,13 @@ namespace Luxena.Travel
 		}
 
 
+
 		public static Panel RowPanel2_(SemanticMember view1, InitFormMemberAction initMember1, SemanticMember view2, InitFormMemberAction initMember2)
 		{
+
 			return RowPanel_(new Component[]
 			{
+
 				view1.ToField(-1, delegate(FormMember m)
 				{
 					m.Label(string.Format("{0} / {1}", view1._title, view2._title));
@@ -220,15 +305,19 @@ namespace Luxena.Travel
 				}),
 
 				TextComponent_("/"),
-
+				
 				view2.ToField(-1, delegate(FormMember m)
 				{
 					m.HideLabel();
 					if (Script.IsValue(initMember2))
 						initMember2(m);
 				})
+
 			});
+
 		}
+
+
 
 		public Panel RowPanel2(SemanticMember view1, InitFormMemberAction initMember1, SemanticMember view2, InitFormMemberAction initMember2)
 		{
@@ -236,10 +325,13 @@ namespace Luxena.Travel
 		}
 
 
+
 		public static Panel RowPanel2c_(string title, SemanticMember view1, InitFormMemberAction initMember1, SemanticMember view2, InitFormMemberAction initMember2)
 		{
+
 			return RowPanel_(new Component[]
 			{
+
 				view1.ToField(-1, delegate(FormMember m)
 				{
 					m.Label(title);
@@ -257,13 +349,18 @@ namespace Luxena.Travel
 					if (Script.IsValue(initMember2))
 						initMember2(m);
 				})
+
 			});
+
 		}
+
+
 
 		public Panel RowPanel2c(string title, SemanticMember view1, InitFormMemberAction initMember1, SemanticMember view2, InitFormMemberAction initMember2)
 		{
 			return RowPanel2c_(title, view1, initMember1, view2, initMember2);
 		}
+
 
 
 		public static Panel RowPanel2v_(SemanticMember view1, InitFormMemberAction initMember1, SemanticMember view2, InitFormMemberAction initMember2)
@@ -281,10 +378,13 @@ namespace Luxena.Travel
 			});
 		}
 
+
+
 		public Panel RowPanel2v(SemanticMember view1, InitFormMemberAction initMember1, SemanticMember view2, InitFormMemberAction initMember2)
 		{
 			return RowPanel2v_(view1, initMember1, view2, initMember2);
 		}
+
 
 
 		public static Panel RowPanel3c_(
@@ -294,8 +394,10 @@ namespace Luxena.Travel
 			SemanticMember view3, InitFormMemberAction initMember3
 		)
 		{
+
 			return RowPanel_(new Component[]
 			{
+
 				view1.ToField(-2, delegate(FormMember m)
 				{
 					m.Label(title);
@@ -320,8 +422,12 @@ namespace Luxena.Travel
 					if (Script.IsValue(initMember3))
 						initMember3(m);
 				})
+
 			});
+
 		}
+
+
 
 		public Panel RowPanel3c(
 			string title,
@@ -334,19 +440,24 @@ namespace Luxena.Travel
 		}
 
 
+
 		public static Panel RowPanel3_(
 			SemanticMember view1, InitFormMemberAction initMember1,
 			SemanticMember view2, InitFormMemberAction initMember2,
 			SemanticMember view3, InitFormMemberAction initMember3
 		)
 		{
+
 			return RowPanel3c_(
 				string.Format("{0} / {1} / {2}", view1._title, view2._title, view3._title),
 				view1, initMember1,
 				view2, initMember2,
 				view3, initMember3
 			);
+
 		}
+
+
 
 		public Panel RowPanel3(
 			SemanticMember view1, InitFormMemberAction initMember1,
@@ -357,13 +468,17 @@ namespace Luxena.Travel
 			return RowPanel3_(view1, initMember1, view2, initMember2, view3, initMember3);
 		}
 
+
+
 		[AlternateSignature]
 		public extern GridRenderDelegate GetNameRenderer();
 
 		public GridRenderDelegate GetNameRenderer(string className)
 		{
+
 			if (!Script.IsValue(className))
 				className = _className;
+
 
 			return delegate(object value, object metadata, Record record, int index, int colIndex, Store store)
 			{
@@ -371,7 +486,9 @@ namespace Luxena.Travel
 					.CreateRefrenceRenderer(className)
 					.Invoke(value, metadata, record, index, colIndex, store);
 			};
+
 		}
+
 
 
 		[AlternateSignature]
@@ -379,20 +496,40 @@ namespace Luxena.Travel
 
 		public virtual GridRenderDelegate GetDateRenderer(string className)
 		{
+
 			return delegate(object value, object metadata, Record record, int index, int colIndex, Store store)
 			{
-				if (!Script.IsValue(value)) return "";
+
+				if (!Script.IsValue(value))
+					return "";
+
 
 				if (!Script.IsValue(className))
 					className = _className;
 
+
 				return ControlFactory
 					.CreateRefrenceRenderer(className)
-					.Invoke(((Date)value).Format("d.m.Y"), metadata, record, index, colIndex, store);
+					.Invoke(((Date)value).Format("d.m.Y"), metadata, record, index, colIndex, store)
+				;
+
 			};
+
 		}
 
 
+
+		//---g
+
 	}
+
+
+
+
+
+
+	//===g
+
+
 
 }

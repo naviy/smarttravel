@@ -11,10 +11,7 @@ namespace Luxena.Travel.Reports
 
 		public Font Font { get; set; }
 
-		private BaseFont BaseFont
-		{
-			get { return Font.BaseFont; }
-		}
+		private BaseFont BaseFont => Font.BaseFont;
 
 		public override void OnOpenDocument(PdfWriter writer, Document document)
 		{

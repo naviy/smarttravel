@@ -54,12 +54,16 @@ namespace Luxena.Travel.Domain
 
 		public override ProductType Type => ProductType.Pasteboard;
 
-		public override string Name => Number ?? "";
+		public override string Name => Number ?? PnrCode ?? "";
 
-		public override string PassengerName { get { return GetPassengerName(); } set { SetPassengerName(value); } }
+		public override string PassengerName { get => GetPassengerName();
+			set => SetPassengerName(value);
+		}
 
 		[Patterns.Passenger]
-		public virtual Person Passenger { get { return GetPassenger(); } set { SetPassenger(value); } }
+		public virtual Person Passenger { get => GetPassenger();
+			set => SetPassenger(value);
+		}
 
 
 		[Patterns.Number, EntityName2]
@@ -90,7 +94,7 @@ namespace Luxena.Travel.Domain
 		[RU("Маршрут")]
 		public virtual string Itinerary
 		{
-			get { return DeparturePlace.Yes() ? ArrivalPlace.Yes() ? DeparturePlace + " - " + ArrivalPlace : DeparturePlace : ArrivalPlace; }
+			get => DeparturePlace.Yes() ? ArrivalPlace.Yes() ? DeparturePlace + " - " + ArrivalPlace : DeparturePlace : ArrivalPlace;
 			set {  }
 		}
 

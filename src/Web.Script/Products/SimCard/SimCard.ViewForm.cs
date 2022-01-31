@@ -21,12 +21,14 @@ namespace Luxena.Travel
 		{
 			SimCardSemantic v = new SemanticDomain(this).SimCard;
 
-			string commonDataHtml = 
+			return
+
 				@"<div class='commonData'><table><col style='width: 135px' />" +
 
 				v.IssueDate.ToHtmlTr2(r, true) +
 
 				v.Number.ToHtmlTr2(r, true) +
+				GetPnrCodeAndTourCodeHtml() +
 
 				v.ReissueFor.ToHtmlTr2(r) +
 				v.ReissuedBy.ToHtmlTr2(r) +
@@ -34,11 +36,11 @@ namespace Luxena.Travel
 				v.Refund.ToHtmlTr2(r) +
 				v.RefundedProduct.ToHtmlTr2(r) +
 
+				GetPassengerHtml(r.Passenger, r.PassengerName) +
+
 				v.Producer.ToHtmlTr2(r, true) +
 
 				v.IsSale.ToHtmlTr2(r) +
-
-				GetPassengerHtml(r.Passenger, r.PassengerName) +
 
 				GetCustomerAndIntermediaryHtml(r.Customer, r.Intermediary) +
 
@@ -47,9 +49,9 @@ namespace Luxena.Travel
 				v.LegalEntity.ToHtmlTr2(r) +
 				v.Order.ToHtmlTr2(r, true) +
 																
-				@"</table></div>";
+				@"</table></div>"
+			;
 
-			return commonDataHtml;
 		}
 
 
