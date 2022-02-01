@@ -334,10 +334,60 @@ namespace Luxena.Travel.Parsers
 
 
 
-		static readonly Regex _reHeaderAndMaskList = new Regex(
-			@"--- TST ---(?<header>.*?)>[Tt][Qq][Tt](?<maskList>.*?)(?>(?:(?:>[Tt][Qq][Tt])|$))(?<masks>.*)",
+		static readonly Regex _reHeaderAndMaskListAndMasks = new Regex(
+			@"(?<header>--- TST ---.*?)(?<maskList>>[Tt][Qq][Tt].*?)((?>>[Tt][Qq][Tt])|$)(?<masks>.*)",
 			RegexOptions.Singleline | RegexOptions.Compiled
 		);
+
+
+		static readonly Regex _reHeaderCodes = new Regex(
+			@"--- TST ---\n(?:.*?:(?<pnrCode>[\w\d]+).*?(?::(?<tourCode>[\w\d]+))?)\n\w+\s+(?<offceCode>[\w\d]+)_(?<agentCode>[\w\d]+)",
+			RegexOptions.Multiline | RegexOptions.Compiled
+		);
+
+		static readonly Regex _reHeaderPassangers = new Regex(
+			@"(?<no>\d+)\.\s+(?<name>.+?)(?>$|(?:\s+\(CNN\)))",
+			RegexOptions.Multiline | RegexOptions.Compiled
+		);
+
+		static readonly Regex _reHeaderSegments = new Regex(
+			@"^\s+\d+\s+(?<carrier>[\w\d]{2})(?<flightNo>\d+)\s+(?<serviceClass>[\w\d]+)\s+(?<departureDate>\d\d\w\w\w)\s.+?\s(?<departureAirport>[\w\d]{3})(?<arrivalAirport>[\w\d]{3})\s.+?(?<departureTime>\d{4})\s+(?<arrivalTime>\d{4})(?<arrivalDateOffset>\+\d+)?",
+			RegexOptions.Multiline | RegexOptions.Compiled
+		);
+
+
+		static readonly Regex _reMaskList = new Regex(
+			@"^(?<maskNo>\d*)[ ]+(?<passanger>\w.*?)\s+\[",
+			RegexOptions.Multiline | RegexOptions.Compiled
+		);
+
+
+		static readonly Regex _reMaskSegments = new Regex(
+			@"^\s+(?<departureAirport>[\w\d]{3})-(?<arrivalAirport>[\w\d]{3})\s+(?<carrier>[\w\d]{2})\s+(?<flightNo>\d{1,4})\s*(?<serviceClass>\w+)\s+(?<departureDate>\d\d\w\w\w)\s+(\d\d\d\d)\s+\w*\s+([\w\d]+)\s+(\d\d\w\w\w)(\d\d\w\w\w)\s+(?<fareBasis>[\w\d]+)",
+			RegexOptions.Multiline | RegexOptions.Compiled
+		);
+
+		static readonly Regex _reMaskFare = new Regex(
+			@"^FARE\s+(?<currency>\w+)\s+(?<amount>\d+\.\d\d)",
+			RegexOptions.Multiline | RegexOptions.Compiled
+		);
+
+		static readonly Regex _reMaskEqualFare = new Regex(
+			@"^EQUIV\s+(?<currency>\w+)\s+(?<amount>\d+\.\d\d)",
+			RegexOptions.Multiline | RegexOptions.Compiled
+		);
+
+		static readonly Regex _reMaskFee = new Regex(
+			@"^TX\d+\s+(?<currency>\w+)\s+(?<amount>\d+\.\d\d)(?<code>[\w\d]+)",
+			RegexOptions.Multiline | RegexOptions.Compiled
+		);
+
+		static readonly Regex _reMaskTotal = new Regex(
+			@"^TOTAL\s+(?<currency>\w+)\s+(?<amount>\d+\.\d\d)",
+			RegexOptions.Multiline | RegexOptions.Compiled
+		);
+
+
 
 
 		//static readonly Regex _reHeader = new Regex(
@@ -379,12 +429,6 @@ namespace Luxena.Travel.Parsers
 
 		//static readonly Regex _reMaskFeeList = new Regex(
 		//	@"XT BREAKDOWN(?:\s+(?<amount>\d+(\.\d+)?)(?<code>\w+))+",
-		//	RegexOptions.Multiline | RegexOptions.Compiled
-		//);
-
-
-		//static readonly Regex _reMaskSegments = new Regex(
-		//	@"^\s*(?<segmentNo>\d\d)\s+(?<stopover>\w)\s+(?<airport>[\w\d]{3})\s+(?<airline>[\w\d]{2})\s*(?<flightNo>\d+)(?<class>\w)\s+(?<departureDate>\d\d\w\w\w)\s+(?<departureTime>\d+)\s+(?<fareBasis>[\w\d\/]+)\s+(?:\d\d\w\w\w\d\d)?(?:\d\d\w\w\w\d\d)\s+(?<luggage>[\w\d]+)",
 		//	RegexOptions.Multiline | RegexOptions.Compiled
 		//);
 

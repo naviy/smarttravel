@@ -25,6 +25,8 @@ using HtmlWindow = System.Html.Window;
 using Record = Ext.data.Record;
 
 
+
+
 namespace Luxena.Travel
 {
 	public class AviaDocumentProcessForm : BaseEditForm
@@ -165,7 +167,7 @@ namespace Luxena.Travel
 				.selectOnFocus(true)
 				.listeners(new Dictionary(
 					"changeValue", new FieldChangeDelegate(
-						delegate(Field objthis, object newValue, object oldValue)
+						delegate (Field objthis, object newValue, object oldValue)
 						{
 							if (oldValue == null || newValue == null)
 								_customerSelector.UpdateTriggerStatus();
@@ -350,7 +352,7 @@ namespace Luxena.Travel
 					delegate
 					{
 						MessageBoxWrap.Prompt(Res.AddDocument_Title, Res.EnterDocumentNumber_Text,
-							delegate(string button, string text)
+							delegate (string button, string text)
 							{
 								if (button == "ok" && !string.IsNullOrEmpty(text))
 									AddDocumentByNumber(text);
@@ -379,7 +381,7 @@ namespace Luxena.Travel
 				.items(menuItems)
 				.listeners(new Dictionary(
 					"beforeshow", new MenuBeforeshowDelegate(
-						delegate(Component sender) { ((Menu)sender).tryActivate(0); })))
+						delegate (Component sender) { ((Menu)sender).tryActivate(0); })))
 				.ToDictionary());
 
 			LinkButton addButton = new LinkButton(new ButtonConfig()
@@ -396,7 +398,7 @@ namespace Luxena.Travel
 			_applyDataCheckbox = new Checkbox(new CheckboxConfig()
 				.boxLabel(Res.ProcessForm_ApplyToDocuments_Text)
 				.handler(new CheckboxCheckDelegate(
-					delegate(Checkbox checkbox, bool isChecked)
+					delegate (Checkbox checkbox, bool isChecked)
 					{
 						panel.setVisible(isChecked);
 
@@ -500,7 +502,7 @@ namespace Luxena.Travel
 			{
 				foreach (object selectedDocument in _selectedDocuments)
 				{
-					AviaDocumentProcessDto dto = (AviaDocumentProcessDto) selectedDocument;
+					AviaDocumentProcessDto dto = (AviaDocumentProcessDto)selectedDocument;
 
 					dto.Order = _document.Order;
 					dto.Customer = _document.Customer;
@@ -509,7 +511,7 @@ namespace Luxena.Travel
 
 					if (_ticket != null)
 					{
-						AviaTicketProcessDto ticketDto = (AviaTicketProcessDto) dto;
+						AviaTicketProcessDto ticketDto = (AviaTicketProcessDto)dto;
 
 						if (ticketDto.PassengerName == _document.PassengerName)
 							ticketDto.Passenger = _ticket.Passenger;
@@ -519,22 +521,22 @@ namespace Luxena.Travel
 						foreach (PenalizeOperationDto operation in _ticket.PenalizeOperations)
 						{
 							if (ticketDto.SegmentCount == 1 &&
-							    (operation.Type == PenalizeOperationType.ChangesAfterDeparture ||
-							     operation.Type == PenalizeOperationType.RefundAfterDeparture ||
-							     operation.Type == PenalizeOperationType.NoShowAfterDeparture)
+								(operation.Type == PenalizeOperationType.ChangesAfterDeparture ||
+								 operation.Type == PenalizeOperationType.RefundAfterDeparture ||
+								 operation.Type == PenalizeOperationType.NoShowAfterDeparture)
 								)
 								continue;
 
 							list.Add(operation);
 						}
 
-						ticketDto.PenalizeOperations = (PenalizeOperationDto[]) list;
+						ticketDto.PenalizeOperations = (PenalizeOperationDto[])list;
 					}
 
 					dtos[dtos.Length] = dto;
 				}
 			}
-			
+
 			if (_ticket != null)
 				AviaService.ProcessAviaTickets((AviaTicketProcessDto[])dtos, CompleteSave, null);
 			else if (_refund != null)
@@ -900,10 +902,14 @@ namespace Luxena.Travel
 				_reservationCount.autoEl = new Dictionary("html", text);
 		}
 
+
+
 		private void SetInitialValues()
 		{
+
 			if (CanRecalculate())
 			{
+
 				if (_document.GrandTotal == null)
 					RecalculateField(_grandTotalField);
 				else if (_document.ServiceFee == null)
@@ -921,6 +927,7 @@ namespace Luxena.Travel
 				}
 				else if (_document.Discount == null)
 					RecalculateField(_discountField);
+
 			}
 		}
 
@@ -945,13 +952,16 @@ namespace Luxena.Travel
 				Script.IsValue(_document.Total) ? _document.Total.Currency.Name : "",
 				commission
 			);
+
 		}
 
 
 
 		private void GetPassengerActions(Field field, ActionCallbackDelegate actionCallbackDelegate)
 		{
+
 			Reference passenger = _passengerField.GetObjectInfo();
+
 
 			if (passenger == null)
 			{
@@ -964,38 +974,43 @@ namespace Luxena.Travel
 				return;
 			}
 
-			AviaService.ValidatePassengerPassport((string)_document.Id, (string)passenger.Id, Script.IsNull(_ticket.GdsPassport),
-				delegate(object result)
+
+			AviaService.ValidatePassengerPassport(
+
+				(string)_document.Id,
+				(string)passenger.Id,
+				Script.IsNull(_ticket.GdsPassport),
+
+				delegate (object result)
 				{
+
 					PassportValidationResponse response = (PassportValidationResponse)result;
 
 					ArrayList actions = new ArrayList();
 
+
 					switch (response.PassportValidationResult)
 					{
-						case PassportValidationResult.NoPassport:
-							{
-								actions.Add(new Action(new ActionConfig()
-									.text(Res.AddPassport_Action_Title)
-									.handler(new AnonymousDelegate(AddPassport))
-									.ToDictionary()));
 
-								break;
-							}
+						case PassportValidationResult.NoPassport:
+							actions.Add(new Action(new ActionConfig()
+								.text(Res.AddPassport_Action_Title)
+								.handler(new AnonymousDelegate(AddPassport))
+								.ToDictionary()));
+
+							break;
 
 						case PassportValidationResult.ExpirationDateNotValid:
-							{
-								actions.Add(new Action(new ActionConfig()
-									.text(Res.AddPassport_Action_Title)
-									.handler(new AnonymousDelegate(AddPassport))
-									.ToDictionary()));
+							actions.Add(new Action(new ActionConfig()
+								.text(Res.AddPassport_Action_Title)
+								.handler(new AnonymousDelegate(AddPassport))
+								.ToDictionary()));
 
-								break;
-							}
+							break;
 
 						case PassportValidationResult.NotValid:
-							{
-								/*actions.Add(new Action(new ActionConfig()
+
+							/*actions.Add(new Action(new ActionConfig()
 									.text(Res.Use_System_Passport_Action_Title)
 									.handler(new AnonymousDelegate(SetIncorrectPassport))
 									.ToDictionary()));
@@ -1009,27 +1024,35 @@ namespace Luxena.Travel
 									.ToDictionary()));
 								*/
 
-								actions.Add(new Action(new ActionConfig()
-									.text(Res.ComparePassports)
-									.handler(new AnonymousDelegate(
-										delegate
-										{
-											PassportCompareForm form = new PassportCompareForm(response.Passport, _ticket.Passport);
-											form.Saved += delegate(object arg1)
-											{
-												if ((bool)arg1)
-													SetIncorrectPassport();
-												else
-													GenericService.Update(ClassNames.Passport, response.Passport.Id, response.Passport.Version, GetPassportData(_ticket.Passport), null,
-														delegate { SetCorrectPassport(); }, null);
-											};
+							actions.Add(new Action(new ActionConfig()
 
-											form.Open();
-										}))
-									.ToDictionary()));
-								break;
-							}
+								.text(Res.ComparePassports)
+
+								.handler(new AnonymousDelegate(delegate
+								{
+
+									PassportCompareForm form = new PassportCompareForm(response.Passport, _ticket.Passport);
+									
+									form.Saved += delegate (object arg1)
+									{
+										if ((bool)arg1)
+											SetIncorrectPassport();
+										else
+											GenericService.Update(ClassNames.Passport, response.Passport.Id, response.Passport.Version, GetPassportData(_ticket.Passport), null,
+												delegate { SetCorrectPassport(); }, null);
+									};
+
+									form.Open();
+
+								}))
+
+								.ToDictionary())
+
+							);
+
+							break;
 					}
+
 
 					UpdateCopyPassportButton(response.PassportValidationResult);
 
@@ -1038,8 +1061,14 @@ namespace Luxena.Travel
 					RefreshWindowShadow();
 
 					actionCallbackDelegate((Action[])actions);
-				}, null);
+
+				}, null
+
+			);
+
 		}
+
+
 
 		private static object GetPassportData(PassportDto passport)
 		{
@@ -1172,7 +1201,7 @@ namespace Luxena.Travel
 				Dictionary nameDictionary = new Dictionary("Name", text, "IsCustomer", true);
 
 				FormsRegistry.EditObject(type, null, nameDictionary,
-					delegate(object result)
+					delegate (object result)
 					{
 						OrganizationDto dto = (OrganizationDto)((ItemResponse)result).Item;
 
@@ -1186,7 +1215,7 @@ namespace Luxena.Travel
 			}
 			else
 				PartyService.CreateCustomer(type, text,
-					delegate(object result)
+					delegate (object result)
 					{
 						Dictionary party = Dictionary.GetDictionary(result);
 
@@ -1225,7 +1254,7 @@ namespace Luxena.Travel
 				return;
 
 			GenericService.Update("Person", null, null, new Dictionary("Name", text), null,
-				delegate(object result)
+				delegate (object result)
 				{
 					ItemResponse response = (ItemResponse)result;
 					Dictionary person = Dictionary.GetDictionary(response.Item);
@@ -1265,7 +1294,7 @@ namespace Luxena.Travel
 		private void EditPassport(object id, object version, Dictionary value)
 		{
 			FormsRegistry.EditObject(ClassNames.Passport, id, value,
-				delegate(object result)
+				delegate (object result)
 				{
 					PassportDto dto = (PassportDto)((ItemResponse)result).Item;
 					dto.Owner = _passengerField.GetObjectInfo();
@@ -1623,7 +1652,7 @@ namespace Luxena.Travel
 				.boxLabel(text)
 				.checked_(dto.RequiresProcessing)
 				.handler(new CheckboxCheckDelegate(
-					delegate(Checkbox sender, bool isChecked)
+					delegate (Checkbox sender, bool isChecked)
 					{
 						if (isChecked)
 							_selectedDocuments.Add(dto);
@@ -1631,7 +1660,7 @@ namespace Luxena.Travel
 							_selectedDocuments.Remove(dto);
 					}))
 				.listeners(new Dictionary("render", new GenericOneArgDelegate(
-					delegate(object sender) { ((Checkbox)sender).getEl().addClass(cssClass); })))
+					delegate (object sender) { ((Checkbox)sender).getEl().addClass(cssClass); })))
 				.ToDictionary());
 
 			BoxComponent grandTotal = new BoxComponent(new BoxComponentConfig()
@@ -1694,7 +1723,7 @@ namespace Luxena.Travel
 		private void AddDocumentByNumber(string number)
 		{
 			AviaService.GetAviaDocumentForHandlingByNumber(number, _type,
-				delegate(object result)
+				delegate (object result)
 				{
 					if (result == null)
 					{
@@ -1732,12 +1761,12 @@ namespace Luxena.Travel
 			request.Filters = (PropertyFilter[])list;
 
 			FormsRegistry.SelectObjects(ClassNames.AviaDocument, request, false,
-				delegate(object arg1)
+				delegate (object arg1)
 				{
 					object[] ids = (object[])arg1;
 
 					AviaService.GetAviaDocumentsForProcess(ids, _type,
-						delegate(object result)
+						delegate (object result)
 						{
 							AviaDocumentProcessDto[] dtos = (AviaDocumentProcessDto[])result;
 
@@ -1766,12 +1795,12 @@ namespace Luxena.Travel
 			request.Filters = (PropertyFilter[])list;
 
 			FormsRegistry.SelectObjects(ClassNames.AviaDocument, request, false,
-				delegate(object arg1)
+				delegate (object arg1)
 				{
 					object[] ids = (object[])arg1;
 
 					AviaService.GetAviaDocumentsForProcess(ids, _type,
-						delegate(object result)
+						delegate (object result)
 						{
 							AviaDocumentProcessDto[] dtos = (AviaDocumentProcessDto[])result;
 
@@ -1796,12 +1825,12 @@ namespace Luxena.Travel
 			};
 
 			FormsRegistry.SelectObjects(ClassNames.AviaDocument, request, false,
-				delegate(object arg1)
+				delegate (object arg1)
 				{
 					object[] ids = (object[])arg1;
 
 					AviaService.GetAviaDocumentsForProcess(ids, _type,
-						delegate(object result)
+						delegate (object result)
 						{
 							AviaDocumentProcessDto[] dtos = (AviaDocumentProcessDto[])result;
 
@@ -1852,7 +1881,7 @@ namespace Luxena.Travel
 		{
 			PenalizeOperationEditForm form = new PenalizeOperationEditForm(_ticket.PenalizeOperations, _ticket.SegmentCount > 1);
 			form.Saved +=
-				delegate(object result)
+				delegate (object result)
 				{
 					PenalizeOperationDto[] dtos = (PenalizeOperationDto[])result;
 
@@ -1915,7 +1944,7 @@ namespace Luxena.Travel
 			if (oldArray != null && newArray != null && oldArray[0] == newArray[0])
 				return;
 
-			MessageBoxWrap.Confirm(Res.Confirmation, Res.AviaDocumentProcessForm_CustomerChanged, delegate(string button, string text)
+			MessageBoxWrap.Confirm(Res.Confirmation, Res.AviaDocumentProcessForm_CustomerChanged, delegate (string button, string text)
 			{
 				_updating = true;
 

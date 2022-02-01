@@ -407,7 +407,11 @@ namespace Luxena.Travel.Domain
 
 
 
-			public PassportValidationResult ValidatePassengerPassport(AviaDocument document, Passport passport, bool isGdsPassportNull)
+			public PassportValidationResult ValidatePassengerPassport(
+				AviaDocument document, 
+				Passport passport,
+				bool isGdsPassportNull
+			)
 			{
 
 				if (document.GdsPassport.No() || isGdsPassportNull)
@@ -432,13 +436,15 @@ namespace Luxena.Travel.Domain
 				}
 
 
-				var isValid = passport.Citizenship == gdsPassport.Citizenship
-					&& passport.IssuedBy == gdsPassport.IssuedBy
-					&& string.Equals(passport.LastName, gdsPassport.LastName, StringComparison.InvariantCultureIgnoreCase)
-					&& string.Equals(passport.FirstName, gdsPassport.FirstName, StringComparison.InvariantCultureIgnoreCase)
-					&& passport.Birthday == gdsPassport.Birthday
-					&& passport.ExpiredOn == gdsPassport.ExpiredOn
-					&& passport.Gender == gdsPassport.Gender;
+				var isValid = 
+					passport.Citizenship == gdsPassport.Citizenship && 
+					passport.IssuedBy == gdsPassport.IssuedBy &&
+					string.Equals(passport.LastName, gdsPassport.LastName, StringComparison.InvariantCultureIgnoreCase) &&
+					string.Equals(passport.FirstName, gdsPassport.FirstName, StringComparison.InvariantCultureIgnoreCase) &&
+					passport.Birthday == gdsPassport.Birthday &&
+					passport.ExpiredOn == gdsPassport.ExpiredOn &&
+					passport.Gender == gdsPassport.Gender
+				;
 
 
 				return isValid ? PassportValidationResult.Valid : PassportValidationResult.NotValid;

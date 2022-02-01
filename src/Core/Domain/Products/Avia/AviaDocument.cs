@@ -47,6 +47,7 @@ namespace Luxena.Travel.Domain
 		[SemanticSetup]
 		public static void AnnotationSetup(SemanticSetup<AviaDocument> se)
 		{
+
 			se.For(a => a.ReissueFor)
 				.Suggest<AviaDocument>();
 
@@ -55,6 +56,7 @@ namespace Luxena.Travel.Domain
 
 			se.For(a => a.Provider)
 				.RU("Поставщик");
+
 		}
 
 
@@ -245,11 +247,13 @@ namespace Luxena.Travel.Domain
 
 		public virtual void AddVoiding(AviaDocumentVoiding voiding)
 		{
+
 			_voidings.Add(voiding);
 
 			voiding.Document = this;
 
 			IsVoid = voiding.IsVoid;
+
 		}
 
 
@@ -287,6 +291,12 @@ namespace Luxena.Travel.Domain
 				DateTimeStyles.None, 
 				out var expiredOn
 			);
+
+
+			if (expiredOn.Year < 2000)
+			{
+				expiredOn = expiredOn.AddYears(100);
+			}
 
 
 			Gender? gender = null;

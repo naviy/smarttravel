@@ -10,8 +10,19 @@ using Luxena.Base.Metamodel;
 using Luxena.Domain;
 
 
+
+
 namespace Luxena.Travel.Domain
 {
+
+
+
+	//===g
+
+
+
+
+
 
 	[RU("Услуга", "Все услуги")]
 	[AgentPrivileges]
@@ -19,15 +30,28 @@ namespace Luxena.Travel.Domain
 	public abstract partial class Product : Entity2, IEntity3
 	{
 
+		//---g
+
+
+
 		public abstract ProductType Type { get; }
+
+
+		[Patterns.IssueDate]
+		public virtual DateTime IssueDate { get; set; }
+		
 
 		[Patterns.Name, EntityName]
 		public virtual string Name { get; set; }
 
-		[Patterns.IssueDate]
-		public virtual DateTime IssueDate { get; set; }
-
 		public virtual string PureNumber => Name;
+
+		[RU("Бронировка", ruDesc: "Локатор системы бронирования")]
+		public virtual string PnrCode { get; set; }
+
+		[RU("Туркод", ruDesc: "Локатор перевозчика")]
+		public virtual string TourCode { get; set; }
+
 
 		[RU("Продюсер")]
 		public virtual Organization Producer { get; set; }
@@ -41,7 +65,7 @@ namespace Luxena.Travel.Domain
 		[RU("Исходный документ")]
 		public virtual Product RefundedProduct { get; set; }
 
-
+		
 		[Patterns.Passenger]
 		public virtual string PassengerName
 		{
@@ -49,9 +73,16 @@ namespace Luxena.Travel.Domain
 			set => throw new NotImplementedException();
 		}
 
-		public virtual IList<ProductPassenger> Passengers { get => _passengers;
+
+		public virtual IList<ProductPassenger> Passengers 
+		{ 
+			get => _passengers;
 			set => _passengers = value;
 		}
+
+		private IList<ProductPassenger> _passengers = new List<ProductPassenger>();
+
+		
 
 		public virtual ProductPassengerDto[] PassengerDtos
 		{
@@ -101,12 +132,6 @@ namespace Luxena.Travel.Domain
 
 		[Required]
 		public virtual Country Country { get; set; }
-
-		[RU("Бронировка")]
-		public virtual string PnrCode { get; set; }
-
-		[RU("Туркод")]
-		public virtual string TourCode { get; set; }
 
 
 		[RU("Бронировщик")]
@@ -330,6 +355,14 @@ namespace Luxena.Travel.Domain
 
 
 
+		private bool _canModifyChecked;
+
+
+
+		//---g
+
+
+
 		public static implicit operator string (Product me)
 		{
 			return me?.Name;
@@ -340,8 +373,15 @@ namespace Luxena.Travel.Domain
 			return Name;
 		}
 
+
+
+		//---g
+
+
+
 		public override object Clone()
 		{
+
 			var clone = (Product)base.Clone();
 
 			clone.Fare = Fare.Clone();
@@ -369,14 +409,19 @@ namespace Luxena.Travel.Domain
 			clone._passengers = _passengers
 				.Select(a => a.Clone<ProductPassenger>())
 				.ToList()
-				.Do(list => list.ForEach(a => a.Product = clone));
+				.Do(list => list.ForEach(a => a.Product = clone))
+			;
 
 
 			return clone;
+
 		}
+
+
 
 		public virtual ProductPassenger AddPassenger(string passengerName, Person passenger)
 		{
+
 			var r = new ProductPassenger
 			{
 				Product = this,
@@ -384,10 +429,15 @@ namespace Luxena.Travel.Domain
 				Passenger = passenger,
 			};
 
+
 			Passengers.Add(r);
 
+
 			return r;
+
 		}
+
+
 
 		public virtual void AddPassenger(ProductPassenger item)
 		{
@@ -395,10 +445,13 @@ namespace Luxena.Travel.Domain
 			_passengers.Add(item);
 		}
 
+
+
 		public virtual void RemovePassenger(ProductPassenger item)
 		{
 			_passengers.Remove(item);
 		}
+
 
 
 		public virtual string GetPassengerNames()
@@ -406,8 +459,11 @@ namespace Luxena.Travel.Domain
 			return Passengers.No() ? null : string.Join(", ", Passengers.Select(a => a.PassengerName).OrderBy(a => a));
 		}
 
+
+
 		public virtual bool SetCustomer(Domain db, Party value)
 		{
+
 			if (Equals(value, Customer))
 				return false;
 
@@ -415,17 +471,26 @@ namespace Luxena.Travel.Domain
 
 			Customer = value;
 
+
 			return true;
+
 		}
+
+
 
 		public virtual void SetCustomer2(Party value)
 		{
 			Customer = value;
 		}
 
+
+
 		public virtual bool SetOrder(Domain db, Order value)
 		{
-			if (Equals(value, Order)) return false;
+
+			if (Equals(value, Order)) 
+				return false;
+
 
 			CheckCanModify(db);
 
@@ -434,11 +499,16 @@ namespace Luxena.Travel.Domain
 			if (value != null)
 				Customer = value.Customer;
 
+
 			return true;
+
 		}
+
+
 
 		public virtual bool SetOrder2(Domain db, Order value)
 		{
+
 			if (Equals(value, Order))
 			{
 				db.OnCommit(this, RefreshOrderKey, r => RefreshOrder(db));
@@ -446,29 +516,46 @@ namespace Luxena.Travel.Domain
 				return false;
 			}
 
+
 			if (Order != null)
 			{
 				Order.Remove(db, this);
 				Order = null;
 			}
 
+
 			value?.Add(db, this, saveDocuments: false);
 
+
 			return true;
+
 		}
 
 
+
+
 		private void RefreshOrderKey(Product r) { }
+
+
+
 		public virtual void RefreshOrder(Domain db)
 		{
+
 			var order = Order;
+
 			if (order != null)
 			{
+
 				if (Customer != null && !Equals(order.Customer, Customer))
+				{
 					throw new DomainException(Exceptions.DifferentCustomer_Error, order.Number);
+				}
+
+
 
 				if (db.Configuration.AviaOrderItemGenerationOption != AviaOrderItemGenerationOption.AlwaysOneOrderItem)
 				{
+
 					var serviceFeeItem = order.ItemsBy(this, a => a.IsServiceFee).FirstOrDefault();
 
 					if (ServiceFee.No() && serviceFeeItem != null || ServiceFee.Yes() && serviceFeeItem == null)
@@ -479,35 +566,50 @@ namespace Luxena.Travel.Domain
 						order
 							.Add(db, this);
 					}
+
 				}
 
+
 				order.Recalculate(db);
+
 			}
+
 
 			if (db.IsDirty(this, a => a.Order))
 			{
 				var oldOrder = db.OldValue(this, a => a.Order);
 				oldOrder?.Recalculate(db);
 			}
+
 		}
+
+
 
 		public virtual void AddVoidStatus(Domain db, bool value)
 		{
+
 			IsVoid = value;
 
 			if (value)
 				Order?.Remove(db, this);
+
 		}
+
+
 
 		private void CheckCanModify(Domain db)
 		{
+
 			if (_canModifyChecked || db == null)
 				return;
+
 
 			db.Product.AssertModify(this);
 
 			_canModifyChecked = true;
+
 		}
+
 
 
 		protected virtual string GetPassengerName()
@@ -515,9 +617,14 @@ namespace Luxena.Travel.Domain
 			return Passengers.One(a => a.PassengerName);
 		}
 
+
+
 		protected virtual void SetPassengerName(string value)
 		{
-			if (value == null) return;
+
+			if (value == null)
+				return;
+
 
 			var psg = Passengers.One();
 
@@ -525,21 +632,32 @@ namespace Luxena.Travel.Domain
 				psg.PassengerName = value;
 			else
 				AddPassenger(value, null);
+
 		}
+
+
 
 		protected virtual Person GetPassenger()
 		{
 			return Passengers.One(a => a.Passenger);
 		}
 
+
+
 		protected virtual void SetPassenger(Person value)
 		{
-			if (value == null) return;
+
+			if (value == null) 
+				return;
+
 
 			Passengers.One()
 				.Do(a => a.Passenger = value)
-				.Else(() => AddPassenger(null, value));
+				.Else(() => AddPassenger(null, value))
+			;
+
 		}
+
 
 
 		#region OrderItem
@@ -719,11 +837,17 @@ namespace Luxena.Travel.Domain
 
 
 
-
-		private bool _canModifyChecked;
-		private IList<ProductPassenger> _passengers = new List<ProductPassenger>();
-
+		//---g
 
 	}
+
+
+
+
+
+
+	//===g
+
+
 
 }
