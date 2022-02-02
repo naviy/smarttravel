@@ -110,7 +110,7 @@ namespace Luxena.Travel.Parsers
 
 				AirlineIataCode = a.Groups["airline"].Value,
 				FlightNo = a.Groups["flightNo"].Value,
-				ServiceClassCode = a.Groups["class"].Value,
+				ServiceClassCode = a.Groups["serviceClass"].Value,
 
 				FromAirportCode = a.Groups["fromAirport"].Value,
 				ToAirportCode = a.Groups["toAirport"].Value,
@@ -352,7 +352,7 @@ namespace Luxena.Travel.Parsers
 		);
 
 		static readonly Regex _reHeaderSegments = new Regex(
-			@"\s*(?<segmentNo>\d)\s+(?<airline>[\w\d]{2})\s*(?<flightNo>\d+)(?<class>\w)\s+(?<departureDate>\d\d\w\w\w)\s+\d+\s+(?<fromAirport>\w\w\w)(?<toAirport>\w\w\w).+?\s(?<departureTime>\d\d\d\d)\s+(?<arrivalTime>\d\d\d\d)\s+(?<arrivalDate>\d\d\w\w\w)?",
+			@"\s*(?<segmentNo>\d)\s+(?<airline>[\w\d]{2})\s*(?<flightNo>\d+)(?<serviceClass>\w)\s+(?<departureDate>\d\d\w\w\w)\s+\d+\s+(?<fromAirport>\w\w\w)(?<toAirport>\w\w\w).+?\s(?<departureTime>\d\d\d\d)\s+(?<arrivalTime>\d\d\d\d)\s+(?<arrivalDate>\d\d\w\w\w)?",
 			RegexOptions.Multiline | RegexOptions.Compiled
 		);
 

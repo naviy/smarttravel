@@ -63,6 +63,7 @@
     <Compile Include="DataAnnotations\LocalizationTests.cs" />
     <Compile Include="Domain.Core\StringExtentions.Tests.cs" />
     <Compile Include="Parsers\AirBufferParserTests.cs" />
+    <Compile Include="Parsers\GalileoConsoleParserTests.cs" />
     <Compile Include="Parsers\SabreConsoleParserTests.cs" />
     <Compile Include="_asserters\AviaDocumentAsserter.cs" />
     <Compile Include="_asserters\FlightSegmentAsserter.cs" />

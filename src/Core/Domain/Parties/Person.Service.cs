@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Text.RegularExpressions;
 
 
@@ -18,6 +19,26 @@ namespace Luxena.Travel.Domain
 
 	partial class Person
 	{
+
+		//---g
+
+
+
+		static readonly Regex _reByPassengerName = new Regex(@"(MR|MRS|MSTR|MISS)$", RegexOptions.Compiled);
+
+
+
+		public static bool PassengerNamesIsEquals(string name1, string name2)
+		{
+
+			name1 = _reByPassengerName.Replace(name1, string.Empty).Clip();
+			name2 = _reByPassengerName.Replace(name2, string.Empty).Clip();
+
+			return name1.Equals(name2, StringComparison.InvariantCultureIgnoreCase);
+
+		}
+
+
 
 		//---g
 
@@ -73,9 +94,6 @@ namespace Luxena.Travel.Domain
 				return ByName(name);
 
 			}
-
-			
-			static readonly Regex _reByPassengerName = new Regex(@"(MR|MRS|MSTR|MISS)$", RegexOptions.Compiled);
 
 
 

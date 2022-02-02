@@ -105,6 +105,14 @@ namespace Luxena.Travel.Tests
 
 
 
+		public TThis TourCode(string expected)
+		{
+			AreEqual(expected, r.TourCode);
+			return (TThis)this;
+		}
+
+
+
 		//---g
 
 
