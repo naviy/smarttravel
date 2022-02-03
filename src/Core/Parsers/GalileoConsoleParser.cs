@@ -73,8 +73,8 @@ namespace Luxena.Travel.Parsers
 
 
 			var headerContent = headerAndMaskListMatchAndMasks.Groups["header"].Value;
-			var maskListContent = headerAndMaskListMatchAndMasks.Groups["maskList"].Value;
-			var masksContent = headerAndMaskListMatchAndMasks.Groups["masks"].Value;
+			var maskListContent = headerAndMaskListMatchAndMasks.Groups["maskList"].Value.Clip();
+			var masksContent = headerAndMaskListMatchAndMasks.Groups["masks"].Value.Clip();
 
 
 			if (headerContent.No() || maskListContent.No())
@@ -93,20 +93,6 @@ namespace Luxena.Travel.Parsers
 				yield break;
 
 
-			var headerSegmentsMatches = _reHeaderSegments.Matches(headerContent);
-
-			if (!headerSegmentsMatches.No())
-				yield break;
-
-
-
-			var headerTicketsMatches = _reHeaderSegments.Matches(headerContent);
-
-			if (!headerSegmentsMatches.No())
-				yield break;
-
-
-
 			var issueDate = headerCodesMatch.Groups["issueDate"].Value.As().ToDateTimen("ddMMMyyyy") ?? DateTime.Today;
 			var pnrCode = headerCodesMatch.Groups["pnrCode"].Value;
 			var tourCode = headerCodesMatch.Groups["tourCode"].Value;
@@ -117,7 +103,7 @@ namespace Luxena.Travel.Parsers
 			var headerPassengers = headerPassengersMatches.ToArray(m => new
 			{
 				No = m.Groups["no"].Value,
-				Name = m.Groups["name"].Value,
+				Name = m.Groups["name"].Value.Clip(),
 			});
 
 
@@ -125,7 +111,7 @@ namespace Luxena.Travel.Parsers
 				yield break;
 
 
-			var headerSegments = headerSegmentsMatches.ToArray(a => new
+			var headerSegments = _reHeaderSegments.Matches(headerContent).ToArray(a => new
 			{
 
 				AirlineIataCode = a.Groups["airline"].Value,
@@ -144,8 +130,8 @@ namespace Luxena.Travel.Parsers
 			});
 
 
-			if (headerSegments.No())
-				yield break;
+			//if (headerSegments.No())
+			//	yield break;
 
 
 			var headerTickets = _reHeaderTickets.Matches(headerContent).ToArray(a => new
@@ -159,32 +145,39 @@ namespace Luxena.Travel.Parsers
 			//---g
 
 
-			var maskList = _reMaskList.Matches(maskListContent).ToArray(a => new
+			var priorMaskNo = "";
+
+			var maskList = _reMaskList.Matches(maskListContent).ToArray(a =>
 			{
-				MaskNo = a.Groups["maskNo"].Value,
-				Passenger = a.Groups["passanger"].Value,
+
+				var item = new
+				{
+					MaskNo = a.Groups["maskNo"].Value.Clip() ?? priorMaskNo,
+					Passenger = a.Groups["passanger"].Value,
+				};
+
+				priorMaskNo = item.MaskNo;
+
+				return item;
+
 			});
 
 
-			var masks0 = _reMasks.Matches(masksContent).ToArray(a => new
+			var maskBodies = masksContent.No() ? null : _reMasks.Matches(masksContent).ToArray(a => new
 			{
-				No = a.Groups["no"].Value,
-				Body = a.Groups["body"].Value,
+				No = a.Groups["no"].Value.Clip() ?? priorMaskNo,
+				Body = a.Groups["body"].Value.Clip(),
 			});
 
 
-			if (maskList.No() && masks0.No())
-				yield break;
-
-
-			if (masks0.No())
+			if (maskList.No() && maskBodies.No())
 			{
 				maskList = headerPassengers.ToArray(a => new { MaskNo = "1", Passenger = a.Name });
-				masks0 = new[] { new { No = "1", Body = maskListContent } };
+				maskBodies = new[] { new { No = "1", Body = maskListContent } };
 			}
 
 
-			var masks = masks0.ToArray(m0 =>
+			var masks = maskBodies.ToArray(m0 =>
 			{
 
 				var fareMatch = _reMaskFare.Match(m0.Body);
@@ -319,10 +312,14 @@ namespace Luxena.Travel.Parsers
 						ServiceClassCode = mseg.ServiceClassCode,
 
 						FromAirportCode = mseg.FromAirportCode,
-						ToAirportCode = hseg.ToAirportCode,
+						ToAirportCode = hseg?.ToAirportCode,
 
 						DepartureTime = (mseg.DepartureDate + mseg.DepartureTime).As().ToDateTimen("ddMMMHHmm"),
-						ArrivalTime = (mseg.DepartureDate + hseg.ArrivalTime).As().ToDateTimen("ddMMMHHmm")?.AddDays(hseg.ArrivalDateOffset),
+
+						ArrivalTime = hseg != null && hseg.ArrivalTime.Yes()
+							? (mseg.DepartureDate + hseg.ArrivalTime).As().ToDateTimen("ddMMMHHmm")?.AddDays(hseg.ArrivalDateOffset)
+							: mseg.DepartureDate.As().ToDateTimen("ddMMM")
+						,
 
 						FareBasis = mseg.FareBasis,
 						Luggage = mseg.Luggage,
@@ -357,8 +354,8 @@ namespace Luxena.Travel.Parsers
 
 
 		static readonly Regex _reHeaderCodes = new Regex(
-			@"--- TST ---\n(?:.*?:(?<pnrCode>[\w\d]+).*?(?::(?<tourCode>[\w\d]+))?)\n(.*?\s+(?<officeCode>[\w\d]+)_(?<agentCode>[\w\d]+)\s+(?<issueDate>\d\d\w\w\w\d\d\d\d))?",
-			RegexOptions.Multiline | RegexOptions.Compiled
+			@"--- TST ---[\r\n]+(?:.*?:(?<pnrCode>[\w\d]+).*?(?::(?<tourCode>[\w\d]+))?)[\r\n]+(.*?\s+(?<officeCode>[\w\d]+)_(?<agentCode>[\w\d]+)\s+(?<issueDate>\d\d\w\w\w\d\d\d\d))?",
+			RegexOptions.Singleline | RegexOptions.Compiled
 		);
 
 		static readonly Regex _reHeaderPassengers = new Regex(

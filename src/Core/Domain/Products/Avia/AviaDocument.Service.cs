@@ -695,17 +695,24 @@ namespace Luxena.Travel.Domain
 
 
 
-			public List<AviaDocument> AddByConsoleContent(string content, string sellerId, string ownerId)
+			public AviaDocument[] AddByConsoleContent(string content, string sellerId, string ownerId)
 			{
 
-				var docs =
-					AmadeusConsoleParser
+				var docs = AmadeusConsoleParser
+
+					.Parse(content, db.Configuration.DefaultCurrency)
+					.ToArray()
+
+					.Else(() => GalileoConsoleParser
 						.Parse(content, db.Configuration.DefaultCurrency)
-						.ToList()
-						.Else(() => SabreConsoleParser
-							.Parse(content, db.Configuration.DefaultCurrency)
-							.ToList()
-						)
+						.ToArray()
+					)
+					
+					.Else(() => SabreConsoleParser
+						.Parse(content, db.Configuration.DefaultCurrency)
+						.ToArray()
+					)
+
 				;
 
 

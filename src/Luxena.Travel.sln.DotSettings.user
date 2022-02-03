@@ -57,6 +57,7 @@
       &lt;TestId&gt;NUnit2x::B9213BE7-D314-47AB-997E-995E212D9AFE::.NETFramework,Version=v4.8::Luxena.Travel.Tests.Parsers.AmadeusConsoleParserTests&lt;/TestId&gt;&#xD;
       &lt;TestId&gt;NUnit2x::B9213BE7-D314-47AB-997E-995E212D9AFE::.NETFramework,Version=v4.8::Luxena.Travel.Tests.Parsers.SabreConsoleParserTests&lt;/TestId&gt;&#xD;
       &lt;TestId&gt;NUnit2x::B9213BE7-D314-47AB-997E-995E212D9AFE::.NETFramework,Version=v4.8::Luxena.Travel.Tests.Parsers.GalileoConsoleParserTests.TestParseTicket01&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;NUnit2x::B9213BE7-D314-47AB-997E-995E212D9AFE::.NETFramework,Version=v4.8::Luxena.Travel.Tests.Parsers.GalileoConsoleParserTests.TestParseTicket02&lt;/TestId&gt;&#xD;
     &lt;/TestAncestor&gt;&#xD;
     &lt;Test&gt;&#xD;
       &lt;TestId&gt;NUnit2x::B9213BE7-D314-47AB-997E-995E212D9AFE::.NETFramework,Version=v4.8::Luxena.Travel.Tests.Parsers.AmadeusConsoleParserTests.TestParseTicket2&lt;/TestId&gt;&#xD;
@@ -70,11 +71,11 @@
 	
 	<s:String x:Key="/Default/Housekeeping/Bookmarks/NumberedBookmarks/=Bookmark0/Coords/@EntryValue">(Doc Ln 65 Col 63)</s:String>
 	<s:Boolean x:Key="/Default/Housekeeping/Bookmarks/NumberedBookmarks/=Bookmark1/@KeyIndexDefined">True</s:Boolean>
-	<s:String x:Key="/Default/Housekeeping/Bookmarks/NumberedBookmarks/=Bookmark1/Coords/@EntryValue">(Doc Ln 233 Col 35)</s:String>
+	<s:String x:Key="/Default/Housekeeping/Bookmarks/NumberedBookmarks/=Bookmark1/Coords/@EntryValue">(Doc Ln 226 Col 35)</s:String>
 	<s:String x:Key="/Default/Housekeeping/Bookmarks/NumberedBookmarks/=Bookmark1/FileId/@EntryValue">E27BE899-79F5-46A8-99AB-C5F8EFDCB50E/d:Parsers/f:GalileoConsoleParser.cs</s:String>
 	<s:String x:Key="/Default/Housekeeping/Bookmarks/NumberedBookmarks/=Bookmark1/Owner/@EntryValue">NumberedBookmarkManager</s:String>
 	<s:Boolean x:Key="/Default/Housekeeping/Bookmarks/NumberedBookmarks/=Bookmark2/@KeyIndexDefined">True</s:Boolean>
-	<s:String x:Key="/Default/Housekeeping/Bookmarks/NumberedBookmarks/=Bookmark2/Coords/@EntryValue">(Doc Ln 396 Col 34)</s:String>
+	<s:String x:Key="/Default/Housekeeping/Bookmarks/NumberedBookmarks/=Bookmark2/Coords/@EntryValue">(Doc Ln 393 Col 34)</s:String>
 	<s:String x:Key="/Default/Housekeeping/Bookmarks/NumberedBookmarks/=Bookmark2/FileId/@EntryValue">E27BE899-79F5-46A8-99AB-C5F8EFDCB50E/d:Parsers/f:GalileoConsoleParser.cs</s:String>
 	<s:String x:Key="/Default/Housekeeping/Bookmarks/NumberedBookmarks/=Bookmark2/Owner/@EntryValue">NumberedBookmarkManager</s:String>
 	

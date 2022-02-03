@@ -86,6 +86,27 @@ namespace Luxena.Travel.Tests
 
 
 
+		public TThis FlightSegmentsAll(Action<FlightSegmentAsserter> assert)
+		{
+
+			var segments = (r as AviaTicket)?.Segments;
+
+			if (segments == null)
+				return (TThis)this;
+
+
+			foreach (var seg in segments)
+			{
+				assert(new FlightSegmentAsserter(seg));
+			}
+
+
+			return (TThis)this;
+
+		}
+
+
+
 		public TThis FlightSegments(params Action<FlightSegmentAsserter>[] asserts)
 		{
 
@@ -113,6 +134,7 @@ namespace Luxena.Travel.Tests
 			return (TThis)this;
 
 		}
+
 
 
 		//---g

@@ -53,7 +53,7 @@ namespace Luxena.Travel
 
 			Window.setTitle(Res.AviaConsoleParserForm_Title);
 			Window.addClass("avia-console-parser");
-			Window.setSize(800, 780);
+			Window.setSize(800, 765);
 
 
 			Form.add(new Label(new LabelConfig()
@@ -63,6 +63,8 @@ namespace Luxena.Travel
 1) в терминале системы поочерёдно введите следующие команды:<br/>
 <br/>
    - для системы <b>Amadeus</b>: rt[номер бронировки] и tqt; в случае, если просчётов несколько - tqt/T1, tqt/T2 ... соответственно; <br/>
+<br/>
+   - для системы <b>Galileo</b>: rt[номер бронировки] и tqt; в случае, если просчётов несколько - tqt/T1, tqt/T2 ... соответственно; <br/>
 <br/>
    - для системы <b>Sabre</b>: <br/>
 &nbsp; &nbsp; *SPAXAV команда-запрос открытия бронировки по номеру или <br/>
@@ -81,7 +83,7 @@ namespace Luxena.Travel
 
 			_contentField = new TextArea(new TextAreaConfig()
 				.width(756)
-				.height(400)
+				.height(360)
 				.hideLabel(true)
 				.allowBlank(false)
 				.style("font-family: Consolas, Courier New, courier")
