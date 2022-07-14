@@ -88,6 +88,8 @@ namespace Luxena.Travel.Reports
 		private string _number;
 		private DateTime _issueDate;
 		private Person _issuedBy;
+		private Party _owner;
+		private BankAccount _bankAccount;
 		private bool _showPaid;
 
 		private HSSFWorkbook _workbook;
@@ -111,6 +113,8 @@ namespace Luxena.Travel.Reports
 			string number,
 			DateTime issueDate,
 			Person issuedBy,
+			Party owner,
+			BankAccount bankAccount,
 			int? formNumber,
 			bool showPaid,
 			out string fileExtension
@@ -121,6 +125,8 @@ namespace Luxena.Travel.Reports
 			_number = number;
 			_issueDate = issueDate;
 			_issuedBy = issuedBy;
+			_owner = owner;
+			_bankAccount = bankAccount;
 			_showPaid = showPaid;
 
 
@@ -233,7 +239,7 @@ namespace Luxena.Travel.Reports
 			MergeRegion(_currentRow, _currentRow, 2, 6);
 
 			SetCellValue(ReportRes.InvoicePrinter_Supplier, 1, captionStyle);
-			SetCellValue(db.Configuration.GetSupplierDetails(db, _order), dataStyle);
+			SetCellValue(db.Configuration.GetSupplierDetails(db, _order, owner: _owner, bankAccount: _bankAccount), dataStyle);
 
 			++_currentRow;
 			NewRow();

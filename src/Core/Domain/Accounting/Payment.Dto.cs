@@ -8,8 +8,21 @@ using Luxena.Travel.Services;
 namespace Luxena.Travel.Domain
 {
 
+
+
+	//===g
+
+
+
+
+
+
 	public abstract partial class PaymentDto : EntityContract
 	{
+
+		//---g
+
+
 
 		public PaymentForm PaymentForm { get; set; }
 
@@ -43,9 +56,26 @@ namespace Luxena.Travel.Domain
 
 		public Party.Reference Owner { get; set; }
 
+		public BankAccount.Reference BankAccount { get; set; }
+
 		public OperationPermissions Permissions { get; set; }
 
+
+
+		//---g
+
 	}
+
+
+
+
+
+
+	//===g
+
+
+
+
 
 
 	public class PaymentContractService<TPayment, TPaymentService, TPaymentDto>
@@ -74,6 +104,7 @@ namespace Luxena.Travel.Domain
 				c.Invoice = r.Invoice;
 				c.Order = r.Order;
 				c.Owner = r.Owner;
+				c.BankAccount = r.BankAccount;
 
 				c.Date = r.Date;
 				c.PostedOn = r.PostedOn;
@@ -103,6 +134,7 @@ namespace Luxena.Travel.Domain
 				r.ReceivedFrom = c.ReceivedFrom + db;
 				r.Note = c.Note + db;
 				r.Owner = c.Owner + db;
+				r.BankAccount = c.BankAccount + db;
 				r.SetPostedOn();
 				r.AssignedTo = c.AssignedTo + db;
 
@@ -122,6 +154,18 @@ namespace Luxena.Travel.Domain
 
 	}
 
+
+
+
+
+
+	//===g
+
+
+
+
+
+
 	public partial class PaymentContractService : EntityContractService
 	{
 
@@ -131,6 +175,7 @@ namespace Luxena.Travel.Domain
 
 			return NewItemListResponse(payments, prms, New);
 		}
+
 
 		public ItemListResponse Post(object[] ids, RangeRequest prms)
 		{
@@ -145,6 +190,7 @@ namespace Luxena.Travel.Domain
 
 			return response;
 		}
+
 
 		public PaymentDto New(Payment r)
 		{
@@ -165,6 +211,16 @@ namespace Luxena.Travel.Domain
 
 			throw new NotImplementedException();
 		}
+
 	}
+
+
+
+
+
+
+	//===g
+
+
 
 }

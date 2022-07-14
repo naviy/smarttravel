@@ -134,6 +134,9 @@ namespace Luxena.Travel.Domain
 		[RU("Инвойсы: новый номер")]
 		public virtual InvoiceNumberMode Invoice_NumberMode { get; set; }
 
+		[RU("Инвойсы: возможность выбрать Владельца при формировании счета")]
+		public virtual bool Invoice_CanOwnerSelect { get; set; }
+
 		[RU("Инвойсы: печатать НДС")]
 		public virtual bool InvoicePrinter_ShowVat { get; set; }
 
@@ -221,16 +224,16 @@ namespace Luxena.Travel.Domain
 
 
 
-		public virtual string GetSupplierDetails(Domain db, Order order = null, bool multiline = false)
+		public virtual string GetSupplierDetails(Domain db, Order order = null, Party owner = null, BankAccount bankAccount = null, bool multiline = false)
 		{
 
-			var supplier = Company;
+			var supplier = owner ?? Company;
 
 			if (supplier == null)
 				return null;
 
 
-			var sb = new StringBuilder();
+			var sb = new StringBuilder(0);
 
 
 			sb.AppendLine(supplier.NameForDocuments);
@@ -252,18 +255,20 @@ namespace Luxena.Travel.Domain
 			AppendPartyContacts(sb, supplier);
 
 
-			if (order?.BankAccount != null)
+			bankAccount = bankAccount ?? order?.BankAccount;
+
+			if (bankAccount != null)
 			{
-				sb.AppendLine(order.BankAccount.Description);
+				sb.AppendLine(bankAccount.Description);
 			}
 			else
 			{
 
 				var bankAccounts = db.BankAccount.Query.Where(a => a.IsDefault).ToArray();
 
-				foreach (var bankAccount in bankAccounts)
+				foreach (var a in bankAccounts)
 				{
-					sb.AppendLine(bankAccount.Description);
+					sb.AppendLine(a.Description);
 				}
 
 			}

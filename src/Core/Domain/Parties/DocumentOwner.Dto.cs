@@ -11,6 +11,8 @@ namespace Luxena.Travel.Domain
 
 		public bool IsActive { get; set; }
 
+		public bool IsDefault { get; set; }
+
 	}
 
 
@@ -22,12 +24,14 @@ namespace Luxena.Travel.Domain
 			{
 				c.Owner = r.Owner;
 				c.IsActive = r.IsActive;
+				c.IsDefault = r.IsDefault;
 			};
 
 			EntityFromContract += (r, c) =>
 			{
 				r.Owner = c.Owner + db;
 				r.IsActive = c.IsActive + db;
+				r.IsDefault = c.IsDefault + db;
 			};
 		}
 	}

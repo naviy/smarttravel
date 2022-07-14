@@ -50,6 +50,7 @@ namespace Luxena.Travel.Domain.Accounting
 			Property(x => x.PostedOn);
 
 			ManyToOne(x => x.Owner);
+			ManyToOne(x => x.BankAccount);
 
 			Property(x => x.PrintedDocument, m => m.Lazy(true));
 		}

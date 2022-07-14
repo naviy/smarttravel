@@ -50,6 +50,8 @@ namespace Luxena.Travel.Reports
 			string number,
 			DateTime issueDate,
 			Person issuedBy,
+			Party owner,
+			BankAccount bankAccount,
 			int? formNumber,
 			bool showPaid,
 			out string fileExtension
@@ -57,8 +59,8 @@ namespace Luxena.Travel.Reports
 		{
 
 			var stream = (formNumber ?? FormNumber) == 2
-				? GetStream2(order, number, issueDate, issuedBy, showPaid, out fileExtension)
-				: GetStream1(order, number, issueDate, issuedBy, showPaid, out fileExtension)
+				? GetStream2(order, number, issueDate, issuedBy, owner, bankAccount, showPaid, out fileExtension)
+				: GetStream1(order, number, issueDate, issuedBy, owner, bankAccount, showPaid, out fileExtension)
 			;
 
 			return stream.ToBytes();
@@ -67,7 +69,7 @@ namespace Luxena.Travel.Reports
 
 
 
-		private Stream GetStream1(Order order, string number, DateTime issueDate, Person issuedBy, bool showPaid, out string fileExtension)
+		private Stream GetStream1(Order order, string number, DateTime issueDate, Person issuedBy, Party owner, BankAccount bankAccount, bool showPaid, out string fileExtension)
 		{
 
 
@@ -90,7 +92,7 @@ namespace Luxena.Travel.Reports
 			}
 
 
-			var supplierDetails = configuration.GetSupplierDetails(db, order, multiline: true);
+			var supplierDetails = configuration.GetSupplierDetails(db, order, owner: owner, bankAccount: bankAccount, multiline: true);
 			
 			var customerDetails = configuration.GetCustomerDetails(db, order.ShipTo ?? order.Customer, multiline: true);
 
@@ -181,7 +183,7 @@ namespace Luxena.Travel.Reports
 
 
 
-		private Stream GetStream2(Order order, string number, DateTime issueDate, Person issuedBy, bool showPaid, out string fileExtension)
+		private Stream GetStream2(Order order, string number, DateTime issueDate, Person issuedBy, Party owner, BankAccount bankAccount, bool showPaid, out string fileExtension)
 		{
 
 			var pos = 1;
@@ -211,7 +213,7 @@ namespace Luxena.Travel.Reports
 				IssueDate = issueDate,
 				OrderNo = order.Number,
 
-				Supplier = db.Configuration.GetSupplierDetails(db, order),
+				Supplier = db.Configuration.GetSupplierDetails(db, order, owner: owner, bankAccount: bankAccount),
 				ShipTo = shipTo,
 				BillTo = billTo,
 

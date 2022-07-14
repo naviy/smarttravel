@@ -16,7 +16,7 @@ namespace Luxena.Travel
 //			Window.width = 1320;
 
 
-			Form.add(TabPanel(550, new Component[]
+			Form.add(TabPanel(650, new Component[]
 			{
 
 				TabPane("Турагенство", new object[]
@@ -74,6 +74,7 @@ namespace Luxena.Travel
 				TabPane("Счета", new object[]
 				{
 					se.Invoice_NumberMode.ToField(-3),
+					se.Invoice_CanOwnerSelect,
 					se.InvoicePrinter_ShowVat,
 					se.InvoicePrinter_FooterDetails.ToField(-3),
 				}),

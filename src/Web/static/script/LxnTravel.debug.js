@@ -4099,17 +4099,23 @@ Luxena.Travel.InvoiceGridView.prototype = {
 ////////////////////////////////////////////////////////////////////////////////
 // Luxena.Travel.InvoiceIssueForm
 
-Luxena.Travel.InvoiceIssueForm = function Luxena_Travel_InvoiceIssueForm(orderId, invoices, type) {
+Luxena.Travel.InvoiceIssueForm = function Luxena_Travel_InvoiceIssueForm(orderId, orderOwner, orderBankAccount, invoices, type) {
     Luxena.Travel.InvoiceIssueForm.initializeBase(this);
     this._orderId$1 = orderId;
+    this._orderOwner$1 = orderOwner;
+    this._orderBankAccount$1 = orderBankAccount;
     this._invoices$1 = invoices;
     this._type$1 = type;
 }
 Luxena.Travel.InvoiceIssueForm.prototype = {
     _orderId$1: null,
     _invoices$1: null,
+    _orderOwner$1: null,
+    _orderBankAccount$1: null,
     _issueDate$1: null,
     _number$1: null,
+    _owner$1: null,
+    _bankAccount$1: null,
     _formNumber$1: null,
     _showPayments$1: null,
     _type$1: 0,
@@ -4128,9 +4134,18 @@ Luxena.Travel.InvoiceIssueForm.prototype = {
             }
             this._number$1 = new Ext.form.ComboBox(new Ext.form.ComboBoxConfig().fieldLabel(Luxena.Travel.DomainRes.common_Number).store(new Ext.data.ArrayStore(new Ext.data.ArrayStoreConfig().data(data).fields([ 'number' ]).toDictionary())).mode('local').displayField('number').valueField('number').tpl(new Ext.XTemplate("<tpl for=\".\"><div class='x-combo-list-item invoice-reissue-action'>" + Luxena.Travel.Res.invoice_Reissue + '{number}</div></tpl>')).emptyText(Luxena.Travel.Res.auto).emptyClass('auto-text').width(170).toDictionary());
         }
+        this._owner$1 = Luxena.Travel.Controls.ControlFactoryExt.createOwnerControl(200);
+        if (!Luxena.Travel.AppManager.get_systemConfiguration().Invoice_CanOwnerSelect) {
+            this._owner$1.setValue(null);
+        }
+        else if (ss.isValue(this._orderOwner$1)) {
+            this._owner$1.setValue(this._orderOwner$1);
+        }
+        this._bankAccount$1 = Luxena.Travel.Controls.ControlFactoryExt.createBankAccountControl(200);
+        this._bankAccount$1.setValue(this._orderBankAccount$1);
         this._showPayments$1 = new Ext.form.Checkbox(new Ext.form.CheckboxConfig().boxLabel(Luxena.Travel.Res.invoiceIssueForm_ShowPaid).toDictionary());
         this._formNumber$1 = new Ext.form.ComboBox(new Ext.form.ComboBoxConfig().fieldLabel('\u0424\u043e\u0440\u043c\u0430 \u0441\u0447\u0451\u0442\u0430').store(new Ext.data.ArrayStore(new Ext.data.ArrayStoreConfig().fields([ 'number', 'name' ]).data([ [ 1, 'XP \u0432 \u043f\u043e\u0437\u0438\u0446\u0438\u044f\u0445 (\u0444\u043e\u0440\u043c\u0430 1)' ], [ 2, 'XP \u0441\u043a\u0440\u044b\u0442 (\u0444\u043e\u0440\u043c\u0430 2)' ] ]).toDictionary())).mode('local').displayField('name').valueField('number').triggerAction('all').selectOnFocus(true).editable(false).emptyText('\u043f\u043e \u0443\u043c\u043e\u043b\u0447\u0430\u043d\u0438\u044e').emptyClass('auto-text').width(170).toDictionary());
-        var fields = [ this._issueDate$1, this._number$1, this._formNumber$1, this._showPayments$1 ];
+        var fields = [ this._issueDate$1, this._number$1, this._owner$1, this._bankAccount$1, this._formNumber$1, this._showPayments$1 ];
         this.get_form().add(fields);
         var list = [];
         list.addRange(fields);
@@ -4149,10 +4164,10 @@ Luxena.Travel.InvoiceIssueForm.prototype = {
             number = null;
         }
         if (this._type$1 === 2) {
-            Luxena.Travel.Services.OrderService.IssueCompletionCertificate(this._orderId$1, number, this._issueDate$1.getValue(), this._showPayments$1.getValue(), ss.Delegate.create(this, this.completeSave), null);
+            Luxena.Travel.Services.OrderService.IssueCompletionCertificate(this._orderId$1, number, this._issueDate$1.getValue(), this._owner$1.getSelectedId(), this._bankAccount$1.getSelectedId(), this._showPayments$1.getValue(), ss.Delegate.create(this, this.completeSave), null);
         }
         else {
-            Luxena.Travel.Services.OrderService.IssueInvoice(this._orderId$1, number, this._issueDate$1.getValue(), parseInt(this._formNumber$1.getValue()), this._showPayments$1.getValue(), ss.Delegate.create(this, this.completeSave), null);
+            Luxena.Travel.Services.OrderService.IssueInvoice(this._orderId$1, number, this._issueDate$1.getValue(), this._owner$1.getSelectedId(), this._bankAccount$1.getSelectedId(), parseInt(this._formNumber$1.getValue()), this._showPayments$1.getValue(), ss.Delegate.create(this, this.completeSave), null);
         }
     }
 }
@@ -5086,7 +5101,7 @@ Luxena.Travel.OrderViewForm._getPaymentsControl$7 = function Luxena_Travel_Order
             func(payment.Id, payment.DocumentNumber);
             container.append(div.append(link));
         }
-    }), new Luxena.Travel.Controls.PropertyItem(Luxena.Travel.DomainRes.payment_Payer, 'Payer').setPropertyType(5), new Luxena.Travel.Controls.PropertyItem(Luxena.Travel.DomainRes.payment_RegisteredBy, 'RegisteredBy').setPropertyType(0).setCssClass('center-align'), new Luxena.Travel.Controls.PropertyItem(Luxena.Travel.DomainRes.payment_Amount, 'Amount').setPropertyType(4).setCssClass('right-align') ];
+    }), new Luxena.Travel.Controls.PropertyItem(Luxena.Travel.DomainRes.payment_Payer, 'Payer').setPropertyType(5), new Luxena.Travel.Controls.PropertyItem(Luxena.Travel.DomainRes.payment_RegisteredBy, 'RegisteredBy').setPropertyType(0).setCssClass('center-align'), new Luxena.Travel.Controls.PropertyItem(Luxena.Travel.DomainRes.common_Owner, 'Owner').setPropertyType(5), new Luxena.Travel.Controls.PropertyItem('\u0411\u0430\u043d\u043a\u043e\u0432\u0441\u043a\u0438\u0439 \u0441\u0447\u0451\u0442', 'BankAccount').setPropertyType(5), new Luxena.Travel.Controls.PropertyItem(Luxena.Travel.DomainRes.payment_Amount, 'Amount').setPropertyType(4).setCssClass('right-align') ];
     var config = new Luxena.Travel.Controls.PropertyGridControlConfig().setListItems(propertyItems).setUseListCountColumn(true).setCssClass('payments').setRowCssClass(Luxena.Travel.OrderViewForm._getPaymentCss$7).setGridTitle(Luxena.Travel.Res.payments);
     return new Luxena.Travel.Controls.PropertyGridControl(config);
 }
@@ -5250,7 +5265,7 @@ Luxena.Travel.OrderViewForm.prototype = {
     },
     
     _getOrderProperiesControl$7: function Luxena_Travel_OrderViewForm$_getOrderProperiesControl$7() {
-        var config = new Luxena.Travel.Controls.PropertyListControlConfig().setListItems([ new Luxena.Travel.Controls.PropertyItem(Luxena.Travel.DomainRes.common_Number, 'Number'), new Luxena.Travel.Controls.PropertyItem(Luxena.Travel.DomainRes.order_IssueDate, 'IssueDate').setPropertyType(2), new Luxena.Travel.Controls.PropertyItem(Luxena.Travel.DomainRes.common_Customer, 'Customer').setPropertyType(5), new Luxena.Travel.Controls.PropertyItem(Luxena.Travel.DomainRes.common_BillTo, 'BillTo').setPropertyType(5).setHideIsEmpty(true), new Luxena.Travel.Controls.PropertyItem(Luxena.Travel.DomainRes.common_ShipTo, 'ShipTo').setPropertyType(5).setHideIsEmpty(true), new Luxena.Travel.Controls.PropertyItem(Luxena.Travel.DomainRes.common_Intermediary, 'Intermediary').setPropertyType(5).setHideIsEmpty(true), new Luxena.Travel.Controls.PropertyItem(Luxena.Travel.DomainRes.common_AssignedTo, 'AssignedTo'), new Luxena.Travel.Controls.PropertyItem(Luxena.Travel.DomainRes.common_Owner, 'Owner'), new Luxena.Travel.Controls.PropertyItem(Luxena.Travel.DomainRes.order_IsPublic, 'IsPublic').setHideIsEmpty(true).setRenderer(function(propertyItem, value, container) {
+        var config = new Luxena.Travel.Controls.PropertyListControlConfig().setListItems([ new Luxena.Travel.Controls.PropertyItem(Luxena.Travel.DomainRes.common_Number, 'Number'), new Luxena.Travel.Controls.PropertyItem(Luxena.Travel.DomainRes.order_IssueDate, 'IssueDate').setPropertyType(2), new Luxena.Travel.Controls.PropertyItem(Luxena.Travel.DomainRes.common_Customer, 'Customer').setPropertyType(5), new Luxena.Travel.Controls.PropertyItem(Luxena.Travel.DomainRes.common_BillTo, 'BillTo').setPropertyType(5).setHideIsEmpty(true), new Luxena.Travel.Controls.PropertyItem(Luxena.Travel.DomainRes.common_ShipTo, 'ShipTo').setPropertyType(5).setHideIsEmpty(true), new Luxena.Travel.Controls.PropertyItem(Luxena.Travel.DomainRes.common_Intermediary, 'Intermediary').setPropertyType(5).setHideIsEmpty(true), new Luxena.Travel.Controls.PropertyItem(Luxena.Travel.DomainRes.common_AssignedTo, 'AssignedTo'), new Luxena.Travel.Controls.PropertyItem(Luxena.Travel.DomainRes.common_Owner, 'Owner'), new Luxena.Travel.Controls.PropertyItem('\u0411\u0430\u043d\u043a\u043e\u0432\u0441\u043a\u0438\u0439 \u0441\u0447\u0451\u0442', 'BankAccount').setPropertyType(5).setHideIsEmpty(true), new Luxena.Travel.Controls.PropertyItem(Luxena.Travel.DomainRes.order_IsPublic, 'IsPublic').setHideIsEmpty(true).setRenderer(function(propertyItem, value, container) {
             container.html((value) ? Luxena.Travel.Res.orderView_IsPublic : Luxena.Travel.Res.orderView_IsNotPublic);
         }), new Luxena.Travel.Controls.PropertyItem('\u0420\u0430\u0437\u0440\u0435\u0448\u0438\u0442\u044c \u0434\u043e\u0431\u0430\u0432\u043b\u0435\u043d\u0438\u0435 \u0431\u0438\u043b\u0435\u0442\u043e\u0432<br/>\u0432 \u0437\u0430\u043a\u0430\u0437 \u0434\u0430\u0436\u0435 \u0432 \u0437\u0430\u043a\u0440\u044b\u0442\u043e\u043c \u043f\u0435\u0440\u0438\u043e\u0434\u0435', 'AllowAddProductsInClosedPeriod').setPropertyType(1).setHideIsEmpty(true), new Luxena.Travel.Controls.PropertyItem(Luxena.Travel.DomainRes.order_IsSubjectOfPaymentsControl, 'IsSubjectOfPaymentsControl').setPropertyType(1).setHideIsEmpty(true), new Luxena.Travel.Controls.PropertyItem('\u0421\u043f\u0438\u0441\u0430\u043d\u043e \u0431\u043e\u043d\u0443\u0441\u043e\u0432', 'BonusSpentAmount').setPropertyType(3).setHideIsEmpty(true), new Luxena.Travel.Controls.PropertyItem('\u041f\u043e\u043b\u0443\u0447\u0430\u0442\u0435\u043b\u044c \u0431\u043e\u043d\u0443\u0441\u043e\u0432', 'BonusRecipient').setPropertyType(5).setHideIsEmpty(true), new Luxena.Travel.Controls.PropertyItem('\u0414\u0430\u0442\u0430 \u043d\u0430\u0447\u0438\u0441\u043b\u0435\u043d\u0438\u044f \u0431\u043e\u043d\u0443\u0441\u043e\u0432', 'BonusDate').setPropertyType(2).setHideIsEmpty(true), new Luxena.Travel.Controls.PropertyItem(Luxena.Travel.DomainRes.common_Note, 'Note').setHideIsEmpty(true), new Luxena.Travel.Controls.PropertyItem(Luxena.Travel.DomainRes.order_Invoices, 'Invoices').setHideIsEmpty(true).setRenderer(ss.Delegate.create(this, function(propertyItem, value, container) {
             this._renderInvoices$7(value, container);
@@ -5340,7 +5355,7 @@ Luxena.Travel.OrderViewForm.prototype = {
                 numbers.add(dto.Number);
             }
         }
-        var form = new Luxena.Travel.InvoiceIssueForm(this.get__order$7().Id, numbers, 0);
+        var form = new Luxena.Travel.InvoiceIssueForm(this.get__order$7().Id, this.get__order$7().Owner, this.get__order$7().BankAccount, numbers, 0);
         form.add_saved(ss.Delegate.create(this, function(result) {
             this._onIssueDocument$7(result);
         }));
@@ -5356,7 +5371,7 @@ Luxena.Travel.OrderViewForm.prototype = {
                 numbers.add(dto.Number);
             }
         }
-        var form = new Luxena.Travel.InvoiceIssueForm(this.get__order$7().Id, numbers, 2);
+        var form = new Luxena.Travel.InvoiceIssueForm(this.get__order$7().Id, this.get__order$7().Owner, this.get__order$7().BankAccount, numbers, 2);
         form.add_saved(ss.Delegate.create(this, function(result) {
             this._onIssueDocument$7(result);
         }));
@@ -5396,7 +5411,7 @@ Luxena.Travel.OrderViewForm.prototype = {
                 invoices.add(LxnBase.Data.Reference.create('Invoice', invoice.Number, invoice.Id));
             }
         }
-        var values = { Payer: this.get__order$7().Customer, Amount: this.get__order$7().TotalDue, Vat: this.get__order$7().VatDue, Order: LxnBase.Data.Reference.create('Order', this.get__order$7().Number, this.get__order$7().Id), Invoices: invoices, Owner: this.get__order$7().Owner };
+        var values = { Payer: this.get__order$7().Customer, Amount: this.get__order$7().TotalDue, Vat: this.get__order$7().VatDue, Order: LxnBase.Data.Reference.create('Order', this.get__order$7().Number, this.get__order$7().Id), Invoices: invoices, Owner: this.get__order$7().Owner, BankAccount: this.get__order$7().BankAccount };
         LxnBase.UI.FormsRegistry.editObject(type, null, values, ss.Delegate.create(this, function(arg1) {
             var dto = (arg1).Item;
             Luxena.Travel.Services.OrderService.GetOrder(this.get_id(), ss.Delegate.create(this, function(result) {
@@ -6483,11 +6498,11 @@ Luxena.Travel.OrganizationEditForm.prototype = {
 // Luxena.Travel.PersonSemantic
 
 Luxena.Travel.PersonSemantic = function Luxena_Travel_PersonSemantic() {
-    this.MilesCardsString = Luxena.Travel.SemanticEntity.get_member().string();
     this.Birthday = Luxena.Travel.SemanticEntity.get_member().title('\u0414\u0430\u0442\u0430 \u0440\u043e\u0436\u0434\u0435\u043d\u0438\u044f').date();
     this.Organization = Luxena.Travel.SemanticEntity.get_member().title('\u041e\u0440\u0433\u0430\u043d\u0438\u0437\u0430\u0446\u0438\u044f').reference('Organization');
     this.Title = Luxena.Travel.SemanticEntity.get_member().title('\u0414\u043e\u043b\u0436\u043d\u043e\u0441\u0442\u044c').string();
     this.Passports = Luxena.Travel.SemanticEntity.get_member();
+    this.MilesCardsString = Luxena.Travel.SemanticEntity.get_member().string();
     this.MilesCards = Luxena.Travel.SemanticEntity.get_member();
     Luxena.Travel.PersonSemantic.initializeBase(this);
     this._name = 'Person';
@@ -7964,8 +7979,8 @@ Luxena.Travel.InsuranceEditForm.prototype = {
 
 Luxena.Travel.AviaDocumentSemantic = function Luxena_Travel_AviaDocumentSemantic() {
     this.Passenger = Luxena.Travel.SemanticEntity.get_member().title('\u041f\u0430\u0441\u0441\u0430\u0436\u0438\u0440').reference('Person');
-    this.AirlineIataCode = Luxena.Travel.SemanticEntity.get_member().string();
-    this.AirlinePrefixCode = Luxena.Travel.SemanticEntity.get_member().title('\u041a\u043e\u0434 \u0410\u041a').string();
+    this.AirlineIataCode = Luxena.Travel.SemanticEntity.get_member().string(2);
+    this.AirlinePrefixCode = Luxena.Travel.SemanticEntity.get_member().title('\u041a\u043e\u0434 \u0410\u041a').string(3);
     this.AirlineName = Luxena.Travel.SemanticEntity.get_member().string();
     this.Number = Luxena.Travel.SemanticEntity.get_member().title('\u041d\u043e\u043c\u0435\u0440').string();
     this.ConjunctionNumbers = Luxena.Travel.SemanticEntity.get_member().string();
@@ -8017,6 +8032,8 @@ Luxena.Travel.ProductSemantic = function Luxena_Travel_ProductSemantic() {
     this.PassengerName = Luxena.Travel.SemanticEntity.get_member().title('\u041f\u0430\u0441\u0441\u0430\u0436\u0438\u0440').string();
     this.IssueDate = Luxena.Travel.SemanticEntity.get_member().title('\u0414\u0430\u0442\u0430 \u0432\u044b\u043f\u0443\u0441\u043a\u0430').date().required();
     this.PureNumber = Luxena.Travel.SemanticEntity.get_member().string();
+    this.PnrCode = Luxena.Travel.SemanticEntity.get_member().title('\u0411\u0440\u043e\u043d\u0438\u0440\u043e\u0432\u043a\u0430').string();
+    this.TourCode = Luxena.Travel.SemanticEntity.get_member().title('\u0422\u0443\u0440\u043a\u043e\u0434').string();
     this.Producer = Luxena.Travel.SemanticEntity.get_member().title('\u041f\u0440\u043e\u0434\u044e\u0441\u0435\u0440').reference('Organization');
     this.Provider = Luxena.Travel.SemanticEntity.get_member().title('\u041f\u0440\u043e\u0432\u0430\u0439\u0434\u0435\u0440').reference('Organization');
     this.ReissueFor = Luxena.Travel.SemanticEntity.get_member().title('\u041f\u0435\u0440\u0435\u0432\u044b\u043f\u0443\u0441\u043a \u0434\u043b\u044f').reference('Product');
@@ -8035,8 +8052,6 @@ Luxena.Travel.ProductSemantic = function Luxena_Travel_ProductSemantic() {
     this.Order = Luxena.Travel.SemanticEntity.get_member().title('\u0417\u0430\u043a\u0430\u0437').reference('Order');
     this.Intermediary = Luxena.Travel.SemanticEntity.get_member().title('\u041f\u043e\u0441\u0440\u0435\u0434\u043d\u0438\u043a').reference('Party');
     this.Country = Luxena.Travel.SemanticEntity.get_member().title('\u0421\u0442\u0440\u0430\u043d\u0430').reference('Country').required();
-    this.PnrCode = Luxena.Travel.SemanticEntity.get_member().title('\u0411\u0440\u043e\u043d\u0438\u0440\u043e\u0432\u043a\u0430').string();
-    this.TourCode = Luxena.Travel.SemanticEntity.get_member().title('\u0422\u0443\u0440\u043a\u043e\u0434').string();
     this.Booker = Luxena.Travel.SemanticEntity.get_member().title('\u0411\u0440\u043e\u043d\u0438\u0440\u043e\u0432\u0449\u0438\u043a').reference('Person');
     this.BookerOffice = Luxena.Travel.SemanticEntity.get_member().title('\u041e\u0444\u0438\u0441 \u0431\u0440\u043e\u043d\u0438\u0440\u043e\u0432\u0449\u0438\u043a\u0430').emptyText('\u043e\u0444\u0438\u0441').string(20);
     this.BookerCode = Luxena.Travel.SemanticEntity.get_member().title('\u041a\u043e\u0434 \u0431\u0440\u043e\u043d\u0438\u0440\u043e\u0432\u0449\u0438\u043a\u0430').emptyText('\u043a\u043e\u0434').string(20);
@@ -8115,7 +8130,7 @@ Luxena.Travel.ProductSemantic = function Luxena_Travel_ProductSemantic() {
     this.TaxRateOfServiceFee = Luxena.Travel.SemanticEntity.get_member().title('\u0421\u0442\u0430\u0432\u043a\u0430 \u041d\u0414\u0421 \u0434\u043b\u044f \u0441\u0431\u043e\u0440\u0430').enumItems([ [ 1, '\u0410 (\u0441 \u041d\u0414\u0421)' ], [ 2, '\u0411 (\u0431\u0435\u0437 \u041d\u0414\u0421)' ], [ 5, '\u0414 (\u0431\u0435\u0437 \u041d\u0414\u0421)' ], [ 0, '\u041f\u043e \u0443\u043c\u043e\u043b\u0447\u0430\u043d\u0438\u044e' ], [ -1, '\u043d\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c' ] ]).required();
     this.Note = Luxena.Travel.SemanticEntity.get_member().title('\u041f\u0440\u0438\u043c\u0435\u0447\u0430\u043d\u0438\u0435').text(3);
     this.Originator = Luxena.Travel.SemanticEntity.get_member().title('\u041e\u0440\u0438\u0433\u0438\u043d\u0430\u0442\u043e\u0440').enumItems([ [ 13, 'Air Arabia' ], [ 16, 'AirLife' ], [ 4, 'Airline' ], [ 1, 'Amadeus' ], [ 18, 'Amadeus Altea' ], [ 22, 'Crazy Llama' ], [ 10, 'Delta TRAVEL' ], [ 23, 'Drct Aero' ], [ 8, 'E-Travels' ], [ 12, 'Fly Dubai' ], [ 5, 'Gabriel' ], [ 2, 'Galileo' ], [ 7, 'IATI' ], [ 14, 'Pegasus' ], [ 17, 'Sabre' ], [ 3, 'Sirena' ], [ 19, 'SPRK' ], [ 9, 'Ticket Consolidator' ], [ 11, 'Tickets.UA' ], [ 20, 'Travel & Marketing' ], [ 21, 'Travel Point' ], [ 0, 'Unknown' ], [ 15, '\u0412\u0456\u0430\u041a\u0438\u0457\u0432' ], [ 6, 'Wizz Air' ] ]).required();
-    this.Origin = Luxena.Travel.SemanticEntity.get_member().title('\u0418\u0441\u0442\u043e\u0447\u043d\u0438\u043a').enumItems([ [ 0, 'AmadeusAir' ], [ 1, 'AmadeusPrint' ], [ 8, 'AmadeusXml' ], [ 4, 'BspLink' ], [ 14, 'Drct' ], [ 12, 'GalileoBusXml' ], [ 2, 'GalileoMir' ], [ 10, 'GalileoRailXml' ], [ 3, 'GalileoTkt' ], [ 7, 'GalileoXml' ], [ 11, 'LuxenaXml' ], [ 5, 'Manual' ], [ 9, 'SabreFil' ], [ 15, 'SabreTerminal' ], [ 6, 'SirenaXml' ], [ 13, 'TravelPointXml' ] ]).required();
+    this.Origin = Luxena.Travel.SemanticEntity.get_member().title('\u0418\u0441\u0442\u043e\u0447\u043d\u0438\u043a').enumItems([ [ 0, 'AmadeusAir' ], [ 1, 'AmadeusPrint' ], [ 8, 'AmadeusXml' ], [ 4, 'BspLink' ], [ 14, 'Drct' ], [ 12, 'GalileoBusXml' ], [ 2, 'GalileoMir' ], [ 10, 'GalileoRailXml' ], [ 3, 'GalileoTkt' ], [ 7, 'GalileoXml' ], [ 11, 'LuxenaXml' ], [ 5, 'Manual' ], [ 9, 'SabreFil' ], [ 15, 'SabreTerminal' ], [ 6, 'SirenaXml' ], [ 16, 'SPRK' ], [ 13, 'TravelPointXml' ] ]).required();
     this.OriginalDocument = Luxena.Travel.SemanticEntity.get_member().title('\u041e\u0440\u0438\u0433\u0438\u043d\u0430\u043b\u044c\u043d\u044b\u0439 \u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442').reference('GdsFile');
     this.ProducerOrProviderAirlineIataCode = Luxena.Travel.SemanticEntity.get_member().string();
     this.TextForOrderItem = Luxena.Travel.SemanticEntity.get_member().string();
@@ -9011,6 +9026,7 @@ Luxena.Travel.SystemConfigurationSemantic = function Luxena_Travel_SystemConfigu
     this.Order_UseServiceFeeOnlyInVat = Luxena.Travel.SemanticEntity.get_member().title('\u0417\u0430\u043a\u0430\u0437\u044b: \u041d\u0414\u0421 \u0442\u043e\u043b\u044c\u043a\u043e \u043e\u0442 \u0441\u0435\u0440\u0432\u0438\u0441\u043d\u043e\u0433\u043e \u0441\u0431\u043e\u0440\u0430').bool().required();
     this.Consignment_NumberMode = Luxena.Travel.SemanticEntity.get_member().title('\u041d\u0430\u043a\u043b\u0430\u0434\u043d\u044b\u0435: \u043d\u043e\u0432\u044b\u0439 \u043d\u043e\u043c\u0435\u0440').enumItems([ [ 1, '\u041d\u0430 \u043e\u0441\u043d\u043e\u0432\u0435 \u043d\u043e\u043c\u0435\u0440\u0430 \u0437\u0430\u043a\u0430\u0437\u0430' ], [ 0, '\u041f\u043e \u0443\u043c\u043e\u043b\u0447\u0430\u043d\u0438\u044e' ] ]).required();
     this.Invoice_NumberMode = Luxena.Travel.SemanticEntity.get_member().title('\u0418\u043d\u0432\u043e\u0439\u0441\u044b: \u043d\u043e\u0432\u044b\u0439 \u043d\u043e\u043c\u0435\u0440').enumItems([ [ 1, '\u041d\u0430 \u043e\u0441\u043d\u043e\u0432\u0435 \u043d\u043e\u043c\u0435\u0440\u0430 \u0437\u0430\u043a\u0430\u0437\u0430' ], [ 0, '\u041f\u043e \u0443\u043c\u043e\u043b\u0447\u0430\u043d\u0438\u044e' ] ]).required();
+    this.Invoice_CanOwnerSelect = Luxena.Travel.SemanticEntity.get_member().title('\u0418\u043d\u0432\u043e\u0439\u0441\u044b: \u0432\u043e\u0437\u043c\u043e\u0436\u043d\u043e\u0441\u0442\u044c \u0432\u044b\u0431\u0440\u0430\u0442\u044c \u0412\u043b\u0430\u0434\u0435\u043b\u044c\u0446\u0430 \u043f\u0440\u0438 \u0444\u043e\u0440\u043c\u0438\u0440\u043e\u0432\u0430\u043d\u0438\u0438 \u0441\u0447\u0435\u0442\u0430').bool().required();
     this.InvoicePrinter_ShowVat = Luxena.Travel.SemanticEntity.get_member().title('\u0418\u043d\u0432\u043e\u0439\u0441\u044b: \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u041d\u0414\u0421').bool().required();
     this.InvoicePrinter_FooterDetails = Luxena.Travel.SemanticEntity.get_member().title('\u0418\u043d\u0432\u043e\u0439\u0441\u044b: \u0432\u0430\u0436\u043d\u043e\u0435 \u043f\u0440\u0438\u043c\u0435\u0447\u0430\u043d\u0438\u0435').text(6);
     this.DrctWebService_LoadedOn = Luxena.Travel.SemanticEntity.get_member().title('DrctWebService_LoadedOn').dateTime2();
@@ -9051,7 +9067,7 @@ Luxena.Travel.SystemConfigurationEditForm.prototype = {
         this.get_form().cls = 'tabbed';
         this.get_window().width = 800;
         this.get_form().labelWidth = 350;
-        this.get_form().add(this.tabPanel(550, [ this.tabPane('\u0422\u0443\u0440\u0430\u0433\u0435\u043d\u0441\u0442\u0432\u043e', [ this._se$3.Company.toField(-3), this._se$3.CompanyDetails.toField(-3), this._se$3.AccountantDisplayString.toField(-3), this.emptyRow(), this._se$3.Country, this._se$3.DefaultCurrency, this._se$3.UseDefaultCurrencyForInput, this._se$3.VatRate ]), this.tabPane('\u0423\u0441\u043b\u0443\u0433\u0438', [ this._se$3.UseConsolidatorCommission, this._se$3.DefaultConsolidatorCommission, this._se$3.UseAviaHandling, this._se$3.UseBonuses, this.emptyRow(), this._se$3.IsPassengerPassportRequired, this._se$3.AviaDocumentVatOptions, this._se$3.NeutralAirlineCode, this._se$3.Ticket_NoPrintReservations, this.emptyRow(), this._se$3.DrctWebService_LoadedOn, this._se$3.GalileoWebService_LoadedOn, this._se$3.GalileoRailWebService_LoadedOn, this._se$3.GalileoBusWebService_LoadedOn, this._se$3.TravelPointWebService_LoadedOn, this.emptyRow(), this._se$3.Pasterboard_DefaultPaymentType, this.emptyRow(), this._se$3.AllowOtherAgentsToModifyProduct ]), this.tabPane('\u0417\u0430\u043a\u0430\u0437\u044b', [ this._se$3.AviaOrderItemGenerationOption.toField(-3), this._se$3.AmadeusRizUsingMode.toField(-3), this._se$3.IncomingCashOrderCorrespondentAccount, this._se$3.DaysBeforeDeparture, this._se$3.MetricsFromDate, this.emptyRow(), this._se$3.UseAviaDocumentVatInOrder, this._se$3.AllowAgentSetOrderVat, this._se$3.SeparateDocumentAccess, this._se$3.IsOrderRequiredForProcessedDocument, this._se$3.ReservationsInOfficeMetrics, this._se$3.McoRequiresDescription, this._se$3.Order_UseServiceFeeOnlyInVat ]), this.tabPane('\u0421\u0447\u0435\u0442\u0430', [ this._se$3.Invoice_NumberMode.toField(-3), this._se$3.InvoicePrinter_ShowVat, this._se$3.InvoicePrinter_FooterDetails.toField(-3) ]), this.tabPane('\u041d\u0430\u043a\u043b\u0430\u0434\u043d\u044b\u0435', [ this._se$3.Consignment_NumberMode.toField(-3), this._se$3.Consignment_SeparateBookingFee.toField(-3) ]), this.tabPane('\u041f\u0440\u043e\u0447\u0435\u0435', [ this._se$3.BirthdayTaskResponsible, this._se$3.IsOrganizationCodeRequired ]) ]));
+        this.get_form().add(this.tabPanel(650, [ this.tabPane('\u0422\u0443\u0440\u0430\u0433\u0435\u043d\u0441\u0442\u0432\u043e', [ this._se$3.Company.toField(-3), this._se$3.CompanyDetails.toField(-3), this._se$3.AccountantDisplayString.toField(-3), this.emptyRow(), this._se$3.Country, this._se$3.DefaultCurrency, this._se$3.UseDefaultCurrencyForInput, this._se$3.VatRate ]), this.tabPane('\u0423\u0441\u043b\u0443\u0433\u0438', [ this._se$3.UseConsolidatorCommission, this._se$3.DefaultConsolidatorCommission, this._se$3.UseAviaHandling, this._se$3.UseBonuses, this.emptyRow(), this._se$3.IsPassengerPassportRequired, this._se$3.AviaDocumentVatOptions, this._se$3.NeutralAirlineCode, this._se$3.Ticket_NoPrintReservations, this.emptyRow(), this._se$3.DrctWebService_LoadedOn, this._se$3.GalileoWebService_LoadedOn, this._se$3.GalileoRailWebService_LoadedOn, this._se$3.GalileoBusWebService_LoadedOn, this._se$3.TravelPointWebService_LoadedOn, this.emptyRow(), this._se$3.Pasterboard_DefaultPaymentType, this.emptyRow(), this._se$3.AllowOtherAgentsToModifyProduct ]), this.tabPane('\u0417\u0430\u043a\u0430\u0437\u044b', [ this._se$3.AviaOrderItemGenerationOption.toField(-3), this._se$3.AmadeusRizUsingMode.toField(-3), this._se$3.IncomingCashOrderCorrespondentAccount, this._se$3.DaysBeforeDeparture, this._se$3.MetricsFromDate, this.emptyRow(), this._se$3.UseAviaDocumentVatInOrder, this._se$3.AllowAgentSetOrderVat, this._se$3.SeparateDocumentAccess, this._se$3.IsOrderRequiredForProcessedDocument, this._se$3.ReservationsInOfficeMetrics, this._se$3.McoRequiresDescription, this._se$3.Order_UseServiceFeeOnlyInVat ]), this.tabPane('\u0421\u0447\u0435\u0442\u0430', [ this._se$3.Invoice_NumberMode.toField(-3), this._se$3.Invoice_CanOwnerSelect, this._se$3.InvoicePrinter_ShowVat, this._se$3.InvoicePrinter_FooterDetails.toField(-3) ]), this.tabPane('\u041d\u0430\u043a\u043b\u0430\u0434\u043d\u044b\u0435', [ this._se$3.Consignment_NumberMode.toField(-3), this._se$3.Consignment_SeparateBookingFee.toField(-3) ]), this.tabPane('\u041f\u0440\u043e\u0447\u0435\u0435', [ this._se$3.BirthdayTaskResponsible, this._se$3.IsOrganizationCodeRequired ]) ]));
     }
 }
 
@@ -9124,6 +9140,7 @@ Luxena.Travel.AirlineCommissionPercentsEditForm.prototype = {
 Luxena.Travel.DocumentOwnerSemantic = function Luxena_Travel_DocumentOwnerSemantic() {
     this.Owner = Luxena.Travel.SemanticEntity.get_member().title('\u0412\u043b\u0430\u0434\u0435\u043b\u0435\u0446').reference('Party').entityName();
     this.IsActive = Luxena.Travel.SemanticEntity.get_member().title('\u0414\u0435\u0439\u0441\u0442\u0432\u0443\u044e\u0449\u0438\u0439').bool().required();
+    this.IsDefault = Luxena.Travel.SemanticEntity.get_member().title('\u041f\u043e \u0443\u043c\u043e\u043b\u0447\u0430\u043d\u0438\u044e').bool().required();
     Luxena.Travel.DocumentOwnerSemantic.initializeBase(this);
     this._name = 'DocumentOwner';
     this._className = 'DocumentOwner';
@@ -9151,7 +9168,7 @@ Luxena.Travel.DocumentOwnerListTab.prototype = {
     _se$10: null,
     
     createColumnConfigs: function Luxena_Travel_DocumentOwnerListTab$createColumnConfigs() {
-        this.addColumns([ this._se$10.Owner, this._se$10.IsActive ]);
+        this.addColumns([ this._se$10.Owner, this._se$10.IsActive, this._se$10.IsDefault ]);
     }
 }
 
@@ -9173,7 +9190,7 @@ Luxena.Travel.DocumentOwnerEditForm.prototype = {
     
     createControls: function Luxena_Travel_DocumentOwnerEditForm$createControls() {
         this.get_window().width = -3;
-        this.get_form().add(this.mainDataPanel([ this._se$3.Owner.toField(-3), this._se$3.IsActive ]));
+        this.get_form().add(this.mainDataPanel([ this._se$3.Owner.toField(-3), this._se$3.IsActive, this._se$3.IsDefault ]));
     }
 }
 
@@ -9302,7 +9319,7 @@ Luxena.Travel.InternalTransferSemantic = function Luxena_Travel_InternalTransfer
 
 Luxena.Travel.GdsAgentSemantic = function Luxena_Travel_GdsAgentSemantic() {
     this.Person = Luxena.Travel.SemanticEntity.get_member().title('\u041f\u0435\u0440\u0441\u043e\u043d\u0430').reference('Person');
-    this.Origin = Luxena.Travel.SemanticEntity.get_member().title('\u0418\u0441\u0442\u043e\u0447\u043d\u0438\u043a \u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u043e\u0432').enumItems([ [ 0, 'AmadeusAir' ], [ 1, 'AmadeusPrint' ], [ 8, 'AmadeusXml' ], [ 4, 'BspLink' ], [ 14, 'Drct' ], [ 12, 'GalileoBusXml' ], [ 2, 'GalileoMir' ], [ 10, 'GalileoRailXml' ], [ 3, 'GalileoTkt' ], [ 7, 'GalileoXml' ], [ 11, 'LuxenaXml' ], [ 5, 'Manual' ], [ 9, 'SabreFil' ], [ 15, 'SabreTerminal' ], [ 6, 'SirenaXml' ], [ 13, 'TravelPointXml' ] ]).required();
+    this.Origin = Luxena.Travel.SemanticEntity.get_member().title('\u0418\u0441\u0442\u043e\u0447\u043d\u0438\u043a \u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u043e\u0432').enumItems([ [ 0, 'AmadeusAir' ], [ 1, 'AmadeusPrint' ], [ 8, 'AmadeusXml' ], [ 4, 'BspLink' ], [ 14, 'Drct' ], [ 12, 'GalileoBusXml' ], [ 2, 'GalileoMir' ], [ 10, 'GalileoRailXml' ], [ 3, 'GalileoTkt' ], [ 7, 'GalileoXml' ], [ 11, 'LuxenaXml' ], [ 5, 'Manual' ], [ 9, 'SabreFil' ], [ 15, 'SabreTerminal' ], [ 6, 'SirenaXml' ], [ 16, 'SPRK' ], [ 13, 'TravelPointXml' ] ]).required();
     this.Code = Luxena.Travel.SemanticEntity.get_member().title('\u041a\u043e\u0434 \u0430\u0433\u0435\u043d\u0442\u0430').string().entityName();
     this.OfficeCode = Luxena.Travel.SemanticEntity.get_member().title('\u041a\u043e\u0434 \u043e\u0444\u0438\u0441\u0430').string();
     this.Provider = Luxena.Travel.SemanticEntity.get_member().title('\u041f\u043e\u0441\u0442\u0430\u0432\u0449\u0438\u043a').reference('Organization');
@@ -9616,6 +9633,7 @@ Luxena.Travel.PaymentSemantic = function Luxena_Travel_PaymentSemantic() {
     this.RegisteredBy = Luxena.Travel.SemanticEntity.get_member().title('\u0417\u0430\u0440\u0435\u0433\u0438\u0441\u0442\u0440\u0438\u0440\u043e\u0432\u0430\u043d').reference('Person');
     this.IsPosted = Luxena.Travel.SemanticEntity.get_member().bool().required();
     this.Owner = Luxena.Travel.SemanticEntity.get_member().title('\u0412\u043b\u0430\u0434\u0435\u043b\u0435\u0446').reference('Party');
+    this.BankAccount = Luxena.Travel.SemanticEntity.get_member().title('\u0411\u0430\u043d\u043a\u043e\u0432\u0441\u043a\u0438\u0439 \u0441\u0447\u0451\u0442').enumReference('BankAccount');
     this.PrintedDocument = Luxena.Travel.SemanticEntity.get_member();
     this.PaymentSystem = Luxena.Travel.SemanticEntity.get_member().title('\u041f\u043b\u0430\u0442\u0451\u0436\u043d\u0430\u044f \u0441\u0438\u0441\u0442\u0435\u043c\u0430').reference('PaymentSystem');
     this.IsCashOrder = Luxena.Travel.SemanticEntity.get_member().bool().required().utility();
@@ -12393,8 +12411,8 @@ Luxena.Travel.PaymentEditForm.prototype = {
             this._paymentSystemField$2 = new LxnBase.UI.Controls.ComboBox(new Ext.form.ComboBoxConfig().store(new Ext.data.JsonStore(new Ext.data.JsonStoreConfig().fields([ 'Id', 'Name' ]).data(this._paymentSystems$2).toDictionary())).mode('local').editable(false).displayField('Name').valueField('Id').triggerAction('all').selectOnFocus(true).fieldLabel(Luxena.Travel.DomainRes.electronicPayment_PaymentSystem).allowBlank(true).toDictionary());
         }
         var label = (this.get_args().type === 'WireTransfer') ? Luxena.Travel.DomainRes.invoiceType_Invoice : Luxena.Travel.DomainRes.invoiceType_Receipt;
-        this._invoiceSelector$2 = new LxnBase.UI.Controls.ObjectSelector(new LxnBase.UI.Controls.ObjectSelectorConfig().valueProperties([ 'Order', 'BillTo', 'TotalDue', 'VatDue', 'Owner' ]).setDataProxy(Luxena.Travel.Services.OrderService.suggestInvoicesProxy(this.get_args().type)).customActions(this._getInvoiceActions$2()).fieldLabel(label));
-        this._orderSelector$2 = new LxnBase.UI.Controls.ObjectSelector(new LxnBase.UI.Controls.ObjectSelectorConfig().setClass('Order').valueProperties([ 'Customer', 'BillTo', 'TotalDue', 'VatDue', 'Owner' ]).fieldLabel(Luxena.Travel.DomainRes.order));
+        this._invoiceSelector$2 = new LxnBase.UI.Controls.ObjectSelector(new LxnBase.UI.Controls.ObjectSelectorConfig().valueProperties([ 'Order', 'BillTo', 'TotalDue', 'VatDue', 'Owner', 'BankAccount' ]).setDataProxy(Luxena.Travel.Services.OrderService.suggestInvoicesProxy(this.get_args().type)).customActions(this._getInvoiceActions$2()).fieldLabel(label));
+        this._orderSelector$2 = new LxnBase.UI.Controls.ObjectSelector(new LxnBase.UI.Controls.ObjectSelectorConfig().setClass('Order').valueProperties([ 'Customer', 'BillTo', 'TotalDue', 'VatDue', 'Owner', 'BankAccount' ]).fieldLabel(Luxena.Travel.DomainRes.order));
         this._payerSelector$2 = new LxnBase.UI.Controls.ObjectSelector(new LxnBase.UI.Controls.ObjectSelectorConfig().setClass('Party').allowCreate(false).setDataProxy(Luxena.Travel.Services.PartyService.suggestCustomersProxy()).fieldLabel(Luxena.Travel.DomainRes.payment_Payer).width(230).allowBlank(false));
         this._amountField$2 = this.createEditor('Amount');
         this._amountField$2.get_decimalField().on('change', ss.Delegate.create(this, this._onAmountChange$2));
@@ -12403,6 +12421,7 @@ Luxena.Travel.PaymentEditForm.prototype = {
             this._receivedFromField$2 = LxnBase.UI.AutoControls.ControlFactory.createEditor(this.getFieldConfig('ReceivedFrom'));
         }
         this._ownerField$2 = Luxena.Travel.Controls.ControlFactoryExt.createOwnerControl(230);
+        this._bankAccountField$2 = Luxena.Travel.Controls.ControlFactoryExt.createBankAccountControl(230);
         this._assignedTo$2 = new LxnBase.UI.Controls.ObjectSelector(new LxnBase.UI.Controls.ObjectSelectorConfig().setClass('Person').allowCreate(false).setDataProxy(LxnBase.Services.GenericService.suggestProxy('Person')).fieldLabel(Luxena.Travel.DomainRes.common_AssignedTo).width(230));
         this._noteField$2 = LxnBase.UI.AutoControls.ControlFactory.createEditor(this.getFieldConfig('Note'));
         this._noteField$2.addClass('note');
@@ -12419,7 +12438,7 @@ Luxena.Travel.PaymentEditForm.prototype = {
         if (this._receivedFromField$2 != null) {
             fields.add(this._receivedFromField$2);
         }
-        fields.addRange([ this._ownerField$2, this._assignedTo$2.get_widget(), this._noteField$2 ]);
+        fields.addRange([ this._ownerField$2, this._assignedTo$2.get_widget(), this._bankAccountField$2, this._noteField$2 ]);
         if (this._savePostedCheckBox$2 != null) {
             fields.add(this._savePostedCheckBox$2);
         }
@@ -12497,12 +12516,14 @@ Luxena.Travel.PaymentEditForm.prototype = {
         var totalDue = record.get('TotalDue');
         var vatDue = record.get('VatDue');
         var owner = record.get('Owner');
+        var bankAccount = record.get('BankAccount');
         this._payerSelector$2.setValue(billTo || customer);
         this._amountField$2.setValue(Luxena.Travel.PaymentEditForm._getMoney$2(totalDue));
         this._vatField$2.setValue(Luxena.Travel.PaymentEditForm._getMoney$2(vatDue));
         if (Luxena.Travel.AppManager.get_allowSetDocumentOwner()) {
             this._ownerField$2.setValue(owner);
         }
+        this._bankAccountField$2.setValue(bankAccount);
     },
     
     _getDocumentNumberFieldText$2: function Luxena_Travel_PaymentEditForm$_getDocumentNumberFieldText$2() {
@@ -12540,6 +12561,7 @@ Luxena.Travel.PaymentEditForm.prototype = {
             this._invoiceSelector$2.setValue(this.getInstancePropertyValue('Invoice'));
             this._orderSelector$2.setValue(this.getInstancePropertyValue('Order'));
             this._ownerField$2.setValue(this.getInstancePropertyValue('Owner'));
+            this._bankAccountField$2.setValue(this.getInstancePropertyValue('BankAccount'));
             this._assignedTo$2.setValue(this.getInstancePropertyValue('AssignedTo'));
             this._noteField$2.setValue(this.getInstancePropertyValue('Note'));
         }
@@ -12592,6 +12614,7 @@ Luxena.Travel.PaymentEditForm.prototype = {
         dto.Invoice = this._invoiceSelector$2.getObjectInfo();
         dto.Order = this._orderSelector$2.getObjectInfo();
         dto.Owner = this._ownerField$2.getObjectInfo();
+        dto.BankAccount = this._bankAccountField$2.getObjectInfo();
         dto.AssignedTo = this._assignedTo$2.getObjectInfo();
         if (this._savePostedCheckBox$2 == null || this._savePostedCheckBox$2.getValue()) {
             dto.SavePosted = true;
@@ -12629,6 +12652,7 @@ Luxena.Travel.PaymentEditForm.prototype = {
     _receivedFromField$2: null,
     _noteField$2: null,
     _ownerField$2: null,
+    _bankAccountField$2: null,
     _assignedTo$2: null,
     _orderSelector$2: null,
     _invoiceSelector$2: null,
@@ -12910,7 +12934,7 @@ Luxena.Travel.PaymentViewForm.prototype = {
     },
     
     _getPaymentPropertiesControl$7: function Luxena_Travel_PaymentViewForm$_getPaymentPropertiesControl$7() {
-        var config = new Luxena.Travel.Controls.PropertyListControlConfig().setListItems([ new Luxena.Travel.Controls.PropertyItem(Luxena.Travel.DomainRes.common_Number, 'Number'), new Luxena.Travel.Controls.PropertyItem(Luxena.Travel.DomainRes.common_Date, 'Date').setPropertyType(2), new Luxena.Travel.Controls.PropertyItem(Luxena.Travel.DomainRes.payment_PostedOn, 'PostedOn').setPropertyType(2), new Luxena.Travel.Controls.PropertyItem(Luxena.Travel.DomainRes.payment_Payer, 'Payer').setPropertyType(5), new Luxena.Travel.Controls.PropertyItem(Luxena.Travel.DomainRes.common_AssignedTo, 'AssignedTo'), new Luxena.Travel.Controls.PropertyItem(Luxena.Travel.DomainRes.payment_RegisteredBy, 'RegisteredBy'), new Luxena.Travel.Controls.PropertyItem(Luxena.Travel.DomainRes.payment_ReceivedFrom, 'ReceivedFrom').setHideIsEmpty(true), new Luxena.Travel.Controls.PropertyItem(Luxena.Travel.Res.payment_Invoice, 'Invoice').setPropertyType(5).setHideIsEmpty(true), new Luxena.Travel.Controls.PropertyItem(Luxena.Travel.DomainRes.order, 'Order').setPropertyType(5).setHideIsEmpty(true), new Luxena.Travel.Controls.PropertyItem(Luxena.Travel.Res.paymentView_Document, 'DocumentNumber').setCssClass('doc-number').setHideIsEmpty(true).setRenderer(ss.Delegate.create(this, function(propertyItem, value, container) {
+        var config = new Luxena.Travel.Controls.PropertyListControlConfig().setListItems([ new Luxena.Travel.Controls.PropertyItem(Luxena.Travel.DomainRes.common_Number, 'Number'), new Luxena.Travel.Controls.PropertyItem(Luxena.Travel.DomainRes.common_Date, 'Date').setPropertyType(2), new Luxena.Travel.Controls.PropertyItem(Luxena.Travel.DomainRes.payment_PostedOn, 'PostedOn').setPropertyType(2), new Luxena.Travel.Controls.PropertyItem(Luxena.Travel.DomainRes.payment_Payer, 'Payer').setPropertyType(5), new Luxena.Travel.Controls.PropertyItem(Luxena.Travel.DomainRes.common_AssignedTo, 'AssignedTo'), new Luxena.Travel.Controls.PropertyItem(Luxena.Travel.DomainRes.common_Owner, 'Owner').setPropertyType(5).setHideIsEmpty(true), new Luxena.Travel.Controls.PropertyItem('\u0411\u0430\u043d\u043a\u043e\u0432\u0441\u043a\u0438\u0439 \u0441\u0447\u0451\u0442', 'BankAccount').setPropertyType(5).setHideIsEmpty(true), new Luxena.Travel.Controls.PropertyItem(Luxena.Travel.DomainRes.payment_RegisteredBy, 'RegisteredBy'), new Luxena.Travel.Controls.PropertyItem(Luxena.Travel.DomainRes.payment_ReceivedFrom, 'ReceivedFrom').setHideIsEmpty(true), new Luxena.Travel.Controls.PropertyItem(Luxena.Travel.Res.payment_Invoice, 'Invoice').setPropertyType(5).setHideIsEmpty(true), new Luxena.Travel.Controls.PropertyItem(Luxena.Travel.DomainRes.order, 'Order').setPropertyType(5).setHideIsEmpty(true), new Luxena.Travel.Controls.PropertyItem(Luxena.Travel.Res.paymentView_Document, 'DocumentNumber').setCssClass('doc-number').setHideIsEmpty(true).setRenderer(ss.Delegate.create(this, function(propertyItem, value, container) {
             var payment = this.get__payment$7();
             if (value == null) {
                 return;
@@ -14688,6 +14712,7 @@ Luxena.Travel.PaymentDto.prototype = {
     Invoice: null,
     Order: null,
     Owner: null,
+    BankAccount: null,
     Permissions: null
 }
 
@@ -15248,6 +15273,7 @@ Luxena.Travel.SystemConfigurationDto.prototype = {
     IsOrderRequiredForProcessedDocument: false,
     ReservationsInOfficeMetrics: false,
     Order_UseServiceFeeOnlyInVat: false,
+    Invoice_CanOwnerSelect: false,
     Ticket_NoPrintReservations: false
 }
 
@@ -20686,11 +20712,11 @@ Luxena.Travel.Services.OrderService.GetOrder = function Luxena_Travel_Services_O
 Luxena.Travel.Services.OrderService.UpdateOrder = function Luxena_Travel_Services_OrderService$UpdateOrder(dto, pparams, onSuccess, onError) {
     Luxena.Travel.Services.OrderService.service.invoke('UpdateOrder', { dto: dto, params: pparams }, false, null, onSuccess, onError);
 }
-Luxena.Travel.Services.OrderService.IssueInvoice = function Luxena_Travel_Services_OrderService$IssueInvoice(id, number, issueDate, formNumber, showPaid, onSuccess, onError) {
-    Luxena.Travel.Services.OrderService.service.invoke('IssueInvoice', { id: id, number: number, issueDate: issueDate, formNumber: formNumber, showPaid: showPaid }, false, null, onSuccess, onError);
+Luxena.Travel.Services.OrderService.IssueInvoice = function Luxena_Travel_Services_OrderService$IssueInvoice(id, number, issueDate, ownerId, bankAccountId, formNumber, showPaid, onSuccess, onError) {
+    Luxena.Travel.Services.OrderService.service.invoke('IssueInvoice', { id: id, number: number, issueDate: issueDate, ownerId: ownerId, bankAccountId: bankAccountId, formNumber: formNumber, showPaid: showPaid }, false, null, onSuccess, onError);
 }
-Luxena.Travel.Services.OrderService.IssueCompletionCertificate = function Luxena_Travel_Services_OrderService$IssueCompletionCertificate(id, number, issueDate, showPaid, onSuccess, onError) {
-    Luxena.Travel.Services.OrderService.service.invoke('IssueCompletionCertificate', { id: id, number: number, issueDate: issueDate, showPaid: showPaid }, false, null, onSuccess, onError);
+Luxena.Travel.Services.OrderService.IssueCompletionCertificate = function Luxena_Travel_Services_OrderService$IssueCompletionCertificate(id, number, issueDate, ownerId, bankAccountId, showPaid, onSuccess, onError) {
+    Luxena.Travel.Services.OrderService.service.invoke('IssueCompletionCertificate', { id: id, number: number, issueDate: issueDate, ownerId: ownerId, bankAccountId: bankAccountId, showPaid: showPaid }, false, null, onSuccess, onError);
 }
 Luxena.Travel.Services.OrderService.GetInvoiceFile = function Luxena_Travel_Services_OrderService$GetInvoiceFile(invoiceId, onSuccess, onError) {
     Luxena.Travel.Services.OrderService.service.invoke('GetInvoiceFile', { invoiceId: invoiceId }, false, null, onSuccess, onError);

@@ -118,7 +118,7 @@ namespace Luxena.Travel.Domain
 
 
 
-			public Invoice Issue(Order order, string number, DateTime issueDate, int? formNumber, bool showPaid)
+			public Invoice Issue(Order order, string number, DateTime issueDate, object ownerId, object bankAccountId, int? formNumber, bool showPaid)
 			{
 
 				db.AssertUpdate(order);
@@ -145,12 +145,14 @@ namespace Luxena.Travel.Domain
 
 
 				var issuedBy = db.Security.Person;
+				var owner = db.Party.By(ownerId);
+				var bankAccount = db.BankAccount.By(bankAccountId);
 
 
 				var printer = db.Resolve<IInvoicePrinter>() ?? new InvoicePrinter { db = db };
 
 				var content = printer.Build(
-					order, number, issueDate, issuedBy, formNumber, showPaid, out var fileExtension
+					order, number, issueDate, issuedBy, owner, bankAccount, formNumber, showPaid, out var fileExtension
 				);
 
 
@@ -180,7 +182,7 @@ namespace Luxena.Travel.Domain
 
 
 
-			public Invoice IssueCompletionCertificate(Order order, string number, DateTime issueDate, bool showPaid)
+			public Invoice IssueCompletionCertificate(Order order, string number, DateTime issueDate, object ownerId, object bankAccountId, bool showPaid)
 			{
 
 				db.AssertUpdate(order);
@@ -198,12 +200,14 @@ namespace Luxena.Travel.Domain
 
 
 				var issuedBy = db.Security.Person;
+				var owner = db.Party.By(ownerId);
+				var bankAccount = db.BankAccount.By(bankAccountId);
 
 
 				var printer = db.Resolve<ICompletionCertificatePrinter>() ?? new CompletionCertificatePrinter { db = db };
 
 				var bytes = printer.Build(
-					order, number, issueDate, issuedBy, showPaid, out var fileExtension
+					order, number, issueDate, issuedBy, owner, bankAccount, showPaid, out var fileExtension
 				);
 
 

@@ -733,6 +733,42 @@ update lt_order o set
 	}
 
 
+	[Migration(20222071401)]
+	public class Migration_20222071401 : AutoReversingMigration
+	{
+		public override void Up()
+		{
+			Alter.Table("lt_system_configuration")
+				.AddColumn("invoice_canownerselect").AsBoolean().WithDefaultValue(false).NotNullable()
+			;
+		}
+	}
+
+
+	[Migration(20222071402)]
+	public class Migration_20222071402 : AutoReversingMigration
+	{
+		public override void Up()
+		{
+			Alter.Table("lt_document_owner")
+				.AddColumn("isdefault").AsBoolean().WithDefaultValue(false).NotNullable()
+			;
+		}
+	}
+
+
+	[Migration(20222071403)]
+	public class Migration_20222071403 : AutoReversingMigration
+	{
+		public override void Up()
+		{
+			Alter.Table("lt_payment")
+				.AddColumn("bankaccount").AsRefecence("lt_bank_account").Nullable()
+			;
+		}
+	}
+
+
 
 
 }

@@ -15,7 +15,9 @@ namespace Luxena.Travel.Reports
 			Order order,
 			string number,
 			DateTime issueDate,
-			Person issuedBy, 
+			Person issuedBy,
+			Party owner,
+			BankAccount bankAccount,
 			bool showPaid,
 			out string fileExtension
 		);

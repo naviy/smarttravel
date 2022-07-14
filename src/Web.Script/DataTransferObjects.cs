@@ -413,7 +413,12 @@ namespace Luxena.Travel
 		public Reference Owner;
 		
 		[PreserveCase()]
+		public Reference BankAccount;
+
+		
+		[PreserveCase()]
 		public OperationPermissions Permissions;
+
 	}
 
 
@@ -1716,6 +1721,9 @@ namespace Luxena.Travel
 		public bool Order_UseServiceFeeOnlyInVat;
 
 		[PreserveCase()]
+		public bool Invoice_CanOwnerSelect;
+		
+		[PreserveCase()]
 		public bool Ticket_NoPrintReservations;
 	}
 
@@ -2690,10 +2698,13 @@ namespace Luxena.Travel.Services
 		public static void IssueInvoice(
 			object id, 
 			string number,
-			Date issueDate, 
+			Date issueDate,
+			object ownerId,
+			object bankAccountId,
 			int? formNumber, 
 			bool showPaid, 
-			AjaxCallback onSuccess, WebServiceFailure onError
+			AjaxCallback onSuccess, 
+			WebServiceFailure onError
 		)
 		{
 			Service.Invoke(
@@ -2702,6 +2713,8 @@ namespace Luxena.Travel.Services
 					"id", id, 
 					"number", number, 
 					"issueDate", issueDate,
+					"ownerId", ownerId,
+					"bankAccountId", bankAccountId,
 					"formNumber", formNumber,
 					"showPaid", showPaid
 				), 
@@ -2714,9 +2727,30 @@ namespace Luxena.Travel.Services
 
 
 		[PreserveCase()]
-		public static void IssueCompletionCertificate(object id, string number, Date issueDate, bool showPaid, AjaxCallback onSuccess, WebServiceFailure onError)
+		public static void IssueCompletionCertificate(
+			object id, 
+			string number, 
+			Date issueDate,
+			object ownerId,
+			object bankAccountId,
+			bool showPaid, 
+			AjaxCallback onSuccess, 
+			WebServiceFailure onError
+		)
 		{
-			Service.Invoke("IssueCompletionCertificate", new Dictionary("id", id, "number", number, "issueDate", issueDate, "showPaid", showPaid), false, null, onSuccess, onError);
+			Service.Invoke(
+				"IssueCompletionCertificate", 
+				new Dictionary(
+					"id", id, 
+					"number", number,
+					"issueDate", issueDate,
+					"ownerId", ownerId,
+					"bankAccountId", bankAccountId,
+					"showPaid", showPaid
+				), 
+				false, null, 
+				onSuccess, onError
+			);
 		}
 
 		[PreserveCase()]

@@ -114,6 +114,7 @@ namespace Luxena.Travel.Domain
 						.Select(o => o.Owner)
 						.JoinAlias(o => o.Owner, () => owner)
 						.Where(o => o.IsActive)
+						.OrderBy(o => o.IsDefault).Desc
 						.OrderBy(o => owner.Name).Asc
 						.Cacheable()
 						.List<Party>();

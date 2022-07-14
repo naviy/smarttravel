@@ -288,6 +288,7 @@ namespace Luxena.Travel
 					new PropertyItem(DomainRes.Common_Intermediary, "Intermediary").SetPropertyType(PropertyType.ObjectInfo).SetHideIsEmpty(true),
 					new PropertyItem(DomainRes.Common_AssignedTo, "AssignedTo"),
 					new PropertyItem(DomainRes.Common_Owner, "Owner"),
+					new PropertyItem("Банковский счёт", "BankAccount").SetPropertyType(PropertyType.ObjectInfo).SetHideIsEmpty(true),
 					new PropertyItem(DomainRes.Order_IsPublic, "IsPublic").SetHideIsEmpty(true).SetRenderer(new PropertyItemRenderDelegate(
 						delegate(PropertyItem propertyItem, object value, jQueryObject container)
 						{
@@ -357,7 +358,7 @@ namespace Luxena.Travel
 
 
 					new PropertyItem(DomainRes.Order_DeliveryBalance, "DeliveryBalance")
-					
+
 						.SetPropertyType(PropertyType.Number)
 
 						.SetRowCssClass(delegate(PropertyItem item, object value)
@@ -502,6 +503,8 @@ namespace Luxena.Travel
 					})),
 				new PropertyItem(DomainRes.Payment_Payer, "Payer").SetPropertyType(PropertyType.ObjectInfo),
 				new PropertyItem(DomainRes.Payment_RegisteredBy, "RegisteredBy").SetPropertyType(PropertyType.String).SetCssClass("center-align"),
+				new PropertyItem(DomainRes.Common_Owner, "Owner").SetPropertyType(PropertyType.ObjectInfo),
+				new PropertyItem("Банковский счёт", "BankAccount").SetPropertyType(PropertyType.ObjectInfo),
 				new PropertyItem(DomainRes.Payment_Amount, "Amount").SetPropertyType(PropertyType.Money).SetCssClass("right-align")
 			};
 
@@ -760,7 +763,7 @@ namespace Luxena.Travel
 					numbers.Add(dto.Number);
 			}
 
-			InvoiceIssueForm form = new InvoiceIssueForm(Order.Id, (string[])numbers, InvoiceType.Invoice);
+			InvoiceIssueForm form = new InvoiceIssueForm(Order.Id, Order.Owner, Order.BankAccount, (string[])numbers, InvoiceType.Invoice);
 
 			form.Saved += delegate (object result) { OnIssueDocument((InvoiceDto)result); };
 
@@ -782,7 +785,7 @@ namespace Luxena.Travel
 			}
 
 
-			InvoiceIssueForm form = new InvoiceIssueForm(Order.Id, (string[])numbers, InvoiceType.CompletionCertificate);
+			InvoiceIssueForm form = new InvoiceIssueForm(Order.Id, Order.Owner, Order.BankAccount, (string[])numbers, InvoiceType.CompletionCertificate);
 
 			form.Saved += delegate (object result) { OnIssueDocument((InvoiceDto)result); };
 
@@ -858,7 +861,8 @@ namespace Luxena.Travel
 				"Vat", Order.VatDue,
 				"Order", Reference.Create(ClassNames.Order, Order.Number, Order.Id),
 				"Invoices", invoices,
-				"Owner", Order.Owner
+				"Owner", Order.Owner,
+				"BankAccount", Order.BankAccount
 			);
 
 

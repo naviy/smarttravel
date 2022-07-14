@@ -35,7 +35,11 @@ namespace Luxena.Travel.Domain
 		TravelPointXml,
 		Drct,
 		SabreTerminal,
-		GalileoTerminal,
+
+		/// <summary>
+		/// GalileoTerminal
+		/// </summary>
+		SPRK,
 
 	}
 

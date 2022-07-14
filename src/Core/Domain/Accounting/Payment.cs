@@ -203,6 +203,9 @@ namespace Luxena.Travel.Domain
 		[Patterns.Owner]
 		public virtual Party Owner { get; set; }
 
+		public virtual BankAccount BankAccount { get; set; }
+
+
 		public virtual byte[] PrintedDocument { get; set; }
 
 		public virtual PaymentSystem PaymentSystem { get; set; }

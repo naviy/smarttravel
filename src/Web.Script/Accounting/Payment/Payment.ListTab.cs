@@ -19,17 +19,40 @@ using Record = Ext.data.Record;
 
 namespace Luxena.Travel
 {
+
+
+
+	//===g
+
+
+
+
+
+
 	public class PaymentListTab : AutoListTabExt
 	{
+
+		//---g
+
+
+
 		static PaymentListTab()
 		{
 			FormsRegistry.RegisterList(ClassNames.Payment,
 				delegate(ListArgs args, bool newTab) { Tabs.Open(newTab, args.Type, delegate(string tabId) { return new PaymentListTab(tabId, args); }, args.BaseRequest); });
 		}
 
+
+
 		public PaymentListTab(string tabId, ListArgs args) : base(tabId, args)
 		{
 		}
+
+
+
+		//---g
+
+
 
 		protected override void OnInitGrid(AutoGridArgs args, EditorGridPanelConfig config)
 		{
@@ -48,6 +71,8 @@ namespace Luxena.Travel
 
 			config.view(new PaymentGridView());
 		}
+
+
 
 		protected override void OnAddToolbarButtons(ArrayList toolbarItems, AutoGrid autoGrid)
 		{
@@ -125,6 +150,8 @@ namespace Luxena.Travel
 			}
 		}
 
+
+
 		protected override void OnSelectionChange(AbstractSelectionModel selectionModel)
 		{
 			RowSelectionModel model = (RowSelectionModel) selectionModel;
@@ -170,6 +197,8 @@ namespace Luxena.Travel
 			}
 		}
 
+
+
 		private void VoidPayments()
 		{
 			RowSelectionModel selectionModel = AutoGrid.SelectionModel;
@@ -211,6 +240,8 @@ namespace Luxena.Travel
 				}, null);
 		}
 
+
+
 		private void OnVoidComplete(object result)
 		{
 			ItemListResponse response = (ItemListResponse) result;
@@ -232,6 +263,8 @@ namespace Luxena.Travel
 				AutoGrid.SelectionModel.selectRow(rangeResponse.SelectedRow);
 		}
 
+
+
 		private void PostedPayments()
 		{
 			PaymentService.PostPayments(AutoGrid.GetSelectedIds(), AutoGrid.BaseRequest,
@@ -251,6 +284,8 @@ namespace Luxena.Travel
 						AutoGrid.SelectionModel.selectRow(rangeResponse.SelectedRow);
 				}, null);
 		}
+
+
 
 		private void CreatePayment(string type)
 		{
@@ -282,7 +317,28 @@ namespace Luxena.Travel
 				}, null, AutoGrid.BaseRequest);
 		}
 
+
+
+		//---g
+
+
+
 		private Action _voidButton;
 		private Action _postButton;
+
+
+
+		//---g
+
 	}
+
+
+
+
+
+
+	//===g
+
+
+
 }

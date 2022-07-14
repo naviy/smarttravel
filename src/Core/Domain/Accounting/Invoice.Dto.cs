@@ -90,12 +90,12 @@ namespace Luxena.Travel.Domain
 
 
 
-		public InvoiceDto Issue(object orderId, string number, DateTime issueDate, int? formNumber, bool showPaid)
+		public InvoiceDto Issue(object orderId, string number, DateTime issueDate, object ownerId, object bankAccountId, int? formNumber, bool showPaid)
 		{
 
 			var order = db.Order.By(orderId);
 
-			var r = db.Invoice.Issue(order, number, issueDate, formNumber, showPaid);
+			var r = db.Invoice.Issue(order, number, issueDate, ownerId, bankAccountId, formNumber, showPaid);
 
 
 			return New(r);
@@ -115,11 +115,11 @@ namespace Luxena.Travel.Domain
 
 
 
-		public InvoiceDto IssueCompletionCertificate(object orderId, string number, DateTime issueDate, bool showPaid)
+		public InvoiceDto IssueCompletionCertificate(object orderId, string number, DateTime issueDate, object ownerId, object bankAccountId, bool showPaid)
 		{
 			var order = db.Order.By(orderId);
 
-			var r = db.Invoice.IssueCompletionCertificate(order, number, issueDate, showPaid);
+			var r = db.Invoice.IssueCompletionCertificate(order, number, issueDate, ownerId, bankAccountId, showPaid);
 
 			return New(r);
 		}

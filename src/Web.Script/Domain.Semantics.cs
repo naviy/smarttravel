@@ -877,10 +877,6 @@ namespace Luxena.Travel
 			_titles = "Персоны";
 		}
 
-		[PreserveCase]
-		public SemanticMember MilesCardsString = Member
-			.String();
-
 		/// <summary>Дата рождения</summary>
 		[PreserveCase]
 		public SemanticMember Birthday = Member
@@ -904,17 +900,21 @@ namespace Luxena.Travel
 			;
 
 		[PreserveCase]
+		public SemanticMember MilesCardsString = Member
+			.String();
+
+		[PreserveCase]
 		public SemanticMember MilesCards = Member
 			;
 
 	}
 
 	/*
-				se.MilesCardsString,
 				se.Birthday,
 				se.Organization,
 				se.Title,
 				se.Passports,
+				se.MilesCardsString,
 				se.MilesCards,
 	*/
 
@@ -3323,13 +3323,13 @@ namespace Luxena.Travel
 
 		[PreserveCase]
 		public SemanticMember AirlineIataCode = Member
-			.String();
+			.String(2);
 
 		/// <summary>Код АК</summary>
 		[PreserveCase]
 		public SemanticMember AirlinePrefixCode = Member
 			.Title("Код АК")
-			.String();
+			.String(3);
 
 		[PreserveCase]
 		public SemanticMember AirlineName = Member
@@ -3495,6 +3495,18 @@ namespace Luxena.Travel
 		public SemanticMember PureNumber = Member
 			.String();
 
+		/// <summary>Бронировка</summary>
+		[PreserveCase]
+		public SemanticMember PnrCode = Member
+			.Title("Бронировка")
+			.String();
+
+		/// <summary>Туркод</summary>
+		[PreserveCase]
+		public SemanticMember TourCode = Member
+			.Title("Туркод")
+			.String();
+
 		/// <summary>Продюсер</summary>
 		[PreserveCase]
 		public SemanticMember Producer = Member
@@ -3599,18 +3611,6 @@ namespace Luxena.Travel
 			.Title("Страна")
 			.Reference("Country")
 			.Required();
-
-		/// <summary>Бронировка</summary>
-		[PreserveCase]
-		public SemanticMember PnrCode = Member
-			.Title("Бронировка")
-			.String();
-
-		/// <summary>Туркод</summary>
-		[PreserveCase]
-		public SemanticMember TourCode = Member
-			.Title("Туркод")
-			.String();
 
 		/// <summary>Бронировщик</summary>
 		[PreserveCase]
@@ -4075,6 +4075,7 @@ namespace Luxena.Travel
 				new object[] { 9, "SabreFil" }, // SabreFil
 				new object[] { 15, "SabreTerminal" }, // SabreTerminal
 				new object[] { 6, "SirenaXml" }, // SirenaXml
+				new object[] { 16, "SPRK" }, // SPRK
 				new object[] { 13, "TravelPointXml" }, // TravelPointXml
 			})
 			.Required();
@@ -4191,6 +4192,8 @@ namespace Luxena.Travel
 				se.PassengerName,
 				se.IssueDate,
 				se.PureNumber,
+				se.PnrCode,
+				se.TourCode,
 				se.Producer,
 				se.Provider,
 				se.ReissueFor,
@@ -4209,8 +4212,6 @@ namespace Luxena.Travel
 				se.Order,
 				se.Intermediary,
 				se.Country,
-				se.PnrCode,
-				se.TourCode,
 				se.Booker,
 				se.BookerOffice,
 				se.BookerCode,
@@ -5710,6 +5711,13 @@ namespace Luxena.Travel
 			})
 			.Required();
 
+		/// <summary>Инвойсы: возможность выбрать Владельца при формировании счета</summary>
+		[PreserveCase]
+		public SemanticMember Invoice_CanOwnerSelect = Member
+			.Title("Инвойсы: возможность выбрать Владельца при формировании счета")
+			.Bool()
+			.Required();
+
 		/// <summary>Инвойсы: печатать НДС</summary>
 		[PreserveCase]
 		public SemanticMember InvoicePrinter_ShowVat = Member
@@ -5819,6 +5827,7 @@ namespace Luxena.Travel
 				se.Order_UseServiceFeeOnlyInVat,
 				se.Consignment_NumberMode,
 				se.Invoice_NumberMode,
+				se.Invoice_CanOwnerSelect,
 				se.InvoicePrinter_ShowVat,
 				se.InvoicePrinter_FooterDetails,
 				se.DrctWebService_LoadedOn,
@@ -5986,11 +5995,19 @@ namespace Luxena.Travel
 			.Bool()
 			.Required();
 
+		/// <summary>По умолчанию</summary>
+		[PreserveCase]
+		public SemanticMember IsDefault = Member
+			.Title("По умолчанию")
+			.Bool()
+			.Required();
+
 	}
 
 	/*
 				se.Owner,
 				se.IsActive,
+				se.IsDefault,
 	*/
 
 	public partial class DocumentOwnerListTab : EntityListTab
@@ -6474,6 +6491,7 @@ namespace Luxena.Travel
 				new object[] { 9, "SabreFil" }, // SabreFil
 				new object[] { 15, "SabreTerminal" }, // SabreTerminal
 				new object[] { 6, "SirenaXml" }, // SirenaXml
+				new object[] { 16, "SPRK" }, // SPRK
 				new object[] { 13, "TravelPointXml" }, // TravelPointXml
 			})
 			.Required();
@@ -7169,6 +7187,12 @@ namespace Luxena.Travel
 			.Title("Владелец")
 			.Reference("Party");
 
+		/// <summary>Банковский счёт</summary>
+		[PreserveCase]
+		public SemanticMember BankAccount = Member
+			.Title("Банковский счёт")
+			.EnumReference("BankAccount");
+
 		[PreserveCase]
 		public SemanticMember PrintedDocument = Member
 			;
@@ -7239,6 +7263,7 @@ namespace Luxena.Travel
 				se.RegisteredBy,
 				se.IsPosted,
 				se.Owner,
+				se.BankAccount,
 				se.PrintedDocument,
 				se.PaymentSystem,
 				se.IsCashOrder,

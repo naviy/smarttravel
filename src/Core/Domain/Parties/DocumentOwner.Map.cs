@@ -22,6 +22,7 @@ namespace Luxena.Travel.Domain.Mapping
 				m.Unique(true);
 			});
 			Property(x => x.IsActive, m => m.NotNullable(true));
+			Property(x => x.IsDefault, m => m.NotNullable(true));
 		}
 	}
 }

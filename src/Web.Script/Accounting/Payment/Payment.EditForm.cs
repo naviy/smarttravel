@@ -25,10 +25,27 @@ using Field = Ext.form.Field;
 using Record = Ext.data.Record;
 
 
+
+
 namespace Luxena.Travel
 {
+
+
+
+	//===g
+
+
+
+
+
+
 	public class PaymentEditForm : BaseClassEditForm
 	{
+
+		//---g
+
+
+
 		static PaymentEditForm()
 		{
 			FormsRegistry.RegisterEdit(ClassNames.CashInOrderPayment, EditObject);
@@ -38,21 +55,25 @@ namespace Luxena.Travel
 			FormsRegistry.RegisterEdit(ClassNames.ElectronicPayment, EditObject);
 		}
 
+
+
 		public static void EditObject(EditFormArgs args)
 		{
 			ConfigManager.GetEditConfig(args.Type,
-				delegate(ItemConfig config)
+				delegate (ItemConfig config)
 				{
 					PaymentService.GetPaymentSystems(
-						delegate(object data)
+						delegate (object data)
 						{
-							PaymentEditForm form = new PaymentEditForm(args, config, (Reference[]) data);
+							PaymentEditForm form = new PaymentEditForm(args, config, (Reference[])data);
 							form.Open();
 						},
 						null);
-					
+
 				});
 		}
+
+
 
 		private PaymentEditForm(EditFormArgs args, ItemConfig config, Reference[] paymentSystems) : base(args, config)
 		{
@@ -61,22 +82,36 @@ namespace Luxena.Travel
 			Window.addClass("payment-edit");
 		}
 
+
+
+		//---g
+
+
+
 		private PaymentDto Payment
 		{
-			get { return (PaymentDto) Instance; }
+			get { return (PaymentDto)Instance; }
 		}
+
+
+
+		//---g
+
+
 
 		protected override void LoadInstance(AjaxCallback onLoaded)
 		{
 			DomainService.Get(Args.Type, Args.IdToLoad, onLoaded, null);
-//			PaymentService.GetPayment(Args.IdToLoad, onLoaded, null);
+			//			PaymentService.GetPayment(Args.IdToLoad, onLoaded, null);
 		}
+
+
 
 		protected override Field[] AddFields()
 		{
 			_dateField = CreateEditor("Date");
 
-			_documentNumberField = (TextField) CreateEditor("DocumentNumber");
+			_documentNumberField = (TextField)CreateEditor("DocumentNumber");
 			_documentNumberField.fieldLabel = GetDocumentNumberFieldText();
 			_documentNumberField.width = 166;
 
@@ -87,7 +122,7 @@ namespace Luxena.Travel
 			}
 			else if (Args.Type == ClassNames.ElectronicPayment)
 			{
-				_authorizationCodeField = (TextField) CreateEditor("AuthorizationCode");
+				_authorizationCodeField = (TextField)CreateEditor("AuthorizationCode");
 				_authorizationCodeField.width = 166;
 
 				_paymentSystemField = new ComboBox(new ComboBoxConfig()
@@ -108,18 +143,18 @@ namespace Luxena.Travel
 
 			string label = Args.Type == ClassNames.WireTransfer ? DomainRes.InvoiceType_Invoice : DomainRes.InvoiceType_Receipt;
 
-			_invoiceSelector = new ObjectSelector((ObjectSelectorConfig) new ObjectSelectorConfig()
-				.valueProperties(new string[] { "Order", "BillTo", "TotalDue", "VatDue", "Owner" })
+			_invoiceSelector = new ObjectSelector((ObjectSelectorConfig)new ObjectSelectorConfig()
+				.valueProperties(new string[] { "Order", "BillTo", "TotalDue", "VatDue", "Owner", "BankAccount" })
 				.setDataProxy(OrderService.SuggestInvoicesProxy(Args.Type))
 				.customActions(GetInvoiceActions())
 				.fieldLabel(label));
 
 			_orderSelector = new ObjectSelector((ObjectSelectorConfig)new ObjectSelectorConfig()
 				.setClass(ClassNames.Order)
-				.valueProperties(new string[] { "Customer", "BillTo", "TotalDue", "VatDue", "Owner" })
+				.valueProperties(new string[] { "Customer", "BillTo", "TotalDue", "VatDue", "Owner", "BankAccount" })
 				.fieldLabel(DomainRes.Order));
 
-			_payerSelector = new ObjectSelector((ObjectSelectorConfig) new ObjectSelectorConfig()
+			_payerSelector = new ObjectSelector((ObjectSelectorConfig)new ObjectSelectorConfig()
 				.setClass(ClassNames.Party)
 				.allowCreate(false)
 				.setDataProxy(PartyService.SuggestCustomersProxy())
@@ -127,15 +162,16 @@ namespace Luxena.Travel
 				.width(230)
 				.allowBlank(false));
 
-			_amountField = (MoneyControl) CreateEditor("Amount");
+			_amountField = (MoneyControl)CreateEditor("Amount");
 			_amountField.DecimalField.on("change", new FieldChangeDelegate(OnAmountChange));
 
-			_vatField = (MoneyControl) CreateEditor("Vat");
+			_vatField = (MoneyControl)CreateEditor("Vat");
 
 			if (Args.Type != ClassNames.WireTransfer)
 				_receivedFromField = ControlFactory.CreateEditor(GetFieldConfig("ReceivedFrom"));
 
 			_ownerField = ControlFactoryExt.CreateOwnerControl(230);
+			_bankAccountField = ControlFactoryExt.CreateBankAccountControl(230);
 
 			_assignedTo = new ObjectSelector((ObjectSelectorConfig)new ObjectSelectorConfig()
 				.setClass(ClassNames.Person)
@@ -184,19 +220,21 @@ namespace Luxena.Travel
 			if (_receivedFromField != null)
 				fields.Add(_receivedFromField);
 
-			fields.AddRange(new object[] { _ownerField, _assignedTo.Widget, _noteField });
+			fields.AddRange(new object[] { _ownerField, _assignedTo.Widget, _bankAccountField, _noteField });
 
 			if (_savePostedCheckBox != null)
 				fields.Add(_savePostedCheckBox);
 
 			Form.add(fields);
 
-			return (Field[]) fields;
+			return (Field[])fields;
 		}
+
+
 
 		private Action[] GetInvoiceActions()
 		{
-			Reference[] invoices = (Reference[]) GetArgsValue("Invoices");
+			Reference[] invoices = (Reference[])GetArgsValue("Invoices");
 
 			if (!Script.Boolean(invoices) || invoices.Length == 0)
 				return null;
@@ -206,8 +244,10 @@ namespace Luxena.Travel
 			for (int i = 0; i < invoices.Length; ++i)
 				actions.Add(GetInvoiceAction(invoices[i]));
 
-			return (Action[]) actions;
+			return (Action[])actions;
 		}
+
+
 
 		private Action GetInvoiceAction(Reference invoice)
 		{
@@ -232,6 +272,8 @@ namespace Luxena.Travel
 				.ToDictionary());
 		}
 
+
+
 		protected override void InitComponentSequence(Field[] fields, Button[] buttons)
 		{
 			ArrayList list = new ArrayList();
@@ -240,15 +282,19 @@ namespace Luxena.Travel
 
 			list.Remove(_noteField);
 
-			ComponentSequence = (Component[]) list;
+			ComponentSequence = (Component[])list;
 		}
+
+
 
 		private void OnInvoiceChanged(Field objthis, object newvalue, object oldvalue)
 		{
+
 			if (newvalue == null || _skipInvoiceChanges)
 				return;
 
-			Record record = ((Store) ((ComboBox) objthis).store).getById((string) ((Array)newvalue)[Reference.IdPos]);
+
+			Record record = ((Store)((ComboBox)objthis).store).getById((string)((Array)newvalue)[Reference.IdPos]);
 
 			_skipOrderChanges = true;
 
@@ -258,14 +304,18 @@ namespace Luxena.Travel
 
 			if (Payment == null)
 				SetDataFromOrder(record);
+
 		}
+
+
 
 		private void OnOrderChanged(Field objthis, object newvalue, object oldvalue)
 		{
+
 			if (newvalue == null || _skipOrderChanges)
 				return;
 
-			if (oldvalue == null || ((Array) oldvalue)[0] != ((Array)newvalue)[0])
+			if (oldvalue == null || ((Array)oldvalue)[0] != ((Array)newvalue)[0])
 			{
 				_skipInvoiceChanges = true;
 
@@ -276,21 +326,28 @@ namespace Luxena.Travel
 
 			if (Payment == null)
 			{
-				Record record = ((Store) ((ComboBox) objthis).store).getById((string) ((Array)newvalue)[0]);
+				Record record = ((Store)((ComboBox)objthis).store).getById((string)((Array)newvalue)[0]);
 
 				SetDataFromOrder(record);
 			}
+
 		}
+
+
 
 		private void SetDataFromOrder(Record record)
 		{
-			object[] customer = (object[]) record.get("Customer");
-			object[] billTo = (object[]) record.get("BillTo");
 
-			object[] totalDue = (object[]) record.get("TotalDue");
-			object[] vatDue = (object[]) record.get("VatDue");
+			object[] customer = (object[])record.get("Customer");
+			object[] billTo = (object[])record.get("BillTo");
 
-			object[] owner = (object[]) record.get("Owner");
+			object[] totalDue = (object[])record.get("TotalDue");
+			object[] vatDue = (object[])record.get("VatDue");
+
+			object[] owner = (object[])record.get("Owner");
+
+			object[] bankAccount = (object[])record.get("BankAccount");
+
 
 			_payerSelector.SetValue(billTo ?? customer);
 
@@ -299,31 +356,43 @@ namespace Luxena.Travel
 
 			if (AppManager.AllowSetDocumentOwner)
 				_ownerField.setValue(owner);
+
+			_bankAccountField.setValue(bankAccount);
+
+
 		}
+
+
 
 		private static MoneyDto GetMoney(object money)
 		{
+
 			if (money == null)
 				return null;
 
 			if (!(money is Array))
-				return (MoneyDto) money;
+				return (MoneyDto)money;
 
-			object[] data = (object[]) money;
+			object[] data = (object[])money;
 
 			MoneyDto dto = new MoneyDto();
-			dto.Amount = (decimal) data[0];
+			dto.Amount = (decimal)data[0];
 
 			dto.Currency = new Reference();
-			dto.Currency.Name = (string) data[1];
+			dto.Currency.Name = (string)data[1];
 			dto.Currency.Id = data[2];
 			dto.Currency.Type = ClassNames.Currency;
 
+
 			return dto;
+
 		}
+
+
 
 		private string GetDocumentNumberFieldText()
 		{
+
 			switch (Args.Type)
 			{
 				case ClassNames.WireTransfer:
@@ -342,11 +411,16 @@ namespace Luxena.Travel
 					return Res.ElectronicPayment_DocumentName;
 			}
 
+
 			return null;
+
 		}
+
+
 
 		protected override void SetFieldValues()
 		{
+
 			_dateField.setValue(GetInstancePropertyValue("Date") ?? Date.Today);
 
 			if (Payment != null || Args.FieldValues != null)
@@ -369,6 +443,7 @@ namespace Luxena.Travel
 				_orderSelector.SetValue(GetInstancePropertyValue("Order"));
 
 				_ownerField.setValue(GetInstancePropertyValue("Owner"));
+				_bankAccountField.setValue(GetInstancePropertyValue("BankAccount"));
 				_assignedTo.SetValue(GetInstancePropertyValue("AssignedTo"));
 				_noteField.setValue(GetInstancePropertyValue("Note"));
 			}
@@ -381,6 +456,8 @@ namespace Luxena.Travel
 			_invoiceSelector.Widget.on("changeValue", new FieldChangeDelegate(OnInvoiceChanged));
 		}
 
+
+
 		protected override void OnSave()
 		{
 			if (Payment == null || IsModified())
@@ -392,9 +469,10 @@ namespace Luxena.Travel
 				Cancel();
 		}
 
+
 		protected override void OnSaved(object result)
 		{
-			PaymentDto dto = (PaymentDto) ((ItemResponse) result).Item;
+			PaymentDto dto = (PaymentDto)((ItemResponse)result).Item;
 
 			if (!LocalMode && Payment == null && !Script.IsNullOrUndefined(Args.FieldValues))
 				MessageFactory.ObjectUpdatedMsg(InstanceConfig.ListCaption, ObjectLink.Render(dto.Id, dto.Number, Args.Type), Args.IsNew);
@@ -402,8 +480,11 @@ namespace Luxena.Travel
 			base.OnSaved(result);
 		}
 
+
+
 		private PaymentDto GetPayment()
 		{
+
 			PaymentDto dto = new PaymentDto();
 
 			if (Payment != null)
@@ -412,7 +493,7 @@ namespace Luxena.Travel
 				dto.Version = Payment.Version;
 			}
 
-			dto.Date = (Date) _dateField.getValue();
+			dto.Date = (Date)_dateField.getValue();
 
 			dto.DocumentNumber = GetStringValue(_documentNumberField);
 
@@ -434,16 +515,23 @@ namespace Luxena.Travel
 			dto.Invoice = _invoiceSelector.GetObjectInfo();
 			dto.Order = _orderSelector.GetObjectInfo();
 			dto.Owner = _ownerField.GetObjectInfo();
+			dto.BankAccount = _bankAccountField.GetObjectInfo();
 			dto.AssignedTo = _assignedTo.GetObjectInfo();
+
 
 			if (_savePostedCheckBox == null || _savePostedCheckBox.getValue())
 				dto.SavePosted = true;
 
+
 			return dto;
+
 		}
+
+
 
 		private MoneyDto CalculateVat()
 		{
+
 			MoneyDto originalAmount = (MoneyDto)GetArgsValue("Amount");
 			MoneyDto originalVat = (MoneyDto)GetArgsValue("Vat");
 
@@ -452,16 +540,21 @@ namespace Luxena.Travel
 			if (originalAmount != null && originalVat != null && currentAmount != null)
 			{
 				MoneyDto vat = MoneyDto.GetZeroMoney();
-				vat.Amount = originalVat.Amount*currentAmount.Amount/originalAmount.Amount;
+				vat.Amount = originalVat.Amount * currentAmount.Amount / originalAmount.Amount;
 
 				return vat;
 			}
 
+
 			return null;
+
 		}
+
+
 
 		private void OnAmountChange(Field decimalField, object newValue, object oldValue)
 		{
+
 			if (Payment != null)
 				return;
 
@@ -469,17 +562,22 @@ namespace Luxena.Travel
 
 			if (vat != null)
 				_vatField.setValue(vat);
+
 		}
+
+
 
 		private static string GetStringValue(Field field)
 		{
-			string value = (string) field.getValue();
+			string value = (string)field.getValue();
 
 			if (string.IsNullOrEmpty(value))
 				return null;
 
 			return value;
 		}
+
+
 
 		private Field _dateField;
 		private TextField _documentNumberField;
@@ -489,6 +587,7 @@ namespace Luxena.Travel
 		private Field _receivedFromField;
 		private Field _noteField;
 		private ComboBox _ownerField;
+		private ComboBox _bankAccountField;
 
 		private ObjectSelector _assignedTo;
 		private ObjectSelector _orderSelector;
@@ -499,5 +598,20 @@ namespace Luxena.Travel
 		private TextField _authorizationCodeField;
 		private ComboBox _paymentSystemField;
 		private readonly Reference[] _paymentSystems;
+
+
+
+		//---g
+
 	}
+
+
+
+
+
+
+	//===g
+
+
+
 }

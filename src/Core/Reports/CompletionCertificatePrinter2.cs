@@ -33,10 +33,10 @@ namespace Luxena.Travel.Reports
 
 
 
-		public byte[] Build(Order order, string number, DateTime issueDate, Person issuedBy, bool showPaid, out string fileExtension)
+		public byte[] Build(Order order, string number, DateTime issueDate, Person issuedBy, Party owner, BankAccount bankAccount, bool showPaid, out string fileExtension)
 		{
 
-			var stream = GetStream2(order, number, issueDate, issuedBy, showPaid, out fileExtension);
+			var stream = GetStream2(order, number, issueDate, issuedBy, owner, bankAccount, showPaid, out fileExtension);
 
 			return stream.ToBytes();
 
@@ -44,7 +44,7 @@ namespace Luxena.Travel.Reports
 
 
 
-		private Stream GetStream2(Order order, string number, DateTime issueDate, Person issuedBy, bool showPaid, out string fileExtension)
+		private Stream GetStream2(Order order, string number, DateTime issueDate, Person issuedBy, Party owner, BankAccount bankAccount, bool showPaid, out string fileExtension)
 		{
 
 			var pos = 1;
@@ -81,7 +81,7 @@ namespace Luxena.Travel.Reports
 				OrderNo = order.Number,
 
 				Supplier = db.Configuration.Company,
-				SupplierDetails = db.Configuration.GetSupplierDetails(db, order),
+				SupplierDetails = db.Configuration.GetSupplierDetails(db, order, owner: owner, bankAccount: bankAccount),
 
 				Customer = (order.ShipTo ?? order.Customer)?.Name,
 				CustomerSignature = (order.ShipTo ?? order.Customer).As(a => a.Signature ?? a.Name),

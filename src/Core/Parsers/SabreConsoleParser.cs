@@ -261,7 +261,7 @@ namespace Luxena.Travel.Parsers
 					PnrCode = pnrCode,
 					PassengerName = passenger.Name.Trim(),
 
-					Origin = ProductOrigin.GalileoTerminal,
+					Origin = ProductOrigin.SPRK,
 					Originator = GdsOriginator.Galileo,
 
 					BookerOffice = mask.Office,

@@ -19,6 +19,10 @@ namespace Luxena.Travel.Domain
 		public virtual bool IsActive { get; set; }
 
 
+		[RU("По умолчанию")]
+		public virtual bool IsDefault { get; set; }
+
+
 		public class Service : EntityService<DocumentOwner>
 		{
 

@@ -109,7 +109,8 @@ namespace Luxena.Travel.Domain.NHibernate.Mapping.Configuration
 			Property(x => x.Invoice_NumberMode, m => m.NotNullable(true));
 			Property(x => x.InvoicePrinter_ShowVat, m => m.NotNullable(true));
 			Property(x => x.InvoicePrinter_FooterDetails);
-
+			Property(x => x.Invoice_CanOwnerSelect, m => m.NotNullable(true));
+			
 			Property(x => x.DrctWebService_LoadedOn);
 			Property(x => x.GalileoWebService_LoadedOn);
 			Property(x => x.GalileoRailWebService_LoadedOn);

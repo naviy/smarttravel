@@ -77,17 +77,17 @@ namespace Luxena.Travel.Web.Services
 
 
 		[WebMethod]
-		public InvoiceDto IssueInvoice(object id, string number, DateTime issueDate, int? formNumber, bool showPaid)
+		public InvoiceDto IssueInvoice(object id, string number, DateTime issueDate, object ownerId, object bankAccountId, int? formNumber, bool showPaid)
 		{
-			return db.Commit(() => dc.Invoice.Issue(id, number, issueDate, formNumber, showPaid));
+			return db.Commit(() => dc.Invoice.Issue(id, number, issueDate, ownerId, bankAccountId, formNumber, showPaid));
 		}
 
 
 
 		[WebMethod]
-		public InvoiceDto IssueCompletionCertificate(object id, string number, DateTime issueDate, bool showPaid)
+		public InvoiceDto IssueCompletionCertificate(object id, string number, DateTime issueDate, object ownerId, object bankAccountId, bool showPaid)
 		{
-			return db.Commit(() => dc.Invoice.IssueCompletionCertificate(id, number, issueDate, showPaid));
+			return db.Commit(() => dc.Invoice.IssueCompletionCertificate(id, number, issueDate, ownerId, bankAccountId, showPaid));
 		}
 
 

@@ -269,7 +269,7 @@ namespace Luxena.Travel.Parsers
 
 					PassengerName = passenger.Name.Trim(),
 
-					Origin = ProductOrigin.GalileoTerminal,
+					Origin = ProductOrigin.SPRK,
 					Originator = GdsOriginator.Galileo,
 
 					BookerOffice = officeCode,

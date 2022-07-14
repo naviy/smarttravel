@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 
 using Ext;
@@ -16,10 +16,27 @@ using Action = Ext.Action;
 using ActionConfig = Ext.ActionConfig;
 
 
+
+
 namespace Luxena.Travel
 {
+
+
+
+	//===g
+
+
+
+
+
+
 	public class PaymentViewForm : BaseClassViewForm
 	{
+
+		//---g
+
+
+
 		static PaymentViewForm()
 		{
 			FormsRegistry.RegisterView(ClassNames.CashInOrderPayment, ViewObject);
@@ -29,19 +46,31 @@ namespace Luxena.Travel
 			FormsRegistry.RegisterView(ClassNames.ElectronicPayment, ViewObject);
 		}
 
+
+
 		public static void ViewObject(string type, object id, bool newTab)
 		{
-			Tabs.Open(newTab, (string) id, delegate(string tabId) { return new PaymentViewForm(tabId, id, type); });
+			Tabs.Open(newTab, (string)id, delegate (string tabId) { return new PaymentViewForm(tabId, id, type); });
 		}
+
+
 
 		public PaymentViewForm(string tabId, object id, string type) : base(tabId, id, type)
 		{
 		}
 
+
+
 		private PaymentDto Payment
 		{
-			get { return (PaymentDto) Instance; }
+			get { return (PaymentDto)Instance; }
 		}
+
+
+
+		//---g
+
+
 
 		protected override void OnInitToolBar(ArrayList toolbarItems)
 		{
@@ -61,6 +90,8 @@ namespace Luxena.Travel
 			toolbarItems.Insert(1, _postAction);
 			toolbarItems.Insert(2, new ToolbarSeparator());
 		}
+
+
 
 		protected override void initComponent()
 		{
@@ -90,6 +121,8 @@ namespace Luxena.Travel
 			add(contentPanel);
 		}
 
+
+
 		protected override void UpdateActionsStatus()
 		{
 			SetActionStatus(_voidAction, Payment.Permissions.CanUpdate);
@@ -105,10 +138,14 @@ namespace Luxena.Travel
 			base.UpdateActionsStatus();
 		}
 
+
+
 		protected override void GetInstance()
 		{
 			DomainService.Get(_type, Id, Load, delegate { Tabs.Close(this); });
 		}
+
+
 
 		protected override void OnLoad()
 		{
@@ -137,10 +174,12 @@ namespace Luxena.Travel
 			_paymentPropertiesControl.LoadInstance(Payment);
 			_paymentAmountControl.LoadInstance(Payment);
 
-			CompositeElement element = (CompositeElement) _paymentPropertiesControl.body.select(".doc-number .fieldLabel");
+			CompositeElement element = (CompositeElement)_paymentPropertiesControl.body.select(".doc-number .fieldLabel");
 			if (element.getCount() != 0)
 				element.first().dom.InnerHTML = GetDocumentNumberText();
 		}
+
+
 
 		private void VoidPayment()
 		{
@@ -149,10 +188,10 @@ namespace Luxena.Travel
 				delegate
 				{
 					PaymentService.ChangeVoidStatus(new object[] { Payment.Id }, null,
-						delegate(object result)
+						delegate (object result)
 						{
-							ItemListResponse response = (ItemListResponse) result;
-							PaymentDto dto = (PaymentDto) response.Items[0];
+							ItemListResponse response = (ItemListResponse)result;
+							PaymentDto dto = (PaymentDto)response.Items[0];
 
 							Load(dto);
 
@@ -164,13 +203,15 @@ namespace Luxena.Travel
 				});
 		}
 
+
+
 		private void PostPayment()
 		{
 			PaymentService.PostPayments(new object[] { Payment.Id }, null,
-				delegate(object result)
+				delegate (object result)
 				{
-					ItemListResponse response = (ItemListResponse) result;
-					PaymentDto dto = (PaymentDto) response.Items[0];
+					ItemListResponse response = (ItemListResponse)result;
+					PaymentDto dto = (PaymentDto)response.Items[0];
 
 					Load(dto);
 
@@ -178,6 +219,8 @@ namespace Luxena.Travel
 				},
 				null);
 		}
+
+
 
 		private PropertyListControl GetPaymentPropertiesControl()
 		{
@@ -189,6 +232,8 @@ namespace Luxena.Travel
 					new PropertyItem(DomainRes.Payment_PostedOn, "PostedOn").SetPropertyType(PropertyType.Date),
 					new PropertyItem(DomainRes.Payment_Payer, "Payer").SetPropertyType(PropertyType.ObjectInfo),
 					new PropertyItem(DomainRes.Common_AssignedTo, "AssignedTo"),
+					new PropertyItem(DomainRes.Common_Owner, "Owner").SetPropertyType(PropertyType.ObjectInfo).SetHideIsEmpty(true),
+					new PropertyItem("Банковский счёт", "BankAccount").SetPropertyType(PropertyType.ObjectInfo).SetHideIsEmpty(true),
 					new PropertyItem(DomainRes.Payment_RegisteredBy, "RegisteredBy"),
 					new PropertyItem(DomainRes.Payment_ReceivedFrom, "ReceivedFrom").SetHideIsEmpty(true),
 					new PropertyItem(Res.Payment_Invoice, "Invoice").SetPropertyType(PropertyType.ObjectInfo).SetHideIsEmpty(true),
@@ -226,6 +271,8 @@ namespace Luxena.Travel
 			return new PropertyListControl(config);
 		}
 
+
+
 		private static PropertyListControl GetPaymentAmountControl()
 		{
 			PropertyListControlConfig config = new PropertyListControlConfig()
@@ -239,6 +286,8 @@ namespace Luxena.Travel
 
 			return new PropertyListControl(config);
 		}
+
+
 
 		private string GetDocumentNumberText()
 		{
@@ -270,10 +319,31 @@ namespace Luxena.Travel
 			return text + ":";
 		}
 
+
+
+		//---g
+
+
+
 		private PropertyListControl _paymentPropertiesControl;
 		private PropertyListControl _paymentAmountControl;
 		private Label _titleLabel;
 		private Action _voidAction;
 		private Action _postAction;
+
+
+
+		//---g
+
 	}
+
+
+
+
+
+
+	//===g
+
+
+
 }

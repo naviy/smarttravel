@@ -32,6 +32,8 @@ namespace Luxena.Travel.Reports
 			string number,
 			DateTime issueDate,
 			Person issuedBy,
+			Party owner,
+			BankAccount bankAccount,
 			int? formNumber,
 			bool showPaid, 
 			out string fileExtension

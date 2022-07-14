@@ -5,10 +5,14 @@ using Ext;
 using Ext.data;
 using Ext.form;
 
+using Luxena.Travel.Controls;
+
 using LxnBase;
 using LxnBase.UI;
 
 using Luxena.Travel.Services;
+
+using LxnBase.Data;
 
 using ComboBox = Ext.form.ComboBox;
 using Field = Ext.form.Field;
@@ -37,9 +41,13 @@ namespace Luxena.Travel
 
 		private readonly object _orderId;
 		private readonly string[] _invoices;
+		private readonly Reference _orderOwner;
+		private readonly Reference _orderBankAccount;
 
 		private DateField _issueDate;
 		private Field _number;
+		private LxnBase.UI.Controls.ComboBox _owner;
+		private LxnBase.UI.Controls.ComboBox _bankAccount;
 		private ComboBox _formNumber;
 		private Checkbox _showPayments;
 		private InvoiceType _type;
@@ -50,9 +58,11 @@ namespace Luxena.Travel
 
 
 
-		public InvoiceIssueForm(object orderId, string[] invoices, InvoiceType type)
+		public InvoiceIssueForm(object orderId, Reference orderOwner, Reference orderBankAccount, string[] invoices, InvoiceType type)
 		{
 			_orderId = orderId;
+			_orderOwner = orderOwner;
+			_orderBankAccount = orderBankAccount;
 			_invoices = invoices;
 			_type = type;
 		}
@@ -116,6 +126,22 @@ namespace Luxena.Travel
 			}
 
 
+			_owner = ControlFactoryExt.CreateOwnerControl(200);
+
+			if (!AppManager.SystemConfiguration.Invoice_CanOwnerSelect)
+			{
+				_owner.setValue(null);
+			}
+			else if (Script.IsValue(_orderOwner))
+			{
+				_owner.setValue(_orderOwner);
+			}
+
+
+			_bankAccount = ControlFactoryExt.CreateBankAccountControl(200);
+			_bankAccount.setValue(_orderBankAccount);
+
+
 			_showPayments = new Checkbox(new CheckboxConfig()
 				.boxLabel(Res.InvoiceIssueForm_ShowPaid)
 				.ToDictionary())
@@ -146,7 +172,7 @@ namespace Luxena.Travel
 			;
 
 
-			Component[] fields = { _issueDate, _number, _formNumber, _showPayments };
+			Component[] fields = { _issueDate, _number, _owner, _bankAccount, _formNumber, _showPayments };
 
 			Form.add(fields);
 
@@ -191,6 +217,8 @@ namespace Luxena.Travel
 					_orderId,
 					number,
 					_issueDate.getValue(),
+					_owner.GetSelectedId(),
+					_bankAccount.GetSelectedId(),
 					_showPayments.getValue(),
 					CompleteSave, null
 				);
@@ -201,6 +229,8 @@ namespace Luxena.Travel
 					_orderId,
 					number,
 					_issueDate.getValue(),
+					_owner.GetSelectedId(),
+					_bankAccount.GetSelectedId(),
 					Number.ParseInt(_formNumber.getValue()),
 					_showPayments.getValue(),
 					CompleteSave, null

@@ -11,7 +11,7 @@ namespace Luxena.Travel.Domain
 		
 	partial class Contracts
 	{
-		public AccommodationContractService Accommodation { [DebuggerStepThrough] get => ResolveService(ref _accommodationDto); }
+		public AccommodationContractService Accommodation { [DebuggerStepThrough] get { return ResolveService(ref _accommodationDto); } }
 		private AccommodationContractService _accommodationDto;
 
 		[DebuggerStepThrough]
@@ -104,7 +104,7 @@ namespace Luxena.Travel.Domain
 		
 	partial class Contracts
 	{
-		public AccommodationTypeContractService AccommodationType { [DebuggerStepThrough] get => ResolveService(ref _accommodationTypeDto); }
+		public AccommodationTypeContractService AccommodationType { [DebuggerStepThrough] get { return ResolveService(ref _accommodationTypeDto); } }
 		private AccommodationTypeContractService _accommodationTypeDto;
 
 		[DebuggerStepThrough]
@@ -149,7 +149,7 @@ namespace Luxena.Travel.Domain
 		
 	partial class Contracts
 	{
-		public AirlineCommissionPercentsContractService AirlineCommissionPercents { [DebuggerStepThrough] get => ResolveService(ref _airlineCommissionPercentsDto); }
+		public AirlineCommissionPercentsContractService AirlineCommissionPercents { [DebuggerStepThrough] get { return ResolveService(ref _airlineCommissionPercentsDto); } }
 		private AirlineCommissionPercentsContractService _airlineCommissionPercentsDto;
 
 		[DebuggerStepThrough]
@@ -214,7 +214,7 @@ namespace Luxena.Travel.Domain
 		
 	partial class Contracts
 	{
-		public AirlineMonthCommissionContractService AirlineMonthCommission { [DebuggerStepThrough] get => ResolveService(ref _airlineMonthCommissionDto); }
+		public AirlineMonthCommissionContractService AirlineMonthCommission { [DebuggerStepThrough] get { return ResolveService(ref _airlineMonthCommissionDto); } }
 		private AirlineMonthCommissionContractService _airlineMonthCommissionDto;
 
 		[DebuggerStepThrough]
@@ -273,7 +273,7 @@ namespace Luxena.Travel.Domain
 		
 	partial class Contracts
 	{
-		public AirlineServiceClassContractService AirlineServiceClass { [DebuggerStepThrough] get => ResolveService(ref _airlineServiceClassDto); }
+		public AirlineServiceClassContractService AirlineServiceClass { [DebuggerStepThrough] get { return ResolveService(ref _airlineServiceClassDto); } }
 		private AirlineServiceClassContractService _airlineServiceClassDto;
 
 		[DebuggerStepThrough]
@@ -330,7 +330,7 @@ namespace Luxena.Travel.Domain
 		
 	partial class Contracts
 	{
-		public AirplaneModelContractService AirplaneModel { [DebuggerStepThrough] get => ResolveService(ref _airplaneModelDto); }
+		public AirplaneModelContractService AirplaneModel { [DebuggerStepThrough] get { return ResolveService(ref _airplaneModelDto); } }
 		private AirplaneModelContractService _airplaneModelDto;
 
 		[DebuggerStepThrough]
@@ -383,7 +383,7 @@ namespace Luxena.Travel.Domain
 		
 	partial class Contracts
 	{
-		public AirportContractService Airport { [DebuggerStepThrough] get => ResolveService(ref _airportDto); }
+		public AirportContractService Airport { [DebuggerStepThrough] get { return ResolveService(ref _airportDto); } }
 		private AirportContractService _airportDto;
 
 		[DebuggerStepThrough]
@@ -452,7 +452,7 @@ namespace Luxena.Travel.Domain
 		
 	partial class Contracts
 	{
-		public AviaDocumentContractService AviaDocument { [DebuggerStepThrough] get => ResolveService(ref _aviaDocumentDto); }
+		public AviaDocumentContractService AviaDocument { [DebuggerStepThrough] get { return ResolveService(ref _aviaDocumentDto); } }
 		private AviaDocumentContractService _aviaDocumentDto;
 	}
 
@@ -463,7 +463,7 @@ namespace Luxena.Travel.Domain
 		
 	partial class Contracts
 	{
-		public AviaDocumentProcessContractService AviaDocumentProcess { [DebuggerStepThrough] get => ResolveService(ref _aviaDocumentProcessDto); }
+		public AviaDocumentProcessContractService AviaDocumentProcess { [DebuggerStepThrough] get { return ResolveService(ref _aviaDocumentProcessDto); } }
 		private AviaDocumentProcessContractService _aviaDocumentProcessDto;
 	}
 
@@ -474,7 +474,7 @@ namespace Luxena.Travel.Domain
 		
 	partial class Contracts
 	{
-		public AviaMcoContractService AviaMco { [DebuggerStepThrough] get => ResolveService(ref _aviaMcoDto); }
+		public AviaMcoContractService AviaMco { [DebuggerStepThrough] get { return ResolveService(ref _aviaMcoDto); } }
 		private AviaMcoContractService _aviaMcoDto;
 
 		[DebuggerStepThrough]
@@ -529,7 +529,7 @@ namespace Luxena.Travel.Domain
 		
 	partial class Contracts
 	{
-		public AviaMcoProcessContractService AviaMcoProcess { [DebuggerStepThrough] get => ResolveService(ref _aviaMcoProcessDto); }
+		public AviaMcoProcessContractService AviaMcoProcess { [DebuggerStepThrough] get { return ResolveService(ref _aviaMcoProcessDto); } }
 		private AviaMcoProcessContractService _aviaMcoProcessDto;
 
 		[DebuggerStepThrough]
@@ -582,7 +582,7 @@ namespace Luxena.Travel.Domain
 		
 	partial class Contracts
 	{
-		public AviaRefundContractService AviaRefund { [DebuggerStepThrough] get => ResolveService(ref _aviaRefundDto); }
+		public AviaRefundContractService AviaRefund { [DebuggerStepThrough] get { return ResolveService(ref _aviaRefundDto); } }
 		private AviaRefundContractService _aviaRefundDto;
 
 		[DebuggerStepThrough]
@@ -643,7 +643,7 @@ namespace Luxena.Travel.Domain
 		
 	partial class Contracts
 	{
-		public AviaRefundProcessContractService AviaRefundProcess { [DebuggerStepThrough] get => ResolveService(ref _aviaRefundProcessDto); }
+		public AviaRefundProcessContractService AviaRefundProcess { [DebuggerStepThrough] get { return ResolveService(ref _aviaRefundProcessDto); } }
 		private AviaRefundProcessContractService _aviaRefundProcessDto;
 
 		[DebuggerStepThrough]
@@ -700,7 +700,7 @@ namespace Luxena.Travel.Domain
 		
 	partial class Contracts
 	{
-		public AviaTicketContractService AviaTicket { [DebuggerStepThrough] get => ResolveService(ref _aviaTicketDto); }
+		public AviaTicketContractService AviaTicket { [DebuggerStepThrough] get { return ResolveService(ref _aviaTicketDto); } }
 		private AviaTicketContractService _aviaTicketDto;
 
 		[DebuggerStepThrough]
@@ -781,7 +781,7 @@ namespace Luxena.Travel.Domain
 		
 	partial class Contracts
 	{
-		public AviaTicketProcessContractService AviaTicketProcess { [DebuggerStepThrough] get => ResolveService(ref _aviaTicketProcessDto); }
+		public AviaTicketProcessContractService AviaTicketProcess { [DebuggerStepThrough] get { return ResolveService(ref _aviaTicketProcessDto); } }
 		private AviaTicketProcessContractService _aviaTicketProcessDto;
 
 		[DebuggerStepThrough]
@@ -872,7 +872,7 @@ namespace Luxena.Travel.Domain
 		
 	partial class Contracts
 	{
-		public BankAccountContractService BankAccount { [DebuggerStepThrough] get => ResolveService(ref _bankAccountDto); }
+		public BankAccountContractService BankAccount { [DebuggerStepThrough] get { return ResolveService(ref _bankAccountDto); } }
 		private BankAccountContractService _bankAccountDto;
 
 		[DebuggerStepThrough]
@@ -925,7 +925,7 @@ namespace Luxena.Travel.Domain
 		
 	partial class Contracts
 	{
-		public BusTicketContractService BusTicket { [DebuggerStepThrough] get => ResolveService(ref _busTicketDto); }
+		public BusTicketContractService BusTicket { [DebuggerStepThrough] get { return ResolveService(ref _busTicketDto); } }
 		private BusTicketContractService _busTicketDto;
 
 		[DebuggerStepThrough]
@@ -1014,7 +1014,7 @@ namespace Luxena.Travel.Domain
 		
 	partial class Contracts
 	{
-		public BusTicketRefundContractService BusTicketRefund { [DebuggerStepThrough] get => ResolveService(ref _busTicketRefundDto); }
+		public BusTicketRefundContractService BusTicketRefund { [DebuggerStepThrough] get { return ResolveService(ref _busTicketRefundDto); } }
 		private BusTicketRefundContractService _busTicketRefundDto;
 
 		[DebuggerStepThrough]
@@ -1071,7 +1071,7 @@ namespace Luxena.Travel.Domain
 		
 	partial class Contracts
 	{
-		public CarRentalContractService CarRental { [DebuggerStepThrough] get => ResolveService(ref _carRentalDto); }
+		public CarRentalContractService CarRental { [DebuggerStepThrough] get { return ResolveService(ref _carRentalDto); } }
 		private CarRentalContractService _carRentalDto;
 
 		[DebuggerStepThrough]
@@ -1136,7 +1136,7 @@ namespace Luxena.Travel.Domain
 		
 	partial class Contracts
 	{
-		public CashInOrderPaymentContractService CashInOrderPayment { [DebuggerStepThrough] get => ResolveService(ref _cashInOrderPaymentDto); }
+		public CashInOrderPaymentContractService CashInOrderPayment { [DebuggerStepThrough] get { return ResolveService(ref _cashInOrderPaymentDto); } }
 		private CashInOrderPaymentContractService _cashInOrderPaymentDto;
 
 		[DebuggerStepThrough]
@@ -1187,7 +1187,7 @@ namespace Luxena.Travel.Domain
 		
 	partial class Contracts
 	{
-		public CashOutOrderPaymentContractService CashOutOrderPayment { [DebuggerStepThrough] get => ResolveService(ref _cashOutOrderPaymentDto); }
+		public CashOutOrderPaymentContractService CashOutOrderPayment { [DebuggerStepThrough] get { return ResolveService(ref _cashOutOrderPaymentDto); } }
 		private CashOutOrderPaymentContractService _cashOutOrderPaymentDto;
 
 		[DebuggerStepThrough]
@@ -1238,7 +1238,7 @@ namespace Luxena.Travel.Domain
 		
 	partial class Contracts
 	{
-		public CateringTypeContractService CateringType { [DebuggerStepThrough] get => ResolveService(ref _cateringTypeDto); }
+		public CateringTypeContractService CateringType { [DebuggerStepThrough] get { return ResolveService(ref _cateringTypeDto); } }
 		private CateringTypeContractService _cateringTypeDto;
 
 		[DebuggerStepThrough]
@@ -1283,7 +1283,7 @@ namespace Luxena.Travel.Domain
 		
 	partial class Contracts
 	{
-		public CheckPaymentContractService CheckPayment { [DebuggerStepThrough] get => ResolveService(ref _checkPaymentDto); }
+		public CheckPaymentContractService CheckPayment { [DebuggerStepThrough] get { return ResolveService(ref _checkPaymentDto); } }
 		private CheckPaymentContractService _checkPaymentDto;
 
 		[DebuggerStepThrough]
@@ -1332,7 +1332,7 @@ namespace Luxena.Travel.Domain
 		
 	partial class Contracts
 	{
-		public ClosedPeriodContractService ClosedPeriod { [DebuggerStepThrough] get => ResolveService(ref _closedPeriodDto); }
+		public ClosedPeriodContractService ClosedPeriod { [DebuggerStepThrough] get { return ResolveService(ref _closedPeriodDto); } }
 		private ClosedPeriodContractService _closedPeriodDto;
 
 		[DebuggerStepThrough]
@@ -1395,7 +1395,7 @@ namespace Luxena.Travel.Domain
 		
 	partial class Contracts
 	{
-		public ConsignmentContractService Consignment { [DebuggerStepThrough] get => ResolveService(ref _consignmentDto); }
+		public ConsignmentContractService Consignment { [DebuggerStepThrough] get { return ResolveService(ref _consignmentDto); } }
 		private ConsignmentContractService _consignmentDto;
 
 		[DebuggerStepThrough]
@@ -1492,7 +1492,7 @@ namespace Luxena.Travel.Domain
 		
 	partial class Contracts
 	{
-		public ContractContractService Contract { [DebuggerStepThrough] get => ResolveService(ref _contractDto); }
+		public ContractContractService Contract { [DebuggerStepThrough] get { return ResolveService(ref _contractDto); } }
 		private ContractContractService _contractDto;
 
 		[DebuggerStepThrough]
@@ -1557,7 +1557,7 @@ namespace Luxena.Travel.Domain
 		
 	partial class Contracts
 	{
-		public CountryContractService Country { [DebuggerStepThrough] get => ResolveService(ref _countryDto); }
+		public CountryContractService Country { [DebuggerStepThrough] get { return ResolveService(ref _countryDto); } }
 		private CountryContractService _countryDto;
 
 		[DebuggerStepThrough]
@@ -1614,7 +1614,7 @@ namespace Luxena.Travel.Domain
 		
 	partial class Contracts
 	{
-		public CurrencyContractService Currency { [DebuggerStepThrough] get => ResolveService(ref _currencyDto); }
+		public CurrencyContractService Currency { [DebuggerStepThrough] get { return ResolveService(ref _currencyDto); } }
 		private CurrencyContractService _currencyDto;
 
 		[DebuggerStepThrough]
@@ -1671,7 +1671,7 @@ namespace Luxena.Travel.Domain
 		
 	partial class Contracts
 	{
-		public CurrencyDailyRateContractService CurrencyDailyRate { [DebuggerStepThrough] get => ResolveService(ref _currencyDailyRateDto); }
+		public CurrencyDailyRateContractService CurrencyDailyRate { [DebuggerStepThrough] get { return ResolveService(ref _currencyDailyRateDto); } }
 		private CurrencyDailyRateContractService _currencyDailyRateDto;
 
 		[DebuggerStepThrough]
@@ -1744,7 +1744,7 @@ namespace Luxena.Travel.Domain
 		
 	partial class Contracts
 	{
-		public DepartmentContractService Department { [DebuggerStepThrough] get => ResolveService(ref _departmentDto); }
+		public DepartmentContractService Department { [DebuggerStepThrough] get { return ResolveService(ref _departmentDto); } }
 		private DepartmentContractService _departmentDto;
 
 		[DebuggerStepThrough]
@@ -1795,7 +1795,7 @@ namespace Luxena.Travel.Domain
 		
 	partial class Contracts
 	{
-		public DepartmentListDetailContractService DepartmentListDetail { [DebuggerStepThrough] get => ResolveService(ref _departmentListDetailDto); }
+		public DepartmentListDetailContractService DepartmentListDetail { [DebuggerStepThrough] get { return ResolveService(ref _departmentListDetailDto); } }
 		private DepartmentListDetailContractService _departmentListDetailDto;
 
 		[DebuggerStepThrough]
@@ -1848,7 +1848,7 @@ namespace Luxena.Travel.Domain
 		
 	partial class Contracts
 	{
-		public DocumentAccessContractService DocumentAccess { [DebuggerStepThrough] get => ResolveService(ref _documentAccessDto); }
+		public DocumentAccessContractService DocumentAccess { [DebuggerStepThrough] get { return ResolveService(ref _documentAccessDto); } }
 		private DocumentAccessContractService _documentAccessDto;
 
 		[DebuggerStepThrough]
@@ -1905,7 +1905,7 @@ namespace Luxena.Travel.Domain
 		
 	partial class Contracts
 	{
-		public DocumentOwnerContractService DocumentOwner { [DebuggerStepThrough] get => ResolveService(ref _documentOwnerDto); }
+		public DocumentOwnerContractService DocumentOwner { [DebuggerStepThrough] get { return ResolveService(ref _documentOwnerDto); } }
 		private DocumentOwnerContractService _documentOwnerDto;
 
 		[DebuggerStepThrough]
@@ -1928,6 +1928,8 @@ namespace Luxena.Travel.Domain
 
 		public bool IsActive { get; set; }
 
+		public bool IsDefault { get; set; }
+
 		*/
 	}
 
@@ -1940,12 +1942,14 @@ namespace Luxena.Travel.Domain
 			{
 				c.Owner = r.Owner;
 				c.IsActive = r.IsActive;
+				c.IsDefault = r.IsDefault;
 			};
 		
 			EntityFromContract += (r, c) =>
 			{
 				r.Owner = c.Owner + db;
 				r.IsActive = c.IsActive + db;
+				r.IsDefault = c.IsDefault + db;
 			};
 		}
 		*/
@@ -1958,7 +1962,7 @@ namespace Luxena.Travel.Domain
 		
 	partial class Contracts
 	{
-		public ElectronicPaymentContractService ElectronicPayment { [DebuggerStepThrough] get => ResolveService(ref _electronicPaymentDto); }
+		public ElectronicPaymentContractService ElectronicPayment { [DebuggerStepThrough] get { return ResolveService(ref _electronicPaymentDto); } }
 		private ElectronicPaymentContractService _electronicPaymentDto;
 
 		[DebuggerStepThrough]
@@ -2011,7 +2015,7 @@ namespace Luxena.Travel.Domain
 		
 	partial class Contracts
 	{
-		public ExcursionContractService Excursion { [DebuggerStepThrough] get => ResolveService(ref _excursionDto); }
+		public ExcursionContractService Excursion { [DebuggerStepThrough] get { return ResolveService(ref _excursionDto); } }
 		private ExcursionContractService _excursionDto;
 
 		[DebuggerStepThrough]
@@ -2076,7 +2080,7 @@ namespace Luxena.Travel.Domain
 		
 	partial class Contracts
 	{
-		public FileContractService File { [DebuggerStepThrough] get => ResolveService(ref _fileDto); }
+		public FileContractService File { [DebuggerStepThrough] get { return ResolveService(ref _fileDto); } }
 		private FileContractService _fileDto;
 
 		[DebuggerStepThrough]
@@ -2139,7 +2143,7 @@ namespace Luxena.Travel.Domain
 		
 	partial class Contracts
 	{
-		public FlightSegmentContractService FlightSegment { [DebuggerStepThrough] get => ResolveService(ref _flightSegmentDto); }
+		public FlightSegmentContractService FlightSegment { [DebuggerStepThrough] get { return ResolveService(ref _flightSegmentDto); } }
 		private FlightSegmentContractService _flightSegmentDto;
 
 		[DebuggerStepThrough]
@@ -2320,7 +2324,7 @@ namespace Luxena.Travel.Domain
 		
 	partial class Contracts
 	{
-		public GdsAgentContractService GdsAgent { [DebuggerStepThrough] get => ResolveService(ref _gdsAgentDto); }
+		public GdsAgentContractService GdsAgent { [DebuggerStepThrough] get { return ResolveService(ref _gdsAgentDto); } }
 		private GdsAgentContractService _gdsAgentDto;
 
 		[DebuggerStepThrough]
@@ -2393,7 +2397,7 @@ namespace Luxena.Travel.Domain
 		
 	partial class Contracts
 	{
-		public GdsFileContractService GdsFile { [DebuggerStepThrough] get => ResolveService(ref _gdsFileDto); }
+		public GdsFileContractService GdsFile { [DebuggerStepThrough] get { return ResolveService(ref _gdsFileDto); } }
 		private GdsFileContractService _gdsFileDto;
 
 		[DebuggerStepThrough]
@@ -2458,7 +2462,7 @@ namespace Luxena.Travel.Domain
 		
 	partial class Contracts
 	{
-		public GenericProductContractService GenericProduct { [DebuggerStepThrough] get => ResolveService(ref _genericProductDto); }
+		public GenericProductContractService GenericProduct { [DebuggerStepThrough] get { return ResolveService(ref _genericProductDto); } }
 		private GenericProductContractService _genericProductDto;
 
 		[DebuggerStepThrough]
@@ -2527,7 +2531,7 @@ namespace Luxena.Travel.Domain
 		
 	partial class Contracts
 	{
-		public GenericProductTypeContractService GenericProductType { [DebuggerStepThrough] get => ResolveService(ref _genericProductTypeDto); }
+		public GenericProductTypeContractService GenericProductType { [DebuggerStepThrough] get { return ResolveService(ref _genericProductTypeDto); } }
 		private GenericProductTypeContractService _genericProductTypeDto;
 
 		[DebuggerStepThrough]
@@ -2572,7 +2576,7 @@ namespace Luxena.Travel.Domain
 		
 	partial class Contracts
 	{
-		public InsuranceContractService Insurance { [DebuggerStepThrough] get => ResolveService(ref _insuranceDto); }
+		public InsuranceContractService Insurance { [DebuggerStepThrough] get { return ResolveService(ref _insuranceDto); } }
 		private InsuranceContractService _insuranceDto;
 
 		[DebuggerStepThrough]
@@ -2637,7 +2641,7 @@ namespace Luxena.Travel.Domain
 		
 	partial class Contracts
 	{
-		public InsuranceRefundContractService InsuranceRefund { [DebuggerStepThrough] get => ResolveService(ref _insuranceRefundDto); }
+		public InsuranceRefundContractService InsuranceRefund { [DebuggerStepThrough] get { return ResolveService(ref _insuranceRefundDto); } }
 		private InsuranceRefundContractService _insuranceRefundDto;
 
 		[DebuggerStepThrough]
@@ -2694,7 +2698,7 @@ namespace Luxena.Travel.Domain
 		
 	partial class Contracts
 	{
-		public InternalTransferContractService InternalTransfer { [DebuggerStepThrough] get => ResolveService(ref _internalTransferDto); }
+		public InternalTransferContractService InternalTransfer { [DebuggerStepThrough] get { return ResolveService(ref _internalTransferDto); } }
 		private InternalTransferContractService _internalTransferDto;
 
 		[DebuggerStepThrough]
@@ -2765,7 +2769,7 @@ namespace Luxena.Travel.Domain
 		
 	partial class Contracts
 	{
-		public InvoiceContractService Invoice { [DebuggerStepThrough] get => ResolveService(ref _invoiceDto); }
+		public InvoiceContractService Invoice { [DebuggerStepThrough] get { return ResolveService(ref _invoiceDto); } }
 		private InvoiceContractService _invoiceDto;
 
 		[DebuggerStepThrough]
@@ -2862,7 +2866,7 @@ namespace Luxena.Travel.Domain
 		
 	partial class Contracts
 	{
-		public IsicContractService Isic { [DebuggerStepThrough] get => ResolveService(ref _isicDto); }
+		public IsicContractService Isic { [DebuggerStepThrough] get { return ResolveService(ref _isicDto); } }
 		private IsicContractService _isicDto;
 
 		[DebuggerStepThrough]
@@ -2931,7 +2935,7 @@ namespace Luxena.Travel.Domain
 		
 	partial class Contracts
 	{
-		public IssuedConsignmentContractService IssuedConsignment { [DebuggerStepThrough] get => ResolveService(ref _issuedConsignmentDto); }
+		public IssuedConsignmentContractService IssuedConsignment { [DebuggerStepThrough] get { return ResolveService(ref _issuedConsignmentDto); } }
 		private IssuedConsignmentContractService _issuedConsignmentDto;
 
 		[DebuggerStepThrough]
@@ -2994,7 +2998,7 @@ namespace Luxena.Travel.Domain
 		
 	partial class Contracts
 	{
-		public MilesCardContractService MilesCard { [DebuggerStepThrough] get => ResolveService(ref _milesCardDto); }
+		public MilesCardContractService MilesCard { [DebuggerStepThrough] get { return ResolveService(ref _milesCardDto); } }
 		private MilesCardContractService _milesCardDto;
 
 		[DebuggerStepThrough]
@@ -3049,7 +3053,7 @@ namespace Luxena.Travel.Domain
 		
 	partial class Contracts
 	{
-		public ModificationContractService Modification { [DebuggerStepThrough] get => ResolveService(ref _modificationDto); }
+		public ModificationContractService Modification { [DebuggerStepThrough] get { return ResolveService(ref _modificationDto); } }
 		private ModificationContractService _modificationDto;
 
 		[DebuggerStepThrough]
@@ -3128,7 +3132,7 @@ namespace Luxena.Travel.Domain
 		
 	partial class Contracts
 	{
-		public OpeningBalanceContractService OpeningBalance { [DebuggerStepThrough] get => ResolveService(ref _openingBalanceDto); }
+		public OpeningBalanceContractService OpeningBalance { [DebuggerStepThrough] get { return ResolveService(ref _openingBalanceDto); } }
 		private OpeningBalanceContractService _openingBalanceDto;
 
 		[DebuggerStepThrough]
@@ -3189,7 +3193,7 @@ namespace Luxena.Travel.Domain
 		
 	partial class Contracts
 	{
-		public OrderContractService Order { [DebuggerStepThrough] get => ResolveService(ref _orderDto); }
+		public OrderContractService Order { [DebuggerStepThrough] get { return ResolveService(ref _orderDto); } }
 		private OrderContractService _orderDto;
 
 		[DebuggerStepThrough]
@@ -3396,7 +3400,7 @@ namespace Luxena.Travel.Domain
 		
 	partial class Contracts
 	{
-		public OrderItemContractService OrderItem { [DebuggerStepThrough] get => ResolveService(ref _orderItemDto); }
+		public OrderItemContractService OrderItem { [DebuggerStepThrough] get { return ResolveService(ref _orderItemDto); } }
 		private OrderItemContractService _orderItemDto;
 
 		[DebuggerStepThrough]
@@ -3511,7 +3515,7 @@ namespace Luxena.Travel.Domain
 		
 	partial class Contracts
 	{
-		public OrganizationContractService Organization { [DebuggerStepThrough] get => ResolveService(ref _organizationDto); }
+		public OrganizationContractService Organization { [DebuggerStepThrough] get { return ResolveService(ref _organizationDto); } }
 		private OrganizationContractService _organizationDto;
 
 		[DebuggerStepThrough]
@@ -3618,7 +3622,7 @@ namespace Luxena.Travel.Domain
 		
 	partial class Contracts
 	{
-		public PartyInvoiceContractService PartyInvoice { [DebuggerStepThrough] get => ResolveService(ref _partyInvoiceDto); }
+		public PartyInvoiceContractService PartyInvoice { [DebuggerStepThrough] get { return ResolveService(ref _partyInvoiceDto); } }
 		private PartyInvoiceContractService _partyInvoiceDto;
 
 		[DebuggerStepThrough]
@@ -3711,7 +3715,7 @@ namespace Luxena.Travel.Domain
 		
 	partial class Contracts
 	{
-		public PartyOrderContractService PartyOrder { [DebuggerStepThrough] get => ResolveService(ref _partyOrderDto); }
+		public PartyOrderContractService PartyOrder { [DebuggerStepThrough] get { return ResolveService(ref _partyOrderDto); } }
 		private PartyOrderContractService _partyOrderDto;
 
 		[DebuggerStepThrough]
@@ -3860,7 +3864,7 @@ namespace Luxena.Travel.Domain
 		
 	partial class Contracts
 	{
-		public PartyProductContractService PartyProduct { [DebuggerStepThrough] get => ResolveService(ref _partyProductDto); }
+		public PartyProductContractService PartyProduct { [DebuggerStepThrough] get { return ResolveService(ref _partyProductDto); } }
 		private PartyProductContractService _partyProductDto;
 
 		[DebuggerStepThrough]
@@ -3881,11 +3885,15 @@ namespace Luxena.Travel.Domain
 		/*
 		public int Type { get; set; }
 
-		public string Name { get; set; }
-
 		public DateTime IssueDate { get; set; }
 
+		public string Name { get; set; }
+
 		public string PureNumber { get; set; }
+
+		public string PnrCode { get; set; }
+
+		public string TourCode { get; set; }
 
 		public Organization.Reference Producer { get; set; }
 
@@ -3924,10 +3932,6 @@ namespace Luxena.Travel.Domain
 		public Party.Reference Intermediary { get; set; }
 
 		public Country.Reference Country { get; set; }
-
-		public string PnrCode { get; set; }
-
-		public string TourCode { get; set; }
 
 		public Person.Reference Booker { get; set; }
 
@@ -4181,7 +4185,7 @@ namespace Luxena.Travel.Domain
 		
 	partial class Contracts
 	{
-		public PassportContractService Passport { [DebuggerStepThrough] get => ResolveService(ref _passportDto); }
+		public PassportContractService Passport { [DebuggerStepThrough] get { return ResolveService(ref _passportDto); } }
 		private PassportContractService _passportDto;
 
 		[DebuggerStepThrough]
@@ -4284,7 +4288,7 @@ namespace Luxena.Travel.Domain
 		
 	partial class Contracts
 	{
-		public PasteboardContractService Pasteboard { [DebuggerStepThrough] get => ResolveService(ref _pasteboardDto); }
+		public PasteboardContractService Pasteboard { [DebuggerStepThrough] get { return ResolveService(ref _pasteboardDto); } }
 		private PasteboardContractService _pasteboardDto;
 
 		[DebuggerStepThrough]
@@ -4389,7 +4393,7 @@ namespace Luxena.Travel.Domain
 		
 	partial class Contracts
 	{
-		public PasteboardRefundContractService PasteboardRefund { [DebuggerStepThrough] get => ResolveService(ref _pasteboardRefundDto); }
+		public PasteboardRefundContractService PasteboardRefund { [DebuggerStepThrough] get { return ResolveService(ref _pasteboardRefundDto); } }
 		private PasteboardRefundContractService _pasteboardRefundDto;
 
 		[DebuggerStepThrough]
@@ -4446,7 +4450,7 @@ namespace Luxena.Travel.Domain
 		
 	partial class Contracts
 	{
-		public PaymentContractService Payment { [DebuggerStepThrough] get => ResolveService(ref _paymentDto); }
+		public PaymentContractService Payment { [DebuggerStepThrough] get { return ResolveService(ref _paymentDto); } }
 		private PaymentContractService _paymentDto;
 	}
 
@@ -4457,7 +4461,7 @@ namespace Luxena.Travel.Domain
 		
 	partial class Contracts
 	{
-		public PaymentSystemContractService PaymentSystem { [DebuggerStepThrough] get => ResolveService(ref _paymentSystemDto); }
+		public PaymentSystemContractService PaymentSystem { [DebuggerStepThrough] get { return ResolveService(ref _paymentSystemDto); } }
 		private PaymentSystemContractService _paymentSystemDto;
 
 		[DebuggerStepThrough]
@@ -4502,7 +4506,7 @@ namespace Luxena.Travel.Domain
 		
 	partial class Contracts
 	{
-		public PenalizeOperationContractService PenalizeOperation { [DebuggerStepThrough] get => ResolveService(ref _penalizeOperationDto); }
+		public PenalizeOperationContractService PenalizeOperation { [DebuggerStepThrough] get { return ResolveService(ref _penalizeOperationDto); } }
 		private PenalizeOperationContractService _penalizeOperationDto;
 
 		[DebuggerStepThrough]
@@ -4561,7 +4565,7 @@ namespace Luxena.Travel.Domain
 		
 	partial class Contracts
 	{
-		public PersonContractService Person { [DebuggerStepThrough] get => ResolveService(ref _personDto); }
+		public PersonContractService Person { [DebuggerStepThrough] get { return ResolveService(ref _personDto); } }
 		private PersonContractService _personDto;
 
 		[DebuggerStepThrough]
@@ -4582,8 +4586,6 @@ namespace Luxena.Travel.Domain
 		/*
 		public int Type { get; set; }
 
-		public string MilesCardsString { get; set; }
-
 		public DateTime? Birthday { get; set; }
 
 		public Organization.Reference Organization { get; set; }
@@ -4591,6 +4593,8 @@ namespace Luxena.Travel.Domain
 		public string Title { get; set; }
 
 		public IList`1 Passports { get; set; }
+
+		public string MilesCardsString { get; set; }
 
 		public IList`1 MilesCards { get; set; }
 
@@ -4630,7 +4634,7 @@ namespace Luxena.Travel.Domain
 		
 	partial class Contracts
 	{
-		public PersonListDetailContractService PersonListDetail { [DebuggerStepThrough] get => ResolveService(ref _personListDetailDto); }
+		public PersonListDetailContractService PersonListDetail { [DebuggerStepThrough] get { return ResolveService(ref _personListDetailDto); } }
 		private PersonListDetailContractService _personListDetailDto;
 
 		[DebuggerStepThrough]
@@ -4651,8 +4655,6 @@ namespace Luxena.Travel.Domain
 		/*
 		public int Type { get; set; }
 
-		public string MilesCardsString { get; set; }
-
 		public DateTime? Birthday { get; set; }
 
 		public Organization.Reference Organization { get; set; }
@@ -4660,6 +4662,8 @@ namespace Luxena.Travel.Domain
 		public string Title { get; set; }
 
 		public IList`1 Passports { get; set; }
+
+		public string MilesCardsString { get; set; }
 
 		public IList`1 MilesCards { get; set; }
 
@@ -4691,7 +4695,7 @@ namespace Luxena.Travel.Domain
 		
 	partial class Contracts
 	{
-		public ProductContractService Product { [DebuggerStepThrough] get => ResolveService(ref _productDto); }
+		public ProductContractService Product { [DebuggerStepThrough] get { return ResolveService(ref _productDto); } }
 		private ProductContractService _productDto;
 	}
 
@@ -4702,7 +4706,7 @@ namespace Luxena.Travel.Domain
 		
 	partial class Contracts
 	{
-		public ProductPassengerContractService ProductPassenger { [DebuggerStepThrough] get => ResolveService(ref _productPassengerDto); }
+		public ProductPassengerContractService ProductPassenger { [DebuggerStepThrough] get { return ResolveService(ref _productPassengerDto); } }
 		private ProductPassengerContractService _productPassengerDto;
 
 		[DebuggerStepThrough]
@@ -4757,7 +4761,7 @@ namespace Luxena.Travel.Domain
 		
 	partial class Contracts
 	{
-		public ProfileContractService Profile { [DebuggerStepThrough] get => ResolveService(ref _profileDto); }
+		public ProfileContractService Profile { [DebuggerStepThrough] get { return ResolveService(ref _profileDto); } }
 		private ProfileContractService _profileDto;
 
 		[DebuggerStepThrough]
@@ -4840,7 +4844,7 @@ namespace Luxena.Travel.Domain
 		
 	partial class Contracts
 	{
-		public SimCardContractService SimCard { [DebuggerStepThrough] get => ResolveService(ref _simCardDto); }
+		public SimCardContractService SimCard { [DebuggerStepThrough] get { return ResolveService(ref _simCardDto); } }
 		private SimCardContractService _simCardDto;
 
 		[DebuggerStepThrough]
@@ -4905,7 +4909,7 @@ namespace Luxena.Travel.Domain
 		
 	partial class Contracts
 	{
-		public SystemConfigurationContractService SystemConfiguration { [DebuggerStepThrough] get => ResolveService(ref _systemConfigurationDto); }
+		public SystemConfigurationContractService SystemConfiguration { [DebuggerStepThrough] get { return ResolveService(ref _systemConfigurationDto); } }
 		private SystemConfigurationContractService _systemConfigurationDto;
 
 		[DebuggerStepThrough]
@@ -4992,6 +4996,8 @@ namespace Luxena.Travel.Domain
 
 		public int Invoice_NumberMode { get; set; }
 
+		public bool Invoice_CanOwnerSelect { get; set; }
+
 		public bool InvoicePrinter_ShowVat { get; set; }
 
 		public string InvoicePrinter_FooterDetails { get; set; }
@@ -5058,6 +5064,7 @@ namespace Luxena.Travel.Domain
 				c.Consignment_NumberMode = (int)r.Consignment_NumberMode;
 				c.InvoicePrinter_ShowVat = r.InvoicePrinter_ShowVat;
 				c.InvoicePrinter_FooterDetails = r.InvoicePrinter_FooterDetails;
+				c.Invoice_CanOwnerSelect = r.Invoice_CanOwnerSelect;
 				c.DrctWebService_LoadedOn = r.DrctWebService_LoadedOn;
 				c.GalileoWebService_LoadedOn = r.GalileoWebService_LoadedOn;
 				c.GalileoRailWebService_LoadedOn = r.GalileoRailWebService_LoadedOn;
@@ -5106,6 +5113,7 @@ namespace Luxena.Travel.Domain
 				r.Consignment_NumberMode = (InvoiceNumberMode)c.Consignment_NumberMode + db;
 				r.InvoicePrinter_ShowVat = c.InvoicePrinter_ShowVat + db;
 				r.InvoicePrinter_FooterDetails = c.InvoicePrinter_FooterDetails + db;
+				r.Invoice_CanOwnerSelect = c.Invoice_CanOwnerSelect + db;
 				r.DrctWebService_LoadedOn = c.DrctWebService_LoadedOn + db;
 				r.GalileoWebService_LoadedOn = c.GalileoWebService_LoadedOn + db;
 				r.GalileoRailWebService_LoadedOn = c.GalileoRailWebService_LoadedOn + db;
@@ -5126,7 +5134,7 @@ namespace Luxena.Travel.Domain
 		
 	partial class Contracts
 	{
-		public TaskContractService Task { [DebuggerStepThrough] get => ResolveService(ref _taskDto); }
+		public TaskContractService Task { [DebuggerStepThrough] get { return ResolveService(ref _taskDto); } }
 		private TaskContractService _taskDto;
 
 		[DebuggerStepThrough]
@@ -5217,7 +5225,7 @@ namespace Luxena.Travel.Domain
 		
 	partial class Contracts
 	{
-		public TourContractService Tour { [DebuggerStepThrough] get => ResolveService(ref _tourDto); }
+		public TourContractService Tour { [DebuggerStepThrough] get { return ResolveService(ref _tourDto); } }
 		private TourContractService _tourDto;
 
 		[DebuggerStepThrough]
@@ -5318,7 +5326,7 @@ namespace Luxena.Travel.Domain
 		
 	partial class Contracts
 	{
-		public TransferContractService Transfer { [DebuggerStepThrough] get => ResolveService(ref _transferDto); }
+		public TransferContractService Transfer { [DebuggerStepThrough] get { return ResolveService(ref _transferDto); } }
 		private TransferContractService _transferDto;
 
 		[DebuggerStepThrough]
@@ -5375,7 +5383,7 @@ namespace Luxena.Travel.Domain
 		
 	partial class Contracts
 	{
-		public UserContractService User { [DebuggerStepThrough] get => ResolveService(ref _userDto); }
+		public UserContractService User { [DebuggerStepThrough] get { return ResolveService(ref _userDto); } }
 		private UserContractService _userDto;
 
 		[DebuggerStepThrough]
@@ -5480,7 +5488,7 @@ namespace Luxena.Travel.Domain
 		
 	partial class Contracts
 	{
-		public WireTransferContractService WireTransfer { [DebuggerStepThrough] get => ResolveService(ref _wireTransferDto); }
+		public WireTransferContractService WireTransfer { [DebuggerStepThrough] get { return ResolveService(ref _wireTransferDto); } }
 		private WireTransferContractService _wireTransferDto;
 
 		[DebuggerStepThrough]
