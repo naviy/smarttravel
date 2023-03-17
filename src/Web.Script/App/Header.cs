@@ -119,6 +119,9 @@ namespace Luxena.Travel
 				"-",
 				sd.GdsAgent,
 				sd.GdsFile,
+				"-",
+				sd.AmadeusAviaSftpRsaKey,
+
 			});
 
 

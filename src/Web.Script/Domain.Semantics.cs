@@ -19,7 +19,7 @@ namespace Luxena.Travel
 			_isAbstract = true;
 			_getDerivedEntities = delegate (SemanticDomain dsm)
 			{
-				return new SemanticEntity[] { dsm.Passport, dsm.BankAccount, dsm.MilesCard, dsm.Party, dsm.Organization, dsm.Person, dsm.Department, dsm.Order, dsm.CurrencyDailyRate, dsm.CateringType, dsm.AccommodationType, dsm.GenericProductType, dsm.ProductPassenger, dsm.BusTicket, dsm.Excursion, dsm.Isic, dsm.Pasteboard, dsm.Transfer, dsm.GenericProduct, dsm.CarRental, dsm.Tour, dsm.Accommodation, dsm.SimCard, dsm.Insurance, dsm.AviaDocument, dsm.Product, dsm.AviaTicket, dsm.AviaMco, dsm.AviaRefund, dsm.Country, dsm.AirlineServiceClass, dsm.AirlineMonthCommission, dsm.Airport, dsm.PaymentSystem, dsm.Currency, dsm.Identity, dsm.User, dsm.UserVisit, dsm.SystemConfiguration, dsm.AirlineCommissionPercents, dsm.DocumentOwner, dsm.DocumentAccess, dsm.ClosedPeriod, dsm.OpeningBalance, dsm.InternalTransfer, dsm.GdsAgent, dsm.GdsFile, dsm.Invoice, dsm.Task, dsm.Payment, dsm.Contract, dsm.Modification, dsm.FlightSegment, dsm.AirplaneModel };
+				return new SemanticEntity[] { dsm.Passport, dsm.BankAccount, dsm.MilesCard, dsm.Party, dsm.Organization, dsm.Person, dsm.Department, dsm.Order, dsm.CurrencyDailyRate, dsm.CateringType, dsm.AccommodationType, dsm.GenericProductType, dsm.ProductPassenger, dsm.BusTicket, dsm.Excursion, dsm.Isic, dsm.Pasteboard, dsm.Transfer, dsm.GenericProduct, dsm.CarRental, dsm.Tour, dsm.Accommodation, dsm.SimCard, dsm.Insurance, dsm.AviaDocument, dsm.Product, dsm.AviaTicket, dsm.AviaMco, dsm.AviaRefund, dsm.Country, dsm.AirlineServiceClass, dsm.AirlineMonthCommission, dsm.Airport, dsm.PaymentSystem, dsm.Currency, dsm.Identity, dsm.User, dsm.UserVisit, dsm.SystemConfiguration, dsm.AirlineCommissionPercents, dsm.DocumentOwner, dsm.DocumentAccess, dsm.ClosedPeriod, dsm.OpeningBalance, dsm.InternalTransfer, dsm.GdsAgent, dsm.GdsFile, dsm.Invoice, dsm.Task, dsm.Payment, dsm.Contract, dsm.Modification, dsm.FlightSegment, dsm.AirplaneModel, dsm.AmadeusAviaSftpRsaKey };
 			};
 		}
 
@@ -55,7 +55,7 @@ namespace Luxena.Travel
 			_isAbstract = true;
 			_getDerivedEntities = delegate (SemanticDomain dsm)
 			{
-				return new SemanticEntity[] { dsm.Passport, dsm.BankAccount, dsm.MilesCard, dsm.Party, dsm.Organization, dsm.Person, dsm.Department, dsm.Order, dsm.CurrencyDailyRate, dsm.CateringType, dsm.AccommodationType, dsm.GenericProductType, dsm.ProductPassenger, dsm.BusTicket, dsm.Excursion, dsm.Isic, dsm.Pasteboard, dsm.Transfer, dsm.GenericProduct, dsm.CarRental, dsm.Tour, dsm.Accommodation, dsm.SimCard, dsm.Insurance, dsm.AviaDocument, dsm.Product, dsm.AviaTicket, dsm.AviaMco, dsm.AviaRefund, dsm.Country, dsm.AirlineServiceClass, dsm.AirlineMonthCommission, dsm.Airport, dsm.PaymentSystem, dsm.Currency, dsm.Identity, dsm.User, dsm.DocumentAccess, dsm.ClosedPeriod, dsm.OpeningBalance, dsm.InternalTransfer, dsm.GdsAgent, dsm.GdsFile, dsm.Task, dsm.Payment, dsm.Contract, dsm.FlightSegment, dsm.AirplaneModel };
+				return new SemanticEntity[] { dsm.Passport, dsm.BankAccount, dsm.MilesCard, dsm.Party, dsm.Organization, dsm.Person, dsm.Department, dsm.Order, dsm.CurrencyDailyRate, dsm.CateringType, dsm.AccommodationType, dsm.GenericProductType, dsm.ProductPassenger, dsm.BusTicket, dsm.Excursion, dsm.Isic, dsm.Pasteboard, dsm.Transfer, dsm.GenericProduct, dsm.CarRental, dsm.Tour, dsm.Accommodation, dsm.SimCard, dsm.Insurance, dsm.AviaDocument, dsm.Product, dsm.AviaTicket, dsm.AviaMco, dsm.AviaRefund, dsm.Country, dsm.AirlineServiceClass, dsm.AirlineMonthCommission, dsm.Airport, dsm.PaymentSystem, dsm.Currency, dsm.Identity, dsm.User, dsm.DocumentAccess, dsm.ClosedPeriod, dsm.OpeningBalance, dsm.InternalTransfer, dsm.GdsAgent, dsm.GdsFile, dsm.Task, dsm.Payment, dsm.Contract, dsm.FlightSegment, dsm.AirplaneModel, dsm.AmadeusAviaSftpRsaKey };
 			};
 		}
 
@@ -7944,6 +7944,78 @@ namespace Luxena.Travel
 	#endregion
 
 
+	#region AmadeusAviaSftpRsaKey
+
+	/// <summary>RSA-ключ для авиабилетов из Amadeus</summary>
+	public partial class AmadeusAviaSftpRsaKeySemantic : Entity2Semantic
+	{
+
+		public AmadeusAviaSftpRsaKeySemantic()
+		{
+			_name = "AmadeusAviaSftpRsaKey";
+			_className = "AmadeusAviaSftpRsaKey";
+			_isAbstract = false;
+			_getDerivedEntities = null;
+			_nameFieldName = null;
+			_title ="RSA-ключ для авиабилетов из Amadeus";
+			_titles = "RSA-ключи для авиабилетов из Amadeus";
+		}
+
+		/// <summary>Текст OPPK</summary>
+		[PreserveCase]
+		public SemanticMember OPPK = Member
+			.Title("Текст OPPK")
+			.Text(20)
+			.Required();
+
+	}
+
+	/*
+				se.OPPK,
+	*/
+
+	public partial class AmadeusAviaSftpRsaKeyListTab : EntityListTab
+	{
+
+		static AmadeusAviaSftpRsaKeyListTab()
+		{
+			RegisterList("AmadeusAviaSftpRsaKey", typeof(AmadeusAviaSftpRsaKeyListTab));
+		}
+
+		public AmadeusAviaSftpRsaKeyListTab(string tabId, ListArgs args): base(tabId, args) { }
+
+		protected override void PreInitialize()
+		{
+			base.PreInitialize();
+			Entity = se = dsm.AmadeusAviaSftpRsaKey;
+		}
+
+		private AmadeusAviaSftpRsaKeySemantic se;
+
+	}
+
+
+	public partial class AmadeusAviaSftpRsaKeyEditForm : EntityEditForm
+	{
+
+		static AmadeusAviaSftpRsaKeyEditForm()
+		{
+			RegisterEdit("AmadeusAviaSftpRsaKey", typeof(AmadeusAviaSftpRsaKeyEditForm));
+		}
+
+		protected override void PreInitialize()
+		{
+			base.PreInitialize();
+			Entity = se = dsm.AmadeusAviaSftpRsaKey;
+		}
+
+		private AmadeusAviaSftpRsaKeySemantic se;
+
+	}
+
+	#endregion
+
+
 	partial class SemanticDomain
 	{
 		[PreserveCase] public PassportSemantic Passport = new PassportSemantic();
@@ -8012,6 +8084,7 @@ namespace Luxena.Travel
 		[PreserveCase] public ModificationSemantic Modification = new ModificationSemantic();
 		[PreserveCase] public FlightSegmentSemantic FlightSegment = new FlightSegmentSemantic();
 		[PreserveCase] public AirplaneModelSemantic AirplaneModel = new AirplaneModelSemantic();
+		[PreserveCase] public AmadeusAviaSftpRsaKeySemantic AmadeusAviaSftpRsaKey = new AmadeusAviaSftpRsaKeySemantic();
 	}
 
 }

@@ -43,6 +43,7 @@ using LxnBase.UI;
 		typeof(Contract),
 		typeof(Modification),
 		typeof(FlightSegment), typeof(AirplaneModel),
+		typeof(AmadeusAviaSftpRsaKey),
 	};
 
 	var lng = new DefaultLocalizationTypesSource(typeof(RUAttribute), typeof(UAAttribute), typeof(ENAttribute));

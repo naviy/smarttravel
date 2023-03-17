@@ -18,16 +18,33 @@ namespace Luxena.Travel.Services
 {
 
 
+
 	public class AmadeusRailSftpFileTask : AmadeusSftpFileTaskBase<AmadeusXmlFile>
 	{
 
-		protected override string GetPrivateKeyFilePath()
+
+		protected static PrivateKeyFile PrivateKeyFile;
+
+
+		public string UserName { get; set; }
+
+		public string Password { get; set; }
+
+
+
+		private PrivateKeyFile NewPrivateKeyFile()
 		{
-			return ConfigurationManager.AppSettings["amadeus-rail-sftp"].ResolvePath();
+			var path = ConfigurationManager.AppSettings["amadeus-rail-sftp"].ResolvePath();
+			_log.Info($"Private Key File Path: {path}");
+
+			return new PrivateKeyFile(path, Password);
 		}
-		
+
+
 		protected override SftpClient NewSftpClient()
 		{
+			PrivateKeyFile = PrivateKeyFile ?? NewPrivateKeyFile();
+
 			return new SftpClient("contentinn.com", 27144, UserName, PrivateKeyFile);
 		}
 
@@ -36,7 +53,9 @@ namespace Luxena.Travel.Services
 			return sftp.ListDirectory("/XML");
 		}
 
+
 	}
+
 
 
 }

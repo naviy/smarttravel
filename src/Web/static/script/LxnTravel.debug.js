@@ -3748,6 +3748,7 @@ Luxena.Travel.SemanticDomain = function Luxena_Travel_SemanticDomain(owner) {
     this.Modification = new Luxena.Travel.ModificationSemantic();
     this.FlightSegment = new Luxena.Travel.FlightSegmentSemantic();
     this.AirplaneModel = new Luxena.Travel.AirplaneModelSemantic();
+    this.AmadeusAviaSftpRsaKey = new Luxena.Travel.AmadeusAviaSftpRsaKeySemantic();
     var domain = this;
     var views = [];
     var $enum1 = ss.IEnumerator.getEnumerator(Object.keys(domain));
@@ -4134,12 +4135,11 @@ Luxena.Travel.InvoiceIssueForm.prototype = {
             }
             this._number$1 = new Ext.form.ComboBox(new Ext.form.ComboBoxConfig().fieldLabel(Luxena.Travel.DomainRes.common_Number).store(new Ext.data.ArrayStore(new Ext.data.ArrayStoreConfig().data(data).fields([ 'number' ]).toDictionary())).mode('local').displayField('number').valueField('number').tpl(new Ext.XTemplate("<tpl for=\".\"><div class='x-combo-list-item invoice-reissue-action'>" + Luxena.Travel.Res.invoice_Reissue + '{number}</div></tpl>')).emptyText(Luxena.Travel.Res.auto).emptyClass('auto-text').width(170).toDictionary());
         }
-        this._owner$1 = Luxena.Travel.Controls.ControlFactoryExt.createOwnerControl(200);
+        this._owner$1 = Luxena.Travel.Controls.ControlFactoryExt.createOwnerControl(200, false);
+        this._owner$1.setValue((ss.isValue(this._orderOwner$1)) ? this._orderOwner$1 : null);
         if (!Luxena.Travel.AppManager.get_systemConfiguration().Invoice_CanOwnerSelect) {
-            this._owner$1.setValue(null);
-        }
-        else if (ss.isValue(this._orderOwner$1)) {
-            this._owner$1.setValue(this._orderOwner$1);
+            this._owner$1.allowBlank = true;
+            this._owner$1.setReadOnly(true);
         }
         this._bankAccount$1 = Luxena.Travel.Controls.ControlFactoryExt.createBankAccountControl(200);
         this._bankAccount$1.setValue(this._orderBankAccount$1);
@@ -4301,7 +4301,7 @@ Luxena.Travel.OrderEditForm.prototype = {
         this._billTo$2 = Luxena.Travel.Controls.ControlFactoryExt.createCustomerControlWithText(Luxena.Travel.DomainRes.common_BillTo, 200, true);
         this._shipTo$2 = Luxena.Travel.Controls.ControlFactoryExt.createCustomerControl(Luxena.Travel.DomainRes.common_ShipTo, 200, true);
         this._intermediary$2 = Luxena.Travel.Controls.ControlFactoryExt.createCustomerControl(Luxena.Travel.DomainRes.common_Intermediary, 200, true);
-        this._owner$2 = Luxena.Travel.Controls.ControlFactoryExt.createOwnerControl(200);
+        this._owner$2 = Luxena.Travel.Controls.ControlFactoryExt.createOwnerControl(200, false);
         this._assignedTo$2 = Luxena.Travel.Controls.ControlFactoryExt.createAssignedToControl(Luxena.Travel.DomainRes.common_AssignedTo, 200, false);
         this._assignedTo$2.setValue(Luxena.Travel.AppManager.get_currentPerson());
         this._bankAccount$2 = Luxena.Travel.Controls.ControlFactoryExt.createBankAccountControl(200);
@@ -6044,7 +6044,7 @@ Luxena.Travel.QuickReceiptEditForm.prototype = {
         this._notaxedAmount$1 = new Luxena.Travel.Controls.MoneyControl(Luxena.Travel.Controls.MoneyControlConfig.defaultConfig(Luxena.Travel.Res.quickReceipt_AviaTickets).setAllowBlank(false));
         this._taxedAmount$1 = new Luxena.Travel.Controls.MoneyControl(Luxena.Travel.Controls.MoneyControlConfig.defaultConfig(Luxena.Travel.Res.quickReceipt_ServiceFee));
         this._note$1 = new Ext.form.TextArea(new Ext.form.TextAreaConfig().fieldLabel(Luxena.Travel.DomainRes.common_Note).height(80).width(300).toDictionary());
-        this._owner$1 = Luxena.Travel.Controls.ControlFactoryExt.createOwnerControl(200);
+        this._owner$1 = Luxena.Travel.Controls.ControlFactoryExt.createOwnerControl(200, false);
         var list = [];
         list.add(this._customerSelector$1.get_widget());
         list.add(this._notaxedAmount$1);
@@ -6117,7 +6117,7 @@ Luxena.Travel.EntitySemantic = function Luxena_Travel_EntitySemantic() {
     this._className = 'Entity';
     this._isAbstract = true;
     this._getDerivedEntities = function(dsm) {
-        return [ dsm.Passport, dsm.BankAccount, dsm.MilesCard, dsm.Party, dsm.Organization, dsm.Person, dsm.Department, dsm.Order, dsm.CurrencyDailyRate, dsm.CateringType, dsm.AccommodationType, dsm.GenericProductType, dsm.ProductPassenger, dsm.BusTicket, dsm.Excursion, dsm.Isic, dsm.Pasteboard, dsm.Transfer, dsm.GenericProduct, dsm.CarRental, dsm.Tour, dsm.Accommodation, dsm.SimCard, dsm.Insurance, dsm.AviaDocument, dsm.Product, dsm.AviaTicket, dsm.AviaMco, dsm.AviaRefund, dsm.Country, dsm.AirlineServiceClass, dsm.AirlineMonthCommission, dsm.Airport, dsm.PaymentSystem, dsm.Currency, dsm.Identity, dsm.User, dsm.UserVisit, dsm.SystemConfiguration, dsm.AirlineCommissionPercents, dsm.DocumentOwner, dsm.DocumentAccess, dsm.ClosedPeriod, dsm.OpeningBalance, dsm.InternalTransfer, dsm.GdsAgent, dsm.GdsFile, dsm.Invoice, dsm.Task, dsm.Payment, dsm.Contract, dsm.Modification, dsm.FlightSegment, dsm.AirplaneModel ];
+        return [ dsm.Passport, dsm.BankAccount, dsm.MilesCard, dsm.Party, dsm.Organization, dsm.Person, dsm.Department, dsm.Order, dsm.CurrencyDailyRate, dsm.CateringType, dsm.AccommodationType, dsm.GenericProductType, dsm.ProductPassenger, dsm.BusTicket, dsm.Excursion, dsm.Isic, dsm.Pasteboard, dsm.Transfer, dsm.GenericProduct, dsm.CarRental, dsm.Tour, dsm.Accommodation, dsm.SimCard, dsm.Insurance, dsm.AviaDocument, dsm.Product, dsm.AviaTicket, dsm.AviaMco, dsm.AviaRefund, dsm.Country, dsm.AirlineServiceClass, dsm.AirlineMonthCommission, dsm.Airport, dsm.PaymentSystem, dsm.Currency, dsm.Identity, dsm.User, dsm.UserVisit, dsm.SystemConfiguration, dsm.AirlineCommissionPercents, dsm.DocumentOwner, dsm.DocumentAccess, dsm.ClosedPeriod, dsm.OpeningBalance, dsm.InternalTransfer, dsm.GdsAgent, dsm.GdsFile, dsm.Invoice, dsm.Task, dsm.Payment, dsm.Contract, dsm.Modification, dsm.FlightSegment, dsm.AirplaneModel, dsm.AmadeusAviaSftpRsaKey ];
     };
 }
 
@@ -6135,7 +6135,7 @@ Luxena.Travel.Entity2Semantic = function Luxena_Travel_Entity2Semantic() {
     this._className = 'Entity2';
     this._isAbstract = true;
     this._getDerivedEntities = function(dsm) {
-        return [ dsm.Passport, dsm.BankAccount, dsm.MilesCard, dsm.Party, dsm.Organization, dsm.Person, dsm.Department, dsm.Order, dsm.CurrencyDailyRate, dsm.CateringType, dsm.AccommodationType, dsm.GenericProductType, dsm.ProductPassenger, dsm.BusTicket, dsm.Excursion, dsm.Isic, dsm.Pasteboard, dsm.Transfer, dsm.GenericProduct, dsm.CarRental, dsm.Tour, dsm.Accommodation, dsm.SimCard, dsm.Insurance, dsm.AviaDocument, dsm.Product, dsm.AviaTicket, dsm.AviaMco, dsm.AviaRefund, dsm.Country, dsm.AirlineServiceClass, dsm.AirlineMonthCommission, dsm.Airport, dsm.PaymentSystem, dsm.Currency, dsm.Identity, dsm.User, dsm.DocumentAccess, dsm.ClosedPeriod, dsm.OpeningBalance, dsm.InternalTransfer, dsm.GdsAgent, dsm.GdsFile, dsm.Task, dsm.Payment, dsm.Contract, dsm.FlightSegment, dsm.AirplaneModel ];
+        return [ dsm.Passport, dsm.BankAccount, dsm.MilesCard, dsm.Party, dsm.Organization, dsm.Person, dsm.Department, dsm.Order, dsm.CurrencyDailyRate, dsm.CateringType, dsm.AccommodationType, dsm.GenericProductType, dsm.ProductPassenger, dsm.BusTicket, dsm.Excursion, dsm.Isic, dsm.Pasteboard, dsm.Transfer, dsm.GenericProduct, dsm.CarRental, dsm.Tour, dsm.Accommodation, dsm.SimCard, dsm.Insurance, dsm.AviaDocument, dsm.Product, dsm.AviaTicket, dsm.AviaMco, dsm.AviaRefund, dsm.Country, dsm.AirlineServiceClass, dsm.AirlineMonthCommission, dsm.Airport, dsm.PaymentSystem, dsm.Currency, dsm.Identity, dsm.User, dsm.DocumentAccess, dsm.ClosedPeriod, dsm.OpeningBalance, dsm.InternalTransfer, dsm.GdsAgent, dsm.GdsFile, dsm.Task, dsm.Payment, dsm.Contract, dsm.FlightSegment, dsm.AirplaneModel, dsm.AmadeusAviaSftpRsaKey ];
     };
 }
 
@@ -9871,6 +9871,67 @@ Luxena.Travel.AirplaneModelEditForm.prototype = {
 
 
 ////////////////////////////////////////////////////////////////////////////////
+// Luxena.Travel.AmadeusAviaSftpRsaKeySemantic
+
+Luxena.Travel.AmadeusAviaSftpRsaKeySemantic = function Luxena_Travel_AmadeusAviaSftpRsaKeySemantic() {
+    this.OPPK = Luxena.Travel.SemanticEntity.get_member().title('\u0422\u0435\u043a\u0441\u0442 OPPK').text(20).required();
+    Luxena.Travel.AmadeusAviaSftpRsaKeySemantic.initializeBase(this);
+    this._name = 'AmadeusAviaSftpRsaKey';
+    this._className = 'AmadeusAviaSftpRsaKey';
+    this._isAbstract = false;
+    this._getDerivedEntities = null;
+    this._nameFieldName = null;
+    this._title = 'RSA-\u043a\u043b\u044e\u0447 \u0434\u043b\u044f \u0430\u0432\u0438\u0430\u0431\u0438\u043b\u0435\u0442\u043e\u0432 \u0438\u0437 Amadeus';
+    this._titles = 'RSA-\u043a\u043b\u044e\u0447\u0438 \u0434\u043b\u044f \u0430\u0432\u0438\u0430\u0431\u0438\u043b\u0435\u0442\u043e\u0432 \u0438\u0437 Amadeus';
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+// Luxena.Travel.AmadeusAviaSftpRsaKeyListTab
+
+Luxena.Travel.AmadeusAviaSftpRsaKeyListTab = function Luxena_Travel_AmadeusAviaSftpRsaKeyListTab(tabId, args) {
+    Luxena.Travel.AmadeusAviaSftpRsaKeyListTab.initializeBase(this, [ tabId, args ]);
+}
+Luxena.Travel.AmadeusAviaSftpRsaKeyListTab.prototype = {
+    
+    preInitialize: function Luxena_Travel_AmadeusAviaSftpRsaKeyListTab$preInitialize() {
+        Luxena.Travel.AmadeusAviaSftpRsaKeyListTab.callBaseMethod(this, 'preInitialize');
+        this.entity = this._se$10 = this.dsm.AmadeusAviaSftpRsaKey;
+    },
+    
+    _se$10: null,
+    
+    createColumnConfigs: function Luxena_Travel_AmadeusAviaSftpRsaKeyListTab$createColumnConfigs() {
+        this.addColumns([ this._se$10.CreatedOn.toColumn(false), this._se$10.OPPK, this._se$10.CreatedBy, this._se$10.ModifiedOn, this._se$10.ModifiedBy ]);
+    }
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+// Luxena.Travel.AmadeusAviaSftpRsaKeyEditForm
+
+Luxena.Travel.AmadeusAviaSftpRsaKeyEditForm = function Luxena_Travel_AmadeusAviaSftpRsaKeyEditForm() {
+    Luxena.Travel.AmadeusAviaSftpRsaKeyEditForm.initializeBase(this);
+}
+Luxena.Travel.AmadeusAviaSftpRsaKeyEditForm.prototype = {
+    
+    preInitialize: function Luxena_Travel_AmadeusAviaSftpRsaKeyEditForm$preInitialize() {
+        Luxena.Travel.AmadeusAviaSftpRsaKeyEditForm.callBaseMethod(this, 'preInitialize');
+        this.entity = this._se$3 = this.dsm.AmadeusAviaSftpRsaKey;
+    },
+    
+    _se$3: null,
+    
+    createControls: function Luxena_Travel_AmadeusAviaSftpRsaKeyEditForm$createControls() {
+        this.get_window().width = -3;
+        this.get_form().labelWidth = 180;
+        this.set_fieldMaxWidth(360);
+        this.get_form().add(this.mainDataPanel([ this._se$3.OPPK.toField(-1) ]));
+    }
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
 // Luxena.Travel.PartyReplaceForm
 
 Luxena.Travel.PartyReplaceForm = function Luxena_Travel_PartyReplaceForm() {
@@ -11913,7 +11974,7 @@ Luxena.Travel.AviaConsoleParserForm.prototype = {
         this._contentField$1 = new Ext.form.TextArea(new Ext.form.TextAreaConfig().width(756).height(360).hideLabel(true).allowBlank(false).style('font-family: Consolas, Courier New, courier').toDictionary());
         this._seller$1 = Luxena.Travel.Controls.ControlFactoryExt.createAssignedToControl(Luxena.Travel.DomainRes.common_Seller, 200, false);
         this._seller$1.setValue(Luxena.Travel.AppManager.get_currentPerson());
-        this._owner$1 = Luxena.Travel.Controls.ControlFactoryExt.createOwnerControl(200);
+        this._owner$1 = Luxena.Travel.Controls.ControlFactoryExt.createOwnerControl(200, false);
         if (ss.isValue(this._lastOwner$1)) {
             this._owner$1.setValue(this._lastOwner$1);
         }
@@ -12420,7 +12481,7 @@ Luxena.Travel.PaymentEditForm.prototype = {
         if (this.get_args().type !== 'WireTransfer') {
             this._receivedFromField$2 = LxnBase.UI.AutoControls.ControlFactory.createEditor(this.getFieldConfig('ReceivedFrom'));
         }
-        this._ownerField$2 = Luxena.Travel.Controls.ControlFactoryExt.createOwnerControl(230);
+        this._ownerField$2 = Luxena.Travel.Controls.ControlFactoryExt.createOwnerControl(230, false);
         this._bankAccountField$2 = Luxena.Travel.Controls.ControlFactoryExt.createBankAccountControl(230);
         this._assignedTo$2 = new LxnBase.UI.Controls.ObjectSelector(new LxnBase.UI.Controls.ObjectSelectorConfig().setClass('Person').allowCreate(false).setDataProxy(LxnBase.Services.GenericService.suggestProxy('Person')).fieldLabel(Luxena.Travel.DomainRes.common_AssignedTo).width(230));
         this._noteField$2 = LxnBase.UI.AutoControls.ControlFactory.createEditor(this.getFieldConfig('Note'));
@@ -17199,7 +17260,7 @@ Luxena.Travel.Header = function Luxena_Travel_Header(config) {
     this._addMainMenuItem(config, '\u0423\u0441\u043b\u0443\u0433\u0438', [ this._newAction(Luxena.Travel.AppActions.productList, 'Product'), '-', sd.AviaDocument, sd.FlightSegment, sd.BusTicket, sd.CarRental, sd.Pasteboard, sd.Accommodation, sd.Insurance, sd.Isic, sd.SimCard, sd.Transfer, sd.Tour, sd.Excursion, sd.GenericProduct, '-', Luxena.Travel.AppActions.aviaConsoleParser ]);
     this._addMainMenuItem(config, Luxena.Travel.Res.menu_Reports, [ this._newAction(Luxena.Travel.Header._getCustomerReportAction(), 'CustomerReport'), this._newAction(Luxena.Travel.Header._getRegistryReportAction(), 'RegistryReport'), '-', this._newAction(Luxena.Travel.Header._getUnbalancedReportAction(), 'UnbalancedReport') ]);
     this._addMainMenuItem(config, Luxena.Travel.Res.menu_Dictionaries, [ sd.Person, sd.Organization, sd.Department, '-', sd.MilesCard, sd.Passport, '-', sd.AirlineServiceClass, sd.AirlineMonthCommission, sd.Airport, sd.AirplaneModel, '-', sd.Country, sd.Currency, sd.CurrencyDailyRate, sd.PaymentSystem, '-', sd.GenericProductType, sd.AccommodationType, sd.CateringType ]);
-    this._addMainMenuItem(config, Luxena.Travel.Res.menu_Administration, [ sd.User, sd.UserVisit, sd.Modification, sd.SystemConfiguration.toViewAction(Luxena.Travel.AppManager.get_systemConfiguration().Id), this._newAction(Luxena.Travel.AppActions.updateAnalytics, 'UpdateAnalytics'), '-', sd.BankAccount, sd.AirlineCommissionPercents, sd.DocumentOwner, sd.DocumentAccess, '-', sd.GdsAgent, sd.GdsFile ]);
+    this._addMainMenuItem(config, Luxena.Travel.Res.menu_Administration, [ sd.User, sd.UserVisit, sd.Modification, sd.SystemConfiguration.toViewAction(Luxena.Travel.AppManager.get_systemConfiguration().Id), this._newAction(Luxena.Travel.AppActions.updateAnalytics, 'UpdateAnalytics'), '-', sd.BankAccount, sd.AirlineCommissionPercents, sd.DocumentOwner, sd.DocumentAccess, '-', sd.GdsAgent, sd.GdsFile, '-', sd.AmadeusAviaSftpRsaKey ]);
     (config['tbar']).addRange([ '->', new Ext.BoxComponent(new Ext.BoxComponentConfig().autoEl({ tag: 'div' }).cls('icon-filter').toDictionary()), this._createGlobalSearch(), '-', Luxena.Travel.Header._profileViewAction(), '-', Luxena.Travel.AppActions.signOutAction ]);
     this._panel = new Ext.Panel(config);
 }
@@ -19862,8 +19923,8 @@ Luxena.Travel.Controls.ControlFactoryExt.createCustomerControlWithText = functio
 Luxena.Travel.Controls.ControlFactoryExt.createAssignedToControl = function Luxena_Travel_Controls_ControlFactoryExt$createAssignedToControl(fieldName, width, allowBlank) {
     return new LxnBase.UI.Controls.ObjectSelector(new LxnBase.UI.Controls.ObjectSelectorConfig().setClass('Person').setDataProxy(Luxena.Travel.Services.PartyService.suggestUsersProxy()).allowEdit(false).allowCreate(false).fieldLabel(fieldName).width(width).allowBlank(allowBlank));
 }
-Luxena.Travel.Controls.ControlFactoryExt.createOwnerControl = function Luxena_Travel_Controls_ControlFactoryExt$createOwnerControl(width) {
-    var control = new LxnBase.UI.Controls.ComboBox(new Ext.form.ComboBoxConfig().name('Office').store(new Ext.data.JsonStore(new Ext.data.JsonStoreConfig().fields([ 'Id', 'Name' ]).data(Luxena.Travel.AppManager.get_departments()).toDictionary())).mode('local').editable(false).displayField('Name').valueField('Id').triggerAction('all').selectOnFocus(true).fieldLabel(Luxena.Travel.DomainRes.common_Owner).allowBlank(false).toDictionary());
+Luxena.Travel.Controls.ControlFactoryExt.createOwnerControl = function Luxena_Travel_Controls_ControlFactoryExt$createOwnerControl(width, allowBlank) {
+    var control = new LxnBase.UI.Controls.ComboBox(new Ext.form.ComboBoxConfig().name('Office').store(new Ext.data.JsonStore(new Ext.data.JsonStoreConfig().fields([ 'Id', 'Name' ]).data(Luxena.Travel.AppManager.get_departments()).toDictionary())).mode('local').editable(false).displayField('Name').valueField('Id').triggerAction('all').selectOnFocus(true).fieldLabel(Luxena.Travel.DomainRes.common_Owner).width(width).allowBlank(allowBlank).toDictionary());
     if (!Luxena.Travel.AppManager.get_allowSetDocumentOwner()) {
         control.setValue(Luxena.Travel.AppManager.get_departments()[0]);
         control.disable();
@@ -21375,6 +21436,9 @@ Luxena.Travel.FlightSegmentEditForm.registerClass('Luxena.Travel.FlightSegmentEd
 Luxena.Travel.AirplaneModelSemantic.registerClass('Luxena.Travel.AirplaneModelSemantic', Luxena.Travel.Entity3Semantic);
 Luxena.Travel.AirplaneModelListTab.registerClass('Luxena.Travel.AirplaneModelListTab', Luxena.Travel.Entity3ListTab);
 Luxena.Travel.AirplaneModelEditForm.registerClass('Luxena.Travel.AirplaneModelEditForm', Luxena.Travel.Entity3EditForm);
+Luxena.Travel.AmadeusAviaSftpRsaKeySemantic.registerClass('Luxena.Travel.AmadeusAviaSftpRsaKeySemantic', Luxena.Travel.Entity2Semantic);
+Luxena.Travel.AmadeusAviaSftpRsaKeyListTab.registerClass('Luxena.Travel.AmadeusAviaSftpRsaKeyListTab', Luxena.Travel.EntityListTab);
+Luxena.Travel.AmadeusAviaSftpRsaKeyEditForm.registerClass('Luxena.Travel.AmadeusAviaSftpRsaKeyEditForm', Luxena.Travel.EntityEditForm);
 Luxena.Travel.PartyReplaceForm.registerClass('Luxena.Travel.PartyReplaceForm', Luxena.Travel.EntityEditForm);
 Luxena.Travel.PartyReplaceParams.registerClass('Luxena.Travel.PartyReplaceParams', Luxena.Travel.EntitySemantic);
 Luxena.Travel.ProductViewForm.registerClass('Luxena.Travel.ProductViewForm', LxnBase.UI.BasicViewForm);
@@ -21875,6 +21939,12 @@ Luxena.Travel.TaskListTab.changeStatusActionName = 'ChangeTaskStatus';
 })();
 (function () {
     Luxena.Travel.BaseEditForm2.registerEdit('AirplaneModel', Luxena.Travel.AirplaneModelEditForm);
+})();
+(function () {
+    Luxena.Travel.Controls.AutoListTabExt2.registerList('AmadeusAviaSftpRsaKey', Luxena.Travel.AmadeusAviaSftpRsaKeyListTab);
+})();
+(function () {
+    Luxena.Travel.BaseEditForm2.registerEdit('AmadeusAviaSftpRsaKey', Luxena.Travel.AmadeusAviaSftpRsaKeyEditForm);
 })();
 (function () {
     Luxena.Travel.BaseEditForm2.registerEdit('PartyReplace', Luxena.Travel.PartyReplaceForm);

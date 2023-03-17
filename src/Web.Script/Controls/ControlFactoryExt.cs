@@ -144,7 +144,7 @@ namespace Luxena.Travel.Controls
 
 
 
-		public static ComboBox CreateOwnerControl(int width)
+		public static ComboBox CreateOwnerControl(int width, bool allowBlank)
 		{
 
 			ComboBox control = new ComboBox(new ComboBoxConfig()
@@ -160,7 +160,8 @@ namespace Luxena.Travel.Controls
 				.triggerAction("all")
 				.selectOnFocus(true)
 				.fieldLabel(DomainRes.Common_Owner)
-				.allowBlank(false)
+				.width(width)
+				.allowBlank(allowBlank)
 				.ToDictionary())
 			;
 

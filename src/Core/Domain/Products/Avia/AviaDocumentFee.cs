@@ -6,11 +6,14 @@ namespace Luxena.Travel.Domain
 
 	public partial class AviaDocumentFee : Entity2
 	{
+
 		public const string VatCode = "HF";
 
 		public const string ServiceCode = "XP";
 
 		public const string OtherCode = "XT";
+		
+		public const string UnknownCode = "ZZZ";
 
 
 		public virtual AviaDocument Document { get; set; }

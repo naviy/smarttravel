@@ -170,7 +170,7 @@ namespace Luxena.Travel
 			if (Args.Type != ClassNames.WireTransfer)
 				_receivedFromField = ControlFactory.CreateEditor(GetFieldConfig("ReceivedFrom"));
 
-			_ownerField = ControlFactoryExt.CreateOwnerControl(230);
+			_ownerField = ControlFactoryExt.CreateOwnerControl(230, false);
 			_bankAccountField = ControlFactoryExt.CreateBankAccountControl(230);
 
 			_assignedTo = new ObjectSelector((ObjectSelectorConfig)new ObjectSelectorConfig()

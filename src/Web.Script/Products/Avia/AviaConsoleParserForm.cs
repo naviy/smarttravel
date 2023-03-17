@@ -94,7 +94,7 @@ namespace Luxena.Travel
 			_seller.SetValue(AppManager.CurrentPerson);
 
 
-			_owner = ControlFactoryExt.CreateOwnerControl(200);
+			_owner = ControlFactoryExt.CreateOwnerControl(200, false);
 
 			if (Script.IsValue(_lastOwner))
 				_owner.setValue(_lastOwner);

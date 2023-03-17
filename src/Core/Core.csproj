@@ -243,6 +243,13 @@
     <Compile Include="Domain\Products\Avia\AirlineMonthCommissionDto.cs">
       <DependentUpon>AirlineMonthCommission.cs</DependentUpon>
     </Compile>
+    <Compile Include="Domain\Products\Avia\AmadeusAviaSftpRsaKey.cs" />
+    <Compile Include="Domain\Products\Avia\AmadeusAviaSftpRsaKey.Dto.cs">
+      <DependentUpon>AmadeusAviaSftpRsaKey.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Products\Avia\AmadeusAviaSftpRsaKey.Map.cs">
+      <DependentUpon>AmadeusAviaSftpRsaKey.cs</DependentUpon>
+    </Compile>
     <Compile Include="Domain\Products\Avia\DrctXmlFile.cs" />
     <Compile Include="Domain\Products\Avia\DrctXmlFile.Map.cs" />
     <Compile Include="Domain\Products\Avia\CrazyllamaPnrFile.Map.cs" />
@@ -789,6 +796,7 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Services\AmadeusRailSftpFileTask.cs" />
+    <Compile Include="Services\AmadeusAviaSftpFileTask.cs" />
     <Compile Include="Services\AmadeusSftpFileTaskBase.cs" />
     <Compile Include="Services\GalileoBusWebServiceTask.cs" />
     <Compile Include="Services\GalileoRailWebServiceTask.cs" />

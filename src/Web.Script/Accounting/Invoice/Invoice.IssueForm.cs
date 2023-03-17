@@ -126,15 +126,15 @@ namespace Luxena.Travel
 			}
 
 
-			_owner = ControlFactoryExt.CreateOwnerControl(200);
+			_owner = ControlFactoryExt.CreateOwnerControl(200, false);
+
+			_owner.setValue(Script.IsValue(_orderOwner) ? _orderOwner : null);
+
 
 			if (!AppManager.SystemConfiguration.Invoice_CanOwnerSelect)
 			{
-				_owner.setValue(null);
-			}
-			else if (Script.IsValue(_orderOwner))
-			{
-				_owner.setValue(_orderOwner);
+				_owner.allowBlank = true;
+				_owner.setReadOnly(true);
 			}
 
 

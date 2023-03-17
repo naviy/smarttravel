@@ -23,17 +23,22 @@ namespace Luxena.Travel.Services
 		where TGdsFile : GdsFile, new()
 	{
 
+		//---g
+
+
+
 		protected AmadeusSftpFileTaskBase()
 		{
 			_log = LogManager.GetLogger(GetType());
 		}
 
 
+
+		//---g
+
+
+
 		// bool ITask.IsStarted { get; set; }
-
-		public string UserName { get; set; }
-
-		public string Password { get; set; }
 
 		public string ArchiveFolder { get; set; }
 
@@ -41,11 +46,13 @@ namespace Luxena.Travel.Services
 
 		public Domain.Domain db { get; set; }
 
-		// ReSharper disable StaticMemberInGenericType
-		protected static PrivateKeyFile PrivateKeyFile;
-		// ReSharper restore StaticMemberInGenericType
 
 		protected readonly ILog _log;
+
+
+
+		//---g
+
 
 
 		public void Execute()
@@ -63,18 +70,6 @@ namespace Luxena.Travel.Services
 		}
 
 
-		protected abstract string GetPrivateKeyFilePath();
-
-		protected virtual PrivateKeyFile NewPrivateKeyFile()
-		{
-			var path = GetPrivateKeyFilePath();
-			_log.Info($"Private Key File Path: {path}");
-
-			var keyFile = new PrivateKeyFile(path, Password);
-			//_log.Info($"Private Key File: {keyFile}");
-
-			return keyFile;
-		}
 
 		protected abstract SftpClient NewSftpClient();
 
@@ -88,10 +83,11 @@ namespace Luxena.Travel.Services
 			//_log.Info("ImportFiles...");
 			//_log.Info($"PrivateKeyFile: {PrivateKeyFile}");
 			
-			PrivateKeyFile = PrivateKeyFile ?? NewPrivateKeyFile();
 
 			if (ArchiveFolder?.Contains("~") ?? false)
+			{
 				ArchiveFolder = ArchiveFolder.ResolvePath();
+			}
 
 
 			using (var sftp = NewSftpClient())
@@ -99,7 +95,9 @@ namespace Luxena.Travel.Services
 
 				sftp.Connect();
 
-				var sfiles = LoadFiles(sftp).ToList();
+
+				var sfiles = LoadFiles(sftp).ToArray();
+
 
 				foreach (var sfile in sfiles.Where(a => a.IsRegularFile).OrderBy(a => a.Name))
 				{
@@ -110,29 +108,22 @@ namespace Luxena.Travel.Services
 						_log.Info($"Import file {sfile.Name}...");
 						_log.Debug("\tLoad file content...");
 
-						var file = new TGdsFile { Name = sfile.Name, TimeStamp = sfile.LastWriteTime };
 
-						using (var stream = sftp.Open(sfile.FullName, FileMode.Open))
-						using (var reader = new StreamReader(stream))
-							file.Content = reader.ReadToEnd();
+						var content = LoadFileContent(sftp, sfile);
 
-						if (file.Content.No()) 
+						if (content.No())
 							continue;
 
 
-						var reimport = Reimports.By(a => file.Content.Contains(a.OfficeCode));
-
-						if (reimport != null)
-							file.SaveToInboxFolder(reimport.InboxPath);
-						else
-							db.GdsFile.AddFile(file);
-
-
-						if (ArchiveFolder.Yes())
+						var file = new TGdsFile
 						{
-							using (var sw = new StreamWriter(Path.Combine(ArchiveFolder, file.Name)))
-								sw.Write(file.Content);
-						}
+							Name = sfile.Name, 
+							TimeStamp = sfile.LastWriteTime,
+							Content = content,
+						};
+						
+						SaveGdsFile(file);
+
 
 						sfile.Delete();
 
@@ -150,7 +141,59 @@ namespace Luxena.Travel.Services
 			}
 		}
 
+
+
+		private static string LoadFileContent(SftpClient sftp, SftpFile sfile)
+		{
+
+			using (var stream = sftp.Open(sfile.FullName, FileMode.Open))
+			using (var reader = new StreamReader(stream))
+			{
+				return reader.ReadToEnd();
+			}
+
+		}
+
+
+
+		private void SaveGdsFile(GdsFile file)
+		{
+
+			var reimport = Reimports.By(a => file.Content.Contains(a.OfficeCode));
+
+			if (reimport != null)
+			{
+				file.SaveToInboxFolder(reimport.InboxPath);
+			}
+			else
+			{
+				db.GdsFile.AddFile(file);
+			}
+
+
+			if (ArchiveFolder.Yes())
+			{
+				using (var sw = new StreamWriter(Path.Combine(ArchiveFolder, file.Name)))
+				{
+					sw.Write(file.Content);
+				}
+			}
+
+		}
+
+
+
+		//---g
+
 	}
+
+
+
+
+
+
+	//===g
+
 
 
 }

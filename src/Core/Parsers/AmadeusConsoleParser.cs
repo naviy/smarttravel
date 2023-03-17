@@ -84,7 +84,8 @@ namespace Luxena.Travel.Parsers
 
 			var equalFareMatches = _reEqualFare.Matches(Content);
 
-			var totalMatches = _reTotal.Matches(Content);
+			//var totalMatches = _reTotal.Matches(Content);
+			var grandTotalMatches = _reGrandTotal.Matches(Content);
 
 			var commissionMatches = _reCommission.Matches(Content);
 
@@ -92,7 +93,7 @@ namespace Luxena.Travel.Parsers
 
 
 
-			if (passengerGroupsMatches.Count == 0 || totalMatches.Count == 0 || totalMatches.Count != fareMatches.Count)
+			if (passengerGroupsMatches.Count == 0 || /*totalMatches.Count == 0 ||*/ grandTotalMatches.Count == 0 || grandTotalMatches.Count != fareMatches.Count)
 			{
 				yield break;
 			}
@@ -162,7 +163,8 @@ namespace Luxena.Travel.Parsers
 
 			var equalFares = SelectSum(equalFareMatches);
 
-			var totals = SelectSum(totalMatches);
+			//var totals = SelectSum(totalMatches);
+			var grandTotals = SelectSum(grandTotalMatches);
 
 			var commissions = commissionMatches.ToArray(a => new
 			{
@@ -188,8 +190,10 @@ namespace Luxena.Travel.Parsers
 				var fareAmount = fares.By(i).As(a => a.Item2);
 				var equalFareCurrency = equalFares.By(i).As(a => a.Item1);
 				var equalFareAmount = equalFares.By(i).As(a => a.Item2);
-				var totalCurrency = totals.By(i).As(a => a.Item1);
-				var totalAmount = totals.By(i).As(a => a.Item2);
+				//var totalCurrency = totals.By(i).As(a => a.Item1);
+				//var totalAmount = totals.By(i).As(a => a.Item2);
+				var grandTotalCurrency = grandTotals.By(i).As(a => a.Item1);
+				var grandTotalAmount = grandTotals.By(i).As(a => a.Item2);
 				var paymentType = paymentTypes.By(i);
 				var segments = segmentBlocks.By(i);
 				var fees = feeBlocks.By(i);
@@ -231,13 +235,13 @@ namespace Luxena.Travel.Parsers
 
 					doc.EqualFare = equalFareCurrency != null ? new Money(equalFareCurrency, equalFareAmount) : null;
 
-					doc.FeesTotal = totalCurrency == equalFareCurrency && totalAmount >= equalFareAmount
-						? new Money(totalCurrency, totalAmount - equalFareAmount)
+					doc.FeesTotal = grandTotalCurrency == equalFareCurrency && grandTotalAmount >= equalFareAmount
+						? new Money(grandTotalCurrency, grandTotalAmount - equalFareAmount)
 						: null
 					;
 
-					doc.Total = totalCurrency != null 
-						? new Money(totalCurrency, totalAmount) 
+					doc.Total = grandTotalCurrency != null 
+						? new Money(grandTotalCurrency, grandTotalAmount) 
 						: null
 					;
 
@@ -250,12 +254,12 @@ namespace Luxena.Travel.Parsers
 
 						if (commission.IsMoney)
 						{
-							doc.Commission = new Money(totalCurrency, commission.Amount ?? 0);
+							doc.Commission = new Money(grandTotalCurrency, commission.Amount ?? 0);
 						}
 						else if (commission.Amount.HasValue)
 						{
 							doc.CommissionPercent = commission.Amount;
-							doc.Commission = new Money(totalCurrency, Math.Round(equalFareAmount * commission.Amount.Value / 100m, 2));
+							doc.Commission = new Money(grandTotalCurrency, Math.Round(equalFareAmount * commission.Amount.Value / 100m, 2));
 						}
 					}
 
@@ -284,6 +288,14 @@ namespace Luxena.Travel.Parsers
 						{
 							doc.AddFee(f.Code, new Money(f.Currency, f.Amount), updateTotal: false);
 						}
+					}
+
+
+					var feesTotal0 = doc.Fees.Sum(a => a.Amount);
+
+					if (!Equals(feesTotal0, doc.FeesTotal))
+					{
+						doc.AddFee(AviaDocumentFee.UnknownCode, doc.FeesTotal - feesTotal0, updateTotal: false);
 					}
 
 
@@ -415,7 +427,12 @@ namespace Luxena.Travel.Parsers
 			RegexOptions.Compiled
 		);
 
-		static readonly Regex _reTotal = new Regex(
+		//static readonly Regex _reTotal = new Regex(
+		//	@"\n\s*TOTAL\s+(?'currency'[A-Z]{3})\s+(?'amount'\d+(?:.\d\d)?)\s*\n",
+		//	RegexOptions.Compiled
+		//);
+
+		static readonly Regex _reGrandTotal = new Regex(
 			@"\n\s*GRAND TOTAL\s+(?'currency'[A-Z]{3})\s+(?'amount'\d+(?:.\d\d)?)\s*\n",
 			RegexOptions.Compiled
 		);

@@ -448,6 +448,55 @@ namespace Luxena.Travel.Domain
 	#endregion
 	
 
+	#region AmadeusAviaSftpRsaKeyDto
+		
+	partial class Contracts
+	{
+		public AmadeusAviaSftpRsaKeyContractService AmadeusAviaSftpRsaKey { [DebuggerStepThrough] get { return ResolveService(ref _amadeusAviaSftpRsaKeyDto); } }
+		private AmadeusAviaSftpRsaKeyContractService _amadeusAviaSftpRsaKeyDto;
+
+		[DebuggerStepThrough]
+		public ItemResponse Update(AmadeusAviaSftpRsaKeyDto r, RangeRequest prms)
+		{
+			return AmadeusAviaSftpRsaKey.Update(r, prms);
+		}
+
+		[DebuggerStepThrough]
+		public ItemResponse Update(AmadeusAviaSftpRsaKeyDto r, string typeName, RangeRequest prms)
+		{
+			return AmadeusAviaSftpRsaKey.Update(r, typeName, prms);
+		}
+	}
+
+	partial class AmadeusAviaSftpRsaKeyDto
+	{
+		/*
+		public string OPPK { get; set; }
+
+		*/
+	}
+
+	partial class AmadeusAviaSftpRsaKeyContractService
+	{
+		/*
+		public AmadeusAviaSftpRsaKeyContractService()
+		{
+			ContractFromEntity += (r, c) =>
+			{
+				c.OPPK = r.OPPK;
+			};
+		
+			EntityFromContract += (r, c) =>
+			{
+				r.OPPK = c.OPPK + db;
+			};
+		}
+		*/
+	}
+
+	#endregion
+	
+
 	#region AviaDocumentDto
 		
 	partial class Contracts

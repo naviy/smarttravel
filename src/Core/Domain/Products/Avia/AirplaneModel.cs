@@ -3,13 +3,28 @@ using System.ComponentModel.DataAnnotations;
 using System.Diagnostics;
 
 
+
+
 namespace Luxena.Travel.Domain
 {
+
+
+
+	//===g
+
+
+
+
+
 
 	[RU("Модель самолёта", "Модели самолётов (типы судов)")]
 	[SupervisorPrivileges]
 	public partial class AirplaneModel : Entity3
 	{
+
+		//---g
+
+
 
 		[RU("IATA код"), MaxLength(3), Required]
 		public virtual string IataCode { get; set; }
@@ -18,14 +33,23 @@ namespace Luxena.Travel.Domain
 		public virtual string IcaoCode { get; set; }
 
 
+
+		//---g
+
+
+
 		public class Service : Entity3Service<AirplaneModel>
 		{
 
 			#region Modify
 
+
 			public AirplaneModel Resolve(AirplaneModel r)
 			{
-				if (!db.IsNew(r)) return r;
+
+				if (!db.IsNew(r))
+					return r;
+
 
 				if (r.Name.No())
 				{
@@ -34,9 +58,13 @@ namespace Luxena.Travel.Domain
 
 					r.Name = r.IataCode;
 				}
+
 				
 				return Save(r);
+
 			}
+
+
 
 			[DebuggerStepThrough]
 			public static AirplaneModel operator +(AirplaneModel r, Service service)
@@ -44,10 +72,24 @@ namespace Luxena.Travel.Domain
 				return r == null ? null : service.Resolve(r);
 			}
 
+
 			#endregion
 
 		}
 
+
+
+		//---g
+
 	}
+
+
+
+
+
+
+	//===g
+
+
 
 }

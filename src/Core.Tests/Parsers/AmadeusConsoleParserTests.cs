@@ -1985,6 +1985,69 @@ FV *F*LH
 
 
 
+		[Test]
+		public void TestParseTicket25()
+		{
+
+			var docs = Parse(@"
+--- TST RLR MSC ---
+RP/IEVU2273F/IEVU2273F            AN/SU  26FEB20/1433Z   STXMSB
+IEVU2273F/6868IG/26FEB20
+  1.DUDNYK/YURIY MR   2.KARPENKO/OKSANA MRS
+  3  TP8210 T 16MAR 1 KBPZRH HK2  0900 D  1030 1220   1A/E
+  4  TP 931 T 16MAR 1 ZRHLIS HK2  1245    1330 1520   1A/E
+  5  TP1040 U 21MAR 6 LISBCN HK2  0755 1  0855 1145   1A/E
+  6  TP8223 U 21MAR 6 BCNKBP HK2  1245 1  1330 1800   1A/E
+  7 AP IEV 38044 4902888 - ARIOLA GROUP LTD - A
+  8 TK OK26FEB/IEVU23561//ETTP
+  9 SSR DOCS TP HK1 P/UKR/FY580650/UKR/14AUG68/M/20FEB30/DUDNYK/
+	   YURIY/P1
+ 10 SSR DOCS TP HK1 P/UKR/FL704815/UKR/14SEP78/F/08FEB28/KARPENK
+	   O/OKSANA/P2
+ 11 SSR CTCE TP HK2 DIRECTOUR1//GMAIL.COM
+ 12 SSR CTCM TP HK1 380965785167/P1
+ 13 RM *AMA 380043489
+ 17 FE PAX FARE RESTR APPLY/NON REF/S3-6/P1-2
+)>
+>
+tqt
+TST00001     IEVU2273F IG/26FEB I 0 LD 16MAR20 2359  OD IEVIEV                  
+T-                                                                              
+FXB                                                                             
+   1.DUDNYK/YURIY MR   2.KARPENKO/OKSANA MRS                                    
+ 1   KBP TP 8210 T 16MAR 1030  OK T53CLC0D        16MAR16MAR 1PC                
+ 2 X ZRH TP  931 T 16MAR 1330  OK T53CLC0D        16MAR16MAR 1PC                
+ 3 O LIS TP 1040 U 21MAR 0855  OK U53CLC0D        21MAR21MAR 1PC                
+ 4 X BCN TP 8223 U 21MAR 1330  OK U53CLC0D        21MAR21MAR 1PC                
+	 KBP                                                                        
+FARE  F USD     197.00                                                          
+EQUIV   UAH       4831                                                          
+TX001 X UAH     2182-YQAD TX002 X UAH       98-UASE TX003 X UAH       49-UDDP   
+TX004 X UAH      319-YKAE TX005 X UAH      401-CHAE TX006 X UAH       93-PTSE   
+TX007 X UAH      319-YPAE TX008 X UAH      286-JDAE TX009 X UAH       17-OGCO   
+TX010 X UAH       56-QVDP                                                       
+TOTAL   UAH       8651    BSR 24.52                                             
+GRAND TOTAL UAH       10000                                                      
+IEV TP X/ZRH TP LIS89.00TP X/BCN TP IEV108.00NUC197.00END                       
+ ROE1.000000                                                                    
+																				
+ 17.FE FARE RESTR APPLY/NON REF                                                 
+ 19.FM *M*1                                                                     
+ 20.FP CASH
+>
+"
+			);
+
+
+			AreEqual(2, docs.Count);
+
+			AreEqual(10000, docs[0].Total.Amount);
+			AreEqual(10000 - 4831, docs[0].FeesTotal.Amount);
+			AreEqual(10000 - 8651, docs[0].Fees.By(a=> a.Code == AviaDocumentFee.UnknownCode).Amount.Amount);
+
+		}
+
+
 		//---g
 
 

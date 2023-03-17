@@ -185,7 +185,7 @@ namespace Luxena.Travel
 
 			_intermediary = ControlFactoryExt.CreateCustomerControl(DomainRes.Common_Intermediary, 200, true);
 
-			_owner = ControlFactoryExt.CreateOwnerControl(200);
+			_owner = ControlFactoryExt.CreateOwnerControl(200, false);
 
 			_assignedTo = ControlFactoryExt.CreateAssignedToControl(DomainRes.Common_AssignedTo, 200, false);
 

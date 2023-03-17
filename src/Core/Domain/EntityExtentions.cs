@@ -634,6 +634,45 @@ namespace Luxena.Travel.Domain
 	#endregion
 
 						
+	#region AmadeusAviaSftpRsaKey
+
+	partial class Domain : IEntityServiceContainer<Domain, AmadeusAviaSftpRsaKey>
+	{
+
+		public AmadeusAviaSftpRsaKey.Service AmadeusAviaSftpRsaKey { [DebuggerStepThrough] get { return ResolveService(ref _amadeusAviaSftpRsaKey); } }
+		private AmadeusAviaSftpRsaKey.Service _amadeusAviaSftpRsaKey;
+
+		EntityService<Domain, AmadeusAviaSftpRsaKey> IEntityServiceContainer<Domain, AmadeusAviaSftpRsaKey>.Service => AmadeusAviaSftpRsaKey;
+		
+		[DebuggerStepThrough]
+		public static AmadeusAviaSftpRsaKey operator +(AmadeusAviaSftpRsaKey r, Domain db)
+		{
+			return (AmadeusAviaSftpRsaKey)r?.Resolve(db);
+		}
+
+	}
+
+	partial class AmadeusAviaSftpRsaKey
+	{ 
+
+
+		#region Operators
+
+		[DebuggerStepThrough]
+		public static AmadeusAviaSftpRsaKey operator |(AmadeusAviaSftpRsaKey r1, AmadeusAviaSftpRsaKey r2)
+		{
+			return r1 ?? r2;
+		}
+
+		#endregion
+
+	}
+
+	public partial class AmadeusAviaSftpRsaKeyManager : EntityManager<AmadeusAviaSftpRsaKey, AmadeusAviaSftpRsaKey.Service> { }
+
+	#endregion
+
+						
 	#region AmadeusXmlFile
 
 	partial class Domain : IEntityServiceContainer<Domain, AmadeusXmlFile>

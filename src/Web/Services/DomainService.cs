@@ -95,6 +95,18 @@ namespace Luxena.Travel.Web.Services
 		}
 
 		[WebMethod]
+		public AmadeusAviaSftpRsaKeyDto GetAmadeusAviaSftpRsaKey(object id)
+		{
+			return db.Commit(() => dc.AmadeusAviaSftpRsaKey.By(id));
+		}
+
+		[WebMethod]
+		public ItemResponse UpdateAmadeusAviaSftpRsaKey(AmadeusAviaSftpRsaKeyDto dto, RangeRequest @params)
+		{
+			return db.Commit(() => dc.AmadeusAviaSftpRsaKey.Update(dto, @params));
+		}
+
+		[WebMethod]
 		public AviaMcoDto GetAviaMco(object id)
 		{
 			return db.Commit(() => dc.AviaMco.By(id));

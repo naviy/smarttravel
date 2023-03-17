@@ -171,6 +171,7 @@
     <Compile Include="Products\Avia\AirlineServiceClass.EditForm.cs" />
     <Compile Include="Products\Avia\AirlineMonthCommission.ListTab.cs" />
     <Compile Include="Products\Avia\AirlineServiceClass.ListTab.cs" />
+    <Compile Include="Products\Avia\AmadeusAviaSftpRsaKey.cs" />
     <Compile Include="Products\Avia\AirplaneModel.Forms.cs" />
     <Compile Include="Products\Avia\Airport.Forms.cs" />
     <Compile Include="Products\Avia\FlightSegment.Forms.cs" />

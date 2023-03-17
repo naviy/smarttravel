@@ -33,7 +33,7 @@ namespace Luxena.Travel
 				.width(300)
 				.ToDictionary());
 
-			_owner = ControlFactoryExt.CreateOwnerControl(200);
+			_owner = ControlFactoryExt.CreateOwnerControl(200, false);
 
 			ArrayList list = new ArrayList();
 

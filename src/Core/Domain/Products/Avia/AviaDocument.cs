@@ -198,13 +198,13 @@ namespace Luxena.Travel.Domain
 		public virtual void AddFee(string code, Money amount, bool updateTotal = true, bool ignoreOtherCode = true)
 		{
 
-			if (code.No()) 
+			if (code.No())
 				return;
 
 
 			AddFee(
 				new AviaDocumentFee { Code = code, Amount = amount },
-				updateTotal, 
+				updateTotal,
 				ignoreOtherCode
 			);
 
@@ -279,16 +279,16 @@ namespace Luxena.Travel.Domain
 				gdsPassport.By(5),
 				"ddMMMyy",
 				CultureInfo.InvariantCulture,
-				DateTimeStyles.None, 
+				DateTimeStyles.None,
 				out var birthday
 			);
 
 
 			DateTime.TryParseExact(
-				gdsPassport.By(7), 
-				"ddMMMyy", 
-				CultureInfo.InvariantCulture, 
-				DateTimeStyles.None, 
+				gdsPassport.By(7),
+				"ddMMMyy",
+				CultureInfo.InvariantCulture,
+				DateTimeStyles.None,
 				out var expiredOn
 			);
 
@@ -326,7 +326,7 @@ namespace Luxena.Travel.Domain
 				ExpiredOn = expiredOn == DateTime.MinValue ? (DateTime?)null : expiredOn.AsUtc(),
 
 			};
-			
+
 		}
 
 

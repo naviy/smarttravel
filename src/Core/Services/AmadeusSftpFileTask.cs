@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Configuration;
-using System.IO;
-using System.Linq;
-
-using Common.Logging;
 
 using Luxena.Travel.Domain;
 
@@ -18,25 +13,47 @@ namespace Luxena.Travel.Services
 {
 
 
+	// Depricated
 	public class AmadeusSftpFileTask : AmadeusSftpFileTaskBase<AirFile>
 	{
-		
-		protected override string GetPrivateKeyFilePath()
+
+
+		protected static PrivateKeyFile PrivateKeyFile;
+
+
+		public string UserName { get; set; }
+
+		public string Password { get; set; }
+
+
+
+		private PrivateKeyFile NewPrivateKeyFile()
 		{
-			return ConfigurationManager.AppSettings["amadeus-sftp"].ResolvePath();
+			var path = ConfigurationManager.AppSettings["amadeus-sftp"].ResolvePath();
+			_log.Info($"Private Key File Path: {path}");
+
+			return new PrivateKeyFile(path, Password);
 		}
+
+
 
 		protected override SftpClient NewSftpClient()
 		{
+			PrivateKeyFile = PrivateKeyFile ?? NewPrivateKeyFile();
+
 			return new SftpClient("ftp.bmp.viaamadeus.com", 22, UserName, PrivateKeyFile);
 		}
+
+
 
 		protected override IEnumerable<SftpFile> LoadFiles(SftpClient sftp)
 		{
 			return sftp.ListDirectory("/FullAccess");
 		}
 
+
 	}
+
 
 
 }
