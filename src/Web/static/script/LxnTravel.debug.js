@@ -8028,9 +8028,8 @@ Luxena.Travel.AviaDocumentSemantic.prototype = {
 
 Luxena.Travel.ProductSemantic = function Luxena_Travel_ProductSemantic() {
     this.Type = Luxena.Travel.SemanticEntity.get_member().enumItems([ [ 8, '\u041f\u0440\u043e\u0436\u0438\u0432\u0430\u043d\u0438\u0435' ], [ 2, '\u041c\u0421\u041e' ], [ 1, '\u0410\u0432\u0438\u0430\u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442' ], [ 0, '\u0410\u0432\u0438\u0430\u0431\u0438\u043b\u0435\u0442' ], [ 13, '\u0410\u0432\u0442\u043e\u0431\u0443\u0441\u043d\u044b\u0439 \u0431\u0438\u043b\u0435\u0442' ], [ 16, '\u0410\u0432\u0442\u043e\u0431\u0443\u0441\u043d\u044b\u0439 \u0431\u0438\u043b\u0435\u0442' ], [ 11, '\u0410\u0440\u0435\u043d\u0434\u0430 \u0430\u0432\u0442\u043e\u043c\u043e\u0431\u0438\u043b\u044f' ], [ 6, '\u042d\u043a\u0441\u043a\u0443\u0440\u0441\u0438\u044f' ], [ 12, '\u0414\u043e\u043f\u043e\u043b\u043d\u0438\u0442\u0435\u043b\u044c\u043d\u0430\u044f \u0443\u0441\u043b\u0443\u0433\u0430' ], [ 10, '\u0421\u0442\u0440\u0430\u0445\u043e\u0432\u043a\u0430' ], [ 15, '\u0421\u0442\u0440\u0430\u0445\u043e\u0432\u043a\u0430' ], [ 5, '\u0421\u0442\u0443\u0434\u0435\u043d\u0447\u0435\u0441\u043a\u0438\u0439 \u0431\u0438\u043b\u0435\u0442' ], [ 3, '\u0416/\u0434 \u0431\u0438\u043b\u0435\u0442' ], [ 14, '\u0412\u043e\u0437\u0432\u0440\u0430\u0442 \u0436/\u0434 \u0431\u0438\u043b\u0435\u0442\u0430' ], [ 4, 'SIM-\u043a\u0430\u0440\u0442\u0430' ], [ 7, '\u0422\u0443\u0440 (\u0433\u043e\u0442\u043e\u0432\u044b\u0439)' ], [ 9, '\u0422\u0440\u0430\u043d\u0441\u0444\u0435\u0440' ] ]).required();
-    this.Name = Luxena.Travel.SemanticEntity.get_member().title('\u041d\u0430\u0437\u0432\u0430\u043d\u0438\u0435').string().entityName();
-    this.PassengerName = Luxena.Travel.SemanticEntity.get_member().title('\u041f\u0430\u0441\u0441\u0430\u0436\u0438\u0440').string();
     this.IssueDate = Luxena.Travel.SemanticEntity.get_member().title('\u0414\u0430\u0442\u0430 \u0432\u044b\u043f\u0443\u0441\u043a\u0430').date().required();
+    this.Name = Luxena.Travel.SemanticEntity.get_member().title('\u041d\u0430\u0437\u0432\u0430\u043d\u0438\u0435').string().entityName();
     this.PureNumber = Luxena.Travel.SemanticEntity.get_member().string();
     this.PnrCode = Luxena.Travel.SemanticEntity.get_member().title('\u0411\u0440\u043e\u043d\u0438\u0440\u043e\u0432\u043a\u0430').string();
     this.TourCode = Luxena.Travel.SemanticEntity.get_member().title('\u0422\u0443\u0440\u043a\u043e\u0434').string();
@@ -8038,6 +8037,7 @@ Luxena.Travel.ProductSemantic = function Luxena_Travel_ProductSemantic() {
     this.Provider = Luxena.Travel.SemanticEntity.get_member().title('\u041f\u0440\u043e\u0432\u0430\u0439\u0434\u0435\u0440').reference('Organization');
     this.ReissueFor = Luxena.Travel.SemanticEntity.get_member().title('\u041f\u0435\u0440\u0435\u0432\u044b\u043f\u0443\u0441\u043a \u0434\u043b\u044f').reference('Product');
     this.RefundedProduct = Luxena.Travel.SemanticEntity.get_member().title('\u0418\u0441\u0445\u043e\u0434\u043d\u044b\u0439 \u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442').reference('Product');
+    this.PassengerName = Luxena.Travel.SemanticEntity.get_member().title('\u041f\u0430\u0441\u0441\u0430\u0436\u0438\u0440').string();
     this.Passengers = Luxena.Travel.SemanticEntity.get_member();
     this.PassengerDtos = Luxena.Travel.SemanticEntity.get_member();
     this.IsRefund = Luxena.Travel.SemanticEntity.get_member().bool().required();
@@ -9874,13 +9874,13 @@ Luxena.Travel.AirplaneModelEditForm.prototype = {
 // Luxena.Travel.AmadeusAviaSftpRsaKeySemantic
 
 Luxena.Travel.AmadeusAviaSftpRsaKeySemantic = function Luxena_Travel_AmadeusAviaSftpRsaKeySemantic() {
-    this.OPPK = Luxena.Travel.SemanticEntity.get_member().title('\u0422\u0435\u043a\u0441\u0442 OPPK').text(20).required();
+    this.PPK = Luxena.Travel.SemanticEntity.get_member().title('\u0422\u0435\u043a\u0441\u0442 PPK').text(20).required().entityName();
     Luxena.Travel.AmadeusAviaSftpRsaKeySemantic.initializeBase(this);
     this._name = 'AmadeusAviaSftpRsaKey';
     this._className = 'AmadeusAviaSftpRsaKey';
     this._isAbstract = false;
     this._getDerivedEntities = null;
-    this._nameFieldName = null;
+    this._nameFieldName = 'PPK';
     this._title = 'RSA-\u043a\u043b\u044e\u0447 \u0434\u043b\u044f \u0430\u0432\u0438\u0430\u0431\u0438\u043b\u0435\u0442\u043e\u0432 \u0438\u0437 Amadeus';
     this._titles = 'RSA-\u043a\u043b\u044e\u0447\u0438 \u0434\u043b\u044f \u0430\u0432\u0438\u0430\u0431\u0438\u043b\u0435\u0442\u043e\u0432 \u0438\u0437 Amadeus';
 }
@@ -9902,7 +9902,7 @@ Luxena.Travel.AmadeusAviaSftpRsaKeyListTab.prototype = {
     _se$10: null,
     
     createColumnConfigs: function Luxena_Travel_AmadeusAviaSftpRsaKeyListTab$createColumnConfigs() {
-        this.addColumns([ this._se$10.CreatedOn.toColumn(false), this._se$10.OPPK, this._se$10.CreatedBy, this._se$10.ModifiedOn, this._se$10.ModifiedBy ]);
+        this.addColumns([ this._se$10.CreatedOn.toColumn(false), this._se$10.PPK, this._se$10.CreatedBy, this._se$10.ModifiedOn, this._se$10.ModifiedBy ]);
     }
 }
 
@@ -9926,7 +9926,7 @@ Luxena.Travel.AmadeusAviaSftpRsaKeyEditForm.prototype = {
         this.get_window().width = -3;
         this.get_form().labelWidth = 180;
         this.set_fieldMaxWidth(360);
-        this.get_form().add(this.mainDataPanel([ this._se$3.OPPK.toField(-1) ]));
+        this.get_form().add(this.mainDataPanel([ this._se$3.PPK.toField(-1) ]));
     }
 }
 

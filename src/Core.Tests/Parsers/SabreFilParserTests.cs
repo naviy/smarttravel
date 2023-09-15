@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -85,7 +85,7 @@ M902PT-SSR TKNE SU HK1 LHRSVO0262Y18MAR/5556563641694C2
 ");
 
 
-			Assert.AreEqual(DateTime.Parse("2021-12-29"), r.IssueDate);
+			Assert.AreEqual(DateTime.Parse("2023-12-29"), r.IssueDate);
 
 
 			//Assert.AreEqual("GMEXBL", r.PnrCode);
@@ -99,7 +99,7 @@ M902PT-SSR TKNE SU HK1 LHRSVO0262Y18MAR/5556563641694C2
 
 
 		[Test]
-		public void Test01_Ticket()
+		public void Test_01_Ticket()
 		{
 			var r = ParseTicket(
 @"AA10FEB0301M0117               Y    000285599 99999 2  GPUIGG        611111110000010001 N7GG * KD EDEC4D            08FEB 0111N7GG * KD   00022FEBSVOMOSCOW SHEREMET  SVOMOSCOW SHEREMET  003001002002004001000000011000  01 110110FEB
@@ -688,7 +688,7 @@ M909PT-SSR ADTK AA TO  TK BY 28FEB 1907 IRC-2/ADV MORE TKT
 
 			Assert.AreEqual(3, docs.Count);
 
-			var refund0 = (AviaRefund)docs[0];
+			var refund0 = (AviaRefund)docs[2];
 
 			Assert.AreEqual("UAH", refund0.EqualFare.Currency.Code);
 			Assert.AreEqual(1062m, refund0.EqualFare.Amount);
@@ -1741,6 +1741,105 @@ MF01 #Y.RUDCHUK@UFSA.COM.UA#
 
 		}
 
+
+
+		[Test]
+		public void Test_18_Ticket()
+		{
+			var docs = SabreFilParser.Parse(
+@"AA11SEP0928M0217               Y    000047172 32501 3  GPBXET        611111110000011000 1MTI * IO 1FB8EB            06SEP 05081MTI 9 DM   00019SEPVIEVIENNA           VIEVIENNA           003000002000003000000000013000  01 172811SEP
+
+
+
+
+
+
+
+
+
+
+
+380679135847
+
+
+IO
+M101CHURILOVA/GALYNA MRS                                                                                                    02  01000006  
+0102
+01
+
+
+010406071213
+M102KOVAL/ARTEM MR                                                                                                          02  01000006  
+0102
+02
+
+
+020508091213
+M103PIDGAINA/IRYNA MRS                                                                                                      02  01000005  
+0102
+03
+
+
+0310111213
+M3011 0HK19SEPAIRNVIEVIENNA           BUDBUDAPEST         OS  713Q 0955 1040   .45   B   000                    E95000134      00TERMINAL 3                    TERMINAL 2A                        0                                      002023LDHO92  
+
+
+
+M3021 0HK24SEPAIRNBUDBUDAPEST         VIEVIENNA           OS  714W 1120 1210   .50   B   000                    E95000134      00TERMINAL 2A                   TERMINAL 3                         0                                      002023LDHO92  
+
+
+
+M50101  OS#9340301419/      0/    9596/   7007/ONE/CCCA5169330000006584 1.1CHURILOVA GALYNA MRS/1/F/E
+M50202  OS#9340301420/      0/    9596/   7007/ONE/CCCA5169330000006584 2.1KOVAL ARTEM MR/1/F/E
+M50303  OS#9340301421/      0/    9596/   7007/ONE/CCCA5169330000006584 3.1PIDGAINA IRYNA MRS/1/F/E
+M901PT-SSR DOCS OS HK1/P/UA/FU127195/UA/06MAY58/F/13FEB29/CHURILOVA/GALYNA
+
+M902PT-SSR DOCS OS HK1/P/UA/GA893463/UA/26AUG04/M/06AUG31/KOVAL/ARTEM
+
+M903PT-SSR DOCS OS HK1/P/UA/GE785140/UA/24SEP08/F/04JAN27/PIDGAINA/IRYNA
+
+M904PT-SSR CTCM OS HK1/380674446027
+
+M905PT-SSR CTCE OS HK1/IGOR//UFSA.COM.UA
+
+M906PT-SSR TKNE OS HK1 VIEBUD0713Q19SEP/2579340301419C1
+
+M907PT-SSR TKNE OS HK1 BUDVIE0714W24SEP/2579340301419C2
+
+M908PT-SSR TKNE OS HK1 VIEBUD0713Q19SEP/2579340301420C1
+
+M909PT-SSR TKNE OS HK1 BUDVIE0714W24SEP/2579340301420C2
+
+M910PT-SSR TKNE OS HK1 VIEBUD0713Q19SEP/2579340301421C1
+
+M911PT-SSR TKNE OS HK1 BUDVIE0714W24SEP/2579340301421C2
+
+M912PT-SSR OTHS 1S MISSING SSR CTCM MOBILE OR SSR CTCE EMAIL OR SSR CTCR NON-CONSENT FOR OS
+
+M913PT-SSR OTHS 1S PLS ADV TKT NBR BY 09SEP23/1008Z OR OS OPTG/MKTG FLTS WILL BE CANX / APPLIC FARE RULE APPLIES IF IT DEMANDS EARLIER TKTG
+
+
+", "UAH").ToList();
+
+
+			Assert.NotNull(docs);
+			Assert.AreEqual(3, docs.Count);
+
+			var t0 = (AviaTicket)docs[0];
+			var t1 = (AviaTicket)docs[1];
+			var t2 = (AviaTicket)docs[2];
+
+
+			Assert.AreEqual("9340301419", t0.Number);
+			Assert.AreEqual("9340301420", t1.Number);
+			Assert.AreEqual("9340301421", t2.Number);
+
+			Assert.AreEqual("CHURILOVA/GALYNA MRS", t0.PassengerName);
+			Assert.AreEqual("KOVAL/ARTEM MR", t1.PassengerName);
+			Assert.AreEqual("PIDGAINA/IRYNA MRS", t2.PassengerName);
+
+		}
+		
 
 
 		//---g

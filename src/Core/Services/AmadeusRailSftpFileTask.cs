@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.IO;
-using System.Linq;
-
-using Common.Logging;
+﻿using System.Configuration;
+using Chilkat;
 
 using Luxena.Travel.Domain;
-
-using Renci.SshNet;
-using Renci.SshNet.Sftp;
+using File = System.IO.File;
 
 
 
@@ -23,7 +16,7 @@ namespace Luxena.Travel.Services
 	{
 
 
-		protected static PrivateKeyFile PrivateKeyFile;
+		protected static SshKey PrivateKeyFile;
 
 
 		public string UserName { get; set; }
@@ -32,25 +25,57 @@ namespace Luxena.Travel.Services
 
 
 
-		private PrivateKeyFile NewPrivateKeyFile()
+		private SshKey NewPrivateKeyFile()
 		{
+
 			var path = ConfigurationManager.AppSettings["amadeus-rail-sftp"].ResolvePath();
 			_log.Info($"Private Key File Path: {path}");
 
-			return new PrivateKeyFile(path, Password);
+			var ppkContent = File.ReadAllText(path);
+
+			var sshKey = new SshKey { Password = Password };
+
+			sshKey.FromPuttyPrivateKey(ppkContent);
+
+
+			if (sshKey.LastMethodSuccess)
+				return sshKey;
+
+
+			_log.Error(sshKey.LastErrorText);
+			return null;
+
 		}
 
 
-		protected override SftpClient NewSftpClient()
+
+		protected override SFtp NewSftpClient()
 		{
+
 			PrivateKeyFile = PrivateKeyFile ?? NewPrivateKeyFile();
 
-			return new SftpClient("contentinn.com", 27144, UserName, PrivateKeyFile);
+			if (PrivateKeyFile == null)
+				return null;
+
+
+			var sftp = new SFtp();
+
+			var success =
+				sftp.Connect("contentinn.com", 27144) &&
+				sftp.AuthenticatePk(UserName, PrivateKeyFile) &&
+				sftp.InitializeSftp()
+			;
+
+
+			return sftp;
+
 		}
 
-		protected override IEnumerable<SftpFile> LoadFiles(SftpClient sftp)
+
+
+		protected override void DoImportFiles(SFtp sftp)
 		{
-			return sftp.ListDirectory("/XML");
+			ImportFilesFromDirectory(sftp, "XML");
 		}
 
 

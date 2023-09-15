@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31624.102
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33829.357
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Customization", "Customization", "{3BB35894-92F4-4754-90A0-80F329E0F0F7}"
 EndProject
@@ -21,11 +21,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "conf", "conf", "{DADA058F-0
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{E27BE899-79F5-46A8-99AB-C5F8EFDCB50E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web", "Web\Web.csproj", "{DA4D7EF7-5A86-44B9-A479-AFCDC58CEC63}"
-	ProjectSection(ProjectDependencies) = postProject
-		{B2A850D5-0DC5-48E5-99D4-1E6A60AC4D77} = {B2A850D5-0DC5-48E5-99D4-1E6A60AC4D77}
-	EndProjectSection
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Tests", "Core.Tests\Core.Tests.csproj", "{B9213BE7-D314-47AB-997E-995E212D9AFE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ufsa", "Customization\Ufsa\Ufsa.csproj", "{07B94EA1-2FF7-4B71-ACCB-84DB6C6DA1CA}"
@@ -33,8 +28,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bsv", "Customization\Bsv\Bsv.csproj", "{1517B8D1-BB11-445E-A851-2578335CA410}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Config", "Config\Config.csproj", "{99317FE0-52E6-4A22-9FB2-BF523BE20EB3}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web.Script", "Web.Script\Web.Script.csproj", "{B2A850D5-0DC5-48E5-99D4-1E6A60AC4D77}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fgr", "Customization\Fgr\Fgr.csproj", "{D0C7BE83-A514-4808-963C-58535D18A4E4}"
 EndProject
@@ -87,7 +80,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Egoist", "Customization\Ego
 EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Landing", "Landing\", "{B064C8A2-CD09-442E-AE35-71C3DBE61F85}"
 	ProjectSection(WebsiteProperties) = preProject
-		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.8.1"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_2229"
 		Debug.AspNetCompiler.PhysicalPath = "Landing\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_2229\"
@@ -105,6 +98,10 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Landing", "Landing\", "{B06
 		VWDPort = "2229"
 		SlnRelativePath = "Landing\"
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web", "Web\Web.csproj", "{DA4D7EF7-5A86-44B9-A479-AFCDC58CEC63}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web.Script", "Web.Script\Web.Script.csproj", "{B2A850D5-0DC5-48E5-99D4-1E6A60AC4D77}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -130,16 +127,6 @@ Global
 		{E27BE899-79F5-46A8-99AB-C5F8EFDCB50E}.WebScript|Any CPU.ActiveCfg = Debug|Any CPU
 		{E27BE899-79F5-46A8-99AB-C5F8EFDCB50E}.WebScript|Any CPU.Build.0 = Debug|Any CPU
 		{E27BE899-79F5-46A8-99AB-C5F8EFDCB50E}.WebScript|x86.ActiveCfg = Release|Any CPU
-		{DA4D7EF7-5A86-44B9-A479-AFCDC58CEC63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DA4D7EF7-5A86-44B9-A479-AFCDC58CEC63}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DA4D7EF7-5A86-44B9-A479-AFCDC58CEC63}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{DA4D7EF7-5A86-44B9-A479-AFCDC58CEC63}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DA4D7EF7-5A86-44B9-A479-AFCDC58CEC63}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DA4D7EF7-5A86-44B9-A479-AFCDC58CEC63}.Release|x86.ActiveCfg = Release|Any CPU
-		{DA4D7EF7-5A86-44B9-A479-AFCDC58CEC63}.SchemaManager|Any CPU.ActiveCfg = Debug|Any CPU
-		{DA4D7EF7-5A86-44B9-A479-AFCDC58CEC63}.SchemaManager|x86.ActiveCfg = Release|Any CPU
-		{DA4D7EF7-5A86-44B9-A479-AFCDC58CEC63}.WebScript|Any CPU.ActiveCfg = Debug|Any CPU
-		{DA4D7EF7-5A86-44B9-A479-AFCDC58CEC63}.WebScript|x86.ActiveCfg = Release|Any CPU
 		{B9213BE7-D314-47AB-997E-995E212D9AFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B9213BE7-D314-47AB-997E-995E212D9AFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B9213BE7-D314-47AB-997E-995E212D9AFE}.Debug|x86.ActiveCfg = Debug|Any CPU
@@ -178,17 +165,6 @@ Global
 		{99317FE0-52E6-4A22-9FB2-BF523BE20EB3}.SchemaManager|x86.ActiveCfg = Release|Any CPU
 		{99317FE0-52E6-4A22-9FB2-BF523BE20EB3}.WebScript|Any CPU.ActiveCfg = Debug|Any CPU
 		{99317FE0-52E6-4A22-9FB2-BF523BE20EB3}.WebScript|x86.ActiveCfg = Release|Any CPU
-		{B2A850D5-0DC5-48E5-99D4-1E6A60AC4D77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B2A850D5-0DC5-48E5-99D4-1E6A60AC4D77}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B2A850D5-0DC5-48E5-99D4-1E6A60AC4D77}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{B2A850D5-0DC5-48E5-99D4-1E6A60AC4D77}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B2A850D5-0DC5-48E5-99D4-1E6A60AC4D77}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B2A850D5-0DC5-48E5-99D4-1E6A60AC4D77}.Release|x86.ActiveCfg = Release|Any CPU
-		{B2A850D5-0DC5-48E5-99D4-1E6A60AC4D77}.SchemaManager|Any CPU.ActiveCfg = Debug|Any CPU
-		{B2A850D5-0DC5-48E5-99D4-1E6A60AC4D77}.SchemaManager|x86.ActiveCfg = WebScript|Any CPU
-		{B2A850D5-0DC5-48E5-99D4-1E6A60AC4D77}.WebScript|Any CPU.ActiveCfg = Debug|Any CPU
-		{B2A850D5-0DC5-48E5-99D4-1E6A60AC4D77}.WebScript|Any CPU.Build.0 = Debug|Any CPU
-		{B2A850D5-0DC5-48E5-99D4-1E6A60AC4D77}.WebScript|x86.ActiveCfg = WebScript|Any CPU
 		{D0C7BE83-A514-4808-963C-58535D18A4E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D0C7BE83-A514-4808-963C-58535D18A4E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D0C7BE83-A514-4808-963C-58535D18A4E4}.Debug|x86.ActiveCfg = Debug|Any CPU
@@ -444,6 +420,38 @@ Global
 		{B064C8A2-CD09-442E-AE35-71C3DBE61F85}.WebScript|Any CPU.Build.0 = Debug|Any CPU
 		{B064C8A2-CD09-442E-AE35-71C3DBE61F85}.WebScript|x86.ActiveCfg = Debug|Any CPU
 		{B064C8A2-CD09-442E-AE35-71C3DBE61F85}.WebScript|x86.Build.0 = Debug|Any CPU
+		{DA4D7EF7-5A86-44B9-A479-AFCDC58CEC63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA4D7EF7-5A86-44B9-A479-AFCDC58CEC63}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA4D7EF7-5A86-44B9-A479-AFCDC58CEC63}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{DA4D7EF7-5A86-44B9-A479-AFCDC58CEC63}.Debug|x86.Build.0 = Debug|Any CPU
+		{DA4D7EF7-5A86-44B9-A479-AFCDC58CEC63}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA4D7EF7-5A86-44B9-A479-AFCDC58CEC63}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA4D7EF7-5A86-44B9-A479-AFCDC58CEC63}.Release|x86.ActiveCfg = Release|Any CPU
+		{DA4D7EF7-5A86-44B9-A479-AFCDC58CEC63}.Release|x86.Build.0 = Release|Any CPU
+		{DA4D7EF7-5A86-44B9-A479-AFCDC58CEC63}.SchemaManager|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA4D7EF7-5A86-44B9-A479-AFCDC58CEC63}.SchemaManager|Any CPU.Build.0 = Debug|Any CPU
+		{DA4D7EF7-5A86-44B9-A479-AFCDC58CEC63}.SchemaManager|x86.ActiveCfg = Debug|Any CPU
+		{DA4D7EF7-5A86-44B9-A479-AFCDC58CEC63}.SchemaManager|x86.Build.0 = Debug|Any CPU
+		{DA4D7EF7-5A86-44B9-A479-AFCDC58CEC63}.WebScript|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA4D7EF7-5A86-44B9-A479-AFCDC58CEC63}.WebScript|Any CPU.Build.0 = Debug|Any CPU
+		{DA4D7EF7-5A86-44B9-A479-AFCDC58CEC63}.WebScript|x86.ActiveCfg = Debug|Any CPU
+		{DA4D7EF7-5A86-44B9-A479-AFCDC58CEC63}.WebScript|x86.Build.0 = Debug|Any CPU
+		{B2A850D5-0DC5-48E5-99D4-1E6A60AC4D77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2A850D5-0DC5-48E5-99D4-1E6A60AC4D77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2A850D5-0DC5-48E5-99D4-1E6A60AC4D77}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{B2A850D5-0DC5-48E5-99D4-1E6A60AC4D77}.Debug|x86.Build.0 = Debug|Any CPU
+		{B2A850D5-0DC5-48E5-99D4-1E6A60AC4D77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2A850D5-0DC5-48E5-99D4-1E6A60AC4D77}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2A850D5-0DC5-48E5-99D4-1E6A60AC4D77}.Release|x86.ActiveCfg = Release|Any CPU
+		{B2A850D5-0DC5-48E5-99D4-1E6A60AC4D77}.Release|x86.Build.0 = Release|Any CPU
+		{B2A850D5-0DC5-48E5-99D4-1E6A60AC4D77}.SchemaManager|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2A850D5-0DC5-48E5-99D4-1E6A60AC4D77}.SchemaManager|Any CPU.Build.0 = Debug|Any CPU
+		{B2A850D5-0DC5-48E5-99D4-1E6A60AC4D77}.SchemaManager|x86.ActiveCfg = Debug|Any CPU
+		{B2A850D5-0DC5-48E5-99D4-1E6A60AC4D77}.SchemaManager|x86.Build.0 = Debug|Any CPU
+		{B2A850D5-0DC5-48E5-99D4-1E6A60AC4D77}.WebScript|Any CPU.ActiveCfg = WebScript|Any CPU
+		{B2A850D5-0DC5-48E5-99D4-1E6A60AC4D77}.WebScript|Any CPU.Build.0 = WebScript|Any CPU
+		{B2A850D5-0DC5-48E5-99D4-1E6A60AC4D77}.WebScript|x86.ActiveCfg = WebScript|Any CPU
+		{B2A850D5-0DC5-48E5-99D4-1E6A60AC4D77}.WebScript|x86.Build.0 = WebScript|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

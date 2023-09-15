@@ -65,7 +65,7 @@ namespace Luxena.Travel.Parsers
 		private string _parseLine;
 		private int _productIndex;
 		private int _productNo;
-		private Match _m0, _m1, _m2;
+		private Match _m0, _m1, _m2, _m5;
 		private Match[] _m1s, _m2s, _m3s, _m4s, _m5s, _m8s, _mGs;
 		private static Regex _reM0, _reM1, _reM2, _reM3, _reM4, _reM5, _reM8, _reMG;
 
@@ -91,7 +91,7 @@ namespace Luxena.Travel.Parsers
 				_reM2 = NewRegex(@"^M2(?<rowNo>\d\d).+?[\r\n]{1,2}(^.+?[\r\n]{1,2})(^.+?[\r\n]{1,2})(^.+?[\r\n]{1,2})(?<IU2ORG>.+?[\r\n]{1,2})");
 				_reM3 = NewRegex(@"^M3(?<rowNo>\d\d).+?$");
 				_reM4 = NewRegex(@"^M4(?<rowNo>\d\d).+?$");
-				_reM5 = NewRegex(@"^M5(?<rowNo>\d\d).+?$");
+				_reM5 = NewRegex(@"^M5(?<no>\d\d)(?<rowNo>\d\d)\s(?<isRefund>[R\s]).+?$");
 				_reM8 = NewRegex(@"^M8(?<rowNo>\d\d).*?TTL(?<total>\d+(\.\d+)?)/.+?/S(?<segs>[\d,]+)/(?<psgNo>\d+).1\s*$");
 				//_reM8 = NewRegex(@"^M8(?<rowNo>\d\d).*?TTL(?<total>\d+)\/.+?(?<psgNo>\d+)\.1\s*$");
 				_reMG = NewRegex(@"^MG(?<rowNo>\d\d).+?$");
@@ -113,7 +113,7 @@ namespace Luxena.Travel.Parsers
 			_mGs = _reMG.Matches(Content).Cast<Match>().ToArray();
 
 
-			_parseLine = _m0.Value;
+			StartParse(_m0);
 
 			var type = Part(14, 1);
 			_productIndex = -1;
@@ -133,17 +133,30 @@ namespace Luxena.Travel.Parsers
 
 					_m2 = _m2s.By(a => a.Groups["rowNo"].Value == rowNo);// ?? _m2s.LastOrDefault();
 
+					//if (_m2 == null && _m2s.Length == 1)
+					//{
+					//	_m2 = _m2s[0];
+					//}
+
 					if (_m2 == null && _m2s.Yes())
 						continue;
 
 
-					if (type == "1" || type == "3" || type == "B")
+					_m5 = null;
+
+
+					if (type == "1" || type == "2" || type == "3" || type == "B")
 					{
-						yield return ParseAviaTicket();
-					}
-					else if (type == "2")
-					{
-						yield return ParseAviaRefund();
+						_m5 = _m5s.LastOrDefault(a => a.Groups["rowNo"].Value == rowNo);
+
+						if (_m5?.Groups["isRefund"].Value == "R")
+						{
+							yield return ParseAviaRefund();
+						}
+						else
+						{
+							yield return ParseAviaTicket();
+						}
 					}
 					else if (type == "A")
 					{
@@ -174,7 +187,7 @@ namespace Luxena.Travel.Parsers
 			r.Originator = Originator;
 			r.Origin = ProductOrigin.SabreFil;
 
-			_parseLine = _m0.Value;
+			StartParse(_m0);
 			PartDate(226).Do(a => r.IssueDate = a);
 
 			r.PnrCode = Part(54, 8);
@@ -186,15 +199,12 @@ namespace Luxena.Travel.Parsers
 
 			r.IsTicketerRobot = _robots.Contains(r.TicketerOffice + "-" + r.TicketerCode);
 
-			_parseLine = _m1.Value;
+			StartParse(_m1);
 			r.PassengerName = Part(5, 64);
 
 
-			if (_m2 != null)
+			if (StartParse(_m2))
 			{
-
-				_parseLine = _m2.Value;
-
 
 				Part(35, 3).Do(cur =>
 					r.Fare = new Money(cur, PartSign(34) * (PartFloat(38) ?? 0))
@@ -278,17 +288,23 @@ namespace Luxena.Travel.Parsers
 
 		#region Parse Avia
 
+
 		private void ParseAviaDocument(AviaDocument r)
 		{
 
-			_parseLine = _m0.Value;
+			StartParse(_m0);
 			r.TicketingIataOffice = Part(44, 10)?.Replace(" ", null);
 
-			if (_m2 == null)
-				return;
+			ParseAviaDocument_M2(r);
+			ParseAviaDocument_M5(r);
+
+		}
 
 
-			_parseLine = _m2.Value;
+		private void ParseAviaDocument_M2(AviaDocument r)
+		{
+
+			if (!StartParse(_m2)) return;
 
 
 			r.Total?.Currency?.Code.Do(cur =>
@@ -335,6 +351,21 @@ namespace Luxena.Travel.Parsers
 			r.Number = Part(234, 10);
 
 		}
+
+
+		private void ParseAviaDocument_M5(AviaDocument r)
+		{
+
+			if (!StartParse(_m5))
+				return;
+
+
+			r.Number = Part(12, 10);
+
+		}
+
+
+
 
 
 
@@ -385,7 +416,7 @@ namespace Luxena.Travel.Parsers
 			for (var i = 0; i < segmentCount; i++)
 			{
 
-				_parseLine = _m3s[i].Value;
+				StartParse(_m3s[i]);
 
 				var r = new FlightSegment();
 
@@ -445,11 +476,11 @@ namespace Luxena.Travel.Parsers
 
 				if (_m4s.Yes())
 				{
-					_parseLine = (
+					StartParse(
 						_m4s.By(_productIndex * segmentCount + i) ??
 						_m4s.By(i) ??
 						_m4s.Last()
-					)?.Value;
+					);
 
 					r.Luggage = Part(22, 3);
 					r.FareBasis = Part(25, 13);
@@ -473,10 +504,9 @@ namespace Luxena.Travel.Parsers
 			ParseAviaDocument(r);
 
 
-			_m5s.Last().Do(match =>
+			if (StartParse(_m5))
 			{
 
-				_parseLine = match.Value;
 				r.AirlineIataCode = Part(9, 2);
 				r.Number = Part(12, 10);
 
@@ -507,7 +537,7 @@ namespace Luxena.Travel.Parsers
 					Number = r.Number
 				};
 
-			});
+			}
 
 
 			return r;
@@ -528,10 +558,8 @@ namespace Luxena.Travel.Parsers
 			var mg = _mGs.By(a => a.Groups["rowNo"]?.Value.As().Intn == _productNo) ?? _mGs.One();
 
 
-			if (mg.Success)
+			if (StartParse(mg))
 			{
-
-				_parseLine = mg.Value;
 
 				if (r.AirlinePrefixCode.No())
 					r.AirlinePrefixCode = Part(26, 3);
@@ -571,7 +599,7 @@ namespace Luxena.Travel.Parsers
 			//r.IataOffice = airRecordHeader[10];
 
 
-			_parseLine = _m2s[0].Value;
+			StartParse(_m2s[0]);
 
 			r.Document = new AviaTicket
 			{
@@ -622,6 +650,13 @@ namespace Luxena.Travel.Parsers
 
 		//---g
 
+
+
+		private bool StartParse(Match m)
+		{
+			_parseLine = m.Value();
+			return _parseLine != null;
+		}
 
 
 		private string Part(string str, int startIndex, int length)

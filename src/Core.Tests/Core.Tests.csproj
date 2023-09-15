@@ -132,6 +132,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Parsers\GPBXET00.FIL" />
     <None Include="PrintFiles\1\Fare.dbf" />
     <None Include="PrintFiles\1\FareCalc.dbf" />
     <None Include="PrintFiles\1\Flight.dbf" />

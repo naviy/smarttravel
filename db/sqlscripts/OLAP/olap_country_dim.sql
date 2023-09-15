@@ -15,7 +15,8 @@ select
 	 where 
 		a.id in (
 			select distinct fromairport from lt_flight_segment union 
-			select distinct toairport from lt_flight_segment
+			select distinct toairport from lt_flight_segment union
+			select distinct airport from olap_direction_from_dim
 		)
 	 order by 2
   ) a;

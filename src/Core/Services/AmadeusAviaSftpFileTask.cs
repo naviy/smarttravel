@@ -1,11 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Configuration;
-using System.IO;
-
+﻿using Chilkat;
 using Luxena.Travel.Domain;
-
-using Renci.SshNet;
-using Renci.SshNet.Sftp;
 
 
 
@@ -17,7 +11,7 @@ namespace Luxena.Travel.Services
 	public class AmadeusAviaSftpFileTask : AmadeusSftpFileTaskBase<AirFile>
 	{
 
-		public static PrivateKeyFile PrivateKeyFile;
+		public static SshKey PrivateKeyFile;
 
 
 		public string UserName { get; set; }
@@ -26,31 +20,54 @@ namespace Luxena.Travel.Services
 
 
 
-		private PrivateKeyFile NewPrivateKeyFile()
+		private SshKey NewPrivateKeyFile()
 		{
 
-			var oppkContent = db.AmadeusAviaSftpRsaKey.GetLastOPPK();
+			var ppkContent = db.AmadeusAviaSftpRsaKey.GetLastPPK();
 
-			var oppkStream = new MemoryStream(System.Text.Encoding.ASCII.GetBytes(oppkContent));
+			var sshKey = new SshKey { Password = Password };
 
-			return new PrivateKeyFile(oppkStream, Password);
+			sshKey.FromPuttyPrivateKey(ppkContent);
+
+
+			if (sshKey.LastMethodSuccess)
+				return sshKey;
+
+
+			_log.Error(sshKey.LastErrorText);
+			return null;
 
 		}
 
 
 
-		protected override SftpClient NewSftpClient()
+		protected override SFtp NewSftpClient()
 		{
+
 			PrivateKeyFile = PrivateKeyFile ?? NewPrivateKeyFile();
 
-			return new SftpClient("ftp.bmp.viaamadeus.com", 22, UserName, PrivateKeyFile);
+			if (PrivateKeyFile == null)
+				return null;
+
+
+			var sftp = new SFtp();
+
+			var success1 =
+				sftp.Connect("ftp.bmp.viaamadeus.com", 22) &&
+				sftp.AuthenticatePk(UserName, PrivateKeyFile) &&
+				sftp.InitializeSftp()
+			;
+
+
+			return sftp;
+
 		}
 
 
 
-		protected override IEnumerable<SftpFile> LoadFiles(SftpClient sftp)
+		protected override void DoImportFiles(SFtp sftp)
 		{
-			return sftp.ListDirectory("/FullAccess");
+			ImportFilesFromDirectory(sftp, "FullAccess");
 		}
 
 

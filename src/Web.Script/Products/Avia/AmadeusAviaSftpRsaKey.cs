@@ -18,7 +18,7 @@ namespace Luxena.Travel
 			AddColumns(new object[]
 			{
 				se.CreatedOn.ToColumn(false),
-				se.OPPK,
+				se.PPK,
 				se.CreatedBy,
 				se.ModifiedOn,
 				se.ModifiedBy,
@@ -45,7 +45,7 @@ namespace Luxena.Travel
 
 			Form.add(MainDataPanel(new object[]
 			{
-				se.OPPK.ToField(-1),
+				se.PPK.ToField(-1),
 			}));
 
 		}

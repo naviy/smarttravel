@@ -124,7 +124,7 @@ select
             - coalesce(p.commissiondiscount_amount, 0)
         ) as profit, 
         p.sign as count, 
-        btrim(nullif(nullif(p.ticketingiataoffice, ''), ''''''))::varchar(255) as ticketingiataoffice, 
+        upper(btrim(nullif(nullif(p.ticketingiataoffice, ''), '''''')))::varchar(255) as ticketingiataoffice, 
         p.originator as gds, 
         p.currency, 
         coalesce(rp.departure::date, p.departure::date) as departure,

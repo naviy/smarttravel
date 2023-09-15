@@ -1,15 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.IO;
-using System.Linq;
-
+using Chilkat;
 using Common.Logging;
 
 using Luxena.Travel.Domain;
 
-using Renci.SshNet;
-using Renci.SshNet.Sftp;
 // ReSharper disable UnusedMember.Global
 
 
@@ -71,9 +67,7 @@ namespace Luxena.Travel.Services
 
 
 
-		protected abstract SftpClient NewSftpClient();
-
-		protected abstract IEnumerable<SftpFile> LoadFiles(SftpClient sftp);
+		protected abstract SFtp NewSftpClient();
 
 
 
@@ -82,7 +76,7 @@ namespace Luxena.Travel.Services
 
 			//_log.Info("ImportFiles...");
 			//_log.Info($"PrivateKeyFile: {PrivateKeyFile}");
-			
+
 
 			if (ArchiveFolder?.Contains("~") ?? false)
 			{
@@ -93,39 +87,100 @@ namespace Luxena.Travel.Services
 			using (var sftp = NewSftpClient())
 			{
 
-				sftp.Connect();
+				if (sftp == null)
+					return;
 
-
-				var sfiles = LoadFiles(sftp).ToArray();
-
-
-				foreach (var sfile in sfiles.Where(a => a.IsRegularFile).OrderBy(a => a.Name))
+				if (!sftp.LastMethodSuccess)
 				{
+					_log.Error(sftp.LastErrorText);
+					return;
+				}
+
+
+				DoImportFiles(sftp);
+
+				sftp.Disconnect();
+
+			}
+
+		}
+
+
+
+		protected abstract void DoImportFiles(SFtp sftp);
+
+
+		protected void ImportFilesFromDirectory(SFtp sftp, string dirName)
+		{
+
+			var dirHandle = sftp.OpenDir(dirName);
+
+			try
+			{
+
+				if (!CheckLastMethodSuccess())
+					return;
+
+
+				var dirListing = sftp.ReadDir(dirHandle);
+
+				if (!CheckLastMethodSuccess())
+					return;
+
+
+				var fileCount = dirListing.NumFilesAndDirs;
+
+				for (var i = 0; i < fileCount; i++)
+				{
+
+					var sfile = dirListing.GetFileObject(i);
+
+					if (!sfile.IsRegular)
+						continue;
 
 					try
 					{
 
-						_log.Info($"Import file {sfile.Name}...");
+
+						var gdsFile = new TGdsFile
+						{
+							Name = sfile.Filename,
+							TimeStamp = sfile.LastModifiedTime,
+						};
+
+
+						var fileName = dirName + "/" + sfile.Filename;
+
+						_log.Info($"Import file {gdsFile.Name}...");
+
+
+						var sfileHandle = sftp.OpenFile(fileName, "readOnly", "openExisting");
+
+						if (!CheckLastMethodSuccess())
+							continue;
+
 						_log.Debug("\tLoad file content...");
 
 
-						var content = LoadFileContent(sftp, sfile);
-
-						if (content.No())
-							continue;
-
-
-						var file = new TGdsFile
+						try
 						{
-							Name = sfile.Name, 
-							TimeStamp = sfile.LastWriteTime,
-							Content = content,
-						};
-						
-						SaveGdsFile(file);
 
+							gdsFile.Content = sftp.ReadFileText(sfileHandle, sfile.Size32, "ansi");
 
-						sfile.Delete();
+							if (CheckLastMethodSuccess())
+							{
+								SaveGdsFile(gdsFile);
+
+								sftp.RemoveFile(fileName);
+								CheckLastMethodSuccess();
+							}
+
+						}
+						finally
+						{
+							sftp.CloseHandle(sfileHandle);
+							CheckLastMethodSuccess();
+						}
 
 					}
 					catch (Exception ex)
@@ -133,24 +188,32 @@ namespace Luxena.Travel.Services
 						_log.Error(ex);
 					}
 
+
 				}
 
 
-				sftp.Disconnect();
-
 			}
-		}
 
-
-
-		private static string LoadFileContent(SftpClient sftp, SftpFile sfile)
-		{
-
-			using (var stream = sftp.Open(sfile.FullName, FileMode.Open))
-			using (var reader = new StreamReader(stream))
+			finally
 			{
-				return reader.ReadToEnd();
+				if (!sftp.CloseHandle(dirHandle))
+				{
+					_log.Error(sftp.LastErrorText);
+				}
 			}
+
+
+
+			bool CheckLastMethodSuccess()
+			{
+				if (sftp.LastMethodSuccess)
+					return true;
+
+				_log.Error(sftp.LastErrorText);
+				return false;
+			}
+
+
 
 		}
 

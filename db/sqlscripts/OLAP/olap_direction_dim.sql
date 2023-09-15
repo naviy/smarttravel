@@ -1,8 +1,9 @@
 ﻿drop view if exists olap_airport_dim;
+drop view if exists olap_country_dim;
+drop view if exists olap_settlement_dim;
 
 drop view if exists olap_direction_dim;
 
-drop view if exists olap_settlement_dim;
 drop view if exists olap_direction_from_dim;
 
 

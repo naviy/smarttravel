@@ -807,6 +807,26 @@ update lt_order o set
 		}
 	}
 
+	[Migration(2023073001)]
+	public class Migration_2023073001 : AutoReversingMigration
+	{
+		public override void Up()
+		{
+			Alter.Table("lt_amadeus_avia_sftp_rsa_key")
+				.AddColumn("ppk").AsText().Nullable()
+			;
+		}
+	}
+
+	[Migration(2023073002)]
+	public class Migration_2023073002 : AutoReversingMigration
+	{
+		public override void Up()
+		{
+			Delete.Column("oppk").FromTable("lt_amadeus_avia_sftp_rsa_key");
+		}
+	}
+
 
 
 

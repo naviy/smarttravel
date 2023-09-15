@@ -137,8 +137,8 @@
 		<call target="customer.build" cascade="false" />
 	</target>
 
-	<target name="yana">
-		<property name="schema" value="yana" />
+	<target name="fbc">
+		<property name="schema" value="fbc" />
 		<call target="customer.build" cascade="false" />
 	</target>
 

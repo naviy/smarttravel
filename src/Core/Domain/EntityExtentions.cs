@@ -666,6 +666,32 @@ namespace Luxena.Travel.Domain
 
 		#endregion
 
+
+		public class Reference : EntityReference
+		{
+
+			public Reference() { }
+
+			public Reference(string type, object id, string name) : base(type, id, name) { }
+
+			public Reference(AmadeusAviaSftpRsaKey entity) : base(entity) { }
+
+			public Reference(AmadeusAviaSftpRsaKey entity, string name) : base(entity, name) { }
+
+
+			public static implicit operator Reference(AmadeusAviaSftpRsaKey entity)
+			{
+				return entity == null ? null : new Reference(entity);
+			}
+
+			[DebuggerStepThrough]
+			public static AmadeusAviaSftpRsaKey operator +(Reference reference, Domain db)
+			{
+				return db.AmadeusAviaSftpRsaKey.Load(reference);
+			}
+
+		}
+
 	}
 
 	public partial class AmadeusAviaSftpRsaKeyManager : EntityManager<AmadeusAviaSftpRsaKey, AmadeusAviaSftpRsaKey.Service> { }

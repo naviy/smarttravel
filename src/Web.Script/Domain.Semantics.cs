@@ -3471,25 +3471,19 @@ namespace Luxena.Travel
 			})
 			.Required();
 
-		/// <summary>Название</summary>
-		[PreserveCase]
-		public SemanticMember Name = Member
-			.Title("Название")
-			.String()
-			.EntityName();
-
-		/// <summary>Пассажир</summary>
-		[PreserveCase]
-		public SemanticMember PassengerName = Member
-			.Title("Пассажир")
-			.String();
-
 		/// <summary>Дата выпуска</summary>
 		[PreserveCase]
 		public SemanticMember IssueDate = Member
 			.Title("Дата выпуска")
 			.Date()
 			.Required();
+
+		/// <summary>Название</summary>
+		[PreserveCase]
+		public SemanticMember Name = Member
+			.Title("Название")
+			.String()
+			.EntityName();
 
 		[PreserveCase]
 		public SemanticMember PureNumber = Member
@@ -3530,6 +3524,12 @@ namespace Luxena.Travel
 		public SemanticMember RefundedProduct = Member
 			.Title("Исходный документ")
 			.Reference("Product");
+
+		/// <summary>Пассажир</summary>
+		[PreserveCase]
+		public SemanticMember PassengerName = Member
+			.Title("Пассажир")
+			.String();
 
 		[PreserveCase]
 		public SemanticMember Passengers = Member
@@ -4188,9 +4188,8 @@ namespace Luxena.Travel
 
 	/*
 				se.Type,
-				se.Name,
-				se.PassengerName,
 				se.IssueDate,
+				se.Name,
 				se.PureNumber,
 				se.PnrCode,
 				se.TourCode,
@@ -4198,6 +4197,7 @@ namespace Luxena.Travel
 				se.Provider,
 				se.ReissueFor,
 				se.RefundedProduct,
+				se.PassengerName,
 				se.Passengers,
 				se.PassengerDtos,
 				se.IsRefund,
@@ -7956,22 +7956,23 @@ namespace Luxena.Travel
 			_className = "AmadeusAviaSftpRsaKey";
 			_isAbstract = false;
 			_getDerivedEntities = null;
-			_nameFieldName = null;
+			_nameFieldName = "PPK";
 			_title ="RSA-ключ для авиабилетов из Amadeus";
 			_titles = "RSA-ключи для авиабилетов из Amadeus";
 		}
 
-		/// <summary>Текст OPPK</summary>
+		/// <summary>Текст PPK</summary>
 		[PreserveCase]
-		public SemanticMember OPPK = Member
-			.Title("Текст OPPK")
+		public SemanticMember PPK = Member
+			.Title("Текст PPK")
 			.Text(20)
-			.Required();
+			.Required()
+			.EntityName();
 
 	}
 
 	/*
-				se.OPPK,
+				se.PPK,
 	*/
 
 	public partial class AmadeusAviaSftpRsaKeyListTab : EntityListTab

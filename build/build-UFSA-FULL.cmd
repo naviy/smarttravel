@@ -1,2 +1,2 @@
 cd ..
-build.cmd tovufsa ufsa utb
+build.cmd tovufsa ufsa utb fbc

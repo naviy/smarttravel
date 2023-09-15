@@ -30,11 +30,11 @@ namespace Luxena.Travel.Domain
 
 
 
-		//[EntityName, RU("Текст PPK"), Required, Text(20)]
-		//public virtual string PPK { get; set; }
+		[EntityName, RU("Текст PPK"), Required, Text(20)]
+		public virtual string PPK { get; set; }
 
-		[RU("Текст OPPK"), Required, Text(20)]
-		public virtual string OPPK { get; set; }
+		//[RU("Текст OPPK"), Required, Text(20)]
+		//public virtual string OPPK { get; set; }
 
 
 		//[RU("Имя пользователя SFTP")]
@@ -81,20 +81,6 @@ namespace Luxena.Travel.Domain
 			public Service()
 			{
 				
-				//Inserting += r =>
-				//{
-
-				//	var priorKey = Query.OrderByDescending(a => a.CreatedOn).FirstOrDefault();
-
-
-				//	if (priorKey != null)
-				//	{
-				//		r.SftpUserName = priorKey.SftpUserName;
-				//		r.KeyPassword = priorKey.KeyPassword;
-				//	}
-
-				//};
-
 				Modified += r =>
 				{
 					AmadeusAviaSftpFileTask.PrivateKeyFile = null;
@@ -109,10 +95,17 @@ namespace Luxena.Travel.Domain
 
 
 
-			public string GetLastOPPK()
+			public string GetLastPPK()
 			{
-				return Query.OrderByDescending(a => a.CreatedOn).FirstOrDefault()?.OPPK;
+				return Query.OrderByDescending(a => a.CreatedOn).FirstOrDefault()?.PPK;
 			}
+
+
+
+			//public string GetLastOPPK()
+			//{
+			//	return Query.OrderByDescending(a => a.CreatedOn).FirstOrDefault()?.OPPK;
+			//}
 
 		}
 

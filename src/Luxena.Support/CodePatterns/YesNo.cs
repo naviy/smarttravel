@@ -79,6 +79,12 @@ namespace Luxena
 			return me == null || !me.Success || string.IsNullOrEmpty(me.Value);
 		}
 
+		[DebuggerStepThrough]
+		public static string Value(this Match me)
+		{
+			return me != null && me.Success && !string.IsNullOrEmpty(me.Value) ? me.Value: null;
+		}
+
 
 		[DebuggerStepThrough]
 		public static bool Yes(this Group me)

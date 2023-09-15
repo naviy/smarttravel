@@ -13,9 +13,9 @@ namespace Luxena.Travel.Domain
 
 		//public string KeyPassword { get; set; }
 
-		//public string PPK { get; set; }
+		public string PPK { get; set; }
 
-		public string OPPK { get; set; }
+		//public string OPPK { get; set; }
 
 	}
 
@@ -32,8 +32,8 @@ namespace Luxena.Travel.Domain
 			{
 				//c.SftpUserName = r.SftpUserName;
 				//c.KeyPassword = r.KeyPassword;
-				//c.PPK = r.PPK;
-				c.OPPK = r.OPPK;
+				c.PPK = r.PPK;
+				// c.OPPK = r.OPPK;
 			};
 
 
@@ -41,8 +41,8 @@ namespace Luxena.Travel.Domain
 			{
 				//r.SftpUserName = c.SftpUserName + db;
 				//r.KeyPassword = c.KeyPassword + db;
-				//r.PPK = c.PPK + db;
-				r.OPPK = c.OPPK + db;
+				r.PPK = c.PPK + db;
+				// r.OPPK = c.OPPK + db;
 			};
 
 		}

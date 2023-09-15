@@ -3,7 +3,11 @@
 
 create view olap_passenger_dim
 as
-select distinct replace(replace(replace(replace(upper(trim(replace(replace(p.passengername, chr(9), ''), chr(160), ' '))), 'Ё', 'Е'), 'Š', 'S'), 'Ć', 'C'), 'Ž', 'Z')::varchar(4000) as passenger
+select distinct 
+	replace(replace(replace(replace(replace(
+		upper(trim(replace(replace(p.passengername, chr(9), ''), chr(160), ' '))), 
+		'Ё', 'Е'), 'È', 'Е'),  'Š', 'S'), 'Ć', 'C'), 'Ž', 'Z'
+	)::varchar(4000) as passenger
   from lt_product p
  where passengername is not null and not p.isreservation and not p.requiresprocessing and not p.isvoid
  order by 1;

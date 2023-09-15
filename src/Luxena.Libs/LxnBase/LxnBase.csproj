@@ -16,7 +16,7 @@
     <AssemblyName>LxnBase</AssemblyName>
     <TemplateFile>Properties\Web.Script.script</TemplateFile>
     <CodeAnalysisRuleSet>Properties\Web.Script.ruleset</CodeAnalysisRuleSet>
-    <ReferencePath>$(ProgramFiles)\ScriptSharp\v1.0\Framework\</ReferencePath>
+    <ReferencePath>C:\Program Files (x86)\ScriptSharp\v1.0\Framework\</ReferencePath>
     <DeploymentPath>..\..\Web\static\script\</DeploymentPath>
     <WebAppPartitioning>False</WebAppPartitioning>
   </PropertyGroup>
@@ -159,5 +159,5 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
-  <Import Project="$(ProgramFiles)\ScriptSharp\v1.0\ScriptSharp.targets" />
+  <Import Project="C:\Program Files (x86)\ScriptSharp\v1.0\ScriptSharp.targets" />
 </Project>

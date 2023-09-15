@@ -471,7 +471,7 @@ namespace Luxena.Travel.Domain
 	partial class AmadeusAviaSftpRsaKeyDto
 	{
 		/*
-		public string OPPK { get; set; }
+		public string PPK { get; set; }
 
 		*/
 	}
@@ -483,12 +483,12 @@ namespace Luxena.Travel.Domain
 		{
 			ContractFromEntity += (r, c) =>
 			{
-				c.OPPK = r.OPPK;
+				c.PPK = r.PPK;
 			};
 		
 			EntityFromContract += (r, c) =>
 			{
-				r.OPPK = c.OPPK + db;
+				r.PPK = c.PPK + db;
 			};
 		}
 		*/

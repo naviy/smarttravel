@@ -34,6 +34,11 @@
 	<s:Boolean x:Key="/Default/Environment/ExcludedFiles/FilesAndFoldersToSkip/=DA4D7EF7_002D5A86_002D44B9_002DA479_002DAFCDC58CEC63_002Fd_003Astatic_002Fd_003Ascript_002Ff_003ALxnTravel_002Edebug_002Ejs/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/Environment/ExcludedFiles/FilesAndFoldersToSkip/=DA4D7EF7_002D5A86_002D44B9_002DA479_002DAFCDC58CEC63_002Fd_003Astatic_002Fd_003Ascript_002Ff_003ALxnTravel_002Ejs/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/Environment/ExcludedFiles/FilesAndFoldersToSkip/=DA4D7EF7_002D5A86_002D44B9_002DA479_002DAFCDC58CEC63_002Fd_003Astatic_002Fd_003Ascript_002Ff_003Amscorlib_002Edebug_002Ejs/@EntryIndexedValue">True</s:Boolean>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=440a3d98_002D8b02_002D42ae_002Daedb_002Da655d9249e82/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="Test_18_Ticket" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit2x::B9213BE7-D314-47AB-997E-995E212D9AFE::.NETFramework,Version=v4.8::Luxena.Travel.Tests.Parsers.SabreFilParserTests&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
 	
 	
 	
@@ -41,12 +46,12 @@
 	
 	<s:String x:Key="/Default/Housekeeping/Bookmarks/NumberedBookmarks/=Bookmark0/Coords/@EntryValue">(Doc Ln 65 Col 63)</s:String>
 	<s:Boolean x:Key="/Default/Housekeeping/Bookmarks/NumberedBookmarks/=Bookmark1/@KeyIndexDefined">True</s:Boolean>
-	<s:String x:Key="/Default/Housekeeping/Bookmarks/NumberedBookmarks/=Bookmark1/Coords/@EntryValue">(Doc Ln 251 Col 3)</s:String>
-	<s:String x:Key="/Default/Housekeeping/Bookmarks/NumberedBookmarks/=Bookmark1/FileId/@EntryValue">E27BE899-79F5-46A8-99AB-C5F8EFDCB50E/d:Domain/d:Products/d:Avia/f:AviaDocument.cs</s:String>
+	<s:String x:Key="/Default/Housekeeping/Bookmarks/NumberedBookmarks/=Bookmark1/Coords/@EntryValue">(Doc Ln 93 Col 69)</s:String>
+	<s:String x:Key="/Default/Housekeeping/Bookmarks/NumberedBookmarks/=Bookmark1/FileId/@EntryValue">E27BE899-79F5-46A8-99AB-C5F8EFDCB50E/d:Parsers/f:SabreFilParser.cs</s:String>
 	<s:String x:Key="/Default/Housekeeping/Bookmarks/NumberedBookmarks/=Bookmark1/Owner/@EntryValue">NumberedBookmarkManager</s:String>
 	<s:Boolean x:Key="/Default/Housekeeping/Bookmarks/NumberedBookmarks/=Bookmark2/@KeyIndexDefined">True</s:Boolean>
-	<s:String x:Key="/Default/Housekeeping/Bookmarks/NumberedBookmarks/=Bookmark2/Coords/@EntryValue">(Doc Ln 60 Col 14)</s:String>
-	<s:String x:Key="/Default/Housekeeping/Bookmarks/NumberedBookmarks/=Bookmark2/FileId/@EntryValue">B2A850D5-0DC5-48E5-99D4-1E6A60AC4D77/d:Accounting/d:Invoice/f:Invoice.IssueForm.cs</s:String>
+	<s:String x:Key="/Default/Housekeeping/Bookmarks/NumberedBookmarks/=Bookmark2/Coords/@EntryValue">(Doc Ln 144 Col 70)</s:String>
+	<s:String x:Key="/Default/Housekeeping/Bookmarks/NumberedBookmarks/=Bookmark2/FileId/@EntryValue">E27BE899-79F5-46A8-99AB-C5F8EFDCB50E/d:Parsers/f:SabreFilParser.cs</s:String>
 	<s:String x:Key="/Default/Housekeeping/Bookmarks/NumberedBookmarks/=Bookmark2/Owner/@EntryValue">NumberedBookmarkManager</s:String>
 	
 	

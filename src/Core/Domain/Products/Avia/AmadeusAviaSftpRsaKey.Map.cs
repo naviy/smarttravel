@@ -20,8 +20,8 @@ namespace Luxena.Travel.Domain.Avia
 
 			//Property(x => x.SftpUserName, m => { m.NotNullable(true); });
 			//Property(x => x.KeyPassword, m => { m.NotNullable(true); });
-			//Property(x => x.PPK, m => { m.NotNullable(true); });
-			Property(x => x.OPPK, m => { m.NotNullable(true); });
+			Property(x => x.PPK, m => { m.NotNullable(false); });
+			//Property(x => x.OPPK, m => { m.NotNullable(true); });
 
 		}
 
