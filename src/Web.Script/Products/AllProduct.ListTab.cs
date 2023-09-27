@@ -13,17 +13,25 @@ using Action = Ext.Action;
 using Record = Ext.data.Record;
 
 
+
+
 namespace Luxena.Travel
 {
 
+
+
 	public class AllProductListTab : ProductListTab
 	{
+
 		public AllProductListTab(string tabId, ListArgs args) : base(tabId, args) { }
+
+
 
 		public static void ListObject(ListArgs args, bool newTab)
 		{
 			ListObjectsOfType(typeof(AllProductListTab), args, newTab);
 		}
+
 
 
 		protected override void OnInitGrid(AutoGridArgs args, EditorGridPanelConfig config)
@@ -32,6 +40,7 @@ namespace Luxena.Travel
 
 			args.ForcedProperties = new string[] { "RequiresProcessing", "IsVoid" };
 		}
+
 
 		protected override void CreateCustomColumnConfigs()
 		{
@@ -50,6 +59,7 @@ namespace Luxena.Travel
 				sd.AviaDocument.TicketingIataOffice,
 			});
 		}
+
 
 		protected override void HandleAltEnterPress()
 		{
@@ -100,6 +110,7 @@ namespace Luxena.Travel
 			toolbarItems.InsertRange(0, (object[])toolbarActions);
 		}
 
+
 		protected override void OnRowChange(Record[] selections)
 		{
 			base.OnRowChange(selections);
@@ -138,5 +149,7 @@ namespace Luxena.Travel
 		private Action _printButton;
 
 	}
+
+
 
 }

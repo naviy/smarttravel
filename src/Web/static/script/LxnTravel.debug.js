@@ -14076,13 +14076,13 @@ Luxena.Travel.ProductListTab.prototype = {
         var se = new Luxena.Travel.SemanticDomain(this).Product;
         this.addColumns([ se.IssueDate, this.columnCfg('Type') ]);
         this.createCustomColumnConfigs();
-        this.addColumns([ se.ReissueFor.toColumn(true), se.Customer, se.PaymentType, se.Fare, se.EqualFare, se.ConsolidatorCommission.toColumn(true), se.Commission, se.Total, se.ServiceFee, se.BookingFee.toColumn(true) ]);
+        this.addColumns([ se.ReissueFor.toColumn(true), se.Customer, se.PaymentType, se.Fare, se.EqualFare, se.ConsolidatorCommission.toColumn(true), se.Commission, se.CancelCommission.toColumn(true), se.CancelCommissionPercent.toColumn(true), se.Total, se.ServiceFee, se.BookingFee.toColumn(true) ]);
         if (this.isRefund()) {
             this.addColumns([ se.CancelFee ]);
         }
         this.addColumns([ se.FeesTotal.toColumn(true), se.Vat.toColumn(true), se.GrandTotal, se.Order, se.Seller, se.Booker.toColumn(true), se.BookerCode.toColumn(true), se.BookerOffice.toColumn(true), se.Ticketer.toColumn(true), se.TicketerCode.toColumn(true), se.TicketerOffice.toColumn(true), se.IsPaid ]);
         if (Luxena.Travel.ProductListTab.get_useHandling()) {
-            this.addColumns([ se.Handling.toColumn(true), se.CommissionDiscount.toColumn(true) ]);
+            this.addColumns([ se.Handling.toColumn(true), se.HandlingN.toColumn(true), se.CommissionDiscount.toColumn(true) ]);
         }
         this.addColumns([ se.Discount.toColumn(true), se.BonusDiscount.toColumn(true), se.BonusAccumulation.toColumn(true), se.Owner.toColumn(false), se.LegalEntity.toColumn(true), se.IsProcessed.toColumn(true), se.IsVoid.toColumn(true), se.RequiresProcessing.toColumn(true), se.Note.toColumn(true), se.CreatedOn.toColumn(true), se.CreatedBy.toColumn(true), se.ModifiedOn.toColumn(true), se.ModifiedBy.toColumn(true), new Ext.grid.ColumnConfig().header('Id').dataIndex('Id').hidden(true).toDictionary() ]);
     },

@@ -189,6 +189,8 @@ namespace Luxena.Travel
 				se.EqualFare,
 				se.ConsolidatorCommission.ToColumn(true),
 				se.Commission,
+				se.CancelCommission.ToColumn(true),
+				se.CancelCommissionPercent.ToColumn(true),
 				se.Total,
 				se.ServiceFee,
 				se.BookingFee.ToColumn(true),
@@ -226,6 +228,7 @@ namespace Luxena.Travel
 				AddColumns(new object[]
 				{
 					se.Handling.ToColumn(true),
+					se.HandlingN.ToColumn(true),
 					se.CommissionDiscount.ToColumn(true),
 				});
 			}
