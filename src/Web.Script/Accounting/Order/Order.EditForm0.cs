@@ -188,7 +188,6 @@ namespace Luxena.Travel
 			_owner = ControlFactoryExt.CreateOwnerControl(200, false);
 
 			_assignedTo = ControlFactoryExt.CreateAssignedToControl(DomainRes.Common_AssignedTo, 200, false);
-
 			_assignedTo.SetValue(AppManager.CurrentPerson);
 
 			_bankAccount = ControlFactoryExt.CreateBankAccountControl(200);

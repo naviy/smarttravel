@@ -94,6 +94,7 @@ namespace Luxena.Travel.Domain
 		public bool InvoicePrinter_ShowVat { get; set; }
 		public string InvoicePrinter_FooterDetails { get; set; }
 		public bool Invoice_CanOwnerSelect { get; set; }
+		public Person.Reference Invoice_DefaultIssuedBy { get; set; }
 
 		public DateTime? DrctWebService_LoadedOn { get; set; }
 		public DateTime? GalileoWebService_LoadedOn { get; set; }
@@ -175,6 +176,7 @@ namespace Luxena.Travel.Domain
 				c.InvoicePrinter_ShowVat = r.InvoicePrinter_ShowVat;
 				c.InvoicePrinter_FooterDetails = r.InvoicePrinter_FooterDetails;
 				c.Invoice_CanOwnerSelect = r.Invoice_CanOwnerSelect;
+				c.Invoice_DefaultIssuedBy = r.Invoice_DefaultIssuedBy;
 				c.DrctWebService_LoadedOn = r.DrctWebService_LoadedOn;
 				c.GalileoWebService_LoadedOn = r.GalileoWebService_LoadedOn;
 				c.GalileoRailWebService_LoadedOn = r.GalileoRailWebService_LoadedOn;
@@ -223,11 +225,14 @@ namespace Luxena.Travel.Domain
 				r.McoRequiresDescription = c.McoRequiresDescription + db;
 				r.NeutralAirlineCode = c.NeutralAirlineCode + db;
 				r.Order_UseServiceFeeOnlyInVat = c.Order_UseServiceFeeOnlyInVat + db;
+
 				r.Invoice_NumberMode = (InvoiceNumberMode)c.Invoice_NumberMode + db;
 				r.Consignment_NumberMode = (InvoiceNumberMode)c.Consignment_NumberMode + db;
 				r.InvoicePrinter_ShowVat = c.InvoicePrinter_ShowVat + db;
 				r.InvoicePrinter_FooterDetails = c.InvoicePrinter_FooterDetails + db;
 				r.Invoice_CanOwnerSelect = c.Invoice_CanOwnerSelect + db;
+				r.Invoice_DefaultIssuedBy = c.Invoice_DefaultIssuedBy + db;
+
 				r.DrctWebService_LoadedOn = c.DrctWebService_LoadedOn + db;
 				r.GalileoWebService_LoadedOn = c.GalileoWebService_LoadedOn + db;
 				r.TravelPointWebService_LoadedOn = c.TravelPointWebService_LoadedOn + db;

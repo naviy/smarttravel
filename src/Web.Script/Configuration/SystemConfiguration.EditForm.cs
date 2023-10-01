@@ -77,6 +77,7 @@ namespace Luxena.Travel
 					se.Invoice_CanOwnerSelect,
 					se.InvoicePrinter_ShowVat,
 					se.InvoicePrinter_FooterDetails.ToField(-3),
+					se.Invoice_DefaultIssuedBy.ToField(-3),
 				}),
 
 				TabPane("Накладные", new object[]

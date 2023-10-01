@@ -1722,7 +1722,11 @@ namespace Luxena.Travel
 
 		[PreserveCase()]
 		public bool Invoice_CanOwnerSelect;
-		
+
+		[PreserveCase()]
+		public Reference Invoice_DefaultIssuedBy;
+
+
 		[PreserveCase()]
 		public bool Ticket_NoPrintReservations;
 	}
@@ -2699,6 +2703,7 @@ namespace Luxena.Travel.Services
 			object id, 
 			string number,
 			Date issueDate,
+			object issuedById,
 			object ownerId,
 			object bankAccountId,
 			int? formNumber, 
@@ -2713,6 +2718,7 @@ namespace Luxena.Travel.Services
 					"id", id, 
 					"number", number, 
 					"issueDate", issueDate,
+					"issuedById", issuedById,
 					"ownerId", ownerId,
 					"bankAccountId", bankAccountId,
 					"formNumber", formNumber,
@@ -2731,10 +2737,11 @@ namespace Luxena.Travel.Services
 			object id, 
 			string number, 
 			Date issueDate,
+			object issuedById,
 			object ownerId,
 			object bankAccountId,
-			bool showPaid, 
-			AjaxCallback onSuccess, 
+			bool showPaid,
+			AjaxCallback onSuccess,
 			WebServiceFailure onError
 		)
 		{
@@ -2744,6 +2751,7 @@ namespace Luxena.Travel.Services
 					"id", id, 
 					"number", number,
 					"issueDate", issueDate,
+					"issuedById", issuedById,
 					"ownerId", ownerId,
 					"bankAccountId", bankAccountId,
 					"showPaid", showPaid

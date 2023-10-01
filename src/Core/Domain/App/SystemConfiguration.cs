@@ -140,8 +140,13 @@ namespace Luxena.Travel.Domain
 		[RU("Инвойсы: печатать НДС")]
 		public virtual bool InvoicePrinter_ShowVat { get; set; }
 
+		[RU("Инвойсы: выпущен агентом (по умолчанию)")]
+		public virtual Person Invoice_DefaultIssuedBy { get; set; }
+
+
 		[RU("Инвойсы: важное примечание"), Text(6)]
 		public virtual string InvoicePrinter_FooterDetails { get; set; }
+
 
 		[RU("DrctWebService_LoadedOn"), DateTime2]
 		public virtual DateTime? DrctWebService_LoadedOn { get; set; }
@@ -224,7 +229,13 @@ namespace Luxena.Travel.Domain
 
 
 
-		public virtual string GetSupplierDetails(Domain db, Order order = null, Party owner = null, BankAccount bankAccount = null, bool multiline = false)
+		public virtual string GetSupplierDetails(
+			Domain db,
+			Order order = null,
+			Party owner = null,
+			BankAccount bankAccount = null,
+			bool multiline = false
+		)
 		{
 
 			var supplier = owner ?? Company;
@@ -236,26 +247,33 @@ namespace Luxena.Travel.Domain
 			var sb = new StringBuilder(0);
 
 
-			sb.AppendLine(supplier.NameForDocuments);
-
-
-			if (CompanyDetails.Yes())
-			{
-				sb.AppendLine(CompanyDetails);
-			}
-
-
-			if (supplier.LegalAddress.Yes())
-			{
-				sb.AppendFormat(ReportRes.InvoicePrinter_Address, supplier.LegalAddress);
-				sb.AppendLine();
-			}
-
-
-			AppendPartyContacts(sb, supplier);
-
-
 			bankAccount = bankAccount ?? order?.BankAccount;
+
+
+			if (bankAccount != null && bankAccount.CompanyDetails.Yes())
+			{
+				sb.AppendLine(bankAccount.CompanyDetails);
+			}
+			else
+			{
+
+				sb.AppendLine(supplier.NameForDocuments);
+
+				if (CompanyDetails.Yes())
+				{
+					sb.AppendLine(CompanyDetails);
+				}
+
+				if (supplier.LegalAddress.Yes())
+				{
+					sb.AppendFormat(ReportRes.InvoicePrinter_Address, supplier.LegalAddress);
+					sb.AppendLine();
+				}
+
+				AppendPartyContacts(sb, supplier);
+
+			}
+
 
 			if (bankAccount != null)
 			{
@@ -307,12 +325,12 @@ namespace Luxena.Travel.Domain
 
 
 			AppendPartyContacts(sb, customer);
-			
+
 
 			return multiline ? sb.ToString() : sb.ToString().Replace("\r", string.Empty);
 
 		}
-		
+
 
 
 		private void AppendPartyContacts(StringBuilder sb, Party party)

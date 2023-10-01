@@ -1,5 +1,4 @@
 ﻿using System;
-
 using Luxena.Domain.Contracts;
 
 
@@ -7,7 +6,6 @@ using Luxena.Domain.Contracts;
 
 namespace Luxena.Travel.Domain
 {
-
 
 
 	//===g
@@ -61,8 +59,10 @@ namespace Luxena.Travel.Domain
 
 		public InvoiceContractService()
 		{
+
 			ContractFromEntity += (r, c) =>
 			{
+
 				c.Number = r.Number;
 				c.IssueDate = r.IssueDate;
 				c.TimeStamp = r.TimeStamp;
@@ -72,10 +72,13 @@ namespace Luxena.Travel.Domain
 				c.Vat = r.Vat;
 				c.Type = r.Type;
 				c.FileExtension = r.FileExtension;
+
 			};
+
 
 			EntityFromContract += (r, c) =>
 			{
+
 				r.Number = c.Number + db;
 				r.IssueDate = c.IssueDate + db;
 				r.TimeStamp = c.TimeStamp + db;
@@ -84,22 +87,29 @@ namespace Luxena.Travel.Domain
 				r.Vat = c.Vat + db;
 				r.Type = c.Type + db;
 				r.FileExtension = c.FileExtension + db;
+
 			};
 
 		}
 
 
 
-		public InvoiceDto Issue(object orderId, string number, DateTime issueDate, object ownerId, object bankAccountId, int? formNumber, bool showPaid)
+		public InvoiceDto Issue(
+			object orderId,
+			string number,
+			DateTime issueDate,
+			object issuedById,
+			object ownerId,
+			object bankAccountId,
+			int? formNumber,
+			bool showPaid
+		)
 		{
-
 			var order = db.Order.By(orderId);
 
-			var r = db.Invoice.Issue(order, number, issueDate, ownerId, bankAccountId, formNumber, showPaid);
-
+			var r = db.Invoice.Issue(order, number, issueDate, issuedById, ownerId, bankAccountId, formNumber, showPaid);
 
 			return New(r);
-
 		}
 
 
@@ -115,15 +125,22 @@ namespace Luxena.Travel.Domain
 
 
 
-		public InvoiceDto IssueCompletionCertificate(object orderId, string number, DateTime issueDate, object ownerId, object bankAccountId, bool showPaid)
+		public InvoiceDto IssueCompletionCertificate(
+			object orderId,
+			string number,
+			DateTime issueDate,
+			object issuedById,
+			object ownerId,
+			object bankAccountId,
+			bool showPaid
+		)
 		{
 			var order = db.Order.By(orderId);
 
-			var r = db.Invoice.IssueCompletionCertificate(order, number, issueDate, ownerId, bankAccountId, showPaid);
+			var r = db.Invoice.IssueCompletionCertificate(order, number, issueDate, issuedById, ownerId, bankAccountId, showPaid);
 
 			return New(r);
 		}
-
 
 
 		//---g
@@ -136,7 +153,6 @@ namespace Luxena.Travel.Domain
 
 
 	//===g
-
 
 
 }

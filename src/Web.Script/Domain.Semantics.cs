@@ -349,6 +349,12 @@ namespace Luxena.Travel
 			.Bool()
 			.Required();
 
+		/// <summary>Реквизиты организации</summary>
+		[PreserveCase]
+		public SemanticMember CompanyDetails = Member
+			.Title("Реквизиты организации")
+			.Text(3);
+
 		/// <summary>Примечание</summary>
 		[PreserveCase]
 		public SemanticMember Note = Member
@@ -359,6 +365,7 @@ namespace Luxena.Travel
 
 	/*
 				se.IsDefault,
+				se.CompanyDetails,
 				se.Note,
 	*/
 
@@ -3471,19 +3478,25 @@ namespace Luxena.Travel
 			})
 			.Required();
 
-		/// <summary>Дата выпуска</summary>
-		[PreserveCase]
-		public SemanticMember IssueDate = Member
-			.Title("Дата выпуска")
-			.Date()
-			.Required();
-
 		/// <summary>Название</summary>
 		[PreserveCase]
 		public SemanticMember Name = Member
 			.Title("Название")
 			.String()
 			.EntityName();
+
+		/// <summary>Пассажир</summary>
+		[PreserveCase]
+		public SemanticMember PassengerName = Member
+			.Title("Пассажир")
+			.String();
+
+		/// <summary>Дата выпуска</summary>
+		[PreserveCase]
+		public SemanticMember IssueDate = Member
+			.Title("Дата выпуска")
+			.Date()
+			.Required();
 
 		[PreserveCase]
 		public SemanticMember PureNumber = Member
@@ -3524,12 +3537,6 @@ namespace Luxena.Travel
 		public SemanticMember RefundedProduct = Member
 			.Title("Исходный документ")
 			.Reference("Product");
-
-		/// <summary>Пассажир</summary>
-		[PreserveCase]
-		public SemanticMember PassengerName = Member
-			.Title("Пассажир")
-			.String();
 
 		[PreserveCase]
 		public SemanticMember Passengers = Member
@@ -4188,8 +4195,9 @@ namespace Luxena.Travel
 
 	/*
 				se.Type,
-				se.IssueDate,
 				se.Name,
+				se.PassengerName,
+				se.IssueDate,
 				se.PureNumber,
 				se.PnrCode,
 				se.TourCode,
@@ -4197,7 +4205,6 @@ namespace Luxena.Travel
 				se.Provider,
 				se.ReissueFor,
 				se.RefundedProduct,
-				se.PassengerName,
 				se.Passengers,
 				se.PassengerDtos,
 				se.IsRefund,
@@ -5725,6 +5732,12 @@ namespace Luxena.Travel
 			.Bool()
 			.Required();
 
+		/// <summary>Инвойсы: выпущен агентом (по умолчанию)</summary>
+		[PreserveCase]
+		public SemanticMember Invoice_DefaultIssuedBy = Member
+			.Title("Инвойсы: выпущен агентом (по умолчанию)")
+			.Reference("Person");
+
 		/// <summary>Инвойсы: важное примечание</summary>
 		[PreserveCase]
 		public SemanticMember InvoicePrinter_FooterDetails = Member
@@ -5829,6 +5842,7 @@ namespace Luxena.Travel
 				se.Invoice_NumberMode,
 				se.Invoice_CanOwnerSelect,
 				se.InvoicePrinter_ShowVat,
+				se.Invoice_DefaultIssuedBy,
 				se.InvoicePrinter_FooterDetails,
 				se.DrctWebService_LoadedOn,
 				se.GalileoWebService_LoadedOn,

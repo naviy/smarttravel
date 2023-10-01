@@ -827,6 +827,27 @@ update lt_order o set
 		}
 	}
 
+	[Migration(2023101001)]
+	public class Migration_2023101001 : AutoReversingMigration
+	{
+		public override void Up()
+		{
+			Alter.Table("lt_bank_account")
+				.AddColumn("companydetails").AsText().Nullable()
+			;
+		}
+	}
+
+	[Migration(2023101002)]
+	public class Migration_2023101002 : AutoReversingMigration
+	{
+		public override void Up()
+		{
+			Alter.Table("lt_system_configuration")
+				.AddColumn("invoice_defaultissuedby").AsRefecence("lt_party").Nullable()
+			;
+		}
+	}
 
 
 

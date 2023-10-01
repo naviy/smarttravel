@@ -12,8 +12,12 @@ using NHibernate;
 using NHibernate.Linq;
 
 
+
+
 namespace Luxena.Domain.Entities
 {
+
+
 
 	public interface IEntityCreator<out TEntity>
 		where TEntity : class, IEntity
@@ -21,11 +25,15 @@ namespace Luxena.Domain.Entities
 		TEntity New();
 	}
 
+
+
+
 	public abstract class EntityService<TDomain, TEntity>
 		: DomainService<TDomain>, IEntityPermissions, IEntityCreator<TEntity>//, IQueryable<TEntity>
 		where TDomain : Domain<TDomain>
 		where TEntity : class, IEntity
 	{
+
 
 		protected EntityService()
 		{
@@ -33,6 +41,7 @@ namespace Luxena.Domain.Entities
 			if (entityType != null)
 				FetchClass(entityType);
 		}
+
 
 		public override Type GetEntityType()
 		{
@@ -720,5 +729,7 @@ namespace Luxena.Domain.Entities
 //		#endregion
 
 	}
+
+
 
 }

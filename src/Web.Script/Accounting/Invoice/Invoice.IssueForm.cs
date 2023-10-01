@@ -1,4 +1,5 @@
 ﻿using System;
+using System;
 using System.Collections;
 
 using Ext;
@@ -51,6 +52,7 @@ namespace Luxena.Travel
 		private ComboBox _formNumber;
 		private Checkbox _showPayments;
 		private InvoiceType _type;
+		private LxnBase.UI.Controls.ObjectSelector _issuedByTo;
 
 
 
@@ -172,7 +174,15 @@ namespace Luxena.Travel
 			;
 
 
-			Component[] fields = { _issueDate, _number, _owner, _bankAccount, _formNumber, _showPayments };
+			_issuedByTo = ControlFactoryExt.CreateAssignedToControl(DomainRes.Invoice_IssuedBy, 200, false);
+
+			_issuedByTo.SetValue(
+				AppManager.SystemConfiguration.Invoice_DefaultIssuedBy 
+				?? AppManager.CurrentPerson
+			);
+
+
+			Component[] fields = { _issueDate, _number, _owner, _bankAccount, _formNumber, _showPayments, _issuedByTo.Widget };
 
 			Form.add(fields);
 
@@ -217,6 +227,7 @@ namespace Luxena.Travel
 					_orderId,
 					number,
 					_issueDate.getValue(),
+					_issuedByTo.GetObjectId(),
 					_owner.GetSelectedId(),
 					_bankAccount.GetSelectedId(),
 					_showPayments.getValue(),
@@ -229,6 +240,7 @@ namespace Luxena.Travel
 					_orderId,
 					number,
 					_issueDate.getValue(),
+					_issuedByTo.GetObjectId(),
 					_owner.GetSelectedId(),
 					_bankAccount.GetSelectedId(),
 					Number.ParseInt(_formNumber.getValue()),

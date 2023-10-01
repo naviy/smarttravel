@@ -118,7 +118,7 @@ namespace Luxena.Travel.Domain
 
 
 
-			public Invoice Issue(Order order, string number, DateTime issueDate, object ownerId, object bankAccountId, int? formNumber, bool showPaid)
+			public Invoice Issue(Order order, string number, DateTime issueDate, object issuedById, object ownerId, object bankAccountId, int? formNumber, bool showPaid)
 			{
 
 				db.AssertUpdate(order);
@@ -144,7 +144,7 @@ namespace Luxena.Travel.Domain
 				}
 
 
-				var issuedBy = db.Security.Person;
+				var issuedBy = db.Person.By(issuedById) ?? db.Security.Person;
 				var owner = db.Party.By(ownerId);
 				var bankAccount = db.BankAccount.By(bankAccountId);
 
@@ -182,7 +182,7 @@ namespace Luxena.Travel.Domain
 
 
 
-			public Invoice IssueCompletionCertificate(Order order, string number, DateTime issueDate, object ownerId, object bankAccountId, bool showPaid)
+			public Invoice IssueCompletionCertificate(Order order, string number, DateTime issueDate, object issuedById, object ownerId, object bankAccountId, bool showPaid)
 			{
 
 				db.AssertUpdate(order);
@@ -199,7 +199,7 @@ namespace Luxena.Travel.Domain
 				}
 
 
-				var issuedBy = db.Security.Person;
+				var issuedBy = db.Person.By(issuedById) ?? db.Security.Person;
 				var owner = db.Party.By(ownerId);
 				var bankAccount = db.BankAccount.By(bankAccountId);
 
