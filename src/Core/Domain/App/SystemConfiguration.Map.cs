@@ -65,6 +65,7 @@ namespace Luxena.Travel.Domain.NHibernate.Mapping.Configuration
 			Property(x => x.AviaOrderItemGenerationOption, m => m.NotNullable(true));
 
 			Property(x => x.SeparateDocumentAccess, m => m.NotNullable(true));
+			Property(x => x.SeparateDocumentAccessByAgent, m => m.NotNullable(true));
 
 			Property(x => x.AllowOtherAgentsToModifyProduct, m => m.NotNullable(true));
 

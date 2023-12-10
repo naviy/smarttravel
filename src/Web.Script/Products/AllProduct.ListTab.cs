@@ -23,6 +23,10 @@ namespace Luxena.Travel
 	public class AllProductListTab : ProductListTab
 	{
 
+		//---g
+
+
+
 		public AllProductListTab(string tabId, ListArgs args) : base(tabId, args) { }
 
 
@@ -42,10 +46,13 @@ namespace Luxena.Travel
 		}
 
 
+
 		protected override void CreateCustomColumnConfigs()
 		{
+
 			SemanticDomain sd = new SemanticDomain(this);
 			ProductSemantic se = sd.Product;
+
 
 			AddColumns(new object[]
 			{
@@ -58,7 +65,13 @@ namespace Luxena.Travel
 				se.TourCode.ToColumn(true),
 				sd.AviaDocument.TicketingIataOffice,
 			});
+
 		}
+
+
+
+		//---g
+
 
 
 		protected override void HandleAltEnterPress()
@@ -70,10 +83,13 @@ namespace Luxena.Travel
 
 		protected override void OnAddToolbarButtons(ArrayList toolbarItems, AutoGrid grid)
 		{
+
 			if (ListConfig.IsEditAllowed.Visible)
 			{
+
 				_handleButton = Action(Res.AviaDocument_Handle_Action.ToLowerCase(), TryProcess, true, ListConfig.IsEditAllowed.DisableInfo);
 				_printButton = Action(Res.AviaDocument_Print_Action.ToLowerCase(), PrintDocuments, true);
+
 
 				MenuAction(BaseRes.CreateItem_Lower, new object[]
 				{
@@ -95,9 +111,12 @@ namespace Luxena.Travel
 					"-",
 					MenuCreateItem(DomainRes.GenericProduct, ClassNames.GenericProduct)
 				});
+
 			}
 
+
 			CreateStdToolbarActions();
+
 
 			if (grid != null)
 			{
@@ -107,8 +126,11 @@ namespace Luxena.Travel
 					toolbarItems.Remove(grid.ExportAction);
 			}
 
+
 			toolbarItems.InsertRange(0, (object[])toolbarActions);
+
 		}
+
 
 
 		protected override void OnRowChange(Record[] selections)
@@ -127,6 +149,7 @@ namespace Luxena.Travel
 
 		private void TryProcess()
 		{
+
 			Record record = AutoGrid.SelectionModel.getSelected();
 			string type = (string)Type.GetField(record.data, ObjectPropertyNames.ObjectClass);
 
@@ -134,7 +157,10 @@ namespace Luxena.Travel
 				AviaDocumentListTab.BaseTryProcess(AutoGrid, _baseParams, null);
 			else
 				AutoGrid.Edit();
+
 		}
+
+
 
 		private void PrintDocuments()
 		{
@@ -145,8 +171,16 @@ namespace Luxena.Travel
 
 
 
+		//---g
+
+
+
 		private Action _handleButton;
 		private Action _printButton;
+
+
+
+		//---g
 
 	}
 

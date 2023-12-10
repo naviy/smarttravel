@@ -4,7 +4,8 @@
 	public enum DocumentAccessRestriction
 	{
 		NoAccess,
-		RestrictedAccess,
+		RestrictedAccessByOwner,
+		RestrictedAccessByAgent,
 		FullAccess
 	}
 

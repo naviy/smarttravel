@@ -5595,10 +5595,17 @@ namespace Luxena.Travel
 			.Title("Корреспондентский счет для ПКО")
 			.String();
 
-		/// <summary>Разделять доступ к документам</summary>
+		/// <summary>Разделять доступ к документам по владельцу</summary>
 		[PreserveCase]
 		public SemanticMember SeparateDocumentAccess = Member
-			.Title("Разделять доступ к документам")
+			.Title("Разделять доступ к документам по владельцу")
+			.Bool()
+			.Required();
+
+		/// <summary>Разделять доступ к документам по агенту</summary>
+		[PreserveCase]
+		public SemanticMember SeparateDocumentAccessByAgent = Member
+			.Title("Разделять доступ к документам по агенту")
 			.Bool()
 			.Required();
 
@@ -5824,6 +5831,7 @@ namespace Luxena.Travel
 				se.AccountantDisplayString,
 				se.IncomingCashOrderCorrespondentAccount,
 				se.SeparateDocumentAccess,
+				se.SeparateDocumentAccessByAgent,
 				se.AllowOtherAgentsToModifyProduct,
 				se.IsOrganizationCodeRequired,
 				se.UseConsolidatorCommission,

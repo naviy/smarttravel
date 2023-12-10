@@ -60,13 +60,13 @@ namespace Luxena.Travel.Parsers
 				r.DepartureDate = a.Date;
 				r.DepartureTime = a.ToString("HH:mm");
 			});
-			r.DeparturePlace = train.Value("station_from_ru");
+			r.DeparturePlace = train.Value("station_from_ua");
 			train.Value("arrival").As().DateTimen(ruCulture).Do(a =>
 			{
 				r.ArrivalDate = a.Date;
 				r.ArrivalTime = a.ToString("HH:mm");
 			});
-			r.ArrivalPlace = train.Value("station_to_ru");
+			r.ArrivalPlace = train.Value("station_to_ua");
 			
 
 			r.TrainNumber = train.Value("number");

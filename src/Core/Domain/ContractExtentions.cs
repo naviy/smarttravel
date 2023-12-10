@@ -5017,6 +5017,8 @@ namespace Luxena.Travel.Domain
 
 		public bool SeparateDocumentAccess { get; set; }
 
+		public bool SeparateDocumentAccessByAgent { get; set; }
+
 		public bool AllowOtherAgentsToModifyProduct { get; set; }
 
 		public bool IsOrganizationCodeRequired { get; set; }
@@ -5101,6 +5103,7 @@ namespace Luxena.Travel.Domain
 				c.AccountantDisplayString = r.AccountantDisplayString;
 				c.IncomingCashOrderCorrespondentAccount = r.IncomingCashOrderCorrespondentAccount;
 				c.SeparateDocumentAccess = r.SeparateDocumentAccess;
+				c.SeparateDocumentAccessByAgent = r.SeparateDocumentAccessByAgent;
 				c.AllowOtherAgentsToModifyProduct = r.AllowOtherAgentsToModifyProduct;
 				c.IsOrganizationCodeRequired = r.IsOrganizationCodeRequired;
 				c.UseConsolidatorCommission = r.UseConsolidatorCommission;
@@ -5151,6 +5154,7 @@ namespace Luxena.Travel.Domain
 				r.AccountantDisplayString = c.AccountantDisplayString + db;
 				r.IncomingCashOrderCorrespondentAccount = c.IncomingCashOrderCorrespondentAccount + db;
 				r.SeparateDocumentAccess = c.SeparateDocumentAccess + db;
+				r.SeparateDocumentAccessByAgent = c.SeparateDocumentAccessByAgent + db;
 				r.AllowOtherAgentsToModifyProduct = c.AllowOtherAgentsToModifyProduct + db;
 				r.IsOrganizationCodeRequired = c.IsOrganizationCodeRequired + db;
 				r.UseConsolidatorCommission = c.UseConsolidatorCommission + db;

@@ -65,6 +65,7 @@ namespace Luxena.Travel
 					se.UseAviaDocumentVatInOrder,
 					se.AllowAgentSetOrderVat,
 					se.SeparateDocumentAccess,
+					se.SeparateDocumentAccessByAgent,
 					se.IsOrderRequiredForProcessedDocument,
 					se.ReservationsInOfficeMetrics,
 					se.McoRequiresDescription,

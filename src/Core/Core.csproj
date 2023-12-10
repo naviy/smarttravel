@@ -43,8 +43,8 @@
     <Reference Include="Castle.Windsor">
       <HintPath>..\..\lib\Castle.Windsor.dll</HintPath>
     </Reference>
-    <Reference Include="ChilkatDotNet48, Version=9.5.0.95, Culture=neutral, PublicKeyToken=eb5fc1fc52ef09bd, processorArchitecture=AMD64">
-      <HintPath>..\packages\chilkat-x64.9.5.0.95\lib\net48\ChilkatDotNet48.dll</HintPath>
+    <Reference Include="ChilkatDotNet48, Version=9.5.0.96, Culture=neutral, PublicKeyToken=eb5fc1fc52ef09bd, processorArchitecture=AMD64">
+      <HintPath>..\packages\chilkat-x64.9.5.0.96\lib\net48\ChilkatDotNet48.dll</HintPath>
     </Reference>
     <Reference Include="Common.Logging, Version=2.3.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>

@@ -81,8 +81,11 @@ namespace Luxena.Travel.Domain
 		[RU("Корреспондентский счет для ПКО")]
 		public virtual string IncomingCashOrderCorrespondentAccount { get; set; }
 
-		[RU("Разделять доступ к документам")]
+		[RU("Разделять доступ к документам по владельцу")]
 		public virtual bool SeparateDocumentAccess { get; set; }
+
+		[RU("Разделять доступ к документам по агенту")]
+		public virtual bool SeparateDocumentAccessByAgent { get; set; }
 
 		[RU("Возможность редактировать и обрабатывать билеты других агентов")]
 		public virtual bool AllowOtherAgentsToModifyProduct { get; set; }

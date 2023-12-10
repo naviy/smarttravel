@@ -9,6 +9,7 @@ namespace Luxena.Travel.Domain
 	partial class OrderManager
 	{
 
+
 		public override Permissions GetCustomPermissions()
 		{
 			return new Permissions
@@ -17,15 +18,21 @@ namespace Luxena.Travel.Domain
 			};
 		}
 
+
+
 		public override RangeResponse List(RangeRequest request, RecordConfig config)
 		{
+
 			var access = db.DocumentAccess.GetAccessRestriction();
+
 
 			if (access == DocumentAccessRestriction.NoAccess)
 				return new RangeResponse();
 
-			if (access == DocumentAccessRestriction.RestrictedAccess)
+
+			if (access == DocumentAccessRestriction.RestrictedAccessByOwner)
 			{
+
 				var filters = new List<string>();
 
 				if (request.NamedFilters != null)
@@ -34,10 +41,15 @@ namespace Luxena.Travel.Domain
 				filters.Add("Orders");
 
 				request.NamedFilters = filters.ToArray();
+
 			}
 
+
 			return base.List(request, config);
+
 		}
+
+
 
 		public override RangeResponse Suggest(RangeRequest request, RecordConfig config)
 		{

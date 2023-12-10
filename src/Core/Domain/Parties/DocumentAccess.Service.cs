@@ -4,25 +4,38 @@ using System.Linq;
 using Luxena.Base.Data;
 
 
+
+
 namespace Luxena.Travel.Domain
 {
+
 
 	partial class DocumentAccess
 	{
 
+		//---g
+
+
+
 		public class Service : Entity2Service<DocumentAccess>
 		{
 
+			//---g
+
+
+
 			public DocumentAccessRestriction GetAccessRestriction()
 			{
-				bool fullDocumentControl;
-
-				return GetAccessRestriction(out fullDocumentControl);
+				return GetAccessRestriction(out _);
 			}
+
+
 
 			public DocumentAccessRestriction GetAccessRestriction(out bool fullDocumentControl)
 			{
+
 				fullDocumentControl = false;
+
 
 				if (db.IsGranted(UserRole.Administrator, UserRole.Supervisor))
 				{
@@ -31,31 +44,51 @@ namespace Luxena.Travel.Domain
 					return DocumentAccessRestriction.FullAccess;
 				}
 
-				if (!db.Configuration.SeparateDocumentAccess)
-					return DocumentAccessRestriction.FullAccess;
 
-				if (DocumentAccessList.Count == 0)
-					return DocumentAccessRestriction.NoAccess;
-
-				if (DocumentAccessList.Count == 1 && DocumentAccessList[0].Owner == null)
+				if (db.Configuration.SeparateDocumentAccess)
 				{
-					fullDocumentControl = DocumentAccessList[0].FullDocumentControl;
 
-					return DocumentAccessRestriction.FullAccess;
+					if (DocumentAccessList.Count == 0)
+					{
+						return DocumentAccessRestriction.NoAccess;
+					}
+
+
+					if (DocumentAccessList.Count == 1 && DocumentAccessList[0].Owner == null)
+					{
+						fullDocumentControl = DocumentAccessList[0].FullDocumentControl;
+
+						return DocumentAccessRestriction.FullAccess;
+					}
+
+
+					return DocumentAccessRestriction.RestrictedAccessByOwner;
+
 				}
 
-				return DocumentAccessRestriction.RestrictedAccess;
+
+				if (db.Configuration.SeparateDocumentAccessByAgent)
+				{
+					return DocumentAccessRestriction.RestrictedAccessByAgent;
+				}
+
+
+				return DocumentAccessRestriction.FullAccess;
+
 			}
+
+
 
 			public bool HasAccess(Party documentOwner)
 			{
-				bool fullDocumentControl;
-
-				return HasAccess(documentOwner, out fullDocumentControl);
+				return HasAccess(documentOwner, out _);
 			}
+
+
 
 			public bool HasAccess(Party documentOwner, out bool fullDocumentControl)
 			{
+
 				if (db.IsGranted(UserRole.Administrator, UserRole.Supervisor))
 				{
 					fullDocumentControl = true;
@@ -84,16 +117,23 @@ namespace Luxena.Travel.Domain
 
 				fullDocumentControl = documentAccess.FullDocumentControl;
 
+
 				return true;
+
 			}
+
+
 
 			public IList<Party> GetMappedOwners()
 			{
+
 				return DocumentAccessList
 					.Where(d => d.Owner != null)
 					.Select(d => d.Owner)
 					.ToList();
 			}
+
+
 
 			public IList<Party> GetDocumentOwners()
 			{
@@ -119,7 +159,7 @@ namespace Luxena.Travel.Domain
 						.Cacheable()
 						.List<Party>();
 
-					if (accessRestriction == DocumentAccessRestriction.RestrictedAccess)
+					if (accessRestriction == DocumentAccessRestriction.RestrictedAccessByOwner)
 					{
 						var documentOwners = GetMappedOwners();
 
@@ -136,12 +176,15 @@ namespace Luxena.Travel.Domain
 			}
 
 
+
 			public PropertyFilter CreateDocumentOwnerFilter(string propertyName)
 			{
+
 				var owners = GetMappedOwners();
 
 				if (owners.Count == 0)
 					return null;
+
 
 				return new PropertyFilter
 				{
@@ -155,7 +198,52 @@ namespace Luxena.Travel.Domain
 						}
 					}
 				};
+
 			}
+
+
+
+			public PropertyFilter[] CreateDocumentAgentFilters(string propertyName)
+			{
+
+				var otherAgents = OtherAgents;
+
+				if (otherAgents.Count == 0)
+					return null;
+
+
+				return new[]
+				{
+					new PropertyFilter
+					{
+						Property = propertyName,
+						Conditions = new[]
+						{
+							new PropertyFilterCondition
+							{
+								Operator = FilterOperator.IsIdNotInOrIsNull,
+								Value = otherAgents.Convert(p => p.Id)
+							}
+						}
+					},
+
+					new PropertyFilter
+					{
+						Property = "IsProcessed",
+						Conditions = new[]
+						{
+							new PropertyFilterCondition
+							{
+								Operator = FilterOperator.Equals,
+								Value = true
+							}
+						}
+					},
+
+				};
+
+			}
+
 
 
 			private IList<DocumentAccess> DocumentAccessList
@@ -168,10 +256,42 @@ namespace Luxena.Travel.Domain
 				}
 			}
 
+
+
+
+			private IList<Person> OtherAgents
+			{
+				get
+				{
+					return _otherUserPersons ?? (_otherUserPersons = db.User
+						.ListBy(a => a.Person != db.Security.Person)
+						.Where(a => a.Person != null && a.Active)
+						.ToList(a => a.Person)
+					);
+				}
+			}
+
+
+
+			//---g
+
+
+
 			private IList<DocumentAccess> _documentAccessList;
+			private IList<Person> _otherUserPersons;
+
+
+
+			//---g
 
 		}
 
+
+
+		//---g
+
 	}
+
+
 
 }

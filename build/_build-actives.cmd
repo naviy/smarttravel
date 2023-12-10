@@ -1,2 +1,2 @@
 cd ..
-build.cmd atlastour bsv fgr persey silpovoyage tovufsa ufsa utb
+build.cmd atlastour bsv egoist fbc persey tovufsa ufsa utb

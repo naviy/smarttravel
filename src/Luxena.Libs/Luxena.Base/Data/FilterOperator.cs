@@ -1,8 +1,13 @@
 using Luxena.Base.Serialization;
 
 
+
+
 namespace Luxena.Base.Data
 {
+
+
+
 	[DataContract]
 	public enum FilterOperator
 	{
@@ -19,5 +24,9 @@ namespace Luxena.Base.Data
 		IsIn = 10,
 		IsIdIn = 11,
 		IsIdInOrIsNull = 12,
+		IsIdNotInOrIsNull = 13,
 	}
+
+
+
 }

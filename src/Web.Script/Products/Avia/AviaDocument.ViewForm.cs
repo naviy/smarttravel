@@ -120,9 +120,9 @@ namespace Luxena.Travel
 			{
 				_handleButton.setDisabled(true);
 				_voidButton.setDisabled(true);
-				_addRefundButton.setDisabled(true);
+				//_addRefundButton.setDisabled(true);
 				_editButton.setDisabled(true);
-				_copyButton.setDisabled(true);
+				//_copyButton.setDisabled(true);
 				_createOrderButton.setDisabled(true);
 			}
 			else

@@ -110,12 +110,18 @@ namespace Luxena.Domain.Entities
 		[DebuggerStepThrough]
 		public IList<TEntity> ListBy(Expression<Func<TEntity, bool>> predicate, bool cacheable)
 		{
+
 			if (predicate == null)
-				return new TEntity[0];
+				return Array.Empty<TEntity>();
+
+			
 			IQueryOver<TEntity> query = QueryOver.Where(predicate);
+
 			if (cacheable)
 				query = query.Cacheable();
+
 			return query.List();
+
 		}
 
 
@@ -177,7 +183,7 @@ namespace Luxena.Domain.Entities
 
 		public IQueryOver<TEntity, TEntity> QueryOver => Session.QueryOver<TEntity>();
 
-		public static IList<TEntity> EmptyList = new TEntity[0];
+		public static IList<TEntity> EmptyList = Array.Empty<TEntity>();
 
 		#endregion
 

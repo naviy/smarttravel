@@ -262,15 +262,18 @@ namespace Luxena.Travel.Domain
 
 		public byte[] GetAgentReport(DateTime date)
 		{
+
 			return db.Commit(() =>
 			{
+
 				var user = db.Security.User;
 
 				var access = db.DocumentAccess.GetAccessRestriction();
 
 				IList<Product> aviaDocuments = null;
 				IList<Payment> payments = null;
-				var owners = access == DocumentAccessRestriction.RestrictedAccess ? db.DocumentAccess.GetMappedOwners() : null;
+
+				var owners = access == DocumentAccessRestriction.RestrictedAccessByOwner ? db.DocumentAccess.GetMappedOwners() : null;
 
 				if (access != DocumentAccessRestriction.NoAccess)
 				{
@@ -278,9 +281,11 @@ namespace Luxena.Travel.Domain
 					payments = GetAgentPayments(user.Person, date, owners);
 				}
 
+
 				var stream = new MemoryStream();
 
 				var configuration = db.Configuration;
+
 
 				new AgentReport
 				{
@@ -295,9 +300,13 @@ namespace Luxena.Travel.Domain
 				}
 					.Build(stream);
 
+
 				return stream.ToArray();
+
 			});
 		}
+
+
 
 		public byte[] GetRegistryReport(
 			ReportType type, DateTime? dateFrom, DateTime? dateTo,
@@ -312,7 +321,7 @@ namespace Luxena.Travel.Domain
 
 			var access = db.DocumentAccess.GetAccessRestriction();
 			IList<AviaDocument> documents = null;
-			var owners = access == DocumentAccessRestriction.RestrictedAccess ? db.DocumentAccess.GetMappedOwners() : null;
+			var owners = access == DocumentAccessRestriction.RestrictedAccessByOwner ? db.DocumentAccess.GetMappedOwners() : null;
 
 			if (access != DocumentAccessRestriction.NoAccess)
 				documents = GetRegistryReportDocuments(dateFrom, dateTo, paymentType, paymentForm, onlyWithInvoices, airline, owners);
@@ -343,7 +352,7 @@ namespace Luxena.Travel.Domain
 				products = new List<Product>();
 			else
 			{
-				if (access == DocumentAccessRestriction.RestrictedAccess)
+				if (access == DocumentAccessRestriction.RestrictedAccessByOwner)
 				{
 					var filters = new List<PropertyFilter>();
 
@@ -367,7 +376,7 @@ namespace Luxena.Travel.Domain
 
 			switch (access)
 			{
-				case DocumentAccessRestriction.RestrictedAccess:
+				case DocumentAccessRestriction.RestrictedAccessByOwner:
 					return GetCustomerProductCount(prms, includeDepartments, db.DocumentAccess.GetMappedOwners());
 
 				case DocumentAccessRestriction.FullAccess:
@@ -391,7 +400,7 @@ namespace Luxena.Travel.Domain
 
 			switch (access)
 			{
-				case DocumentAccessRestriction.RestrictedAccess:
+				case DocumentAccessRestriction.RestrictedAccessByOwner:
 					products = GetCustomerProducts(prms, includeDepartments, db.DocumentAccess.GetMappedOwners());
 					break;
 

@@ -127,6 +127,8 @@ namespace Luxena.Travel.Domain
 				Updating += r =>
 				{
 
+					//var oldCustomer = OldValue(r, a => a.Customer);
+					//if (!Equals(oldCustomer, r.Customer))
 					if (IsDirty(r, a => a.Customer))
 					{
 
@@ -136,9 +138,11 @@ namespace Luxena.Travel.Domain
 							.ForEach(a => db.Save(r, a))
 						;
 
-						r.Payments
-							.ForEach(a => a.SetPayer(r.Customer))
-						;
+						r.Payments.ForEach(a =>
+						{
+							if (a.Payer == null)
+								a.SetPayer(r.Customer);
+						});
 
 					}
 

@@ -849,6 +849,39 @@ update lt_order o set
 		}
 	}
 
+	[Migration(2023120901)]
+	public class Migration_2023120901 : AutoReversingMigration
+	{
+		public override void Up()
+		{
+			Alter.Table("lt_system_configuration")
+				.AddColumn("SeparateDocumentAccessByAgent").AsBoolean().NotNullable().WithDefaultValue(false)
+			;
+		}
+	}
+
+
+	[Migration(2023120902)]
+	public class Migration_2023120902 : AutoReversingMigration
+	{
+		public override void Up()
+		{
+			Delete.Column("SeparateDocumentAccessByAgent").FromTable("lt_system_configuration");
+		}
+	}
+
+
+	[Migration(2023120903)]
+	public class Migration_2023120903 : AutoReversingMigration
+	{
+		public override void Up()
+		{
+			Alter.Table("lt_system_configuration")
+				.AddColumn("separatedocumentaccessbyagent").AsBoolean().NotNullable().WithDefaultValue(false)
+			;
+		}
+	}
+
 
 
 

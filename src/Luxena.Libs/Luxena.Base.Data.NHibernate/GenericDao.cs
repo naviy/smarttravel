@@ -607,12 +607,21 @@ namespace Luxena.Base.Data.NHibernate
 			}
 		}
 
-		protected virtual void SetPropertyFilterRestriction(Class clazz, PropertyFilter filter, PropertyFilterCondition filterCondition, ICriteria criteria)
+
+
+		protected virtual void SetPropertyFilterRestriction(
+			Class clazz,
+			PropertyFilter filter,
+			PropertyFilterCondition filterCondition,
+			ICriteria criteria
+		)
 		{
+
 			var property = clazz.GetProperty(filter.Property);
 
 			if (!property.IsPersistent)
 				return;
+
 
 			var propertyName = property.DataPath;
 
@@ -621,9 +630,14 @@ namespace Luxena.Base.Data.NHibernate
 			{
 				propertyName = $"{propertyName}.{filter.InternalPath}";
 			}
+
 			else if (property.IsTypePersistent)
 			{
-				if (filterCondition.Operator == FilterOperator.IsIdIn || filterCondition.Operator == FilterOperator.IsIdInOrIsNull)
+
+				if (filterCondition.Operator == FilterOperator.IsIdIn ||
+					filterCondition.Operator == FilterOperator.IsIdInOrIsNull ||
+					filterCondition.Operator == FilterOperator.IsIdNotInOrIsNull
+				)
 				{
 					propertyName = ResolveProperty(propertyName, clazz, criteria);
 					propertyName += "." + property.Class.IdentifierProperty.Name;
@@ -632,32 +646,43 @@ namespace Luxena.Base.Data.NHibernate
 				{
 					propertyName += "." + property.Class.EntityNameProperty.DataPath;
 				}
+
 			}
+
+
 
 			propertyName = ResolveProperty(propertyName, clazz, criteria);
 
 
+
 			ICriterion criterion;
+
 
 			if (filterCondition.Operator == FilterOperator.Equals)
 			{
+
 				if (filterCondition.Value is DateTime)
 				{
-					var date = ((DateTime)filterCondition.Value);
+
+					var date = (DateTime)filterCondition.Value;
 
 					if (date.TimeOfDay == TimeSpan.Zero)
 						criterion = Restrictions.And(Restrictions.Ge(propertyName, date), Restrictions.Lt(propertyName, date.AddDays(1)));
 					else
 						criterion = Restrictions.Eq(propertyName, date);
+
 				}
+
 				else if (property.IsNumber)
 				{
 					criterion = Restrictions.Eq(propertyName, Convert.ChangeType(filterCondition.Value, property.Type));
 				}
+
 				else if (property.IsEnum)
 				{
 					criterion = Restrictions.Eq(propertyName, Enum.Parse(property.Type, filterCondition.Value.ToString()));
 				}
+
 				else if (property.IsBool && (bool)filterCondition.Value == false)
 				{
 					criterion = Restrictions.Not(Restrictions.And(
@@ -665,36 +690,55 @@ namespace Luxena.Base.Data.NHibernate
 						Restrictions.Eq(propertyName, true)
 					));
 				}
+
 				else if (property.IsString && filterCondition.Value != null)
 				{
+
 					var values = filterCondition.Value.ToString().Split(new[] { ',', ';' }, StringSplitOptions.RemoveEmptyEntries);
 
 					if (values.No() || values.Length == 1)
+					{
 						criterion = Restrictions.Eq(propertyName, filterCondition.Value);
+					}
 					else
+					{
 						criterion = Restrictions.In(propertyName, values.Select(a => a.Trim()).ToList());
+					}
+
 				}
+
 				else
+				{
 					criterion = Restrictions.Eq(propertyName, filterCondition.Value);
+				}
+
 			}
+
 			else if (filterCondition.Operator == FilterOperator.IsNull)
 			{
+
 				criterion = property.IsString
 					? Restrictions.Or(Restrictions.IsNull(propertyName), Restrictions.Eq(propertyName, ""))
-					: Restrictions.IsNull(propertyName);
+					: Restrictions.IsNull(propertyName)
+				;
+
 			}
+
 			else if (filterCondition.Operator == FilterOperator.StartsWith)
 			{
 				criterion = Restrictions.Like(propertyName, (string)filterCondition.Value, MatchMode.Start);
 			}
+
 			else if (filterCondition.Operator == FilterOperator.Contains)
 			{
 				criterion = Restrictions.Like(propertyName, (string)filterCondition.Value, MatchMode.Anywhere);
 			}
+
 			else if (filterCondition.Operator == FilterOperator.EndsWith)
 			{
 				criterion = Restrictions.Like(propertyName, (string)filterCondition.Value, MatchMode.End);
 			}
+
 			else if (filterCondition.Operator == FilterOperator.Less)
 			{
 				if (property.IsNumber)
@@ -702,6 +746,7 @@ namespace Luxena.Base.Data.NHibernate
 				else
 					criterion = Restrictions.Lt(propertyName, filterCondition.Value);
 			}
+
 			else if (filterCondition.Operator == FilterOperator.LessOrEquals)
 			{
 				if (filterCondition.Value is DateTime)
@@ -718,6 +763,7 @@ namespace Luxena.Base.Data.NHibernate
 				else
 					criterion = Restrictions.Le(propertyName, filterCondition.Value);
 			}
+
 			else if (filterCondition.Operator == FilterOperator.GreaterOrEquals)
 			{
 				if (property.IsNumber)
@@ -725,6 +771,7 @@ namespace Luxena.Base.Data.NHibernate
 				else
 					criterion = Restrictions.Ge(propertyName, filterCondition.Value);
 			}
+
 			else if (filterCondition.Operator == FilterOperator.Greater)
 			{
 				if (property.IsNumber)
@@ -732,10 +779,12 @@ namespace Luxena.Base.Data.NHibernate
 				else
 					criterion = Restrictions.Gt(propertyName, filterCondition.Value);
 			}
+
 			else if (filterCondition.Operator == FilterOperator.IsIn || filterCondition.Operator == FilterOperator.IsIdIn)
 			{
 				criterion = Restrictions.In(propertyName, (ICollection)filterCondition.Value);
 			}
+
 			else if (filterCondition.Operator == FilterOperator.IsIdInOrIsNull)
 			{
 				criterion = Restrictions.Or(
@@ -743,16 +792,30 @@ namespace Luxena.Base.Data.NHibernate
 					Restrictions.In(propertyName, (ICollection)filterCondition.Value)
 				);
 			}
+
+			else if (filterCondition.Operator == FilterOperator.IsIdNotInOrIsNull)
+			{
+				criterion = Restrictions.Or(
+					Restrictions.IsNull(propertyName),
+					Restrictions.Not(Restrictions.In(propertyName, (ICollection)filterCondition.Value))
+				);
+			}
+
 			else
 			{
-				throw new ArgumentException($"Invalid property '{propertyName}' filter operator", "request");
+				throw new ArgumentException($@"Invalid property '{propertyName}' filter operator", "request");
 			}
+
 
 			if (filterCondition.Not)
 				criterion = Restrictions.Not(criterion);
 
+
 			criteria.Add(criterion);
+
 		}
+
+
 
 		private void SetPositionRestrictions(Class clazz, object positionTo, ICriteria criteria, string sortPropertyName, bool ascending)
 		{

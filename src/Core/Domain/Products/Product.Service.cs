@@ -140,28 +140,34 @@ namespace Luxena.Travel.Domain
 			}
 
 
+
 			private OperationStatus CanModify(TProduct r)
 			{
 
 				if (!db.ClosedPeriod.IsOpened(r.IssueDate))
+				{
 					return new OperationStatus(Exceptions.Document_Closed);
+				}
 
 
 				if (CanUpdateAll())
+				{
 					return true;
-
-				if (db.Configuration.AllowOtherAgentsToModifyProduct)
-					return true;
+				}
 
 
-				var user = db.Security.User;
+				if (!db.Configuration.AllowOtherAgentsToModifyProduct)
+				{
+					var user = db.Security.User;
 
-				bool fullDocumentControl;
+					return db.Granted(
+						db.DocumentAccess.HasAccess(r.Owner, out var fullDocumentControl) &&
+						(fullDocumentControl || Equals(r.Seller, user.Person))
+					);
+				}
 
-				return db.Granted(
-					db.DocumentAccess.HasAccess(r.Owner, out fullDocumentControl) &&
-					(fullDocumentControl || Equals(r.Seller, user.Person))
-				);
+
+				return true;
 
 			}
 
