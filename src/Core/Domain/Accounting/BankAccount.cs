@@ -19,6 +19,9 @@ namespace Luxena.Travel.Domain
 		[RU("Реквизиты организации"), Text]
 		public virtual string CompanyDetails { get; set; }
 
+		[RU("Счёт: дополнение к Итого (суфикс)"), Text]
+		public virtual string TotalSuffix { get; set; }
+
 		[Patterns.Note]
 		public virtual string Note { get; set; }
 

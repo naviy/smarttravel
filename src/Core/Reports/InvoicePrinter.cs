@@ -486,10 +486,20 @@ namespace Luxena.Travel.Reports
 
 			NewRow();
 
+
 			var total = _showPaid ? _order.TotalDue : _order.Total;
 
 			if (total != null)
-				SetCellValue($"{ReportRes.InvoicePrinter_InvoiceTotal} {total.ToWords()}{(_order.Vat.No() ? $", {DomainRes.Common_WithoutVat}" : null)}", boldStyle);
+			{
+				var totalSuffix = 
+					_order.BankAccount?.TotalSuffix.Clip() ??
+					(_order.Vat.No() ? $", {DomainRes.Common_WithoutVat}" : null)
+				;
+				SetCellValue(
+					$"{ReportRes.InvoicePrinter_InvoiceTotal} {total.ToWords()}{totalSuffix}",
+					boldStyle
+				);
+			}
 
 
 			if (db.Configuration.VatRate > 0)

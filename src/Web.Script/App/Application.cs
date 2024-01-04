@@ -128,6 +128,7 @@ namespace Luxena.Travel
 			FormsRegistry.RegisterView(ClassNames.Person, PersonViewForm.ViewObject);
 
 			FormsRegistry.RegisterList(ClassNames.Product, AllProductListTab.ListObject);
+			FormsRegistry.RegisterList(ClassNames.AllAgencyProduct, AllAgencyProductListTab.ListObject);
 
 
 			FormsRegistry.RegisterList(ClassNames.AviaDocument, AviaDocumentListTab.ListObject);

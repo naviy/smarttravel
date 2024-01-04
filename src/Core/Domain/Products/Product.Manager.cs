@@ -50,16 +50,21 @@ namespace Luxena.Travel.Domain
 			else if (access == DocumentAccessRestriction.RestrictedAccessByAgent)
 			{
 
-				var filters = new List<PropertyFilter>();
-
-				if (request.Filters != null)
+				if ((bool?)request.Params.By("forAllAgency") != true)
 				{
-					filters.AddRange(request.Filters);
+
+					var filters = new List<PropertyFilter>();
+
+					if (request.Filters != null)
+					{
+						filters.AddRange(request.Filters);
+					}
+
+					filters.AddRange(db.DocumentAccess.CreateDocumentAgentFilters("Ticketer"));
+
+					request.Filters = filters.ToArray();
+
 				}
-
-				filters.AddRange(db.DocumentAccess.CreateDocumentAgentFilters("Ticketer"));
-
-				request.Filters = filters.ToArray();
 
 			}
 

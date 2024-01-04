@@ -250,7 +250,7 @@ namespace Luxena.Travel.Domain
 
 		}
 
-		
+
 
 		private static string GetDateText(DateTime date)
 		{
@@ -589,6 +589,12 @@ namespace Luxena.Travel.Domain
 			//actions.Add("CustomerReport", (OperationStatus)true);
 			//actions.Add("RegistryReport", (OperationStatus)true);
 			//actions.Add("UnbalancedReport", (OperationStatus)true);
+
+			if (db.Configuration.SeparateDocumentAccessByAgent)
+			{
+				actions.Add("AllAgencyProduct", (OperationStatus)(user != null));
+			}
+
 			actions.Add("CustomerReport", (OperationStatus)(user != null && (user.IsAdministrator || user.AllowCustomerReport)));
 			actions.Add("RegistryReport", (OperationStatus)(user != null && (user.IsAdministrator || user.AllowRegistryReport)));
 			actions.Add("UnbalancedReport", (OperationStatus)(user != null && (user.IsAdministrator || user.AllowUnbalancedReport)));

@@ -58,6 +58,7 @@ namespace Luxena.Travel
 
 				se.ShipTo.ToColumn(true, 150),
 				se.Intermediary.ToColumn(true, 150),
+				se.BankAccount.ToColumn(true, 150),
 
 				se.Note.ToColumn(true, 150),
 

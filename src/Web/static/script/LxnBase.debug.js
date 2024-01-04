@@ -1003,6 +1003,8 @@ LxnBase.Data.RangeRequest = function LxnBase_Data_RangeRequest() {
     /// </field>
     /// <field name="PositionableObjectId" type="Object">
     /// </field>
+    /// <field name="Params" type="Object">
+    /// </field>
 }
 LxnBase.Data.RangeRequest.prototype = {
     
@@ -1029,7 +1031,8 @@ LxnBase.Data.RangeRequest.prototype = {
     limit: 0,
     sort: null,
     dir: null,
-    PositionableObjectId: null
+    PositionableObjectId: null,
+    Params: null
 }
 
 

@@ -14,6 +14,7 @@ namespace Luxena.Travel
 
 				se.Name,
 				se.CompanyDetails.ToColumn(false, 150),
+				se.TotalSuffix.ToColumn(false, 100),
 				se.Description,
 				se.IsDefault.ToColumn(false, 90),
 				se.Note.ToColumn(true),

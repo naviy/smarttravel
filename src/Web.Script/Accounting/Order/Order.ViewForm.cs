@@ -856,7 +856,7 @@ namespace Luxena.Travel
 
 
 			Dictionary values = new Dictionary(
-				"Payer", Order.Customer,
+				"Payer", Script.IsValue(Order.BillTo) ? Order.BillTo : Order.Customer,
 				"Amount", Order.TotalDue,
 				"Vat", Order.VatDue,
 				"Order", Reference.Create(ClassNames.Order, Order.Number, Order.Id),

@@ -5,10 +5,17 @@ using System.Text;
 using Luxena.Travel.Domain;
 
 
+
+
 namespace Luxena.Travel.Reports
 {
+
+
+
 	public static class MoneyExtensions
 	{
+
+
 		public static string ToWords(this Money money)
 		{
 			var male = !_femaleCurrencies.Exists(s => s == money.Currency.Code);
@@ -16,8 +23,11 @@ namespace Luxena.Travel.Reports
 			return ToWords(money, male);
 		}
 
+
+
 		public static string ToWords(Money money, bool isCurrencyGenderMale)
 		{
+
 			var val = Math.Round(money.Amount, 2, MidpointRounding.AwayFromZero);
 
 			var isNegative = false;
@@ -68,11 +78,16 @@ namespace Luxena.Travel.Reports
 
 			builder[0] = char.ToUpper(builder[0]);
 
+
 			return builder.ToString();
+
 		}
+
+
 
 		private static string TriadToString(int value, bool male, string one, string two, string five)
 		{
+
 			var unities = GetUnities();
 
 			if (!male)
@@ -98,8 +113,12 @@ namespace Luxena.Travel.Reports
 
 			AppendPart(builder, GetNumberText(triad, one, two, five));
 
+
 			return builder.ToString();
+
 		}
+
+
 
 		public static string GetNumberText(int val, string one, string two, string five)
 		{
@@ -118,6 +137,8 @@ namespace Luxena.Travel.Reports
 			}
 		}
 
+
+
 		private static void InsertPart(StringBuilder builder, string part)
 		{
 			if (part.No())
@@ -130,6 +151,8 @@ namespace Luxena.Travel.Reports
 
 			builder.Insert(0, part);
 		}
+
+
 
 		private static void AppendPart(StringBuilder builder, string part)
 		{
@@ -144,6 +167,8 @@ namespace Luxena.Travel.Reports
 			builder.Append(part);
 		}
 
+
+
 		public static string[] GetHundreds()
 		{
 			return new[]
@@ -153,6 +178,8 @@ namespace Luxena.Travel.Reports
 			};
 		}
 
+
+
 		public static string[] GetTens()
 		{
 			return new[]
@@ -161,6 +188,8 @@ namespace Luxena.Travel.Reports
 				CommonRes.Sixty, CommonRes.Seventy, CommonRes.Eighty, CommonRes.Ninety
 			};
 		}
+
+
 
 		/// <summary>
 		/// </summary>
@@ -196,11 +225,20 @@ namespace Luxena.Travel.Reports
 			throw new NotImplementedException();
 		}
 
+
+
 		private static string GetMoneyAmountPart(string currencyCode, string part)
 		{
 			return CommonRes.ResourceManager.GetString(currencyCode + "_" + part, CommonRes.Culture);
 		}
 
+
+
 		private static readonly List<string> _femaleCurrencies = new List<string> { "UAH" };
+
+
 	}
+
+
+
 }

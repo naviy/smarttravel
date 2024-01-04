@@ -8,6 +8,7 @@ namespace Luxena.Travel
 	{
 		public const string Product = "Product";
 		public const string AllProduct = "AllProduct";
+		public const string AllAgencyProduct = "AllAgencyProduct";
 
 		public const string AviaDocument = "AviaDocument";
 		public const string AviaTicket = "AviaTicket";

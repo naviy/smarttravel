@@ -10,6 +10,7 @@ namespace Luxena.Base.Metamodel
 
 	public sealed class Class
 	{
+
 		static Class()
 		{
 			TypeResolver = DefaultTypeResolver.Instance;
@@ -36,12 +37,12 @@ namespace Luxena.Base.Metamodel
 
 		public static Class Of(string id)
 		{
-			Class clazz;
-
-			_classes.TryGetValue(id, out clazz);
+			_classes.TryGetValue(id, out var clazz);
 
 			return clazz;
 		}
+
+
 
 		public static Class Of(Type type)
 		{
@@ -49,13 +50,17 @@ namespace Luxena.Base.Metamodel
 
 			var clazz = Of(id);
 
-			if (clazz != null) return clazz;
+			if (clazz != null) 
+				return clazz;
+
 
 			lock (_lock)
 			{
 				clazz = Of(id);
 
-				if (clazz != null) return clazz;
+				if (clazz != null) 
+					return clazz;
+
 
 				clazz = new Class(type);
 
@@ -67,13 +72,18 @@ namespace Luxena.Base.Metamodel
 				clazz.Initialize();
 			}
 
+
 			return clazz;
+
 		}
+
+
 
 		private Class(Type type)
 		{
 			Type = type;
 		}
+
 
 		public Type Type { get; private set; }
 
@@ -91,10 +101,7 @@ namespace Luxena.Base.Metamodel
 
 		public Property EntityNameProperty
 		{
-			get
-			{
-				return _entityNameProperty;
-			}
+			get => _entityNameProperty;
 			internal set
 			{
 				if (_entityNameProperty != null)
@@ -137,7 +144,7 @@ namespace Luxena.Base.Metamodel
 
 		public Property GetProperty(string name)
 		{
-			Property property = _properties.Find(prop => name == prop.Name);
+			var property = _properties.Find(prop => name == prop.Name);
 
 			if (property == null)
 				Throw("There is no such property '{0}'", name);
@@ -162,7 +169,7 @@ namespace Luxena.Base.Metamodel
 
 		private void Throw(string format, params object[] args)
 		{
-			throw new MetamodelException(string.Format("{0}: {1}", Type, string.Format(format, args)));
+			throw new MetamodelException($"{Type}: {string.Format(format, args)}");
 		}
 
 		private void Initialize()
@@ -176,9 +183,9 @@ namespace Luxena.Base.Metamodel
 
 		private void InitializeProperties()
 		{
-			PropertyInfo[] properties = Type.GetProperties(BindingFlags.Public | BindingFlags.Instance);
+			var properties = Type.GetProperties(BindingFlags.Public | BindingFlags.Instance);
 
-			foreach (PropertyInfo propertyInfo in properties)
+			foreach (var propertyInfo in properties)
 				_properties.Add(new Property(this, propertyInfo));
 		}
 

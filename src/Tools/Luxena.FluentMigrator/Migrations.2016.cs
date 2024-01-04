@@ -882,6 +882,17 @@ update lt_order o set
 		}
 	}
 
+	[Migration(2024010401)]
+	public class Migration_2024010401 : AutoReversingMigration
+	{
+		public override void Up()
+		{
+			Alter.Table("lt_bank_account")
+				.AddColumn("totalsuffix").AsText().Nullable()
+			;
+		}
+	}
+
 
 
 

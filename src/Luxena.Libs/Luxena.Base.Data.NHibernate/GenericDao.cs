@@ -431,8 +431,11 @@ namespace Luxena.Base.Data.NHibernate
 			if (!string.IsNullOrEmpty(request.GeneralFilter))
 				SetGeneralFilterRestrictions(criteria, request, clazz);
 
-			if (request.Filters != null)
-				SetPropertyFilterRestrictions(criteria, request, clazz);
+
+			GetPropertyFilterRestrictions(criteria, request.Filters, clazz)
+				.ForEach(c => criteria.Add(c))
+			;
+
 		}
 
 
@@ -502,6 +505,8 @@ namespace Luxena.Base.Data.NHibernate
 				projections.Add(Projections.Property(ResolveProperty(property.DataPath, clazz, criteria)));
 		}
 
+
+
 		private void SetGeneralFilterRestrictions(ICriteria criteria, RangeRequest request, Class clazz)
 		{
 			var parts = request.GeneralFilter.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
@@ -543,24 +548,18 @@ namespace Luxena.Base.Data.NHibernate
 			{
 				if (property.Type == typeof(int) || property.Type == typeof(long))
 				{
-					long value;
-
-					if (long.TryParse(query, out value))
+					if (long.TryParse(query, out _))
 						return Restrictions.Like(Projections.Cast(NHibernateUtil.StringClob, Projections.Property(property.DataPath)), query, MatchMode.Start);
 				}
 				else if (property.Type == typeof(double))
 				{
-					double value;
-
-					if (double.TryParse(query, out value))
+					if (double.TryParse(query, out var value))
 						return Restrictions.Eq(property.DataPath, value);
 				}
 			}
 			else if (property.IsDateTime)
 			{
-				DateTime dateTime;
-
-				if (DateTime.TryParseExact(query, "yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out dateTime))
+				if (DateTime.TryParseExact(query, "yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out var dateTime))
 					return dateTime.Year < DateTime.MaxValue.Year ? Restrictions.And(Restrictions.Ge(property.DataPath, dateTime), Restrictions.Lt(property.DataPath, dateTime.AddYears(1))) : null;
 
 				if (DateTime.TryParseExact(query, "MM.yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out dateTime)
@@ -590,26 +589,43 @@ namespace Luxena.Base.Data.NHibernate
 			return null;
 		}
 
-		private void SetPropertyFilterRestrictions(ICriteria criteria, RangeRequest request, Class clazz)
+
+
+		private IEnumerable<ICriterion> GetPropertyFilterRestrictions(ICriteria criteria, PropertyFilter[] filters, Class clazz)
 		{
-			foreach (var filter in request.Filters)
+
+			if (filters == null)
+				yield break;
+
+
+			foreach (var filter in filters)
 			{
+
 				if (filter.Conditions == null)
 					continue;
 
+
 				foreach (var filterCondition in filter.Conditions)
 				{
+
 					if (filterCondition.Operator == FilterOperator.None)
 						continue;
 
-					SetPropertyFilterRestriction(clazz, filter, filterCondition, criteria);
+
+					var criterion = GetPropertyFilterRestriction(clazz, filter, filterCondition, criteria);
+
+					if (criterion != null)
+						yield return criterion;
+
 				}
+
 			}
+
 		}
 
 
 
-		protected virtual void SetPropertyFilterRestriction(
+		protected virtual ICriterion GetPropertyFilterRestriction(
 			Class clazz,
 			PropertyFilter filter,
 			PropertyFilterCondition filterCondition,
@@ -620,7 +636,7 @@ namespace Luxena.Base.Data.NHibernate
 			var property = clazz.GetProperty(filter.Property);
 
 			if (!property.IsPersistent)
-				return;
+				return null;
 
 
 			var propertyName = property.DataPath;
@@ -801,6 +817,17 @@ namespace Luxena.Base.Data.NHibernate
 				);
 			}
 
+			else if (filterCondition.Operator == FilterOperator.Or)
+			{
+
+				criterion = GetPropertyFilterRestrictions(criteria, filterCondition.Items, clazz)
+					.Aggregate(
+						null as ICriterion, 
+						(a, c) => a == null ? c : Restrictions.Or(a, c)
+					)
+				;
+
+			}
 			else
 			{
 				throw new ArgumentException($@"Invalid property '{propertyName}' filter operator", "request");
@@ -811,7 +838,7 @@ namespace Luxena.Base.Data.NHibernate
 				criterion = Restrictions.Not(criterion);
 
 
-			criteria.Add(criterion);
+			return criterion;
 
 		}
 
@@ -1128,15 +1155,20 @@ namespace Luxena.Base.Data.NHibernate
 			return dataPath;
 		}
 
+
+
 		protected static string ResolveProperty(string dataPath, Class clazz, ICriteria criteria)
 		{
-			if (string.IsNullOrEmpty(dataPath)) return null;
+			if (string.IsNullOrEmpty(dataPath))
+				return null;
+
 
 			var parts = dataPath.Split('.');
 
 			var currentClass = clazz;
 
 			string alias = null;
+
 
 			for (var i = 0; i < parts.Length - 1; ++i)
 			{
@@ -1154,8 +1186,12 @@ namespace Luxena.Base.Data.NHibernate
 				currentClass = property.Class;
 			}
 
+
 			return alias.As(a => a + ".") + parts[parts.Length - 1];
+
 		}
+
+
 
 		private static ICriterion GetOrRestriction(ICriterion left, ICriterion right)
 		{

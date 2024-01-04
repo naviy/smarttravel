@@ -138,7 +138,7 @@ LxnBase.Log.trace=function(){eval('console.trace()');}
 Type.registerNamespace('LxnBase.Data');LxnBase.Data.DocumentExportMode=function(){};LxnBase.Data.DocumentExportMode.prototype = {all:0,selected:1,exceptSelected:2}
 LxnBase.Data.DocumentExportMode.registerEnum('LxnBase.Data.DocumentExportMode',false);LxnBase.Data.FilterOperator=function(){};LxnBase.Data.FilterOperator.prototype = {none:0,equals:1,isNull:2,startsWith:3,contains:4,endsWith:5,less:6,lessOrEquals:7,greaterOrEquals:8,greater:9,isIn:10,isIdIn:11}
 LxnBase.Data.FilterOperator.registerEnum('LxnBase.Data.FilterOperator',false);LxnBase.Data.RangeRequest=function(){}
-LxnBase.Data.RangeRequest.prototype={setDefaultSort:function(sort,dir){if(this.sort!=null){return;}this.sort=sort;this.dir=(dir)?'ASC':'DESC';},ClassName:null,NamedFilters:null,Filters:null,query:null,GeneralFilter:null,VisibleProperties:null,HiddenProperties:null,start:0,limit:0,sort:null,dir:null,PositionableObjectId:null}
+LxnBase.Data.RangeRequest.prototype={setDefaultSort:function(sort,dir){if(this.sort!=null){return;}this.sort=sort;this.dir=(dir)?'ASC':'DESC';},ClassName:null,NamedFilters:null,Filters:null,query:null,GeneralFilter:null,VisibleProperties:null,HiddenProperties:null,start:0,limit:0,sort:null,dir:null,PositionableObjectId:null,Params:null}
 LxnBase.Data.Reference=function(){}
 LxnBase.Data.Reference.create=function(type,name,id){var $0=new LxnBase.Data.Reference();$0.Type=type;$0.Name=name;$0.Id=id;return $0;}
 LxnBase.Data.Reference.createFromArray=function(array){var $0=new LxnBase.Data.Reference();var $1=array;$0.Type=$1[LxnBase.Data.Reference.TypePos];$0.Name=$1[LxnBase.Data.Reference.NamePos];$0.Id=$1[LxnBase.Data.Reference.IdPos];return $0;}

@@ -42,6 +42,8 @@ namespace Luxena.Travel.Domain
 				base.SetPropertyProjection(clazz, config, criteria, projections);
 		}
 
+
+
 		public override void SetCriteriaRestrictions(Class clazz, ICriteria criteria, RangeRequest request)
 		{
 			if (request.NamedFilters != null)
@@ -75,7 +77,7 @@ namespace Luxena.Travel.Domain
 
 						var person = db.Security.Person;
 
-						var owners = (ICollection) TransactionManager.Session.QueryOver<DocumentAccess>()
+						var owners = (ICollection)TransactionManager.Session.QueryOver<DocumentAccess>()
 							.Select(a => a.Owner.Id)
 							.Where(a => a.Person == person)
 							.List<object>();
@@ -90,8 +92,11 @@ namespace Luxena.Travel.Domain
 			base.SetCriteriaRestrictions(clazz, criteria, request);
 		}
 
+
+
 		protected override ICriterion SetGeneralFilterRestriction(string query, Class clazz, Property property, ICriteria criteria)
 		{
+
 			if (property.Type.Is<Money>())
 			{
 				return null;
@@ -108,15 +113,27 @@ namespace Luxena.Travel.Domain
 				return criterion;*/
 			}
 
+
 			return base.SetGeneralFilterRestriction(query, clazz, property, criteria);
+
 		}
 
-		protected override void SetPropertyFilterRestriction(Class clazz, PropertyFilter filter, PropertyFilterCondition filterCondition, ICriteria criteria)
+
+
+		protected override ICriterion GetPropertyFilterRestriction(
+			Class clazz,
+			PropertyFilter filter,
+			PropertyFilterCondition filterCondition,
+			ICriteria criteria
+		)
 		{
+
 			var property = clazz.GetProperty(filter.Property);
+
 
 			if (property.Type.Is<Money>())
 			{
+
 				ICriterion criterion = null;
 
 				switch (filter.InternalPath)
@@ -143,9 +160,9 @@ namespace Luxena.Travel.Domain
 								criterion = Restrictions.Like(currencyDataPath, "%" + filterCondition.Value);
 								break;
 							default:
-								throw new ArgumentException($"Invalid property '{currencyDataPath}' filter operator", "filterCondition");
+								throw new ArgumentException($@"Invalid property '{currencyDataPath}' filter operator", nameof(filterCondition));
 						}
-					
+
 						break;
 
 					case AmountProperty:
@@ -155,56 +172,69 @@ namespace Luxena.Travel.Domain
 						switch (filterCondition.Operator)
 						{
 							case FilterOperator.Equals:
-								criterion = Restrictions.Eq(amountDataPath, Convert.ChangeType(filterCondition.Value, typeof (decimal)));
+								criterion = Restrictions.Eq(amountDataPath, Convert.ChangeType(filterCondition.Value, typeof(decimal)));
 								break;
 							case FilterOperator.IsNull:
 								criterion = Restrictions.IsNull(amountDataPath);
 								break;
 							case FilterOperator.Less:
-								criterion = Restrictions.Lt(amountDataPath, Convert.ChangeType(filterCondition.Value, typeof (decimal)));
+								criterion = Restrictions.Lt(amountDataPath, Convert.ChangeType(filterCondition.Value, typeof(decimal)));
 								break;
 							case FilterOperator.LessOrEquals:
-								criterion = Restrictions.Le(amountDataPath, Convert.ChangeType(filterCondition.Value, typeof (decimal)));
+								criterion = Restrictions.Le(amountDataPath, Convert.ChangeType(filterCondition.Value, typeof(decimal)));
 								break;
 							case FilterOperator.GreaterOrEquals:
-								criterion = Restrictions.Ge(amountDataPath, Convert.ChangeType(filterCondition.Value, typeof (decimal)));
+								criterion = Restrictions.Ge(amountDataPath, Convert.ChangeType(filterCondition.Value, typeof(decimal)));
 								break;
 							case FilterOperator.Greater:
-								criterion = Restrictions.Gt(amountDataPath, Convert.ChangeType(filterCondition.Value, typeof (decimal)));
+								criterion = Restrictions.Gt(amountDataPath, Convert.ChangeType(filterCondition.Value, typeof(decimal)));
 								break;
 							default:
-								throw new ArgumentException($"Invalid property '{amountDataPath}' filter operator", nameof(filterCondition));
+								throw new ArgumentException($@"Invalid property '{amountDataPath}' filter operator", nameof(filterCondition));
 						}
 
 						break;
 				}
 
+
 				if (criterion == null)
 					throw new Exception($"Invalid property '{property.Name + "." + filter.InternalPath}' data path");
+
 
 				if (filterCondition.Not)
 					criterion = Restrictions.Not(criterion);
 
-				criteria.Add(criterion);
+
+				return criterion;
+
 			}
-			else
-				base.SetPropertyFilterRestriction(clazz, filter, filterCondition, criteria);
+
+
+			return base.GetPropertyFilterRestriction(clazz, filter, filterCondition, criteria);
+
 		}
+
+
 
 		protected override object GetPropertyValue(object value, ColumnConfig config)
 		{
+
 			if (value != null && value.GetType().Is<Money>())
 			{
-				var money = (Money) value;
+				var money = (Money)value;
 
-				return new [] { money.Amount, money.Currency.As(a => a.Code), money.Currency.As(a => a.Id) };
+				return new[] { money.Amount, money.Currency.As(a => a.Code), money.Currency.As(a => a.Id) };
 			}
+
 
 			return base.GetPropertyValue(value, config);
 		}
 
+
+
 		protected override object GetPropertyValue(IEnumerator items, Property property, ColumnConfig config)
 		{
+
 			if (property.Type.Is<Money>())
 			{
 				if (items.Current == null)
@@ -228,18 +258,24 @@ namespace Luxena.Travel.Domain
 				return data;
 			}
 
+
 			return base.GetPropertyValue(items, property, config);
+
 		}
+
+
 
 		private static string GetCurrencyDataPath(Property property, ICriteria criteria)
 		{
-			string alias = $"_{property.DataPath}_{CurrencyProperty}";
+			var alias = $"_{property.DataPath}_{CurrencyProperty}";
 
 			if (criteria.GetCriteriaByAlias(alias) == null)
 				criteria.CreateAlias(property.DataPath + "." + CurrencyProperty, alias, JoinType.LeftOuterJoin);
 
 			return alias;
 		}
+
+
 
 		private static string GetAmountDataPath(Property property, ICriteria criteria)
 		{

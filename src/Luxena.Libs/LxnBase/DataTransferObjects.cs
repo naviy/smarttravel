@@ -223,6 +223,10 @@ namespace LxnBase.Data
 		
 		[PreserveCase()]
 		public object PositionableObjectId;
+
+		[PreserveCase()]
+		public Dictionary Params;
+
 	}
 	
 	public partial class RangeResponse

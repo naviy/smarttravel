@@ -37,7 +37,21 @@ namespace Luxena.Travel.Domain
 				fullDocumentControl = false;
 
 
-				if (db.IsGranted(UserRole.Administrator, UserRole.Supervisor))
+				if (db.IsGranted(UserRole.Administrator))
+				{
+					fullDocumentControl = true;
+
+					return DocumentAccessRestriction.FullAccess;
+				}
+
+
+				if (db.Configuration.SeparateDocumentAccessByAgent)
+				{
+					return DocumentAccessRestriction.RestrictedAccessByAgent;
+				}
+
+
+				if (db.IsGranted(UserRole.Supervisor))
 				{
 					fullDocumentControl = true;
 
@@ -64,12 +78,6 @@ namespace Luxena.Travel.Domain
 
 					return DocumentAccessRestriction.RestrictedAccessByOwner;
 
-				}
-
-
-				if (db.Configuration.SeparateDocumentAccessByAgent)
-				{
-					return DocumentAccessRestriction.RestrictedAccessByAgent;
 				}
 
 
@@ -214,6 +222,7 @@ namespace Luxena.Travel.Domain
 
 				return new[]
 				{
+
 					new PropertyFilter
 					{
 						Property = propertyName,
@@ -221,21 +230,37 @@ namespace Luxena.Travel.Domain
 						{
 							new PropertyFilterCondition
 							{
-								Operator = FilterOperator.IsIdNotInOrIsNull,
-								Value = otherAgents.Convert(p => p.Id)
-							}
-						}
-					},
+								Operator = FilterOperator.Or,
+								Items = new []
+								{
 
-					new PropertyFilter
-					{
-						Property = "IsProcessed",
-						Conditions = new[]
-						{
-							new PropertyFilterCondition
-							{
-								Operator = FilterOperator.Equals,
-								Value = true
+									new PropertyFilter
+									{
+										Property = propertyName,
+										Conditions = new[]
+										{
+											new PropertyFilterCondition
+											{
+												Operator = FilterOperator.IsIdNotInOrIsNull,
+												Value = otherAgents.Convert(p => p.Id)
+											}
+										}
+									},
+
+									new PropertyFilter
+									{
+										Property = "IsProcessed",
+										Conditions = new[]
+										{
+											new PropertyFilterCondition
+											{
+												Operator = FilterOperator.Equals,
+												Value = false
+											}
+										}
+									},
+
+								}
 							}
 						}
 					},

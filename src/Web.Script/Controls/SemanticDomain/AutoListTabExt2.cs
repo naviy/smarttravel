@@ -41,6 +41,15 @@ namespace Luxena.Travel.Controls
 			);
 		}
 
+		protected static void ListObjectsOfType2(Type type, string tabId_, ListArgs args, bool newTab)
+		{
+			Tabs.Open(
+				newTab, tabId_,
+				delegate (string tabId) { return (AutoListTabExt2)Type.CreateInstance(type, tabId, args); },
+				args.BaseRequest
+			);
+		}
+
 		protected AutoListTabExt2(string tabId, ListArgs args) : base(tabId, args)
 		{
 		}

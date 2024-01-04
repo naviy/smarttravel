@@ -237,22 +237,22 @@ namespace Luxena.Travel.Domain
 		public virtual void Refresh()
 		{
 
-			if (Order != null)
-				SetPayerInternal(Order.Customer);
+			if (Order != null && Payer == null)
+				SetPayerInternal(Order.BillTo ?? Order.Customer);
 
 		}
 
 
 
-		private bool SetPayerInternal(Party value)
+		private bool SetPayerInternal(Party payer)
 		{
 
-			if (Equals(Payer, value))
+			if (Equals(Payer, payer))
 				return false;
 
 			CheckCanModify();
 
-			Payer = value;
+			Payer = payer;
 
 
 			return true;
@@ -261,25 +261,26 @@ namespace Luxena.Travel.Domain
 
 
 
-		private void SetOrderInternal(Order value)
+		private void SetOrderInternal(Order order)
 		{
 
-			if (Equals(Order, value))
+			if (Equals(Order, order))
 				return;
 
 
 			Order?.RemovePayment(this);
 
-			Order = value;
+			Order = order;
 
 
-			if (value == null)
+			if (order == null)
 				return;
 
 
-			Payer = value.Customer;
+			if (Payer == null)
+				Payer = order.BillTo ?? order.Customer;
 
-			value.AddPayment(this);
+			order.AddPayment(this);
 
 		}
 

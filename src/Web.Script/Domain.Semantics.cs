@@ -355,6 +355,12 @@ namespace Luxena.Travel
 			.Title("Реквизиты организации")
 			.Text(3);
 
+		/// <summary>Счёт: дополнение к Итого (суфикс)</summary>
+		[PreserveCase]
+		public SemanticMember TotalSuffix = Member
+			.Title("Счёт: дополнение к Итого (суфикс)")
+			.Text(3);
+
 		/// <summary>Примечание</summary>
 		[PreserveCase]
 		public SemanticMember Note = Member
@@ -366,6 +372,7 @@ namespace Luxena.Travel
 	/*
 				se.IsDefault,
 				se.CompanyDetails,
+				se.TotalSuffix,
 				se.Note,
 	*/
 

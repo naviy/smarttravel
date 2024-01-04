@@ -1,22 +1,16 @@
 ﻿using System;
 using System.Collections;
-
 using Ext;
 using Ext.grid;
 using Ext.menu;
-
 using jQueryApi;
-
+using Luxena.Travel.Cfg;
+using Luxena.Travel.Services;
 using LxnBase;
 using LxnBase.Data;
 using LxnBase.Net;
 using LxnBase.UI;
 using LxnBase.UI.AutoControls;
-using LxnBase.UI.Controls;
-
-using Luxena.Travel.Cfg;
-using Luxena.Travel.Services;
-
 using Action = Ext.Action;
 using Record = Ext.data.Record;
 

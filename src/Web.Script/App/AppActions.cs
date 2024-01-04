@@ -1,17 +1,11 @@
-using System.Html;
-
+﻿using System.Html;
 using Ext;
-
-using LxnBase.Net;
-
-using Luxena.Travel.Services;
-
 using jQueryApi;
-
+using Luxena.Travel.Services;
 using LxnBase;
 using LxnBase.Data;
+using LxnBase.Net;
 using LxnBase.UI;
-using LxnBase.UI.AutoForms;
 
 
 
@@ -23,7 +17,9 @@ namespace Luxena.Travel
 	{
 
 		public static Action ProductList = ActionFactory.CreateListAction(ClassNames.Product, DomainRes.AllProduct_Caption_List);
-		
+		public const string AllAgencyProductTitle = "Все документы агентства";
+		public static Action AllAgencyProductList = ActionFactory.CreateListAction(ClassNames.AllAgencyProduct, AllAgencyProductTitle);
+
 
 		public static Action UpdateAnalytics;
 		public static Action ConsignmentList;
@@ -71,10 +67,10 @@ namespace Luxena.Travel
 					delegate
 					{
 						FormsRegistry.EditObject(ClassNames.Order, null, null,
-							delegate(object arg)
+							delegate (object arg)
 							{
-								ItemResponse response = (ItemResponse) arg;
-								FormsRegistry.ViewObject(ClassNames.Order, ((OrderDto) response.Item).Id);
+								ItemResponse response = (ItemResponse)arg;
+								FormsRegistry.ViewObject(ClassNames.Order, ((OrderDto)response.Item).Id);
 							},
 							null);
 					}))
@@ -91,17 +87,17 @@ namespace Luxena.Travel
 
 					QuickReceiptEditForm form = new QuickReceiptEditForm();
 
-					form.Saved += delegate(object arg)
+					form.Saved += delegate (object arg)
 					{
 
-						QuickReceiptResponse result = (QuickReceiptResponse) arg;
+						QuickReceiptResponse result = (QuickReceiptResponse)arg;
 
 						FormsRegistry.ViewObject(ClassNames.Order, result.Order.Id);
 
 						ReportPrinter.GetOrderDocument(
-							result.Receipt.Id, 
-							result.Receipt.Name, 
-							InvoiceType.Receipt, 
+							result.Receipt.Id,
+							result.Receipt.Name,
+							InvoiceType.Receipt,
 							null
 						);
 
@@ -117,12 +113,15 @@ namespace Luxena.Travel
 
 			NewTask = new Action(new ActionConfig()
 				.text(Res.NewTask_Action)
-				.handler(new AnonymousDelegate(delegate { FormsRegistry.EditObject(ClassNames.Task, null, null,
-					delegate(object arg)
-					{
-						ItemResponse response = (ItemResponse) arg;
-						FormsRegistry.ViewObject(ClassNames.Task, ((Reference)response.Item).Id);
-					}, null); }))
+				.handler(new AnonymousDelegate(delegate
+				{
+					FormsRegistry.EditObject(ClassNames.Task, null, null,
+delegate (object arg)
+{
+ItemResponse response = (ItemResponse)arg;
+FormsRegistry.ViewObject(ClassNames.Task, ((Reference)response.Item).Id);
+}, null);
+				}))
 				.ToDictionary());
 
 			AviaConsoleParser = new Action(new ActionConfig()

@@ -25,6 +25,7 @@ namespace Luxena.Base.Data
 		IsIdIn = 11,
 		IsIdInOrIsNull = 12,
 		IsIdNotInOrIsNull = 13,
+		Or = 14,
 	}
 
 

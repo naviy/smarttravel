@@ -141,7 +141,7 @@ namespace Luxena.Travel.Domain
 						r.Payments.ForEach(a =>
 						{
 							if (a.Payer == null)
-								a.SetPayer(r.Customer);
+								a.SetPayer(r.BillTo ?? r.Customer);
 						});
 
 					}

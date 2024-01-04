@@ -553,7 +553,14 @@ namespace LxnBase.UI.AutoControls
 		private void Load()
 		{
 			if (_args.NonPaged)
-				GenericService.GetRange(_args.Type, null, delegate (object result) { store.loadData(((RangeResponse)result).List); }, null);
+			{
+				GenericService.GetRange(
+					_args.Type, 
+					null,
+					delegate(object result) { store.loadData(((RangeResponse)result).List); }, 
+					null
+				);
+			}
 			else
 			{
 				_baseRequest.VisibleProperties = (string[])GetVisibleProperties();
@@ -1005,8 +1012,10 @@ namespace LxnBase.UI.AutoControls
 				}, null);
 		}
 
+
 		private void Copy()
 		{
+
 			Record selected = SelectionModel.getSelected();
 
 			string type = ResolveType(selected);
@@ -1036,8 +1045,11 @@ namespace LxnBase.UI.AutoControls
 
 					ReloadWithData(rangeResponse);
 				},
-				null, _baseRequest, LoadMode.Remote, true);
+				null, _baseRequest, LoadMode.Remote, true
+			);
+
 		}
+
 
 		private void View()
 		{

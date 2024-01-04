@@ -54,6 +54,7 @@ namespace Luxena.Travel
 			AddMainMenuItem(config, "Услуги", new object[]
 			{
 				NewAction(AppActions.ProductList, ClassNames.Product),
+				NewAction(AppActions.AllAgencyProductList, ClassNames.AllAgencyProduct),
 				"-",
 				sd.AviaDocument,
 				sd.FlightSegment,

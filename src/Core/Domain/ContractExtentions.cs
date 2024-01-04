@@ -944,6 +944,8 @@ namespace Luxena.Travel.Domain
 
 		public string CompanyDetails { get; set; }
 
+		public string TotalSuffix { get; set; }
+
 		public string Note { get; set; }
 
 		*/
@@ -958,6 +960,7 @@ namespace Luxena.Travel.Domain
 			{
 				c.IsDefault = r.IsDefault;
 				c.CompanyDetails = r.CompanyDetails;
+				c.TotalSuffix = r.TotalSuffix;
 				c.Note = r.Note;
 			};
 		
@@ -965,6 +968,7 @@ namespace Luxena.Travel.Domain
 			{
 				r.IsDefault = c.IsDefault + db;
 				r.CompanyDetails = c.CompanyDetails + db;
+				r.TotalSuffix = c.TotalSuffix + db;
 				r.Note = c.Note + db;
 			};
 		}

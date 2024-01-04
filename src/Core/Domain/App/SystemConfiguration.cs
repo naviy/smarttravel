@@ -86,6 +86,7 @@ namespace Luxena.Travel.Domain
 
 		[RU("Разделять доступ к документам по агенту")]
 		public virtual bool SeparateDocumentAccessByAgent { get; set; }
+		// public virtual bool SeparateDocumentAccessByAgent { get => true; set { } }
 
 		[RU("Возможность редактировать и обрабатывать билеты других агентов")]
 		public virtual bool AllowOtherAgentsToModifyProduct { get; set; }

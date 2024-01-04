@@ -195,6 +195,7 @@
     <Compile Include="Products\Insurance\Insurance.View.Ext.cs" />
     <Compile Include="Products\Insurance\Insurance.ViewForm.cs" />
     <Compile Include="Products\AllProduct.ListTab.cs" />
+    <Compile Include="Products\AllAgencyProduct.ListTab.cs" />
     <Compile Include="Products\ProductPassenger.ListTab.cs" />
     <Compile Include="Products\Transfer\Transfer.EditForm.cs" />
     <Compile Include="Products\Transfer\Transfer.ListTab.cs" />

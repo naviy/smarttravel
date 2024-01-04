@@ -15,6 +15,7 @@
 				se.Name.ToField(-3),
 
 				se.CompanyDetails.ToField(-3),
+				se.TotalSuffix.ToField(-3),
 				se.Description.ToField(-3),
 
 				se.IsDefault.ToField(-3),
