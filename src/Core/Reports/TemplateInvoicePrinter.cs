@@ -96,6 +96,11 @@ namespace Luxena.Travel.Reports
 			
 			var customerDetails = configuration.GetCustomerDetails(db, order.ShipTo ?? order.Customer, multiline: true);
 
+			var totalSuffix =
+				order.BankAccount?.TotalSuffix.Clip() ??
+				(order.Vat.No() ? $", {DomainRes.Common_WithoutVat}" : null)
+			;
+
 
 			var data = new
 			{
@@ -161,7 +166,7 @@ namespace Luxena.Travel.Reports
 				}),
 
 
-				TotalWords = (showPaid ? order.TotalDue : order.Total).ToWords(),
+				TotalWords = (showPaid ? order.TotalDue : order.Total).ToWords() + totalSuffix,
 
 				Warning1 = configuration.VatRate > 0 ? ReportRes.InvoicePrinter_VatLawChanged : null,
 
