@@ -28,42 +28,59 @@ namespace Luxena.Travel.Domain
 
 			public Service()
 			{
+
 				Calculating += r =>
 				{
+
 					if (r.Price == null && r.GrandTotal != null && r.Quantity == 0)
 					{
 						r.Price = r.GrandTotal.Clone();
 						r.Quantity = 1;
 					}
+
 				};
+
 			}
 
 
-			public OrderItem New(Product product, OrderItemLinkType linkType)
+			public OrderItem New(Product product, OrderItemLinkType linkType, bool disallowVat)
 			{
+
 				var r = new OrderItem
 				{
 					Product = product,
 					LinkType = linkType
 				};
 
-				r.Recalculate(db);
+
+				r.Recalculate(db, disallowVat);
+
 
 				return r;
+
 			}
 
-			public IList<OrderItem> New<TProduct>(IList<TProduct> documents, ServiceFeeMode serviceFeeMode)
+
+			public IList<OrderItem> New<TProduct>(
+				IList<TProduct> documents, 
+				ServiceFeeMode serviceFeeMode,
+				bool disallowVat
+			)
 				where TProduct : Product
 			{
 				var items = new List<OrderItem>();
 
 				foreach (var doc in documents)
-					items.AddRange(New(doc, serviceFeeMode));
+					items.AddRange(New(doc, serviceFeeMode, disallowVat));
 
 				return items;
 			}
 
-			public IList<OrderItem> New(Product document, ServiceFeeMode serviceFeeMode)
+			public IList<OrderItem> New(
+				Product document, 
+				ServiceFeeMode serviceFeeMode,
+				bool disallowVat
+			)
 			{
 				var separate = serviceFeeMode == ServiceFeeMode.Separate || serviceFeeMode == ServiceFeeMode.AlwaysSeparate;
 
@@ -85,14 +102,14 @@ namespace Luxena.Travel.Domain
 				{
 					return new[]
 					{
-						New(document, OrderItemLinkType.ProductData),
-						New(document, OrderItemLinkType.ServiceFee)
+						New(document, OrderItemLinkType.ProductData, disallowVat),
+						New(document, OrderItemLinkType.ServiceFee, disallowVat)
 					};
 				}
 
 				return new[]
 				{
-					New(document, OrderItemLinkType.FullDocument)
+					New(document, OrderItemLinkType.FullDocument, disallowVat)
 				};
 			}
 

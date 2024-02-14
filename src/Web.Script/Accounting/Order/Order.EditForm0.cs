@@ -93,6 +93,18 @@ namespace Luxena.Travel
 		}
 
 
+		public Reference BankAccount
+		{
+			get { return _bankAccount.GetObjectInfo(); }
+		}
+
+
+		public string BankAccountId
+		{
+			get { return _bankAccount.GetSelectedId() as string; }
+		}
+
+
 		public bool CanChangeVat
 		{
 			get { return GetCustomActionStatus("ChangeVat").Visible; }

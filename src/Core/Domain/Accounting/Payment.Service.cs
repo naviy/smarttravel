@@ -22,23 +22,27 @@ namespace Luxena.Travel.Domain
 
 			public AviaPaymentResponse CanCreateByProducts(object[] productIds)
 			{
+
 				var docs = db.Product.ListByIds(productIds);
 
+
 				var unorderedDocs = docs.Where(doc => doc.Order == null).ToList();
+
 
 				Party customer = null;
 				Money total = null;
 				Money vat = null;
 
+
 				if (unorderedDocs.Count > 0)
 				{
-					var orderItems = db.OrderItem.New(unorderedDocs, ServiceFeeMode.AlwaysJoin);
+					var orderItems = db.OrderItem.New(unorderedDocs, ServiceFeeMode.AlwaysJoin, false);
 
 					customer = unorderedDocs.All(doc => doc.Customer == unorderedDocs[0].Customer) ? unorderedDocs[0].Customer : null;
 
-					Money discount;
-					db.Order.CalcFinanceData(orderItems, db.Configuration.DefaultCurrency, out total, out discount, out vat);
+					db.Order.CalcFinanceData(orderItems, db.Configuration.DefaultCurrency, out total, out _, out vat);
 				}
+
 
 				var response = new AviaPaymentResponse
 				{
@@ -49,7 +53,9 @@ namespace Luxena.Travel.Domain
 					OrderItems = docs.Where(a => a.Order != null).Select(a => new OrderItemDto(a.Order, a)).ToArray(),
 				};
 
+
 				return response;
+
 			}
 
 			public override OperationStatus CanUpdate(TPayment r)

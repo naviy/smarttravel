@@ -349,6 +349,13 @@ namespace Luxena.Travel
 			.Bool()
 			.Required();
 
+		/// <summary>БЕЗ НДС</summary>
+		[PreserveCase]
+		public SemanticMember DisallowVat = Member
+			.Title("БЕЗ НДС")
+			.Bool()
+			.Required();
+
 		/// <summary>Реквизиты организации</summary>
 		[PreserveCase]
 		public SemanticMember CompanyDetails = Member
@@ -371,6 +378,7 @@ namespace Luxena.Travel
 
 	/*
 				se.IsDefault,
+				se.DisallowVat,
 				se.CompanyDetails,
 				se.TotalSuffix,
 				se.Note,
@@ -5650,6 +5658,13 @@ namespace Luxena.Travel
 			.Bool()
 			.Required();
 
+		/// <summary>Использовать доп. доход от АК при расчёте НДС</summary>
+		[PreserveCase]
+		public SemanticMember UseHandlingInVat = Member
+			.Title("Использовать доп. доход от АК при расчёте НДС")
+			.Bool()
+			.Required();
+
 		/// <summary>Использовать бонусы</summary>
 		[PreserveCase]
 		public SemanticMember UseBonuses = Member
@@ -5844,6 +5859,7 @@ namespace Luxena.Travel
 				se.UseConsolidatorCommission,
 				se.DefaultConsolidatorCommission,
 				se.UseAviaHandling,
+				se.UseHandlingInVat,
 				se.UseBonuses,
 				se.DaysBeforeDeparture,
 				se.BirthdayTaskResponsible,

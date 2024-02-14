@@ -20,7 +20,7 @@ namespace Luxena.Travel.Domain
 
 		[ReadOnly]
 		public virtual Order Order { get; set; }
-		
+
 		public virtual Product Product { get; set; }
 
 		public virtual Consignment Consignment { get; set; }
@@ -101,14 +101,14 @@ namespace Luxena.Travel.Domain
 
 
 
-		public virtual void Recalculate(Domain db)
+		public virtual void Recalculate(Domain db, bool disallowVat)
 		{
 
 			if (Quantity == 0)
 				Quantity = 1;
 
 
-			if (Product == null) 
+			if (Product == null)
 				return;
 
 
@@ -160,7 +160,6 @@ namespace Luxena.Travel.Domain
 
 				case OrderItemLinkType.ServiceFee:
 
-
 					var serviceFee = !Product.IsRefund ? Product.ServiceFee : Product.ServiceTotal;
 
 					Text = CommonRes.OrderItem_AviaServiceFeeSource;
@@ -177,7 +176,7 @@ namespace Luxena.Travel.Domain
 					}
 
 
-					TaxedTotal = serviceFee.Clone();
+					TaxedTotal = CalculateTaxedTotal(db, disallowVat);
 
 					GivenVat = new Money(Product.Total.Currency);
 
@@ -206,11 +205,7 @@ namespace Luxena.Travel.Domain
 					if (Product.Total.Yes())
 					{
 						GivenVat = CalculateGivenVat(db);
-
-						TaxedTotal = new Money(Product.Total.Currency);
-
-						if (Product.ServiceFee != null)
-							TaxedTotal += Product.ServiceFee.Clone();
+						TaxedTotal = CalculateTaxedTotal(db, disallowVat);
 
 						HasVat = GivenVat.Amount > 0 || TaxedTotal.Amount > 0;
 					}
@@ -266,7 +261,7 @@ namespace Luxena.Travel.Domain
 		}
 
 
-		
+
 		private Money CalculateGivenVat(Domain db)
 		{
 
@@ -277,6 +272,28 @@ namespace Luxena.Travel.Domain
 
 
 			return new Money(Product.Total.AsCurrency());
+
+		}
+
+
+		private Money CalculateTaxedTotal(Domain db, bool disallowVat)
+		{
+
+			var taxed = new Money(Product.Total.Currency);
+
+			if (disallowVat)
+				return taxed;
+
+
+			taxed += Product.ServiceFee;
+
+			if (db.Configuration.UseAviaHandling && db.Configuration.UseHandlingInVat && Product.Vat != null)
+			{
+				taxed += Product.Handling;// - Product.HandlingN;
+			}
+
+
+			return taxed;
 
 		}
 

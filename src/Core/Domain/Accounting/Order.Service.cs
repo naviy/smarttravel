@@ -123,7 +123,6 @@ namespace Luxena.Travel.Domain
 				};
 
 
-
 				Updating += r =>
 				{
 

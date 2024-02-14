@@ -36,6 +36,7 @@ namespace Luxena.Travel
 					se.UseConsolidatorCommission,
 					se.DefaultConsolidatorCommission,
 					se.UseAviaHandling,
+					se.UseHandlingInVat,
 					se.UseBonuses,
 					EmptyRow(),
 					se.IsPassengerPassportRequired,

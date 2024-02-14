@@ -17,6 +17,7 @@ namespace Luxena.Travel.Domain
 			Property(x => x.IsDefault);
 			Property(x => x.CompanyDetails);
 			Property(x => x.TotalSuffix);
+			Property(x => x.DisallowVat);
 			Property(x => x.Note);
 
 		}

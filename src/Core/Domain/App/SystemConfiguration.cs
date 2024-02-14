@@ -105,6 +105,9 @@ namespace Luxena.Travel.Domain
 		[RU("Использовать доп. доход от АК при обработке авиадокументов")]
 		public virtual bool UseAviaHandling { get; set; }
 
+		[RU("Использовать доп. доход от АК при расчёте НДС")]
+		public virtual bool UseHandlingInVat { get; set; }
+
 		[RU("Использовать бонусы")]
 		public virtual bool UseBonuses { get; set; }
 

@@ -176,10 +176,13 @@ namespace Luxena.Domain.Contracts
 			TContract c,
 			RangeRequest prms,
 			Func<TEntity> newEntity,
-			Func<TEntity, object> newResponseContract
+			Func<TEntity, object> newResponseContract,
+			Action<TEntity> updating = null
 		)
 		{
+
 			TEntity r;
+			
 			if (c.Id == null)
 			{
 				AssertCreate(c);
@@ -191,14 +194,21 @@ namespace Luxena.Domain.Contracts
 				AssertUpdate(r, c);
 			}
 
+
+			updating?.Invoke(r);
+
+
 			db.UserModifingEntity = r;
+
 
 			EntityFromContract?.Invoke(r, c);
 			Service.Save(r);
 
 			db.Committing();
 
+
 			var response = new ItemResponse();
+
 
 			if (prms != null)
 			{
@@ -212,7 +222,9 @@ namespace Luxena.Domain.Contracts
 				response.Item = newResponseContract(r);
 			}
 
+
 			return response;
+
 		}
 
 		protected virtual void AssertCreate(TContract c)

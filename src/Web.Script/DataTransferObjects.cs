@@ -2659,7 +2659,15 @@ namespace Luxena.Travel.Services
 		{
 			Service = new WebService("OrderService.asmx");
 		}
-		
+
+
+		[PreserveCase()]
+		public static void ForceRefreshOrder(object orderId, AjaxCallback onSuccess, WebServiceFailure onError)
+		{
+			Service.Invoke("ForceRefreshOrder", new Dictionary("orderId", orderId), false, null, onSuccess, onError);
+		}
+
+
 		[PreserveCase()]
 		public static void GetOrdersByAviaDocuments(Object[] aviaDocumentIds, AjaxCallback onSuccess, WebServiceFailure onError)
 		{
@@ -2679,9 +2687,24 @@ namespace Luxena.Travel.Services
 		}
 		
 		[PreserveCase()]
-		public static void GenerateOrderItems(Object[] documentIds, bool separateServiceFee, string ordreId, AjaxCallback onSuccess, WebServiceFailure onError)
+		public static void GenerateOrderItems(
+			Object[] documentIds, 
+			bool separateServiceFee, 
+			string orderId, 
+			string bankAccountId,
+			AjaxCallback onSuccess, 
+			WebServiceFailure onError
+		)
 		{
-			Service.Invoke("GenerateOrderItems", new Dictionary("documentIds", documentIds, "separateServiceFee", separateServiceFee, "ordreId", ordreId), false, null, onSuccess, onError);
+			Service.Invoke("GenerateOrderItems", 
+				new Dictionary(
+					"documentIds", documentIds, 
+					"separateServiceFee", separateServiceFee, 
+					"orderId", orderId,
+					"bankAccountId", bankAccountId
+				),
+				false, null, onSuccess, onError
+			);
 		}
 		
 		[PreserveCase()]

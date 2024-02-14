@@ -153,6 +153,7 @@ namespace Luxena.Travel.Domain
 		[RU("Код тикетера", ruShort: "код"), MaxLength(20)]
 		public virtual string TicketerCode { get; set; }
 
+
 		[RU("IATA офис"), MaxLength(10)]
 		public virtual string TicketingIataOffice { get; set; }
 
@@ -538,7 +539,7 @@ namespace Luxena.Travel.Domain
 
 
 
-		public virtual void RefreshOrder(Domain db)
+		public virtual void RefreshOrder(Domain db, bool saveItems = false)
 		{
 
 			var order = Order;
@@ -570,7 +571,7 @@ namespace Luxena.Travel.Domain
 				}
 
 
-				order.Recalculate(db);
+				order.Recalculate(db, saveItems);
 
 			}
 
@@ -578,7 +579,7 @@ namespace Luxena.Travel.Domain
 			if (db.IsDirty(this, a => a.Order))
 			{
 				var oldOrder = db.OldValue(this, a => a.Order);
-				oldOrder?.Recalculate(db);
+				oldOrder?.Recalculate(db, saveItems);
 			}
 
 		}

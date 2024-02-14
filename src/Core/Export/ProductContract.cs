@@ -40,6 +40,8 @@ namespace Luxena.Travel.Export
 		[DataMember]
 		public PartyReference Provider { get; set; }
 		[DataMember]
+		public string TicketingIataOffice { get; set; }
+		[DataMember]
 		public string PassengerName { get; set; }
 		[DataMember]
 		public PartyReference[] Passengers { get; set; }
@@ -115,6 +117,7 @@ namespace Luxena.Travel.Export
 			IsVoid = r.IsVoid;
 			Producer = r.Producer;
 			Provider = r.Provider;
+			TicketingIataOffice = r.TicketingIataOffice;
 			PassengerName = r.PassengerName;
 			Passengers = r.Passengers.Select(a => (PartyReference)a.Passenger).ToArray();
 			Fare = r.Fare;

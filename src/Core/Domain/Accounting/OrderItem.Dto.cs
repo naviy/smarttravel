@@ -12,7 +12,7 @@ namespace Luxena.Travel.Domain
 	[DataContract]
 	public partial class OrderItemDto : EntityContract
 	{
-		
+
 		public OrderItemDto() { }
 
 		public OrderItemDto(Order.Reference order, Product.Reference product)
@@ -46,6 +46,8 @@ namespace Luxena.Travel.Domain
 		public MoneyDto GrandTotal { get; set; }
 
 		public MoneyDto GivenVat { get; set; }
+
+		public MoneyDto Vat { get; set; }
 
 		public MoneyDto TaxedTotal { get; set; }
 
@@ -95,8 +97,10 @@ namespace Luxena.Travel.Domain
 				c.Total = r.Total;
 				c.Discount = r.Discount;
 				c.GrandTotal = r.GrandTotal;
+
 				c.GivenVat = r.GivenVat;
 				c.TaxedTotal = r.TaxedTotal;
+				c.Vat = r.GivenVat + (r.TaxedTotal - r.Discount) * db.Configuration.VatRate / (100 + db.Configuration.VatRate); ;
 
 				c.HasVat = r.HasVat;
 				c.IsForceDelivered = r.IsForceDelivered;
@@ -157,10 +161,18 @@ namespace Luxena.Travel.Domain
 
 
 
-		public GenerateOrderItemsResponse Generate(object[] productIds, bool separateServiceFee, string orderId)
+		public GenerateOrderItemsResponse Generate(
+			object[] productIds, 
+			bool separateServiceFee, 
+			string orderId,
+			string bankAccountId
+		)
 		{
 
 			var order = orderId != null ? db.Order.By(orderId) : null;
+			var bankAccount = bankAccountId != null ? db.BankAccount.By(bankAccountId) : null;
+
+			var disallowVat = bankAccount?.DisallowVat == true;
 
 			var products = db.Product.ListByIds(productIds);
 
@@ -193,7 +205,11 @@ namespace Luxena.Travel.Domain
 					}
 
 
-					dtos.AddRange(New(db.OrderItem.New(product, separateServiceFee ? ServiceFeeMode.Separate : ServiceFeeMode.Join)));
+					dtos.AddRange(New(db.OrderItem.New(
+						product, 
+						separateServiceFee ? ServiceFeeMode.Separate : ServiceFeeMode.Join, 
+						disallowVat
+					)));
 
 				}
 

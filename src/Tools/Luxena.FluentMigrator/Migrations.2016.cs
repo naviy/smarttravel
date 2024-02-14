@@ -894,6 +894,29 @@ update lt_order o set
 	}
 
 
+	[Migration(2024021201)]
+	public class Migration_2024021201 : AutoReversingMigration
+	{
+		public override void Up()
+		{
+			Alter.Table("lt_system_configuration")
+				.AddColumn("usehandlinginvat").AsBoolean().NotNullable().WithDefaultValue(false)
+			;
+		}
+	}
+
+
+	[Migration(2024021301)]
+	public class Migration_2024021301 : AutoReversingMigration
+	{
+		public override void Up()
+		{
+			Alter.Table("lt_bank_account")
+				.AddColumn("disallowvat").AsBoolean().NotNullable().WithDefaultValue(false)
+			;
+		}
+	}
+
 
 
 }

@@ -29,6 +29,14 @@ namespace Luxena.Travel.Web.Services
 
 
 		[WebMethod]
+		public ItemResponse ForceRefreshOrder(string orderId)
+		{
+			return db.Commit(() => dc.Order.ForceRefresh(orderId));
+		}
+
+
+
+		[WebMethod]
 		public OrderItemDto[] GetOrdersByAviaDocuments(object[] aviaDocumentIds)
 		{
 			return db.Commit(() => dc.OrderItem.ListByProducts(aviaDocumentIds));
@@ -53,9 +61,19 @@ namespace Luxena.Travel.Web.Services
 
 
 		[WebMethod]
-		public GenerateOrderItemsResponse GenerateOrderItems(object[] documentIds, bool separateServiceFee, string ordreId)
+		public GenerateOrderItemsResponse GenerateOrderItems(
+			object[] documentIds, 
+			bool separateServiceFee, 
+			string orderId, 
+			string bankAccountId
+		)
 		{
-			return db.Commit(() => dc.OrderItem.Generate(documentIds, separateServiceFee, ordreId));
+			return db.Commit(() => dc.OrderItem.Generate(
+				documentIds, 
+				separateServiceFee, 
+				orderId, 
+				bankAccountId
+			));
 		}
 
 

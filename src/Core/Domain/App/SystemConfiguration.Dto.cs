@@ -70,6 +70,7 @@ namespace Luxena.Travel.Domain
 		public MoneyDto DefaultConsolidatorCommission { get; set; }
 
 		public bool UseAviaHandling { get; set; }
+		public bool UseHandlingInVat { get; set; }
 
 		public bool UseBonuses { get; set; }
 
@@ -164,6 +165,7 @@ namespace Luxena.Travel.Domain
 				c.UseConsolidatorCommission = r.UseConsolidatorCommission;
 				c.DefaultConsolidatorCommission = r.DefaultConsolidatorCommission;
 				c.UseAviaHandling = r.UseAviaHandling;
+				c.UseHandlingInVat = r.UseHandlingInVat;
 				c.UseBonuses = r.UseBonuses;
 				c.DaysBeforeDeparture = r.DaysBeforeDeparture;
 				c.BirthdayTaskResponsible = r.BirthdayTaskResponsible;
@@ -219,6 +221,7 @@ namespace Luxena.Travel.Domain
 				r.UseConsolidatorCommission = c.UseConsolidatorCommission + db;
 				r.DefaultConsolidatorCommission = c.DefaultConsolidatorCommission + db;
 				r.UseAviaHandling = c.UseAviaHandling + db;
+				r.UseHandlingInVat = c.UseHandlingInVat + db;
 				r.UseBonuses = c.UseBonuses + db;
 				r.DaysBeforeDeparture = c.DaysBeforeDeparture + db;
 				r.BirthdayTaskResponsible = c.BirthdayTaskResponsible + db;

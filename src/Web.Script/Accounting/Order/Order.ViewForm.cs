@@ -258,8 +258,15 @@ namespace Luxena.Travel
 				.handler(new AnonymousDelegate(delegate { SetIsVoid(!Order.IsVoid); }))
 				.ToDictionary());
 
-			int index = 0;
 
+			_forceRefreshButton = new Button(new ButtonConfig()
+				.text("пересчитать")
+				.handler(new AnonymousDelegate(ForceRefresh))
+				.ToDictionary());
+
+
+			int index = 0;
+			
 			toolbarItems.Insert(index++, _issueInvoiceButton);
 			toolbarItems.Insert(index++, _issueReceiptButton);
 			toolbarItems.Insert(index++, _registerPaymentButton);
@@ -267,8 +274,13 @@ namespace Luxena.Travel
 			toolbarItems.Insert(index++, _issueCompletionCertificateButton);
 			toolbarItems.Insert(index++, _addTaskButton);
 			toolbarItems.Insert(index++, "-");
-			toolbarItems.Insert(index, _voidButton);
+			toolbarItems.Insert(index++, _voidButton);
+			toolbarItems.Insert(index++, "-");
+			toolbarItems.Insert(index, _forceRefreshButton);
+
 		}
+
+
 
 
 
@@ -418,6 +430,7 @@ namespace Luxena.Travel
 				new PropertyItem(Res.Common_Quantity, "Quantity").SetPropertyType(PropertyType.Number).SetWidth(80).SetCssClass("center-align"),
 				new PropertyItem(Res.Common_Price, "Price").SetPropertyType(PropertyType.Money).SetWidth(100).SetCssClass("right-align"),
 				new PropertyItem(DomainRes.Common_Amount, "Total").SetPropertyType(PropertyType.Money).SetWidth(100).SetCssClass("right-align"),
+				new PropertyItem(DomainRes.Common_Vat, "Vat").SetPropertyType(PropertyType.Money).SetWidth(100).SetCssClass("right-align"),
 				new PropertyItem(DomainRes.OrderItem_Consignment, "Consignment").SetPropertyType(PropertyType.ObjectInfo).SetCssClass("center-align")
 			};
 
@@ -994,6 +1007,16 @@ namespace Luxena.Travel
 		}
 
 
+		private void ForceRefresh()
+		{
+			OrderService.ForceRefreshOrder(
+				Order.Id,
+				delegate(object result) { GetInstance(); }, 
+				null
+			);
+		}
+
+
 
 		private Label _titleLabel;
 
@@ -1004,6 +1027,7 @@ namespace Luxena.Travel
 		private Button _issueConsignmentButton;
 		private Button _addTaskButton;
 		private Button _voidButton;
+		private Button _forceRefreshButton;
 
 		private PropertyListControl _orderProperties;
 		private PropertyListControl _orderFinances;

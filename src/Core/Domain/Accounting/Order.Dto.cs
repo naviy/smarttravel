@@ -258,10 +258,27 @@ namespace Luxena.Travel.Domain
 				return new ItemResponse { Errors = alreadyOrderedDocs };
 
 
-			return base.Update(c, prms);
-
+			return ItemUpdate(
+				c, prms,
+				() => NewEntity(c),
+				r => NewResponseContract(r, c)
+			);
+			
 		}
 
+
+
+		public ItemResponse ForceRefresh(string orderId)
+		{
+
+			var order = db.Order.By(orderId);
+			db.AssertUpdate(order);
+
+			order.ForceRefresh(db);
+
+			return new ItemResponse();
+
+		}
 
 
 		public ItemResponse AddProducts(object orderId, object[] productIds, bool separateServiceFee)
@@ -275,13 +292,20 @@ namespace Luxena.Travel.Domain
 			var links = products
 				.Where(a => a.Order != null)
 				.Select(a => new OrderItemDto { Order = a.Order, Product = a })
-				.ToArray();
+				.ToArray()
+			;
+
 
 			if (links.Yes())
 				return new ItemResponse { Errors = links };
 
 
-			order.Add(db, products, separateServiceFee ? ServiceFeeMode.Separate : ServiceFeeMode.Join);
+			order.Add(
+				db, 
+				products, 
+				separateServiceFee ? ServiceFeeMode.Separate : ServiceFeeMode.Join
+			);
+
 
 			return new ItemResponse { Item = New(order) };
 

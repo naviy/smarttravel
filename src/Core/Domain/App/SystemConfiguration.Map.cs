@@ -85,6 +85,7 @@ namespace Luxena.Travel.Domain.NHibernate.Mapping.Configuration
 			Component(x => x.DefaultConsolidatorCommission);
 
 			Property(x => x.UseAviaHandling, m => m.NotNullable(true));
+			Property(x => x.UseHandlingInVat, m => m.NotNullable(true));
 			
 			Property(x => x.UseBonuses, m => m.NotNullable(true));
 

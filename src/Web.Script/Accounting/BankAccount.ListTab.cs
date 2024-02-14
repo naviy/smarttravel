@@ -17,6 +17,7 @@ namespace Luxena.Travel
 				se.TotalSuffix.ToColumn(false, 100),
 				se.Description,
 				se.IsDefault.ToColumn(false, 90),
+				se.DisallowVat.ToColumn(false, 90),
 				se.Note.ToColumn(true),
 
 				se.CreatedOn.ToColumn(true),

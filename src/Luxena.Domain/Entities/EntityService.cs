@@ -511,18 +511,24 @@ namespace Luxena.Domain.Entities
 
 		protected virtual TEntity Save(TEntity r, Action<Action<TEntity>, Action<TEntity>> onCommit)
 		{
+
 			if (r == null) throw new ArgumentNullException(nameof(r));
+
 			if (onCommit == null) throw new ArgumentNullException(nameof(onCommit));
+
 
 			if (typeof(TEntity).IsAbstract)
 				throw new InvalidOperationException(GetType().FullName + ": Can`t save abstract entity.");
+
 
 			if (_savingEntities == null)
 				_savingEntities = new HashSet<TEntity>();
 			else if (_savingEntities.Contains(r))
 				return r;
 
+
 			_savingEntities.Add(r);
+
 
 			try
 			{

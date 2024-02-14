@@ -473,8 +473,8 @@ namespace Luxena.Travel.Domain
 				var trasfer = _incomingTransfers.Sum(a => a.Amount) - _outgoingTransfers.Sum(a => a.Amount);
 
 
-				_paid = _paid + trasfer;
-				_restPaid = _restPaid + trasfer;
+				_paid += trasfer;
+				_restPaid += trasfer;
 
 				_totalDue = Total - _paid;
 
@@ -500,6 +500,11 @@ namespace Luxena.Travel.Domain
 
 		}
 
+
+		public virtual bool GetDisallowVat()
+		{
+			return BankAccount?.DisallowVat == true;
+		}
 
 
 		public virtual void Add(
@@ -538,7 +543,7 @@ namespace Luxena.Travel.Domain
 					throw new DomainException(Exceptions.OrderIsClosed, document, Number);
 
 
-				var items = db.OrderItem.New(document, serviceFeeMode);
+				var items = db.OrderItem.New(document, serviceFeeMode, GetDisallowVat());
 
 				if (items.Yes())
 				{
@@ -591,12 +596,25 @@ namespace Luxena.Travel.Domain
 
 
 
-		public virtual void Recalculate(Domain db)
+		public virtual void Recalculate(Domain db, bool saveItems = false)
 		{
+
+			var disallowVat = GetDisallowVat();
+
 			foreach (var item in Items)
-				item.Recalculate(db);
+			{
+				item.Recalculate(db, disallowVat);
+				
+				if (saveItems)
+					db.Save(item);
+			}
+
 
 			RecalculateFinanceData(db);
+
+			if (saveItems)
+				db.Save(this);
+
 		}
 
 
@@ -617,6 +635,24 @@ namespace Luxena.Travel.Domain
 
 		}
 
+
+
+		public virtual void ForceRefresh(Domain db)
+		{
+
+			var product = Items.Select(a => a.Product).FirstOrDefault(a => a?.Order != null);
+			if (product != null)
+			{
+				product.RefreshOrder(db, saveItems: true);
+				db.Save(product);
+			}
+			else
+			{
+				Recalculate(db, saveItems: true);
+				db.Save(this);
+			}
+
+		}
 
 
 		public virtual void SetIsVoid(Domain db, bool value)

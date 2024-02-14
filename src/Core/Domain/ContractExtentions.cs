@@ -942,6 +942,8 @@ namespace Luxena.Travel.Domain
 		/*
 		public bool IsDefault { get; set; }
 
+		public bool DisallowVat { get; set; }
+
 		public string CompanyDetails { get; set; }
 
 		public string TotalSuffix { get; set; }
@@ -961,6 +963,7 @@ namespace Luxena.Travel.Domain
 				c.IsDefault = r.IsDefault;
 				c.CompanyDetails = r.CompanyDetails;
 				c.TotalSuffix = r.TotalSuffix;
+				c.DisallowVat = r.DisallowVat;
 				c.Note = r.Note;
 			};
 		
@@ -969,6 +972,7 @@ namespace Luxena.Travel.Domain
 				r.IsDefault = c.IsDefault + db;
 				r.CompanyDetails = c.CompanyDetails + db;
 				r.TotalSuffix = c.TotalSuffix + db;
+				r.DisallowVat = c.DisallowVat + db;
 				r.Note = c.Note + db;
 			};
 		}
@@ -3538,6 +3542,7 @@ namespace Luxena.Travel.Domain
 				c.Discount = r.Discount;
 				c.GrandTotal = r.GrandTotal;
 				c.GivenVat = r.GivenVat;
+				// c.Vat = r.Vat; !!! unknown property
 				c.TaxedTotal = r.TaxedTotal;
 				c.HasVat = r.HasVat;
 				c.IsForceDelivered = r.IsForceDelivered;
@@ -3557,6 +3562,7 @@ namespace Luxena.Travel.Domain
 				r.Discount = c.Discount + db;
 				r.GrandTotal = c.GrandTotal + db;
 				r.GivenVat = c.GivenVat + db;
+				// r.Vat = c.Vat + db; !!! unknown property
 				r.TaxedTotal = c.TaxedTotal + db;
 				r.HasVat = c.HasVat + db;
 				r.IsForceDelivered = c.IsForceDelivered + db;
@@ -5033,6 +5039,8 @@ namespace Luxena.Travel.Domain
 
 		public bool UseAviaHandling { get; set; }
 
+		public bool UseHandlingInVat { get; set; }
+
 		public bool UseBonuses { get; set; }
 
 		public int DaysBeforeDeparture { get; set; }
@@ -5113,6 +5121,7 @@ namespace Luxena.Travel.Domain
 				c.UseConsolidatorCommission = r.UseConsolidatorCommission;
 				c.DefaultConsolidatorCommission = r.DefaultConsolidatorCommission;
 				c.UseAviaHandling = r.UseAviaHandling;
+				c.UseHandlingInVat = r.UseHandlingInVat;
 				c.UseBonuses = r.UseBonuses;
 				c.DaysBeforeDeparture = r.DaysBeforeDeparture;
 				c.BirthdayTaskResponsible = r.BirthdayTaskResponsible;
@@ -5164,6 +5173,7 @@ namespace Luxena.Travel.Domain
 				r.UseConsolidatorCommission = c.UseConsolidatorCommission + db;
 				r.DefaultConsolidatorCommission = c.DefaultConsolidatorCommission + db;
 				r.UseAviaHandling = c.UseAviaHandling + db;
+				r.UseHandlingInVat = c.UseHandlingInVat + db;
 				r.UseBonuses = c.UseBonuses + db;
 				r.DaysBeforeDeparture = c.DaysBeforeDeparture + db;
 				r.BirthdayTaskResponsible = c.BirthdayTaskResponsible + db;

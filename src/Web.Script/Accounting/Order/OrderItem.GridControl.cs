@@ -191,7 +191,11 @@ namespace Luxena.Travel
 
 		public void TryAddDocuments(object[] aviaDocumentIds)
 		{
-			OrderService.GenerateOrderItems(aviaDocumentIds, _parent.SeparateServiceFee, _orderId,
+			OrderService.GenerateOrderItems(
+				aviaDocumentIds, 
+				_parent.SeparateServiceFee, 
+				_orderId,
+				_parent.BankAccountId,
 				delegate(object result)
 				{
 					GenerateOrderItemsResponse response = (GenerateOrderItemsResponse)result;
@@ -200,7 +204,8 @@ namespace Luxena.Travel
 						UpdateOrder(response.Items, response.Customer);
 					else
 						ConfirmAddingDocuments(response);
-				}, null);
+				}, null
+			);
 		}
 
 		private Toolbar InitToolbar()

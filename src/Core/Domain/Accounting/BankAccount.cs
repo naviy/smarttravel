@@ -16,6 +16,9 @@ namespace Luxena.Travel.Domain
 		[RU("Использовать по умолчанию")]
 		public virtual bool IsDefault { get; set; }
 
+		[RU("БЕЗ НДС")]
+		public virtual bool DisallowVat { get; set; }
+
 		[RU("Реквизиты организации"), Text]
 		public virtual string CompanyDetails { get; set; }
 

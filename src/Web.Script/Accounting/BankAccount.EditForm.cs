@@ -19,6 +19,7 @@
 				se.Description.ToField(-3),
 
 				se.IsDefault.ToField(-3),
+				se.DisallowVat.ToField(-3),
 
 				se.Note.ToField(-3),
 
