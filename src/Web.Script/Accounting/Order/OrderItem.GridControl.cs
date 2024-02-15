@@ -176,10 +176,12 @@ namespace Luxena.Travel
 			}
 		}
 
+
 		public void SetParentForm(OrderEditForm form)
 		{
 			_parent = form;
 		}
+
 
 		public void SetInitialData(string orderId, OrderItemDto[] orderItems)
 		{
@@ -188,6 +190,7 @@ namespace Luxena.Travel
 			if (orderItems != null && orderItems.Length > 0)
 				_store.loadData(orderItems);
 		}
+
 
 		public void TryAddDocuments(object[] aviaDocumentIds)
 		{
@@ -207,6 +210,7 @@ namespace Luxena.Travel
 				}, null
 			);
 		}
+
 
 		private Toolbar InitToolbar()
 		{

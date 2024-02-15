@@ -109,7 +109,11 @@ namespace Luxena.Travel.Domain
 
 
 			if (Product == null)
+			{
+				TaxedTotal = CalculateTaxedTotal(db, disallowVat);
+
 				return;
+			}
 
 
 			Product = db.Unproxy(Product);
@@ -279,6 +283,12 @@ namespace Luxena.Travel.Domain
 		private Money CalculateTaxedTotal(Domain db, bool disallowVat)
 		{
 
+			if (Product == null)
+			{
+				return disallowVat ? new Money(Total.Currency) : Total.Clone();
+			}
+
+
 			var taxed = new Money(Product.Total.Currency);
 
 			if (disallowVat)
@@ -289,7 +299,7 @@ namespace Luxena.Travel.Domain
 
 			if (db.Configuration.UseAviaHandling && db.Configuration.UseHandlingInVat && Product.Vat != null)
 			{
-				taxed += Product.Handling;// - Product.HandlingN;
+				taxed += Product.Handling; // - Product.HandlingN;
 			}
 
 
