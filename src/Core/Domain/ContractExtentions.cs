@@ -3992,6 +3992,8 @@ namespace Luxena.Travel.Domain
 
 		public Order.Reference Order { get; set; }
 
+		public BankAccount.Reference BankAccount { get; set; }
+
 		public Party.Reference Intermediary { get; set; }
 
 		public Country.Reference Country { get; set; }

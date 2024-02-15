@@ -39,7 +39,7 @@ namespace Luxena.Travel.Domain
 
 		[Patterns.IssueDate]
 		public virtual DateTime IssueDate { get; set; }
-		
+
 
 		[Patterns.Name, EntityName]
 		public virtual string Name { get; set; }
@@ -65,7 +65,7 @@ namespace Luxena.Travel.Domain
 		[RU("Исходный документ")]
 		public virtual Product RefundedProduct { get; set; }
 
-		
+
 		[Patterns.Passenger]
 		public virtual string PassengerName
 		{
@@ -74,15 +74,15 @@ namespace Luxena.Travel.Domain
 		}
 
 
-		public virtual IList<ProductPassenger> Passengers 
-		{ 
+		public virtual IList<ProductPassenger> Passengers
+		{
 			get => _passengers;
 			set => _passengers = value;
 		}
 
 		private IList<ProductPassenger> _passengers = new List<ProductPassenger>();
 
-		
+
 
 		public virtual ProductPassengerDto[] PassengerDtos
 		{
@@ -125,6 +125,10 @@ namespace Luxena.Travel.Domain
 		public virtual Party Customer { get; protected set; }
 
 		public virtual Order Order { get; protected set; }
+
+		[DataPath("Order.BankAccount")]
+		public virtual BankAccount BankAccount =>
+			Order?.BankAccount;
 
 		[RU("Посредник")]
 		public virtual Party Intermediary { get; set; }
@@ -325,6 +329,20 @@ namespace Luxena.Travel.Domain
 
 		}
 
+
+		protected decimal VatRate;
+
+		public virtual void SetVatRate(decimal value)
+		{
+			VatRate = value;
+		}
+
+
+		public virtual Money OrderedVat =>
+			Order?.ItemsBy(this).Sum(a => a.GivenVat + a.GetTaxedVat(VatRate));
+		
+
+
 		#endregion
 
 
@@ -349,11 +367,8 @@ namespace Luxena.Travel.Domain
 		[RU("Оригинальный документ")]
 		public virtual GdsFile OriginalDocument { get; set; }
 
-		public virtual string ProducerOrProviderAirlineIataCode
-		{
-			get { return Producer.As(a => a.AirlineIataCode) ?? Provider.As(a => a.AirlineIataCode); }
-		}
-
+		public virtual string ProducerOrProviderAirlineIataCode =>
+			Producer?.AirlineIataCode ?? Provider?.AirlineIataCode;
 
 
 		private bool _canModifyChecked;
@@ -364,7 +379,7 @@ namespace Luxena.Travel.Domain
 
 
 
-		public static implicit operator string (Product me)
+		public static implicit operator string(Product me)
 		{
 			return me?.Name;
 		}
@@ -489,7 +504,7 @@ namespace Luxena.Travel.Domain
 		public virtual bool SetOrder(Domain db, Order value)
 		{
 
-			if (Equals(value, Order)) 
+			if (Equals(value, Order))
 				return false;
 
 
@@ -648,7 +663,7 @@ namespace Luxena.Travel.Domain
 		protected virtual void SetPassenger(Person value)
 		{
 
-			if (value == null) 
+			if (value == null)
 				return;
 
 
@@ -754,18 +769,25 @@ namespace Luxena.Travel.Domain
 
 		public static string GetAirportString(Airport airport)
 		{
-			if (airport == null) return null;
+
+			if (airport == null)
+				return null;
+
 
 			var settlement = airport.LocalizedSettlement ?? airport.Settlement;
 
 			if (settlement.No())
 				return airport.Code;
 
+
 			return $"{settlement} ({airport.Code})";
+
 		}
+
 
 		private static string GetText2(Product r)
 		{
+
 			var sb = new StringBuilder();
 
 			if (!r.IsReservation)
@@ -803,12 +825,18 @@ namespace Luxena.Travel.Domain
 					.Append(a)
 			);
 
+
 			return sb.ToString().TrimEnd(',');
+
 		}
+
+
 
 		private static string GetText3(AviaDocument r)
 		{
+
 			var sb = new StringBuilder();
+
 
 			if (!r.IsReservation)
 			{
@@ -830,8 +858,11 @@ namespace Luxena.Travel.Domain
 			// для BSV
 			r.ReissueFor.Do(a => sb.Append(" (" + DomainRes.Common_Reissue.ToLower() + " " + a.Name + ")"));
 
+
 			return sb.ToString().TrimStart(',');
+
 		}
+
 
 		#endregion
 

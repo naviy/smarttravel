@@ -21,6 +21,7 @@ namespace Luxena.Travel.Export
 
 	public class AviaDocumentExcelBuilder// : DomainService
 	{
+
 		public Domain.Domain db { get; set; }
 
 
@@ -32,14 +33,18 @@ namespace Luxena.Travel.Export
 				_structure = (ExportStructure)serializer.Deserialize(reader);
 		}
 
+
 		public byte[] Make(IList<Product> products)
 		{
+
 			_products = products;
 
 			var needRates = _structure.Fields.Any(a => 
 				a.PropertyName.EndsWith("_USD", "_EUR", "_RUB") ||
 				(a.ChildFields?.Any(b => b.PropertyName.EndsWith("_USD", "_EUR", "_RUB")) ?? false)
 			);
+
+
 			if (needRates)
 			{
 				var minDate = _products.Min(a => a.IssueDate);
@@ -50,8 +55,15 @@ namespace Luxena.Travel.Export
 				_products.ForEach(a => a.SetRate(rates.By(a.IssueDate)));
 			}
 
+
+			var vatRate = db.Configuration.VatRate;
+			_products.ForEach(a => a.SetVatRate(vatRate));
+
+
 			return ExportDocuments();
+
 		}
+
 
 		private void CreateStyles()
 		{
@@ -65,8 +77,10 @@ namespace Luxena.Travel.Export
 			_headerStyle.setWrapText(true);
 		}
 
+
 		private byte[] ExportDocuments()
 		{
+
 			_workbook = new HSSFWorkbook();
 
 			CreateStyles();
@@ -75,10 +89,12 @@ namespace Luxena.Travel.Export
 
 			InitMaxHeaderDepth();
 
+
 			for (var i = 0; i < _maxHeaderDepth + 1; i++)
 			{
 				CreateHeaderRows(i);
 			}
+
 
 			foreach (var field in _structure.Fields)
 			{
@@ -87,11 +103,13 @@ namespace Luxena.Travel.Export
 
 			var rowIndex = _maxHeaderDepth;
 
+
 			foreach (var product in _products)
 			{
 				rowIndex++;
 				CreateDataCells(product, CreateDataRow(rowIndex));
 			}
+
 
 			using (var stream = new ByteArrayOutputStream())
 			{
@@ -99,7 +117,9 @@ namespace Luxena.Travel.Export
 
 				return stream.toByteArray();
 			}
+
 		}
+
 
 		private void InitMaxHeaderDepth()
 		{
@@ -205,6 +225,7 @@ namespace Luxena.Travel.Export
 
 		private void CreateDataCells(Product r, Row row)
 		{
+
 			var cls = r.GetClass();
 			var sign = r.IsRefund ? -1 : 1;
 			//if (r as AviaTicket != null)
@@ -225,10 +246,13 @@ namespace Luxena.Travel.Export
 
 			foreach (var field in _dataFields)
 			{
+
 				var localFieldIndex = fieldIndex;
-				fieldIndex = fieldIndex + field.DataFieldCount;
+				fieldIndex += field.DataFieldCount;
+
 
 				object value = field.ValueConst;
+
 				if (value != null)
 				{
 					var cell = row.createCell(localFieldIndex);
@@ -236,16 +260,22 @@ namespace Luxena.Travel.Export
 					continue;
 				}
 
+
 				var propertiesNames = field.PropertyName.Split('.');
 
 				var property = cls.TryGetProperty(propertiesNames[0]);
+
 				if (property == null)
 					continue;
 
+
 				if (propertiesNames.Length == 1)
+				{
 					value = field.Formula.Yes() ? GetMoneyByFormula(field, r) : property.GetValue(r);
+				}
 				else
 				{
+
 					var obj = property.GetValue(r);
 					if (obj == null)
 						continue;
@@ -257,15 +287,21 @@ namespace Luxena.Travel.Export
 						continue;
 
 					value = property.GetValue(obj);
+
 				}
+
 
 				var fieldType = property.Type;
 
 				if ((value == null && fieldType != typeof(Money)) || r.IsVoid && _notShowIfVoidProperties.Contains(field.PropertyName))
+				{
 					continue;
+				}
+
 
 				if (fieldType == typeof(Money))
 				{
+
 					var cellAmount = row.createCell(localFieldIndex);
 
 					SetCellStyle(ref cellAmount, field.ExcelFormat.No() ? _structure.MoneyDefaultFormat : field.ExcelFormat);
@@ -278,10 +314,16 @@ namespace Luxena.Travel.Export
 						SetCellValue(ref cellCurrency, value == null ? "" : ((Money)value).Currency, typeof(string));
 					}
 					else if (_structure.DefaultCurrency != null && value != null && !((Money)value).Currency.Equals(_structure.DefaultCurrency))
-						SetCellValue(ref cellAmount, ((Money)value).Amount + " " + ((Money)value).Currency, typeof(string));
+					{
+						SetCellValue(ref cellAmount, ((Money)value).Amount + " " + ((Money)value).Currency,
+							typeof(string));
+					}
+
 				}
+
 				else if (field.PropertyName == "Type")
 				{
+
 					var cell = row.createCell(localFieldIndex);
 					if (r.IsVoid)
 						value = "Void";
@@ -291,10 +333,14 @@ namespace Luxena.Travel.Export
 						_structure.DocumentTypeMapping.TryGetValue(value.ToString(), out type);
 
 					SetCellValue(ref cell, type, typeof(string));
+
 				}
+
 				else if (field.PropertyName == "Remarks" && r.IsAviaDocument)
 				{
+
 					var doc = (AviaDocument)r;
+
 					if (doc.Origin == ProductOrigin.AmadeusAir)
 					{
 						var remarks = GetAirRemarks(doc.Remarks);
@@ -305,20 +351,32 @@ namespace Luxena.Travel.Export
 						row.createCell(++localFieldIndex).setCellValue(remarks[3]);
 					}
 					else
+					{
 						row.createCell(localFieldIndex).setCellValue(doc.Remarks);
+					}
+
 				}
+
 				else
 				{
+
 					var cell = row.createCell(localFieldIndex);
 					SetCellStyle(ref cell, field.ExcelFormat);
 
 					if (_percentProperties.Contains(field.PropertyName))
+					{
 						value = ((decimal?)value == 0 ? null : (decimal?)value) / 100;
+					}
 
 					SetCellValue(ref cell, value, fieldType);
+
 				}
+
 			}
+
 		}
+
+
 
 		private void CalculateDepth(ExportField field, int childDepth)
 		{
@@ -345,6 +403,7 @@ namespace Luxena.Travel.Export
 
 		private void CreateHeaderCells(ExportField field, int rowFrom)
 		{
+
 			if ((field.ChildFields == null) || (field.ChildFields.Length == 0))
 			{
 				CreateHeaderCell(rowFrom, field);
@@ -365,7 +424,9 @@ namespace Luxena.Travel.Export
 
 				_sheet.addMergedRegion(new CellRangeAddress(rowFrom, rowTo, colFrom, _currentColumnIndex - 1));
 			}
+
 		}
+
 
 		private void CreateHeaderCell(int r1, ExportField field)
 		{

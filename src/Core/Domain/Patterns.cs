@@ -43,6 +43,10 @@ namespace Luxena.Travel.Domain.Patterns
 	public class Customer : Attribute { }
 
 
+	[RU("Банковский счёт")]
+	public class BankAccount : Attribute { }
+
+
 	[EN("Date"), RU("Дата"), Luxena.Domain.Date]
 	public class Date : Attribute { }
 	

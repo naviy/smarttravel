@@ -8075,6 +8075,7 @@ Luxena.Travel.ProductSemantic = function Luxena_Travel_ProductSemantic() {
     this.IsPaid = Luxena.Travel.SemanticEntity.get_member().title('\u041e\u043f\u043b\u0430\u0447\u0435\u043d').bool().required();
     this.Customer = Luxena.Travel.SemanticEntity.get_member().title('\u0417\u0430\u043a\u0430\u0437\u0447\u0438\u043a').reference('Customer');
     this.Order = Luxena.Travel.SemanticEntity.get_member().title('\u0417\u0430\u043a\u0430\u0437').reference('Order');
+    this.BankAccount = Luxena.Travel.SemanticEntity.get_member().title('\u0411\u0430\u043d\u043a\u043e\u0432\u0441\u043a\u0438\u0439 \u0441\u0447\u0451\u0442').enumReference('BankAccount');
     this.Intermediary = Luxena.Travel.SemanticEntity.get_member().title('\u041f\u043e\u0441\u0440\u0435\u0434\u043d\u0438\u043a').reference('Party');
     this.Country = Luxena.Travel.SemanticEntity.get_member().title('\u0421\u0442\u0440\u0430\u043d\u0430').reference('Country').required();
     this.Booker = Luxena.Travel.SemanticEntity.get_member().title('\u0411\u0440\u043e\u043d\u0438\u0440\u043e\u0432\u0449\u0438\u043a').reference('Person');
@@ -14145,7 +14146,7 @@ Luxena.Travel.ProductListTab.prototype = {
         if (this.isRefund()) {
             this.addColumns([ se.CancelFee ]);
         }
-        this.addColumns([ se.FeesTotal.toColumn(true), se.Vat.toColumn(true), se.GrandTotal, se.Order, se.Seller, se.Booker.toColumn(true), se.BookerCode.toColumn(true), se.BookerOffice.toColumn(true), se.Ticketer.toColumn(true), se.TicketerCode.toColumn(true), se.TicketerOffice.toColumn(true), se.IsPaid ]);
+        this.addColumns([ se.FeesTotal.toColumn(true), se.Vat.toColumn(true), se.GrandTotal, se.Order, se.BankAccount.toColumn(true), se.Seller, se.Booker.toColumn(true), se.BookerCode.toColumn(true), se.BookerOffice.toColumn(true), se.Ticketer.toColumn(true), se.TicketerCode.toColumn(true), se.TicketerOffice.toColumn(true), se.IsPaid ]);
         if (Luxena.Travel.ProductListTab.get_useHandling()) {
             this.addColumns([ se.Handling.toColumn(true), se.HandlingN.toColumn(true), se.CommissionDiscount.toColumn(true) ]);
         }

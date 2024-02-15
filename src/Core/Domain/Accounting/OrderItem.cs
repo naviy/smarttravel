@@ -51,6 +51,16 @@ namespace Luxena.Travel.Domain
 
 		public virtual Money TaxedTotal { get; set; }
 
+		public virtual Money GetTaxedVat(Domain db)
+		{
+			return GetTaxedVat(db.Configuration.VatRate);
+		}
+
+		public virtual Money GetTaxedVat(decimal vatRate)
+		{
+			return (TaxedTotal - Discount) * vatRate / (100 + vatRate);
+		}
+
 		public virtual bool HasVat { get; set; }
 
 

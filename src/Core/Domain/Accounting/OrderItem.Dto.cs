@@ -100,7 +100,7 @@ namespace Luxena.Travel.Domain
 
 				c.GivenVat = r.GivenVat;
 				c.TaxedTotal = r.TaxedTotal;
-				c.Vat = r.GivenVat + (r.TaxedTotal - r.Discount) * db.Configuration.VatRate / (100 + db.Configuration.VatRate); ;
+				c.Vat = r.GivenVat + r.GetTaxedVat(db);
 
 				c.HasVat = r.HasVat;
 				c.IsForceDelivered = r.IsForceDelivered;

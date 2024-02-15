@@ -3621,6 +3621,12 @@ namespace Luxena.Travel
 			.Title("Заказ")
 			.Reference("Order");
 
+		/// <summary>Банковский счёт</summary>
+		[PreserveCase]
+		public SemanticMember BankAccount = Member
+			.Title("Банковский счёт")
+			.EnumReference("BankAccount");
+
 		/// <summary>Посредник</summary>
 		[PreserveCase]
 		public SemanticMember Intermediary = Member
@@ -4232,6 +4238,7 @@ namespace Luxena.Travel
 				se.IsPaid,
 				se.Customer,
 				se.Order,
+				se.BankAccount,
 				se.Intermediary,
 				se.Country,
 				se.Booker,

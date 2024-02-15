@@ -206,6 +206,7 @@ namespace Luxena.Travel
 				se.Vat.ToColumn(true),
 				se.GrandTotal,
 				se.Order,
+				se.BankAccount.ToColumn(true),
 				se.Seller,
 				se.Booker.ToColumn(true),
 				se.BookerCode.ToColumn(true),

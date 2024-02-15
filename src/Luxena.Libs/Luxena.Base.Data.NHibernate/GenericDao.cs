@@ -42,6 +42,7 @@ namespace Luxena.Base.Data.NHibernate
 
 		public object[] List(Class clazz, RecordConfig config)
 		{
+
 			var criteria = _transManager.Session.CreateCriteria(clazz.Type);
 
 			SetCriteriaProjections(criteria, clazz, config, null, null);
@@ -52,12 +53,15 @@ namespace Luxena.Base.Data.NHibernate
 
 			ConvertRecords(list, clazz, config, null, null);
 
+
 			return list;
+
 		}
 
 
 		public RangeResponse List(Class clazz, RangeRequest request, RecordConfig config)
 		{
+
 			var criteria = _transManager.Session.CreateCriteria(clazz.Type);
 
 			criteria.SetProjection(Projections.RowCount(), Projections.Max(Projections.Id()));
@@ -134,16 +138,21 @@ namespace Luxena.Base.Data.NHibernate
 					}
 				}
 
+
 				var list = criteria.List<object>().ToArray();
 
 				ConvertRecords(list, clazz, config, request.VisibleProperties, request.HiddenProperties);
 
 				response.List = list;
+
 			}
+
 
 			response.Start = response.List.Length == 0 ? 0 : request.Start;
 
+
 			return response;
+
 		}
 
 
