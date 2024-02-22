@@ -35,10 +35,10 @@ namespace Luxena.Travel.Services
 		//---g
 
 
-		
-		public Domain.Domain db { get; set; }       
-		
-		
+
+		public Domain.Domain db { get; set; }
+
+
 		//bool ITask.IsStarted { get; set; }
 
 		public AccessMode AccessMode { get; set; }
@@ -136,8 +136,8 @@ namespace Luxena.Travel.Services
 
 
 					LoadFileContent(file);
-					
-					if (file.Content.No()) 
+
+					if (file.Content.No())
 						continue;
 
 
@@ -276,7 +276,7 @@ namespace Luxena.Travel.Services
 
 
 
-		private static TGdsFile ParseFileInfo(string ftpListLine)
+		private TGdsFile ParseFileInfo(string ftpListLine)
 		{
 
 			var fileListStyle = GetFileListStyle(ftpListLine);
@@ -328,10 +328,11 @@ namespace Luxena.Travel.Services
 
 
 
-		private static TGdsFile ParseUnixFileInfo(string ftpListLine)
+		private TGdsFile ParseUnixFileInfo(string ftpListLine)
 		{
 
-			const string pattern = @"^(?<dir>[\-ld])(?<permission>([\-r][\-w][\-xs]){3})\s+(?<filecode>\d+)\s+(?<owner>\w+)\s+(?<group>\w+)\s+(?<size>\d+)\s+(?<timestamp>((?<month>\w{3})\s+(?<day>\d{1,2})\s+(?<hour>\d{1,2}):(?<minute>\d{2}))|((?<month>\w{3})\s+(?<day>\d{1,2})\s+(?<year>\d{4})))\s+(?<name>.+)$";
+			const string pattern =
+				@"^(?<dir>[\-ld])(?<permission>([\-r][\-w][\-xs]){3})\s+(?<filecode>\d+)\s+(?<owner>\w+)\s+(?<group>\w+)\s+(?<size>\d+)\s+(?<timestamp>((?<month>\w{3})\s+(?<day>\d{1,2})\s+(?<hour>\d{1,2}):(?<minute>\d{2}))|((?<month>\w{3})\s+(?<day>\d{1,2})\s+(?<year>\d{4})))\s+(?<name>.+)$";
 
 			var regex = new Regex(pattern);
 			var match = regex.Match(ftpListLine);
@@ -341,25 +342,52 @@ namespace Luxena.Travel.Services
 			if (dir == "d")
 				return null;
 
-			var month = match.Groups["month"].Value;
-			var day = match.Groups["day"].Value.TrimStart('0');
-			var hour = match.Groups["hour"].Value;
-			var minute = match.Groups["minute"].Value;
-			var name = match.Groups["name"].Value;
-
-
-			var timestamp = DateTime.ParseExact($"{month} {day} {hour}:{minute}", "MMM d HH:mm", _culture);
-
-			if (timestamp.Date > DateTime.Today)
-				timestamp = timestamp.AddYears(-1);
-
 
 			var gdsFile = (TGdsFile)Activator.CreateInstance(typeof(TGdsFile));
 
-			gdsFile.Name = name;
-			gdsFile.TimeStamp = timestamp;
+			gdsFile.Name = match.Groups["name"].Value;
+			gdsFile.TimeStamp = GetFileTimestamp();
+
 
 			return gdsFile;
+
+
+			DateTime GetFileTimestamp()
+			{
+
+				try
+				{
+
+					var year = match.Groups["year"].Value;
+					var month = match.Groups["month"].Value;
+					var day = match.Groups["day"].Value.TrimStart('0');
+					var hour = match.Groups["hour"].Value;
+					var minute = match.Groups["minute"].Value;
+
+
+
+					if (year.Yes())
+					{
+						return DateTime.ParseExact($"{month} {day} {year}", "MMM d yyyy", _culture);
+					}
+
+
+					var timestamp = DateTime.ParseExact($"{month} {day} {hour}:{minute}", "MMM d HH:mm", _culture);
+
+					if (timestamp.Date > DateTime.Today)
+						timestamp = timestamp.AddYears(-1);
+
+
+					return timestamp;
+
+				}
+				catch (Exception ex)
+				{
+					_log.Error(ex);
+					return DateTime.Now;
+				}
+
+			}
 
 		}
 
