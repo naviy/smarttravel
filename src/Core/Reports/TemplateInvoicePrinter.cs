@@ -29,15 +29,41 @@ namespace Luxena.Travel.Reports
 		public Domain.Domain db { get; set; }
 
 
-
-		public string TemplateFileName1 { get; set; }
-
-		public string TemplateFileName2 { get; set; }
-
-
 		public int FormNumber { get; set; }
 
 		public string ServiceFeeTitle { get; set; }
+
+
+		public string TemplateFileName1
+		{
+			get => _templateFileName1 ?? TemplateFileName ?? "~/static/reports/InvoiceTemplate1.xlsx";
+			set => _templateFileName1 = value;
+		}
+		private string _templateFileName1;
+
+
+		public string TemplateFileName11
+		{
+			get => _templateFileName11 ?? TemplateFileName1;
+			set => _templateFileName11 = value;
+		}
+		private string _templateFileName11;
+
+
+		public string TemplateFileName2
+		{
+			get => _templateFileName2 ?? TemplateFileName ?? "~/static/reports/InvoiceTemplate2.xlsx";
+			set => _templateFileName2 = value;
+		}
+		private string _templateFileName2;
+
+
+		public string TemplateFileName21
+		{
+			get => _templateFileName21 ?? TemplateFileName2;
+			set => _templateFileName21 = value;
+		}
+		private string _templateFileName21;
 
 
 
@@ -58,18 +84,65 @@ namespace Luxena.Travel.Reports
 		)
 		{
 
-			var stream = (formNumber ?? FormNumber) == 2
-				? GetStream2(order, number, issueDate, issuedBy, owner, bankAccount, showPaid, out fileExtension)
-				: GetStream1(order, number, issueDate, issuedBy, owner, bankAccount, showPaid, out fileExtension)
-			;
+			var e = new StreamParams
+			{
+				Order = order,
+				Number = number,
+				IssueDate = issueDate,
+				IssuedBy = issuedBy,
+				Owner = owner,
+				BankAccount = bankAccount,
+				ShowPaid = showPaid,
+			};
 
-			return stream.ToBytes();
+
+			var fn = formNumber ?? FormNumber;
+
+
+			if (fn == 11)
+			{
+				return GetStream2(e, TemplateFileName11, out fileExtension);
+			}
+
+			if (fn == 2)
+			{
+				return GetStream2(e, TemplateFileName2, out fileExtension);
+			}
+
+			if (fn == 21)
+			{
+				return GetStream2(e, TemplateFileName21, out fileExtension);
+			}
+
+			return GetStream1(e, TemplateFileName1, out fileExtension);
 
 		}
 
 
 
-		private Stream GetStream1(Order order, string number, DateTime issueDate, Person issuedBy, Party owner, BankAccount bankAccount, bool showPaid, out string fileExtension)
+		//---g
+
+
+
+
+		class StreamParams
+		{
+			public Order Order;
+			public string Number;
+			public DateTime IssueDate;
+			public Person IssuedBy;
+			public Party Owner;
+			public BankAccount BankAccount;
+			public bool ShowPaid;
+		}
+
+
+
+		private byte[] GetStream1(
+			StreamParams e,
+			string templateFileName,
+			out string fileExtension
+		)
 		{
 
 
@@ -78,11 +151,11 @@ namespace Luxena.Travel.Reports
 
 			var pos = 1;
 
-			var shipTo = (order.ShipTo ?? order.Customer).As(a => a.NameForDocuments);
+			var shipTo = (e.Order.ShipTo ?? e.Order.Customer).As(a => a.NameForDocuments);
 
-			var billTo = order.BillTo == null && order.BillToName.Yes()
-				? order.BillToName
-				: (order.BillTo ?? order.Customer).As(a => a.NameForDocuments)
+			var billTo = e.Order.BillTo == null && e.Order.BillToName.Yes()
+				? e.Order.BillToName
+				: (e.Order.BillTo ?? e.Order.Customer).As(a => a.NameForDocuments)
 			;
 
 
@@ -92,22 +165,22 @@ namespace Luxena.Travel.Reports
 			}
 
 
-			var supplierDetails = configuration.GetSupplierDetails(db, order, owner: owner, bankAccount: bankAccount, multiline: true);
-			
-			var customerDetails = configuration.GetCustomerDetails(db, order.ShipTo ?? order.Customer, multiline: true);
+			var supplierDetails = configuration.GetSupplierDetails(db, e.Order, owner: e.Owner, bankAccount: e.BankAccount, multiline: true);
+
+			var customerDetails = configuration.GetCustomerDetails(db, e.Order.ShipTo ?? e.Order.Customer, multiline: true);
 
 			var totalSuffix =
-				order.BankAccount?.TotalSuffix.Clip() ??
-				(order.Vat.No() ? $", {DomainRes.Common_WithoutVat}" : null)
+				e.Order.BankAccount?.TotalSuffix.Clip() ??
+				(e.Order.Vat.No() ? $", {DomainRes.Common_WithoutVat}" : null)
 			;
 
 
 			var data = new
 			{
 
-				Number = number,
-				IssueDate = issueDate,
-				OrderNo = order.Number,
+				Number = e.Number,
+				IssueDate = e.IssueDate,
+				OrderNo = e.Order.Number,
 
 				Supplier = supplierDetails,
 				ShipTo = shipTo,
@@ -117,10 +190,10 @@ namespace Luxena.Travel.Reports
 				CustomerDetails = customerDetails,
 
 
-				ItemCount = order.Items.Count,
+				ItemCount = e.Order.Items.Count,
 
 
-				Items = order.Items
+				Items = e.Order.Items
 					.OrderBy(a => a.Position)
 					.Select(a => new
 					{
@@ -137,28 +210,28 @@ namespace Luxena.Travel.Reports
 				Totals = new TotalSums().Do(totals =>
 				{
 
-					totals.Add(order.Discount, ReportRes.InvoicePrinter_Discount, skipIfEmpty: true);
+					totals.Add(e.Order.Discount, ReportRes.InvoicePrinter_Discount, skipIfEmpty: true);
 
-					totals.Add(order.Total, ReportRes.InvoicePrinter_InvoiceTotalWithVat);
+					totals.Add(e.Order.Total, ReportRes.InvoicePrinter_InvoiceTotalWithVat);
 
-					
+
 					if (configuration.InvoicePrinter_ShowVat)
 					{
-						totals.Add(order.Vat, ReportRes.InvoicePrinter_Vat);
+						totals.Add(e.Order.Vat, ReportRes.InvoicePrinter_Vat);
 					}
 
 
-					if (showPaid && !Equals(order.Total, order.TotalDue))
+					if (e.ShowPaid && !Equals(e.Order.Total, e.Order.TotalDue))
 					{
 
-						totals.Add(order.Paid, ReportRes.InvoicePrinter_Paid);
+						totals.Add(e.Order.Paid, ReportRes.InvoicePrinter_Paid);
 
-						totals.Add(order.TotalDue, ReportRes.InvoicePrinter_TotalDue);
+						totals.Add(e.Order.TotalDue, ReportRes.InvoicePrinter_TotalDue);
 
 
 						if (configuration.InvoicePrinter_ShowVat)
 						{
-							totals.Add(order.VatDue, ReportRes.InvoicePrinter_Vat);
+							totals.Add(e.Order.VatDue, ReportRes.InvoicePrinter_Vat);
 						}
 
 					}
@@ -166,11 +239,11 @@ namespace Luxena.Travel.Reports
 				}),
 
 
-				TotalWords = (showPaid ? order.TotalDue : order.Total).ToWords() + totalSuffix,
+				TotalWords = (e.ShowPaid ? e.Order.TotalDue : e.Order.Total).ToWords() + totalSuffix,
 
 				Warning1 = configuration.VatRate > 0 ? ReportRes.InvoicePrinter_VatLawChanged : null,
 
-				IssuedBy = issuedBy.NameForDocuments,
+				IssuedBy = e.IssuedBy.NameForDocuments,
 
 				FooterDetails = configuration.InvoicePrinter_FooterDetails,
 
@@ -179,26 +252,30 @@ namespace Luxena.Travel.Reports
 
 
 			return Build(
-				TemplateFileName1 ?? TemplateFileName ?? "~/static/reports/InvoiceTemplate1.xlsx",
+				templateFileName,
 				data,
 				out fileExtension
-			);
+			).ToBytes();
 
 		}
 
 
 
-		private Stream GetStream2(Order order, string number, DateTime issueDate, Person issuedBy, Party owner, BankAccount bankAccount, bool showPaid, out string fileExtension)
+		private byte[] GetStream2(
+			StreamParams e,
+			string templateFileName,
+			out string fileExtension
+		)
 		{
 
 			var pos = 1;
 
-			var shipTo = (order.ShipTo ?? order.Customer).As(a => a.NameForDocuments);
+			var shipTo = (e.Order.ShipTo ?? e.Order.Customer).As(a => a.NameForDocuments);
 
 
-			var billTo = order.BillTo == null && order.BillToName.Yes()
-				? order.BillToName
-				: (order.BillTo ?? order.Customer).As(a => a.NameForDocuments);
+			var billTo = e.Order.BillTo == null && e.Order.BillToName.Yes()
+				? e.Order.BillToName
+				: (e.Order.BillTo ?? e.Order.Customer).As(a => a.NameForDocuments);
 
 
 			if (shipTo == billTo)
@@ -207,25 +284,25 @@ namespace Luxena.Travel.Reports
 
 			var vatRate = db.Configuration.VatRate / 100;
 
-			var orderHasVat = order.Vat.Yes();
+			var orderHasVat = e.Order.Vat.Yes();
 
 
 
 			var data = new
 			{
 
-				Number = number,
-				IssueDate = issueDate,
-				OrderNo = order.Number,
+				Number = e.Number,
+				IssueDate = e.IssueDate,
+				OrderNo = e.Order.Number,
 
-				Supplier = db.Configuration.GetSupplierDetails(db, order, owner: owner, bankAccount: bankAccount),
+				Supplier = db.Configuration.GetSupplierDetails(db, e.Order, owner: e.Owner, bankAccount: e.BankAccount),
 				ShipTo = shipTo,
 				BillTo = billTo,
 
-				ItemCount = order.Items.Count,
+				ItemCount = e.Order.Items.Count,
 
 
-				Items = order.Items
+				Items = e.Order.Items
 					.Where(a => !a.IsServiceFee)
 					.OrderBy(a => a.Position)
 					.Select(a =>
@@ -260,28 +337,28 @@ namespace Luxena.Travel.Reports
 				Totals = new TotalSums().Do(totals =>
 				{
 
-					totals.Add(order.Discount, ReportRes.InvoicePrinter_Discount, skipIfEmpty: true);
+					totals.Add(e.Order.Discount, ReportRes.InvoicePrinter_Discount, skipIfEmpty: true);
 
-					totals.Add(order.Total, ReportRes.InvoicePrinter_InvoiceTotalWithVat);
+					totals.Add(e.Order.Total, ReportRes.InvoicePrinter_InvoiceTotalWithVat);
 
 
 					if (db.Configuration.InvoicePrinter_ShowVat)
 					{
-						totals.Add(order.Vat, ReportRes.InvoicePrinter_Vat);
+						totals.Add(e.Order.Vat, ReportRes.InvoicePrinter_Vat);
 					}
 
 
-					if (showPaid && !Equals(order.Total, order.TotalDue))
+					if (e.ShowPaid && !Equals(e.Order.Total, e.Order.TotalDue))
 					{
 
-						totals.Add(order.Paid, ReportRes.InvoicePrinter_Paid);
+						totals.Add(e.Order.Paid, ReportRes.InvoicePrinter_Paid);
 
-						totals.Add(order.TotalDue, ReportRes.InvoicePrinter_TotalDue);
+						totals.Add(e.Order.TotalDue, ReportRes.InvoicePrinter_TotalDue);
 
 
 						if (db.Configuration.InvoicePrinter_ShowVat)
 						{
-							totals.Add(order.VatDue, ReportRes.InvoicePrinter_Vat);
+							totals.Add(e.Order.VatDue, ReportRes.InvoicePrinter_Vat);
 						}
 
 					}
@@ -289,11 +366,11 @@ namespace Luxena.Travel.Reports
 				}),
 
 
-				TotalWords = (showPaid ? order.TotalDue : order.Total).ToWords(),
+				TotalWords = (e.ShowPaid ? e.Order.TotalDue : e.Order.Total).ToWords(),
 
 				Warning1 = db.Configuration.VatRate > 0 ? ReportRes.InvoicePrinter_VatLawChanged : null,
 
-				IssuedBy = issuedBy.NameForDocuments,
+				IssuedBy = e.IssuedBy.NameForDocuments,
 
 				FooterDetails = db.Configuration.InvoicePrinter_FooterDetails,
 
@@ -302,10 +379,10 @@ namespace Luxena.Travel.Reports
 
 
 			return Build(
-				TemplateFileName2 ?? TemplateFileName ?? "~/static/reports/InvoiceTemplate2.xlsx",
+				templateFileName,
 				data,
 				out fileExtension
-			);
+			).ToBytes();
 
 		}
 

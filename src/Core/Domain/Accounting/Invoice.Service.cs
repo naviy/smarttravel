@@ -118,7 +118,16 @@ namespace Luxena.Travel.Domain
 
 
 
-			public Invoice Issue(Order order, string number, DateTime issueDate, object issuedById, object ownerId, object bankAccountId, int? formNumber, bool showPaid)
+			public Invoice Issue(
+				Order order, 
+				string number, 
+				DateTime issueDate, 
+				object issuedById, 
+				object ownerId, 
+				object bankAccountId, 
+				int? formNumber, 
+				bool showPaid
+			)
 			{
 
 				db.AssertUpdate(order);

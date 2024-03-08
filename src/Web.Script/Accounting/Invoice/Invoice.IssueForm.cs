@@ -157,7 +157,9 @@ namespace Luxena.Travel
 					.data(new object[]
 					{
 						new object[] { 1, "XP в позициях (форма 1)" },
-						new object[] { 2, "XP скрыт (форма 2)" }
+						new object[] { 11, "XP в позициях (форма 11)" },
+						new object[] { 2, "XP скрыт (форма 2)" },
+						new object[] { 21, "XP скрыт (форма 21)" }
 					})
 					.ToDictionary()
 				))
