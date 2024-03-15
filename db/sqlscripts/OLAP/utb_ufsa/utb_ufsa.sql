@@ -33,11 +33,12 @@ select
 union
 select
 	a.id, 
-	case when c.id is null then a.code else a.code || ' (ТОВ УФСА)' end as code, 
+	case when c.id is null and d.id is null then a.code else a.code || ' (ТОВ УФСА)' end as code, 
 	a.name, a.settlement, a.country 
   from tovufsa.lt_airport a
     left join ufsa.lt_airport b on a.id = b.id
     left join ufsa.lt_airport c on a.code = c.code
+    left join utb.lt_airport d on a.code = d.code
  where b.id is null;
  
 

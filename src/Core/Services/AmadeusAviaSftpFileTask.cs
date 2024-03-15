@@ -20,7 +20,7 @@ namespace Luxena.Travel.Services
 
 
 
-		private SshKey NewPrivateKeyFile()
+		private SshKey LoadPrivateKeyFile()
 		{
 
 			var ppkContent = db.AmadeusAviaSftpRsaKey.GetLastPPK();
@@ -44,7 +44,7 @@ namespace Luxena.Travel.Services
 		protected override SFtp NewSftpClient()
 		{
 
-			PrivateKeyFile = PrivateKeyFile ?? NewPrivateKeyFile();
+			PrivateKeyFile = PrivateKeyFile ?? LoadPrivateKeyFile();
 
 			if (PrivateKeyFile == null)
 				return null;
@@ -53,7 +53,8 @@ namespace Luxena.Travel.Services
 			var sftp = new SFtp();
 
 			var success1 =
-				sftp.Connect("ftp.bmp.viaamadeus.com", 22) &&
+				sftp.Connect("82.150.225.70", 10422) &&
+				//sftp.Connect("ftp.bmp.viaamadeus.com", 22) &&
 				sftp.AuthenticatePk(UserName, PrivateKeyFile) &&
 				sftp.InitializeSftp()
 			;
@@ -67,7 +68,7 @@ namespace Luxena.Travel.Services
 
 		protected override void DoImportFiles(SFtp sftp)
 		{
-			ImportFilesFromDirectory(sftp, "FullAccess");
+			ImportFilesFromDirectory(sftp, $"/{UserName}/ReadOnly");
 		}
 
 

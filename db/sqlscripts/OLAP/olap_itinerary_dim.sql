@@ -3,9 +3,9 @@
 
 create view olap_itinerary_dim
 as 
-select
-	replace(replace(itinerary::varchar(255), 'ń', 'n'), 'ł', 'l') as itinerary
+select distinct 
+    replace(replace(replace(replace(replace(itinerary::varchar(255), 'Ł', 'L'), 'Ń', 'N'), 'Ó', 'O'), 'Ś', 'S'), 'Ź', 'Z') as itinerary
   from (
-	select distinct itinerary::citext2
+	select distinct upper(itinerary)::citext2 as itinerary
 	  from lt_product
   ) a;

@@ -15,6 +15,14 @@ namespace Luxena.Travel.Services
 {
 
 
+
+	//===g
+
+
+
+
+
+
 	public abstract class AmadeusSftpFileTaskBase<TGdsFile> : ITask
 		where TGdsFile : GdsFile, new()
 	{
@@ -62,6 +70,7 @@ namespace Luxena.Travel.Services
 			catch (Exception ex)
 			{
 				_log.Error(ex);
+				_log.Error(ex.StackTrace);
 			}
 		}
 
