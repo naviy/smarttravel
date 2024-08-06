@@ -18,7 +18,9 @@ namespace Luxena.Travel.Web.Controllers
 
 		public ActionResult LogIn()
 		{
+
 			return View();
+
 		}
 
 

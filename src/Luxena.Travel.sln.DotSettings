@@ -315,5 +315,6 @@ namespace Luxena.Travel&#xD;
 </s:String>
 	<s:Boolean x:Key="/Default/UserDictionary/Words/=asceding/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/UserDictionary/Words/=cacheable/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/UserDictionary/Words/=Luxena/@EntryIndexedValue">True</s:Boolean>
 	
 	</wpf:ResourceDictionary>
