@@ -3999,6 +3999,10 @@ namespace Luxena.Travel
 		public SemanticMember ExtraCharge = Member
 			.Money();
 
+		[PreserveCase]
+		public SemanticMember OrderedVat = Member
+			.Money();
+
 		/// <summary>Тип оплаты</summary>
 		[PreserveCase]
 		public SemanticMember PaymentType = Member
@@ -4314,6 +4318,7 @@ namespace Luxena.Travel
 				se.TotalToTransfer,
 				se.Profit,
 				se.ExtraCharge,
+				se.OrderedVat,
 				se.PaymentType,
 				se.TaxRateOfProduct,
 				se.TaxRateOfServiceFee,

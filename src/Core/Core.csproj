@@ -800,7 +800,6 @@
     <Compile Include="Parsers\GalileoAviaXmlParser.cs" />
     <Compile Include="Parsers\SabreFilParser.cs" />
     <Compile Include="Reports\CompletionCertificatePrinter.cs" />
-    <Compile Include="Reports\CompletionCertificatePrinter2.cs" />
     <Compile Include="Reports\ICompletionCertificatePrinter.cs" />
     <Compile Include="Service References\GalileoWebService\Reference.cs">
       <AutoGen>True</AutoGen>

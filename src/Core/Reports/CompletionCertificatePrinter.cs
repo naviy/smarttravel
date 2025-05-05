@@ -1,510 +1,205 @@
-﻿//using System;
-//using System.Text;
-//
-//using java.io;
-//
-//using Luxena.Travel.Domain;
-//
-//using org.apache.poi.hssf.usermodel;
-//using org.apache.poi.ss.usermodel;
-//using org.apache.poi.ss.util;
-//
-//
-//namespace Luxena.Travel.Reports
-//{
-//
-//	public class CompletionCertificatePrinter
-//	{
-//		public Domain.Domain db { get; set; }
-//
-//		public byte[] Build(Order order, string number, DateTime issueDate, Person issuedBy, bool showPaid)
-//		{
-//			_order = order;
-//			_number = number;
-//			_issueDate = issueDate;
-//			_issuedBy = issuedBy;
-//			_showPaid = showPaid;
-//
-//			CreateWorkbook();
-//
-//			GenerateContent();
-//
-//			byte[] bytes;
-//
-//			using (var outputStream = new ByteArrayOutputStream())
-//			{
-//				_workbook.write(outputStream);
-//
-//				bytes = outputStream.toByteArray();
-//			}
-//
-//			return bytes;
-//		}
-//
-//		private void CreateWorkbook()
-//		{
-//			_workbook = new HSSFWorkbook();
-//
-//			_sheet = _workbook.createSheet();
-//
-//			_sheet.setMargin(Sheet.__Fields.TopMargin, 0.5);
-//			_sheet.setMargin(Sheet.__Fields.RightMargin, 0.5);
-//			_sheet.setMargin(Sheet.__Fields.BottomMargin, 0.5);
-//			_sheet.setMargin(Sheet.__Fields.LeftMargin, 0.5);
-//
-//			var dataStyle = _workbook.createCellStyle();
-//			dataStyle.setBorderBottom(CellStyle.__Fields.BORDER_THIN);
-//			dataStyle.setBorderTop(CellStyle.__Fields.BORDER_THIN);
-//			dataStyle.setBorderLeft(CellStyle.__Fields.BORDER_THIN);
-//			dataStyle.setBorderRight(CellStyle.__Fields.BORDER_THIN);
-//			dataStyle.setVerticalAlignment(CellStyle.__Fields.VERTICAL_TOP);
-//
-//			_moneyStyle = _workbook.createCellStyle();
-//			_moneyStyle.cloneStyleFrom(dataStyle);
-//			_moneyStyle.setDataFormat(_workbook.createDataFormat().getFormat("#,##0.00"));
-//
-//			_numberStyle = _workbook.createCellStyle();
-//			_numberStyle.cloneStyleFrom(dataStyle);
-//			_numberStyle.setAlignment(CellStyle.__Fields.ALIGN_RIGHT);
-//
-//			_textStyle = _workbook.createCellStyle();
-//			_textStyle.cloneStyleFrom(dataStyle);
-//			_textStyle.setWrapText(true);
-//			_textStyle.setAlignment(CellStyle.__Fields.ALIGN_LEFT);
-//
-//			_unitStyle = _workbook.createCellStyle();
-//			_unitStyle.cloneStyleFrom(dataStyle);
-//			_unitStyle.setAlignment(CellStyle.__Fields.ALIGN_CENTER);
-//		}
-//
-//		private void GenerateContent()
-//		{
-//			_sheet.setColumnWidth(0, 5 * 256);
-//			_sheet.setColumnWidth(1, 17 * 256);
-//			_sheet.setColumnWidth(2, 32 * 256);
-//			_sheet.setColumnWidth(3, 4 * 256);
-//			_sheet.setColumnWidth(4, 9 * 256);
-//			_sheet.setColumnWidth(5, 14 * 256);
-//			_sheet.setColumnWidth(6, 14 * 256);
-//
-//			AddHeader();
-//
-//			AddOrderItems();
-//
-//			AddFooter();
-//		}
-//
-//		private void AddHeader()
-//		{
-//			var captionFont = _workbook.createFont();
-//			captionFont.setUnderline(Font.__Fields.U_SINGLE);
-//			captionFont.setBoldweight(Font.__Fields.BOLDWEIGHT_BOLD);
-//
-//			var captionStyle = _workbook.createCellStyle();
-//			captionStyle.setFont(captionFont);
-//			captionStyle.setVerticalAlignment(CellStyle.__Fields.VERTICAL_TOP);
-//			captionStyle.setAlignment(CellStyle.__Fields.ALIGN_LEFT);
-//
-//			var dataStyle = _workbook.createCellStyle();
-//			dataStyle.setVerticalAlignment(CellStyle.__Fields.VERTICAL_TOP);
-//			dataStyle.setAlignment(CellStyle.__Fields.ALIGN_LEFT);
-//			dataStyle.setWrapText(true);
-//
-//			NewRow();
-//
-//			MergeRegion(_currentRow, _currentRow, 1, 2);
-//			MergeRegion(_currentRow, _currentRow, 4, 6);
-//
-//			SetCellValue(ReportRes.InvoicePrinter_Supplier, 1, captionStyle);
-//			SetCellValue(ReportRes.InvoicePrinter_Customer, 4, captionStyle);
-//
-//			NewRow(120);
-//
-//			MergeRegion(_currentRow, _currentRow, 1, 2);
-//			MergeRegion(_currentRow, _currentRow, 4, 6);
-//
-//			var shipTo = _order.ShipTo ?? _order.Customer;
-//
-//			SetCellValue(GetSupplierString(), 1, dataStyle);
-//			SetCellValue(GetCustomerString(shipTo), 4, dataStyle);
-//
-//			//++_currentRow;
-//			//NewRow(100);
-//
-//			//MergeRegion(_currentRow, _currentRow, 2, 6);
-//
-//			//SetCellValue(ReportRes.InvoicePrinter_ShipTo, 1, captionStyle);
-//
-//			//var shipTo = _order.ShipTo ?? _order.Customer;
-//			//if (shipTo != null)
-//			//	SetCellValue(GetCustomerString(shipTo), dataStyle);
-//
-//			++_currentRow;
-//			NewRow();
-//
-//			MergeRegion(_currentRow, _currentRow, 2, 6);
-//
-//			SetCellValue(ReportRes.InvoicePrinter_BillTo, 1, captionStyle);
-//
-//
-//			if (_order.BillTo == null && _order.BillToName.Yes())
-//			{
-//				SetCellValue(_order.BillToName, dataStyle);
-//			}
-//			else
-//			{
-//				var billTo = _order.BillTo ?? _order.Customer;
-//				SetCellValue(billTo == null || billTo == shipTo ? ReportRes.InvoicePrinter_Same : billTo.NameForDocuments, dataStyle);
-//			}
-//
-//			++_currentRow;
-//
-//			NewRow();
-//
-//			MergeRegion(_currentRow, _currentRow, 2, 6);
-//
-//			SetCellValue(ReportRes.InvoicePrinter_Agreement, 1, captionStyle);
-//
-//			SetCellValue(_order.Number, dataStyle);
-//		}
-//
-//		private void AddOrderItems()
-//		{
-//			AddListCaption();
-//
-//			if (_order.Items.Count == 0)
-//				return;
-//
-//			var fontBold = _workbook.createFont();
-//			fontBold.setBoldweight(Font.__Fields.BOLDWEIGHT_BOLD);
-//
-//			var headerStyle = _workbook.createCellStyle();
-//			headerStyle.setBorderBottom(CellStyle.__Fields.BORDER_THIN);
-//			headerStyle.setBorderTop(CellStyle.__Fields.BORDER_THIN);
-//			headerStyle.setBorderLeft(CellStyle.__Fields.BORDER_THIN);
-//			headerStyle.setBorderRight(CellStyle.__Fields.BORDER_THIN);
-//
-//			headerStyle.setFont(fontBold);
-//			headerStyle.setAlignment(CellStyle.__Fields.ALIGN_CENTER);
-//
-//			++_currentRow;
-//
-//			NewRow();
-//
-//			MergeRegion(_currentRow, _currentRow, 1, 2);
-//
-//			SetCellValue(ReportRes.InvoicePrinter_Number, headerStyle);
-//			SetCellValue(ReportRes.InvoicePrinter_ItemName, headerStyle);
-//			CreateCell(headerStyle);
-//			SetCellValue(ReportRes.InvoicePrinter_Units, headerStyle);
-//			SetCellValue(ReportRes.InvoicePrinter_Quantity, headerStyle);
-//			SetCellValue(ReportRes.InvoicePrinter_Price, headerStyle);
-//			SetCellValue(ReportRes.InvoicePrinter_ItemTotal, headerStyle);
-//
-//			var pos = 1;
-//
-//			foreach (var item in _order.Items)
-//				AddListItem(pos++, item);
-//
-//			AddListTotals();
-//		}
-//
-//		private void AddListCaption()
-//		{
-//			var captionFont = _workbook.createFont();
-//			captionFont.setBoldweight(Font.__Fields.BOLDWEIGHT_BOLD);
-//			captionFont.setFontHeightInPoints(12);
-//
-//			var captionStyle = _workbook.createCellStyle();
-//			captionStyle.setFont(captionFont);
-//			captionStyle.setAlignment(CellStyle.__Fields.ALIGN_CENTER);
-//
-//			++_currentRow;
-//
-//			NewRow();
-//
-//			MergeRegion(_currentRow, _currentRow, 0, 6);
-//
-//			var title = ReportRes.InvoicePrinter_CompletionCertificate;
-//
-//			SetCellValue(string.Format(title, _number), captionStyle);
-//
-//			NewRow();
-//
-//			MergeRegion(_currentRow, _currentRow, 0, 6);
-//
-//			SetCellValue(string.Format(ReportRes.InvoicePrinter_IssueDate, _issueDate), captionStyle);
-//		}
-//
-//		private void AddListItem(int pos, OrderItem item)
-//		{
-//			NewRow(40);
-//
-//			MergeRegion(_currentRow, _currentRow, 1, 2);
-//
-//			CreateCell(_numberStyle).setCellValue(pos);
-//			CreateCell(_textStyle).setCellValue(item.Text.Replace("\r", string.Empty));
-//			CreateCell(_textStyle);
-//			CreateCell(_unitStyle).setCellValue(ReportRes.InvoicePrinter_ItemUnit);
-//			CreateCell(_numberStyle).setCellValue(item.Quantity);
-//
-//			var cell = CreateCell(_moneyStyle);
-//
-//			if (item.Price != null)
-//				cell.setCellValue((double)item.Price.Amount);
-//
-//			cell = CreateCell(_moneyStyle);
-//
-//			if (item.Total != null)
-//				cell.setCellValue((double)item.Total.Amount);
-//		}
-//
-//		private void AddListTotals()
-//		{
-//			var fontBold = _workbook.createFont();
-//			fontBold.setBoldweight(Font.__Fields.BOLDWEIGHT_BOLD);
-//
-//			var moneyStyle = _workbook.createCellStyle();
-//			moneyStyle.cloneStyleFrom(_moneyStyle);
-//			moneyStyle.setFont(fontBold);
-//			moneyStyle.setVerticalAlignment(CellStyle.__Fields.VERTICAL_BOTTOM);
-//
-//			var totalStyle = _workbook.createCellStyle();
-//			totalStyle.setFont(fontBold);
-//			totalStyle.setAlignment(CellStyle.__Fields.ALIGN_RIGHT);
-//			totalStyle.setIndention(1);
-//			totalStyle.setVerticalAlignment(CellStyle.__Fields.VERTICAL_BOTTOM);
-//
-//			if (_order.Discount != null && _order.Discount.Amount > 0)
-//			{
-//				NewRow(24);
-//
-//				SetCellValue(ReportRes.InvoicePrinter_Discount, 5, totalStyle);
-//				CreateCell(moneyStyle).setCellValue((double)(_order.Discount.Amount));
-//			}
-//
-//			NewRow(24);
-//
-//			SetCellValue(ReportRes.InvoicePrinter_InvoiceTotalWithVat, 5, totalStyle);
-//			CreateCell(moneyStyle).setCellValue(GetAmount(_order.Total));
-//
-//			NewRow(24);
-//
-//			SetCellValue(ReportRes.InvoicePrinter_Vat, 5, totalStyle);
-//			CreateCell(moneyStyle).setCellValue(GetAmount(_order.Vat));
-//
-//			if (_showPaid && !Equals(_order.Total, _order.TotalDue))
-//			{
-//				NewRow(24);
-//
-//				SetCellValue(ReportRes.InvoicePrinter_Paid, 5, totalStyle);
-//				CreateCell(moneyStyle).setCellValue(GetAmount(_order.Paid));
-//
-//
-//				NewRow(24);
-//
-//				SetCellValue(ReportRes.InvoicePrinter_TotalDue, 5, totalStyle);
-//				CreateCell(moneyStyle).setCellValue(GetAmount(_order.TotalDue));
-//
-//
-//				NewRow(24);
-//
-//				SetCellValue(ReportRes.InvoicePrinter_Vat, 5, totalStyle);
-//				CreateCell(moneyStyle).setCellValue(GetAmount(_order.VatDue));
-//			}
-//		}
-//
-//		private void AddFooter()
-//		{
-//			var commonStyle = _workbook.createCellStyle();
-//			commonStyle.setAlignment(CellStyle.__Fields.ALIGN_LEFT);
-//
-//			var font = _workbook.createFont();
-//			font.setBoldweight(Font.__Fields.BOLDWEIGHT_BOLD);
-//
-//			var boldStyle = _workbook.createCellStyle();
-//			boldStyle.cloneStyleFrom(commonStyle);
-//			boldStyle.setFont(font);
-//
-//			_currentRow += 3;
-//
-//			NewRow();
-//
-//			var total = _showPaid ? _order.TotalDue : _order.Total;
-//
-//			if (total != null)
-//				SetCellValue(string.Format("{0} {1}", ReportRes.InvoicePrinter_InvoiceTotal, total.ToWords()), boldStyle);
-//
-//
-//			if (db.Configuration.VatRate > 0)
-//			{
-//				++_currentRow;
-//				NewRow();
-//				SetCellValue(ReportRes.InvoicePrinter_VatLawChanged, commonStyle);
-//			}
-//
-//			++_currentRow;
-//			NewRow();
-//
-//			//SetCellValue(ReportRes.InvoicePrinter_DaysTillExpiration, commonStyle);
-//
-//
-//			var style = _workbook.createCellStyle();
-//			style.setAlignment(CellStyle.__Fields.ALIGN_RIGHT);
-//
-//
-//			var seller = (Party)_issuedBy.As(a => a.Organization) ?? _issuedBy;
-//			++_currentRow;
-//			NewRow();
-//			MergeRegion(_currentRow, _currentRow, 2, 6);
-//			SetCellValue(string.Format(ReportRes.InvoicePrinter_SellerBy, seller), 2, commonStyle);
-//
-//			++_currentRow;
-//			NewRow();
-//			MergeRegion(_currentRow, _currentRow, 2, 6);
-//			SetCellValue(string.Format(ReportRes.InvoicePrinter_CustomerBy, _order.ShipTo ?? _order.Customer), 2, commonStyle);
-//		}
-//
-//		private string GetSupplierString()
-//		{
-//			var supplier = db.Configuration.Company;
-//
-//			if (supplier == null)
-//				return null;
-//
-//			var sb = new StringBuilder()
-//				.AppendLine(supplier.NameForDocuments);
-//
-//			var bankAccount = _order.BankAccount ?? db.BankAccount.By(a => a.IsDefault);
-//			bankAccount.Do(a => sb.AppendLine(a.Description));
-//
-//			if (db.Configuration.CompanyDetails.Yes())
-//				sb.AppendLine(db.Configuration.CompanyDetails);
-//
-//			if (supplier.LegalAddress.Yes())
-//				sb.AppendFormat(ReportRes.InvoicePrinter_Address, supplier.LegalAddress)
-//					.AppendLine();
-//
-//			var separator = string.Empty;
-//
-//			if (supplier.Phone1.Yes())
-//			{
-//				sb.AppendFormat(ReportRes.InvoicePrinter_Phone, supplier.Phone1);
-//				separator = ", ";
-//			}
-//
-//			if (supplier.Fax.Yes())
-//				sb.Append(separator)
-//					.AppendFormat(ReportRes.InvoicePrinter_Fax, supplier.Fax);
-//
-//			return sb.ToString().Replace("\r", string.Empty);
-//		}
-//
-//		private string GetCustomerString(Party r)
-//		{
-//			if (r == null) return null;
-//
-//			var sb = new StringBuilder()
-//				.AppendLine(r.NameForDocuments);
-//
-//			if (r.Details.Yes())
-//				sb.AppendLine(r.Details);
-//
-//			if (r.LegalAddress.Yes())
-//				sb.AppendFormat(ReportRes.InvoicePrinter_Address, r.LegalAddress)
-//					.AppendLine();
-//
-//			var separator = string.Empty;
-//
-//			if (r.Phone1.Yes())
-//			{
-//				sb.AppendFormat(ReportRes.InvoicePrinter_Phone, r.Phone1);
-//				separator = ", ";
-//			}
-//
-//			if (r.Fax.Yes())
-//				sb.Append(separator)
-//					.AppendFormat(ReportRes.InvoicePrinter_Fax, r.Fax);
-//
-//			return sb.ToString().Replace("\r", string.Empty);
-//		}
-//
-//		private void NewRow(short height)
-//		{
-//			var row = NewRow();
-//			row.setHeightInPoints(height);
-//		}
-//
-//		private HSSFRow NewRow()
-//		{
-//			++_currentRow;
-//
-//			var row = _sheet.getRow(_currentRow) ?? _sheet.createRow(_currentRow);
-//
-//			_currentCol = -1;
-//
-//			return row;
-//		}
-//
-//		private void MergeRegion(int firstRow, int lastRow, int firstCol, int lastCol)
-//		{
-//			_sheet.addMergedRegion(new CellRangeAddress(firstRow, lastRow, firstCol, lastCol));
-//		}
-//
-//		private HSSFCell CreateCell(HSSFCellStyle style)
-//		{
-//			return CreateCell(++_currentCol, style);
-//		}
-//
-//		private HSSFCell CreateCell(int col, HSSFCellStyle style)
-//		{
-//			_currentCol = col;
-//
-//			var cell = _sheet.getRow(_currentRow).createCell(_currentCol);
-//
-//			cell.setCellStyle(style);
-//
-//			return cell;
-//		}
-//
-//		private void SetCellValue(string value, HSSFCellStyle style)
-//		{
-//			SetCellValue(value, _currentCol + 1, style);
-//		}
-//
-//		private void SetCellValue(string value, int col, HSSFCellStyle style)
-//		{
-//			_currentCol = col;
-//
-//			var cell = CreateCell(col, style);
-//
-//			if (value.Yes())
-//				cell.setCellValue(value);
-//		}
-//
-//		private static double GetAmount(Money money)
-//		{
-//			if (money == null)
-//				return 0;
-//
-//			return (double)money.Amount;
-//		}
-//
-//		private Order _order;
-//		private string _number;
-//		private DateTime _issueDate;
-//		private Person _issuedBy;
-//		private Person _customerBy;
-//		private bool _showPaid;
-//
-//		private HSSFWorkbook _workbook;
-//		private HSSFSheet _sheet;
-//		private int _currentRow = -1;
-//		private int _currentCol = -1;
-//
-//		private HSSFCellStyle _moneyStyle;
-//		private HSSFCellStyle _numberStyle;
-//		private HSSFCellStyle _textStyle;
-//		private HSSFCellStyle _unitStyle;
-//	}
-//}
+﻿using System;
+using System.IO;
+using System.Linq;
+
+using Luxena.Travel.Domain;
+
+
+
+
+namespace Luxena.Travel.Reports
+{
+
+
+
+	//===g
+
+
+
+
+
+	public class CompletionCertificatePrinter : TemplatePrinter, ICompletionCertificatePrinter
+	{
+
+		//---g
+
+
+
+		public Domain.Domain db { get; set; }
+
+
+
+		//---g
+
+
+
+		public byte[] Build(Order order, string number, DateTime issueDate, Person issuedBy, Party owner, BankAccount bankAccount, bool showPaid, out string fileExtension)
+		{
+
+			var stream = GetStream2(order, number, issueDate, issuedBy, owner, bankAccount, showPaid, out fileExtension);
+
+			return stream.ToBytes();
+
+		}
+
+
+
+		private Stream GetStream2(Order order, string number, DateTime issueDate, Person issuedBy, Party owner, BankAccount bankAccount, bool showPaid, out string fileExtension)
+		{
+
+			var pos = 1;
+
+
+			var shipTo = (order.ShipTo ?? order.Customer).As(a => a.NameForDocuments);
+
+			var billTo = order.BillTo == null && order.BillToName.Yes()
+				? order.BillToName
+				: (order.BillTo ?? order.Customer).As(a => a.NameForDocuments)
+			;
+
+			if (shipTo == billTo)
+				billTo = ReportRes.InvoicePrinter_Same;
+
+
+			var vatRate = db.Configuration.VatRate / 100;
+
+			var orderHasVat = order.Vat.Yes();
+
+
+			var invoice = order.Invoices
+				.Where(a=> a.Type == InvoiceType.Invoice)
+				.OrderByDescending(a => a.TimeStamp)
+				.One()
+			;
+
+
+			var data = new
+			{
+
+				Number = number,
+				IssueDate = issueDate,
+				OrderNo = order.Number,
+
+				Supplier = db.Configuration.Company,
+				SupplierDetails = db.Configuration.GetSupplierDetails(db, order, owner: owner, bankAccount: bankAccount),
+
+				Customer = (order.ShipTo ?? order.Customer)?.Name,
+				CustomerSignature = (order.ShipTo ?? order.Customer).As(a => a.Signature ?? a.Name),
+				CustomerDetails = db.Configuration.GetCustomerDetails(db, order.ShipTo ?? order.Customer),
+
+				InvoiceNo = invoice?.Number,
+				InvoiceDate = invoice?.IssueDate,
+
+				ShipTo = shipTo,
+				BillTo = billTo,
+
+
+				ItemCount = order.Items.Count,
+
+				Items = order.Items
+
+					.Where(a => a.LinkType != OrderItemLinkType.ServiceFee)
+
+					.OrderBy(a => a.Position)
+
+					.Select(a =>
+					{
+
+						var serviceFee = a.ServiceFee.AsAmount();
+						var price = a.Product?.Total.AsAmount() ?? a.Total.AsAmount();
+
+						var vat = orderHasVat ? Math.Round(serviceFee * vatRate / (1 + vatRate), 2) : 0;
+
+
+						return new
+						{
+							Position = pos++,
+							a.Text,
+							a.Quantity,
+							Price = price,
+							Total = a.Quantity * price,
+							ServiceFee0 = (serviceFee - vat).If(b => b != 0),
+							Vat = vat.If(b => b != 0),
+							ServiceFee = serviceFee.If(b => b != 0),
+							GrandTotal = a.Product?.GrandTotal.AsAmount() ?? a.GrandTotal.AsAmount(),
+						};
+
+					})
+
+					.ToArray()
+				,
+
+
+				Totals = new TotalSums().Do(totals =>
+				{
+
+					totals.Add(order.Discount, ReportRes.InvoicePrinter_Discount, skipIfEmpty: true);
+
+					totals.Add(order.Total, ReportRes.InvoicePrinter_InvoiceTotalWithVat);
+
+
+					if (db.Configuration.InvoicePrinter_ShowVat)
+					{
+						totals.Add(order.Vat, ReportRes.InvoicePrinter_Vat);
+					}
+
+					
+					if (showPaid && !Equals(order.Total, order.TotalDue))
+					{
+
+						totals.Add(order.Paid, ReportRes.InvoicePrinter_Paid);
+
+						totals.Add(order.TotalDue, ReportRes.InvoicePrinter_TotalDue);
+
+
+						if (db.Configuration.InvoicePrinter_ShowVat)
+						{
+							totals.Add(order.VatDue, ReportRes.InvoicePrinter_Vat);
+						}
+
+					}
+
+				}),
+
+				Discount = order.Discount.AsAmount(),
+				Total = order.Total.AsAmount(),
+				Vat = order.Vat.AsAmount(),
+				Paid = order.Paid.AsAmount(),
+				TotalDue = order.TotalDue.AsAmount(),
+				VatDue = order.VatDue.AsAmount(),
+				
+				TotalWords = (showPaid ? order.TotalDue : order.Total).ToWords(),
+
+				Warning1 = db.Configuration.VatRate > 0 ? ReportRes.InvoicePrinter_VatLawChanged : null,
+
+				IssuedBy = issuedBy.NameForDocuments,
+
+				FooterDetails = db.Configuration.InvoicePrinter_FooterDetails,
+
+			};
+
+
+			return Build(
+				TemplateFileName ?? "~/static/reports/CompletionCertificateTemplate2.xlsx", 
+				data, 
+				out fileExtension
+			);
+
+		}
+
+
+
+		//---g
+
+	}
+
+
+
+
+
+
+	//===g
+
+
+
+}

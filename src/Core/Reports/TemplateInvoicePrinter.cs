@@ -238,6 +238,12 @@ namespace Luxena.Travel.Reports
 
 				}),
 
+				Discount = e.Order.Discount.AsAmount(),
+				Total = e.Order.Total.AsAmount(),
+				Vat = e.Order.Vat.AsAmount(),
+				Paid = e.Order.Paid.AsAmount(),
+				TotalDue = e.Order.TotalDue.AsAmount(),
+				VatDue = e.Order.VatDue.AsAmount(),
 
 				TotalWords = (e.ShowPaid ? e.Order.TotalDue : e.Order.Total).ToWords() + totalSuffix,
 
@@ -291,8 +297,8 @@ namespace Luxena.Travel.Reports
 			var data = new
 			{
 
-				Number = e.Number,
-				IssueDate = e.IssueDate,
+				e.Number,
+				e.IssueDate,
 				OrderNo = e.Order.Number,
 
 				Supplier = db.Configuration.GetSupplierDetails(db, e.Order, owner: e.Owner, bankAccount: e.BankAccount),
@@ -365,6 +371,13 @@ namespace Luxena.Travel.Reports
 
 				}),
 
+
+				Discount = e.Order.Discount.AsAmount(),
+				Total = e.Order.Total.AsAmount(),
+				Vat = e.Order.Vat.AsAmount(),
+				Paid = e.Order.Paid.AsAmount(),
+				TotalDue = e.Order.TotalDue.AsAmount(),
+				VatDue = e.Order.VatDue.AsAmount(),
 
 				TotalWords = (e.ShowPaid ? e.Order.TotalDue : e.Order.Total).ToWords(),
 
