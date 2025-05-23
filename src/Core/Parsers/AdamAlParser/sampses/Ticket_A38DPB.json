@@ -1,0 +1,18 @@
+{
+    "date_of_issue": "14.05.2025",
+    "booking_number": "A38DPB",
+    "agent_ID": "max_sadovski",
+    "passenger_title": "Mr",
+    "passenger_name": "RUSLAN",
+    "passenger_surname": "MAKSYMOVSKYI",
+    "route": "from OTP to TIA",
+    "baggage": "Checked Bag (20kg)",
+    "seat": "20C",
+    "flight_number": "FR8415",
+    "departure_date": "05.05.2025 11:00",
+    "arrival_date": "05.05.2025 11:30",
+    "grand_total": "203.38 EUR",
+    "booking_date": "",
+    "ticketing_date": "",
+    "type_of_issue": "Ticket"
+}

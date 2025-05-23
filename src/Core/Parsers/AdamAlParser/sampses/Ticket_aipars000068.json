@@ -1,0 +1,18 @@
+{
+    "date_of_issue": "12.05.2025",
+    "booking_number": "aipars000068",
+    "agent_ID": "max_sadovski",
+    "passenger_title": "Adult",
+    "passenger_name": "Olga",
+    "passenger_surname": "Danko",
+    "route": "VLC-MAD-ATH includes \"VLC\" which is the IATA code for Valencia Airport, \"MAD\" for Madrid-Barajas Airport, and \"ATH\" for Athens International Airport. The route with IATA codes is:  \n\nValencia to Madrid to Athens",
+    "baggage": "",
+    "seat": "",
+    "flight_number": "IB1084, IB0837",
+    "departure_date": "04.05.2025 06:15",
+    "arrival_date": "04.05.2025 07:20",
+    "grand_total": "",
+    "booking_date": "",
+    "ticketing_date": "",
+    "type_of_issue": "Ticket"
+}

@@ -97,6 +97,7 @@ namespace Luxena.Travel
 		public const string TravelPointXmlFile = "TravelPointXmlFile";
 		public const string CrazyllamaPnrFile = "CrazyllamaPnrFile";
 		public const string DrctXmlFile = "DrctXmlFile";
+		public const string AdamAiJsonFile = "AdamAiJsonFile";
 
 		public const string Money = "Money";
 

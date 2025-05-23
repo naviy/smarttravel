@@ -244,6 +244,71 @@ namespace Luxena.Travel.Domain
 	#endregion
 
 						
+	#region AdamAiJsonFile
+
+	partial class Domain : IEntityServiceContainer<Domain, AdamAiJsonFile>
+	{
+
+		public AdamAiJsonFile.Service AdamAiJsonFile { [DebuggerStepThrough] get { return ResolveService(ref _adamAiJsonFile); } }
+		private AdamAiJsonFile.Service _adamAiJsonFile;
+
+		EntityService<Domain, AdamAiJsonFile> IEntityServiceContainer<Domain, AdamAiJsonFile>.Service => AdamAiJsonFile;
+		
+		[DebuggerStepThrough]
+		public static AdamAiJsonFile operator +(AdamAiJsonFile r, Domain db)
+		{
+			return (AdamAiJsonFile)r?.Resolve(db);
+		}
+
+	}
+
+	partial class AdamAiJsonFile
+	{ 
+
+
+		#region Operators
+
+		[DebuggerStepThrough]
+		public static AdamAiJsonFile operator |(AdamAiJsonFile r1, AdamAiJsonFile r2)
+		{
+			return r1 ?? r2;
+		}
+
+		#endregion
+
+
+		public new class Reference : GdsFile.Reference
+		{
+
+			public Reference() { }
+
+			public Reference(string type, object id, string name) : base(type, id, name) { }
+
+			public Reference(AdamAiJsonFile entity) : base(entity) { }
+
+			public Reference(AdamAiJsonFile entity, string name) : base(entity, name) { }
+
+
+			public static implicit operator Reference(AdamAiJsonFile entity)
+			{
+				return entity == null ? null : new Reference(entity);
+			}
+
+			[DebuggerStepThrough]
+			public static AdamAiJsonFile operator +(Reference reference, Domain db)
+			{
+				return db.AdamAiJsonFile.Load(reference);
+			}
+
+		}
+
+	}
+
+	public partial class AdamAiJsonFileManager : EntityManager<AdamAiJsonFile, AdamAiJsonFile.Service> { }
+
+	#endregion
+
+						
 	#region AirFile
 
 	partial class Domain : IEntityServiceContainer<Domain, AirFile>
@@ -3159,6 +3224,10 @@ namespace Luxena.Travel.Domain
 				if (r == null) return false;
 
 				r = db.Unproxy(r);
+				var adamAiJsonFile = r as AdamAiJsonFile;
+				if (adamAiJsonFile != null)
+					return db.AdamAiJsonFile.Delete(adamAiJsonFile);
+
 				var drctXmlFile = r as DrctXmlFile;
 				if (drctXmlFile != null)
 					return db.DrctXmlFile.Delete(drctXmlFile);
@@ -3224,6 +3293,10 @@ namespace Luxena.Travel.Domain
 				if (r == null) return null;
 
 				r = db.Unproxy(r);
+
+				var adamAiJsonFile = r as AdamAiJsonFile;
+				if (adamAiJsonFile != null)
+					return db.AdamAiJsonFile.Save(adamAiJsonFile);
 
 				var drctXmlFile = r as DrctXmlFile;
 				if (drctXmlFile != null)

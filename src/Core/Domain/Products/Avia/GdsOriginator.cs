@@ -65,6 +65,9 @@ namespace Luxena.Travel.Domain
 		[EN("Drct Aero")]
 		Drct = 23,
 
+		[EN("Adam AI")]
+		AdamAI = 24,
+
 	}
 
 

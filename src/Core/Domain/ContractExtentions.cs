@@ -3948,9 +3948,11 @@ namespace Luxena.Travel.Domain
 		/*
 		public int Type { get; set; }
 
-		public DateTime IssueDate { get; set; }
-
 		public string Name { get; set; }
+
+		public string PassengerName { get; set; }
+
+		public DateTime IssueDate { get; set; }
 
 		public string PureNumber { get; set; }
 
@@ -3965,8 +3967,6 @@ namespace Luxena.Travel.Domain
 		public Product.Reference ReissueFor { get; set; }
 
 		public Product.Reference RefundedProduct { get; set; }
-
-		public string PassengerName { get; set; }
 
 		public IList`1 Passengers { get; set; }
 
@@ -4143,6 +4143,8 @@ namespace Luxena.Travel.Domain
 		public Money Profit { get; set; }
 
 		public Money ExtraCharge { get; set; }
+
+		public Money OrderedVat { get; set; }
 
 		public int PaymentType { get; set; }
 

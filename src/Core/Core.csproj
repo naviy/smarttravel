@@ -61,8 +61,8 @@
     <Reference Include="Castle.Windsor">
       <HintPath>..\..\lib\Castle.Windsor.dll</HintPath>
     </Reference>
-    <Reference Include="ChilkatDotNet48, Version=9.5.0.97, Culture=neutral, PublicKeyToken=eb5fc1fc52ef09bd, processorArchitecture=AMD64">
-      <HintPath>..\packages\chilkat-x64.9.5.0.97\lib\net48\ChilkatDotNet48.dll</HintPath>
+    <Reference Include="ChilkatDotNet48, Version=11.0.0.0, Culture=neutral, PublicKeyToken=eb5fc1fc52ef09bd, processorArchitecture=AMD64">
+      <HintPath>..\packages\chilkat-x64.11.0.0\lib\net48\ChilkatDotNet48.dll</HintPath>
     </Reference>
     <Reference Include="Common.Logging, Version=2.3.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -102,8 +102,14 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\lib\Microsoft.AnalysisServices.AdomdClient.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=9.0.0.4, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.9.0.4\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
     <Reference Include="Mono.Reflection">
       <HintPath>..\packages\Mono.Reflection.1.0.0.0\lib\Mono.Reflection.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="NGS.Templater, Version=2.1.5.13808, Culture=neutral, PublicKeyToken=b9c117a1d2974457, processorArchitecture=MSIL">
       <HintPath>..\packages\Templater.2.1.5\lib\Net40\NGS.Templater.dll</HintPath>
@@ -120,6 +126,9 @@
       <HintPath>..\..\lib\poi-3.5-FINAL-20090928.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core">
@@ -127,8 +136,30 @@
     </Reference>
     <Reference Include="System.Data" />
     <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Pipelines, Version=9.0.0.4, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Pipelines.9.0.4\lib\net462\System.IO.Pipelines.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Text.Encodings.Web, Version=9.0.0.4, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.9.0.4\lib\net462\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
@@ -267,7 +298,9 @@
     <Compile Include="Domain\Products\Avia\AmadeusAviaSftpRsaKey.Map.cs">
       <DependentUpon>AmadeusAviaSftpRsaKey.cs</DependentUpon>
     </Compile>
+    <Compile Include="Domain\Products\Avia\AdamAiJsonFile.cs" />
     <Compile Include="Domain\Products\Avia\DrctXmlFile.cs" />
+    <Compile Include="Domain\Products\Avia\AdamAiJsonFile.Map.cs" />
     <Compile Include="Domain\Products\Avia\DrctXmlFile.Map.cs" />
     <Compile Include="Domain\Products\Avia\CrazyllamaPnrFile.Map.cs" />
     <Compile Include="Domain\Products\Avia\GalileoBusXmlFile.cs" />
@@ -789,6 +822,8 @@
     <Compile Include="Export\PersonContract.cs" />
     <Compile Include="Export\PartyContract.cs" />
     <Compile Include="Export\ProductContract.cs" />
+    <Compile Include="Parsers\AdamAlParser\AdamAlJsonData.cs" />
+    <Compile Include="Parsers\AdamAlParser\AdamAiJsonParser.cs" />
     <Compile Include="Parsers\GalileoConsoleParser.cs" />
     <Compile Include="Parsers\SabreConsoleParser.cs" />
     <Compile Include="Parsers\DrctXmlParser.cs" />
@@ -1157,6 +1192,17 @@
       <LastGenOutput>EntityExtentions.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
+    <None Include="Parsers\AdamAlParser\sampses\EMD_K7GG7LD.json" />
+    <None Include="Parsers\AdamAlParser\sampses\Hotel_booking_E6CVTK.json" />
+    <None Include="Parsers\AdamAlParser\sampses\Insurance_000005.json" />
+    <None Include="Parsers\AdamAlParser\sampses\Insurance_aipars000018.json" />
+    <None Include="Parsers\AdamAlParser\sampses\Other_service_26218994.json" />
+    <None Include="Parsers\AdamAlParser\sampses\Other_service_G023354804-25180564-A%28GL%29.json" />
+    <None Include="Parsers\AdamAlParser\sampses\Ticket_000003.json" />
+    <None Include="Parsers\AdamAlParser\sampses\Ticket_36FB4784-B4A186B-0001.json" />
+    <None Include="Parsers\AdamAlParser\sampses\Ticket_955-H1-0177310-2108.json" />
+    <None Include="Parsers\AdamAlParser\sampses\Ticket_ONUKKH.json" />
+    <None Include="Parsers\AdamAlParser\sampses\Ticket_PK149G.json" />
     <None Include="Service References\GalileoWebService\Luxena.Travel.GalileoWebService.GetTicketsXMLByPeriodResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

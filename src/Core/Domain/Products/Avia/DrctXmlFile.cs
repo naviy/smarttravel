@@ -4,13 +4,24 @@ using System.Linq;
 using Luxena.Travel.Parsers;
 
 
+
+
 namespace Luxena.Travel.Domain
 {
+
+
 
 	public partial class DrctXmlFile : GdsFile
 	{
 
+
+		//---g
+
+
+
 		public override GdsFileType FileType => GdsFileType.DrctXmlFile;
+
+
 
 		protected override IList<Entity2> ParseProducts(Domain db)
 		{
@@ -18,15 +29,26 @@ namespace Luxena.Travel.Domain
 				Content,
 				db.Configuration.DefaultCurrency,
 				null
-				//DrctWebServiceTask.GlobalRobots?.Split(',').Clip()
 			).ToList();
 		}
+
+		
+
+		//---g
+
 
 
 		public new class Service : Service<DrctXmlFile>
 		{
 		}
 
+
+
+		//---g
+
+
 	}
+
+
 
 }

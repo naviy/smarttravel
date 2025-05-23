@@ -17,6 +17,7 @@ namespace Luxena.Travel.Domain
 		TravelPointXmlFile = 11,
 		CrazyllamaPnrFile = 12,
 		DrctXmlFile = 13,
+		AdamAiJsonFile = 14,
 	}
 
 }

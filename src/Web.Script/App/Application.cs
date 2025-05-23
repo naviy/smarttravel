@@ -167,6 +167,7 @@ namespace Luxena.Travel
 			FormsRegistry.RegisterView(ClassNames.TravelPointXmlFile, GdsFileViewForm.ViewObject);
 			FormsRegistry.RegisterView(ClassNames.CrazyllamaPnrFile, GdsFileViewForm.ViewObject);
 			FormsRegistry.RegisterView(ClassNames.DrctXmlFile, GdsFileViewForm.ViewObject);
+			FormsRegistry.RegisterView(ClassNames.AdamAiJsonFile, GdsFileViewForm.ViewObject);
 
 			FormsRegistry.RegisterView(ClassNames.Task, TaskViewForm.ViewObject);
 

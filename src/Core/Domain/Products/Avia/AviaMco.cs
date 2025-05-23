@@ -1,6 +1,8 @@
 using Luxena.Domain;
 
 
+
+
 namespace Luxena.Travel.Domain
 {
 

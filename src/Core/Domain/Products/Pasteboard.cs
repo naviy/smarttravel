@@ -6,6 +6,8 @@ using Luxena.Base.Domain;
 using Luxena.Domain;
 
 
+
+
 namespace Luxena.Travel.Domain
 {
 
@@ -32,6 +34,8 @@ namespace Luxena.Travel.Domain
 		[RU("Общий")]
 		Сommon,
 	}
+
+
 
 
 	[RU("Ж/д билет", "Ж/д билеты")]

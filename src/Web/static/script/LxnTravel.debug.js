@@ -800,6 +800,7 @@ Luxena.Travel.ClassNames = {
     travelPointXmlFile: 'TravelPointXmlFile',
     crazyllamaPnrFile: 'CrazyllamaPnrFile',
     drctXmlFile: 'DrctXmlFile',
+    adamAiJsonFile: 'AdamAiJsonFile',
     money: 'Money',
     passport: 'Passport',
     bankAccount: 'BankAccount',
@@ -8156,8 +8157,8 @@ Luxena.Travel.ProductSemantic = function Luxena_Travel_ProductSemantic() {
     this.TaxRateOfProduct = Luxena.Travel.SemanticEntity.get_member().title('\u0421\u0442\u0430\u0432\u043a\u0430 \u041d\u0414\u0421 \u0434\u043b\u044f \u0443\u0441\u043b\u0443\u0433\u0438').enumItems([ [ 1, '\u0410 (\u0441 \u041d\u0414\u0421)' ], [ 2, '\u0411 (\u0431\u0435\u0437 \u041d\u0414\u0421)' ], [ 5, '\u0414 (\u0431\u0435\u0437 \u041d\u0414\u0421)' ], [ 0, '\u041f\u043e \u0443\u043c\u043e\u043b\u0447\u0430\u043d\u0438\u044e' ], [ -1, '\u043d\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c' ] ]).required();
     this.TaxRateOfServiceFee = Luxena.Travel.SemanticEntity.get_member().title('\u0421\u0442\u0430\u0432\u043a\u0430 \u041d\u0414\u0421 \u0434\u043b\u044f \u0441\u0431\u043e\u0440\u0430').enumItems([ [ 1, '\u0410 (\u0441 \u041d\u0414\u0421)' ], [ 2, '\u0411 (\u0431\u0435\u0437 \u041d\u0414\u0421)' ], [ 5, '\u0414 (\u0431\u0435\u0437 \u041d\u0414\u0421)' ], [ 0, '\u041f\u043e \u0443\u043c\u043e\u043b\u0447\u0430\u043d\u0438\u044e' ], [ -1, '\u043d\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c' ] ]).required();
     this.Note = Luxena.Travel.SemanticEntity.get_member().title('\u041f\u0440\u0438\u043c\u0435\u0447\u0430\u043d\u0438\u0435').text(3);
-    this.Originator = Luxena.Travel.SemanticEntity.get_member().title('\u041e\u0440\u0438\u0433\u0438\u043d\u0430\u0442\u043e\u0440').enumItems([ [ 13, 'Air Arabia' ], [ 16, 'AirLife' ], [ 4, 'Airline' ], [ 1, 'Amadeus' ], [ 18, 'Amadeus Altea' ], [ 22, 'Crazy Llama' ], [ 10, 'Delta TRAVEL' ], [ 23, 'Drct Aero' ], [ 8, 'E-Travels' ], [ 12, 'Fly Dubai' ], [ 5, 'Gabriel' ], [ 2, 'Galileo' ], [ 7, 'IATI' ], [ 14, 'Pegasus' ], [ 17, 'Sabre' ], [ 3, 'Sirena' ], [ 19, 'SPRK' ], [ 9, 'Ticket Consolidator' ], [ 11, 'Tickets.UA' ], [ 20, 'Travel & Marketing' ], [ 21, 'Travel Point' ], [ 0, 'Unknown' ], [ 15, '\u0412\u0456\u0430\u041a\u0438\u0457\u0432' ], [ 6, 'Wizz Air' ] ]).required();
-    this.Origin = Luxena.Travel.SemanticEntity.get_member().title('\u0418\u0441\u0442\u043e\u0447\u043d\u0438\u043a').enumItems([ [ 0, 'AmadeusAir' ], [ 1, 'AmadeusPrint' ], [ 8, 'AmadeusXml' ], [ 4, 'BspLink' ], [ 14, 'Drct' ], [ 12, 'GalileoBusXml' ], [ 2, 'GalileoMir' ], [ 10, 'GalileoRailXml' ], [ 3, 'GalileoTkt' ], [ 7, 'GalileoXml' ], [ 11, 'LuxenaXml' ], [ 5, 'Manual' ], [ 9, 'SabreFil' ], [ 15, 'SabreTerminal' ], [ 6, 'SirenaXml' ], [ 16, 'SPRK' ], [ 13, 'TravelPointXml' ] ]).required();
+    this.Originator = Luxena.Travel.SemanticEntity.get_member().title('\u041e\u0440\u0438\u0433\u0438\u043d\u0430\u0442\u043e\u0440').enumItems([ [ 24, 'Adam AI' ], [ 13, 'Air Arabia' ], [ 16, 'AirLife' ], [ 4, 'Airline' ], [ 1, 'Amadeus' ], [ 18, 'Amadeus Altea' ], [ 22, 'Crazy Llama' ], [ 10, 'Delta TRAVEL' ], [ 23, 'Drct Aero' ], [ 8, 'E-Travels' ], [ 12, 'Fly Dubai' ], [ 5, 'Gabriel' ], [ 2, 'Galileo' ], [ 7, 'IATI' ], [ 14, 'Pegasus' ], [ 17, 'Sabre' ], [ 3, 'Sirena' ], [ 19, 'SPRK' ], [ 9, 'Ticket Consolidator' ], [ 11, 'Tickets.UA' ], [ 20, 'Travel & Marketing' ], [ 21, 'Travel Point' ], [ 0, 'Unknown' ], [ 15, '\u0412\u0456\u0430\u041a\u0438\u0457\u0432' ], [ 6, 'Wizz Air' ] ]).required();
+    this.Origin = Luxena.Travel.SemanticEntity.get_member().title('\u0418\u0441\u0442\u043e\u0447\u043d\u0438\u043a').enumItems([ [ 16, 'AdamAiJson' ], [ 0, 'AmadeusAir' ], [ 1, 'AmadeusPrint' ], [ 8, 'AmadeusXml' ], [ 4, 'BspLink' ], [ 14, 'Drct' ], [ 12, 'GalileoBusXml' ], [ 2, 'GalileoMir' ], [ 10, 'GalileoRailXml' ], [ 3, 'GalileoTkt' ], [ 7, 'GalileoXml' ], [ 11, 'LuxenaXml' ], [ 5, 'Manual' ], [ 9, 'SabreFil' ], [ 15, 'SabreTerminal' ], [ 6, 'SirenaXml' ], [ 17, 'SPRK' ], [ 13, 'TravelPointXml' ] ]).required();
     this.OriginalDocument = Luxena.Travel.SemanticEntity.get_member().title('\u041e\u0440\u0438\u0433\u0438\u043d\u0430\u043b\u044c\u043d\u044b\u0439 \u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442').reference('GdsFile');
     this.ProducerOrProviderAirlineIataCode = Luxena.Travel.SemanticEntity.get_member().string();
     this.TextForOrderItem = Luxena.Travel.SemanticEntity.get_member().string();
@@ -9349,7 +9350,7 @@ Luxena.Travel.InternalTransferSemantic = function Luxena_Travel_InternalTransfer
 
 Luxena.Travel.GdsAgentSemantic = function Luxena_Travel_GdsAgentSemantic() {
     this.Person = Luxena.Travel.SemanticEntity.get_member().title('\u041f\u0435\u0440\u0441\u043e\u043d\u0430').reference('Person');
-    this.Origin = Luxena.Travel.SemanticEntity.get_member().title('\u0418\u0441\u0442\u043e\u0447\u043d\u0438\u043a \u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u043e\u0432').enumItems([ [ 0, 'AmadeusAir' ], [ 1, 'AmadeusPrint' ], [ 8, 'AmadeusXml' ], [ 4, 'BspLink' ], [ 14, 'Drct' ], [ 12, 'GalileoBusXml' ], [ 2, 'GalileoMir' ], [ 10, 'GalileoRailXml' ], [ 3, 'GalileoTkt' ], [ 7, 'GalileoXml' ], [ 11, 'LuxenaXml' ], [ 5, 'Manual' ], [ 9, 'SabreFil' ], [ 15, 'SabreTerminal' ], [ 6, 'SirenaXml' ], [ 16, 'SPRK' ], [ 13, 'TravelPointXml' ] ]).required();
+    this.Origin = Luxena.Travel.SemanticEntity.get_member().title('\u0418\u0441\u0442\u043e\u0447\u043d\u0438\u043a \u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u043e\u0432').enumItems([ [ 16, 'AdamAiJson' ], [ 0, 'AmadeusAir' ], [ 1, 'AmadeusPrint' ], [ 8, 'AmadeusXml' ], [ 4, 'BspLink' ], [ 14, 'Drct' ], [ 12, 'GalileoBusXml' ], [ 2, 'GalileoMir' ], [ 10, 'GalileoRailXml' ], [ 3, 'GalileoTkt' ], [ 7, 'GalileoXml' ], [ 11, 'LuxenaXml' ], [ 5, 'Manual' ], [ 9, 'SabreFil' ], [ 15, 'SabreTerminal' ], [ 6, 'SirenaXml' ], [ 17, 'SPRK' ], [ 13, 'TravelPointXml' ] ]).required();
     this.Code = Luxena.Travel.SemanticEntity.get_member().title('\u041a\u043e\u0434 \u0430\u0433\u0435\u043d\u0442\u0430').string().entityName();
     this.OfficeCode = Luxena.Travel.SemanticEntity.get_member().title('\u041a\u043e\u0434 \u043e\u0444\u0438\u0441\u0430').string();
     this.Provider = Luxena.Travel.SemanticEntity.get_member().title('\u041f\u043e\u0441\u0442\u0430\u0432\u0449\u0438\u043a').reference('Organization');
@@ -9451,7 +9452,7 @@ Luxena.Travel.GdsAgentEditForm.prototype = {
 // Luxena.Travel.GdsFileSemantic
 
 Luxena.Travel.GdsFileSemantic = function Luxena_Travel_GdsFileSemantic() {
-    this.FileType = Luxena.Travel.SemanticEntity.get_member().title('\u0422\u0438\u043f').enumItems([ [ 0, 'AirFile' ], [ 6, 'AmadeusXmlFile' ], [ 12, 'CrazyllamaPnrFile' ], [ 13, 'DrctXmlFile' ], [ 10, 'GalileoBusXmlFile' ], [ 8, 'GalileoRailXmlFile' ], [ 5, 'GalileoXmlFile' ], [ 9, 'LuxenaXmlFile' ], [ 1, 'MirFile' ], [ 3, 'PrintFile' ], [ 7, 'SabreFilFile' ], [ 4, 'SirenaFile' ], [ 2, 'TktFile' ], [ 11, 'TravelPointXmlFile' ] ]).required();
+    this.FileType = Luxena.Travel.SemanticEntity.get_member().title('\u0422\u0438\u043f').enumItems([ [ 14, 'AdamAiJsonFile' ], [ 0, 'AirFile' ], [ 6, 'AmadeusXmlFile' ], [ 12, 'CrazyllamaPnrFile' ], [ 13, 'DrctXmlFile' ], [ 10, 'GalileoBusXmlFile' ], [ 8, 'GalileoRailXmlFile' ], [ 5, 'GalileoXmlFile' ], [ 9, 'LuxenaXmlFile' ], [ 1, 'MirFile' ], [ 3, 'PrintFile' ], [ 7, 'SabreFilFile' ], [ 4, 'SirenaFile' ], [ 2, 'TktFile' ], [ 11, 'TravelPointXmlFile' ] ]).required();
     this.TimeStamp = Luxena.Travel.SemanticEntity.get_member().title('\u0414\u0430\u0442\u0430 \u0438\u043c\u043f\u043e\u0440\u0442\u0430').dateTime2().required();
     this.Content = Luxena.Travel.SemanticEntity.get_member().title('\u0421\u043e\u0434\u0435\u0440\u0436\u0438\u043c\u043e\u0435').text(10);
     this.ImportResult = Luxena.Travel.SemanticEntity.get_member().title('\u0420\u0435\u0437\u0443\u043b\u044c\u0442\u0430\u0442 \u0438\u043c\u043f\u043e\u0440\u0442\u0430').enumItems([ [ 2, 'Error' ], [ 0, 'None' ], [ 4, 'Reimported' ], [ 1, 'Success' ], [ 3, 'Warn' ] ]).required();
@@ -16716,6 +16717,7 @@ Luxena.Travel.Application._registerForms = function Luxena_Travel_Application$_r
     LxnBase.UI.FormsRegistry.registerView('TravelPointXmlFile', Luxena.Travel.GdsFileViewForm.viewObject);
     LxnBase.UI.FormsRegistry.registerView('CrazyllamaPnrFile', Luxena.Travel.GdsFileViewForm.viewObject);
     LxnBase.UI.FormsRegistry.registerView('DrctXmlFile', Luxena.Travel.GdsFileViewForm.viewObject);
+    LxnBase.UI.FormsRegistry.registerView('AdamAiJsonFile', Luxena.Travel.GdsFileViewForm.viewObject);
     LxnBase.UI.FormsRegistry.registerView('Task', Luxena.Travel.TaskViewForm.viewObject);
     LxnBase.UI.FormsRegistry.registerView('AirlineServiceClass', Luxena.Travel.AppActions.listPositioning, false);
     LxnBase.UI.FormsRegistry.registerView('Airport', Luxena.Travel.AppActions.listPositioning, false);

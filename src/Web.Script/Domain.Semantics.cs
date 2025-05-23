@@ -4059,6 +4059,7 @@ namespace Luxena.Travel
 			.Title("Оригинатор")
 			.EnumItems(new object[][]
 			{
+				new object[] { 24, "Adam AI" }, // AdamAI
 				new object[] { 13, "Air Arabia" }, // AirArabia
 				new object[] { 16, "AirLife" }, // AirLife
 				new object[] { 4, "Airline" }, // Airline
@@ -4092,6 +4093,7 @@ namespace Luxena.Travel
 			.Title("Источник")
 			.EnumItems(new object[][]
 			{
+				new object[] { 16, "AdamAiJson" }, // AdamAiJson
 				new object[] { 0, "AmadeusAir" }, // AmadeusAir
 				new object[] { 1, "AmadeusPrint" }, // AmadeusPrint
 				new object[] { 8, "AmadeusXml" }, // AmadeusXml
@@ -4107,7 +4109,7 @@ namespace Luxena.Travel
 				new object[] { 9, "SabreFil" }, // SabreFil
 				new object[] { 15, "SabreTerminal" }, // SabreTerminal
 				new object[] { 6, "SirenaXml" }, // SirenaXml
-				new object[] { 16, "SPRK" }, // SPRK
+				new object[] { 17, "SPRK" }, // SPRK
 				new object[] { 13, "TravelPointXml" }, // TravelPointXml
 			})
 			.Required();
@@ -6533,6 +6535,7 @@ namespace Luxena.Travel
 			.Title("Источник документов")
 			.EnumItems(new object[][]
 			{
+				new object[] { 16, "AdamAiJson" }, // AdamAiJson
 				new object[] { 0, "AmadeusAir" }, // AmadeusAir
 				new object[] { 1, "AmadeusPrint" }, // AmadeusPrint
 				new object[] { 8, "AmadeusXml" }, // AmadeusXml
@@ -6548,7 +6551,7 @@ namespace Luxena.Travel
 				new object[] { 9, "SabreFil" }, // SabreFil
 				new object[] { 15, "SabreTerminal" }, // SabreTerminal
 				new object[] { 6, "SirenaXml" }, // SirenaXml
-				new object[] { 16, "SPRK" }, // SPRK
+				new object[] { 17, "SPRK" }, // SPRK
 				new object[] { 13, "TravelPointXml" }, // TravelPointXml
 			})
 			.Required();
@@ -6663,6 +6666,7 @@ namespace Luxena.Travel
 			.Title("Тип")
 			.EnumItems(new object[][]
 			{
+				new object[] { 14, "AdamAiJsonFile" }, // AdamAiJsonFile
 				new object[] { 0, "AirFile" }, // AirFile
 				new object[] { 6, "AmadeusXmlFile" }, // AmadeusXmlFile
 				new object[] { 12, "CrazyllamaPnrFile" }, // CrazyllamaPnrFile

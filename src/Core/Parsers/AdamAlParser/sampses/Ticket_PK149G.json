@@ -1,0 +1,18 @@
+{
+    "date_of_issue": "21.08.2024",
+    "booking_number": "PK149G",
+    "agent_ID": "Anna Zelinska",
+    "passenger_title": "MR",
+    "passenger_name": "DMYTRO",
+    "passenger_surname": "SOFYNA",
+    "route": "FCO-KRK",
+    "baggage": "1/20kg",
+    "seat": "2D",
+    "flight_number": "W6 2062",
+    "departure_date": "06.09.2024 15:05",
+    "arrival_date": "06.09.2024 17:15",
+    "grand_total": "EUR 785.00",
+    "booking_date": "21.08.2024",
+    "ticketing_date": "21.08.2024",
+    "type_of_issue": "Ticket"
+}

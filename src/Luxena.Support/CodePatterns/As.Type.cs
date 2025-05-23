@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Globalization;
+// ReSharper disable MemberHidesStaticFromOuterClass
+// ReSharper disable UnusedMember.Global
 
 // ReSharper disable once MemberHidesStaticFromOuterClass
 
@@ -97,7 +99,7 @@ namespace Luxena
 			return value;
 		}
 
-		public partial struct ObjectValue
+		public readonly partial struct ObjectValue
 		{
 			public readonly object Value;
 
@@ -135,37 +137,27 @@ namespace Luxena
 		[DebuggerStepThrough]
 		public static bool As(this object value, bool defaults)
 		{
-			bool result;
-			return TryBool(value, out result) ? result : defaults;
+			return TryBool(value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static bool? As(this object value, bool? defaults)
 		{
-			bool result;
-			return TryBool(value, out result) ? result : defaults;
+			return TryBool(value, out var result) ? result : defaults;
 		}
 
-		public partial struct ObjectValue
+		public readonly partial struct ObjectValue
 		{
 			public bool Bool
 			{
 				[DebuggerStepThrough]
-				get
-				{
-					bool result;
-					return CodePatternExtentions.TryBool(Value, out result) && result;
-				}
+				get => CodePatternExtentions.TryBool(Value, out var result) && result;
 			}
 
 			public bool? Booln
 			{
 				[DebuggerStepThrough]
-				get
-				{
-					bool result;
-					return CodePatternExtentions.TryBool(Value, out result) ? (bool?)result : null;
-				}
+				get => CodePatternExtentions.TryBool(Value, out var result) ? (bool?)result : null;
 			}
 
 			[DebuggerStepThrough]
@@ -179,15 +171,13 @@ namespace Luxena
 		[DebuggerStepThrough]
 		public static bool Bool(this ObjectValue value, bool defaults)
 		{
-			bool result;
-			return TryBool(value.Value, out result) ? result : defaults;
+			return TryBool(value.Value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static bool? Booln(this ObjectValue value, bool? defaults)
 		{
-			bool result;
-			return TryBool(value.Value, out result) ? result : defaults;
+			return TryBool(value.Value, out var result) ? result : defaults;
 		}
 
 		#endregion
@@ -215,52 +205,40 @@ namespace Luxena
 		[DebuggerStepThrough]
 		public static byte As(this object value, byte defaults)
 		{
-			byte result;
-			return TryByte(value, out result) ? result : defaults;
+			return TryByte(value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static byte As(this object value, IFormatProvider provider, byte defaults)
 		{
-			byte result;
-			return TryByte(value, provider, out result) ? result : defaults;
+			return TryByte(value, provider, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static byte? As(this object value, byte? defaults)
 		{
-			byte result;
-			return TryByte(value, out result) ? result : defaults;
+			return TryByte(value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static byte? As(this object value, IFormatProvider provider, byte? defaults)
 		{
-			byte result;
-			return TryByte(value, provider, out result) ? result : defaults;
+			return TryByte(value, provider, out var result) ? result : defaults;
 		}
 
 
-		public partial struct ObjectValue
+		public readonly partial struct ObjectValue
 		{
 			public byte Byte
 			{
 				[DebuggerStepThrough]
-				get
-				{
-					byte result;
-					return CodePatternExtentions.TryByte(Value, out result) ? result : (byte)0;
-				}
+				get => CodePatternExtentions.TryByte(Value, out var result) ? result : (byte)0;
 			}
 
 			public byte? Byten
 			{
 				[DebuggerStepThrough]
-				get
-				{
-					byte result;
-					return CodePatternExtentions.TryByte(Value, out result) ? (byte?)result : null;
-				}
+				get => CodePatternExtentions.TryByte(Value, out var result) ? (byte?)result : null;
 			}
 
 			[DebuggerStepThrough]
@@ -280,44 +258,38 @@ namespace Luxena
 		[DebuggerStepThrough]
 		public static byte Byte(this ObjectValue value, byte defaults)
 		{
-			byte result;
-			return TryByte(value.Value, out result) ? result : defaults;
+			return TryByte(value.Value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static byte Byte(this ObjectValue value, IFormatProvider provider, byte defaults)
 		{
-			byte result;
-			return TryByte(value.Value, provider, out result) ? result : defaults;
+			return TryByte(value.Value, provider, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static byte Byte(this ObjectValue value, IFormatProvider provider)
 		{
-			byte result;
-			return TryByte(value.Value, provider, out result) ? result : (byte)0;
+			return TryByte(value.Value, provider, out var result) ? result : (byte)0;
 		}
 
 
 		[DebuggerStepThrough]
 		public static byte? Byten(this ObjectValue value, byte? defaults)
 		{
-			byte result;
-			return TryByte(value.Value, out result) ? result : defaults;
+			return TryByte(value.Value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static byte? Byten(this ObjectValue value, IFormatProvider provider, byte? defaults)
 		{
-			byte result;
-			return TryByte(value.Value, provider, out result) ? result : defaults;
+			return TryByte(value.Value, provider, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static byte? Byten(this ObjectValue value, IFormatProvider provider)
 		{
-			byte result;
-			return TryByte(value.Value, provider, out result) ? (byte?)result : null;
+			return TryByte(value.Value, provider, out var result) ? (byte?)result : null;
 		}
 
 		#endregion
@@ -345,53 +317,41 @@ namespace Luxena
 		[DebuggerStepThrough]
 		public static DateTime As(this object value, DateTime defaults)
 		{
-			DateTime result;
-			return TryDateTime(value, out result) ? result : defaults;
+			return TryDateTime(value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static DateTime As(this object value, IFormatProvider provider, DateTime defaults)
 		{
-			DateTime result;
-			return TryDateTime(value, provider, out result) ? result : defaults;
+			return TryDateTime(value, provider, out var result) ? result : defaults;
 		}
 
 
 		[DebuggerStepThrough]
 		public static DateTime? As(this object value, DateTime? defaults)
 		{
-			DateTime result;
-			return TryDateTime(value, out result) ? result : defaults;
+			return TryDateTime(value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static DateTime? As(this object value, IFormatProvider provider, DateTime? defaults)
 		{
-			DateTime result;
-			return TryDateTime(value, provider, out result) ? result : defaults;
+			return TryDateTime(value, provider, out var result) ? result : defaults;
 		}
 
 
-		public partial struct ObjectValue
+		public readonly partial struct ObjectValue
 		{
 			public DateTime DateTime
 			{
 				[DebuggerStepThrough]
-				get
-				{
-					DateTime result;
-					return CodePatternExtentions.TryDateTime(Value, out result) ? result : DateTime.MinValue;
-				}
+				get => CodePatternExtentions.TryDateTime(Value, out var result) ? result : DateTime.MinValue;
 			}
 
 			public DateTime? DateTimen
 			{
 				[DebuggerStepThrough]
-				get
-				{
-					DateTime result;
-					return CodePatternExtentions.TryDateTime(Value, out result) ? (DateTime?)result : null;
-				}
+				get => CodePatternExtentions.TryDateTime(Value, out var result) ? (DateTime?)result : null;
 			}
 
 			[DebuggerStepThrough]
@@ -411,44 +371,38 @@ namespace Luxena
 		[DebuggerStepThrough]
 		public static DateTime DateTime(this ObjectValue value, DateTime defaults)
 		{
-			DateTime result;
-			return TryDateTime(value.Value, out result) ? result : defaults;
+			return TryDateTime(value.Value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static DateTime DateTime(this ObjectValue value, IFormatProvider provider, DateTime defaults)
 		{
-			DateTime result;
-			return TryDateTime(value.Value, provider, out result) ? result : defaults;
+			return TryDateTime(value.Value, provider, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static DateTime DateTime(this ObjectValue value, IFormatProvider provider)
 		{
-			DateTime result;
-			return TryDateTime(value.Value, provider, out result) ? result : System.DateTime.MinValue;
+			return TryDateTime(value.Value, provider, out var result) ? result : System.DateTime.MinValue;
 		}
 
 
 		[DebuggerStepThrough]
 		public static DateTime? DateTimen(this ObjectValue value, DateTime? defaults)
 		{
-			DateTime result;
-			return TryDateTime(value.Value, out result) ? result : defaults;
+			return TryDateTime(value.Value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static DateTime? DateTimen(this ObjectValue value, IFormatProvider provider, DateTime? defaults)
 		{
-			DateTime result;
-			return TryDateTime(value.Value, provider, out result) ? result : defaults;
+			return TryDateTime(value.Value, provider, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static DateTime? DateTimen(this ObjectValue value, IFormatProvider provider)
 		{
-			DateTime result;
-			return TryDateTime(value.Value, provider, out result) ? (DateTime?)result : null;
+			return TryDateTime(value.Value, provider, out var result) ? (DateTime?)result : null;
 		}
 
 		#endregion
@@ -476,52 +430,40 @@ namespace Luxena
 		[DebuggerStepThrough]
 		public static decimal As(this object value, decimal defaults)
 		{
-			decimal result;
-			return TryDecimal(value, out result) ? result : defaults;
+			return TryDecimal(value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static decimal As(this object value, IFormatProvider provider, decimal defaults)
 		{
-			decimal result;
-			return TryDecimal(value, provider, out result) ? result : defaults;
+			return TryDecimal(value, provider, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static decimal? As(this object value, decimal? defaults)
 		{
-			decimal result;
-			return TryDecimal(value, out result) ? result : defaults;
+			return TryDecimal(value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static decimal? As(this object value, IFormatProvider provider, decimal? defaults)
 		{
-			decimal result;
-			return TryDecimal(value, provider, out result) ? result : defaults;
+			return TryDecimal(value, provider, out var result) ? result : defaults;
 		}
 
 
-		public partial struct ObjectValue
+		public readonly partial struct ObjectValue
 		{
 			public decimal Decimal
 			{
 				[DebuggerStepThrough]
-				get
-				{
-					decimal result;
-					return CodePatternExtentions.TryDecimal(Value, out result) ? result : 0;
-				}
+				get => CodePatternExtentions.TryDecimal(Value, out var result) ? result : 0;
 			}
 
 			public decimal? Decimaln
 			{
 				[DebuggerStepThrough]
-				get
-				{
-					decimal result;
-					return CodePatternExtentions.TryDecimal(Value, out result) ? (decimal?)result : null;
-				}
+				get => CodePatternExtentions.TryDecimal(Value, out var result) ? (decimal?)result : null;
 			}
 
 			[DebuggerStepThrough]
@@ -541,44 +483,38 @@ namespace Luxena
 		[DebuggerStepThrough]
 		public static decimal Decimal(this ObjectValue value, decimal defaults)
 		{
-			decimal result;
-			return TryDecimal(value.Value, out result) ? result : defaults;
+			return TryDecimal(value.Value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static decimal Decimal(this ObjectValue value, IFormatProvider provider, decimal defaults)
 		{
-			decimal result;
-			return TryDecimal(value.Value, provider, out result) ? result : defaults;
+			return TryDecimal(value.Value, provider, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static decimal Decimal(this ObjectValue value, IFormatProvider provider)
 		{
-			decimal result;
-			return TryDecimal(value.Value, provider, out result) ? result : 0;
+			return TryDecimal(value.Value, provider, out var result) ? result : 0;
 		}
 
 
 		[DebuggerStepThrough]
 		public static decimal? Decimaln(this ObjectValue value, decimal? defaults)
 		{
-			decimal result;
-			return TryDecimal(value.Value, out result) ? result : defaults;
+			return TryDecimal(value.Value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static decimal? Decimaln(this ObjectValue value, IFormatProvider provider, decimal? defaults)
 		{
-			decimal result;
-			return TryDecimal(value.Value, provider, out result) ? result : defaults;
+			return TryDecimal(value.Value, provider, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static decimal? Decimaln(this ObjectValue value, IFormatProvider provider)
 		{
-			decimal result;
-			return TryDecimal(value.Value, provider, out result) ? (decimal?)result : null;
+			return TryDecimal(value.Value, provider, out var result) ? (decimal?)result : null;
 		}
 
 		#endregion
@@ -606,53 +542,41 @@ namespace Luxena
 		[DebuggerStepThrough]
 		public static double As(this object value, double defaults)
 		{
-			double result;
-			return TryDouble(value, out result) ? result : defaults;
+			return TryDouble(value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static double As(this object value, IFormatProvider provider, double defaults)
 		{
-			double result;
-			return TryDouble(value, provider, out result) ? result : defaults;
+			return TryDouble(value, provider, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static double? As(this object value, double? defaults)
 		{
-			double result;
-			return TryDouble(value, out result) ? result : defaults;
+			return TryDouble(value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static double? As(this object value, IFormatProvider provider, double? defaults)
 		{
-			double result;
-			return TryDouble(value, provider, out result) ? result : defaults;
+			return TryDouble(value, provider, out var result) ? result : defaults;
 		}
 
 
-		public partial struct ObjectValue
+		public readonly partial struct ObjectValue
 		{
 
 			public double Double
 			{
 				[DebuggerStepThrough]
-				get
-				{
-					double result;
-					return CodePatternExtentions.TryDouble(Value, out result) ? result : 0;
-				}
+				get => CodePatternExtentions.TryDouble(Value, out var result) ? result : 0;
 			}
 
 			public double? Doublen
 			{
 				[DebuggerStepThrough]
-				get
-				{
-					double result;
-					return CodePatternExtentions.TryDouble(Value, out result) ? (double?)result : null;
-				}
+				get => CodePatternExtentions.TryDouble(Value, out var result) ? (double?)result : null;
 			}
 
 			[DebuggerStepThrough]
@@ -673,44 +597,38 @@ namespace Luxena
 		[DebuggerStepThrough]
 		public static double Double(this ObjectValue value, double defaults)
 		{
-			double result;
-			return TryDouble(value.Value, out result) ? result : defaults;
+			return TryDouble(value.Value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static double Double(this ObjectValue value, IFormatProvider provider, double defaults)
 		{
-			double result;
-			return TryDouble(value.Value, provider, out result) ? result : defaults;
+			return TryDouble(value.Value, provider, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static double Double(this ObjectValue value, IFormatProvider provider)
 		{
-			double result;
-			return TryDouble(value.Value, provider, out result) ? result : 0;
+			return TryDouble(value.Value, provider, out var result) ? result : 0;
 		}
 
 
 		[DebuggerStepThrough]
 		public static double? Doublen(this ObjectValue value, double? defaults)
 		{
-			double result;
-			return TryDouble(value.Value, out result) ? result : defaults;
+			return TryDouble(value.Value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static double? Doublen(this ObjectValue value, IFormatProvider provider, double? defaults)
 		{
-			double result;
-			return TryDouble(value.Value, provider, out result) ? result : defaults;
+			return TryDouble(value.Value, provider, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static double? Doublen(this ObjectValue value, IFormatProvider provider)
 		{
-			double result;
-			return TryDouble(value.Value, provider, out result) ? (double?)result : null;
+			return TryDouble(value.Value, provider, out var result) ? (double?)result : null;
 		}
 
 		#endregion
@@ -738,52 +656,40 @@ namespace Luxena
 		[DebuggerStepThrough]
 		public static int As(this object value, int defaults)
 		{
-			int result;
-			return TryInt(value, out result) ? result : defaults;
+			return TryInt(value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static int As(this object value, IFormatProvider provider, int defaults)
 		{
-			int result;
-			return TryInt(value, provider, out result) ? result : defaults;
+			return TryInt(value, provider, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static int? As(this object value, int? defaults)
 		{
-			int result;
-			return TryInt(value, out result) ? result : defaults;
+			return TryInt(value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static int? As(this object value, IFormatProvider provider, int? defaults)
 		{
-			int result;
-			return TryInt(value, provider, out result) ? result : defaults;
+			return TryInt(value, provider, out var result) ? result : defaults;
 		}
 
 
-		public partial struct ObjectValue
+		public readonly partial struct ObjectValue
 		{
 			public int Int
 			{
 				[DebuggerStepThrough]
-				get
-				{
-					int result;
-					return CodePatternExtentions.TryInt(Value, out result) ? result : 0;
-				}
+				get => CodePatternExtentions.TryInt(Value, out var result) ? result : 0;
 			}
 
 			public int? Intn
 			{
 				[DebuggerStepThrough]
-				get
-				{
-					int result;
-					return CodePatternExtentions.TryInt(Value, out result) ? (int?)result : null;
-				}
+				get => CodePatternExtentions.TryInt(Value, out var result) ? (int?)result : null;
 			}
 
 			[DebuggerStepThrough]
@@ -803,44 +709,38 @@ namespace Luxena
 		[DebuggerStepThrough]
 		public static int Int(this ObjectValue value, int defaults)
 		{
-			int result;
-			return TryInt(value.Value, out result) ? result : defaults;
+			return TryInt(value.Value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static int Int(this ObjectValue value, IFormatProvider provider, int defaults)
 		{
-			int result;
-			return TryInt(value.Value, provider, out result) ? result : defaults;
+			return TryInt(value.Value, provider, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static int Int(this ObjectValue value, IFormatProvider provider)
 		{
-			int result;
-			return TryInt(value.Value, provider, out result) ? result : 0;
+			return TryInt(value.Value, provider, out var result) ? result : 0;
 		}
 
 
 		[DebuggerStepThrough]
 		public static int? Intn(this ObjectValue value, int? defaults)
 		{
-			int result;
-			return TryInt(value.Value, out result) ? result : defaults;
+			return TryInt(value.Value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static int? Intn(this ObjectValue value, IFormatProvider provider, int? defaults)
 		{
-			int result;
-			return TryInt(value.Value, provider, out result) ? result : defaults;
+			return TryInt(value.Value, provider, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static int? Intn(this ObjectValue value, IFormatProvider provider)
 		{
-			int result;
-			return TryInt(value.Value, provider, out result) ? (int?)result : null;
+			return TryInt(value.Value, provider, out var result) ? (int?)result : null;
 		}
 
 		#endregion
@@ -868,52 +768,40 @@ namespace Luxena
 		[DebuggerStepThrough]
 		public static float As(this object value, float defaults)
 		{
-			float result;
-			return TryFloat(value, out result) ? result : defaults;
+			return TryFloat(value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static float As(this object value, IFormatProvider provider, float defaults)
 		{
-			float result;
-			return TryFloat(value, provider, out result) ? result : defaults;
+			return TryFloat(value, provider, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static float? As(this object value, float? defaults)
 		{
-			float result;
-			return TryFloat(value, out result) ? result : defaults;
+			return TryFloat(value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static float? As(this object value, IFormatProvider provider, float? defaults)
 		{
-			float result;
-			return TryFloat(value, provider, out result) ? result : defaults;
+			return TryFloat(value, provider, out var result) ? result : defaults;
 		}
 
 
-		public partial struct ObjectValue
+		public readonly partial struct ObjectValue
 		{
 			public float Float
 			{
 				[DebuggerStepThrough]
-				get
-				{
-					float result;
-					return CodePatternExtentions.TryFloat(Value, out result) ? result : 0;
-				}
+				get => CodePatternExtentions.TryFloat(Value, out var result) ? result : 0;
 			}
 
 			public float? Floatn
 			{
 				[DebuggerStepThrough]
-				get
-				{
-					float result;
-					return CodePatternExtentions.TryFloat(Value, out result) ? (float?)result : null;
-				}
+				get => CodePatternExtentions.TryFloat(Value, out var result) ? (float?)result : null;
 			}
 
 			[DebuggerStepThrough]
@@ -933,44 +821,38 @@ namespace Luxena
 		[DebuggerStepThrough]
 		public static float Float(this ObjectValue value, float defaults)
 		{
-			float result;
-			return TryFloat(value.Value, out result) ? result : defaults;
+			return TryFloat(value.Value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static float Float(this ObjectValue value, IFormatProvider provider, float defaults)
 		{
-			float result;
-			return TryFloat(value.Value, provider, out result) ? result : defaults;
+			return TryFloat(value.Value, provider, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static float Float(this ObjectValue value, IFormatProvider provider)
 		{
-			float result;
-			return TryFloat(value.Value, provider, out result) ? result : 0;
+			return TryFloat(value.Value, provider, out var result) ? result : 0;
 		}
 
 
 		[DebuggerStepThrough]
 		public static float? Floatn(this ObjectValue value, float? defaults)
 		{
-			float result;
-			return TryFloat(value.Value, out result) ? result : defaults;
+			return TryFloat(value.Value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static float? Floatn(this ObjectValue value, IFormatProvider provider, float? defaults)
 		{
-			float result;
-			return TryFloat(value.Value, provider, out result) ? result : defaults;
+			return TryFloat(value.Value, provider, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static float? Floatn(this ObjectValue value, IFormatProvider provider)
 		{
-			float result;
-			return TryFloat(value.Value, provider, out result) ? (float?)result : null;
+			return TryFloat(value.Value, provider, out var result) ? (float?)result : null;
 		}
 
 		#endregion
@@ -979,7 +861,7 @@ namespace Luxena
 		#region Object As Int16
 
 		[DebuggerStepThrough]
-		private static bool TryInt16(object value, out Int16 result)
+		private static bool TryInt16(object value, out short result)
 		{
 			if (IsEmpty(value)) { result = 0; return false; }
 			result = Convert.ToInt16(value, DefaultCulture);
@@ -987,7 +869,7 @@ namespace Luxena
 		}
 
 		[DebuggerStepThrough]
-		private static bool TryInt16(object value, IFormatProvider provider, out Int16 result)
+		private static bool TryInt16(object value, IFormatProvider provider, out short result)
 		{
 			if (IsEmpty(value)) { result = 0; return false; }
 			result = Convert.ToInt16(value, provider);
@@ -995,83 +877,69 @@ namespace Luxena
 		}
 
 
-		public partial struct ObjectValue
+		public readonly partial struct ObjectValue
 		{
 			[DebuggerStepThrough]
-			public bool TryInt16(out Int16 result)
+			public bool TryInt16(out short result)
 			{
 				return CodePatternExtentions.TryInt16(Value, out result);
 			}
 
 			[DebuggerStepThrough]
-			public bool TryInt16(IFormatProvider provider, out Int16 result)
+			public bool TryInt16(IFormatProvider provider, out short result)
 			{
 				return CodePatternExtentions.TryInt16(Value, provider, out result);
 			}
 
-			public Int16 Int16
+			public short Int16
 			{
 				[DebuggerStepThrough]
-				get
-				{
-					Int16 result;
-					return CodePatternExtentions.TryInt16(Value, out result) ? result : (Int16)0;
-				}
+				get => CodePatternExtentions.TryInt16(Value, out var result) ? result : (short)0;
 			}
 
-			public Int16? Int16n
+			public short? Int16n
 			{
 				[DebuggerStepThrough]
-				get
-				{
-					Int16 result;
-					return CodePatternExtentions.TryInt16(Value, out result) ? (Int16?)result : null;
-				}
+				get => CodePatternExtentions.TryInt16(Value, out var result) ? (short?)result : null;
 			}
 		}
 
 
 		[DebuggerStepThrough]
-		public static Int16 Int16(this ObjectValue value, Int16 defaults)
+		public static short Int16(this ObjectValue value, short defaults)
 		{
-			Int16 result;
-			return TryInt16(value.Value, out result) ? result : defaults;
+			return TryInt16(value.Value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
-		public static Int16 Int16(this ObjectValue value, IFormatProvider provider, Int16 defaults)
+		public static short Int16(this ObjectValue value, IFormatProvider provider, short defaults)
 		{
-			Int16 result;
-			return TryInt16(value.Value, provider, out result) ? result : defaults;
+			return TryInt16(value.Value, provider, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
-		public static Int16 Int16(this ObjectValue value, IFormatProvider provider)
+		public static short Int16(this ObjectValue value, IFormatProvider provider)
 		{
-			Int16 result;
-			return TryInt16(value.Value, provider, out result) ? result : (Int16)0;
+			return TryInt16(value.Value, provider, out var result) ? result : (short)0;
 		}
 
 
 		[DebuggerStepThrough]
-		public static Int16? Int16n(this ObjectValue value, Int16? defaults)
+		public static short? Int16n(this ObjectValue value, short? defaults)
 		{
-			Int16 result;
-			return TryInt16(value.Value, out result) ? result : defaults;
+			return TryInt16(value.Value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
-		public static Int16? Int16n(this ObjectValue value, IFormatProvider provider, Int16? defaults)
+		public static short? Int16n(this ObjectValue value, IFormatProvider provider, short? defaults)
 		{
-			Int16 result;
-			return TryInt16(value.Value, provider, out result) ? result : defaults;
+			return TryInt16(value.Value, provider, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
-		public static Int16? Int16n(this ObjectValue value, IFormatProvider provider)
+		public static short? Int16n(this ObjectValue value, IFormatProvider provider)
 		{
-			Int16 result;
-			return TryInt16(value.Value, provider, out result) ? (Int16?)result : null;
+			return TryInt16(value.Value, provider, out var result) ? (short?)result : null;
 		}
 
 		#endregion
@@ -1096,7 +964,7 @@ namespace Luxena
 		}
 
 
-		public partial struct ObjectValue
+		public readonly partial struct ObjectValue
 		{
 			[DebuggerStepThrough]
 			public bool TryInt32(out int result)
@@ -1113,21 +981,13 @@ namespace Luxena
 			public int Int32
 			{
 				[DebuggerStepThrough]
-				get
-				{
-					int result;
-					return CodePatternExtentions.TryInt32(Value, out result) ? result : 0;
-				}
+				get => CodePatternExtentions.TryInt32(Value, out var result) ? result : 0;
 			}
 
 			public int? Int32n
 			{
 				[DebuggerStepThrough]
-				get
-				{
-					int result;
-					return CodePatternExtentions.TryInt32(Value, out result) ? (int?)result : null;
-				}
+				get => CodePatternExtentions.TryInt32(Value, out var result) ? (int?)result : null;
 			}
 		}
 
@@ -1135,44 +995,38 @@ namespace Luxena
 		[DebuggerStepThrough]
 		public static int Int32(this ObjectValue value, int defaults)
 		{
-			int result;
-			return TryInt32(value.Value, out result) ? result : defaults;
+			return TryInt32(value.Value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static int Int32(this ObjectValue value, IFormatProvider provider, int defaults)
 		{
-			int result;
-			return TryInt32(value.Value, provider, out result) ? result : defaults;
+			return TryInt32(value.Value, provider, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static int Int32(this ObjectValue value, IFormatProvider provider)
 		{
-			int result;
-			return TryInt32(value.Value, provider, out result) ? result : 0;
+			return TryInt32(value.Value, provider, out var result) ? result : 0;
 		}
 
 
 		[DebuggerStepThrough]
 		public static int? Int32n(this ObjectValue value, int? defaults)
 		{
-			int result;
-			return TryInt32(value.Value, out result) ? result : defaults;
+			return TryInt32(value.Value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static int? Int32n(this ObjectValue value, IFormatProvider provider, int? defaults)
 		{
-			int result;
-			return TryInt32(value.Value, provider, out result) ? result : defaults;
+			return TryInt32(value.Value, provider, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static int? Int32n(this ObjectValue value, IFormatProvider provider)
 		{
-			int result;
-			return TryInt32(value.Value, provider, out result) ? (int?)result : null;
+			return TryInt32(value.Value, provider, out var result) ? (int?)result : null;
 		}
 
 		#endregion
@@ -1197,7 +1051,7 @@ namespace Luxena
 		}
 
 
-		public partial struct ObjectValue
+		public readonly partial struct ObjectValue
 		{
 			[DebuggerStepThrough]
 			public bool TryInt64(out long result)
@@ -1214,21 +1068,13 @@ namespace Luxena
 			public long Int64
 			{
 				[DebuggerStepThrough]
-				get
-				{
-					long result;
-					return CodePatternExtentions.TryInt64(Value, out result) ? result : 0;
-				}
+				get => CodePatternExtentions.TryInt64(Value, out var result) ? result : 0;
 			}
 
 			public long? Int64n
 			{
 				[DebuggerStepThrough]
-				get
-				{
-					long result;
-					return CodePatternExtentions.TryInt64(Value, out result) ? (long?)result : null;
-				}
+				get => CodePatternExtentions.TryInt64(Value, out var result) ? (long?)result : null;
 			}
 		}
 
@@ -1236,44 +1082,38 @@ namespace Luxena
 		[DebuggerStepThrough]
 		public static long Int64(this ObjectValue value, long defaults)
 		{
-			long result;
-			return TryInt64(value.Value, out result) ? result : defaults;
+			return TryInt64(value.Value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static long Int64(this ObjectValue value, IFormatProvider provider, long defaults)
 		{
-			long result;
-			return TryInt64(value.Value, provider, out result) ? result : defaults;
+			return TryInt64(value.Value, provider, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static long Int64(this ObjectValue value, IFormatProvider provider)
 		{
-			long result;
-			return TryInt64(value.Value, provider, out result) ? result : 0;
+			return TryInt64(value.Value, provider, out var result) ? result : 0;
 		}
 
 
 		[DebuggerStepThrough]
 		public static long? Int64n(this ObjectValue value, long? defaults)
 		{
-			long result;
-			return TryInt64(value.Value, out result) ? result : defaults;
+			return TryInt64(value.Value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static long? Int64n(this ObjectValue value, IFormatProvider provider, long? defaults)
 		{
-			long result;
-			return TryInt64(value.Value, provider, out result) ? result : defaults;
+			return TryInt64(value.Value, provider, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static long? Int64n(this ObjectValue value, IFormatProvider provider)
 		{
-			long result;
-			return TryInt64(value.Value, provider, out result) ? (long?)result : null;
+			return TryInt64(value.Value, provider, out var result) ? (long?)result : null;
 		}
 
 		#endregion
@@ -1301,33 +1141,29 @@ namespace Luxena
 		[DebuggerStepThrough]
 		public static long As(this object value, long defaults)
 		{
-			long result;
-			return TryLong(value, out result) ? result : defaults;
+			return TryLong(value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static long As(this object value, IFormatProvider provider, long defaults)
 		{
-			long result;
-			return TryLong(value, provider, out result) ? result : defaults;
+			return TryLong(value, provider, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static long? As(this object value, long? defaults)
 		{
-			long result;
-			return TryLong(value, out result) ? result : defaults;
+			return TryLong(value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static long? As(this object value, IFormatProvider provider, long? defaults)
 		{
-			long result;
-			return TryLong(value, provider, out result) ? result : defaults;
+			return TryLong(value, provider, out var result) ? result : defaults;
 		}
 
 
-		public partial struct ObjectValue
+		public readonly partial struct ObjectValue
 		{
 			[DebuggerStepThrough]
 			public bool TryLong(out long result)
@@ -1344,21 +1180,13 @@ namespace Luxena
 			public long Long
 			{
 				[DebuggerStepThrough]
-				get
-				{
-					long result;
-					return CodePatternExtentions.TryLong(Value, out result) ? result : 0;
-				}
+				get => CodePatternExtentions.TryLong(Value, out var result) ? result : 0;
 			}
 
 			public long? Longn
 			{
 				[DebuggerStepThrough]
-				get
-				{
-					long result;
-					return CodePatternExtentions.TryLong(Value, out result) ? (long?)result : null;
-				}
+				get => CodePatternExtentions.TryLong(Value, out var result) ? (long?)result : null;
 			}
 		}
 
@@ -1366,44 +1194,38 @@ namespace Luxena
 		[DebuggerStepThrough]
 		public static long Long(this ObjectValue value, long defaults)
 		{
-			long result;
-			return TryLong(value.Value, out result) ? result : defaults;
+			return TryLong(value.Value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static long Long(this ObjectValue value, IFormatProvider provider, long defaults)
 		{
-			long result;
-			return TryLong(value.Value, provider, out result) ? result : defaults;
+			return TryLong(value.Value, provider, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static long Long(this ObjectValue value, IFormatProvider provider)
 		{
-			long result;
-			return TryLong(value.Value, provider, out result) ? result : 0;
+			return TryLong(value.Value, provider, out var result) ? result : 0;
 		}
 
 
 		[DebuggerStepThrough]
 		public static long? Longn(this ObjectValue value, long? defaults)
 		{
-			long result;
-			return TryLong(value.Value, out result) ? result : defaults;
+			return TryLong(value.Value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static long? Longn(this ObjectValue value, IFormatProvider provider, long? defaults)
 		{
-			long result;
-			return TryLong(value.Value, provider, out result) ? result : defaults;
+			return TryLong(value.Value, provider, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static long? Longn(this ObjectValue value, IFormatProvider provider)
 		{
-			long result;
-			return TryLong(value.Value, provider, out result) ? (long?)result : null;
+			return TryLong(value.Value, provider, out var result) ? (long?)result : null;
 		}
 
 		#endregion
@@ -1431,33 +1253,29 @@ namespace Luxena
 		[DebuggerStepThrough]
 		public static sbyte As(this object value, sbyte defaults)
 		{
-			sbyte result;
-			return TrySByte(value, out result) ? result : defaults;
+			return TrySByte(value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static sbyte As(this object value, IFormatProvider provider, sbyte defaults)
 		{
-			sbyte result;
-			return TrySByte(value, provider, out result) ? result : defaults;
+			return TrySByte(value, provider, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static sbyte? As(this object value, sbyte? defaults)
 		{
-			sbyte result;
-			return TrySByte(value, out result) ? result : defaults;
+			return TrySByte(value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static sbyte? As(this object value, IFormatProvider provider, sbyte? defaults)
 		{
-			sbyte result;
-			return TrySByte(value, provider, out result) ? result : defaults;
+			return TrySByte(value, provider, out var result) ? result : defaults;
 		}
 
 
-		public partial struct ObjectValue
+		public readonly partial struct ObjectValue
 		{
 			[DebuggerStepThrough]
 			public bool TrySByte(out sbyte result)
@@ -1474,21 +1292,13 @@ namespace Luxena
 			public sbyte SByte
 			{
 				[DebuggerStepThrough]
-				get
-				{
-					sbyte result;
-					return CodePatternExtentions.TrySByte(Value, out result) ? result : (sbyte)0;
-				}
+				get => CodePatternExtentions.TrySByte(Value, out var result) ? result : (sbyte)0;
 			}
 
 			public sbyte? SByten
 			{
 				[DebuggerStepThrough]
-				get
-				{
-					sbyte result;
-					return CodePatternExtentions.TrySByte(Value, out result) ? (sbyte?)result : null;
-				}
+				get => CodePatternExtentions.TrySByte(Value, out var result) ? (sbyte?)result : null;
 			}
 		}
 
@@ -1496,44 +1306,38 @@ namespace Luxena
 		[DebuggerStepThrough]
 		public static sbyte SByte(this ObjectValue value, sbyte defaults)
 		{
-			sbyte result;
-			return TrySByte(value.Value, out result) ? result : defaults;
+			return TrySByte(value.Value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static sbyte SByte(this ObjectValue value, IFormatProvider provider, sbyte defaults)
 		{
-			sbyte result;
-			return TrySByte(value.Value, provider, out result) ? result : defaults;
+			return TrySByte(value.Value, provider, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static sbyte SByte(this ObjectValue value, IFormatProvider provider)
 		{
-			sbyte result;
-			return TrySByte(value.Value, provider, out result) ? result : (sbyte)0;
+			return TrySByte(value.Value, provider, out var result) ? result : (sbyte)0;
 		}
 
 
 		[DebuggerStepThrough]
 		public static sbyte? SByten(this ObjectValue value, sbyte? defaults)
 		{
-			sbyte result;
-			return TrySByte(value.Value, out result) ? result : defaults;
+			return TrySByte(value.Value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static sbyte? SByten(this ObjectValue value, IFormatProvider provider, sbyte? defaults)
 		{
-			sbyte result;
-			return TrySByte(value.Value, provider, out result) ? result : defaults;
+			return TrySByte(value.Value, provider, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static sbyte? SByten(this ObjectValue value, IFormatProvider provider)
 		{
-			sbyte result;
-			return TrySByte(value.Value, provider, out result) ? (sbyte?)result : null;
+			return TrySByte(value.Value, provider, out var result) ? (sbyte?)result : null;
 		}
 
 		#endregion
@@ -1561,33 +1365,29 @@ namespace Luxena
 		[DebuggerStepThrough]
 		public static short As(this object value, short defaults)
 		{
-			short result;
-			return TryShort(value, out result) ? result : defaults;
+			return TryShort(value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static short As(this object value, IFormatProvider provider, short defaults)
 		{
-			short result;
-			return TryShort(value, provider, out result) ? result : defaults;
+			return TryShort(value, provider, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static short? As(this object value, short? defaults)
 		{
-			short result;
-			return TryShort(value, out result) ? result : defaults;
+			return TryShort(value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static short? As(this object value, IFormatProvider provider, short? defaults)
 		{
-			short result;
-			return TryShort(value, provider, out result) ? result : defaults;
+			return TryShort(value, provider, out var result) ? result : defaults;
 		}
 
 
-		public partial struct ObjectValue
+		public readonly partial struct ObjectValue
 		{
 			[DebuggerStepThrough]
 			public bool TryShort(out short result)
@@ -1604,21 +1404,13 @@ namespace Luxena
 			public short Short
 			{
 				[DebuggerStepThrough]
-				get
-				{
-					short result;
-					return CodePatternExtentions.TryShort(Value, out result) ? result : (short)0;
-				}
+				get => CodePatternExtentions.TryShort(Value, out var result) ? result : (short)0;
 			}
 
 			public short? Shortn
 			{
 				[DebuggerStepThrough]
-				get
-				{
-					short result;
-					return CodePatternExtentions.TryShort(Value, out result) ? (short?)result : null;
-				}
+				get => CodePatternExtentions.TryShort(Value, out var result) ? (short?)result : null;
 			}
 		}
 
@@ -1626,44 +1418,38 @@ namespace Luxena
 		[DebuggerStepThrough]
 		public static short Short(this ObjectValue value, short defaults)
 		{
-			short result;
-			return TryShort(value.Value, out result) ? result : defaults;
+			return TryShort(value.Value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static short Short(this ObjectValue value, IFormatProvider provider, short defaults)
 		{
-			short result;
-			return TryShort(value.Value, provider, out result) ? result : defaults;
+			return TryShort(value.Value, provider, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static short Short(this ObjectValue value, IFormatProvider provider)
 		{
-			short result;
-			return TryShort(value.Value, provider, out result) ? result : (short)0;
+			return TryShort(value.Value, provider, out var result) ? result : (short)0;
 		}
 
 
 		[DebuggerStepThrough]
 		public static short? Shortn(this ObjectValue value, short? defaults)
 		{
-			short result;
-			return TryShort(value.Value, out result) ? result : defaults;
+			return TryShort(value.Value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static short? Shortn(this ObjectValue value, IFormatProvider provider, short? defaults)
 		{
-			short result;
-			return TryShort(value.Value, provider, out result) ? result : defaults;
+			return TryShort(value.Value, provider, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static short? Shortn(this ObjectValue value, IFormatProvider provider)
 		{
-			short result;
-			return TryShort(value.Value, provider, out result) ? (short?)result : null;
+			return TryShort(value.Value, provider, out var result) ? (short?)result : null;
 		}
 
 		#endregion
@@ -1683,12 +1469,11 @@ namespace Luxena
 		[DebuggerStepThrough]
 		public static string As(this object value, string defaults)
 		{
-			string result;
-			return TryString(value, out result) ? result : defaults;
+			return TryString(value, out var result) ? result : defaults;
 		}
 
 
-		public partial struct ObjectValue
+		public readonly partial struct ObjectValue
 		{
 			[DebuggerStepThrough]
 			public bool TryString(out string result)
@@ -1699,11 +1484,7 @@ namespace Luxena
 			public string String
 			{
 				[DebuggerStepThrough]
-				get
-				{
-					string result;
-					return CodePatternExtentions.TryString(Value, out result) ? result : null;
-				}
+				get => CodePatternExtentions.TryString(Value, out var result) ? result : null;
 			}
 		}
 
@@ -1711,8 +1492,7 @@ namespace Luxena
 		[DebuggerStepThrough]
 		public static string String(this ObjectValue value, string defaults)
 		{
-			string result;
-			return TryString(value.Value, out result) ? result : defaults;
+			return TryString(value.Value, out var result) ? result : defaults;
 		}
 
 		#endregion
@@ -1740,33 +1520,29 @@ namespace Luxena
 		[DebuggerStepThrough]
 		public static uint As(this object value, uint defaults)
 		{
-			uint result;
-			return TryUInt(value, out result) ? result : defaults;
+			return TryUInt(value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static uint As(this object value, IFormatProvider provider, uint defaults)
 		{
-			uint result;
-			return TryUInt(value, provider, out result) ? result : defaults;
+			return TryUInt(value, provider, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static uint? As(this object value, uint? defaults)
 		{
-			uint result;
-			return TryUInt(value, out result) ? result : defaults;
+			return TryUInt(value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static uint? As(this object value, IFormatProvider provider, uint? defaults)
 		{
-			uint result;
-			return TryUInt(value, provider, out result) ? result : defaults;
+			return TryUInt(value, provider, out var result) ? result : defaults;
 		}
 
 
-		public partial struct ObjectValue
+		public readonly partial struct ObjectValue
 		{
 			[DebuggerStepThrough]
 			public bool TryUInt(out uint result)
@@ -1783,21 +1559,13 @@ namespace Luxena
 			public uint UInt
 			{
 				[DebuggerStepThrough]
-				get
-				{
-					uint result;
-					return CodePatternExtentions.TryUInt(Value, out result) ? result : 0;
-				}
+				get => CodePatternExtentions.TryUInt(Value, out var result) ? result : 0;
 			}
 
 			public uint? UIntn
 			{
 				[DebuggerStepThrough]
-				get
-				{
-					uint result;
-					return CodePatternExtentions.TryUInt(Value, out result) ? (uint?)result : null;
-				}
+				get => CodePatternExtentions.TryUInt(Value, out var result) ? (uint?)result : null;
 			}
 		}
 
@@ -1805,44 +1573,38 @@ namespace Luxena
 		[DebuggerStepThrough]
 		public static uint UInt(this ObjectValue value, uint defaults)
 		{
-			uint result;
-			return TryUInt(value.Value, out result) ? result : defaults;
+			return TryUInt(value.Value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static uint UInt(this ObjectValue value, IFormatProvider provider, uint defaults)
 		{
-			uint result;
-			return TryUInt(value.Value, provider, out result) ? result : defaults;
+			return TryUInt(value.Value, provider, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static uint UInt(this ObjectValue value, IFormatProvider provider)
 		{
-			uint result;
-			return TryUInt(value.Value, provider, out result) ? result : 0;
+			return TryUInt(value.Value, provider, out var result) ? result : 0;
 		}
 
 
 		[DebuggerStepThrough]
 		public static uint? UIntn(this ObjectValue value, uint? defaults)
 		{
-			uint result;
-			return TryUInt(value.Value, out result) ? result : defaults;
+			return TryUInt(value.Value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static uint? UIntn(this ObjectValue value, IFormatProvider provider, uint? defaults)
 		{
-			uint result;
-			return TryUInt(value.Value, provider, out result) ? result : defaults;
+			return TryUInt(value.Value, provider, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static uint? UIntn(this ObjectValue value, IFormatProvider provider)
 		{
-			uint result;
-			return TryUInt(value.Value, provider, out result) ? (uint?)result : null;
+			return TryUInt(value.Value, provider, out var result) ? (uint?)result : null;
 		}
 
 		#endregion
@@ -1851,7 +1613,7 @@ namespace Luxena
 		#region Object As UInt16
 
 		[DebuggerStepThrough]
-		private static bool TryUInt16(object value, out UInt16 result)
+		private static bool TryUInt16(object value, out ushort result)
 		{
 			if (IsEmpty(value)) { result = 0; return false; }
 			result = Convert.ToUInt16(value, DefaultCulture);
@@ -1859,7 +1621,7 @@ namespace Luxena
 		}
 
 		[DebuggerStepThrough]
-		private static bool TryUInt16(object value, IFormatProvider provider, out UInt16 result)
+		private static bool TryUInt16(object value, IFormatProvider provider, out ushort result)
 		{
 			if (IsEmpty(value)) { result = 0; return false; }
 			result = Convert.ToUInt16(value, provider);
@@ -1867,83 +1629,69 @@ namespace Luxena
 		}
 
 
-		public partial struct ObjectValue
+		public readonly partial struct ObjectValue
 		{
 			[DebuggerStepThrough]
-			public bool TryUInt16(out UInt16 result)
+			public bool TryUInt16(out ushort result)
 			{
 				return CodePatternExtentions.TryUInt16(Value, out result);
 			}
 
 			[DebuggerStepThrough]
-			public bool TryUInt16(IFormatProvider provider, out UInt16 result)
+			public bool TryUInt16(IFormatProvider provider, out ushort result)
 			{
 				return CodePatternExtentions.TryUInt16(Value, provider, out result);
 			}
 
-			public UInt16 UInt16
+			public ushort UInt16
 			{
 				[DebuggerStepThrough]
-				get
-				{
-					UInt16 result;
-					return CodePatternExtentions.TryUInt16(Value, out result) ? result : (UInt16)0;
-				}
+				get => CodePatternExtentions.TryUInt16(Value, out var result) ? result : (ushort)0;
 			}
 
-			public UInt16? UInt16n
+			public ushort? UInt16n
 			{
 				[DebuggerStepThrough]
-				get
-				{
-					UInt16 result;
-					return CodePatternExtentions.TryUInt16(Value, out result) ? (UInt16?)result : null;
-				}
+				get => CodePatternExtentions.TryUInt16(Value, out var result) ? (ushort?)result : null;
 			}
 		}
 
 
 		[DebuggerStepThrough]
-		public static UInt16 UInt16(this ObjectValue value, UInt16 defaults)
+		public static ushort UInt16(this ObjectValue value, ushort defaults)
 		{
-			UInt16 result;
-			return TryUInt16(value.Value, out result) ? result : defaults;
+			return TryUInt16(value.Value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
-		public static UInt16 UInt16(this ObjectValue value, IFormatProvider provider, UInt16 defaults)
+		public static ushort UInt16(this ObjectValue value, IFormatProvider provider, ushort defaults)
 		{
-			UInt16 result;
-			return TryUInt16(value.Value, provider, out result) ? result : defaults;
+			return TryUInt16(value.Value, provider, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
-		public static UInt16 UInt16(this ObjectValue value, IFormatProvider provider)
+		public static ushort UInt16(this ObjectValue value, IFormatProvider provider)
 		{
-			UInt16 result;
-			return TryUInt16(value.Value, provider, out result) ? result : (UInt16)0;
+			return TryUInt16(value.Value, provider, out var result) ? result : (ushort)0;
 		}
 
 
 		[DebuggerStepThrough]
-		public static UInt16? UInt16n(this ObjectValue value, UInt16? defaults)
+		public static ushort? UInt16n(this ObjectValue value, ushort? defaults)
 		{
-			UInt16 result;
-			return TryUInt16(value.Value, out result) ? result : defaults;
+			return TryUInt16(value.Value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
-		public static UInt16? UInt16n(this ObjectValue value, IFormatProvider provider, UInt16? defaults)
+		public static ushort? UInt16n(this ObjectValue value, IFormatProvider provider, ushort? defaults)
 		{
-			UInt16 result;
-			return TryUInt16(value.Value, provider, out result) ? result : defaults;
+			return TryUInt16(value.Value, provider, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
-		public static UInt16? UInt16n(this ObjectValue value, IFormatProvider provider)
+		public static ushort? UInt16n(this ObjectValue value, IFormatProvider provider)
 		{
-			UInt16 result;
-			return TryUInt16(value.Value, provider, out result) ? (UInt16?)result : null;
+			return TryUInt16(value.Value, provider, out var result) ? (ushort?)result : null;
 		}
 
 		#endregion
@@ -1968,7 +1716,7 @@ namespace Luxena
 		}
 
 
-		public partial struct ObjectValue
+		public readonly partial struct ObjectValue
 		{
 			[DebuggerStepThrough]
 			public bool TryUInt32(out uint result)
@@ -1985,21 +1733,13 @@ namespace Luxena
 			public uint UInt32
 			{
 				[DebuggerStepThrough]
-				get
-				{
-					uint result;
-					return CodePatternExtentions.TryUInt32(Value, out result) ? result : 0;
-				}
+				get => CodePatternExtentions.TryUInt32(Value, out var result) ? result : 0;
 			}
 
 			public uint? UInt32n
 			{
 				[DebuggerStepThrough]
-				get
-				{
-					uint result;
-					return CodePatternExtentions.TryUInt32(Value, out result) ? (uint?)result : null;
-				}
+				get => CodePatternExtentions.TryUInt32(Value, out var result) ? (uint?)result : null;
 			}
 		}
 
@@ -2007,44 +1747,38 @@ namespace Luxena
 		[DebuggerStepThrough]
 		public static uint UInt32(this ObjectValue value, uint defaults)
 		{
-			uint result;
-			return TryUInt32(value.Value, out result) ? result : defaults;
+			return TryUInt32(value.Value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static uint UInt32(this ObjectValue value, IFormatProvider provider, uint defaults)
 		{
-			uint result;
-			return TryUInt32(value.Value, provider, out result) ? result : defaults;
+			return TryUInt32(value.Value, provider, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static uint UInt32(this ObjectValue value, IFormatProvider provider)
 		{
-			uint result;
-			return TryUInt32(value.Value, provider, out result) ? result : 0;
+			return TryUInt32(value.Value, provider, out var result) ? result : 0;
 		}
 
 
 		[DebuggerStepThrough]
 		public static uint? UInt32n(this ObjectValue value, uint? defaults)
 		{
-			uint result;
-			return TryUInt32(value.Value, out result) ? result : defaults;
+			return TryUInt32(value.Value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static uint? UInt32n(this ObjectValue value, IFormatProvider provider, uint? defaults)
 		{
-			uint result;
-			return TryUInt32(value.Value, provider, out result) ? result : defaults;
+			return TryUInt32(value.Value, provider, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static uint? UInt32n(this ObjectValue value, IFormatProvider provider)
 		{
-			uint result;
-			return TryUInt32(value.Value, provider, out result) ? (uint?)result : null;
+			return TryUInt32(value.Value, provider, out var result) ? (uint?)result : null;
 		}
 
 		#endregion
@@ -2069,7 +1803,7 @@ namespace Luxena
 		}
 
 
-		public partial struct ObjectValue
+		public readonly partial struct ObjectValue
 		{
 			[DebuggerStepThrough]
 			public bool TryUInt64(out ulong result)
@@ -2086,21 +1820,13 @@ namespace Luxena
 			public ulong UInt64
 			{
 				[DebuggerStepThrough]
-				get
-				{
-					ulong result;
-					return CodePatternExtentions.TryUInt64(Value, out result) ? result : 0;
-				}
+				get => CodePatternExtentions.TryUInt64(Value, out var result) ? result : 0;
 			}
 
 			public ulong? UInt64n
 			{
 				[DebuggerStepThrough]
-				get
-				{
-					ulong result;
-					return CodePatternExtentions.TryUInt64(Value, out result) ? (ulong?)result : null;
-				}
+				get => CodePatternExtentions.TryUInt64(Value, out var result) ? (ulong?)result : null;
 			}
 		}
 
@@ -2108,44 +1834,38 @@ namespace Luxena
 		[DebuggerStepThrough]
 		public static ulong UInt64(this ObjectValue value, ulong defaults)
 		{
-			ulong result;
-			return TryUInt64(value.Value, out result) ? result : defaults;
+			return TryUInt64(value.Value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static ulong UInt64(this ObjectValue value, IFormatProvider provider, ulong defaults)
 		{
-			ulong result;
-			return TryUInt64(value.Value, provider, out result) ? result : defaults;
+			return TryUInt64(value.Value, provider, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static ulong UInt64(this ObjectValue value, IFormatProvider provider)
 		{
-			ulong result;
-			return TryUInt64(value.Value, provider, out result) ? result : 0;
+			return TryUInt64(value.Value, provider, out var result) ? result : 0;
 		}
 
 
 		[DebuggerStepThrough]
 		public static ulong? UInt64n(this ObjectValue value, ulong? defaults)
 		{
-			ulong result;
-			return TryUInt64(value.Value, out result) ? result : defaults;
+			return TryUInt64(value.Value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static ulong? UInt64n(this ObjectValue value, IFormatProvider provider, ulong? defaults)
 		{
-			ulong result;
-			return TryUInt64(value.Value, provider, out result) ? result : defaults;
+			return TryUInt64(value.Value, provider, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static ulong? UInt64n(this ObjectValue value, IFormatProvider provider)
 		{
-			ulong result;
-			return TryUInt64(value.Value, provider, out result) ? (ulong?)result : null;
+			return TryUInt64(value.Value, provider, out var result) ? (ulong?)result : null;
 		}
 
 		#endregion
@@ -2173,33 +1893,29 @@ namespace Luxena
 		[DebuggerStepThrough]
 		public static ulong As(this object value, ulong defaults)
 		{
-			ulong result;
-			return TryULong(value, out result) ? result : defaults;
+			return TryULong(value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static ulong As(this object value, IFormatProvider provider, ulong defaults)
 		{
-			ulong result;
-			return TryULong(value, provider, out result) ? result : defaults;
+			return TryULong(value, provider, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static ulong? As(this object value, ulong? defaults)
 		{
-			ulong result;
-			return TryULong(value, out result) ? result : defaults;
+			return TryULong(value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static ulong? As(this object value, IFormatProvider provider, ulong? defaults)
 		{
-			ulong result;
-			return TryULong(value, provider, out result) ? result : defaults;
+			return TryULong(value, provider, out var result) ? result : defaults;
 		}
 
 
-		public partial struct ObjectValue
+		public readonly partial struct ObjectValue
 		{
 			[DebuggerStepThrough]
 			public bool TryULong(out ulong result)
@@ -2216,21 +1932,13 @@ namespace Luxena
 			public ulong ULong
 			{
 				[DebuggerStepThrough]
-				get
-				{
-					ulong result;
-					return CodePatternExtentions.TryULong(Value, out result) ? result : 0;
-				}
+				get => CodePatternExtentions.TryULong(Value, out var result) ? result : 0;
 			}
 
 			public ulong? ULongn
 			{
 				[DebuggerStepThrough]
-				get
-				{
-					ulong result;
-					return CodePatternExtentions.TryULong(Value, out result) ? (ulong?)result : null;
-				}
+				get => CodePatternExtentions.TryULong(Value, out var result) ? (ulong?)result : null;
 			}
 		}
 
@@ -2238,44 +1946,38 @@ namespace Luxena
 		[DebuggerStepThrough]
 		public static ulong ULong(this ObjectValue value, ulong defaults)
 		{
-			ulong result;
-			return TryULong(value.Value, out result) ? result : defaults;
+			return TryULong(value.Value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static ulong ULong(this ObjectValue value, IFormatProvider provider, ulong defaults)
 		{
-			ulong result;
-			return TryULong(value.Value, provider, out result) ? result : defaults;
+			return TryULong(value.Value, provider, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static ulong ULong(this ObjectValue value, IFormatProvider provider)
 		{
-			ulong result;
-			return TryULong(value.Value, provider, out result) ? result : 0;
+			return TryULong(value.Value, provider, out var result) ? result : 0;
 		}
 
 
 		[DebuggerStepThrough]
 		public static ulong? ULongn(this ObjectValue value, ulong? defaults)
 		{
-			ulong result;
-			return TryULong(value.Value, out result) ? result : defaults;
+			return TryULong(value.Value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static ulong? ULongn(this ObjectValue value, IFormatProvider provider, ulong? defaults)
 		{
-			ulong result;
-			return TryULong(value.Value, provider, out result) ? result : defaults;
+			return TryULong(value.Value, provider, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static ulong? ULongn(this ObjectValue value, IFormatProvider provider)
 		{
-			ulong result;
-			return TryULong(value.Value, provider, out result) ? (ulong?)result : null;
+			return TryULong(value.Value, provider, out var result) ? (ulong?)result : null;
 		}
 
 		#endregion
@@ -2303,33 +2005,29 @@ namespace Luxena
 		[DebuggerStepThrough]
 		public static ushort As(this object value, ushort defaults)
 		{
-			ushort result;
-			return TryUShort(value, out result) ? result : defaults;
+			return TryUShort(value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static ushort As(this object value, IFormatProvider provider, ushort defaults)
 		{
-			ushort result;
-			return TryUShort(value, provider, out result) ? result : defaults;
+			return TryUShort(value, provider, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static ushort? As(this object value, ushort? defaults)
 		{
-			ushort result;
-			return TryUShort(value, out result) ? result : defaults;
+			return TryUShort(value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static ushort? As(this object value, IFormatProvider provider, ushort? defaults)
 		{
-			ushort result;
-			return TryUShort(value, provider, out result) ? result : defaults;
+			return TryUShort(value, provider, out var result) ? result : defaults;
 		}
 
 
-		public partial struct ObjectValue
+		public readonly partial struct ObjectValue
 		{
 			[DebuggerStepThrough]
 			public bool TryUShort(out ushort result)
@@ -2346,21 +2044,13 @@ namespace Luxena
 			public ushort UShort
 			{
 				[DebuggerStepThrough]
-				get
-				{
-					ushort result;
-					return CodePatternExtentions.TryUShort(Value, out result) ? result : (ushort)0;
-				}
+				get => CodePatternExtentions.TryUShort(Value, out var result) ? result : (ushort)0;
 			}
 
 			public ushort? UShortn
 			{
 				[DebuggerStepThrough]
-				get
-				{
-					ushort result;
-					return CodePatternExtentions.TryUShort(Value, out result) ? (ushort?)result : null;
-				}
+				get => CodePatternExtentions.TryUShort(Value, out var result) ? (ushort?)result : null;
 			}
 		}
 
@@ -2368,44 +2058,38 @@ namespace Luxena
 		[DebuggerStepThrough]
 		public static ushort UShort(this ObjectValue value, ushort defaults)
 		{
-			ushort result;
-			return TryUShort(value.Value, out result) ? result : defaults;
+			return TryUShort(value.Value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static ushort UShort(this ObjectValue value, IFormatProvider provider, ushort defaults)
 		{
-			ushort result;
-			return TryUShort(value.Value, provider, out result) ? result : defaults;
+			return TryUShort(value.Value, provider, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static ushort UShort(this ObjectValue value, IFormatProvider provider)
 		{
-			ushort result;
-			return TryUShort(value.Value, provider, out result) ? result : (ushort)0;
+			return TryUShort(value.Value, provider, out var result) ? result : (ushort)0;
 		}
 
 
 		[DebuggerStepThrough]
 		public static ushort? UShortn(this ObjectValue value, ushort? defaults)
 		{
-			ushort result;
-			return TryUShort(value.Value, out result) ? result : defaults;
+			return TryUShort(value.Value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static ushort? UShortn(this ObjectValue value, IFormatProvider provider, ushort? defaults)
 		{
-			ushort result;
-			return TryUShort(value.Value, provider, out result) ? result : defaults;
+			return TryUShort(value.Value, provider, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static ushort? UShortn(this ObjectValue value, IFormatProvider provider)
 		{
-			ushort result;
-			return TryUShort(value.Value, provider, out result) ? (ushort?)result : null;
+			return TryUShort(value.Value, provider, out var result) ? (ushort?)result : null;
 		}
 
 		#endregion
@@ -2504,7 +2188,7 @@ namespace Luxena
 			return value;
 		}
 
-		public partial struct StringValue
+		public readonly partial struct StringValue
 		{
 			public readonly string Value;
 
@@ -2529,18 +2213,16 @@ namespace Luxena
 		[DebuggerStepThrough]
 		public static bool As(this string value, bool defaults)
 		{
-			bool result;
-			return TryBool(value, out result) ? result : defaults;
+			return TryBool(value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static bool? As(this string value, bool? defaults)
 		{
-			bool result;
-			return TryBool(value, out result) ? result : defaults;
+			return TryBool(value, out var result) ? result : defaults;
 		}
 
-		public partial struct StringValue
+		public readonly partial struct StringValue
 		{
 			[DebuggerStepThrough]
 			public bool TryBool(out bool result)
@@ -2551,21 +2233,13 @@ namespace Luxena
 			public bool Bool
 			{
 				[DebuggerStepThrough]
-				get
-				{
-					bool result;
-					return CodePatternExtentions.TryBool(Value, out result) && result;
-				}
+				get => CodePatternExtentions.TryBool(Value, out var result) && result;
 			}
 
 			public bool? Booln
 			{
 				[DebuggerStepThrough]
-				get
-				{
-					bool result;
-					return CodePatternExtentions.TryBool(Value, out result) ? (bool?)result : null;
-				}
+				get => CodePatternExtentions.TryBool(Value, out var result) ? (bool?)result : null;
 			}
 		}
 
@@ -2573,15 +2247,13 @@ namespace Luxena
 		[DebuggerStepThrough]
 		public static bool Bool(this StringValue value, bool defaults)
 		{
-			bool result;
-			return TryBool(value.Value, out result) ? result : defaults;
+			return TryBool(value.Value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static bool? Booln(this StringValue value, bool? defaults)
 		{
-			bool result;
-			return TryBool(value.Value, out result) ? result : defaults;
+			return TryBool(value.Value, out var result) ? result : defaults;
 		}
 
 		#endregion
@@ -2605,52 +2277,40 @@ namespace Luxena
 		[DebuggerStepThrough]
 		public static byte As(this string value, byte defaults)
 		{
-			byte result;
-			return TryByte(value, out result) ? result : defaults;
+			return TryByte(value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static byte As(this string value, IFormatProvider provider, byte defaults)
 		{
-			byte result;
-			return TryByte(value, provider, out result) ? result : defaults;
+			return TryByte(value, provider, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static byte? As(this string value, byte? defaults)
 		{
-			byte result;
-			return TryByte(value, out result) ? result : defaults;
+			return TryByte(value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static byte? As(this string value, IFormatProvider provider, byte? defaults)
 		{
-			byte result;
-			return TryByte(value, provider, out result) ? result : defaults;
+			return TryByte(value, provider, out var result) ? result : defaults;
 		}
 
 
-		public partial struct StringValue
+		public readonly partial struct StringValue
 		{
 			public byte Byte
 			{
 				[DebuggerStepThrough]
-				get
-				{
-					byte result;
-					return CodePatternExtentions.TryByte(Value, out result) ? result : (byte)0;
-				}
+				get => CodePatternExtentions.TryByte(Value, out var result) ? result : (byte)0;
 			}
 
 			public byte? Byten
 			{
 				[DebuggerStepThrough]
-				get
-				{
-					byte result;
-					return CodePatternExtentions.TryByte(Value, out result) ? (byte?)result : null;
-				}
+				get => CodePatternExtentions.TryByte(Value, out var result) ? (byte?)result : null;
 			}
 
 			[DebuggerStepThrough]
@@ -2670,44 +2330,38 @@ namespace Luxena
 		[DebuggerStepThrough]
 		public static byte Byte(this StringValue value, byte defaults)
 		{
-			byte result;
-			return TryByte(value.Value, out result) ? result : defaults;
+			return TryByte(value.Value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static byte Byte(this StringValue value, IFormatProvider provider, byte defaults)
 		{
-			byte result;
-			return TryByte(value.Value, provider, out result) ? result : defaults;
+			return TryByte(value.Value, provider, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static byte Byte(this StringValue value, IFormatProvider provider)
 		{
-			byte result;
-			return TryByte(value.Value, provider, out result) ? result : (byte)0;
+			return TryByte(value.Value, provider, out var result) ? result : (byte)0;
 		}
 
 
 		[DebuggerStepThrough]
 		public static byte? Byten(this StringValue value, byte? defaults)
 		{
-			byte result;
-			return TryByte(value.Value, out result) ? result : defaults;
+			return TryByte(value.Value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static byte? Byten(this StringValue value, IFormatProvider provider, byte? defaults)
 		{
-			byte result;
-			return TryByte(value.Value, provider, out result) ? result : defaults;
+			return TryByte(value.Value, provider, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static byte? Byten(this StringValue value, IFormatProvider provider)
 		{
-			byte result;
-			return TryByte(value.Value, provider, out result) ? (byte?)result : null;
+			return TryByte(value.Value, provider, out var result) ? (byte?)result : null;
 		}
 
 		#endregion
@@ -2739,71 +2393,56 @@ namespace Luxena
 		[DebuggerStepThrough]
 		public static DateTime As(this string value, DateTime defaults)
 		{
-			DateTime result;
-			return TryDateTime(value, out result) ? result : defaults;
+			return TryDateTime(value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static DateTime As(this string value, IFormatProvider provider, DateTime defaults)
 		{
-			DateTime result;
-			return TryDateTime(value, provider, out result) ? result : defaults;
+			return TryDateTime(value, provider, out var result) ? result : defaults;
 		}
 
 
 		[DebuggerStepThrough]
 		public static DateTime? As(this string value, DateTime? defaults)
 		{
-			DateTime result;
-			return TryDateTime(value, out result) ? result : defaults;
+			return TryDateTime(value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static DateTime? As(this string value, IFormatProvider provider, DateTime? defaults)
 		{
-			DateTime result;
-			return TryDateTime(value, provider, out result) ? result : defaults;
+			return TryDateTime(value, provider, out var result) ? result : defaults;
 		}
 
 
-		public partial struct StringValue
+		public readonly partial struct StringValue
 		{
 			public DateTime DateTime
 			{
 				[DebuggerStepThrough]
-				get
-				{
-					DateTime result;
-					return CodePatternExtentions.TryDateTime(Value, out result) ? result : DateTime.MinValue;
-				}
+				get => CodePatternExtentions.TryDateTime(Value, out var result) ? result : DateTime.MinValue;
 			}
 
 			public DateTime? DateTimen
 			{
 				[DebuggerStepThrough]
-				get
-				{
-					DateTime result;
-					return CodePatternExtentions.TryDateTime(Value, out result) ? (DateTime?)result : null;
-				}
+				get => CodePatternExtentions.TryDateTime(Value, out var result) ? (DateTime?)result : null;
 			}
 
 			public DateTime ToDateTime(string format)
 			{
-				DateTime result;
-				return DateTime.TryParseExact(Value, format, DefaultCulture, DateTimeStyles.AllowWhiteSpaces, out result) ? result : DateTime.MinValue;
+				return DateTime.TryParseExact(Value, format, DefaultCulture, DateTimeStyles.AllowWhiteSpaces, out var result) ? result : DateTime.MinValue;
 			}
 
 			public DateTime? ToDateTimen(string format)
 			{
-				DateTime result;
-				return DateTime.TryParseExact(Value, format, DefaultCulture, DateTimeStyles.AllowWhiteSpaces, out result) ? (DateTime?)result : null;
+				return DateTime.TryParseExact(Value, format, DefaultCulture, DateTimeStyles.AllowWhiteSpaces, out var result) ? (DateTime?)result : null;
 			}
 
 			public TimeSpan? ToTimeSpann(string format)
 			{
-				TimeSpan result;
-				return TimeSpan.TryParseExact(Value, format, DefaultCulture, TimeSpanStyles.None, out result) ? (TimeSpan?)result : null;
+				return TimeSpan.TryParseExact(Value, format, DefaultCulture, TimeSpanStyles.None, out var result) ? (TimeSpan?)result : null;
 			}
 
 
@@ -2823,44 +2462,44 @@ namespace Luxena
 		[DebuggerStepThrough]
 		public static DateTime DateTime(this StringValue value, DateTime defaults)
 		{
-			DateTime result;
-			return TryDateTime(value.Value, out result) ? result : defaults;
+			return TryDateTime(value.Value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static DateTime DateTime(this StringValue value, IFormatProvider provider, DateTime defaults)
 		{
-			DateTime result;
-			return TryDateTime(value.Value, provider, out result) ? result : defaults;
+			return TryDateTime(value.Value, provider, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static DateTime DateTime(this StringValue value, IFormatProvider provider)
 		{
-			DateTime result;
-			return TryDateTime(value.Value, provider, out result) ? result : System.DateTime.MinValue;
+			return TryDateTime(value.Value, provider, out var result) ? result : System.DateTime.MinValue;
+		}
+
+		[DebuggerStepThrough]
+		public static DateTime DateTimeInvariant(this StringValue value)
+		{
+			return TryDateTime(value.Value, CultureInfo.InvariantCulture, out var result) ? result : System.DateTime.MinValue;
 		}
 
 
 		[DebuggerStepThrough]
 		public static DateTime? DateTimen(this StringValue value, DateTime? defaults)
 		{
-			DateTime result;
-			return TryDateTime(value.Value, out result) ? result : defaults;
+			return TryDateTime(value.Value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static DateTime? DateTimen(this StringValue value, IFormatProvider provider, DateTime? defaults)
 		{
-			DateTime result;
-			return TryDateTime(value.Value, provider, out result) ? result : defaults;
+			return TryDateTime(value.Value, provider, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static DateTime? DateTimen(this StringValue value, IFormatProvider provider)
 		{
-			DateTime result;
-			return TryDateTime(value.Value, provider, out result) ? (DateTime?)result : null;
+			return TryDateTime(value.Value, provider, out var result) ? (DateTime?)result : null;
 		}
 
 		#endregion
@@ -2880,57 +2519,75 @@ namespace Luxena
 			return decimal.TryParse(value, NumberStyles.Number, provider, out result);
 		}
 
+		[DebuggerStepThrough]
+		private static bool TryDecimalSafe(string value, out decimal result)
+		{
+
+			if (string.IsNullOrEmpty(value))
+			{
+				result = 0;
+				return false;
+			}
+
+
+			var separator = DefaultCulture.NumberFormat.NumberDecimalSeparator;
+
+			if (separator == ".")
+			{
+				value = value.Replace(",", ".");
+			}
+			
+			return decimal.TryParse(value, NumberStyles.Number, DefaultCulture, out result);
+		}
+
+
 
 		[DebuggerStepThrough]
 		public static decimal As(this string value, decimal defaults)
 		{
-			decimal result;
-			return TryDecimal(value, out result) ? result : defaults;
+			return TryDecimal(value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static decimal As(this string value, IFormatProvider provider, decimal defaults)
 		{
-			decimal result;
-			return TryDecimal(value, provider, out result) ? result : defaults;
+			return TryDecimal(value, provider, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static decimal? As(this string value, decimal? defaults)
 		{
-			decimal result;
-			return TryDecimal(value, out result) ? result : defaults;
+			return TryDecimal(value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static decimal? As(this string value, IFormatProvider provider, decimal? defaults)
 		{
-			decimal result;
-			return TryDecimal(value, provider, out result) ? result : defaults;
+			return TryDecimal(value, provider, out var result) ? result : defaults;
 		}
 
 
-		public partial struct StringValue
+		public readonly partial struct StringValue
 		{
 			public decimal Decimal
 			{
 				[DebuggerStepThrough]
-				get
-				{
-					decimal result;
-					return CodePatternExtentions.TryDecimal(Value, out result) ? result : 0;
-				}
+				get => CodePatternExtentions.TryDecimal(Value, out var result) ? result : 0;
 			}
 
 			public decimal? Decimaln
 			{
 				[DebuggerStepThrough]
-				get
-				{
-					decimal result;
-					return CodePatternExtentions.TryDecimal(Value, out result) ? (decimal?)result : null;
-				}
+				get => CodePatternExtentions.TryDecimal(Value, out var result) ? (decimal?)result : null;
 			}
+
+
+			public decimal DecimalSafe
+			{
+				[DebuggerStepThrough]
+				get => CodePatternExtentions.TryDecimalSafe(Value, out var result) ? result : 0;
+			}
+
 
 			[DebuggerStepThrough]
 			public bool TryDecimal(out decimal result)
@@ -2949,44 +2606,38 @@ namespace Luxena
 		[DebuggerStepThrough]
 		public static decimal Decimal(this StringValue value, decimal defaults)
 		{
-			decimal result;
-			return TryDecimal(value.Value, out result) ? result : defaults;
+			return TryDecimal(value.Value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static decimal Decimal(this StringValue value, IFormatProvider provider, decimal defaults)
 		{
-			decimal result;
-			return TryDecimal(value.Value, provider, out result) ? result : defaults;
+			return TryDecimal(value.Value, provider, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static decimal Decimal(this StringValue value, IFormatProvider provider)
 		{
-			decimal result;
-			return TryDecimal(value.Value, provider, out result) ? result : 0;
+			return TryDecimal(value.Value, provider, out var result) ? result : 0;
 		}
 
 
 		[DebuggerStepThrough]
 		public static decimal? Decimaln(this StringValue value, decimal? defaults)
 		{
-			decimal result;
-			return TryDecimal(value.Value, out result) ? result : defaults;
+			return TryDecimal(value.Value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static decimal? Decimaln(this StringValue value, IFormatProvider provider, decimal? defaults)
 		{
-			decimal result;
-			return TryDecimal(value.Value, provider, out result) ? result : defaults;
+			return TryDecimal(value.Value, provider, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static decimal? Decimaln(this StringValue value, IFormatProvider provider)
 		{
-			decimal result;
-			return TryDecimal(value.Value, provider, out result) ? (decimal?)result : null;
+			return TryDecimal(value.Value, provider, out var result) ? (decimal?)result : null;
 		}
 
 		#endregion
@@ -3020,53 +2671,41 @@ namespace Luxena
 		[DebuggerStepThrough]
 		public static double As(this string value, double defaults)
 		{
-			double result;
-			return TryDouble(value, out result) ? result : defaults;
+			return TryDouble(value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static double As(this string value, IFormatProvider provider, double defaults)
 		{
-			double result;
-			return TryDouble(value, provider, out result) ? result : defaults;
+			return TryDouble(value, provider, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static double? As(this string value, double? defaults)
 		{
-			double result;
-			return TryDouble(value, out result) ? result : defaults;
+			return TryDouble(value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static double? As(this string value, IFormatProvider provider, double? defaults)
 		{
-			double result;
-			return TryDouble(value, provider, out result) ? result : defaults;
+			return TryDouble(value, provider, out var result) ? result : defaults;
 		}
 
 
-		public partial struct StringValue
+		public readonly partial struct StringValue
 		{
 
 			public double Double
 			{
 				[DebuggerStepThrough]
-				get
-				{
-					double result;
-					return CodePatternExtentions.TryDouble(Value, out result) ? result : 0;
-				}
+				get => CodePatternExtentions.TryDouble(Value, out var result) ? result : 0;
 			}
 
 			public double? Doublen
 			{
 				[DebuggerStepThrough]
-				get
-				{
-					double result;
-					return CodePatternExtentions.TryDouble(Value, out result) ? (double?)result : null;
-				}
+				get => CodePatternExtentions.TryDouble(Value, out var result) ? (double?)result : null;
 			}
 
 			[DebuggerStepThrough]
@@ -3087,44 +2726,38 @@ namespace Luxena
 		[DebuggerStepThrough]
 		public static double Double(this StringValue value, double defaults)
 		{
-			double result;
-			return TryDouble(value.Value, out result) ? result : defaults;
+			return TryDouble(value.Value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static double Double(this StringValue value, IFormatProvider provider, double defaults)
 		{
-			double result;
-			return TryDouble(value.Value, provider, out result) ? result : defaults;
+			return TryDouble(value.Value, provider, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static double Double(this StringValue value, IFormatProvider provider)
 		{
-			double result;
-			return TryDouble(value.Value, provider, out result) ? result : 0;
+			return TryDouble(value.Value, provider, out var result) ? result : 0;
 		}
 
 
 		[DebuggerStepThrough]
 		public static double? Doublen(this StringValue value, double? defaults)
 		{
-			double result;
-			return TryDouble(value.Value, out result) ? result : defaults;
+			return TryDouble(value.Value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static double? Doublen(this StringValue value, IFormatProvider provider, double? defaults)
 		{
-			double result;
-			return TryDouble(value.Value, provider, out result) ? result : defaults;
+			return TryDouble(value.Value, provider, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static double? Doublen(this StringValue value, IFormatProvider provider)
 		{
-			double result;
-			return TryDouble(value.Value, provider, out result) ? (double?)result : null;
+			return TryDouble(value.Value, provider, out var result) ? (double?)result : null;
 		}
 
 		#endregion
@@ -3148,52 +2781,40 @@ namespace Luxena
 		[DebuggerStepThrough]
 		public static int As(this string value, int defaults)
 		{
-			int result;
-			return TryInt(value, out result) ? result : defaults;
+			return TryInt(value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static int As(this string value, IFormatProvider provider, int defaults)
 		{
-			int result;
-			return TryInt(value, provider, out result) ? result : defaults;
+			return TryInt(value, provider, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static int? As(this string value, int? defaults)
 		{
-			int result;
-			return TryInt(value, out result) ? result : defaults;
+			return TryInt(value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static int? As(this string value, IFormatProvider provider, int? defaults)
 		{
-			int result;
-			return TryInt(value, provider, out result) ? result : defaults;
+			return TryInt(value, provider, out var result) ? result : defaults;
 		}
 
 
-		public partial struct StringValue
+		public readonly partial struct StringValue
 		{
 			public int Int
 			{
 				[DebuggerStepThrough]
-				get
-				{
-					int result;
-					return CodePatternExtentions.TryInt(Value, out result) ? result : 0;
-				}
+				get => CodePatternExtentions.TryInt(Value, out var result) ? result : 0;
 			}
 
 			public int? Intn
 			{
 				[DebuggerStepThrough]
-				get
-				{
-					int result;
-					return CodePatternExtentions.TryInt(Value, out result) ? (int?)result : null;
-				}
+				get => CodePatternExtentions.TryInt(Value, out var result) ? (int?)result : null;
 			}
 
 			[DebuggerStepThrough]
@@ -3213,44 +2834,38 @@ namespace Luxena
 		[DebuggerStepThrough]
 		public static int Int(this StringValue value, int defaults)
 		{
-			int result;
-			return TryInt(value.Value, out result) ? result : defaults;
+			return TryInt(value.Value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static int Int(this StringValue value, IFormatProvider provider, int defaults)
 		{
-			int result;
-			return TryInt(value.Value, provider, out result) ? result : defaults;
+			return TryInt(value.Value, provider, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static int Int(this StringValue value, IFormatProvider provider)
 		{
-			int result;
-			return TryInt(value.Value, provider, out result) ? result : 0;
+			return TryInt(value.Value, provider, out var result) ? result : 0;
 		}
 
 
 		[DebuggerStepThrough]
 		public static int? Intn(this StringValue value, int? defaults = null)
 		{
-			int result;
-			return TryInt(value.Value, out result) ? result : defaults;
+			return TryInt(value.Value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static int? Intn(this StringValue value, IFormatProvider provider, int? defaults)
 		{
-			int result;
-			return TryInt(value.Value, provider, out result) ? result : defaults;
+			return TryInt(value.Value, provider, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static int? Intn(this StringValue value, IFormatProvider provider)
 		{
-			int result;
-			return TryInt(value.Value, provider, out result) ? (int?)result : null;
+			return TryInt(value.Value, provider, out var result) ? (int?)result : null;
 		}
 
 		#endregion
@@ -3274,52 +2889,40 @@ namespace Luxena
 		[DebuggerStepThrough]
 		public static float As(this string value, float defaults)
 		{
-			float result;
-			return TryFloat(value, out result) ? result : defaults;
+			return TryFloat(value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static float As(this string value, IFormatProvider provider, float defaults)
 		{
-			float result;
-			return TryFloat(value, provider, out result) ? result : defaults;
+			return TryFloat(value, provider, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static float? As(this string value, float? defaults)
 		{
-			float result;
-			return TryFloat(value, out result) ? result : defaults;
+			return TryFloat(value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static float? As(this string value, IFormatProvider provider, float? defaults)
 		{
-			float result;
-			return TryFloat(value, provider, out result) ? result : defaults;
+			return TryFloat(value, provider, out var result) ? result : defaults;
 		}
 
 
-		public partial struct StringValue
+		public readonly partial struct StringValue
 		{
 			public float Float
 			{
 				[DebuggerStepThrough]
-				get
-				{
-					float result;
-					return CodePatternExtentions.TryFloat(Value, out result) ? result : 0;
-				}
+				get => CodePatternExtentions.TryFloat(Value, out var result) ? result : 0;
 			}
 
 			public float? Floatn
 			{
 				[DebuggerStepThrough]
-				get
-				{
-					float result;
-					return CodePatternExtentions.TryFloat(Value, out result) ? (float?)result : null;
-				}
+				get => CodePatternExtentions.TryFloat(Value, out var result) ? (float?)result : null;
 			}
 
 			[DebuggerStepThrough]
@@ -3339,44 +2942,38 @@ namespace Luxena
 		[DebuggerStepThrough]
 		public static float Float(this StringValue value, float defaults)
 		{
-			float result;
-			return TryFloat(value.Value, out result) ? result : defaults;
+			return TryFloat(value.Value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static float Float(this StringValue value, IFormatProvider provider, float defaults)
 		{
-			float result;
-			return TryFloat(value.Value, provider, out result) ? result : defaults;
+			return TryFloat(value.Value, provider, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static float Float(this StringValue value, IFormatProvider provider)
 		{
-			float result;
-			return TryFloat(value.Value, provider, out result) ? result : 0;
+			return TryFloat(value.Value, provider, out var result) ? result : 0;
 		}
 
 
 		[DebuggerStepThrough]
 		public static float? Floatn(this StringValue value, float? defaults)
 		{
-			float result;
-			return TryFloat(value.Value, out result) ? result : defaults;
+			return TryFloat(value.Value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static float? Floatn(this StringValue value, IFormatProvider provider, float? defaults)
 		{
-			float result;
-			return TryFloat(value.Value, provider, out result) ? result : defaults;
+			return TryFloat(value.Value, provider, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static float? Floatn(this StringValue value, IFormatProvider provider)
 		{
-			float result;
-			return TryFloat(value.Value, provider, out result) ? (float?)result : null;
+			return TryFloat(value.Value, provider, out var result) ? (float?)result : null;
 		}
 
 		#endregion
@@ -3397,64 +2994,56 @@ namespace Luxena
 		}
 
 
-		public partial struct StringValue
+		public readonly partial struct StringValue
 		{
 			[DebuggerStepThrough]
 			public T Enum<T>() where T : struct
 			{
-				T result;
-				return CodePatternExtentions.TryEnum(Value, out result) ? result : default(T);
+				return CodePatternExtentions.TryEnum(Value, out T result) ? result : default(T);
 			}
 
 			[DebuggerStepThrough]
 			public T? Enumn<T>() where T : struct
 			{
-				T result;
-				return CodePatternExtentions.TryEnum(Value, out result) ? (T?)result : null;
+				return CodePatternExtentions.TryEnum(Value, out T result) ? (T?)result : null;
 			}
 
 
 			[DebuggerStepThrough]
 			public T Enum<T>(T defaults) where T : struct
 			{
-				T result;
-				return CodePatternExtentions.TryEnum(Value, out result) ? result : defaults;
+				return CodePatternExtentions.TryEnum(Value, out T result) ? result : defaults;
 			}
 
 			[DebuggerStepThrough]
 			public T Enum<T>(bool ignoreCase, T defaults) where T : struct
 			{
-				T result;
-				return CodePatternExtentions.TryEnum(Value, ignoreCase, out result) ? result : defaults;
+				return CodePatternExtentions.TryEnum(Value, ignoreCase, out T result) ? result : defaults;
 			}
 
 			[DebuggerStepThrough]
 			public T Enum<T>(bool ignoreCase) where T : struct
 			{
-				T result;
-				return CodePatternExtentions.TryEnum(Value, ignoreCase, out result) ? result : default(T);
+				return CodePatternExtentions.TryEnum(Value, ignoreCase, out T result) ? result : default(T);
 			}
 
 
 			[DebuggerStepThrough]
 			public T? Enumn<T>(T? defaults) where T : struct
 			{
-				T result;
-				return CodePatternExtentions.TryEnum(Value, out result) ? result : defaults;
+				return CodePatternExtentions.TryEnum(Value, out T result) ? result : defaults;
 			}
 
 			[DebuggerStepThrough]
 			public T? Enumn<T>(bool ignoreCase, T? defaults) where T : struct
 			{
-				T result;
-				return CodePatternExtentions.TryEnum(Value, ignoreCase, out result) ? result : defaults;
+				return CodePatternExtentions.TryEnum(Value, ignoreCase, out T result) ? result : defaults;
 			}
 
 			[DebuggerStepThrough]
 			public T? Enumn<T>(bool ignoreCase) where T : struct
 			{
-				T result;
-				return CodePatternExtentions.TryEnum(Value, ignoreCase, out result) ? (T?)result : null;
+				return CodePatternExtentions.TryEnum(Value, ignoreCase, out T result) ? (T?)result : null;
 			}
 
 
@@ -3479,95 +3068,81 @@ namespace Luxena
 		#region String As Int16
 
 		[DebuggerStepThrough]
-		private static bool TryInt16(string value, out Int16 result)
+		private static bool TryInt16(string value, out short result)
 		{
-			return System.Int16.TryParse(value, NumberStyles.Number, DefaultCulture, out result);
+			return short.TryParse(value, NumberStyles.Number, DefaultCulture, out result);
 		}
 
 		[DebuggerStepThrough]
-		private static bool TryInt16(string value, IFormatProvider provider, out Int16 result)
+		private static bool TryInt16(string value, IFormatProvider provider, out short result)
 		{
-			return System.Int16.TryParse(value, NumberStyles.Number, provider, out result);
+			return short.TryParse(value, NumberStyles.Number, provider, out result);
 		}
 
 
-		public partial struct StringValue
+		public readonly partial struct StringValue
 		{
 			[DebuggerStepThrough]
-			public bool TryInt16(out Int16 result)
+			public bool TryInt16(out short result)
 			{
 				return CodePatternExtentions.TryInt16(Value, out result);
 			}
 
 			[DebuggerStepThrough]
-			public bool TryInt16(IFormatProvider provider, out Int16 result)
+			public bool TryInt16(IFormatProvider provider, out short result)
 			{
 				return CodePatternExtentions.TryInt16(Value, provider, out result);
 			}
 
-			public Int16 Int16
+			public short Int16
 			{
 				[DebuggerStepThrough]
-				get
-				{
-					Int16 result;
-					return CodePatternExtentions.TryInt16(Value, out result) ? result : (Int16)0;
-				}
+				get => CodePatternExtentions.TryInt16(Value, out var result) ? result : (short)0;
 			}
 
-			public Int16? Int16n
+			public short? Int16n
 			{
 				[DebuggerStepThrough]
-				get
-				{
-					Int16 result;
-					return CodePatternExtentions.TryInt16(Value, out result) ? (Int16?)result : null;
-				}
+				get => CodePatternExtentions.TryInt16(Value, out var result) ? (short?)result : null;
 			}
 		}
 
 
 		[DebuggerStepThrough]
-		public static Int16 Int16(this StringValue value, Int16 defaults)
+		public static short Int16(this StringValue value, short defaults)
 		{
-			Int16 result;
-			return TryInt16(value.Value, out result) ? result : defaults;
+			return TryInt16(value.Value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
-		public static Int16 Int16(this StringValue value, IFormatProvider provider, Int16 defaults)
+		public static short Int16(this StringValue value, IFormatProvider provider, short defaults)
 		{
-			Int16 result;
-			return TryInt16(value.Value, provider, out result) ? result : defaults;
+			return TryInt16(value.Value, provider, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
-		public static Int16 Int16(this StringValue value, IFormatProvider provider)
+		public static short Int16(this StringValue value, IFormatProvider provider)
 		{
-			Int16 result;
-			return TryInt16(value.Value, provider, out result) ? result : (Int16)0;
+			return TryInt16(value.Value, provider, out var result) ? result : (short)0;
 		}
 
 
 		[DebuggerStepThrough]
-		public static Int16? Int16n(this StringValue value, Int16? defaults)
+		public static short? Int16n(this StringValue value, short? defaults)
 		{
-			Int16 result;
-			return TryInt16(value.Value, out result) ? result : defaults;
+			return TryInt16(value.Value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
-		public static Int16? Int16n(this StringValue value, IFormatProvider provider, Int16? defaults)
+		public static short? Int16n(this StringValue value, IFormatProvider provider, short? defaults)
 		{
-			Int16 result;
-			return TryInt16(value.Value, provider, out result) ? result : defaults;
+			return TryInt16(value.Value, provider, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
-		public static Int16? Int16n(this StringValue value, IFormatProvider provider)
+		public static short? Int16n(this StringValue value, IFormatProvider provider)
 		{
-			Int16 result;
-			return TryInt16(value.Value, provider, out result) ? (Int16?)result : null;
+			return TryInt16(value.Value, provider, out var result) ? (short?)result : null;
 		}
 
 		#endregion
@@ -3588,7 +3163,7 @@ namespace Luxena
 		}
 
 
-		public partial struct StringValue
+		public readonly partial struct StringValue
 		{
 			[DebuggerStepThrough]
 			public bool TryInt32(out int result)
@@ -3605,21 +3180,13 @@ namespace Luxena
 			public int Int32
 			{
 				[DebuggerStepThrough]
-				get
-				{
-					int result;
-					return CodePatternExtentions.TryInt32(Value, out result) ? result : 0;
-				}
+				get => CodePatternExtentions.TryInt32(Value, out var result) ? result : 0;
 			}
 
 			public int? Int32n
 			{
 				[DebuggerStepThrough]
-				get
-				{
-					int result;
-					return CodePatternExtentions.TryInt32(Value, out result) ? (int?)result : null;
-				}
+				get => CodePatternExtentions.TryInt32(Value, out var result) ? (int?)result : null;
 			}
 		}
 
@@ -3627,44 +3194,38 @@ namespace Luxena
 		[DebuggerStepThrough]
 		public static int Int32(this StringValue value, int defaults)
 		{
-			int result;
-			return TryInt32(value.Value, out result) ? result : defaults;
+			return TryInt32(value.Value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static int Int32(this StringValue value, IFormatProvider provider, int defaults)
 		{
-			int result;
-			return TryInt32(value.Value, provider, out result) ? result : defaults;
+			return TryInt32(value.Value, provider, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static int Int32(this StringValue value, IFormatProvider provider)
 		{
-			int result;
-			return TryInt32(value.Value, provider, out result) ? result : 0;
+			return TryInt32(value.Value, provider, out var result) ? result : 0;
 		}
 
 
 		[DebuggerStepThrough]
 		public static int? Int32n(this StringValue value, int? defaults)
 		{
-			int result;
-			return TryInt32(value.Value, out result) ? result : defaults;
+			return TryInt32(value.Value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static int? Int32n(this StringValue value, IFormatProvider provider, int? defaults)
 		{
-			int result;
-			return TryInt32(value.Value, provider, out result) ? result : defaults;
+			return TryInt32(value.Value, provider, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static int? Int32n(this StringValue value, IFormatProvider provider)
 		{
-			int result;
-			return TryInt32(value.Value, provider, out result) ? (int?)result : null;
+			return TryInt32(value.Value, provider, out var result) ? (int?)result : null;
 		}
 
 		#endregion
@@ -3685,7 +3246,7 @@ namespace Luxena
 		}
 
 
-		public partial struct StringValue
+		public readonly partial struct StringValue
 		{
 			[DebuggerStepThrough]
 			public bool TryInt64(out long result)
@@ -3702,21 +3263,13 @@ namespace Luxena
 			public long Int64
 			{
 				[DebuggerStepThrough]
-				get
-				{
-					long result;
-					return CodePatternExtentions.TryInt64(Value, out result) ? result : 0;
-				}
+				get => CodePatternExtentions.TryInt64(Value, out var result) ? result : 0;
 			}
 
 			public long? Int64n
 			{
 				[DebuggerStepThrough]
-				get
-				{
-					long result;
-					return CodePatternExtentions.TryInt64(Value, out result) ? (long?)result : null;
-				}
+				get => CodePatternExtentions.TryInt64(Value, out var result) ? (long?)result : null;
 			}
 		}
 
@@ -3724,44 +3277,38 @@ namespace Luxena
 		[DebuggerStepThrough]
 		public static long Int64(this StringValue value, long defaults)
 		{
-			long result;
-			return TryInt64(value.Value, out result) ? result : defaults;
+			return TryInt64(value.Value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static long Int64(this StringValue value, IFormatProvider provider, long defaults)
 		{
-			long result;
-			return TryInt64(value.Value, provider, out result) ? result : defaults;
+			return TryInt64(value.Value, provider, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static long Int64(this StringValue value, IFormatProvider provider)
 		{
-			long result;
-			return TryInt64(value.Value, provider, out result) ? result : 0;
+			return TryInt64(value.Value, provider, out var result) ? result : 0;
 		}
 
 
 		[DebuggerStepThrough]
 		public static long? Int64n(this StringValue value, long? defaults)
 		{
-			long result;
-			return TryInt64(value.Value, out result) ? result : defaults;
+			return TryInt64(value.Value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static long? Int64n(this StringValue value, IFormatProvider provider, long? defaults)
 		{
-			long result;
-			return TryInt64(value.Value, provider, out result) ? result : defaults;
+			return TryInt64(value.Value, provider, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static long? Int64n(this StringValue value, IFormatProvider provider)
 		{
-			long result;
-			return TryInt64(value.Value, provider, out result) ? (long?)result : null;
+			return TryInt64(value.Value, provider, out var result) ? (long?)result : null;
 		}
 
 		#endregion
@@ -3785,33 +3332,29 @@ namespace Luxena
 		[DebuggerStepThrough]
 		public static long As(this string value, long defaults)
 		{
-			long result;
-			return TryLong(value, out result) ? result : defaults;
+			return TryLong(value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static long As(this string value, IFormatProvider provider, long defaults)
 		{
-			long result;
-			return TryLong(value, provider, out result) ? result : defaults;
+			return TryLong(value, provider, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static long? As(this string value, long? defaults)
 		{
-			long result;
-			return TryLong(value, out result) ? result : defaults;
+			return TryLong(value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static long? As(this string value, IFormatProvider provider, long? defaults)
 		{
-			long result;
-			return TryLong(value, provider, out result) ? result : defaults;
+			return TryLong(value, provider, out var result) ? result : defaults;
 		}
 
 
-		public partial struct StringValue
+		public readonly partial struct StringValue
 		{
 			[DebuggerStepThrough]
 			public bool TryLong(out long result)
@@ -3828,21 +3371,13 @@ namespace Luxena
 			public long Long
 			{
 				[DebuggerStepThrough]
-				get
-				{
-					long result;
-					return CodePatternExtentions.TryLong(Value, out result) ? result : 0;
-				}
+				get => CodePatternExtentions.TryLong(Value, out var result) ? result : 0;
 			}
 
 			public long? Longn
 			{
 				[DebuggerStepThrough]
-				get
-				{
-					long result;
-					return CodePatternExtentions.TryLong(Value, out result) ? (long?)result : null;
-				}
+				get => CodePatternExtentions.TryLong(Value, out var result) ? (long?)result : null;
 			}
 		}
 
@@ -3850,44 +3385,38 @@ namespace Luxena
 		[DebuggerStepThrough]
 		public static long Long(this StringValue value, long defaults)
 		{
-			long result;
-			return TryLong(value.Value, out result) ? result : defaults;
+			return TryLong(value.Value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static long Long(this StringValue value, IFormatProvider provider, long defaults)
 		{
-			long result;
-			return TryLong(value.Value, provider, out result) ? result : defaults;
+			return TryLong(value.Value, provider, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static long Long(this StringValue value, IFormatProvider provider)
 		{
-			long result;
-			return TryLong(value.Value, provider, out result) ? result : 0;
+			return TryLong(value.Value, provider, out var result) ? result : 0;
 		}
 
 
 		[DebuggerStepThrough]
 		public static long? Longn(this StringValue value, long? defaults)
 		{
-			long result;
-			return TryLong(value.Value, out result) ? result : defaults;
+			return TryLong(value.Value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static long? Longn(this StringValue value, IFormatProvider provider, long? defaults)
 		{
-			long result;
-			return TryLong(value.Value, provider, out result) ? result : defaults;
+			return TryLong(value.Value, provider, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static long? Longn(this StringValue value, IFormatProvider provider)
 		{
-			long result;
-			return TryLong(value.Value, provider, out result) ? (long?)result : null;
+			return TryLong(value.Value, provider, out var result) ? (long?)result : null;
 		}
 
 		#endregion
@@ -3911,33 +3440,29 @@ namespace Luxena
 		[DebuggerStepThrough]
 		public static sbyte As(this string value, sbyte defaults)
 		{
-			sbyte result;
-			return TrySByte(value, out result) ? result : defaults;
+			return TrySByte(value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static sbyte As(this string value, IFormatProvider provider, sbyte defaults)
 		{
-			sbyte result;
-			return TrySByte(value, provider, out result) ? result : defaults;
+			return TrySByte(value, provider, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static sbyte? As(this string value, sbyte? defaults)
 		{
-			sbyte result;
-			return TrySByte(value, out result) ? result : defaults;
+			return TrySByte(value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static sbyte? As(this string value, IFormatProvider provider, sbyte? defaults)
 		{
-			sbyte result;
-			return TrySByte(value, provider, out result) ? result : defaults;
+			return TrySByte(value, provider, out var result) ? result : defaults;
 		}
 
 
-		public partial struct StringValue
+		public readonly partial struct StringValue
 		{
 			[DebuggerStepThrough]
 			public bool TrySByte(out sbyte result)
@@ -3954,21 +3479,13 @@ namespace Luxena
 			public sbyte SByte
 			{
 				[DebuggerStepThrough]
-				get
-				{
-					sbyte result;
-					return CodePatternExtentions.TrySByte(Value, out result) ? result : (sbyte)0;
-				}
+				get => CodePatternExtentions.TrySByte(Value, out var result) ? result : (sbyte)0;
 			}
 
 			public sbyte? SByten
 			{
 				[DebuggerStepThrough]
-				get
-				{
-					sbyte result;
-					return CodePatternExtentions.TrySByte(Value, out result) ? (sbyte?)result : null;
-				}
+				get => CodePatternExtentions.TrySByte(Value, out var result) ? (sbyte?)result : null;
 			}
 		}
 
@@ -3976,44 +3493,38 @@ namespace Luxena
 		[DebuggerStepThrough]
 		public static sbyte SByte(this StringValue value, sbyte defaults)
 		{
-			sbyte result;
-			return TrySByte(value.Value, out result) ? result : defaults;
+			return TrySByte(value.Value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static sbyte SByte(this StringValue value, IFormatProvider provider, sbyte defaults)
 		{
-			sbyte result;
-			return TrySByte(value.Value, provider, out result) ? result : defaults;
+			return TrySByte(value.Value, provider, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static sbyte SByte(this StringValue value, IFormatProvider provider)
 		{
-			sbyte result;
-			return TrySByte(value.Value, provider, out result) ? result : (sbyte)0;
+			return TrySByte(value.Value, provider, out var result) ? result : (sbyte)0;
 		}
 
 
 		[DebuggerStepThrough]
 		public static sbyte? SByten(this StringValue value, sbyte? defaults)
 		{
-			sbyte result;
-			return TrySByte(value.Value, out result) ? result : defaults;
+			return TrySByte(value.Value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static sbyte? SByten(this StringValue value, IFormatProvider provider, sbyte? defaults)
 		{
-			sbyte result;
-			return TrySByte(value.Value, provider, out result) ? result : defaults;
+			return TrySByte(value.Value, provider, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static sbyte? SByten(this StringValue value, IFormatProvider provider)
 		{
-			sbyte result;
-			return TrySByte(value.Value, provider, out result) ? (sbyte?)result : null;
+			return TrySByte(value.Value, provider, out var result) ? (sbyte?)result : null;
 		}
 
 		#endregion
@@ -4037,33 +3548,29 @@ namespace Luxena
 		[DebuggerStepThrough]
 		public static short As(this string value, short defaults)
 		{
-			short result;
-			return TryShort(value, out result) ? result : defaults;
+			return TryShort(value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static short As(this string value, IFormatProvider provider, short defaults)
 		{
-			short result;
-			return TryShort(value, provider, out result) ? result : defaults;
+			return TryShort(value, provider, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static short? As(this string value, short? defaults)
 		{
-			short result;
-			return TryShort(value, out result) ? result : defaults;
+			return TryShort(value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static short? As(this string value, IFormatProvider provider, short? defaults)
 		{
-			short result;
-			return TryShort(value, provider, out result) ? result : defaults;
+			return TryShort(value, provider, out var result) ? result : defaults;
 		}
 
 
-		public partial struct StringValue
+		public readonly partial struct StringValue
 		{
 			[DebuggerStepThrough]
 			public bool TryShort(out short result)
@@ -4080,21 +3587,13 @@ namespace Luxena
 			public short Short
 			{
 				[DebuggerStepThrough]
-				get
-				{
-					short result;
-					return CodePatternExtentions.TryShort(Value, out result) ? result : (short)0;
-				}
+				get => CodePatternExtentions.TryShort(Value, out var result) ? result : (short)0;
 			}
 
 			public short? Shortn
 			{
 				[DebuggerStepThrough]
-				get
-				{
-					short result;
-					return CodePatternExtentions.TryShort(Value, out result) ? (short?)result : null;
-				}
+				get => CodePatternExtentions.TryShort(Value, out var result) ? (short?)result : null;
 			}
 		}
 
@@ -4102,44 +3601,38 @@ namespace Luxena
 		[DebuggerStepThrough]
 		public static short Short(this StringValue value, short defaults)
 		{
-			short result;
-			return TryShort(value.Value, out result) ? result : defaults;
+			return TryShort(value.Value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static short Short(this StringValue value, IFormatProvider provider, short defaults)
 		{
-			short result;
-			return TryShort(value.Value, provider, out result) ? result : defaults;
+			return TryShort(value.Value, provider, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static short Short(this StringValue value, IFormatProvider provider)
 		{
-			short result;
-			return TryShort(value.Value, provider, out result) ? result : (short)0;
+			return TryShort(value.Value, provider, out var result) ? result : (short)0;
 		}
 
 
 		[DebuggerStepThrough]
 		public static short? Shortn(this StringValue value, short? defaults)
 		{
-			short result;
-			return TryShort(value.Value, out result) ? result : defaults;
+			return TryShort(value.Value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static short? Shortn(this StringValue value, IFormatProvider provider, short? defaults)
 		{
-			short result;
-			return TryShort(value.Value, provider, out result) ? result : defaults;
+			return TryShort(value.Value, provider, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static short? Shortn(this StringValue value, IFormatProvider provider)
 		{
-			short result;
-			return TryShort(value.Value, provider, out result) ? (short?)result : null;
+			return TryShort(value.Value, provider, out var result) ? (short?)result : null;
 		}
 
 		#endregion
@@ -4163,53 +3656,41 @@ namespace Luxena
 		[DebuggerStepThrough]
 		public static TimeSpan As(this string value, TimeSpan defaults)
 		{
-			TimeSpan result;
-			return TryTimeSpan(value, out result) ? result : defaults;
+			return TryTimeSpan(value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static TimeSpan As(this string value, IFormatProvider provider, TimeSpan defaults)
 		{
-			TimeSpan result;
-			return TryTimeSpan(value, provider, out result) ? result : defaults;
+			return TryTimeSpan(value, provider, out var result) ? result : defaults;
 		}
 
 
 		[DebuggerStepThrough]
 		public static TimeSpan? As(this string value, TimeSpan? defaults)
 		{
-			TimeSpan result;
-			return TryTimeSpan(value, out result) ? result : defaults;
+			return TryTimeSpan(value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static TimeSpan? As(this string value, IFormatProvider provider, TimeSpan? defaults)
 		{
-			TimeSpan result;
-			return TryTimeSpan(value, provider, out result) ? result : defaults;
+			return TryTimeSpan(value, provider, out var result) ? result : defaults;
 		}
 
 
-		public partial struct StringValue
+		public readonly partial struct StringValue
 		{
 			public TimeSpan TimeSpan
 			{
 				[DebuggerStepThrough]
-				get
-				{
-					TimeSpan result;
-					return CodePatternExtentions.TryTimeSpan(Value, out result) ? result : TimeSpan.MinValue;
-				}
+				get => CodePatternExtentions.TryTimeSpan(Value, out var result) ? result : TimeSpan.MinValue;
 			}
 
 			public TimeSpan? TimeSpann
 			{
 				[DebuggerStepThrough]
-				get
-				{
-					TimeSpan result;
-					return CodePatternExtentions.TryTimeSpan(Value, out result) ? (TimeSpan?)result : null;
-				}
+				get => CodePatternExtentions.TryTimeSpan(Value, out var result) ? (TimeSpan?)result : null;
 			}
 
 			[DebuggerStepThrough]
@@ -4229,44 +3710,38 @@ namespace Luxena
 		[DebuggerStepThrough]
 		public static TimeSpan TimeSpan(this StringValue value, TimeSpan defaults)
 		{
-			TimeSpan result;
-			return TryTimeSpan(value.Value, out result) ? result : defaults;
+			return TryTimeSpan(value.Value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static TimeSpan TimeSpan(this StringValue value, IFormatProvider provider, TimeSpan defaults)
 		{
-			TimeSpan result;
-			return TryTimeSpan(value.Value, provider, out result) ? result : defaults;
+			return TryTimeSpan(value.Value, provider, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static TimeSpan TimeSpan(this StringValue value, IFormatProvider provider)
 		{
-			TimeSpan result;
-			return TryTimeSpan(value.Value, provider, out result) ? result : System.TimeSpan.MinValue;
+			return TryTimeSpan(value.Value, provider, out var result) ? result : System.TimeSpan.MinValue;
 		}
 
 
 		[DebuggerStepThrough]
 		public static TimeSpan? TimeSpann(this StringValue value, TimeSpan? defaults)
 		{
-			TimeSpan result;
-			return TryTimeSpan(value.Value, out result) ? result : defaults;
+			return TryTimeSpan(value.Value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static TimeSpan? TimeSpann(this StringValue value, IFormatProvider provider, TimeSpan? defaults)
 		{
-			TimeSpan result;
-			return TryTimeSpan(value.Value, provider, out result) ? result : defaults;
+			return TryTimeSpan(value.Value, provider, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static TimeSpan? TimeSpann(this StringValue value, IFormatProvider provider)
 		{
-			TimeSpan result;
-			return TryTimeSpan(value.Value, provider, out result) ? (TimeSpan?)result : null;
+			return TryTimeSpan(value.Value, provider, out var result) ? (TimeSpan?)result : null;
 		}
 
 		#endregion
@@ -4290,33 +3765,29 @@ namespace Luxena
 		[DebuggerStepThrough]
 		public static uint As(this string value, uint defaults)
 		{
-			uint result;
-			return TryUInt(value, out result) ? result : defaults;
+			return TryUInt(value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static uint As(this string value, IFormatProvider provider, uint defaults)
 		{
-			uint result;
-			return TryUInt(value, provider, out result) ? result : defaults;
+			return TryUInt(value, provider, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static uint? As(this string value, uint? defaults)
 		{
-			uint result;
-			return TryUInt(value, out result) ? result : defaults;
+			return TryUInt(value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static uint? As(this string value, IFormatProvider provider, uint? defaults)
 		{
-			uint result;
-			return TryUInt(value, provider, out result) ? result : defaults;
+			return TryUInt(value, provider, out var result) ? result : defaults;
 		}
 
 
-		public partial struct StringValue
+		public readonly partial struct StringValue
 		{
 			[DebuggerStepThrough]
 			public bool TryUInt(out uint result)
@@ -4333,21 +3804,13 @@ namespace Luxena
 			public uint UInt
 			{
 				[DebuggerStepThrough]
-				get
-				{
-					uint result;
-					return CodePatternExtentions.TryUInt(Value, out result) ? result : 0;
-				}
+				get => CodePatternExtentions.TryUInt(Value, out var result) ? result : 0;
 			}
 
 			public uint? UIntn
 			{
 				[DebuggerStepThrough]
-				get
-				{
-					uint result;
-					return CodePatternExtentions.TryUInt(Value, out result) ? (uint?)result : null;
-				}
+				get => CodePatternExtentions.TryUInt(Value, out var result) ? (uint?)result : null;
 			}
 		}
 
@@ -4355,44 +3818,38 @@ namespace Luxena
 		[DebuggerStepThrough]
 		public static uint UInt(this StringValue value, uint defaults)
 		{
-			uint result;
-			return TryUInt(value.Value, out result) ? result : defaults;
+			return TryUInt(value.Value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static uint UInt(this StringValue value, IFormatProvider provider, uint defaults)
 		{
-			uint result;
-			return TryUInt(value.Value, provider, out result) ? result : defaults;
+			return TryUInt(value.Value, provider, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static uint UInt(this StringValue value, IFormatProvider provider)
 		{
-			uint result;
-			return TryUInt(value.Value, provider, out result) ? result : 0;
+			return TryUInt(value.Value, provider, out var result) ? result : 0;
 		}
 
 
 		[DebuggerStepThrough]
 		public static uint? UIntn(this StringValue value, uint? defaults)
 		{
-			uint result;
-			return TryUInt(value.Value, out result) ? result : defaults;
+			return TryUInt(value.Value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static uint? UIntn(this StringValue value, IFormatProvider provider, uint? defaults)
 		{
-			uint result;
-			return TryUInt(value.Value, provider, out result) ? result : defaults;
+			return TryUInt(value.Value, provider, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static uint? UIntn(this StringValue value, IFormatProvider provider)
 		{
-			uint result;
-			return TryUInt(value.Value, provider, out result) ? (uint?)result : null;
+			return TryUInt(value.Value, provider, out var result) ? (uint?)result : null;
 		}
 
 		#endregion
@@ -4401,95 +3858,81 @@ namespace Luxena
 		#region String As UInt16
 
 		[DebuggerStepThrough]
-		private static bool TryUInt16(string value, out UInt16 result)
+		private static bool TryUInt16(string value, out ushort result)
 		{
-			return System.UInt16.TryParse(value, NumberStyles.Number, DefaultCulture, out result);
+			return ushort.TryParse(value, NumberStyles.Number, DefaultCulture, out result);
 		}
 
 		[DebuggerStepThrough]
-		private static bool TryUInt16(string value, IFormatProvider provider, out UInt16 result)
+		private static bool TryUInt16(string value, IFormatProvider provider, out ushort result)
 		{
-			return System.UInt16.TryParse(value, NumberStyles.Number, provider, out result);
+			return ushort.TryParse(value, NumberStyles.Number, provider, out result);
 		}
 
 
-		public partial struct StringValue
+		public readonly partial struct StringValue
 		{
 			[DebuggerStepThrough]
-			public bool TryUInt16(out UInt16 result)
+			public bool TryUInt16(out ushort result)
 			{
 				return CodePatternExtentions.TryUInt16(Value, out result);
 			}
 
 			[DebuggerStepThrough]
-			public bool TryUInt16(IFormatProvider provider, out UInt16 result)
+			public bool TryUInt16(IFormatProvider provider, out ushort result)
 			{
 				return CodePatternExtentions.TryUInt16(Value, provider, out result);
 			}
 
-			public UInt16 UInt16
+			public ushort UInt16
 			{
 				[DebuggerStepThrough]
-				get
-				{
-					UInt16 result;
-					return CodePatternExtentions.TryUInt16(Value, out result) ? result : (UInt16)0;
-				}
+				get => CodePatternExtentions.TryUInt16(Value, out var result) ? result : (ushort)0;
 			}
 
-			public UInt16? UInt16n
+			public ushort? UInt16n
 			{
 				[DebuggerStepThrough]
-				get
-				{
-					UInt16 result;
-					return CodePatternExtentions.TryUInt16(Value, out result) ? (UInt16?)result : null;
-				}
+				get => CodePatternExtentions.TryUInt16(Value, out var result) ? (ushort?)result : null;
 			}
 		}
 
 
 		[DebuggerStepThrough]
-		public static UInt16 UInt16(this StringValue value, UInt16 defaults)
+		public static ushort UInt16(this StringValue value, ushort defaults)
 		{
-			UInt16 result;
-			return TryUInt16(value.Value, out result) ? result : defaults;
+			return TryUInt16(value.Value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
-		public static UInt16 UInt16(this StringValue value, IFormatProvider provider, UInt16 defaults)
+		public static ushort UInt16(this StringValue value, IFormatProvider provider, ushort defaults)
 		{
-			UInt16 result;
-			return TryUInt16(value.Value, provider, out result) ? result : defaults;
+			return TryUInt16(value.Value, provider, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
-		public static UInt16 UInt16(this StringValue value, IFormatProvider provider)
+		public static ushort UInt16(this StringValue value, IFormatProvider provider)
 		{
-			UInt16 result;
-			return TryUInt16(value.Value, provider, out result) ? result : (UInt16)0;
+			return TryUInt16(value.Value, provider, out var result) ? result : (ushort)0;
 		}
 
 
 		[DebuggerStepThrough]
-		public static UInt16? UInt16n(this StringValue value, UInt16? defaults)
+		public static ushort? UInt16n(this StringValue value, ushort? defaults)
 		{
-			UInt16 result;
-			return TryUInt16(value.Value, out result) ? result : defaults;
+			return TryUInt16(value.Value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
-		public static UInt16? UInt16n(this StringValue value, IFormatProvider provider, UInt16? defaults)
+		public static ushort? UInt16n(this StringValue value, IFormatProvider provider, ushort? defaults)
 		{
-			UInt16 result;
-			return TryUInt16(value.Value, provider, out result) ? result : defaults;
+			return TryUInt16(value.Value, provider, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
-		public static UInt16? UInt16n(this StringValue value, IFormatProvider provider)
+		public static ushort? UInt16n(this StringValue value, IFormatProvider provider)
 		{
-			UInt16 result;
-			return TryUInt16(value.Value, provider, out result) ? (UInt16?)result : null;
+			return TryUInt16(value.Value, provider, out var result) ? (ushort?)result : null;
 		}
 
 		#endregion
@@ -4510,7 +3953,7 @@ namespace Luxena
 		}
 
 
-		public partial struct StringValue
+		public readonly partial struct StringValue
 		{
 			[DebuggerStepThrough]
 			public bool TryUInt32(out uint result)
@@ -4527,21 +3970,13 @@ namespace Luxena
 			public uint UInt32
 			{
 				[DebuggerStepThrough]
-				get
-				{
-					uint result;
-					return CodePatternExtentions.TryUInt32(Value, out result) ? result : 0;
-				}
+				get => CodePatternExtentions.TryUInt32(Value, out var result) ? result : 0;
 			}
 
 			public uint? UInt32n
 			{
 				[DebuggerStepThrough]
-				get
-				{
-					uint result;
-					return CodePatternExtentions.TryUInt32(Value, out result) ? (uint?)result : null;
-				}
+				get => CodePatternExtentions.TryUInt32(Value, out var result) ? (uint?)result : null;
 			}
 		}
 
@@ -4549,44 +3984,38 @@ namespace Luxena
 		[DebuggerStepThrough]
 		public static uint UInt32(this StringValue value, uint defaults)
 		{
-			uint result;
-			return TryUInt32(value.Value, out result) ? result : defaults;
+			return TryUInt32(value.Value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static uint UInt32(this StringValue value, IFormatProvider provider, uint defaults)
 		{
-			uint result;
-			return TryUInt32(value.Value, provider, out result) ? result : defaults;
+			return TryUInt32(value.Value, provider, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static uint UInt32(this StringValue value, IFormatProvider provider)
 		{
-			uint result;
-			return TryUInt32(value.Value, provider, out result) ? result : 0;
+			return TryUInt32(value.Value, provider, out var result) ? result : 0;
 		}
 
 
 		[DebuggerStepThrough]
 		public static uint? UInt32n(this StringValue value, uint? defaults)
 		{
-			uint result;
-			return TryUInt32(value.Value, out result) ? result : defaults;
+			return TryUInt32(value.Value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static uint? UInt32n(this StringValue value, IFormatProvider provider, uint? defaults)
 		{
-			uint result;
-			return TryUInt32(value.Value, provider, out result) ? result : defaults;
+			return TryUInt32(value.Value, provider, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static uint? UInt32n(this StringValue value, IFormatProvider provider)
 		{
-			uint result;
-			return TryUInt32(value.Value, provider, out result) ? (uint?)result : null;
+			return TryUInt32(value.Value, provider, out var result) ? (uint?)result : null;
 		}
 
 		#endregion
@@ -4607,7 +4036,7 @@ namespace Luxena
 		}
 
 
-		public partial struct StringValue
+		public readonly partial struct StringValue
 		{
 			[DebuggerStepThrough]
 			public bool TryUInt64(out ulong result)
@@ -4624,21 +4053,13 @@ namespace Luxena
 			public ulong UInt64
 			{
 				[DebuggerStepThrough]
-				get
-				{
-					ulong result;
-					return CodePatternExtentions.TryUInt64(Value, out result) ? result : 0;
-				}
+				get => CodePatternExtentions.TryUInt64(Value, out var result) ? result : 0;
 			}
 
 			public ulong? UInt64n
 			{
 				[DebuggerStepThrough]
-				get
-				{
-					ulong result;
-					return CodePatternExtentions.TryUInt64(Value, out result) ? (ulong?)result : null;
-				}
+				get => CodePatternExtentions.TryUInt64(Value, out var result) ? (ulong?)result : null;
 			}
 		}
 
@@ -4646,44 +4067,38 @@ namespace Luxena
 		[DebuggerStepThrough]
 		public static ulong UInt64(this StringValue value, ulong defaults)
 		{
-			ulong result;
-			return TryUInt64(value.Value, out result) ? result : defaults;
+			return TryUInt64(value.Value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static ulong UInt64(this StringValue value, IFormatProvider provider, ulong defaults)
 		{
-			ulong result;
-			return TryUInt64(value.Value, provider, out result) ? result : defaults;
+			return TryUInt64(value.Value, provider, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static ulong UInt64(this StringValue value, IFormatProvider provider)
 		{
-			ulong result;
-			return TryUInt64(value.Value, provider, out result) ? result : 0;
+			return TryUInt64(value.Value, provider, out var result) ? result : 0;
 		}
 
 
 		[DebuggerStepThrough]
 		public static ulong? UInt64n(this StringValue value, ulong? defaults)
 		{
-			ulong result;
-			return TryUInt64(value.Value, out result) ? result : defaults;
+			return TryUInt64(value.Value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static ulong? UInt64n(this StringValue value, IFormatProvider provider, ulong? defaults)
 		{
-			ulong result;
-			return TryUInt64(value.Value, provider, out result) ? result : defaults;
+			return TryUInt64(value.Value, provider, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static ulong? UInt64n(this StringValue value, IFormatProvider provider)
 		{
-			ulong result;
-			return TryUInt64(value.Value, provider, out result) ? (ulong?)result : null;
+			return TryUInt64(value.Value, provider, out var result) ? (ulong?)result : null;
 		}
 
 		#endregion
@@ -4707,33 +4122,29 @@ namespace Luxena
 		[DebuggerStepThrough]
 		public static ulong As(this string value, ulong defaults)
 		{
-			ulong result;
-			return TryULong(value, out result) ? result : defaults;
+			return TryULong(value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static ulong As(this string value, IFormatProvider provider, ulong defaults)
 		{
-			ulong result;
-			return TryULong(value, provider, out result) ? result : defaults;
+			return TryULong(value, provider, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static ulong? As(this string value, ulong? defaults)
 		{
-			ulong result;
-			return TryULong(value, out result) ? result : defaults;
+			return TryULong(value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static ulong? As(this string value, IFormatProvider provider, ulong? defaults)
 		{
-			ulong result;
-			return TryULong(value, provider, out result) ? result : defaults;
+			return TryULong(value, provider, out var result) ? result : defaults;
 		}
 
 
-		public partial struct StringValue
+		public readonly partial struct StringValue
 		{
 			[DebuggerStepThrough]
 			public bool TryULong(out ulong result)
@@ -4750,21 +4161,13 @@ namespace Luxena
 			public ulong ULong
 			{
 				[DebuggerStepThrough]
-				get
-				{
-					ulong result;
-					return CodePatternExtentions.TryULong(Value, out result) ? result : 0;
-				}
+				get => CodePatternExtentions.TryULong(Value, out var result) ? result : 0;
 			}
 
 			public ulong? ULongn
 			{
 				[DebuggerStepThrough]
-				get
-				{
-					ulong result;
-					return CodePatternExtentions.TryULong(Value, out result) ? (ulong?)result : null;
-				}
+				get => CodePatternExtentions.TryULong(Value, out var result) ? (ulong?)result : null;
 			}
 		}
 
@@ -4772,44 +4175,38 @@ namespace Luxena
 		[DebuggerStepThrough]
 		public static ulong ULong(this StringValue value, ulong defaults)
 		{
-			ulong result;
-			return TryULong(value.Value, out result) ? result : defaults;
+			return TryULong(value.Value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static ulong ULong(this StringValue value, IFormatProvider provider, ulong defaults)
 		{
-			ulong result;
-			return TryULong(value.Value, provider, out result) ? result : defaults;
+			return TryULong(value.Value, provider, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static ulong ULong(this StringValue value, IFormatProvider provider)
 		{
-			ulong result;
-			return TryULong(value.Value, provider, out result) ? result : 0;
+			return TryULong(value.Value, provider, out var result) ? result : 0;
 		}
 
 
 		[DebuggerStepThrough]
 		public static ulong? ULongn(this StringValue value, ulong? defaults)
 		{
-			ulong result;
-			return TryULong(value.Value, out result) ? result : defaults;
+			return TryULong(value.Value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static ulong? ULongn(this StringValue value, IFormatProvider provider, ulong? defaults)
 		{
-			ulong result;
-			return TryULong(value.Value, provider, out result) ? result : defaults;
+			return TryULong(value.Value, provider, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static ulong? ULongn(this StringValue value, IFormatProvider provider)
 		{
-			ulong result;
-			return TryULong(value.Value, provider, out result) ? (ulong?)result : null;
+			return TryULong(value.Value, provider, out var result) ? (ulong?)result : null;
 		}
 
 		#endregion
@@ -4833,33 +4230,29 @@ namespace Luxena
 		[DebuggerStepThrough]
 		public static ushort As(this string value, ushort defaults)
 		{
-			ushort result;
-			return TryUShort(value, out result) ? result : defaults;
+			return TryUShort(value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static ushort As(this string value, IFormatProvider provider, ushort defaults)
 		{
-			ushort result;
-			return TryUShort(value, provider, out result) ? result : defaults;
+			return TryUShort(value, provider, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static ushort? As(this string value, ushort? defaults)
 		{
-			ushort result;
-			return TryUShort(value, out result) ? result : defaults;
+			return TryUShort(value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static ushort? As(this string value, IFormatProvider provider, ushort? defaults)
 		{
-			ushort result;
-			return TryUShort(value, provider, out result) ? result : defaults;
+			return TryUShort(value, provider, out var result) ? result : defaults;
 		}
 
 
-		public partial struct StringValue
+		public readonly partial struct StringValue
 		{
 			[DebuggerStepThrough]
 			public bool TryUShort(out ushort result)
@@ -4876,21 +4269,13 @@ namespace Luxena
 			public ushort UShort
 			{
 				[DebuggerStepThrough]
-				get
-				{
-					ushort result;
-					return CodePatternExtentions.TryUShort(Value, out result) ? result : (ushort)0;
-				}
+				get => CodePatternExtentions.TryUShort(Value, out var result) ? result : (ushort)0;
 			}
 
 			public ushort? UShortn
 			{
 				[DebuggerStepThrough]
-				get
-				{
-					ushort result;
-					return CodePatternExtentions.TryUShort(Value, out result) ? (ushort?)result : null;
-				}
+				get => CodePatternExtentions.TryUShort(Value, out var result) ? (ushort?)result : null;
 			}
 		}
 
@@ -4898,44 +4283,38 @@ namespace Luxena
 		[DebuggerStepThrough]
 		public static ushort UShort(this StringValue value, ushort defaults)
 		{
-			ushort result;
-			return TryUShort(value.Value, out result) ? result : defaults;
+			return TryUShort(value.Value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static ushort UShort(this StringValue value, IFormatProvider provider, ushort defaults)
 		{
-			ushort result;
-			return TryUShort(value.Value, provider, out result) ? result : defaults;
+			return TryUShort(value.Value, provider, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static ushort UShort(this StringValue value, IFormatProvider provider)
 		{
-			ushort result;
-			return TryUShort(value.Value, provider, out result) ? result : (ushort)0;
+			return TryUShort(value.Value, provider, out var result) ? result : (ushort)0;
 		}
 
 
 		[DebuggerStepThrough]
 		public static ushort? UShortn(this StringValue value, ushort? defaults)
 		{
-			ushort result;
-			return TryUShort(value.Value, out result) ? result : defaults;
+			return TryUShort(value.Value, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static ushort? UShortn(this StringValue value, IFormatProvider provider, ushort? defaults)
 		{
-			ushort result;
-			return TryUShort(value.Value, provider, out result) ? result : defaults;
+			return TryUShort(value.Value, provider, out var result) ? result : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static ushort? UShortn(this StringValue value, IFormatProvider provider)
 		{
-			ushort result;
-			return TryUShort(value.Value, provider, out result) ? (ushort?)result : null;
+			return TryUShort(value.Value, provider, out var result) ? (ushort?)result : null;
 		}
 
 		#endregion

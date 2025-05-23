@@ -83,13 +83,13 @@
     <Compile Include="Parsers\AirBufferParserTests.cs" />
     <Compile Include="Parsers\GalileoConsoleParserTests.cs" />
     <Compile Include="Parsers\SabreConsoleParserTests.cs" />
+    <Compile Include="Parsers\AdamAiJsonParserTests.cs" />
     <Compile Include="_asserters\AviaDocumentAsserter.cs" />
     <Compile Include="_asserters\FlightSegmentAsserter.cs" />
     <Compile Include="_asserters\ProductAsserter.cs" />
     <Compile Include="Parsers\TravelPointXmlParserTests.cs" />
     <Compile Include="Parsers\AirParserTests.cs" />
     <Compile Include="Parsers\SabreFilParserTests.cs" />
-    <Compile Include="Parsers\PaymentXmlParserTests.cs" />
     <Compile Include="Parsers\PrintParserTests.cs" />
     <Compile Include="Parsers\SirenaXmlParserTests.cs" />
     <Compile Include="Parsers\TktParserTests.cs" />
@@ -150,6 +150,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="Parsers\GPBXET00.FIL" />
     <None Include="PrintFiles\1\Fare.dbf" />
     <None Include="PrintFiles\1\FareCalc.dbf" />

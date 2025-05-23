@@ -103,6 +103,8 @@ namespace Luxena.Travel.Domain
 				path += "luxena\\";
 			else if (FileType == GdsFileType.DrctXmlFile)
 				path += "drct\\";
+			else if (FileType == GdsFileType.AdamAiJsonFile)
+				path += "adamai\\";
 			else
 				return null;
 

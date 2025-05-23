@@ -1,0 +1,18 @@
+{
+    "date_of_issue": "30.06.2024",
+    "booking_number": "000003",
+    "agent_ID": "Volodymyr Hokh",
+    "passenger_title": "MRS",
+    "passenger_name": "Khrystyna",
+    "passenger_surname": "Zhodan",
+    "route": "Genève-Aéroport - Lausanne",
+    "baggage": "23kg",
+    "seat": "14V",
+    "flight_number": "OS756",
+    "departure_date": "30.06.2024 10:32",
+    "arrival_date": "30.06.2024 11:17",
+    "grand_total": "CHF 20.40",
+    "booking_date": "30.06.2024",
+    "ticketing_date": "30.06.2024",
+    "type_of_issue": "Ticket"
+}

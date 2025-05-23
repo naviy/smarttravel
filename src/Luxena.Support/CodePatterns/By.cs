@@ -20,33 +20,31 @@ namespace Luxena
 		[DebuggerStepThrough]
 		public static T By<T>(this T[] me, int index)
 		{
-			return me != null && me.Length > 0 && index < me.Length ? me[index] : default(T);
+			return me != null && me.Length > 0 && index < me.Length ? me[index] : default;
 		}
 
 		[DebuggerStepThrough]
 		public static T By<T>(this ICollection<T> me, int index)
 		{
-			return me != null && me.Count > 0 && index < me.Count ? me.ElementAt(index) : default(T);
+			return me != null && me.Count > 0 && index < me.Count ? me.ElementAt(index) : default;
 		}
 
 		[DebuggerStepThrough]
 		public static T By<T>(this Collection<T> me, int index)
 		{
-			return me != null && me.Count > 0 && index < me.Count ? me[index] : default(T);
+			return me != null && me.Count > 0 && index < me.Count ? me[index] : default;
 		}
 
 		[DebuggerStepThrough]
 		public static TV By<TK, TV>(this IDictionary<TK, TV> me, TK key)
 		{
-			TV value;
-			return me != null && me.TryGetValue(key, out value) ? value : default(TV);
+			return me != null && me.TryGetValue(key, out var value) ? value : default;
 		}
 
 		[DebuggerStepThrough]
 		public static TV By<TK, TV>(this Dictionary<TK, TV> me, TK key)
 		{
-			TV value;
-			return me != null && me.TryGetValue(key, out value) ? value : default(TV);
+			return me != null && me.TryGetValue(key, out var value) ? value : default;
 		}
 
 		[DebuggerStepThrough]
@@ -58,13 +56,13 @@ namespace Luxena
 		[DebuggerStepThrough]
 		public static T By<T>(this IList<T> me, int index)
 		{
-			return me != null && me.Count > 0 && index < me.Count ? me[index] : default(T);
+			return me != null && me.Count > 0 && index < me.Count ? me[index] : default;
 		}
 
 		[DebuggerStepThrough]
 		public static T By<T>(this List<T> me, int index)
 		{
-			return me != null && me.Count > 0 && index < me.Count ? me[index] : default(T);
+			return me != null && me.Count > 0 && index < me.Count ? me[index] : default;
 		}
 
 
@@ -106,15 +104,13 @@ namespace Luxena
 		[DebuggerStepThrough]
 		public static TV By<TK, TV>(this IDictionary<TK, TV> me, TK key, TV defaults)
 		{
-			TV value;
-			return me != null && me.TryGetValue(key, out value) ? value : defaults;
+			return me != null && me.TryGetValue(key, out var value) ? value : defaults;
 		}
 
 		[DebuggerStepThrough]
 		public static TV By<TK, TV>(this Dictionary<TK, TV> me, TK key, TV defaults)
 		{
-			TV value;
-			return me != null && me.TryGetValue(key, out value) ? value : defaults;
+			return me != null && me.TryGetValue(key, out var value) ? value : defaults;
 		}
 
 		[DebuggerStepThrough]
@@ -149,51 +145,49 @@ namespace Luxena
 		[DebuggerStepThrough]
 		public static T By<T>(this T[] me, int index, Func<T> defaults)
 		{
-			return me != null && me.Length > 0 && index < me.Length ? me[index] : defaults != null ? defaults() : default(T);
+			return me != null && me.Length > 0 && index < me.Length ? me[index] : defaults != null ? defaults() : default;
 		}
 
 		[DebuggerStepThrough]
 		public static T By<T>(this Collection<T> me, int index, Func<T> defaults)
 		{
-			return me != null && me.Count > 0 && index < me.Count ? me[index] : defaults != null ? defaults() : default(T);
+			return me != null && me.Count > 0 && index < me.Count ? me[index] : defaults != null ? defaults() : default;
 		}
 
 		[DebuggerStepThrough]
 		public static TV By<TK, TV>(this IDictionary<TK, TV> me, TK key, Func<TV> defaults)
 		{
-			TV value;
-			return me != null && me.TryGetValue(key, out value) ? value : defaults != null ? defaults() : default(TV);
+			return me != null && me.TryGetValue(key, out var value) ? value : defaults != null ? defaults() : default;
 		}
 
 		[DebuggerStepThrough]
 		public static TV By<TK, TV>(this Dictionary<TK, TV> me, TK key, Func<TV> defaults)
 		{
-			TV value;
-			return me != null && me.TryGetValue(key, out value) ? value : defaults != null ? defaults() : default(TV);
+			return me != null && me.TryGetValue(key, out var value) ? value : defaults != null ? defaults() : default;
 		}
 
 		[DebuggerStepThrough]
 		public static object By(this IList me, int index, Func<object> defaults)
 		{
-			return me != null && me.Count > 0 && index < me.Count ? me[index] : defaults != null ? defaults() : null;
+			return me != null && me.Count > 0 && index < me.Count ? me[index] : defaults?.Invoke();
 		}
 
 		[DebuggerStepThrough]
 		public static T By<T>(this IList<T> me, int index, Func<T> defaults)
 		{
-			return me != null && me.Count > 0 && index < me.Count ? me[index] : defaults != null ? defaults() : default(T);
+			return me != null && me.Count > 0 && index < me.Count ? me[index] : defaults != null ? defaults() : default;
 		}
 
 		[DebuggerStepThrough]
 		public static T By<T>(this List<T> me, int index, Func<T> defaults)
 		{
-			return me != null && me.Count > 0 && index < me.Count ? me[index] : defaults != null ? defaults() : default(T);
+			return me != null && me.Count > 0 && index < me.Count ? me[index] : defaults != null ? defaults() : default;
 		}
 
 		[DebuggerStepThrough]
 		public static string By(this NameValueCollection me, string key, Func<string> defaults)
 		{
-			return me.Yes() && key.Yes() ? me[key] : defaults != null ? defaults() : null;
+			return me.Yes() && key.Yes() ? me[key] : defaults?.Invoke();
 		}
 
 		#endregion
@@ -204,51 +198,49 @@ namespace Luxena
 		[DebuggerStepThrough]
 		public static T By<T>(this T[] me, int index, Func<T[], T> defaults)
 		{
-			return me != null && me.Length > 0 && index < me.Length ? me[index] : defaults != null ? defaults(me) : default(T);
+			return me != null && me.Length > 0 && index < me.Length ? me[index] : defaults != null ? defaults(me) : default;
 		}
 
 		[DebuggerStepThrough]
 		public static T By<T>(this Collection<T> me, int index, Func<Collection<T>, T> defaults)
 		{
-			return me != null && me.Count > 0 && index < me.Count ? me[index] : defaults != null ? defaults(me) : default(T);
+			return me != null && me.Count > 0 && index < me.Count ? me[index] : defaults != null ? defaults(me) : default;
 		}
 
 		[DebuggerStepThrough]
 		public static TV By<TK, TV>(this IDictionary<TK, TV> me, TK key, Func<IDictionary<TK, TV>, TV> defaults)
 		{
-			TV value;
-			return me != null && me.TryGetValue(key, out value) ? value : defaults != null ? defaults(me) : default(TV);
+			return me != null && me.TryGetValue(key, out var value) ? value : defaults != null ? defaults(me) : default;
 		}
 
 		[DebuggerStepThrough]
 		public static TV By<TK, TV>(this Dictionary<TK, TV> me, TK key, Func<Dictionary<TK, TV>, TV> defaults)
 		{
-			TV value;
-			return me != null && me.TryGetValue(key, out value) ? value : defaults != null ? defaults(me) : default(TV);
+			return me != null && me.TryGetValue(key, out var value) ? value : defaults != null ? defaults(me) : default;
 		}
 
 		[DebuggerStepThrough]
 		public static object By(this IList me, int index, Func<IList, object> defaults)
 		{
-			return me != null && me.Count > 0 && index < me.Count ? me[index] : defaults != null ? defaults(me) : null;
+			return me != null && me.Count > 0 && index < me.Count ? me[index] : defaults?.Invoke(me);
 		}
 
 		[DebuggerStepThrough]
 		public static T By<T>(this IList<T> me, int index, Func<IList<T>, T> defaults)
 		{
-			return me != null && me.Count > 0 && index < me.Count ? me[index] : defaults != null ? defaults(me) : default(T);
+			return me != null && me.Count > 0 && index < me.Count ? me[index] : defaults != null ? defaults(me) : default;
 		}
 
 		[DebuggerStepThrough]
 		public static T By<T>(this List<T> me, int index, Func<List<T>, T> defaults)
 		{
-			return me != null && me.Count > 0 && index < me.Count ? me[index] : defaults != null ? defaults(me) : default(T);
+			return me != null && me.Count > 0 && index < me.Count ? me[index] : defaults != null ? defaults(me) : default;
 		}
 
 		[DebuggerStepThrough]
 		public static string By(this NameValueCollection me, string key, Func<NameValueCollection, string> defaults)
 		{
-			return me.Yes() && key.Yes() ? me[key] : defaults != null ? defaults(me) : null;
+			return me.Yes() && key.Yes() ? me[key] : defaults?.Invoke(me);
 		}
 
 		#endregion
@@ -259,25 +251,25 @@ namespace Luxena
 		[DebuggerStepThrough]
 		public static T By<T>(this IQueryable<T> me, Expression<Func<T, bool>> predicate)
 		{
-			return me != null && predicate != null ? me.FirstOrDefault(predicate) : default(T);
+			return me != null && predicate != null ? me.FirstOrDefault(predicate) : default;
 		}
 
 		[DebuggerStepThrough]
 		public static T By<T>(this IEnumerable<T> me, Func<T, bool> predicate)
 		{
-			return me != null && predicate != null ? me.FirstOrDefault(predicate) : default(T);
+			return me != null && predicate != null ? me.FirstOrDefault(predicate) : default;
 		}
 
 		[DebuggerStepThrough]
 		public static T By<T>(this T[] me, Predicate<T> predicate)
 		{
-			return me != null && predicate != null ? Array.Find(me, predicate) : default(T);
+			return me != null && predicate != null ? Array.Find(me, predicate) : default;
 		}
 
 		[DebuggerStepThrough]
 		public static T By<T>(this List<T> me, Predicate<T> predicate)
 		{
-			return me != null && predicate != null ? me.Find(predicate) : default(T);
+			return me != null && predicate != null ? me.Find(predicate) : default;
 		}
 
 		#endregion
